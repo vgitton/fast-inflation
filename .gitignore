@@ -1,6 +1,8 @@
 # Ignore these directories
 bin/
 
+data/test_*
+
 # Executables
 debug_inf
 release_inf
