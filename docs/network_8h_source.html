@@ -1,0 +1,310 @@
+<!-- HTML header for doxygen 1.9.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Fast Inflation: src/inf/inf_problem/network.h Source File</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+MathJax.Hub.Config({
+    TeX: {
+        Macros: {
+            dd: ["{\\text{d}#1\\,}",1],
+            nouts: ["{n_{\\text{o}}}"],
+            ints: ["{[\\![#1]\\!]}",1],
+            outset: ["{\\ints{\\nouts}}"],
+            N: ["{\\mathbb{N}}"],
+            R: ["{\\mathbb{R}}"],
+            Z: ["{\\mathbb{Z}}"],
+            infsize: ["{z}"],
+            infparties: ["{\\set{I}}"],
+            infsources: ["{\\set{S}}"],
+            infmarg: ["{\\set{A}}"],
+            infmargg: ["{\\set{B}}"],
+            netparties: ["{\\set{N}}"],
+            infq: ["{q}"],
+            infqs: ["{\\Delta_{\\infparties}}"],
+            constraintlist: ["{\\mathcal{C}}"],
+            injsets: ["{\\text{InjSets}}"],
+            infconstraints: ["{\\text{InfCons}}"],
+            parents: ["{\\text{Par}}"],
+            targetp: ["{p}"],
+            targetps: ["{\\Delta_{\\netparties}}"],
+            set: ["{\\mathbf{#1}}",1],
+            type: ["{t}"],
+            infevent: "{\\omega}",
+            events: ["{\\Omega_{#1}}",1],
+            infevents: ["{\\events{\\infparties}}"],
+            redinfevents: ["{\\tilde{\\Omega}_{\\infparties}}"],
+            netevents: ["{\\events{\\netparties}}"],
+            vecset: ["{V_{#1}}",1],
+            alice: ["{\\text{A}}"],
+            bob: ["{\\text{B}}"],
+            charlie: ["{\\text{C}}"],
+            symgroup: ["{\\text{Sym}(#1)}",1],
+            shortsymgroup: ["{\\text{Sym}_{#1}}",1],
+            act: ["{(#1\\hspace{2pt}{:}\\hspace{2pt}#2)}",2],
+            actt: ["{[#1\\hspace{2pt}{:}\\hspace{2pt}#2]}",2],
+            margperms: ["{\\text{Perm}_{#1}}",1],
+            permutedmargs: ["{\\mathbb{P}_{#1}^{\\targetp}}",1],
+            redpermutedmargs: ["{\\tilde{\\mathbb{P}}_{#1}^{\\constraintname,\\targetp}}",1],
+            extract: ["{\\text{ext}(#1,#2)}",2],
+            partysym: ["{\\tau}"],
+            sourcesym: ["{\\xi}"],
+            outsym: ["{\\sigma}"],
+            fullgroup: ["{\\text{InfGrp}}"],
+            partygroup : ["{\\text{PartyGrp}}"],
+            outgroup: ["{\\text{OutGrp}}"],
+            sourcegroup: ["{\\text{SrcGrp}}"],
+            distrgroup: ["{\\mathbb{G}^\\targetp}"],
+            constraintname: ["{c}"],
+            marggroup: ["{\\mathbb{G}^{\\constraintname,\\targetp}}"],
+            fullsymexpl: ["{(\\sourcesym,\\partysym,\\outsym)}"],
+            inner: ["{\\langle#1,#2\\rangle}", 2],
+            quovec: ["{f}"],
+            totconstraintmap: ["{K^{\\constraintlist,\\targetp}}"],
+            totconstraintmapelem: ["{K^{\\constraintname,\\targetp}}"],
+            quovecspace: ["{\\tilde{V}_{#1}^{\\constraintname,\\targetp}}", 1],
+            totquovecspace: ["{\\text{ConsSpace}(\\constraintlist,\\targetp)}"],
+            detdistr: ["{\\delta^{#1}}", 1],
+            margperm: ["{\\varphi}"],
+            altquovecembed: ["{\\text{G}_{#1}^{\\constraintname,\\targetp}}", 1],
+            vecset: ["{V_{#1}}", 1],
+            repr: ["{\\lfloor#1\\rfloor}", 1],
+            gid: ["{\\text{id}}"],
+            id: ["{1_{#1}}",1],
+            consscale: ["{K}"],
+            scaletot: ["{K_{\\text{tot}}^{\\constraintlist,\\targetp}}"],
+            minnorm: ["{d}"],
+            Bigsetst: ["\\;\\Big|\\;"],
+            activeset: ["\\mathcal{S}"],
+            conv: ["\\text{conv}"],
+            lVert: ["|\\hspace{-1pt}|"],
+            norm: ["\\lVert#1\\lVert", 1],
+            st: [":\ "],
+        }
+    }
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeDarkModeToggle.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeParagraphLink.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Fast Inflation
+   </div>
+   <div id="projectbrief">To certify causal incompatibility</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('network_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">network.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="network_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;../../types.h&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;../../util/loggable.h&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;../../util/range.h&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;../events/event.h&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;../symmetry/symmetry.h&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;map&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceinf.html">inf</a> {</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="classinf_1_1Network.html">   43</a></span><span class="keyword">class </span><a class="code hl_class" href="classinf_1_1Network.html">Network</a> : <span class="keyword">public</span> <a class="code hl_class" href="classutil_1_1Loggable.html">util::Loggable</a> {</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="classinf_1_1Network.html#a4e586db6e1ab9f11335ed74f25ea0aee">   45</a></span>    <span class="keyword">typedef</span> std::shared_ptr&lt;const inf::Network&gt; <a class="code hl_typedef" href="classinf_1_1Network.html#a4e586db6e1ab9f11335ed74f25ea0aee">ConstPtr</a>;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keyword">static</span> <a class="code hl_typedef" href="classinf_1_1Network.html#a4e586db6e1ab9f11335ed74f25ea0aee">inf::Network::ConstPtr</a> <a class="code hl_function" href="classinf_1_1Network.html#af68e4c343b80a79e5d5ad2c4223c3821">create_triangle</a>(<a class="code hl_typedef" href="group__event.html#gadcaa27c4242b65837f0f7a00e96856d4">inf::Outcome</a> n_outcomes);</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <a class="code hl_class" href="classinf_1_1Network.html">Network</a>(std::string <span class="keyword">const</span> &amp;name,</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>            <a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> n_parties,</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>            std::vector&lt;std::string&gt; <span class="keyword">const</span> &amp;party_names,</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>            <a class="code hl_typedef" href="group__event.html#gadcaa27c4242b65837f0f7a00e96856d4">inf::Outcome</a> n_outcomes);</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <a class="code hl_class" href="classinf_1_1Network.html">Network</a>(<a class="code hl_class" href="classinf_1_1Network.html">Network</a> <span class="keyword">const</span> &amp;other) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <a class="code hl_class" href="classinf_1_1Network.html">Network</a>(<a class="code hl_class" href="classinf_1_1Network.html">Network</a> &amp;&amp;other) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <a class="code hl_class" href="classinf_1_1Network.html">Network</a> &amp;operator=(<a class="code hl_class" href="classinf_1_1Network.html">Network</a> <span class="keyword">const</span> &amp;other) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <a class="code hl_class" href="classinf_1_1Network.html">Network</a> &amp;operator=(<a class="code hl_class" href="classinf_1_1Network.html">Network</a> &amp;&amp;other) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1Network.html#a72fd7ffcb62d27ed3a8d1b1a09774afb">log</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1Network.html#a388b556f0a93cfeb8c737b5af918ab02">log_event</a>(<a class="code hl_typedef" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> <span class="keyword">const</span> &amp;e) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    std::string <a class="code hl_function" href="classinf_1_1Network.html#a93cdb1e303cf8bef92b33b81a134f577">outcome_to_str</a>(<a class="code hl_typedef" href="group__event.html#gadcaa27c4242b65837f0f7a00e96856d4">inf::Outcome</a> outcome) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1Network.html#abef59fce681b70a3c3eb78476c726df3">log_outcome</a>(<a class="code hl_typedef" href="group__event.html#gadcaa27c4242b65837f0f7a00e96856d4">inf::Outcome</a> outcome) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <a class="code hl_function" href="classinf_1_1Network.html#af5133124d7016fd2dbd606a7b0f765f5">get_n_events</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <a class="code hl_class" href="classutil_1_1ProductRange.html">inf::EventRange</a> <a class="code hl_function" href="classinf_1_1Network.html#ac46b870ba5d91d5e1a3d78c2cd7d61b2">get_event_range</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="classinf_1_1Network.html#aac358ba9a7beea25b00ed0e3caaf19b3">   87</a></span>    <span class="keyword">inline</span> std::vector&lt;std::string&gt; <span class="keyword">const</span> &amp;<a class="code hl_function" href="classinf_1_1Network.html#aac358ba9a7beea25b00ed0e3caaf19b3">get_party_names</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classinf_1_1Network.html#af6cd02c39e7282a72909dc771d2f55b5">m_party_names</a>; }</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="classinf_1_1Network.html#adb2abacbfdde5fd59b305d717ec919a4">   90</a></span>    <span class="keyword">inline</span> std::map&lt;std::string, Index&gt; <a class="code hl_function" href="classinf_1_1Network.html#adb2abacbfdde5fd59b305d717ec919a4">get_party_name_map</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classinf_1_1Network.html#a2b753c1511576841d355c600a5c9a157">m_party_name_map</a>; }</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="classinf_1_1Network.html#a7cfcdf0193c2d9215315ea4685e617e6">   92</a></span>    <span class="keyword">inline</span> <a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <a class="code hl_function" href="classinf_1_1Network.html#a7cfcdf0193c2d9215315ea4685e617e6">get_n_parties</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classinf_1_1Network.html#af5b4b2e710ca80c28f494fcfb78e75ac">m_n_parties</a>; }</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno"><a class="line" href="classinf_1_1Network.html#a5e94d866c3b30948141de1565c6af029">   94</a></span>    <span class="keyword">inline</span> <a class="code hl_class" href="classutil_1_1Range.html">util::Range&lt;Index&gt;</a> <a class="code hl_function" href="classinf_1_1Network.html#a5e94d866c3b30948141de1565c6af029">get_party_range</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_class" href="classutil_1_1Range.html">util::Range</a>(<a class="code hl_variable" href="classinf_1_1Network.html#af5b4b2e710ca80c28f494fcfb78e75ac">m_n_parties</a>); }</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="classinf_1_1Network.html#a0e2221b0dfa90ec630d8da4c5a66c147">   96</a></span>    <span class="keyword">inline</span> <a class="code hl_typedef" href="group__event.html#gadcaa27c4242b65837f0f7a00e96856d4">inf::Outcome</a> <a class="code hl_function" href="classinf_1_1Network.html#a0e2221b0dfa90ec630d8da4c5a66c147">get_n_outcomes</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classinf_1_1Network.html#a21e5ab7921650db2c9ef4635dda3bfb1">m_n_outcomes</a>; }</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="classinf_1_1Network.html#a4a8836eaf7b4aed31d4986f0639566fb">   98</a></span>    <span class="keyword">inline</span> <a class="code hl_typedef" href="group__event.html#gadcaa27c4242b65837f0f7a00e96856d4">inf::Outcome</a> <a class="code hl_function" href="classinf_1_1Network.html#a4a8836eaf7b4aed31d4986f0639566fb">get_outcome_last</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classinf_1_1Network.html#a063f0cf64a3d56eb4908cb11ff14e82c">m_outcome_last</a>; }</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno"><a class="line" href="classinf_1_1Network.html#a1b3e78dad1d69dc29a8789af5c0ad776">  101</a></span>    <span class="keyword">inline</span> <a class="code hl_typedef" href="group__event.html#gadcaa27c4242b65837f0f7a00e96856d4">inf::Outcome</a> <a class="code hl_function" href="classinf_1_1Network.html#a1b3e78dad1d69dc29a8789af5c0ad776">get_outcome_unknown</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classinf_1_1Network.html#a4e80fc514db3689b3bfa64d90a2afa99">m_outcome_unknown</a>; }</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno"><a class="line" href="classinf_1_1Network.html#a8545758238dee0cf6a8e902685e45495">  103</a></span>    <span class="keyword">inline</span> std::string <a class="code hl_function" href="classinf_1_1Network.html#a8545758238dee0cf6a8e902685e45495">get_name</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classinf_1_1Network.html#a6a7f777aeda2fe56afe3d4ae90e87765">m_name</a>; }</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    std::vector&lt;inf::PartySym&gt; <a class="code hl_function" href="classinf_1_1Network.html#a07029e97b96dfb59563321d4711a31ed">get_all_party_sym</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    std::vector&lt;inf::OutcomeSym&gt; <a class="code hl_function" href="classinf_1_1Network.html#a96cdbc57d6de2736d7cc35f19b7a9dff">get_all_outcome_sym</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    <a class="code hl_typedef" href="classinf_1_1Symmetry.html#a901d22b86ef5923b628db86fbdd7ba4f">inf::Symmetry::Group</a> <a class="code hl_function" href="classinf_1_1Network.html#a73a3b3acef0071b917bec9adc70f02a9">get_all_sym</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    <a class="code hl_typedef" href="classinf_1_1Symmetry.html#a901d22b86ef5923b628db86fbdd7ba4f">inf::Symmetry::Group</a> <a class="code hl_function" href="classinf_1_1Network.html#a30e408dea992d3b6104329c6f5a667f6">get_trivial_symmetry_group</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>  <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno"><a class="line" href="classinf_1_1Network.html#a6a7f777aeda2fe56afe3d4ae90e87765">  125</a></span>    <span class="keyword">const</span> std::string <a class="code hl_variable" href="classinf_1_1Network.html#a6a7f777aeda2fe56afe3d4ae90e87765">m_name</a>;</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno"><a class="line" href="classinf_1_1Network.html#af5b4b2e710ca80c28f494fcfb78e75ac">  127</a></span>    <span class="keyword">const</span> <a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <a class="code hl_variable" href="classinf_1_1Network.html#af5b4b2e710ca80c28f494fcfb78e75ac">m_n_parties</a>;</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno"><a class="line" href="classinf_1_1Network.html#af6cd02c39e7282a72909dc771d2f55b5">  129</a></span>    std::vector&lt;std::string&gt; <a class="code hl_variable" href="classinf_1_1Network.html#af6cd02c39e7282a72909dc771d2f55b5">m_party_names</a>;</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno"><a class="line" href="classinf_1_1Network.html#a2b753c1511576841d355c600a5c9a157">  131</a></span>    std::map&lt;std::string, Index&gt; <a class="code hl_variable" href="classinf_1_1Network.html#a2b753c1511576841d355c600a5c9a157">m_party_name_map</a>;</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno"><a class="line" href="classinf_1_1Network.html#a21e5ab7921650db2c9ef4635dda3bfb1">  135</a></span>    <span class="keyword">const</span> <a class="code hl_typedef" href="group__event.html#gadcaa27c4242b65837f0f7a00e96856d4">inf::Outcome</a> <a class="code hl_variable" href="classinf_1_1Network.html#a21e5ab7921650db2c9ef4635dda3bfb1">m_n_outcomes</a>;</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno"><a class="line" href="classinf_1_1Network.html#a063f0cf64a3d56eb4908cb11ff14e82c">  137</a></span>    <span class="keyword">const</span> <a class="code hl_typedef" href="group__event.html#gadcaa27c4242b65837f0f7a00e96856d4">inf::Outcome</a> <a class="code hl_variable" href="classinf_1_1Network.html#a063f0cf64a3d56eb4908cb11ff14e82c">m_outcome_last</a>;</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno"><a class="line" href="classinf_1_1Network.html#a4e80fc514db3689b3bfa64d90a2afa99">  139</a></span>    <span class="keyword">const</span> <a class="code hl_typedef" href="group__event.html#gadcaa27c4242b65837f0f7a00e96856d4">inf::Outcome</a> <a class="code hl_variable" href="classinf_1_1Network.html#a4e80fc514db3689b3bfa64d90a2afa99">m_outcome_unknown</a>;</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>};</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span> </div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>} <span class="comment">// namespace inf</span></div>
+<div class="ttc" id="aclassinf_1_1Network_html"><div class="ttname"><a href="classinf_1_1Network.html">inf::Network</a></div><div class="ttdoc">The network with which the classical causal compatibility of a target distribution is to be tested.</div><div class="ttdef"><b>Definition</b> <a href="network_8h_source.html#l00043">network.h:43</a></div></div>
+<div class="ttc" id="aclassinf_1_1Network_html_a063f0cf64a3d56eb4908cb11ff14e82c"><div class="ttname"><a href="classinf_1_1Network.html#a063f0cf64a3d56eb4908cb11ff14e82c">inf::Network::m_outcome_last</a></div><div class="ttdeci">const inf::Outcome m_outcome_last</div><div class="ttdoc">The last outcome, so currently m_n_outcomes-1</div><div class="ttdef"><b>Definition</b> <a href="network_8h_source.html#l00137">network.h:137</a></div></div>
+<div class="ttc" id="aclassinf_1_1Network_html_a07029e97b96dfb59563321d4711a31ed"><div class="ttname"><a href="classinf_1_1Network.html#a07029e97b96dfb59563321d4711a31ed">inf::Network::get_all_party_sym</a></div><div class="ttdeci">std::vector&lt; inf::PartySym &gt; get_all_party_sym() const</div><div class="ttdoc">All party permutations that correspond to network symmetries.</div><div class="ttdef"><b>Definition</b> <a href="network_8cpp_source.html#l00091">network.cpp:91</a></div></div>
+<div class="ttc" id="aclassinf_1_1Network_html_a0e2221b0dfa90ec630d8da4c5a66c147"><div class="ttname"><a href="classinf_1_1Network.html#a0e2221b0dfa90ec630d8da4c5a66c147">inf::Network::get_n_outcomes</a></div><div class="ttdeci">inf::Outcome get_n_outcomes() const</div><div class="ttdoc">Number of outcome per party, typically 2, 3 or 4.</div><div class="ttdef"><b>Definition</b> <a href="network_8h_source.html#l00096">network.h:96</a></div></div>
+<div class="ttc" id="aclassinf_1_1Network_html_a1b3e78dad1d69dc29a8789af5c0ad776"><div class="ttname"><a href="classinf_1_1Network.html#a1b3e78dad1d69dc29a8789af5c0ad776">inf::Network::get_outcome_unknown</a></div><div class="ttdeci">inf::Outcome get_outcome_unknown() const</div><div class="ttdoc">The outcome labelling the &quot;unknown&quot; outcome.</div><div class="ttdef"><b>Definition</b> <a href="network_8h_source.html#l00101">network.h:101</a></div></div>
+<div class="ttc" id="aclassinf_1_1Network_html_a21e5ab7921650db2c9ef4635dda3bfb1"><div class="ttname"><a href="classinf_1_1Network.html#a21e5ab7921650db2c9ef4635dda3bfb1">inf::Network::m_n_outcomes</a></div><div class="ttdeci">const inf::Outcome m_n_outcomes</div><div class="ttdoc">Number of outcomes per party.</div><div class="ttdef"><b>Definition</b> <a href="network_8h_source.html#l00135">network.h:135</a></div></div>
+<div class="ttc" id="aclassinf_1_1Network_html_a2b753c1511576841d355c600a5c9a157"><div class="ttname"><a href="classinf_1_1Network.html#a2b753c1511576841d355c600a5c9a157">inf::Network::m_party_name_map</a></div><div class="ttdeci">std::map&lt; std::string, Index &gt; m_party_name_map</div><div class="ttdoc">Maps the names (Alice, Bob, Charlie) of the parties to their indices (0, 1, 2)</div><div class="ttdef"><b>Definition</b> <a href="network_8h_source.html#l00131">network.h:131</a></div></div>
+<div class="ttc" id="aclassinf_1_1Network_html_a30e408dea992d3b6104329c6f5a667f6"><div class="ttname"><a href="classinf_1_1Network.html#a30e408dea992d3b6104329c6f5a667f6">inf::Network::get_trivial_symmetry_group</a></div><div class="ttdeci">inf::Symmetry::Group get_trivial_symmetry_group() const</div><div class="ttdoc">The trivial symmetry group of the right size.</div><div class="ttdef"><b>Definition</b> <a href="network_8cpp_source.html#l00138">network.cpp:138</a></div></div>
+<div class="ttc" id="aclassinf_1_1Network_html_a388b556f0a93cfeb8c737b5af918ab02"><div class="ttname"><a href="classinf_1_1Network.html#a388b556f0a93cfeb8c737b5af918ab02">inf::Network::log_event</a></div><div class="ttdeci">void log_event(inf::Event const &amp;e) const</div><div class="ttdoc">Utility to print a network event, something like 0,0,2</div><div class="ttdef"><b>Definition</b> <a href="network_8cpp_source.html#l00050">network.cpp:50</a></div></div>
+<div class="ttc" id="aclassinf_1_1Network_html_a4a8836eaf7b4aed31d4986f0639566fb"><div class="ttname"><a href="classinf_1_1Network.html#a4a8836eaf7b4aed31d4986f0639566fb">inf::Network::get_outcome_last</a></div><div class="ttdeci">inf::Outcome get_outcome_last() const</div><div class="ttdoc">The last outcome, get_n_outcomes() - 1</div><div class="ttdef"><b>Definition</b> <a href="network_8h_source.html#l00098">network.h:98</a></div></div>
+<div class="ttc" id="aclassinf_1_1Network_html_a4e586db6e1ab9f11335ed74f25ea0aee"><div class="ttname"><a href="classinf_1_1Network.html#a4e586db6e1ab9f11335ed74f25ea0aee">inf::Network::ConstPtr</a></div><div class="ttdeci">std::shared_ptr&lt; const inf::Network &gt; ConstPtr</div><div class="ttdef"><b>Definition</b> <a href="network_8h_source.html#l00045">network.h:45</a></div></div>
+<div class="ttc" id="aclassinf_1_1Network_html_a4e80fc514db3689b3bfa64d90a2afa99"><div class="ttname"><a href="classinf_1_1Network.html#a4e80fc514db3689b3bfa64d90a2afa99">inf::Network::m_outcome_unknown</a></div><div class="ttdeci">const inf::Outcome m_outcome_unknown</div><div class="ttdoc">The number labelling the unknown outcome, currently m_n_outcomes</div><div class="ttdef"><b>Definition</b> <a href="network_8h_source.html#l00139">network.h:139</a></div></div>
+<div class="ttc" id="aclassinf_1_1Network_html_a5e94d866c3b30948141de1565c6af029"><div class="ttname"><a href="classinf_1_1Network.html#a5e94d866c3b30948141de1565c6af029">inf::Network::get_party_range</a></div><div class="ttdeci">util::Range&lt; Index &gt; get_party_range() const</div><div class="ttdoc">Range over the 3 parties.</div><div class="ttdef"><b>Definition</b> <a href="network_8h_source.html#l00094">network.h:94</a></div></div>
+<div class="ttc" id="aclassinf_1_1Network_html_a6a7f777aeda2fe56afe3d4ae90e87765"><div class="ttname"><a href="classinf_1_1Network.html#a6a7f777aeda2fe56afe3d4ae90e87765">inf::Network::m_name</a></div><div class="ttdeci">const std::string m_name</div><div class="ttdoc">The name of the network.</div><div class="ttdef"><b>Definition</b> <a href="network_8h_source.html#l00125">network.h:125</a></div></div>
+<div class="ttc" id="aclassinf_1_1Network_html_a72fd7ffcb62d27ed3a8d1b1a09774afb"><div class="ttname"><a href="classinf_1_1Network.html#a72fd7ffcb62d27ed3a8d1b1a09774afb">inf::Network::log</a></div><div class="ttdeci">void log() const override</div><div class="ttdoc">This prints the object to the globally accessible util::logger and allows the util::logger &lt;&lt; loggabl...</div><div class="ttdef"><b>Definition</b> <a href="network_8cpp_source.html#l00037">network.cpp:37</a></div></div>
+<div class="ttc" id="aclassinf_1_1Network_html_a73a3b3acef0071b917bec9adc70f02a9"><div class="ttname"><a href="classinf_1_1Network.html#a73a3b3acef0071b917bec9adc70f02a9">inf::Network::get_all_sym</a></div><div class="ttdeci">inf::Symmetry::Group get_all_sym() const</div><div class="ttdoc">All joint party and outcome symmetries of the network.</div><div class="ttdef"><b>Definition</b> <a href="network_8cpp_source.html#l00120">network.cpp:120</a></div></div>
+<div class="ttc" id="aclassinf_1_1Network_html_a7cfcdf0193c2d9215315ea4685e617e6"><div class="ttname"><a href="classinf_1_1Network.html#a7cfcdf0193c2d9215315ea4685e617e6">inf::Network::get_n_parties</a></div><div class="ttdeci">Index get_n_parties() const</div><div class="ttdoc">Number of parties, 3 for now.</div><div class="ttdef"><b>Definition</b> <a href="network_8h_source.html#l00092">network.h:92</a></div></div>
+<div class="ttc" id="aclassinf_1_1Network_html_a8545758238dee0cf6a8e902685e45495"><div class="ttname"><a href="classinf_1_1Network.html#a8545758238dee0cf6a8e902685e45495">inf::Network::get_name</a></div><div class="ttdeci">std::string get_name() const</div><div class="ttdoc">The network name.</div><div class="ttdef"><b>Definition</b> <a href="network_8h_source.html#l00103">network.h:103</a></div></div>
+<div class="ttc" id="aclassinf_1_1Network_html_a93cdb1e303cf8bef92b33b81a134f577"><div class="ttname"><a href="classinf_1_1Network.html#a93cdb1e303cf8bef92b33b81a134f577">inf::Network::outcome_to_str</a></div><div class="ttdeci">std::string outcome_to_str(inf::Outcome outcome) const</div><div class="ttdoc">See inf::Network::log_outcome()</div><div class="ttdef"><b>Definition</b> <a href="network_8cpp_source.html#l00070">network.cpp:70</a></div></div>
+<div class="ttc" id="aclassinf_1_1Network_html_a96cdbc57d6de2736d7cc35f19b7a9dff"><div class="ttname"><a href="classinf_1_1Network.html#a96cdbc57d6de2736d7cc35f19b7a9dff">inf::Network::get_all_outcome_sym</a></div><div class="ttdeci">std::vector&lt; inf::OutcomeSym &gt; get_all_outcome_sym() const</div><div class="ttdoc">All joint outcome permutations, representing .</div><div class="ttdef"><b>Definition</b> <a href="network_8cpp_source.html#l00104">network.cpp:104</a></div></div>
+<div class="ttc" id="aclassinf_1_1Network_html_aac358ba9a7beea25b00ed0e3caaf19b3"><div class="ttname"><a href="classinf_1_1Network.html#aac358ba9a7beea25b00ed0e3caaf19b3">inf::Network::get_party_names</a></div><div class="ttdeci">std::vector&lt; std::string &gt; const &amp; get_party_names() const</div><div class="ttdoc">The list of party names  (Alice, Bob and Charlie)</div><div class="ttdef"><b>Definition</b> <a href="network_8h_source.html#l00087">network.h:87</a></div></div>
+<div class="ttc" id="aclassinf_1_1Network_html_abef59fce681b70a3c3eb78476c726df3"><div class="ttname"><a href="classinf_1_1Network.html#abef59fce681b70a3c3eb78476c726df3">inf::Network::log_outcome</a></div><div class="ttdeci">void log_outcome(inf::Outcome outcome) const</div><div class="ttdoc">Log a colored outcome or as ? if outcome is &quot;unknown&quot;.</div><div class="ttdef"><b>Definition</b> <a href="network_8cpp_source.html#l00079">network.cpp:79</a></div></div>
+<div class="ttc" id="aclassinf_1_1Network_html_ac46b870ba5d91d5e1a3d78c2cd7d61b2"><div class="ttname"><a href="classinf_1_1Network.html#ac46b870ba5d91d5e1a3d78c2cd7d61b2">inf::Network::get_event_range</a></div><div class="ttdeci">inf::EventRange get_event_range() const</div><div class="ttdoc">To iterate over all n_outcomes^3 network events .</div><div class="ttdef"><b>Definition</b> <a href="network_8cpp_source.html#l00087">network.cpp:87</a></div></div>
+<div class="ttc" id="aclassinf_1_1Network_html_adb2abacbfdde5fd59b305d717ec919a4"><div class="ttname"><a href="classinf_1_1Network.html#adb2abacbfdde5fd59b305d717ec919a4">inf::Network::get_party_name_map</a></div><div class="ttdeci">std::map&lt; std::string, Index &gt; get_party_name_map() const</div><div class="ttdoc">Maps party names (Alice, Bob and Charlie) to their index (0,1 and 2)</div><div class="ttdef"><b>Definition</b> <a href="network_8h_source.html#l00090">network.h:90</a></div></div>
+<div class="ttc" id="aclassinf_1_1Network_html_af5133124d7016fd2dbd606a7b0f765f5"><div class="ttname"><a href="classinf_1_1Network.html#af5133124d7016fd2dbd606a7b0f765f5">inf::Network::get_n_events</a></div><div class="ttdeci">Index get_n_events() const</div><div class="ttdoc">The total number n_outcomes^3 of network events .</div><div class="ttdef"><b>Definition</b> <a href="network_8cpp_source.html#l00083">network.cpp:83</a></div></div>
+<div class="ttc" id="aclassinf_1_1Network_html_af5b4b2e710ca80c28f494fcfb78e75ac"><div class="ttname"><a href="classinf_1_1Network.html#af5b4b2e710ca80c28f494fcfb78e75ac">inf::Network::m_n_parties</a></div><div class="ttdeci">const Index m_n_parties</div><div class="ttdoc">The number of parties in the network.</div><div class="ttdef"><b>Definition</b> <a href="network_8h_source.html#l00127">network.h:127</a></div></div>
+<div class="ttc" id="aclassinf_1_1Network_html_af68e4c343b80a79e5d5ad2c4223c3821"><div class="ttname"><a href="classinf_1_1Network.html#af68e4c343b80a79e5d5ad2c4223c3821">inf::Network::create_triangle</a></div><div class="ttdeci">static inf::Network::ConstPtr create_triangle(inf::Outcome n_outcomes)</div><div class="ttdoc">The constructor for the triangle network.</div><div class="ttdef"><b>Definition</b> <a href="network_8cpp_source.html#l00007">network.cpp:7</a></div></div>
+<div class="ttc" id="aclassinf_1_1Network_html_af6cd02c39e7282a72909dc771d2f55b5"><div class="ttname"><a href="classinf_1_1Network.html#af6cd02c39e7282a72909dc771d2f55b5">inf::Network::m_party_names</a></div><div class="ttdeci">std::vector&lt; std::string &gt; m_party_names</div><div class="ttdoc">The list of party names, corresponds to the keys of m_party_name_map</div><div class="ttdef"><b>Definition</b> <a href="network_8h_source.html#l00129">network.h:129</a></div></div>
+<div class="ttc" id="aclassinf_1_1Symmetry_html_a901d22b86ef5923b628db86fbdd7ba4f"><div class="ttname"><a href="classinf_1_1Symmetry.html#a901d22b86ef5923b628db86fbdd7ba4f">inf::Symmetry::Group</a></div><div class="ttdeci">std::set&lt; inf::Symmetry &gt; Group</div><div class="ttdoc">A set of symmetries, typically a group.</div><div class="ttdef"><b>Definition</b> <a href="symmetry_8h_source.html#l00037">symmetry.h:37</a></div></div>
+<div class="ttc" id="aclassutil_1_1Loggable_html"><div class="ttname"><a href="classutil_1_1Loggable.html">util::Loggable</a></div><div class="ttdoc">Defines printable classes.</div><div class="ttdef"><b>Definition</b> <a href="loggable_8h_source.html#l00009">loggable.h:9</a></div></div>
+<div class="ttc" id="aclassutil_1_1ProductRange_html"><div class="ttname"><a href="classutil_1_1ProductRange.html">util::ProductRange</a></div><div class="ttdoc">This class implements a range over std::vector&lt;T&gt;, akin to Python product ranges.</div><div class="ttdef"><b>Definition</b> <a href="product__range_8h_source.html#l00073">product_range.h:73</a></div></div>
+<div class="ttc" id="aclassutil_1_1Range_html"><div class="ttname"><a href="classutil_1_1Range.html">util::Range</a></div><div class="ttdoc">Iterating over a finite integer range.</div><div class="ttdef"><b>Definition</b> <a href="range_8h_source.html#l00131">range.h:131</a></div></div>
+<div class="ttc" id="agroup__event_html_gac60a6fcdfce02dc13eb7364d6a2b56b0"><div class="ttname"><a href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a></div><div class="ttdeci">std::vector&lt; inf::Outcome &gt; Event</div><div class="ttdoc">A list of inf::Outcome. Conceptually, this plays the role of  for some set .</div><div class="ttdef"><b>Definition</b> <a href="event_8h_source.html#l00030">event.h:30</a></div></div>
+<div class="ttc" id="agroup__event_html_gadcaa27c4242b65837f0f7a00e96856d4"><div class="ttname"><a href="group__event.html#gadcaa27c4242b65837f0f7a00e96856d4">inf::Outcome</a></div><div class="ttdeci">uint8_t Outcome</div><div class="ttdoc">An outcome is stored in the smallest format available to save memory.</div><div class="ttdef"><b>Definition</b> <a href="event_8h_source.html#l00026">event.h:26</a></div></div>
+<div class="ttc" id="agroup__util_html_ga77731aedac326062ffbdcf367185a07e"><div class="ttname"><a href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a></div><div class="ttdeci">uint64_t Index</div><div class="ttdoc">Use for anything meant to be used as an index.</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00019">types.h:19</a></div></div>
+<div class="ttc" id="anamespaceinf_html"><div class="ttname"><a href="namespaceinf.html">inf</a></div><div class="ttdoc">The namespace for the inflation code.</div><div class="ttdef"><b>Definition</b> <a href="constraint_8h_source.html#l00006">constraint.h:6</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_0f453feda2a303bb77c09f5934c109df.html">inf</a></li><li class="navelem"><a class="el" href="dir_ae6d493e4def8cac138ad10998aac37a.html">inf_problem</a></li><li class="navelem"><a class="el" href="network_8h.html">network.h</a></li>
+    <li class="footer">Generated on Wed Dec 18 2024 17:39:36 for Fast Inflation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

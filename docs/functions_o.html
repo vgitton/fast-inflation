@@ -1,0 +1,233 @@
+<!-- HTML header for doxygen 1.9.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Fast Inflation: Class Members</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+MathJax.Hub.Config({
+    TeX: {
+        Macros: {
+            dd: ["{\\text{d}#1\\,}",1],
+            nouts: ["{n_{\\text{o}}}"],
+            ints: ["{[\\![#1]\\!]}",1],
+            outset: ["{\\ints{\\nouts}}"],
+            N: ["{\\mathbb{N}}"],
+            R: ["{\\mathbb{R}}"],
+            Z: ["{\\mathbb{Z}}"],
+            infsize: ["{z}"],
+            infparties: ["{\\set{I}}"],
+            infsources: ["{\\set{S}}"],
+            infmarg: ["{\\set{A}}"],
+            infmargg: ["{\\set{B}}"],
+            netparties: ["{\\set{N}}"],
+            infq: ["{q}"],
+            infqs: ["{\\Delta_{\\infparties}}"],
+            constraintlist: ["{\\mathcal{C}}"],
+            injsets: ["{\\text{InjSets}}"],
+            infconstraints: ["{\\text{InfCons}}"],
+            parents: ["{\\text{Par}}"],
+            targetp: ["{p}"],
+            targetps: ["{\\Delta_{\\netparties}}"],
+            set: ["{\\mathbf{#1}}",1],
+            type: ["{t}"],
+            infevent: "{\\omega}",
+            events: ["{\\Omega_{#1}}",1],
+            infevents: ["{\\events{\\infparties}}"],
+            redinfevents: ["{\\tilde{\\Omega}_{\\infparties}}"],
+            netevents: ["{\\events{\\netparties}}"],
+            vecset: ["{V_{#1}}",1],
+            alice: ["{\\text{A}}"],
+            bob: ["{\\text{B}}"],
+            charlie: ["{\\text{C}}"],
+            symgroup: ["{\\text{Sym}(#1)}",1],
+            shortsymgroup: ["{\\text{Sym}_{#1}}",1],
+            act: ["{(#1\\hspace{2pt}{:}\\hspace{2pt}#2)}",2],
+            actt: ["{[#1\\hspace{2pt}{:}\\hspace{2pt}#2]}",2],
+            margperms: ["{\\text{Perm}_{#1}}",1],
+            permutedmargs: ["{\\mathbb{P}_{#1}^{\\targetp}}",1],
+            redpermutedmargs: ["{\\tilde{\\mathbb{P}}_{#1}^{\\constraintname,\\targetp}}",1],
+            extract: ["{\\text{ext}(#1,#2)}",2],
+            partysym: ["{\\tau}"],
+            sourcesym: ["{\\xi}"],
+            outsym: ["{\\sigma}"],
+            fullgroup: ["{\\text{InfGrp}}"],
+            partygroup : ["{\\text{PartyGrp}}"],
+            outgroup: ["{\\text{OutGrp}}"],
+            sourcegroup: ["{\\text{SrcGrp}}"],
+            distrgroup: ["{\\mathbb{G}^\\targetp}"],
+            constraintname: ["{c}"],
+            marggroup: ["{\\mathbb{G}^{\\constraintname,\\targetp}}"],
+            fullsymexpl: ["{(\\sourcesym,\\partysym,\\outsym)}"],
+            inner: ["{\\langle#1,#2\\rangle}", 2],
+            quovec: ["{f}"],
+            totconstraintmap: ["{K^{\\constraintlist,\\targetp}}"],
+            totconstraintmapelem: ["{K^{\\constraintname,\\targetp}}"],
+            quovecspace: ["{\\tilde{V}_{#1}^{\\constraintname,\\targetp}}", 1],
+            totquovecspace: ["{\\text{ConsSpace}(\\constraintlist,\\targetp)}"],
+            detdistr: ["{\\delta^{#1}}", 1],
+            margperm: ["{\\varphi}"],
+            altquovecembed: ["{\\text{G}_{#1}^{\\constraintname,\\targetp}}", 1],
+            vecset: ["{V_{#1}}", 1],
+            repr: ["{\\lfloor#1\\rfloor}", 1],
+            gid: ["{\\text{id}}"],
+            id: ["{1_{#1}}",1],
+            consscale: ["{K}"],
+            scaletot: ["{K_{\\text{tot}}^{\\constraintlist,\\targetp}}"],
+            minnorm: ["{d}"],
+            Bigsetst: ["\\;\\Big|\\;"],
+            activeset: ["\\mathcal{S}"],
+            conv: ["\\text{conv}"],
+            lVert: ["|\\hspace{-1pt}|"],
+            norm: ["\\lVert#1\\lVert", 1],
+            st: [":\ "],
+        }
+    }
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeDarkModeToggle.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeParagraphLink.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Fast Inflation
+   </div>
+   <div id="projectbrief">To certify causal incompatibility</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('functions_o.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="contents">
+<div class="textblock">Here is a list of all class members with links to the classes they belong to:</div>
+
+<h3><a id="index_o" name="index_o"></a>- o -</h3><ul>
+<li>operator!=()&#160;:&#160;<a class="el" href="classinf_1_1EventTree_1_1Node.html#a15c9ac41fb14f71a26baecf344222cc2">inf::EventTree::Node</a>, <a class="el" href="classinf_1_1EventTree.html#aea0398198945cd8354b9b9e099662a98">inf::EventTree</a>, <a class="el" href="classutil_1_1Frac.html#ad4b805476e6d33c354016530b4b4d4fd">util::Frac</a>, <a class="el" href="group__iteratorranges.html#ga16ca4c11eb8212836eb64b4c15a4b54f">util::Iterator&lt; T &gt;</a>, <a class="el" href="group__iteratorranges.html#gac40a75f92c75d747b15c08fc02f5574b">util::PermIterator&lt; T &gt;</a>, <a class="el" href="group__iteratorranges.html#gab7aa311ec846d13ec47ad47a1ed65b11">util::ProductIterator&lt; T &gt;</a></li>
+<li>operator*()&#160;:&#160;<a class="el" href="classutil_1_1Iterator.html#a9b6a07b623b7ef7ffd9d6a3d0a4e4bfc">util::Iterator&lt; T &gt;</a>, <a class="el" href="classutil_1_1PermIterator.html#a88b08a62a21facc3cf56f4ba4cd8c4b5">util::PermIterator&lt; T &gt;</a>, <a class="el" href="classutil_1_1ProductIterator.html#ab6807733d5403e6c5c8cc43fcd3d0372">util::ProductIterator&lt; T &gt;</a></li>
+<li>operator++()&#160;:&#160;<a class="el" href="classutil_1_1Iterator.html#ac7c7965ef6edb1a030002ee75a5933cb">util::Iterator&lt; T &gt;</a>, <a class="el" href="classutil_1_1PermIterator.html#a4be8081522907458b844075f8e53a393">util::PermIterator&lt; T &gt;</a>, <a class="el" href="classutil_1_1ProductIterator.html#ad4379f598f5b308d0a5b22084866b8ef">util::ProductIterator&lt; T &gt;</a></li>
+<li>operator&lt;()&#160;:&#160;<a class="el" href="structinf_1_1Marginal_1_1Permutation.html#a6cdeb9516539786cc6cb0a9f2e61b77e">inf::Marginal::Permutation</a>, <a class="el" href="classinf_1_1OutcomeSym.html#ae565e1186c97c8e19ab0da9f610c45ae">inf::OutcomeSym</a>, <a class="el" href="classinf_1_1PartySym.html#a8f4b2cdb38caa8a329671bfc95765fb9">inf::PartySym</a>, <a class="el" href="classinf_1_1Symmetry.html#a9dc28c7e3242bc706746be387cb5895e">inf::Symmetry</a>, <a class="el" href="classutil_1_1Frac.html#a1501b7762915cad2880e3980d9889b5c">util::Frac</a></li>
+<li>operator&lt;=()&#160;:&#160;<a class="el" href="classutil_1_1Frac.html#ac6eb4b6877a9a5c1f449b07dad3fc9f2">util::Frac</a></li>
+<li>operator=()&#160;:&#160;<a class="el" href="classinf_1_1EventTensor.html#a74f303eb03cf67e4164e444ed7ff3fd8">inf::EventTensor</a>, <a class="el" href="classinf_1_1EventTree_1_1Node.html#aafcef9797034c9f34236f54097cb737b">inf::EventTree::Node</a>, <a class="el" href="classinf_1_1Marginal_1_1Evaluator.html#a1aea96d0e548e78682d48666f41b6528">inf::Marginal::Evaluator</a>, <a class="el" href="classinf_1_1OutcomeSym.html#a489c1fbfd31519e2271f6ca616f9a95e">inf::OutcomeSym</a>, <a class="el" href="classinf_1_1PartySym.html#a919aba3f9b260a56b3f812938b7bba2e">inf::PartySym</a>, <a class="el" href="classinf_1_1Symmetry.html#aa279a7bda6089615ff96276cc39fb841">inf::Symmetry</a>, <a class="el" href="classutil_1_1Frac.html#a76b95504958e341bd160d5cdcc40e1ac">util::Frac</a></li>
+<li>operator==()&#160;:&#160;<a class="el" href="classinf_1_1EventTree_1_1Node.html#a407a012c81e0480f69eadc7fb26c6bf7">inf::EventTree::Node</a>, <a class="el" href="classinf_1_1EventTree.html#a6663b45b923f11d4d37fc57caf48589c">inf::EventTree</a>, <a class="el" href="classinf_1_1OutcomeSym.html#a56ebe6591bf3fd6679c95e907d2f9161">inf::OutcomeSym</a>, <a class="el" href="classinf_1_1PartySym.html#a1f1d02bee238f9099ec3b52bca9a8cf2">inf::PartySym</a>, <a class="el" href="classinf_1_1Symmetry.html#abe780d13eff32e9888541b86ac35758b">inf::Symmetry</a>, <a class="el" href="classutil_1_1Frac.html#a4d072334005a8a7355642f68d6266c04">util::Frac</a></li>
+<li>operator&gt;()&#160;:&#160;<a class="el" href="classutil_1_1Frac.html#ae8851cea9d23d31500d1aa2dd053bbfb">util::Frac</a></li>
+<li>operator&gt;=()&#160;:&#160;<a class="el" href="classutil_1_1Frac.html#a88f53ef4055b41bd2d0f3a1d423fd78f">util::Frac</a></li>
+<li>opt_bounds()&#160;:&#160;<a class="el" href="classuser_1_1opt__bounds.html#ad3e6c3a30b6e083dbc53be2d06511c3a">user::opt_bounds</a></li>
+<li>opt_time()&#160;:&#160;<a class="el" href="classuser_1_1opt__time.html#abc4cb72ecaf58a498b480cff93f387da">user::opt_time</a></li>
+<li>optimize()&#160;:&#160;<a class="el" href="classinf_1_1Optimizer.html#aafcf8142d41d456b21de038da220ef96">inf::Optimizer</a></li>
+<li>Optimizer()&#160;:&#160;<a class="el" href="classinf_1_1Optimizer.html#a1b38505d4bc4f8979c0324c978e57e5f">inf::Optimizer</a></li>
+<li>Orbit&#160;:&#160;<a class="el" href="classinf_1_1Orbitable.html#a4982dcc25e609ae4793de4471f141b97">inf::Orbitable</a></li>
+<li>Orbitable()&#160;:&#160;<a class="el" href="classinf_1_1Orbitable.html#a8fe3e6c3cbb7eb0643380eafdd121040">inf::Orbitable</a></li>
+<li>OrbitMap&#160;:&#160;<a class="el" href="classinf_1_1Orbitable.html#aa01c9267c0fb19a1b7d6b38f00dccf58">inf::Orbitable</a></li>
+<li>OrbitPair&#160;:&#160;<a class="el" href="classinf_1_1Orbitable.html#acbbe4fa5a804ad11b84b4af02663c65b">inf::Orbitable</a></li>
+<li>orbits_initialized()&#160;:&#160;<a class="el" href="classinf_1_1Orbitable.html#a7ad16720debff531d58e8a6ea4392ec3">inf::Orbitable</a></li>
+<li>outcome&#160;:&#160;<a class="el" href="classinf_1_1EventTree_1_1Node.html#a106ee49d0fab8062868d3d974dcbfaf1">inf::EventTree::Node</a></li>
+<li>outcome_sym&#160;:&#160;<a class="el" href="structinf_1_1Marginal_1_1Permutation.html#acae46a448523256144dec236a78fe678">inf::Marginal::Permutation</a></li>
+<li>outcome_to_str()&#160;:&#160;<a class="el" href="classinf_1_1Network.html#a93cdb1e303cf8bef92b33b81a134f577">inf::Network</a></li>
+<li>OutcomeSym()&#160;:&#160;<a class="el" href="classinf_1_1OutcomeSym.html#a8609b77eb9bf2a70aed86211b129abb1">inf::OutcomeSym</a></li>
+<li>OutputFileStream()&#160;:&#160;<a class="el" href="classutil_1_1OutputFileStream.html#a39101bd808760ffd1782280055428ea4">util::OutputFileStream</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Wed Dec 18 2024 17:39:51 for Fast Inflation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

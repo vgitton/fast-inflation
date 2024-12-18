@@ -1,0 +1,682 @@
+<!-- HTML header for doxygen 1.9.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Fast Inflation: src/inf/constraints/constraint.cpp Source File</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+MathJax.Hub.Config({
+    TeX: {
+        Macros: {
+            dd: ["{\\text{d}#1\\,}",1],
+            nouts: ["{n_{\\text{o}}}"],
+            ints: ["{[\\![#1]\\!]}",1],
+            outset: ["{\\ints{\\nouts}}"],
+            N: ["{\\mathbb{N}}"],
+            R: ["{\\mathbb{R}}"],
+            Z: ["{\\mathbb{Z}}"],
+            infsize: ["{z}"],
+            infparties: ["{\\set{I}}"],
+            infsources: ["{\\set{S}}"],
+            infmarg: ["{\\set{A}}"],
+            infmargg: ["{\\set{B}}"],
+            netparties: ["{\\set{N}}"],
+            infq: ["{q}"],
+            infqs: ["{\\Delta_{\\infparties}}"],
+            constraintlist: ["{\\mathcal{C}}"],
+            injsets: ["{\\text{InjSets}}"],
+            infconstraints: ["{\\text{InfCons}}"],
+            parents: ["{\\text{Par}}"],
+            targetp: ["{p}"],
+            targetps: ["{\\Delta_{\\netparties}}"],
+            set: ["{\\mathbf{#1}}",1],
+            type: ["{t}"],
+            infevent: "{\\omega}",
+            events: ["{\\Omega_{#1}}",1],
+            infevents: ["{\\events{\\infparties}}"],
+            redinfevents: ["{\\tilde{\\Omega}_{\\infparties}}"],
+            netevents: ["{\\events{\\netparties}}"],
+            vecset: ["{V_{#1}}",1],
+            alice: ["{\\text{A}}"],
+            bob: ["{\\text{B}}"],
+            charlie: ["{\\text{C}}"],
+            symgroup: ["{\\text{Sym}(#1)}",1],
+            shortsymgroup: ["{\\text{Sym}_{#1}}",1],
+            act: ["{(#1\\hspace{2pt}{:}\\hspace{2pt}#2)}",2],
+            actt: ["{[#1\\hspace{2pt}{:}\\hspace{2pt}#2]}",2],
+            margperms: ["{\\text{Perm}_{#1}}",1],
+            permutedmargs: ["{\\mathbb{P}_{#1}^{\\targetp}}",1],
+            redpermutedmargs: ["{\\tilde{\\mathbb{P}}_{#1}^{\\constraintname,\\targetp}}",1],
+            extract: ["{\\text{ext}(#1,#2)}",2],
+            partysym: ["{\\tau}"],
+            sourcesym: ["{\\xi}"],
+            outsym: ["{\\sigma}"],
+            fullgroup: ["{\\text{InfGrp}}"],
+            partygroup : ["{\\text{PartyGrp}}"],
+            outgroup: ["{\\text{OutGrp}}"],
+            sourcegroup: ["{\\text{SrcGrp}}"],
+            distrgroup: ["{\\mathbb{G}^\\targetp}"],
+            constraintname: ["{c}"],
+            marggroup: ["{\\mathbb{G}^{\\constraintname,\\targetp}}"],
+            fullsymexpl: ["{(\\sourcesym,\\partysym,\\outsym)}"],
+            inner: ["{\\langle#1,#2\\rangle}", 2],
+            quovec: ["{f}"],
+            totconstraintmap: ["{K^{\\constraintlist,\\targetp}}"],
+            totconstraintmapelem: ["{K^{\\constraintname,\\targetp}}"],
+            quovecspace: ["{\\tilde{V}_{#1}^{\\constraintname,\\targetp}}", 1],
+            totquovecspace: ["{\\text{ConsSpace}(\\constraintlist,\\targetp)}"],
+            detdistr: ["{\\delta^{#1}}", 1],
+            margperm: ["{\\varphi}"],
+            altquovecembed: ["{\\text{G}_{#1}^{\\constraintname,\\targetp}}", 1],
+            vecset: ["{V_{#1}}", 1],
+            repr: ["{\\lfloor#1\\rfloor}", 1],
+            gid: ["{\\text{id}}"],
+            id: ["{1_{#1}}",1],
+            consscale: ["{K}"],
+            scaletot: ["{K_{\\text{tot}}^{\\constraintlist,\\targetp}}"],
+            minnorm: ["{d}"],
+            Bigsetst: ["\\;\\Big|\\;"],
+            activeset: ["\\mathcal{S}"],
+            conv: ["\\text{conv}"],
+            lVert: ["|\\hspace{-1pt}|"],
+            norm: ["\\lVert#1\\lVert", 1],
+            st: [":\ "],
+        }
+    }
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeDarkModeToggle.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeParagraphLink.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Fast Inflation
+   </div>
+   <div id="projectbrief">To certify causal incompatibility</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('constraint_8cpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">constraint.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="constraint_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &quot;<a class="code" href="constraint_8h.html">constraint.h</a>&quot;</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;../../util/logger.h&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;../../util/math.h&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="constraint__parser_8h.html">constraint_parser.h</a>&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno"><a class="line" href="classinf_1_1Constraint.html#ac5ff3d4a18c462871a48cc31490c0a42">    6</a></span>std::string <a class="code hl_function" href="classinf_1_1Constraint.html#ac5ff3d4a18c462871a48cc31490c0a42">inf::Constraint::pretty_description</a>(<a class="code hl_typedef" href="classinf_1_1Constraint.html#a9af530da5633c7e8d6ee25e29488b715">inf::Constraint::Description</a> description) {</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>    <span class="keywordflow">for</span> (std::string &amp;marg : description)</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>        marg = <a class="code hl_function" href="group__str.html#ga4336eb94aa92e5fa3a78ffa35198d775">util::remove_spaces</a>(marg);</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    std::string ret = <span class="stringliteral">&quot;q(&quot;</span>;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <span class="keywordtype">bool</span> first = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keywordflow">for</span> (<a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <span class="keyword">const</span> marg_i : <a class="code hl_class" href="classutil_1_1Range.html">util::Range</a>(description.size() - 1)) {</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>        <span class="keywordflow">if</span> (not first)</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>            ret += <span class="stringliteral">&quot; , &quot;</span>;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>        <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>            first = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        ret += description[marg_i];</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    }</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keywordflow">if</span> (description.back().size() != 0) {</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        ret += <span class="stringliteral">&quot; , &quot;</span> + description.back();</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    }</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    ret += <span class="stringliteral">&quot;) = &quot;</span>;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    first = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keywordflow">for</span> (<a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <span class="keyword">const</span> marg_i : <a class="code hl_class" href="classutil_1_1Range.html">util::Range</a>(description.size() - 1)) {</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        <span class="keywordflow">if</span> (not first)</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>            ret += <span class="stringliteral">&quot; * &quot;</span>;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>            first = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        ret += <span class="stringliteral">&quot;p(&quot;</span> + description[marg_i] + <span class="stringliteral">&quot;)&quot;</span>;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    }</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keywordflow">if</span> (description.back().size() != 0)</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        ret += <span class="stringliteral">&quot; * q(&quot;</span> + description.back() + <span class="stringliteral">&quot;)&quot;</span>;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keywordflow">return</span> ret;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>}</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="classinf_1_1Constraint.html#a0f7a0a8d15cfabd25c7804f632412960">   41</a></span><a class="code hl_typedef" href="classinf_1_1Symmetry.html#a901d22b86ef5923b628db86fbdd7ba4f">inf::Symmetry::Group</a> <a class="code hl_function" href="classinf_1_1Constraint.html#a0f7a0a8d15cfabd25c7804f632412960">inf::Constraint::get_constraint_group</a>(<a class="code hl_class" href="classinf_1_1Inflation.html">inf::Inflation</a> <span class="keyword">const</span> &amp;inflation,</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>                                                           std::vector&lt;Index&gt; <span class="keyword">const</span> &amp;lhs_marg,</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>                                                           std::vector&lt;Index&gt; <span class="keyword">const</span> &amp;rhs_marg) {</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <a class="code hl_define" href="group__debug.html#ga60f45ee0c4949ef50243feb6fbb8a808">ASSERT_LT</a>(0, lhs_marg.size())</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="comment">// Will be returned</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <a class="code hl_typedef" href="classinf_1_1Symmetry.html#a901d22b86ef5923b628db86fbdd7ba4f">inf::Symmetry::Group</a> constraint_group;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    std::set&lt;Index&gt; <span class="keyword">const</span> B_parties(rhs_marg.begin(), rhs_marg.end());</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    std::set&lt;Index&gt; A_parties;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keywordflow">for</span> (<a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <span class="keyword">const</span> party_index : lhs_marg) {</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <span class="keywordflow">if</span> (not B_parties.contains(party_index))</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>            A_parties.insert(party_index);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    }</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keywordflow">for</span> (<a class="code hl_class" href="classinf_1_1Symmetry.html">inf::Symmetry</a> <span class="keyword">const</span> &amp;inf_sym : inflation.<a class="code hl_function" href="classinf_1_1Inflation.html#abfa6a2b7897bb9f1d3c406a864e9acdf">get_inflation_symmetries</a>()) {</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        <span class="comment">// inf_sym needs to leave the union A_0, ..., A_{k-1} invariant</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        std::set&lt;Index&gt; transformed_A_parties;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        <span class="keywordflow">for</span> (<a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <span class="keyword">const</span> party_index : A_parties)</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>            transformed_A_parties.insert(inf_sym.get_party_sym().get_bare_sym()[party_index]);</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        <span class="keywordflow">if</span> (transformed_A_parties != A_parties)</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>            <span class="keywordflow">continue</span>;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        <span class="comment">// inf_sym also needs to leave B invariant</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        std::set&lt;Index&gt; transformed_B_parties;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        <span class="keywordflow">for</span> (<a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <span class="keyword">const</span> party_index : B_parties)</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>            transformed_B_parties.insert(inf_sym.get_party_sym().get_bare_sym()[party_index]);</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        <span class="keywordflow">if</span> (transformed_B_parties != B_parties)</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>            <span class="keywordflow">continue</span>;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        <span class="comment">// inf_sym has the right property, so it goes in the constraint group</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        constraint_group.insert(inf_sym);</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    }</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="keywordflow">return</span> constraint_group;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>}</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="classinf_1_1Constraint.html#a049b3a91fc3fb6dab93951a10c61c4d3">   81</a></span><a class="code hl_function" href="classinf_1_1Constraint.html#a049b3a91fc3fb6dab93951a10c61c4d3">inf::Constraint::Constraint</a>(<a class="code hl_typedef" href="classinf_1_1Inflation.html#ac594d5b8d7cbdd7cdfe569baa351f0ba">inf::Inflation::ConstPtr</a> <span class="keyword">const</span> &amp;inflation,</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>                            <a class="code hl_typedef" href="classinf_1_1Constraint.html#a9af530da5633c7e8d6ee25e29488b715">inf::Constraint::Description</a> <span class="keyword">const</span> &amp;description,</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>                            <a class="code hl_enumeration" href="classinf_1_1DualVector.html#a615feaafdbd4a08901a07ad60260d398">inf::DualVector::StoreBounds</a> store_bounds)</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    : m_pretty_description(<a class="code hl_namespace" href="namespaceinf.html">inf</a>::<a class="code hl_class" href="classinf_1_1Constraint.html">Constraint</a>::pretty_description(description)),</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>      m_inflation(inflation),</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>      m_constraint_group(),</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>      <span class="comment">// Marginals</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>      m_lhs_inflation_marginal(nullptr),</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>      m_rhs_inflation_marginal(nullptr),</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>      <span class="comment">// Target distribution</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>      m_target_distribution_fixed(false),</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>      m_target_marginal_names{},</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>      m_rhs_target_tensor(nullptr),</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>      <span class="comment">// Dual vectors</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>      m_lhs_dual_vector(nullptr),</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>      m_rhs_reduced_dual_vector(nullptr),</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>      <span class="comment">// Scales</span></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>      m_lhs_scale(1),</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>      m_rhs_scale(1) {</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <a class="code hl_variable" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a> &lt;&lt; <span class="stringliteral">&quot;Constructing inf::Constraint...&quot;</span> &lt;&lt; <a class="code hl_variable" href="group__printing.html#ga3f8fe48536ee19c54002c9c1db64cabb">util::cr</a>;</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="comment">// Note: intializing everything with nullptr to be able to first invoke an inf::ConstraintParser</span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="comment">// to validate the data, and then initialize all the relevant members</span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <a class="code hl_class" href="classinf_1_1ConstraintParser.html">inf::ConstraintParser</a> parser(inflation, description);</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <a class="code hl_variable" href="classinf_1_1Constraint.html#afc8de0049be481bc67ce9752bc380303">m_constraint_group</a> = <a class="code hl_function" href="classinf_1_1Constraint.html#a0f7a0a8d15cfabd25c7804f632412960">get_constraint_group</a>(*inflation, parser.<a class="code hl_function" href="classinf_1_1ConstraintParser.html#a960ab2d31befa2c036834b3668fa77da">get_lhs_marg_parties</a>(), parser.<a class="code hl_function" href="classinf_1_1ConstraintParser.html#afc353c578678697adb67009a5526d8b7">get_rhs_marg_parties</a>());</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    <a class="code hl_variable" href="classinf_1_1Constraint.html#a9edd7cb8eff07cd149f982cb9203f798">m_lhs_inflation_marginal</a> = std::make_unique&lt;inf::Marginal&gt;(inflation, parser.<a class="code hl_function" href="classinf_1_1ConstraintParser.html#a960ab2d31befa2c036834b3668fa77da">get_lhs_marg_parties</a>(), <a class="code hl_variable" href="classinf_1_1Constraint.html#afc8de0049be481bc67ce9752bc380303">m_constraint_group</a>, store_bounds);</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <a class="code hl_variable" href="classinf_1_1Constraint.html#aca39c9e1f819a081bacba3f787bb3980">m_rhs_inflation_marginal</a> = std::make_unique&lt;inf::Marginal&gt;(inflation, parser.<a class="code hl_function" href="classinf_1_1ConstraintParser.html#afc353c578678697adb67009a5526d8b7">get_rhs_marg_parties</a>(), <a class="code hl_variable" href="classinf_1_1Constraint.html#afc8de0049be481bc67ce9752bc380303">m_constraint_group</a>, store_bounds);</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <a class="code hl_variable" href="classinf_1_1Constraint.html#ad9f309029d0996c3b48f7ccafc5bb9a5">m_rhs_target_tensor</a> = std::make_unique&lt;inf::EventTensor&gt;(</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        parser.<a class="code hl_function" href="classinf_1_1ConstraintParser.html#a960ab2d31befa2c036834b3668fa77da">get_lhs_marg_parties</a>().size() - parser.<a class="code hl_function" href="classinf_1_1ConstraintParser.html#afc353c578678697adb67009a5526d8b7">get_rhs_marg_parties</a>().size(), <a class="code hl_variable" href="classinf_1_1Constraint.html#adf339fc0428a07eb4cfc1fa0db0df617">m_inflation</a>-&gt;get_network()-&gt;get_n_outcomes());</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    <a class="code hl_variable" href="classinf_1_1Constraint.html#a21abb33e7aa6efe043a820dfb80c8df0">m_target_marginal_names</a> = parser.<a class="code hl_function" href="classinf_1_1ConstraintParser.html#a792426384f4ac2d91e75985d00e9de04">get_target_marg_names</a>();</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    <span class="comment">// The dual_vector knows from the inflation marginal whether or not to store bounds.</span></div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    <span class="comment">// See inf::DualVector for a description of why the bound types are set up in this way.</span></div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    <a class="code hl_variable" href="classinf_1_1Constraint.html#af674b22f045e2b876deeae5a4193a5ea">m_lhs_dual_vector</a> = std::make_unique&lt;inf::DualVector&gt;(*<a class="code hl_variable" href="classinf_1_1Constraint.html#a9edd7cb8eff07cd149f982cb9203f798">m_lhs_inflation_marginal</a>, <a class="code hl_enumvalue" href="classinf_1_1DualVector.html#a3ac0be707f8f14bf1e429fcb6b17f9a0a81e073b428b50247daba38531dcf412a">inf::DualVector::BoundType::lower</a>);</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    <a class="code hl_variable" href="classinf_1_1Constraint.html#a2218be49df2addaa6c5a67fc4b9c339d">m_rhs_reduced_dual_vector</a> = std::make_unique&lt;inf::DualVector&gt;(*<a class="code hl_variable" href="classinf_1_1Constraint.html#aca39c9e1f819a081bacba3f787bb3980">m_rhs_inflation_marginal</a>, <a class="code hl_enumvalue" href="classinf_1_1DualVector.html#a3ac0be707f8f14bf1e429fcb6b17f9a0a0122b4c2c01ee1c698ecc309d2b8eb5a">inf::DualVector::BoundType::upper</a>);</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>}</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno"><a class="line" href="classinf_1_1Constraint.html#a41ff765b03f20de8c752f3387059754f">  124</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1Constraint.html#a41ff765b03f20de8c752f3387059754f">inf::Constraint::log</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    <a class="code hl_enumeration" href="group__color.html#ga95747189f62a0ed341c6e2579146beb7">util::Color</a> c = <a class="code hl_enumvalue" href="group__color.html#gga95747189f62a0ed341c6e2579146beb7abda9643ac6601722a28f238714274da4">util::Color::red</a>;</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    std::vector&lt;util::Color&gt; color_marginal_parties;</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    <span class="keywordflow">for</span> (<a class="code hl_typedef" href="classinf_1_1TargetDistr.html#a6b386ba726f8a8125d1f7d46075dafeb">inf::TargetDistr::MarginalName</a> <span class="keyword">const</span> &amp;marg : m_target_marginal_names) {</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>        <span class="keywordflow">for</span> (std::string <span class="keyword">const</span> &amp;party : marg) {</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>            (void)party;</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>            color_marginal_parties.push_back(c);</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>        }</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>        <span class="keywordflow">switch</span> (c) {</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group__color.html#gga95747189f62a0ed341c6e2579146beb7abda9643ac6601722a28f238714274da4">util::Color::red</a>:</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>            c = <a class="code hl_enumvalue" href="group__color.html#gga95747189f62a0ed341c6e2579146beb7a9f27410725ab8cc8854a2769c7a516b8">util::Color::green</a>;</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group__color.html#gga95747189f62a0ed341c6e2579146beb7a9f27410725ab8cc8854a2769c7a516b8">util::Color::green</a>:</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>            c = <a class="code hl_enumvalue" href="group__color.html#gga95747189f62a0ed341c6e2579146beb7a48d6215903dff56238e52e8891380c8f">util::Color::blue</a>;</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group__color.html#gga95747189f62a0ed341c6e2579146beb7a48d6215903dff56238e52e8891380c8f">util::Color::blue</a>:</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>            c = <a class="code hl_enumvalue" href="group__color.html#gga95747189f62a0ed341c6e2579146beb7ad487dd0b55dfcacdd920ccbdaeafa351">util::Color::yellow</a>;</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group__color.html#gga95747189f62a0ed341c6e2579146beb7ad487dd0b55dfcacdd920ccbdaeafa351">util::Color::yellow</a>:</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>            c = <a class="code hl_enumvalue" href="group__color.html#gga95747189f62a0ed341c6e2579146beb7a6411532ba4971f378391776a9db629d3">util::Color::cyan</a>;</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>        <span class="keywordflow">default</span>:</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>            <a class="code hl_define" href="group__debug.html#ga44d4e64ea98b1a9c055f030e33e24f17">THROW_ERROR</a>(<span class="stringliteral">&quot;Too many factors, need more colors&quot;</span>)</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>        }</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    }</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    <span class="keywordflow">for</span> (<a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> party : <a class="code hl_class" href="classutil_1_1Range.html">util::Range</a>(m_rhs_inflation_marginal-&gt;get_n_parties())) {</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>        (void)party;</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>        color_marginal_parties.push_back(c);</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    }</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span> </div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    std::vector&lt;std::string&gt; lhs_formatted(m_inflation-&gt;get_n_parties(), <span class="stringliteral">&quot;.&quot;</span>);</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    <span class="keywordflow">for</span> (<a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> i : <a class="code hl_class" href="classutil_1_1Range.html">util::Range</a>(m_lhs_inflation_marginal-&gt;get_n_parties())) {</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>        lhs_formatted[m_lhs_inflation_marginal-&gt;get_parties()[i]] =</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>            <a class="code hl_variable" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a>.<a class="code hl_function" href="classutil_1_1Logger.html#ac7840a2529ef40d0e881b621d789b51c">get_color_code</a>(color_marginal_parties[i]) + <a class="code hl_variable" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a>.<a class="code hl_function" href="classutil_1_1Logger.html#a3c621919a7dae959843f5f2493e2d3d2">get_single_char</a>(i) + <a class="code hl_variable" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a>.<a class="code hl_function" href="classutil_1_1Logger.html#ac7840a2529ef40d0e881b621d789b51c">get_color_code</a>(<a class="code hl_enumvalue" href="group__color.html#gga95747189f62a0ed341c6e2579146beb7a3d4044d65abdda407a92991f1300ec97">util::Color::fg</a>);</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    }</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span> </div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    m_inflation-&gt;log_event_strings(lhs_formatted);</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span> </div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    <a class="code hl_variable" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a> &lt;&lt; <a class="code hl_variable" href="group__printing.html#ga3f8fe48536ee19c54002c9c1db64cabb">util::cr</a> &lt;&lt; <span class="stringliteral">&quot;= &quot;</span>;</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>    <span class="keywordtype">bool</span> first = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>    <span class="keywordflow">for</span> (<a class="code hl_typedef" href="classinf_1_1TargetDistr.html#a6b386ba726f8a8125d1f7d46075dafeb">inf::TargetDistr::MarginalName</a> <span class="keyword">const</span> &amp;marg : m_target_marginal_names) {</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>        <span class="keywordflow">if</span> (not first)</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>            <a class="code hl_variable" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a> &lt;&lt; <span class="stringliteral">&quot; * &quot;</span>;</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>        <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>            first = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span> </div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>        <a class="code hl_variable" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a> &lt;&lt; <span class="stringliteral">&quot;p&quot;</span> &lt;&lt; marg;</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    }</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span> </div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>    <span class="keywordflow">if</span> (m_rhs_inflation_marginal-&gt;get_n_parties() != 0) {</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>        <a class="code hl_variable" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a> &lt;&lt; <span class="stringliteral">&quot; * &quot;</span>;</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>        <a class="code hl_variable" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a> &lt;&lt; <a class="code hl_variable" href="group__printing.html#ga3f8fe48536ee19c54002c9c1db64cabb">util::cr</a> &lt;&lt; <a class="code hl_variable" href="group__printing.html#ga3f8fe48536ee19c54002c9c1db64cabb">util::cr</a>;</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span> </div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>        std::vector&lt;std::string&gt; rhs_formatted(m_inflation-&gt;get_n_parties(), <span class="stringliteral">&quot;.&quot;</span>);</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>        <span class="keywordflow">for</span> (<a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> i : <a class="code hl_class" href="classutil_1_1Range.html">util::Range</a>(m_rhs_inflation_marginal-&gt;get_n_parties())) {</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>            rhs_formatted[m_rhs_inflation_marginal-&gt;get_parties()[i]] =</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>                <a class="code hl_variable" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a>.<a class="code hl_function" href="classutil_1_1Logger.html#ac7840a2529ef40d0e881b621d789b51c">get_color_code</a>(c) +</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>                <a class="code hl_variable" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a>.<a class="code hl_function" href="classutil_1_1Logger.html#a3c621919a7dae959843f5f2493e2d3d2">get_single_char</a>(</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>                    m_lhs_inflation_marginal-&gt;get_n_parties() - m_rhs_inflation_marginal-&gt;get_n_parties() + i) +</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>                <a class="code hl_variable" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a>.get_color_code(<a class="code hl_enumvalue" href="group__color.html#gga95747189f62a0ed341c6e2579146beb7a3d4044d65abdda407a92991f1300ec97">util::Color::fg</a>);</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>        }</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span> </div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>        m_inflation-&gt;log_event_strings(rhs_formatted);</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>        <a class="code hl_variable" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a> &lt;&lt; <a class="code hl_variable" href="group__printing.html#ga3f8fe48536ee19c54002c9c1db64cabb">util::cr</a>;</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>    }</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>}</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span> </div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span><span class="comment">// Getters</span></div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span> </div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno"><a class="line" href="classinf_1_1Constraint.html#a3647bf14ff19b0e558085229637daa94">  198</a></span><a class="code hl_class" href="classinf_1_1DualVector.html">inf::DualVector</a> <span class="keyword">const</span> &amp;<a class="code hl_function" href="classinf_1_1Constraint.html#a3647bf14ff19b0e558085229637daa94">inf::Constraint::get_dual_vector</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>    <span class="keywordflow">return</span> *m_lhs_dual_vector;</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>}</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span> </div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno"><a class="line" href="classinf_1_1Constraint.html#ad6c6fddb7d2df3e72aa29e81697c210e">  202</a></span><a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <a class="code hl_function" href="classinf_1_1Constraint.html#ad6c6fddb7d2df3e72aa29e81697c210e">inf::Constraint::get_quovec_size</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>    <span class="keywordflow">return</span> m_lhs_dual_vector-&gt;get_n_orbits_no_unknown();</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>}</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span> </div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno"><a class="line" href="classinf_1_1Constraint.html#aa0dde43c2cd089b9592663b1b8b81a99">  206</a></span><a class="code hl_typedef" href="classinf_1_1Constraint.html#a34a857617723361d4646c14b34412f8a">inf::Constraint::EvaluatorPair</a> <a class="code hl_function" href="classinf_1_1Constraint.html#aa0dde43c2cd089b9592663b1b8b81a99">inf::Constraint::get_marg_evaluators</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>    <a class="code hl_typedef" href="classinf_1_1Constraint.html#a34a857617723361d4646c14b34412f8a">inf::Constraint::EvaluatorPair</a> ret(m_lhs_inflation_marginal-&gt;get_evaluator(),</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>                                       m_rhs_inflation_marginal-&gt;get_evaluator());</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span> </div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>    <span class="comment">// LHS</span></div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>    ret.first.set_dual_vector_reference(&amp;m_lhs_dual_vector-&gt;get_event_tensor());</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>    ret.first.set_scale_reference(&amp;m_lhs_scale);</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>    <span class="comment">// RHS</span></div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>    ret.second.set_dual_vector_reference(&amp;m_rhs_reduced_dual_vector-&gt;get_event_tensor());</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>    ret.second.set_scale_reference(&amp;m_rhs_scale);</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span> </div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>    <span class="keywordflow">return</span> ret;</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>}</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span> </div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno"><a class="line" href="classinf_1_1Constraint.html#a73d6c2cb02840f2daa8055da69dd86a9">  220</a></span>std::string <span class="keyword">const</span> &amp;<a class="code hl_function" href="classinf_1_1Constraint.html#a73d6c2cb02840f2daa8055da69dd86a9">inf::Constraint::get_pretty_description</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>    <span class="keywordflow">return</span> m_pretty_description;</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>}</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span> </div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span><span class="comment">// Arithmetic</span></div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span> </div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno"><a class="line" href="classinf_1_1Constraint.html#a97d36dee33389f270e1828cc462b4e2d">  226</a></span><a class="code hl_typedef" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a> <a class="code hl_function" href="classinf_1_1Constraint.html#a97d36dee33389f270e1828cc462b4e2d">inf::Constraint::get_lhs_denom</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>    <span class="keywordflow">return</span> m_lhs_inflation_marginal-&gt;get_denom();</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>}</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span> </div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno"><a class="line" href="classinf_1_1Constraint.html#aa3cfad75e0439bedfb7c0a53d80842ca">  230</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1Constraint.html#aa3cfad75e0439bedfb7c0a53d80842ca">inf::Constraint::set_lhs_scale</a>(<a class="code hl_typedef" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a> scale) {</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>    <a class="code hl_define" href="group__debug.html#ga60f45ee0c4949ef50243feb6fbb8a808">ASSERT_LT</a>(0, scale)</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>    m_lhs_scale = scale;</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>}</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span> </div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno"><a class="line" href="classinf_1_1Constraint.html#a4edba80a718e5a147f47b6288abd0e55">  235</a></span><a class="code hl_typedef" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a> <a class="code hl_function" href="classinf_1_1Constraint.html#a4edba80a718e5a147f47b6288abd0e55">inf::Constraint::get_rhs_denom</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>    <span class="keywordflow">return</span> m_rhs_target_tensor-&gt;get_denom() * m_rhs_inflation_marginal-&gt;get_denom();</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>}</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span> </div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno"><a class="line" href="classinf_1_1Constraint.html#a33dfeb0c7d160891d5777406af88e277">  239</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1Constraint.html#a33dfeb0c7d160891d5777406af88e277">inf::Constraint::set_rhs_scale</a>(<a class="code hl_typedef" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a> scale) {</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>    <a class="code hl_define" href="group__debug.html#ga60f45ee0c4949ef50243feb6fbb8a808">ASSERT_LT</a>(0, scale)</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>    <span class="comment">// The minus sign here is crucial!</span></div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>    m_rhs_scale = -scale;</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>}</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span> </div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span><span class="comment">// Setters</span></div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span> </div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno"><a class="line" href="classinf_1_1Constraint.html#ae4fb3329cf68a6bfb3635e5a22c94547">  247</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1Constraint.html#ae4fb3329cf68a6bfb3635e5a22c94547">inf::Constraint::set_target_distribution</a>(<a class="code hl_class" href="classinf_1_1TargetDistr.html">inf::TargetDistr</a> <span class="keyword">const</span> &amp;d) {</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>    <span class="comment">// First, check that the symmetry group of the distribution hasn&#39;t changed</span></div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>    <span class="comment">// This is slightly sub-optimal once we start having several Constraints,</span></div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>    <span class="comment">// but this is anyway only ran on changing the target distribution</span></div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>    <span class="comment">// (plus it&#39;s very quick)</span></div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>    <span class="keywordflow">if</span> (not m_inflation-&gt;has_symmetries_compatible_with(d)) {</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>        <span class="keywordflow">throw</span> <a class="code hl_class" href="classinf_1_1Symmetry_1_1SymmetriesHaveChanged.html">inf::Symmetry::SymmetriesHaveChanged</a>();</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>    }</div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span> </div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>    m_target_distribution_fixed = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span> </div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>    std::vector&lt;inf::EventTensor const *&gt; target_marginals;</div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>    <span class="keywordflow">for</span> (<a class="code hl_typedef" href="classinf_1_1TargetDistr.html#a6b386ba726f8a8125d1f7d46075dafeb">inf::TargetDistr::MarginalName</a> <span class="keyword">const</span> &amp;marginal_name : m_target_marginal_names) {</div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>        target_marginals.push_back(&amp;d.<a class="code hl_function" href="classinf_1_1TargetDistr.html#ab3eff345d3cd86b648ba62044a387934">get_marginal</a>(marginal_name));</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>    }</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span> </div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>    m_rhs_target_tensor-&gt;set_to_tensor_product(target_marginals);</div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span> </div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>    update_rhs_reduced_dual_vector();</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>}</div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span> </div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno"><a class="line" href="classinf_1_1Constraint.html#a6a27630bf9bb6e380855e7890e935a52">  268</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1Constraint.html#a6a27630bf9bb6e380855e7890e935a52">inf::Constraint::set_dual_vector_from_quovec</a>(<a class="code hl_typedef" href="group__infcons.html#ga8fa19943a83fd41acae30b7bcc935295">inf::Quovec</a> <span class="keyword">const</span> &amp;coeffs,</div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>                                                  <a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> start_pos) {</div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>    m_lhs_dual_vector-&gt;set_from_quovec(coeffs, start_pos);</div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span> </div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>    update_rhs_reduced_dual_vector();</div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>}</div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span> </div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno"><a class="line" href="classinf_1_1Constraint.html#aeb16da1375506748a807a96b51c2fcda">  275</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1Constraint.html#aeb16da1375506748a807a96b51c2fcda">inf::Constraint::compute_inflation_event_quovec</a>(<a class="code hl_typedef" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> <span class="keyword">const</span> &amp;inflation_event,</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>                                                     <a class="code hl_typedef" href="group__infcons.html#ga8fa19943a83fd41acae30b7bcc935295">inf::Quovec</a> &amp;ret,</div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>                                                     <span class="keyword">const</span> <a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> offset)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>    <a class="code hl_define" href="group__debug.html#ga142a617ae6f4d3b050faad2aa1e936bf">ASSERT_TRUE</a>(m_target_distribution_fixed)</div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>    <a class="code hl_define" href="group__debug.html#ga06663ee630c22628b3fe11700767367f">ASSERT_EQUAL</a>(inflation_event.size(), m_inflation-&gt;get_n_parties())</div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>    <a class="code hl_define" href="group__debug.html#ga60f45ee0c4949ef50243feb6fbb8a808">ASSERT_LT</a>(get_quovec_size(), ret.size() - offset + 1)</div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>    <a class="code hl_define" href="group__debug.html#gac1ee6e006b614dd9b0021a0034db646d">DEBUG_RUN</a>(</div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>        <span class="comment">// We&#39;ll be adding to the quovec, so it better be initialized to zero</span></div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>        <span class="keywordflow">for</span> (<a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> i</div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>             : <a class="code hl_class" href="classutil_1_1Range.html">util::Range</a>(get_quovec_size())){</div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>            <a class="code hl_define" href="group__debug.html#ga06663ee630c22628b3fe11700767367f">ASSERT_EQUAL</a>(ret[offset + i], 0)})</div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span> </div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>    std::vector&lt;inf::QuovecIndex&gt; <span class="keyword">const</span> &amp;event_to_quovec_index = m_lhs_dual_vector-&gt;get_event_to_quovec_index();</div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span> </div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>    <span class="keywordflow">for</span> (<a class="code hl_typedef" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> <span class="keyword">const</span> &amp;lhs_marg_event : m_lhs_inflation_marginal-&gt;extract_marg_perm_events(inflation_event)) {</div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>        <a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <span class="keyword">const</span> lhs_marg_hash = m_lhs_dual_vector-&gt;get_event_tensor().get_event_hash(lhs_marg_event);</div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span> </div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>        ret[offset + event_to_quovec_index[lhs_marg_hash]] += m_lhs_scale;</div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>    }</div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span> </div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>    <a class="code hl_define" href="group__debug.html#gac1ee6e006b614dd9b0021a0034db646d">DEBUG_RUN</a>(</div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>        <a class="code hl_typedef" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a> sum = 0;</div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>        <span class="keywordflow">for</span> (<a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> i</div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>             : <a class="code hl_class" href="classutil_1_1Range.html">util::Range</a>(get_quovec_size())) {</div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>            sum += ret[offset + i];</div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>        } <a class="code hl_define" href="group__debug.html#ga06663ee630c22628b3fe11700767367f">ASSERT_EQUAL</a>(sum, m_lhs_inflation_marginal-&gt;get_denom() * m_lhs_scale))</div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span> </div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>    <span class="keywordflow">if</span> (m_rhs_inflation_marginal-&gt;get_n_parties() == 0) {</div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>        <span class="keywordflow">for</span> (<a class="code hl_typedef" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> <span class="keyword">const</span> &amp;target_tensor_event : m_rhs_target_tensor-&gt;get_event_range()) {</div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>            <span class="comment">// Achtung! The event_to_quovec_index map refers to hashes obtained *with unknowns*.</span></div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>            <span class="comment">// Using the m_rhs_target_tensor.get_event_hash() would not work properly.</span></div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>            <span class="comment">// On the other hand, the m_lhs_dual_vector is aware of unknowns.</span></div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>            <span class="comment">// Note: here there used to be a - sign for the RHS, but now this</span></div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>            <span class="comment">// minus sign is contained in m_rhs_scale (see inf::Constraint::set_rhs_scale())</span></div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>            <a class="code hl_typedef" href="classinf_1_1EventTensor.html#ad84da2b448286189d1021e19a2011214">inf::EventTensor::EventHash</a> <span class="keyword">const</span> target_tensor_hash = m_lhs_dual_vector-&gt;get_event_tensor().get_event_hash(target_tensor_event);</div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>            ret[offset + event_to_quovec_index[target_tensor_hash]] += m_rhs_target_tensor-&gt;get_num(target_tensor_event) * 1 * m_rhs_scale;</div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>        }</div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span>        <a class="code hl_typedef" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> rhs_total_event(m_lhs_dual_vector-&gt;get_n_parties(), 0);</div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span> </div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>        <span class="keywordflow">for</span> (<a class="code hl_typedef" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> <span class="keyword">const</span> &amp;target_tensor_event : m_rhs_target_tensor-&gt;get_event_range()) {</div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>            <span class="keywordflow">for</span> (<a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> i : <a class="code hl_class" href="classutil_1_1Range.html">util::Range</a>(target_tensor_event.size())) {</div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span>                rhs_total_event[i] = target_tensor_event[i];</div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>            }</div>
+<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span> </div>
+<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span>            <span class="keywordflow">for</span> (<a class="code hl_typedef" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> <span class="keyword">const</span> &amp;rhs_marg_event : m_rhs_inflation_marginal-&gt;extract_marg_perm_events(inflation_event)) {</div>
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span>                <span class="keywordflow">for</span> (<a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> i : <a class="code hl_class" href="classutil_1_1Range.html">util::Range</a>(rhs_marg_event.size())) {</div>
+<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>                    rhs_total_event[target_tensor_event.size() + i] = rhs_marg_event[i];</div>
+<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span>                }</div>
+<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span> </div>
+<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span>                <a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <span class="keyword">const</span> rhs_total_hash = m_lhs_dual_vector-&gt;get_event_tensor().get_event_hash(rhs_total_event);</div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span> </div>
+<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span>                <span class="comment">// Note: here there used to be a - sign for the RHS, but now this</span></div>
+<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span>                <span class="comment">// minus sign is contained in m_rhs_scale (see inf::Constraint::set_rhs_scale())</span></div>
+<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span>                ret[offset + event_to_quovec_index[rhs_total_hash]] += m_rhs_target_tensor-&gt;get_num(target_tensor_event) * 1 * m_rhs_scale;</div>
+<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span>            }</div>
+<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span>        }</div>
+<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span>    }</div>
+<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span> </div>
+<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span>    <a class="code hl_define" href="group__debug.html#gac1ee6e006b614dd9b0021a0034db646d">DEBUG_RUN</a>(</div>
+<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span>        sum = 0;</div>
+<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span>        <span class="keywordflow">for</span> (<a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> i</div>
+<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>             : <a class="code hl_class" href="classutil_1_1Range.html">util::Range</a>(get_quovec_size())) {</div>
+<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span>            sum += ret[offset + i];</div>
+<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span>        } <a class="code hl_define" href="group__debug.html#ga06663ee630c22628b3fe11700767367f">ASSERT_EQUAL</a>(sum, 0))</div>
+<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span>}</div>
+<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span> </div>
+<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span><span class="comment">// Serialization</span></div>
+<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span> </div>
+<div class="line"><a id="l00344" name="l00344"></a><span class="lineno"><a class="line" href="classinf_1_1Constraint.html#ad805b58479b154d4c129ab4d3026d2fa">  344</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1Constraint.html#ad805b58479b154d4c129ab4d3026d2fa">inf::Constraint::io_dual_vector</a>(<a class="code hl_class" href="classutil_1_1FileStream.html">util::FileStream</a> &amp;stream) {</div>
+<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span>    stream.<a class="code hl_function" href="classutil_1_1FileStream.html#abf07f182518ebc3f4cd0dc9040960581">write_or_read_and_hard_assert</a>(m_pretty_description);</div>
+<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span> </div>
+<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span>    stream.<a class="code hl_function" href="classutil_1_1FileStream.html#a7b911d979dae3e32979fd45f9a3750b7">io</a>(*m_lhs_dual_vector);</div>
+<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span> </div>
+<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span>    update_rhs_reduced_dual_vector();</div>
+<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span>}</div>
+<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span> </div>
+<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span><span class="comment">// Private methods</span></div>
+<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span> </div>
+<div class="line"><a id="l00354" name="l00354"></a><span class="lineno"><a class="line" href="classinf_1_1Constraint.html#a85d494666c97f66178fa37ef7f91edd2">  354</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1Constraint.html#a85d494666c97f66178fa37ef7f91edd2">inf::Constraint::update_rhs_reduced_dual_vector</a>() {</div>
+<div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span>    <a class="code hl_define" href="group__debug.html#ga142a617ae6f4d3b050faad2aa1e936bf">ASSERT_TRUE</a>(m_target_distribution_fixed)</div>
+<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span> </div>
+<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span>    <a class="code hl_define" href="group__debug.html#ga06663ee630c22628b3fe11700767367f">ASSERT_EQUAL</a>(m_lhs_dual_vector-&gt;get_event_tensor().get_denom(), 1)</div>
+<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span>    <a class="code hl_define" href="group__debug.html#ga06663ee630c22628b3fe11700767367f">ASSERT_EQUAL</a>(m_rhs_reduced_dual_vector-&gt;get_event_tensor().get_denom(), 1)</div>
+<div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span> </div>
+<div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span>    <a class="code hl_typedef" href="group__infcons.html#ga8fa19943a83fd41acae30b7bcc935295">inf::Quovec</a> rhs_reduced_quovec;</div>
+<div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span> </div>
+<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span>    <span class="keywordflow">if</span> (m_rhs_reduced_dual_vector-&gt;get_event_tensor().is_scalar()) {</div>
+<div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span>        rhs_reduced_quovec = <a class="code hl_typedef" href="group__infcons.html#ga8fa19943a83fd41acae30b7bcc935295">inf::Quovec</a>(1, 0);</div>
+<div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span> </div>
+<div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span>        <span class="keywordflow">for</span> (<a class="code hl_typedef" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> <span class="keyword">const</span> &amp;target_tensor_event : m_rhs_target_tensor-&gt;get_event_range()) {</div>
+<div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span>            <span class="comment">// Achtung! Need to get the hash of the target tensor (who is always unknown-unaware)</span></div>
+<div class="line"><a id="l00367" name="l00367"></a><span class="lineno">  367</span>            <span class="comment">// from something that is unknown-aware, such a m_lhs_dual_vector.</span></div>
+<div class="line"><a id="l00368" name="l00368"></a><span class="lineno">  368</span>            rhs_reduced_quovec[0] += m_lhs_dual_vector-&gt;get_event_tensor().get_num(target_tensor_event) * m_rhs_target_tensor-&gt;get_num(target_tensor_event);</div>
+<div class="line"><a id="l00369" name="l00369"></a><span class="lineno">  369</span>        }</div>
+<div class="line"><a id="l00370" name="l00370"></a><span class="lineno">  370</span>    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00371" name="l00371"></a><span class="lineno">  371</span>        rhs_reduced_quovec = <a class="code hl_typedef" href="group__infcons.html#ga8fa19943a83fd41acae30b7bcc935295">inf::Quovec</a>(m_rhs_reduced_dual_vector-&gt;get_n_orbits_no_unknown(), 0);</div>
+<div class="line"><a id="l00372" name="l00372"></a><span class="lineno">  372</span> </div>
+<div class="line"><a id="l00373" name="l00373"></a><span class="lineno">  373</span>        <a class="code hl_typedef" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> lhs_dual_vector_event(m_lhs_dual_vector-&gt;get_n_parties(), 0);</div>
+<div class="line"><a id="l00374" name="l00374"></a><span class="lineno">  374</span> </div>
+<div class="line"><a id="l00375" name="l00375"></a><span class="lineno">  375</span>        <span class="comment">// Achtung! Need to loop over the orbits without unknowns only.</span></div>
+<div class="line"><a id="l00376" name="l00376"></a><span class="lineno">  376</span>        <span class="comment">// for(inf::Orbitable::OrbitPair const&amp; orbit_pair : m_rhs_reduced_dual_vector.get_orbits())</span></div>
+<div class="line"><a id="l00377" name="l00377"></a><span class="lineno">  377</span>        <span class="comment">// {</span></div>
+<div class="line"><a id="l00378" name="l00378"></a><span class="lineno">  378</span>        <span class="comment">//     inf::Event const&amp; rhs_dual_vector_event = orbit_pair.first;</span></div>
+<div class="line"><a id="l00379" name="l00379"></a><span class="lineno">  379</span>        <span class="keywordflow">for</span> (<a class="code hl_typedef" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> <span class="keyword">const</span> &amp;rhs_dual_vector_event : m_rhs_reduced_dual_vector-&gt;get_orbit_repr_no_unknown()) {</div>
+<div class="line"><a id="l00380" name="l00380"></a><span class="lineno">  380</span>            <span class="keywordflow">for</span> (<a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> i : <a class="code hl_class" href="classutil_1_1Range.html">util::Range</a>(rhs_dual_vector_event.size())) {</div>
+<div class="line"><a id="l00381" name="l00381"></a><span class="lineno">  381</span>                lhs_dual_vector_event[m_rhs_target_tensor-&gt;get_n_parties() + i] = rhs_dual_vector_event[i];</div>
+<div class="line"><a id="l00382" name="l00382"></a><span class="lineno">  382</span>            }</div>
+<div class="line"><a id="l00383" name="l00383"></a><span class="lineno">  383</span> </div>
+<div class="line"><a id="l00384" name="l00384"></a><span class="lineno">  384</span>            <span class="keywordflow">for</span> (<a class="code hl_typedef" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> <span class="keyword">const</span> &amp;target_tensor_event : m_rhs_target_tensor-&gt;get_event_range()) {</div>
+<div class="line"><a id="l00385" name="l00385"></a><span class="lineno">  385</span>                <span class="keywordflow">for</span> (<a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> i : <a class="code hl_class" href="classutil_1_1Range.html">util::Range</a>(target_tensor_event.size())) {</div>
+<div class="line"><a id="l00386" name="l00386"></a><span class="lineno">  386</span>                    lhs_dual_vector_event[i] = target_tensor_event[i];</div>
+<div class="line"><a id="l00387" name="l00387"></a><span class="lineno">  387</span>                }</div>
+<div class="line"><a id="l00388" name="l00388"></a><span class="lineno">  388</span> </div>
+<div class="line"><a id="l00389" name="l00389"></a><span class="lineno">  389</span>                <a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <span class="keyword">const</span> hash_rhs_dual_vector_event = m_rhs_reduced_dual_vector-&gt;get_event_tensor().get_event_hash(rhs_dual_vector_event);</div>
+<div class="line"><a id="l00390" name="l00390"></a><span class="lineno">  390</span> </div>
+<div class="line"><a id="l00391" name="l00391"></a><span class="lineno">  391</span>                rhs_reduced_quovec[m_rhs_reduced_dual_vector-&gt;get_event_to_quovec_index()[hash_rhs_dual_vector_event]] += m_rhs_target_tensor-&gt;get_num(target_tensor_event) * m_lhs_dual_vector-&gt;get_event_tensor().get_num(lhs_dual_vector_event);</div>
+<div class="line"><a id="l00392" name="l00392"></a><span class="lineno">  392</span>            }</div>
+<div class="line"><a id="l00393" name="l00393"></a><span class="lineno">  393</span>        }</div>
+<div class="line"><a id="l00394" name="l00394"></a><span class="lineno">  394</span>    }</div>
+<div class="line"><a id="l00395" name="l00395"></a><span class="lineno">  395</span> </div>
+<div class="line"><a id="l00396" name="l00396"></a><span class="lineno">  396</span>    <span class="comment">// Start position = 0</span></div>
+<div class="line"><a id="l00397" name="l00397"></a><span class="lineno">  397</span>    m_rhs_reduced_dual_vector-&gt;set_from_quovec(rhs_reduced_quovec, 0);</div>
+<div class="line"><a id="l00398" name="l00398"></a><span class="lineno">  398</span>}</div>
+<div class="ttc" id="aclassinf_1_1ConstraintParser_html"><div class="ttname"><a href="classinf_1_1ConstraintParser.html">inf::ConstraintParser</a></div><div class="ttdoc">To convert a human-readable formulation of inflation constraints into the necessary internal format.</div><div class="ttdef"><b>Definition</b> <a href="constraint__parser_8h_source.html#l00044">constraint_parser.h:44</a></div></div>
+<div class="ttc" id="aclassinf_1_1ConstraintParser_html_a792426384f4ac2d91e75985d00e9de04"><div class="ttname"><a href="classinf_1_1ConstraintParser.html#a792426384f4ac2d91e75985d00e9de04">inf::ConstraintParser::get_target_marg_names</a></div><div class="ttdeci">std::vector&lt; inf::TargetDistr::MarginalName &gt; get_target_marg_names() const</div><div class="ttdoc">The list of target distribution marginals corresponding to each .</div><div class="ttdef"><b>Definition</b> <a href="constraint__parser_8cpp_source.html#l00097">constraint_parser.cpp:97</a></div></div>
+<div class="ttc" id="aclassinf_1_1ConstraintParser_html_a960ab2d31befa2c036834b3668fa77da"><div class="ttname"><a href="classinf_1_1ConstraintParser.html#a960ab2d31befa2c036834b3668fa77da">inf::ConstraintParser::get_lhs_marg_parties</a></div><div class="ttdeci">std::vector&lt; Index &gt; get_lhs_marg_parties() const</div><div class="ttdoc">The left-hand-side inflation marginal party indices, i.e., the party indices corresponding to the set...</div><div class="ttdef"><b>Definition</b> <a href="constraint__parser_8cpp_source.html#l00089">constraint_parser.cpp:89</a></div></div>
+<div class="ttc" id="aclassinf_1_1ConstraintParser_html_afc353c578678697adb67009a5526d8b7"><div class="ttname"><a href="classinf_1_1ConstraintParser.html#afc353c578678697adb67009a5526d8b7">inf::ConstraintParser::get_rhs_marg_parties</a></div><div class="ttdeci">std::vector&lt; Index &gt; get_rhs_marg_parties() const</div><div class="ttdoc">The right-hand-side inflation marginal party indices, i.e., the party indices corresponding to the se...</div><div class="ttdef"><b>Definition</b> <a href="constraint__parser_8cpp_source.html#l00093">constraint_parser.cpp:93</a></div></div>
+<div class="ttc" id="aclassinf_1_1Constraint_html"><div class="ttname"><a href="classinf_1_1Constraint.html">inf::Constraint</a></div><div class="ttdoc">Describes a single constraint of the form .</div><div class="ttdef"><b>Definition</b> <a href="constraint_8h_source.html#l00027">constraint.h:27</a></div></div>
+<div class="ttc" id="aclassinf_1_1Constraint_html_a049b3a91fc3fb6dab93951a10c61c4d3"><div class="ttname"><a href="classinf_1_1Constraint.html#a049b3a91fc3fb6dab93951a10c61c4d3">inf::Constraint::Constraint</a></div><div class="ttdeci">Constraint(inf::Inflation::ConstPtr const &amp;inflation, inf::Constraint::Description const &amp;description, inf::DualVector::StoreBounds store_bounds)</div><div class="ttdoc">Initialize a constraint based on a text description.</div><div class="ttdef"><b>Definition</b> <a href="constraint_8cpp_source.html#l00081">constraint.cpp:81</a></div></div>
+<div class="ttc" id="aclassinf_1_1Constraint_html_a0f7a0a8d15cfabd25c7804f632412960"><div class="ttname"><a href="classinf_1_1Constraint.html#a0f7a0a8d15cfabd25c7804f632412960">inf::Constraint::get_constraint_group</a></div><div class="ttdeci">static inf::Symmetry::Group get_constraint_group(inf::Inflation const &amp;inflation, std::vector&lt; Index &gt; const &amp;lhs_marg, std::vector&lt; Index &gt; const &amp;rhs_marg)</div><div class="ttdoc">This computes the group , the subgroup of the inflation symmetries  (see inf::Inflation::get_inflatio...</div><div class="ttdef"><b>Definition</b> <a href="constraint_8cpp_source.html#l00041">constraint.cpp:41</a></div></div>
+<div class="ttc" id="aclassinf_1_1Constraint_html_a21abb33e7aa6efe043a820dfb80c8df0"><div class="ttname"><a href="classinf_1_1Constraint.html#a21abb33e7aa6efe043a820dfb80c8df0">inf::Constraint::m_target_marginal_names</a></div><div class="ttdeci">std::vector&lt; inf::TargetDistr::MarginalName &gt; m_target_marginal_names</div><div class="ttdoc">This stores the copy-indices-stripped marginals , e.g., {{&quot;A&quot;,&quot;B&quot;,&quot;C&quot;},{&quot;B&quot;}}</div><div class="ttdef"><b>Definition</b> <a href="constraint_8h_source.html#l00146">constraint.h:146</a></div></div>
+<div class="ttc" id="aclassinf_1_1Constraint_html_a2218be49df2addaa6c5a67fc4b9c339d"><div class="ttname"><a href="classinf_1_1Constraint.html#a2218be49df2addaa6c5a67fc4b9c339d">inf::Constraint::m_rhs_reduced_dual_vector</a></div><div class="ttdeci">inf::DualVector::UniquePtr m_rhs_reduced_dual_vector</div><div class="ttdoc">The dual vector to be evaluated on m_rhs_marginal. It store the partial contraction of m_lhs_dual_vec...</div><div class="ttdef"><b>Definition</b> <a href="constraint_8h_source.html#l00153">constraint.h:153</a></div></div>
+<div class="ttc" id="aclassinf_1_1Constraint_html_a33dfeb0c7d160891d5777406af88e277"><div class="ttname"><a href="classinf_1_1Constraint.html#a33dfeb0c7d160891d5777406af88e277">inf::Constraint::set_rhs_scale</a></div><div class="ttdeci">void set_rhs_scale(Num scale)</div><div class="ttdoc">Sets the right-hand-side scale factor, denoted  in the documentation of inf::Marginal.</div><div class="ttdef"><b>Definition</b> <a href="constraint_8cpp_source.html#l00239">constraint.cpp:239</a></div></div>
+<div class="ttc" id="aclassinf_1_1Constraint_html_a34a857617723361d4646c14b34412f8a"><div class="ttname"><a href="classinf_1_1Constraint.html#a34a857617723361d4646c14b34412f8a">inf::Constraint::EvaluatorPair</a></div><div class="ttdeci">std::pair&lt; inf::Marginal::Evaluator, inf::Marginal::Evaluator &gt; EvaluatorPair</div><div class="ttdoc">This allows to more conveniently return two inf::Marginal::Evaluator in inf::Constraint::get_marg_eva...</div><div class="ttdef"><b>Definition</b> <a href="constraint_8h_source.html#l00078">constraint.h:78</a></div></div>
+<div class="ttc" id="aclassinf_1_1Constraint_html_a3647bf14ff19b0e558085229637daa94"><div class="ttname"><a href="classinf_1_1Constraint.html#a3647bf14ff19b0e558085229637daa94">inf::Constraint::get_dual_vector</a></div><div class="ttdeci">inf::DualVector const &amp; get_dual_vector() const</div><div class="ttdoc">Returns , the underlying left-hand-side inf::DualVector m_lhs_dual_vector</div><div class="ttdef"><b>Definition</b> <a href="constraint_8cpp_source.html#l00198">constraint.cpp:198</a></div></div>
+<div class="ttc" id="aclassinf_1_1Constraint_html_a41ff765b03f20de8c752f3387059754f"><div class="ttname"><a href="classinf_1_1Constraint.html#a41ff765b03f20de8c752f3387059754f">inf::Constraint::log</a></div><div class="ttdeci">void log() const override</div><div class="ttdoc">This prints the object to the globally accessible util::logger and allows the util::logger &lt;&lt; loggabl...</div><div class="ttdef"><b>Definition</b> <a href="constraint_8cpp_source.html#l00124">constraint.cpp:124</a></div></div>
+<div class="ttc" id="aclassinf_1_1Constraint_html_a4edba80a718e5a147f47b6288abd0e55"><div class="ttname"><a href="classinf_1_1Constraint.html#a4edba80a718e5a147f47b6288abd0e55">inf::Constraint::get_rhs_denom</a></div><div class="ttdeci">Num get_rhs_denom() const</div><div class="ttdoc">The right-hand-side denominator, i.e., the denominator of m_rhs_target_tensor times ,...</div><div class="ttdef"><b>Definition</b> <a href="constraint_8cpp_source.html#l00235">constraint.cpp:235</a></div></div>
+<div class="ttc" id="aclassinf_1_1Constraint_html_a6a27630bf9bb6e380855e7890e935a52"><div class="ttname"><a href="classinf_1_1Constraint.html#a6a27630bf9bb6e380855e7890e935a52">inf::Constraint::set_dual_vector_from_quovec</a></div><div class="ttdeci">void set_dual_vector_from_quovec(inf::Quovec const &amp;coeffs, const Index start_pos)</div><div class="ttdoc">Sets the left-hand-side inf::DualVector m_lhs_dual_vector and update m_rhs_reduced_dual_vector approp...</div><div class="ttdef"><b>Definition</b> <a href="constraint_8cpp_source.html#l00268">constraint.cpp:268</a></div></div>
+<div class="ttc" id="aclassinf_1_1Constraint_html_a73d6c2cb02840f2daa8055da69dd86a9"><div class="ttname"><a href="classinf_1_1Constraint.html#a73d6c2cb02840f2daa8055da69dd86a9">inf::Constraint::get_pretty_description</a></div><div class="ttdeci">std::string const &amp; get_pretty_description() const</div><div class="ttdef"><b>Definition</b> <a href="constraint_8cpp_source.html#l00220">constraint.cpp:220</a></div></div>
+<div class="ttc" id="aclassinf_1_1Constraint_html_a85d494666c97f66178fa37ef7f91edd2"><div class="ttname"><a href="classinf_1_1Constraint.html#a85d494666c97f66178fa37ef7f91edd2">inf::Constraint::update_rhs_reduced_dual_vector</a></div><div class="ttdeci">void update_rhs_reduced_dual_vector()</div><div class="ttdoc">This contracts m_lhs_dual_vector and m_rhs_target_tensor and places the result in m_rhs_reduced_dual_...</div><div class="ttdef"><b>Definition</b> <a href="constraint_8cpp_source.html#l00354">constraint.cpp:354</a></div></div>
+<div class="ttc" id="aclassinf_1_1Constraint_html_a97d36dee33389f270e1828cc462b4e2d"><div class="ttname"><a href="classinf_1_1Constraint.html#a97d36dee33389f270e1828cc462b4e2d">inf::Constraint::get_lhs_denom</a></div><div class="ttdeci">Num get_lhs_denom() const</div><div class="ttdoc">The left-hand-side denominator, i.e., , see inf::Marginal::get_denom()</div><div class="ttdef"><b>Definition</b> <a href="constraint_8cpp_source.html#l00226">constraint.cpp:226</a></div></div>
+<div class="ttc" id="aclassinf_1_1Constraint_html_a9af530da5633c7e8d6ee25e29488b715"><div class="ttname"><a href="classinf_1_1Constraint.html#a9af530da5633c7e8d6ee25e29488b715">inf::Constraint::Description</a></div><div class="ttdeci">std::vector&lt; std::string &gt; Description</div><div class="ttdoc">The text description of an inflation constraint, see inf::ConstraintParser for the adequate format.</div><div class="ttdef"><b>Definition</b> <a href="constraint_8h_source.html#l00032">constraint.h:32</a></div></div>
+<div class="ttc" id="aclassinf_1_1Constraint_html_a9edd7cb8eff07cd149f982cb9203f798"><div class="ttname"><a href="classinf_1_1Constraint.html#a9edd7cb8eff07cd149f982cb9203f798">inf::Constraint::m_lhs_inflation_marginal</a></div><div class="ttdeci">inf::Marginal::UniquePtr m_lhs_inflation_marginal</div><div class="ttdoc">The left-hand-side inflation marginal .</div><div class="ttdef"><b>Definition</b> <a href="constraint_8h_source.html#l00137">constraint.h:137</a></div></div>
+<div class="ttc" id="aclassinf_1_1Constraint_html_aa0dde43c2cd089b9592663b1b8b81a99"><div class="ttname"><a href="classinf_1_1Constraint.html#aa0dde43c2cd089b9592663b1b8b81a99">inf::Constraint::get_marg_evaluators</a></div><div class="ttdeci">inf::Constraint::EvaluatorPair get_marg_evaluators() const</div><div class="ttdoc">This returns the inf::Marginal::Evaluator for the left-hand-side marginal  and the right-hand-side ma...</div><div class="ttdef"><b>Definition</b> <a href="constraint_8cpp_source.html#l00206">constraint.cpp:206</a></div></div>
+<div class="ttc" id="aclassinf_1_1Constraint_html_aa3cfad75e0439bedfb7c0a53d80842ca"><div class="ttname"><a href="classinf_1_1Constraint.html#aa3cfad75e0439bedfb7c0a53d80842ca">inf::Constraint::set_lhs_scale</a></div><div class="ttdeci">void set_lhs_scale(Num scale)</div><div class="ttdoc">Sets the left-hand-side scale factor, denoted  in the documentation of inf::Marginal.</div><div class="ttdef"><b>Definition</b> <a href="constraint_8cpp_source.html#l00230">constraint.cpp:230</a></div></div>
+<div class="ttc" id="aclassinf_1_1Constraint_html_ac5ff3d4a18c462871a48cc31490c0a42"><div class="ttname"><a href="classinf_1_1Constraint.html#ac5ff3d4a18c462871a48cc31490c0a42">inf::Constraint::pretty_description</a></div><div class="ttdeci">static std::string pretty_description(inf::Constraint::Description description)</div><div class="ttdoc">To print nicely an inf::Constraint::Description.</div><div class="ttdef"><b>Definition</b> <a href="constraint_8cpp_source.html#l00006">constraint.cpp:6</a></div></div>
+<div class="ttc" id="aclassinf_1_1Constraint_html_aca39c9e1f819a081bacba3f787bb3980"><div class="ttname"><a href="classinf_1_1Constraint.html#aca39c9e1f819a081bacba3f787bb3980">inf::Constraint::m_rhs_inflation_marginal</a></div><div class="ttdeci">inf::Marginal::UniquePtr m_rhs_inflation_marginal</div><div class="ttdoc">The right-hand-side inflation marginal .</div><div class="ttdef"><b>Definition</b> <a href="constraint_8h_source.html#l00139">constraint.h:139</a></div></div>
+<div class="ttc" id="aclassinf_1_1Constraint_html_ad6c6fddb7d2df3e72aa29e81697c210e"><div class="ttname"><a href="classinf_1_1Constraint.html#ad6c6fddb7d2df3e72aa29e81697c210e">inf::Constraint::get_quovec_size</a></div><div class="ttdeci">Index get_quovec_size() const</div><div class="ttdoc">The size , the number of elements in a quovec.</div><div class="ttdef"><b>Definition</b> <a href="constraint_8cpp_source.html#l00202">constraint.cpp:202</a></div></div>
+<div class="ttc" id="aclassinf_1_1Constraint_html_ad805b58479b154d4c129ab4d3026d2fa"><div class="ttname"><a href="classinf_1_1Constraint.html#ad805b58479b154d4c129ab4d3026d2fa">inf::Constraint::io_dual_vector</a></div><div class="ttdeci">void io_dual_vector(util::FileStream &amp;stream)</div><div class="ttdoc">This implements the I/O mechanism for the underlying inf::DualVector.</div><div class="ttdef"><b>Definition</b> <a href="constraint_8cpp_source.html#l00344">constraint.cpp:344</a></div></div>
+<div class="ttc" id="aclassinf_1_1Constraint_html_ad9f309029d0996c3b48f7ccafc5bb9a5"><div class="ttname"><a href="classinf_1_1Constraint.html#ad9f309029d0996c3b48f7ccafc5bb9a5">inf::Constraint::m_rhs_target_tensor</a></div><div class="ttdeci">inf::EventTensor::UniquePtr m_rhs_target_tensor</div><div class="ttdoc">This stores .</div><div class="ttdef"><b>Definition</b> <a href="constraint_8h_source.html#l00148">constraint.h:148</a></div></div>
+<div class="ttc" id="aclassinf_1_1Constraint_html_adf339fc0428a07eb4cfc1fa0db0df617"><div class="ttname"><a href="classinf_1_1Constraint.html#adf339fc0428a07eb4cfc1fa0db0df617">inf::Constraint::m_inflation</a></div><div class="ttdeci">inf::Inflation::ConstPtr m_inflation</div><div class="ttdoc">The underlying inflation.</div><div class="ttdef"><b>Definition</b> <a href="constraint_8h_source.html#l00131">constraint.h:131</a></div></div>
+<div class="ttc" id="aclassinf_1_1Constraint_html_ae4fb3329cf68a6bfb3635e5a22c94547"><div class="ttname"><a href="classinf_1_1Constraint.html#ae4fb3329cf68a6bfb3635e5a22c94547">inf::Constraint::set_target_distribution</a></div><div class="ttdeci">void set_target_distribution(inf::TargetDistr const &amp;d)</div><div class="ttdoc">To modify the target distribution . This updates m_rhs_target_tensor and m_rhs_reduced_dual_vector.</div><div class="ttdef"><b>Definition</b> <a href="constraint_8cpp_source.html#l00247">constraint.cpp:247</a></div></div>
+<div class="ttc" id="aclassinf_1_1Constraint_html_aeb16da1375506748a807a96b51c2fcda"><div class="ttname"><a href="classinf_1_1Constraint.html#aeb16da1375506748a807a96b51c2fcda">inf::Constraint::compute_inflation_event_quovec</a></div><div class="ttdeci">void compute_inflation_event_quovec(inf::Event const &amp;inflation_event, inf::Quovec &amp;ret, const Index offset) const</div><div class="ttdoc">This returns  where  is passed as inflation_event.</div><div class="ttdef"><b>Definition</b> <a href="constraint_8cpp_source.html#l00275">constraint.cpp:275</a></div></div>
+<div class="ttc" id="aclassinf_1_1Constraint_html_af674b22f045e2b876deeae5a4193a5ea"><div class="ttname"><a href="classinf_1_1Constraint.html#af674b22f045e2b876deeae5a4193a5ea">inf::Constraint::m_lhs_dual_vector</a></div><div class="ttdeci">inf::DualVector::UniquePtr m_lhs_dual_vector</div><div class="ttdoc">The dual vector to be evaluated on m_lhs_marginal</div><div class="ttdef"><b>Definition</b> <a href="constraint_8h_source.html#l00151">constraint.h:151</a></div></div>
+<div class="ttc" id="aclassinf_1_1Constraint_html_afc8de0049be481bc67ce9752bc380303"><div class="ttname"><a href="classinf_1_1Constraint.html#afc8de0049be481bc67ce9752bc380303">inf::Constraint::m_constraint_group</a></div><div class="ttdeci">inf::Symmetry::Group m_constraint_group</div><div class="ttdoc">The group  of constraint symmetries.</div><div class="ttdef"><b>Definition</b> <a href="constraint_8h_source.html#l00134">constraint.h:134</a></div></div>
+<div class="ttc" id="aclassinf_1_1DualVector_html"><div class="ttname"><a href="classinf_1_1DualVector.html">inf::DualVector</a></div><div class="ttdoc">Describes a dual vector  through its embedding .</div><div class="ttdef"><b>Definition</b> <a href="dual__vector_8h_source.html#l00074">dual_vector.h:74</a></div></div>
+<div class="ttc" id="aclassinf_1_1DualVector_html_a3ac0be707f8f14bf1e429fcb6b17f9a0a0122b4c2c01ee1c698ecc309d2b8eb5a"><div class="ttname"><a href="classinf_1_1DualVector.html#a3ac0be707f8f14bf1e429fcb6b17f9a0a0122b4c2c01ee1c698ecc309d2b8eb5a">inf::DualVector::BoundType::upper</a></div><div class="ttdeci">@ upper</div><div class="ttdoc">Upper bounds are computed.</div></div>
+<div class="ttc" id="aclassinf_1_1DualVector_html_a3ac0be707f8f14bf1e429fcb6b17f9a0a81e073b428b50247daba38531dcf412a"><div class="ttname"><a href="classinf_1_1DualVector.html#a3ac0be707f8f14bf1e429fcb6b17f9a0a81e073b428b50247daba38531dcf412a">inf::DualVector::BoundType::lower</a></div><div class="ttdeci">@ lower</div><div class="ttdoc">Lower bounds are computed.</div></div>
+<div class="ttc" id="aclassinf_1_1DualVector_html_a615feaafdbd4a08901a07ad60260d398"><div class="ttname"><a href="classinf_1_1DualVector.html#a615feaafdbd4a08901a07ad60260d398">inf::DualVector::StoreBounds</a></div><div class="ttdeci">StoreBounds</div><div class="ttdoc">This controls whether or not an inf::DualVector will store some bounds.</div><div class="ttdef"><b>Definition</b> <a href="dual__vector_8h_source.html#l00084">dual_vector.h:84</a></div></div>
+<div class="ttc" id="aclassinf_1_1EventTensor_html_ad84da2b448286189d1021e19a2011214"><div class="ttname"><a href="classinf_1_1EventTensor.html#ad84da2b448286189d1021e19a2011214">inf::EventTensor::EventHash</a></div><div class="ttdeci">Index EventHash</div><div class="ttdoc">Internally, the inf::EventTensor assigns a Num to an inf::Event by first hashing it.</div><div class="ttdef"><b>Definition</b> <a href="event__tensor_8h_source.html#l00048">event_tensor.h:48</a></div></div>
+<div class="ttc" id="aclassinf_1_1Inflation_html"><div class="ttname"><a href="classinf_1_1Inflation.html">inf::Inflation</a></div><div class="ttdoc">Describes an inflation of a network, currently restricted to canonical inflations of the triangle net...</div><div class="ttdef"><b>Definition</b> <a href="inflation_8h_source.html#l00051">inflation.h:51</a></div></div>
+<div class="ttc" id="aclassinf_1_1Inflation_html_abfa6a2b7897bb9f1d3c406a864e9acdf"><div class="ttname"><a href="classinf_1_1Inflation.html#abfa6a2b7897bb9f1d3c406a864e9acdf">inf::Inflation::get_inflation_symmetries</a></div><div class="ttdeci">inf::Symmetry::Group const &amp; get_inflation_symmetries() const</div><div class="ttdoc">Returns the symmetries of the inflation, typically including the symmetries of the specified inf::Tar...</div><div class="ttdef"><b>Definition</b> <a href="inflation_8cpp_source.html#l00232">inflation.cpp:232</a></div></div>
+<div class="ttc" id="aclassinf_1_1Inflation_html_ac594d5b8d7cbdd7cdfe569baa351f0ba"><div class="ttname"><a href="classinf_1_1Inflation.html#ac594d5b8d7cbdd7cdfe569baa351f0ba">inf::Inflation::ConstPtr</a></div><div class="ttdeci">std::shared_ptr&lt; const inf::Inflation &gt; ConstPtr</div><div class="ttdef"><b>Definition</b> <a href="inflation_8h_source.html#l00072">inflation.h:72</a></div></div>
+<div class="ttc" id="aclassinf_1_1Symmetry_1_1SymmetriesHaveChanged_html"><div class="ttname"><a href="classinf_1_1Symmetry_1_1SymmetriesHaveChanged.html">inf::Symmetry::SymmetriesHaveChanged</a></div><div class="ttdoc">Used to indicate that a symmetry group has changed.</div><div class="ttdef"><b>Definition</b> <a href="symmetry_8h_source.html#l00030">symmetry.h:30</a></div></div>
+<div class="ttc" id="aclassinf_1_1Symmetry_html"><div class="ttname"><a href="classinf_1_1Symmetry.html">inf::Symmetry</a></div><div class="ttdoc">A pair of party symmetry and outcome symmetry.</div><div class="ttdef"><b>Definition</b> <a href="symmetry_8h_source.html#l00027">symmetry.h:27</a></div></div>
+<div class="ttc" id="aclassinf_1_1Symmetry_html_a901d22b86ef5923b628db86fbdd7ba4f"><div class="ttname"><a href="classinf_1_1Symmetry.html#a901d22b86ef5923b628db86fbdd7ba4f">inf::Symmetry::Group</a></div><div class="ttdeci">std::set&lt; inf::Symmetry &gt; Group</div><div class="ttdoc">A set of symmetries, typically a group.</div><div class="ttdef"><b>Definition</b> <a href="symmetry_8h_source.html#l00037">symmetry.h:37</a></div></div>
+<div class="ttc" id="aclassinf_1_1TargetDistr_html"><div class="ttname"><a href="classinf_1_1TargetDistr.html">inf::TargetDistr</a></div><div class="ttdoc">A distribution over an inf::Network.</div><div class="ttdef"><b>Definition</b> <a href="target__distr_8h_source.html#l00031">target_distr.h:31</a></div></div>
+<div class="ttc" id="aclassinf_1_1TargetDistr_html_a6b386ba726f8a8125d1f7d46075dafeb"><div class="ttname"><a href="classinf_1_1TargetDistr.html#a6b386ba726f8a8125d1f7d46075dafeb">inf::TargetDistr::MarginalName</a></div><div class="ttdeci">std::vector&lt; std::string &gt; MarginalName</div><div class="ttdoc">A marginal name is a list of the form {&quot;A&quot;, &quot;B&quot;}</div><div class="ttdef"><b>Definition</b> <a href="target__distr_8h_source.html#l00034">target_distr.h:34</a></div></div>
+<div class="ttc" id="aclassinf_1_1TargetDistr_html_ab3eff345d3cd86b648ba62044a387934"><div class="ttname"><a href="classinf_1_1TargetDistr.html#ab3eff345d3cd86b648ba62044a387934">inf::TargetDistr::get_marginal</a></div><div class="ttdeci">inf::EventTensor const &amp; get_marginal(inf::TargetDistr::MarginalName const &amp;name) const</div><div class="ttdoc">Get the marginal distribution corresponding to the parties specified in the name.</div><div class="ttdef"><b>Definition</b> <a href="target__distr_8cpp_source.html#l00032">target_distr.cpp:32</a></div></div>
+<div class="ttc" id="aclassutil_1_1FileStream_html"><div class="ttname"><a href="classutil_1_1FileStream.html">util::FileStream</a></div><div class="ttdoc">This abstract class provides a common interface to util::InputFileStream and util::OutputFileStream t...</div><div class="ttdef"><b>Definition</b> <a href="file__stream_8h_source.html#l00098">file_stream.h:98</a></div></div>
+<div class="ttc" id="aclassutil_1_1FileStream_html_a7b911d979dae3e32979fd45f9a3750b7"><div class="ttname"><a href="classutil_1_1FileStream.html#a7b911d979dae3e32979fd45f9a3750b7">util::FileStream::io</a></div><div class="ttdeci">void io(std::string &amp;s)</div><div class="ttdoc">Read or write a string.</div><div class="ttdef"><b>Definition</b> <a href="file__stream_8cpp_source.html#l00063">file_stream.cpp:63</a></div></div>
+<div class="ttc" id="aclassutil_1_1FileStream_html_abf07f182518ebc3f4cd0dc9040960581"><div class="ttname"><a href="classutil_1_1FileStream.html#abf07f182518ebc3f4cd0dc9040960581">util::FileStream::write_or_read_and_hard_assert</a></div><div class="ttdeci">void write_or_read_and_hard_assert(T const &amp;value)</div><div class="ttdoc">This writes the specified value to the stream if the stream is writing, and otherwise reads a value o...</div><div class="ttdef"><b>Definition</b> <a href="file__stream_8h_source.html#l00181">file_stream.h:181</a></div></div>
+<div class="ttc" id="aclassutil_1_1Logger_html_a3c621919a7dae959843f5f2493e2d3d2"><div class="ttname"><a href="classutil_1_1Logger.html#a3c621919a7dae959843f5f2493e2d3d2">util::Logger::get_single_char</a></div><div class="ttdeci">std::string get_single_char(unsigned long int i) const</div><div class="ttdoc">Returns a string with a single-char representation of the number i.</div><div class="ttdef"><b>Definition</b> <a href="logger_8cpp_source.html#l00175">logger.cpp:175</a></div></div>
+<div class="ttc" id="aclassutil_1_1Logger_html_ac7840a2529ef40d0e881b621d789b51c"><div class="ttname"><a href="classutil_1_1Logger.html#ac7840a2529ef40d0e881b621d789b51c">util::Logger::get_color_code</a></div><div class="ttdeci">std::string get_color_code(util::Color c) const</div><div class="ttdoc">Returns either an ANSI color code or an empty string, depending on the util::Logger::ColorMode.</div><div class="ttdef"><b>Definition</b> <a href="logger_8cpp_source.html#l00134">logger.cpp:134</a></div></div>
+<div class="ttc" id="aclassutil_1_1Range_html"><div class="ttname"><a href="classutil_1_1Range.html">util::Range</a></div><div class="ttdoc">Iterating over a finite integer range.</div><div class="ttdef"><b>Definition</b> <a href="range_8h_source.html#l00131">range.h:131</a></div></div>
+<div class="ttc" id="aconstraint_8h_html"><div class="ttname"><a href="constraint_8h.html">constraint.h</a></div></div>
+<div class="ttc" id="aconstraint__parser_8h_html"><div class="ttname"><a href="constraint__parser_8h.html">constraint_parser.h</a></div></div>
+<div class="ttc" id="agroup__color_html_ga95747189f62a0ed341c6e2579146beb7"><div class="ttname"><a href="group__color.html#ga95747189f62a0ed341c6e2579146beb7">util::Color</a></div><div class="ttdeci">Color</div><div class="ttdoc">The available colors.</div><div class="ttdef"><b>Definition</b> <a href="color_8h_source.html#l00015">color.h:15</a></div></div>
+<div class="ttc" id="agroup__color_html_gga95747189f62a0ed341c6e2579146beb7a3d4044d65abdda407a92991f1300ec97"><div class="ttname"><a href="group__color.html#gga95747189f62a0ed341c6e2579146beb7a3d4044d65abdda407a92991f1300ec97">util::Color::fg</a></div><div class="ttdeci">@ fg</div><div class="ttdoc">foreground, i.e., resets the color</div></div>
+<div class="ttc" id="agroup__color_html_gga95747189f62a0ed341c6e2579146beb7a48d6215903dff56238e52e8891380c8f"><div class="ttname"><a href="group__color.html#gga95747189f62a0ed341c6e2579146beb7a48d6215903dff56238e52e8891380c8f">util::Color::blue</a></div><div class="ttdeci">@ blue</div><div class="ttdoc">blue</div></div>
+<div class="ttc" id="agroup__color_html_gga95747189f62a0ed341c6e2579146beb7a6411532ba4971f378391776a9db629d3"><div class="ttname"><a href="group__color.html#gga95747189f62a0ed341c6e2579146beb7a6411532ba4971f378391776a9db629d3">util::Color::cyan</a></div><div class="ttdeci">@ cyan</div><div class="ttdoc">cyan</div></div>
+<div class="ttc" id="agroup__color_html_gga95747189f62a0ed341c6e2579146beb7a9f27410725ab8cc8854a2769c7a516b8"><div class="ttname"><a href="group__color.html#gga95747189f62a0ed341c6e2579146beb7a9f27410725ab8cc8854a2769c7a516b8">util::Color::green</a></div><div class="ttdeci">@ green</div><div class="ttdoc">green</div></div>
+<div class="ttc" id="agroup__color_html_gga95747189f62a0ed341c6e2579146beb7abda9643ac6601722a28f238714274da4"><div class="ttname"><a href="group__color.html#gga95747189f62a0ed341c6e2579146beb7abda9643ac6601722a28f238714274da4">util::Color::red</a></div><div class="ttdeci">@ red</div><div class="ttdoc">red</div></div>
+<div class="ttc" id="agroup__color_html_gga95747189f62a0ed341c6e2579146beb7ad487dd0b55dfcacdd920ccbdaeafa351"><div class="ttname"><a href="group__color.html#gga95747189f62a0ed341c6e2579146beb7ad487dd0b55dfcacdd920ccbdaeafa351">util::Color::yellow</a></div><div class="ttdeci">@ yellow</div><div class="ttdoc">yellow</div></div>
+<div class="ttc" id="agroup__debug_html_ga06663ee630c22628b3fe11700767367f"><div class="ttname"><a href="group__debug.html#ga06663ee630c22628b3fe11700767367f">ASSERT_EQUAL</a></div><div class="ttdeci">#define ASSERT_EQUAL(X, Y)</div><div class="ttdoc">Soft assertion, tests for X == Y</div><div class="ttdef"><b>Definition</b> <a href="debug_8h_source.html#l00137">debug.h:137</a></div></div>
+<div class="ttc" id="agroup__debug_html_ga142a617ae6f4d3b050faad2aa1e936bf"><div class="ttname"><a href="group__debug.html#ga142a617ae6f4d3b050faad2aa1e936bf">ASSERT_TRUE</a></div><div class="ttdeci">#define ASSERT_TRUE(X)</div><div class="ttdoc">Soft assertion, tests for X being true.</div><div class="ttdef"><b>Definition</b> <a href="debug_8h_source.html#l00140">debug.h:140</a></div></div>
+<div class="ttc" id="agroup__debug_html_ga44d4e64ea98b1a9c055f030e33e24f17"><div class="ttname"><a href="group__debug.html#ga44d4e64ea98b1a9c055f030e33e24f17">THROW_ERROR</a></div><div class="ttdeci">#define THROW_ERROR(error_message)</div><div class="ttdoc">This macro throws a std::logic_error with an error message indicating the file, line and function whe...</div><div class="ttdef"><b>Definition</b> <a href="debug_8h_source.html#l00090">debug.h:90</a></div></div>
+<div class="ttc" id="agroup__debug_html_ga60f45ee0c4949ef50243feb6fbb8a808"><div class="ttname"><a href="group__debug.html#ga60f45ee0c4949ef50243feb6fbb8a808">ASSERT_LT</a></div><div class="ttdeci">#define ASSERT_LT(X, Y)</div><div class="ttdoc">Soft assertion, tests for X &lt; Y</div><div class="ttdef"><b>Definition</b> <a href="debug_8h_source.html#l00143">debug.h:143</a></div></div>
+<div class="ttc" id="agroup__debug_html_gac1ee6e006b614dd9b0021a0034db646d"><div class="ttname"><a href="group__debug.html#gac1ee6e006b614dd9b0021a0034db646d">DEBUG_RUN</a></div><div class="ttdeci">#define DEBUG_RUN(X)</div><div class="ttdoc">To run an instruction only in debug mode.</div><div class="ttdef"><b>Definition</b> <a href="debug_8h_source.html#l00071">debug.h:71</a></div></div>
+<div class="ttc" id="agroup__event_html_gac60a6fcdfce02dc13eb7364d6a2b56b0"><div class="ttname"><a href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a></div><div class="ttdeci">std::vector&lt; inf::Outcome &gt; Event</div><div class="ttdoc">A list of inf::Outcome. Conceptually, this plays the role of  for some set .</div><div class="ttdef"><b>Definition</b> <a href="event_8h_source.html#l00030">event.h:30</a></div></div>
+<div class="ttc" id="agroup__infcons_html_ga8fa19943a83fd41acae30b7bcc935295"><div class="ttname"><a href="group__infcons.html#ga8fa19943a83fd41acae30b7bcc935295">inf::Quovec</a></div><div class="ttdeci">std::vector&lt; Num &gt; Quovec</div><div class="ttdoc">A &quot;quotiented vector&quot; denotes an element of some  for some .</div><div class="ttdef"><b>Definition</b> <a href="dual__vector_8h_source.html#l00029">dual_vector.h:29</a></div></div>
+<div class="ttc" id="agroup__printing_html_ga3f8fe48536ee19c54002c9c1db64cabb"><div class="ttname"><a href="group__printing.html#ga3f8fe48536ee19c54002c9c1db64cabb">util::cr</a></div><div class="ttdeci">constexpr util::Logger::Action cr</div><div class="ttdoc">Newline.</div><div class="ttdef"><b>Definition</b> <a href="logger_8h_source.html#l00197">logger.h:197</a></div></div>
+<div class="ttc" id="agroup__printing_html_ga4c77d1dedfe3a5b95abc21d13d7cd678"><div class="ttname"><a href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a></div><div class="ttdeci">util::Logger logger</div><div class="ttdoc">The globally accessible logger replacing std::cout</div></div>
+<div class="ttc" id="agroup__str_html_ga4336eb94aa92e5fa3a78ffa35198d775"><div class="ttname"><a href="group__str.html#ga4336eb94aa92e5fa3a78ffa35198d775">util::remove_spaces</a></div><div class="ttdeci">std::string remove_spaces(std::string const &amp;s)</div><div class="ttdoc">To remove the spaces of a string.</div><div class="ttdef"><b>Definition</b> <a href="to__string_8cpp_source.html#l00027">to_string.cpp:27</a></div></div>
+<div class="ttc" id="agroup__util_html_ga77731aedac326062ffbdcf367185a07e"><div class="ttname"><a href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a></div><div class="ttdeci">uint64_t Index</div><div class="ttdoc">Use for anything meant to be used as an index.</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00019">types.h:19</a></div></div>
+<div class="ttc" id="agroup__util_html_gaea24f8b468377784fdb704692e9168f5"><div class="ttname"><a href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a></div><div class="ttdeci">int64_t Num</div><div class="ttdoc">Signed integers.</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00015">types.h:15</a></div></div>
+<div class="ttc" id="anamespaceinf_html"><div class="ttname"><a href="namespaceinf.html">inf</a></div><div class="ttdoc">The namespace for the inflation code.</div><div class="ttdef"><b>Definition</b> <a href="constraint_8h_source.html#l00006">constraint.h:6</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_0f453feda2a303bb77c09f5934c109df.html">inf</a></li><li class="navelem"><a class="el" href="dir_70aecdc092d65e330aa359045744aeda.html">constraints</a></li><li class="navelem"><a class="el" href="constraint_8cpp.html">constraint.cpp</a></li>
+    <li class="footer">Generated on Wed Dec 18 2024 17:39:35 for Fast Inflation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

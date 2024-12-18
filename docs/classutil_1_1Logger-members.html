@@ -1,0 +1,248 @@
+<!-- HTML header for doxygen 1.9.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Fast Inflation: Member List</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+MathJax.Hub.Config({
+    TeX: {
+        Macros: {
+            dd: ["{\\text{d}#1\\,}",1],
+            nouts: ["{n_{\\text{o}}}"],
+            ints: ["{[\\![#1]\\!]}",1],
+            outset: ["{\\ints{\\nouts}}"],
+            N: ["{\\mathbb{N}}"],
+            R: ["{\\mathbb{R}}"],
+            Z: ["{\\mathbb{Z}}"],
+            infsize: ["{z}"],
+            infparties: ["{\\set{I}}"],
+            infsources: ["{\\set{S}}"],
+            infmarg: ["{\\set{A}}"],
+            infmargg: ["{\\set{B}}"],
+            netparties: ["{\\set{N}}"],
+            infq: ["{q}"],
+            infqs: ["{\\Delta_{\\infparties}}"],
+            constraintlist: ["{\\mathcal{C}}"],
+            injsets: ["{\\text{InjSets}}"],
+            infconstraints: ["{\\text{InfCons}}"],
+            parents: ["{\\text{Par}}"],
+            targetp: ["{p}"],
+            targetps: ["{\\Delta_{\\netparties}}"],
+            set: ["{\\mathbf{#1}}",1],
+            type: ["{t}"],
+            infevent: "{\\omega}",
+            events: ["{\\Omega_{#1}}",1],
+            infevents: ["{\\events{\\infparties}}"],
+            redinfevents: ["{\\tilde{\\Omega}_{\\infparties}}"],
+            netevents: ["{\\events{\\netparties}}"],
+            vecset: ["{V_{#1}}",1],
+            alice: ["{\\text{A}}"],
+            bob: ["{\\text{B}}"],
+            charlie: ["{\\text{C}}"],
+            symgroup: ["{\\text{Sym}(#1)}",1],
+            shortsymgroup: ["{\\text{Sym}_{#1}}",1],
+            act: ["{(#1\\hspace{2pt}{:}\\hspace{2pt}#2)}",2],
+            actt: ["{[#1\\hspace{2pt}{:}\\hspace{2pt}#2]}",2],
+            margperms: ["{\\text{Perm}_{#1}}",1],
+            permutedmargs: ["{\\mathbb{P}_{#1}^{\\targetp}}",1],
+            redpermutedmargs: ["{\\tilde{\\mathbb{P}}_{#1}^{\\constraintname,\\targetp}}",1],
+            extract: ["{\\text{ext}(#1,#2)}",2],
+            partysym: ["{\\tau}"],
+            sourcesym: ["{\\xi}"],
+            outsym: ["{\\sigma}"],
+            fullgroup: ["{\\text{InfGrp}}"],
+            partygroup : ["{\\text{PartyGrp}}"],
+            outgroup: ["{\\text{OutGrp}}"],
+            sourcegroup: ["{\\text{SrcGrp}}"],
+            distrgroup: ["{\\mathbb{G}^\\targetp}"],
+            constraintname: ["{c}"],
+            marggroup: ["{\\mathbb{G}^{\\constraintname,\\targetp}}"],
+            fullsymexpl: ["{(\\sourcesym,\\partysym,\\outsym)}"],
+            inner: ["{\\langle#1,#2\\rangle}", 2],
+            quovec: ["{f}"],
+            totconstraintmap: ["{K^{\\constraintlist,\\targetp}}"],
+            totconstraintmapelem: ["{K^{\\constraintname,\\targetp}}"],
+            quovecspace: ["{\\tilde{V}_{#1}^{\\constraintname,\\targetp}}", 1],
+            totquovecspace: ["{\\text{ConsSpace}(\\constraintlist,\\targetp)}"],
+            detdistr: ["{\\delta^{#1}}", 1],
+            margperm: ["{\\varphi}"],
+            altquovecembed: ["{\\text{G}_{#1}^{\\constraintname,\\targetp}}", 1],
+            vecset: ["{V_{#1}}", 1],
+            repr: ["{\\lfloor#1\\rfloor}", 1],
+            gid: ["{\\text{id}}"],
+            id: ["{1_{#1}}",1],
+            consscale: ["{K}"],
+            scaletot: ["{K_{\\text{tot}}^{\\constraintlist,\\targetp}}"],
+            minnorm: ["{d}"],
+            Bigsetst: ["\\;\\Big|\\;"],
+            activeset: ["\\mathcal{S}"],
+            conv: ["\\text{conv}"],
+            lVert: ["|\\hspace{-1pt}|"],
+            norm: ["\\lVert#1\\lVert", 1],
+            st: [":\ "],
+        }
+    }
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeDarkModeToggle.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeParagraphLink.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Fast Inflation
+   </div>
+   <div id="projectbrief">To certify causal incompatibility</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classutil_1_1Logger.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">util::Logger Member List</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>This is the complete list of members for <a class="el" href="classutil_1_1Logger.html">util::Logger</a>, including all inherited members.</p>
+<table class="directory">
+  <tr class="even"><td class="entry"><a class="el" href="classutil_1_1Logger.html#a7050ffd6e9fcaa8bbb4ac9f2aa29b043">Action</a> enum name</td><td class="entry"><a class="el" href="classutil_1_1Logger.html">util::Logger</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classutil_1_1Logger.html#ac1542f86a22ae43065b4911126f3de88">begin_section</a>()</td><td class="entry"><a class="el" href="classutil_1_1Logger.html">util::Logger</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classutil_1_1Logger.html#a5d7a0aa7ce43054caea3738168ef4de9">cancel_go_back_to_mark</a>()</td><td class="entry"><a class="el" href="classutil_1_1Logger.html">util::Logger</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classutil_1_1Logger.html#aa880020e76f3450132676d4adee97cfc">ColorMode</a> enum name</td><td class="entry"><a class="el" href="classutil_1_1Logger.html">util::Logger</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classutil_1_1Logger.html#a375f261904b727f2043caa5bbe52dc31">disable_dots_for_hidden_sections</a>()</td><td class="entry"><a class="el" href="classutil_1_1Logger.html">util::Logger</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classutil_1_1Logger.html#ac4d0bc636706ad6817d192f222934e65">echo</a>(std::string const &amp;str)</td><td class="entry"><a class="el" href="classutil_1_1Logger.html">util::Logger</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classutil_1_1Logger.html#ad44f9101dbfad26ae010070b75ac5074">echo_colored_number</a>(int number)</td><td class="entry"><a class="el" href="classutil_1_1Logger.html">util::Logger</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classutil_1_1Logger.html#a037348a66bc990631e75bf65deabf421">echo_error</a>(std::string const &amp;what)</td><td class="entry"><a class="el" href="classutil_1_1Logger.html">util::Logger</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classutil_1_1Logger.html#a6a9c4e64abf037de02bcc03ea5252764">echo_header</a>(std::string const &amp;name)</td><td class="entry"><a class="el" href="classutil_1_1Logger.html">util::Logger</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classutil_1_1Logger.html#ab668d49ead6192cb23159f5cda0740ce">echo_title</a>(std::string const &amp;name)</td><td class="entry"><a class="el" href="classutil_1_1Logger.html">util::Logger</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classutil_1_1Logger.html#a1b48da51580c4b5c47c595e8b1cab822">end_section</a>()</td><td class="entry"><a class="el" href="classutil_1_1Logger.html">util::Logger</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classutil_1_1Logger.html#a1ff73466fa71bddf50abeb1092533e36">flush</a>()</td><td class="entry"><a class="el" href="classutil_1_1Logger.html">util::Logger</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classutil_1_1Logger.html#ac7840a2529ef40d0e881b621d789b51c">get_color_code</a>(util::Color c) const</td><td class="entry"><a class="el" href="classutil_1_1Logger.html">util::Logger</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classutil_1_1Logger.html#adbda8a3440db46270a7764e504b0310e">get_color_mode</a>() const</td><td class="entry"><a class="el" href="classutil_1_1Logger.html">util::Logger</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classutil_1_1Logger.html#a6aad3f6eebae8ca2df6cbb70b61a2143">get_colored_number_str</a>(int number) const</td><td class="entry"><a class="el" href="classutil_1_1Logger.html">util::Logger</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classutil_1_1Logger.html#a3c621919a7dae959843f5f2493e2d3d2">get_single_char</a>(unsigned long int i) const</td><td class="entry"><a class="el" href="classutil_1_1Logger.html">util::Logger</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classutil_1_1Logger.html#af5f8cad20bf51ebbe414e39b9a58542e">go_back_to_mark</a>()</td><td class="entry"><a class="el" href="classutil_1_1Logger.html">util::Logger</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classutil_1_1Logger.html#a5d666a88e8e9e5bef5d57e6bbfd584ac">is_disabled</a>() const</td><td class="entry"><a class="el" href="classutil_1_1Logger.html">util::Logger</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classutil_1_1Logger.html#a1677adea1b60fe61b65e44c15dd62fd9">Logger</a>(util::Logger::ColorMode color_mode)</td><td class="entry"><a class="el" href="classutil_1_1Logger.html">util::Logger</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classutil_1_1Logger.html#aba50860d0bf48336e72133847d6aad7f">m_color_mode</a></td><td class="entry"><a class="el" href="classutil_1_1Logger.html">util::Logger</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classutil_1_1Logger.html#a50a8758748f5120f8b0cb2dc7c089227">m_depth_enabled</a></td><td class="entry"><a class="el" href="classutil_1_1Logger.html">util::Logger</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classutil_1_1Logger.html#ae24d0479d61727c07ade702446b4dcaa">m_disable_dots_for_hidden_sections</a></td><td class="entry"><a class="el" href="classutil_1_1Logger.html">util::Logger</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classutil_1_1Logger.html#a67f984b90f6c0392cde726d8fc75466a">m_indent_pending</a></td><td class="entry"><a class="el" href="classutil_1_1Logger.html">util::Logger</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classutil_1_1Logger.html#a364d8395c1e1e595f84d301dd36389e3">m_log_level</a></td><td class="entry"><a class="el" href="classutil_1_1Logger.html">util::Logger</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classutil_1_1Logger.html#a4b0b81e6099d07c593cead29b5de00e7">m_max_n_cr_since_mark</a></td><td class="entry"><a class="el" href="classutil_1_1Logger.html">util::Logger</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classutil_1_1Logger.html#a77f1a4ea3e54a3f37aca843865ded450">m_n_cr_since_mark</a></td><td class="entry"><a class="el" href="classutil_1_1Logger.html">util::Logger</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classutil_1_1Logger.html#ab8a596d8848be4fd79b674aa82dc52b0">m_section_index</a></td><td class="entry"><a class="el" href="classutil_1_1Logger.html">util::Logger</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classutil_1_1Logger.html#a41fc84ba70b0e79a10b94cb9de413e3f">move_down</a>(int i)</td><td class="entry"><a class="el" href="classutil_1_1Logger.html">util::Logger</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classutil_1_1Logger.html#a803fd208a4a66383ff95d4c97339ae12">move_up</a>(int i)</td><td class="entry"><a class="el" href="classutil_1_1Logger.html">util::Logger</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classutil_1_1Logger.html#a5a8792494a10f774e888190f33e9ff98">new_line</a>()</td><td class="entry"><a class="el" href="classutil_1_1Logger.html">util::Logger</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classutil_1_1Logger.html#a8573ac407e631363112ca8cba5fc1992">process_pending_indent</a>()</td><td class="entry"><a class="el" href="classutil_1_1Logger.html">util::Logger</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classutil_1_1Logger.html#aa10b6b29378c35568b915535e66fd569">reset_indent</a>()</td><td class="entry"><a class="el" href="classutil_1_1Logger.html">util::Logger</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classutil_1_1Logger.html#a48af6bd8d0d03a3125bccc82890ed1dc">set_alignment</a>(std::ios_base::fmtflags alignment)</td><td class="entry"><a class="el" href="classutil_1_1Logger.html">util::Logger</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classutil_1_1Logger.html#af818aa6efdb1281e42fc779f2e0bb3cd">set_log_level</a>(unsigned int log_level)</td><td class="entry"><a class="el" href="classutil_1_1Logger.html">util::Logger</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classutil_1_1Logger.html#af468d2e8d42a1fdb2adfbe28875b2156">set_mark</a>()</td><td class="entry"><a class="el" href="classutil_1_1Logger.html">util::Logger</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classutil_1_1Logger.html#ad01e112e7fc1c9205ce491eaf9b476fb">set_next_width</a>(int n)</td><td class="entry"><a class="el" href="classutil_1_1Logger.html">util::Logger</a></td><td class="entry"></td></tr>
+</table></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Wed Dec 18 2024 17:39:46 for Fast Inflation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

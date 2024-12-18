@@ -1,0 +1,330 @@
+<!-- HTML header for doxygen 1.9.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Fast Inflation: src/inf/constraints/constraint_parser.cpp Source File</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+MathJax.Hub.Config({
+    TeX: {
+        Macros: {
+            dd: ["{\\text{d}#1\\,}",1],
+            nouts: ["{n_{\\text{o}}}"],
+            ints: ["{[\\![#1]\\!]}",1],
+            outset: ["{\\ints{\\nouts}}"],
+            N: ["{\\mathbb{N}}"],
+            R: ["{\\mathbb{R}}"],
+            Z: ["{\\mathbb{Z}}"],
+            infsize: ["{z}"],
+            infparties: ["{\\set{I}}"],
+            infsources: ["{\\set{S}}"],
+            infmarg: ["{\\set{A}}"],
+            infmargg: ["{\\set{B}}"],
+            netparties: ["{\\set{N}}"],
+            infq: ["{q}"],
+            infqs: ["{\\Delta_{\\infparties}}"],
+            constraintlist: ["{\\mathcal{C}}"],
+            injsets: ["{\\text{InjSets}}"],
+            infconstraints: ["{\\text{InfCons}}"],
+            parents: ["{\\text{Par}}"],
+            targetp: ["{p}"],
+            targetps: ["{\\Delta_{\\netparties}}"],
+            set: ["{\\mathbf{#1}}",1],
+            type: ["{t}"],
+            infevent: "{\\omega}",
+            events: ["{\\Omega_{#1}}",1],
+            infevents: ["{\\events{\\infparties}}"],
+            redinfevents: ["{\\tilde{\\Omega}_{\\infparties}}"],
+            netevents: ["{\\events{\\netparties}}"],
+            vecset: ["{V_{#1}}",1],
+            alice: ["{\\text{A}}"],
+            bob: ["{\\text{B}}"],
+            charlie: ["{\\text{C}}"],
+            symgroup: ["{\\text{Sym}(#1)}",1],
+            shortsymgroup: ["{\\text{Sym}_{#1}}",1],
+            act: ["{(#1\\hspace{2pt}{:}\\hspace{2pt}#2)}",2],
+            actt: ["{[#1\\hspace{2pt}{:}\\hspace{2pt}#2]}",2],
+            margperms: ["{\\text{Perm}_{#1}}",1],
+            permutedmargs: ["{\\mathbb{P}_{#1}^{\\targetp}}",1],
+            redpermutedmargs: ["{\\tilde{\\mathbb{P}}_{#1}^{\\constraintname,\\targetp}}",1],
+            extract: ["{\\text{ext}(#1,#2)}",2],
+            partysym: ["{\\tau}"],
+            sourcesym: ["{\\xi}"],
+            outsym: ["{\\sigma}"],
+            fullgroup: ["{\\text{InfGrp}}"],
+            partygroup : ["{\\text{PartyGrp}}"],
+            outgroup: ["{\\text{OutGrp}}"],
+            sourcegroup: ["{\\text{SrcGrp}}"],
+            distrgroup: ["{\\mathbb{G}^\\targetp}"],
+            constraintname: ["{c}"],
+            marggroup: ["{\\mathbb{G}^{\\constraintname,\\targetp}}"],
+            fullsymexpl: ["{(\\sourcesym,\\partysym,\\outsym)}"],
+            inner: ["{\\langle#1,#2\\rangle}", 2],
+            quovec: ["{f}"],
+            totconstraintmap: ["{K^{\\constraintlist,\\targetp}}"],
+            totconstraintmapelem: ["{K^{\\constraintname,\\targetp}}"],
+            quovecspace: ["{\\tilde{V}_{#1}^{\\constraintname,\\targetp}}", 1],
+            totquovecspace: ["{\\text{ConsSpace}(\\constraintlist,\\targetp)}"],
+            detdistr: ["{\\delta^{#1}}", 1],
+            margperm: ["{\\varphi}"],
+            altquovecembed: ["{\\text{G}_{#1}^{\\constraintname,\\targetp}}", 1],
+            vecset: ["{V_{#1}}", 1],
+            repr: ["{\\lfloor#1\\rfloor}", 1],
+            gid: ["{\\text{id}}"],
+            id: ["{1_{#1}}",1],
+            consscale: ["{K}"],
+            scaletot: ["{K_{\\text{tot}}^{\\constraintlist,\\targetp}}"],
+            minnorm: ["{d}"],
+            Bigsetst: ["\\;\\Big|\\;"],
+            activeset: ["\\mathcal{S}"],
+            conv: ["\\text{conv}"],
+            lVert: ["|\\hspace{-1pt}|"],
+            norm: ["\\lVert#1\\lVert", 1],
+            st: [":\ "],
+        }
+    }
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeDarkModeToggle.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeParagraphLink.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Fast Inflation
+   </div>
+   <div id="projectbrief">To certify causal incompatibility</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('constraint__parser_8cpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">constraint_parser.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="constraint__parser_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &quot;<a class="code" href="constraint__parser_8h.html">constraint_parser.h</a>&quot;</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno"><a class="line" href="classinf_1_1ConstraintParser.html#af098670ee0ee882af25222ebd35563c8">    3</a></span><a class="code hl_function" href="classinf_1_1ConstraintParser.html#af098670ee0ee882af25222ebd35563c8">inf::ConstraintParser::ConstraintParser</a>(<a class="code hl_typedef" href="classinf_1_1Inflation.html#ac594d5b8d7cbdd7cdfe569baa351f0ba">inf::Inflation::ConstPtr</a> <span class="keyword">const</span> &amp;inflation,</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span>                                        <a class="code hl_typedef" href="classinf_1_1Constraint.html#a9af530da5633c7e8d6ee25e29488b715">inf::Constraint::Description</a> <span class="keyword">const</span> &amp;description)</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span>    : m_lhs_marginal_parties{},</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>      m_target_marginal_names{},</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>      m_rhs_marginal_parties{} {</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    <span class="keywordflow">if</span> (description.size() &lt; 2)</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>        <a class="code hl_define" href="group__debug.html#ga44d4e64ea98b1a9c055f030e33e24f17">THROW_ERROR</a>(<span class="stringliteral">&quot;Expected the inf::Constraint::Description to have at least two elements, got &quot;</span> + <a class="code hl_function" href="group__str.html#ga6948292bb3a41f65610efe2f043a1f1e">util::str</a>(description))</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="comment">// This is equivalent to description but splitting each inflation marginal</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="comment">// from &quot;A00,A01,...&quot; to {index of A00,index of A01,...}</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="comment">// This checks that each marginal is really a set (no duplicates in the list)</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="comment">// and that all the agent names are valid</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    std::vector&lt;std::vector&lt;Index&gt;&gt; description_as_indices;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keywordflow">for</span> (std::string <span class="keyword">const</span> &amp;inf_marg_name : description) {</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        std::vector&lt;Index&gt; <span class="keyword">const</span> inf_marg_indices = <a class="code hl_function" href="classinf_1_1ConstraintParser.html#af3873593ab67d23172a9d4ca365f1df2">inf::ConstraintParser::parse_inflation_marginal</a>(*inflation, inf_marg_name);</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        std::set&lt;Index&gt; set_of_marg_indices(inf_marg_indices.begin(), inf_marg_indices.end());</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        <span class="keywordflow">if</span> (set_of_marg_indices.size() != inf_marg_indices.size())</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>            <a class="code hl_define" href="group__debug.html#ga44d4e64ea98b1a9c055f030e33e24f17">THROW_ERROR</a>(<span class="stringliteral">&quot;Expected a set of inflation parties but got duplicates in the marginal &quot;</span> + inf_marg_name)</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        description_as_indices.push_back(inf_marg_indices);</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    }</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="comment">// Here check d-separation</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keywordflow">for</span> (<a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <span class="keyword">const</span> marg_index_1 : <a class="code hl_class" href="classutil_1_1Range.html">util::Range</a>(description.size())) {</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        <span class="keywordflow">for</span> (<a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <span class="keyword">const</span> marg_index_2 : <a class="code hl_class" href="classutil_1_1Range.html">util::Range</a>(marg_index_1 + 1, description.size())) {</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>            <span class="keywordflow">if</span> (not inflation-&gt;are_d_separated(description_as_indices[marg_index_1], description_as_indices[marg_index_2]))</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>                <a class="code hl_define" href="group__debug.html#ga44d4e64ea98b1a9c055f030e33e24f17">THROW_ERROR</a>(<span class="stringliteral">&quot;Expected the marginal &quot;</span> + description[marg_index_1] + <span class="stringliteral">&quot; to be d-separated from the marginal &quot;</span> + description[marg_index_2])</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        }</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    }</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="comment">// Here check injectable sets, which also checks that they are non-empty</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keywordflow">for</span> (<a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <span class="keyword">const</span> marg_index : <a class="code hl_class" href="classutil_1_1Range.html">util::Range</a>(description.size() - 1)) {</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        <span class="keywordflow">if</span> (not inflation-&gt;is_injectable_set(description_as_indices[marg_index]))</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>            <a class="code hl_define" href="group__debug.html#ga44d4e64ea98b1a9c055f030e33e24f17">THROW_ERROR</a>(<span class="stringliteral">&quot;Expected the marginal &quot;</span> + description[marg_index] + <span class="stringliteral">&quot; to be an injectable set&quot;</span>)</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    }</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="comment">// Append all the parties together to form the left-hand side marginal</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keywordflow">for</span> (std::vector&lt;Index&gt; <span class="keyword">const</span> &amp;inf_marg_indices : description_as_indices) {</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        <span class="keywordflow">for</span> (<a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <span class="keyword">const</span> party_index : inf_marg_indices)</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>            <a class="code hl_variable" href="classinf_1_1ConstraintParser.html#a6aef35bd510b2e301a612c91091f3e6c">m_lhs_marginal_parties</a>.push_back(party_index);</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    }</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="comment">// The right-hand side marginal just consists of the last inflation marginal passed in the description</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <a class="code hl_variable" href="classinf_1_1ConstraintParser.html#a4c4ff0bf9ec4f840fc9f3fcec484a2e4">m_rhs_marginal_parties</a> = description_as_indices.back();</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="comment">// For all except the last inflation marginal, extract a target distribution marginal, throwing away copy indices</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <a class="code hl_variable" href="classinf_1_1ConstraintParser.html#a5c9ee770886df83c3403a4c12cbdbee2">m_target_marginal_names</a> = std::vector&lt;inf::TargetDistr::MarginalName&gt;(description.size() - 1);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keywordflow">for</span> (<a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <span class="keyword">const</span> marg_index : <a class="code hl_class" href="classutil_1_1Range.html">util::Range</a>(description.size() - 1)) {</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <a class="code hl_variable" href="classinf_1_1ConstraintParser.html#a5c9ee770886df83c3403a4c12cbdbee2">m_target_marginal_names</a>[marg_index] = <a class="code hl_typedef" href="classinf_1_1TargetDistr.html#a6b386ba726f8a8125d1f7d46075dafeb">inf::TargetDistr::MarginalName</a>(description_as_indices[marg_index].size());</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <span class="keywordflow">for</span> (<a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <span class="keyword">const</span> party_index : <a class="code hl_class" href="classutil_1_1Range.html">util::Range</a>(description_as_indices[marg_index].size())) {</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>            std::string <span class="keyword">const</span> network_party_name(1, inflation-&gt;get_party_name(description_as_indices[marg_index][party_index])[0]);</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            <a class="code hl_define" href="group__debug.html#ga01c8595226cb7bbf2d266ea707a5bc88">HARD_ASSERT_MAP_CONTAINS</a>(inflation-&gt;get_network()-&gt;get_party_name_map(), network_party_name)</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>            <a class="code hl_variable" href="classinf_1_1ConstraintParser.html#a5c9ee770886df83c3403a4c12cbdbee2">m_target_marginal_names</a>[marg_index][party_index] = network_party_name;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        }</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    }</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>}</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="classinf_1_1ConstraintParser.html#af3873593ab67d23172a9d4ca365f1df2">   63</a></span>std::vector&lt;Index&gt; <a class="code hl_function" href="classinf_1_1ConstraintParser.html#af3873593ab67d23172a9d4ca365f1df2">inf::ConstraintParser::parse_inflation_marginal</a>(<a class="code hl_class" href="classinf_1_1Inflation.html">inf::Inflation</a> <span class="keyword">const</span> &amp;inflation,</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>                                                                   std::string <span class="keyword">const</span> &amp;name) {</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="comment">// Will be returned</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    std::vector&lt;Index&gt; marg_indices;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    std::string stripped_name = <a class="code hl_function" href="group__str.html#ga4336eb94aa92e5fa3a78ffa35198d775">util::remove_spaces</a>(name);</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keywordflow">if</span> (stripped_name.size() == 0)</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        <span class="keywordflow">return</span> marg_indices;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    std::istringstream stream(stripped_name);</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    std::string party_string;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keywordflow">while</span> (std::getline(stream, party_string, <span class="charliteral">&#39;,&#39;</span>)) {</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        <span class="keywordflow">if</span> (party_string.size() == 0)</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>            <a class="code hl_define" href="group__debug.html#ga44d4e64ea98b1a9c055f030e33e24f17">THROW_ERROR</a>(<span class="stringliteral">&quot;Could not parse the marginal name \&quot;&quot;</span> + name + <span class="stringliteral">&quot;\&quot;, is there an extra comma in there?&quot;</span>)</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        <span class="keywordflow">if</span> (not inflation.<a class="code hl_function" href="classinf_1_1Inflation.html#ab910ef44df901fad1db88a0b74fe86cc">is_valid_party_name</a>(party_string))</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>            <a class="code hl_define" href="group__debug.html#ga44d4e64ea98b1a9c055f030e33e24f17">THROW_ERROR</a>(<span class="stringliteral">&quot;The inflation marginal \&quot;&quot;</span> + name + <span class="stringliteral">&quot;\&quot; contains &quot;</span> + party_string + <span class="stringliteral">&quot;, which is not a valid party name &quot;</span>)</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        marg_indices.push_back(inflation.<a class="code hl_function" href="classinf_1_1Inflation.html#a0d2407cc5082ef3b67f7a42f6874c11a">get_party_index</a>(party_string));</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    }</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <span class="keywordflow">return</span> marg_indices;</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>}</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="classinf_1_1ConstraintParser.html#a960ab2d31befa2c036834b3668fa77da">   89</a></span>std::vector&lt;Index&gt; <a class="code hl_function" href="classinf_1_1ConstraintParser.html#a960ab2d31befa2c036834b3668fa77da">inf::ConstraintParser::get_lhs_marg_parties</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keywordflow">return</span> m_lhs_marginal_parties;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>}</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno"><a class="line" href="classinf_1_1ConstraintParser.html#afc353c578678697adb67009a5526d8b7">   93</a></span>std::vector&lt;Index&gt; <a class="code hl_function" href="classinf_1_1ConstraintParser.html#afc353c578678697adb67009a5526d8b7">inf::ConstraintParser::get_rhs_marg_parties</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="keywordflow">return</span> m_rhs_marginal_parties;</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>}</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="classinf_1_1ConstraintParser.html#a792426384f4ac2d91e75985d00e9de04">   97</a></span>std::vector&lt;inf::TargetDistr::MarginalName&gt; <a class="code hl_function" href="classinf_1_1ConstraintParser.html#a792426384f4ac2d91e75985d00e9de04">inf::ConstraintParser::get_target_marg_names</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="keywordflow">return</span> m_target_marginal_names;</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>}</div>
+<div class="ttc" id="aclassinf_1_1ConstraintParser_html_a4c4ff0bf9ec4f840fc9f3fcec484a2e4"><div class="ttname"><a href="classinf_1_1ConstraintParser.html#a4c4ff0bf9ec4f840fc9f3fcec484a2e4">inf::ConstraintParser::m_rhs_marginal_parties</a></div><div class="ttdeci">std::vector&lt; Index &gt; m_rhs_marginal_parties</div><div class="ttdoc">see get_rhs_marg_parties()</div><div class="ttdef"><b>Definition</b> <a href="constraint__parser_8h_source.html#l00086">constraint_parser.h:86</a></div></div>
+<div class="ttc" id="aclassinf_1_1ConstraintParser_html_a5c9ee770886df83c3403a4c12cbdbee2"><div class="ttname"><a href="classinf_1_1ConstraintParser.html#a5c9ee770886df83c3403a4c12cbdbee2">inf::ConstraintParser::m_target_marginal_names</a></div><div class="ttdeci">std::vector&lt; inf::TargetDistr::MarginalName &gt; m_target_marginal_names</div><div class="ttdoc">see get_target_marg_names()</div><div class="ttdef"><b>Definition</b> <a href="constraint__parser_8h_source.html#l00084">constraint_parser.h:84</a></div></div>
+<div class="ttc" id="aclassinf_1_1ConstraintParser_html_a6aef35bd510b2e301a612c91091f3e6c"><div class="ttname"><a href="classinf_1_1ConstraintParser.html#a6aef35bd510b2e301a612c91091f3e6c">inf::ConstraintParser::m_lhs_marginal_parties</a></div><div class="ttdeci">std::vector&lt; Index &gt; m_lhs_marginal_parties</div><div class="ttdoc">see get_lhs_marg_parties()</div><div class="ttdef"><b>Definition</b> <a href="constraint__parser_8h_source.html#l00082">constraint_parser.h:82</a></div></div>
+<div class="ttc" id="aclassinf_1_1ConstraintParser_html_a792426384f4ac2d91e75985d00e9de04"><div class="ttname"><a href="classinf_1_1ConstraintParser.html#a792426384f4ac2d91e75985d00e9de04">inf::ConstraintParser::get_target_marg_names</a></div><div class="ttdeci">std::vector&lt; inf::TargetDistr::MarginalName &gt; get_target_marg_names() const</div><div class="ttdoc">The list of target distribution marginals corresponding to each .</div><div class="ttdef"><b>Definition</b> <a href="constraint__parser_8cpp_source.html#l00097">constraint_parser.cpp:97</a></div></div>
+<div class="ttc" id="aclassinf_1_1ConstraintParser_html_a960ab2d31befa2c036834b3668fa77da"><div class="ttname"><a href="classinf_1_1ConstraintParser.html#a960ab2d31befa2c036834b3668fa77da">inf::ConstraintParser::get_lhs_marg_parties</a></div><div class="ttdeci">std::vector&lt; Index &gt; get_lhs_marg_parties() const</div><div class="ttdoc">The left-hand-side inflation marginal party indices, i.e., the party indices corresponding to the set...</div><div class="ttdef"><b>Definition</b> <a href="constraint__parser_8cpp_source.html#l00089">constraint_parser.cpp:89</a></div></div>
+<div class="ttc" id="aclassinf_1_1ConstraintParser_html_af098670ee0ee882af25222ebd35563c8"><div class="ttname"><a href="classinf_1_1ConstraintParser.html#af098670ee0ee882af25222ebd35563c8">inf::ConstraintParser::ConstraintParser</a></div><div class="ttdeci">ConstraintParser(inf::Inflation::ConstPtr const &amp;inflation, inf::Constraint::Description const &amp;description)</div><div class="ttdoc">Initializes the information necessary to construct a inf::Constraint.</div><div class="ttdef"><b>Definition</b> <a href="constraint__parser_8cpp_source.html#l00003">constraint_parser.cpp:3</a></div></div>
+<div class="ttc" id="aclassinf_1_1ConstraintParser_html_af3873593ab67d23172a9d4ca365f1df2"><div class="ttname"><a href="classinf_1_1ConstraintParser.html#af3873593ab67d23172a9d4ca365f1df2">inf::ConstraintParser::parse_inflation_marginal</a></div><div class="ttdeci">static std::vector&lt; Index &gt; parse_inflation_marginal(inf::Inflation const &amp;inflation, std::string const &amp;name)</div><div class="ttdoc">Accepts a string of the form &quot; A11, A22,B00 &quot; and returns the corresponding list of inflation party i...</div><div class="ttdef"><b>Definition</b> <a href="constraint__parser_8cpp_source.html#l00063">constraint_parser.cpp:63</a></div></div>
+<div class="ttc" id="aclassinf_1_1ConstraintParser_html_afc353c578678697adb67009a5526d8b7"><div class="ttname"><a href="classinf_1_1ConstraintParser.html#afc353c578678697adb67009a5526d8b7">inf::ConstraintParser::get_rhs_marg_parties</a></div><div class="ttdeci">std::vector&lt; Index &gt; get_rhs_marg_parties() const</div><div class="ttdoc">The right-hand-side inflation marginal party indices, i.e., the party indices corresponding to the se...</div><div class="ttdef"><b>Definition</b> <a href="constraint__parser_8cpp_source.html#l00093">constraint_parser.cpp:93</a></div></div>
+<div class="ttc" id="aclassinf_1_1Constraint_html_a9af530da5633c7e8d6ee25e29488b715"><div class="ttname"><a href="classinf_1_1Constraint.html#a9af530da5633c7e8d6ee25e29488b715">inf::Constraint::Description</a></div><div class="ttdeci">std::vector&lt; std::string &gt; Description</div><div class="ttdoc">The text description of an inflation constraint, see inf::ConstraintParser for the adequate format.</div><div class="ttdef"><b>Definition</b> <a href="constraint_8h_source.html#l00032">constraint.h:32</a></div></div>
+<div class="ttc" id="aclassinf_1_1Inflation_html"><div class="ttname"><a href="classinf_1_1Inflation.html">inf::Inflation</a></div><div class="ttdoc">Describes an inflation of a network, currently restricted to canonical inflations of the triangle net...</div><div class="ttdef"><b>Definition</b> <a href="inflation_8h_source.html#l00051">inflation.h:51</a></div></div>
+<div class="ttc" id="aclassinf_1_1Inflation_html_a0d2407cc5082ef3b67f7a42f6874c11a"><div class="ttname"><a href="classinf_1_1Inflation.html#a0d2407cc5082ef3b67f7a42f6874c11a">inf::Inflation::get_party_index</a></div><div class="ttdeci">Index get_party_index(inf::Inflation::Party const &amp;party) const</div><div class="ttdoc">Internally, each explicit inf::Inflation::Party is assigned an index in .</div><div class="ttdef"><b>Definition</b> <a href="inflation_8cpp_source.html#l00201">inflation.cpp:201</a></div></div>
+<div class="ttc" id="aclassinf_1_1Inflation_html_ab910ef44df901fad1db88a0b74fe86cc"><div class="ttname"><a href="classinf_1_1Inflation.html#ab910ef44df901fad1db88a0b74fe86cc">inf::Inflation::is_valid_party_name</a></div><div class="ttdeci">bool is_valid_party_name(std::string const &amp;party) const</div><div class="ttdoc">Check that the given party name is of the form Ajk, where A must be obtained from the underlying inf:...</div><div class="ttdef"><b>Definition</b> <a href="inflation_8cpp_source.html#l00220">inflation.cpp:220</a></div></div>
+<div class="ttc" id="aclassinf_1_1Inflation_html_ac594d5b8d7cbdd7cdfe569baa351f0ba"><div class="ttname"><a href="classinf_1_1Inflation.html#ac594d5b8d7cbdd7cdfe569baa351f0ba">inf::Inflation::ConstPtr</a></div><div class="ttdeci">std::shared_ptr&lt; const inf::Inflation &gt; ConstPtr</div><div class="ttdef"><b>Definition</b> <a href="inflation_8h_source.html#l00072">inflation.h:72</a></div></div>
+<div class="ttc" id="aclassinf_1_1TargetDistr_html_a6b386ba726f8a8125d1f7d46075dafeb"><div class="ttname"><a href="classinf_1_1TargetDistr.html#a6b386ba726f8a8125d1f7d46075dafeb">inf::TargetDistr::MarginalName</a></div><div class="ttdeci">std::vector&lt; std::string &gt; MarginalName</div><div class="ttdoc">A marginal name is a list of the form {&quot;A&quot;, &quot;B&quot;}</div><div class="ttdef"><b>Definition</b> <a href="target__distr_8h_source.html#l00034">target_distr.h:34</a></div></div>
+<div class="ttc" id="aclassutil_1_1Range_html"><div class="ttname"><a href="classutil_1_1Range.html">util::Range</a></div><div class="ttdoc">Iterating over a finite integer range.</div><div class="ttdef"><b>Definition</b> <a href="range_8h_source.html#l00131">range.h:131</a></div></div>
+<div class="ttc" id="aconstraint__parser_8h_html"><div class="ttname"><a href="constraint__parser_8h.html">constraint_parser.h</a></div></div>
+<div class="ttc" id="agroup__debug_html_ga01c8595226cb7bbf2d266ea707a5bc88"><div class="ttname"><a href="group__debug.html#ga01c8595226cb7bbf2d266ea707a5bc88">HARD_ASSERT_MAP_CONTAINS</a></div><div class="ttdeci">#define HARD_ASSERT_MAP_CONTAINS(map, element)</div><div class="ttdoc">Hard assertion to check that a map indeed contains an element.</div><div class="ttdef"><b>Definition</b> <a href="debug_8h_source.html#l00123">debug.h:123</a></div></div>
+<div class="ttc" id="agroup__debug_html_ga44d4e64ea98b1a9c055f030e33e24f17"><div class="ttname"><a href="group__debug.html#ga44d4e64ea98b1a9c055f030e33e24f17">THROW_ERROR</a></div><div class="ttdeci">#define THROW_ERROR(error_message)</div><div class="ttdoc">This macro throws a std::logic_error with an error message indicating the file, line and function whe...</div><div class="ttdef"><b>Definition</b> <a href="debug_8h_source.html#l00090">debug.h:90</a></div></div>
+<div class="ttc" id="agroup__str_html_ga4336eb94aa92e5fa3a78ffa35198d775"><div class="ttname"><a href="group__str.html#ga4336eb94aa92e5fa3a78ffa35198d775">util::remove_spaces</a></div><div class="ttdeci">std::string remove_spaces(std::string const &amp;s)</div><div class="ttdoc">To remove the spaces of a string.</div><div class="ttdef"><b>Definition</b> <a href="to__string_8cpp_source.html#l00027">to_string.cpp:27</a></div></div>
+<div class="ttc" id="agroup__str_html_ga6948292bb3a41f65610efe2f043a1f1e"><div class="ttname"><a href="group__str.html#ga6948292bb3a41f65610efe2f043a1f1e">util::str</a></div><div class="ttdeci">std::string str(T const &amp;x)</div><div class="ttdoc">The default for std::to_string()-compatible types, e.g., int, double, etc.</div><div class="ttdef"><b>Definition</b> <a href="to__string_8h_source.html#l00029">to_string.h:29</a></div></div>
+<div class="ttc" id="agroup__util_html_ga77731aedac326062ffbdcf367185a07e"><div class="ttname"><a href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a></div><div class="ttdeci">uint64_t Index</div><div class="ttdoc">Use for anything meant to be used as an index.</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00019">types.h:19</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_0f453feda2a303bb77c09f5934c109df.html">inf</a></li><li class="navelem"><a class="el" href="dir_70aecdc092d65e330aa359045744aeda.html">constraints</a></li><li class="navelem"><a class="el" href="constraint__parser_8cpp.html">constraint_parser.cpp</a></li>
+    <li class="footer">Generated on Wed Dec 18 2024 17:39:35 for Fast Inflation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

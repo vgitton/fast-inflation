@@ -1,0 +1,1250 @@
+<!-- HTML header for doxygen 1.9.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Fast Inflation: util::Logger Class Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+MathJax.Hub.Config({
+    TeX: {
+        Macros: {
+            dd: ["{\\text{d}#1\\,}",1],
+            nouts: ["{n_{\\text{o}}}"],
+            ints: ["{[\\![#1]\\!]}",1],
+            outset: ["{\\ints{\\nouts}}"],
+            N: ["{\\mathbb{N}}"],
+            R: ["{\\mathbb{R}}"],
+            Z: ["{\\mathbb{Z}}"],
+            infsize: ["{z}"],
+            infparties: ["{\\set{I}}"],
+            infsources: ["{\\set{S}}"],
+            infmarg: ["{\\set{A}}"],
+            infmargg: ["{\\set{B}}"],
+            netparties: ["{\\set{N}}"],
+            infq: ["{q}"],
+            infqs: ["{\\Delta_{\\infparties}}"],
+            constraintlist: ["{\\mathcal{C}}"],
+            injsets: ["{\\text{InjSets}}"],
+            infconstraints: ["{\\text{InfCons}}"],
+            parents: ["{\\text{Par}}"],
+            targetp: ["{p}"],
+            targetps: ["{\\Delta_{\\netparties}}"],
+            set: ["{\\mathbf{#1}}",1],
+            type: ["{t}"],
+            infevent: "{\\omega}",
+            events: ["{\\Omega_{#1}}",1],
+            infevents: ["{\\events{\\infparties}}"],
+            redinfevents: ["{\\tilde{\\Omega}_{\\infparties}}"],
+            netevents: ["{\\events{\\netparties}}"],
+            vecset: ["{V_{#1}}",1],
+            alice: ["{\\text{A}}"],
+            bob: ["{\\text{B}}"],
+            charlie: ["{\\text{C}}"],
+            symgroup: ["{\\text{Sym}(#1)}",1],
+            shortsymgroup: ["{\\text{Sym}_{#1}}",1],
+            act: ["{(#1\\hspace{2pt}{:}\\hspace{2pt}#2)}",2],
+            actt: ["{[#1\\hspace{2pt}{:}\\hspace{2pt}#2]}",2],
+            margperms: ["{\\text{Perm}_{#1}}",1],
+            permutedmargs: ["{\\mathbb{P}_{#1}^{\\targetp}}",1],
+            redpermutedmargs: ["{\\tilde{\\mathbb{P}}_{#1}^{\\constraintname,\\targetp}}",1],
+            extract: ["{\\text{ext}(#1,#2)}",2],
+            partysym: ["{\\tau}"],
+            sourcesym: ["{\\xi}"],
+            outsym: ["{\\sigma}"],
+            fullgroup: ["{\\text{InfGrp}}"],
+            partygroup : ["{\\text{PartyGrp}}"],
+            outgroup: ["{\\text{OutGrp}}"],
+            sourcegroup: ["{\\text{SrcGrp}}"],
+            distrgroup: ["{\\mathbb{G}^\\targetp}"],
+            constraintname: ["{c}"],
+            marggroup: ["{\\mathbb{G}^{\\constraintname,\\targetp}}"],
+            fullsymexpl: ["{(\\sourcesym,\\partysym,\\outsym)}"],
+            inner: ["{\\langle#1,#2\\rangle}", 2],
+            quovec: ["{f}"],
+            totconstraintmap: ["{K^{\\constraintlist,\\targetp}}"],
+            totconstraintmapelem: ["{K^{\\constraintname,\\targetp}}"],
+            quovecspace: ["{\\tilde{V}_{#1}^{\\constraintname,\\targetp}}", 1],
+            totquovecspace: ["{\\text{ConsSpace}(\\constraintlist,\\targetp)}"],
+            detdistr: ["{\\delta^{#1}}", 1],
+            margperm: ["{\\varphi}"],
+            altquovecembed: ["{\\text{G}_{#1}^{\\constraintname,\\targetp}}", 1],
+            vecset: ["{V_{#1}}", 1],
+            repr: ["{\\lfloor#1\\rfloor}", 1],
+            gid: ["{\\text{id}}"],
+            id: ["{1_{#1}}",1],
+            consscale: ["{K}"],
+            scaletot: ["{K_{\\text{tot}}^{\\constraintlist,\\targetp}}"],
+            minnorm: ["{d}"],
+            Bigsetst: ["\\;\\Big|\\;"],
+            activeset: ["\\mathcal{S}"],
+            conv: ["\\text{conv}"],
+            lVert: ["|\\hspace{-1pt}|"],
+            norm: ["\\lVert#1\\lVert", 1],
+            st: [":\ "],
+        }
+    }
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeDarkModeToggle.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeParagraphLink.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Fast Inflation
+   </div>
+   <div id="projectbrief">To certify causal incompatibility</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classutil_1_1Logger.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#pub-types">Public Types</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="classutil_1_1Logger-members.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">util::Logger Class Reference<div class="ingroups"><a class="el" href="group__util.html">Utilities</a> &raquo; <a class="el" href="group__printing.html">Terminal output system</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &quot;<a class="el" href="logger_8h_source.html">util/logger.h</a>&quot;</code></p>
+<a name="details" id="details"></a><h2 class="groupheader">Class description</h2>
+<div class="textblock"><p>This custom logger providing additional functionalities over <code>std::cout</code> </p>
+
+<p class="definition">Definition at line <a class="el" href="logger_8h_source.html#l00055">55</a> of file <a class="el" href="logger_8h_source.html">logger.h</a>.</p>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1Logger_1_1WidthManip.html">WidthManip</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal class, use <a class="el" href="group__printing.html#ga90e9eed047f3bebb56929d5b1a5518b2" title="Used as util::logger &lt;&lt; util::setw(5) &lt;&lt; &quot;a&quot; to print &quot;____a&quot; (four spaces before &quot;a&quot;)">util::setw()</a> instead.  <a href="classutil_1_1Logger_1_1WidthManip.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:aa880020e76f3450132676d4adee97cfc"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1Logger.html#aa880020e76f3450132676d4adee97cfc">ColorMode</a> { <a class="el" href="classutil_1_1Logger.html#aa880020e76f3450132676d4adee97cfca8e328b44a0343229e5ef5e3c4df07ec1">ansi</a>
+, <a class="el" href="classutil_1_1Logger.html#aa880020e76f3450132676d4adee97cfca334c4a4c42fdb79d7ebc3e73b517e6f8">none</a>
+ }</td></tr>
+<tr class="memdesc:aa880020e76f3450132676d4adee97cfc"><td class="mdescLeft">&#160;</td><td class="mdescRight">The coloring scheme.  <a href="classutil_1_1Logger.html#aa880020e76f3450132676d4adee97cfc">More...</a><br /></td></tr>
+<tr class="separator:aa880020e76f3450132676d4adee97cfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7050ffd6e9fcaa8bbb4ac9f2aa29b043"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1Logger.html#a7050ffd6e9fcaa8bbb4ac9f2aa29b043">Action</a> { <br />
+&#160;&#160;<a class="el" href="classutil_1_1Logger.html#a7050ffd6e9fcaa8bbb4ac9f2aa29b043a86f354b8575a1a736775ae003fa344e5">flush</a>
+, <a class="el" href="classutil_1_1Logger.html#a7050ffd6e9fcaa8bbb4ac9f2aa29b043a50687cdc4bc36169eb3b2948c9920715">endl</a>
+, <a class="el" href="classutil_1_1Logger.html#a7050ffd6e9fcaa8bbb4ac9f2aa29b043a324d8a1d3f81e730d5099a48cee0c5b6">cr</a>
+, <a class="el" href="classutil_1_1Logger.html#a7050ffd6e9fcaa8bbb4ac9f2aa29b043ad3f6309599a442c077c55f6596dfa54a">begin_section</a>
+, <br />
+&#160;&#160;<a class="el" href="classutil_1_1Logger.html#a7050ffd6e9fcaa8bbb4ac9f2aa29b043acda483cdc78a925cd036b2e3ddcef8d8">end_section</a>
+, <a class="el" href="classutil_1_1Logger.html#a7050ffd6e9fcaa8bbb4ac9f2aa29b043a811882fecd5c7618d7099ebbd39ea254">left</a>
+, <a class="el" href="classutil_1_1Logger.html#a7050ffd6e9fcaa8bbb4ac9f2aa29b043a7c4f29407893c334a6cb7a87bf045c0d">right</a>
+, <a class="el" href="classutil_1_1Logger.html#a7050ffd6e9fcaa8bbb4ac9f2aa29b043a5086e868d32d750f9c952416c47c70f5">reset_indent</a>
+, <br />
+&#160;&#160;<a class="el" href="classutil_1_1Logger.html#a7050ffd6e9fcaa8bbb4ac9f2aa29b043a49256b9819abacbb8e6e031a03abe81b">wait</a>
+<br />
+ }</td></tr>
+<tr class="memdesc:a7050ffd6e9fcaa8bbb4ac9f2aa29b043"><td class="mdescLeft">&#160;</td><td class="mdescRight">The (full names of the) available actions on the logger.  <a href="classutil_1_1Logger.html#a7050ffd6e9fcaa8bbb4ac9f2aa29b043">More...</a><br /></td></tr>
+<tr class="separator:a7050ffd6e9fcaa8bbb4ac9f2aa29b043"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a1677adea1b60fe61b65e44c15dd62fd9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1Logger.html#a1677adea1b60fe61b65e44c15dd62fd9">Logger</a> (<a class="el" href="classutil_1_1Logger.html#aa880020e76f3450132676d4adee97cfc">util::Logger::ColorMode</a> color_mode)</td></tr>
+<tr class="memdesc:a1677adea1b60fe61b65e44c15dd62fd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor setting the color mode.  <br /></td></tr>
+<tr class="separator:a1677adea1b60fe61b65e44c15dd62fd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af818aa6efdb1281e42fc779f2e0bb3cd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1Logger.html#af818aa6efdb1281e42fc779f2e0bb3cd">set_log_level</a> (unsigned int log_level)</td></tr>
+<tr class="memdesc:af818aa6efdb1281e42fc779f2e0bb3cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">To control the max level of indentation to be displayed (the rest is truncated from the output)  <br /></td></tr>
+<tr class="separator:af818aa6efdb1281e42fc779f2e0bb3cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a375f261904b727f2043caa5bbe52dc31"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1Logger.html#a375f261904b727f2043caa5bbe52dc31">disable_dots_for_hidden_sections</a> ()</td></tr>
+<tr class="memdesc:a375f261904b727f2043caa5bbe52dc31"><td class="mdescLeft">&#160;</td><td class="mdescRight">By default, hidden sections above the max log level get printed as "...", but this method disables this behavior.  <br /></td></tr>
+<tr class="separator:a375f261904b727f2043caa5bbe52dc31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4d0bc636706ad6817d192f222934e65"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1Logger.html#ac4d0bc636706ad6817d192f222934e65">echo</a> (std::string const &amp;<a class="el" href="group__str.html#ga6948292bb3a41f65610efe2f043a1f1e">str</a>)</td></tr>
+<tr class="memdesc:ac4d0bc636706ad6817d192f222934e65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a string, taking care of indentation.  <br /></td></tr>
+<tr class="separator:ac4d0bc636706ad6817d192f222934e65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ff73466fa71bddf50abeb1092533e36"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1Logger.html#a1ff73466fa71bddf50abeb1092533e36">flush</a> ()</td></tr>
+<tr class="memdesc:a1ff73466fa71bddf50abeb1092533e36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flushes the output to stdout, used upon calling <code><a class="el" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678" title="The globally accessible logger replacing std::cout">util::logger</a> &lt;&lt; <a class="el" href="group__printing.html#ga658d6b62f7620918ba2edb42f287efb3" title="Flush.">util::flush</a>;</code>  <br /></td></tr>
+<tr class="separator:a1ff73466fa71bddf50abeb1092533e36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a8792494a10f774e888190f33e9ff98"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1Logger.html#a5a8792494a10f774e888190f33e9ff98">new_line</a> ()</td></tr>
+<tr class="memdesc:a5a8792494a10f774e888190f33e9ff98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an indented newline, used upon calling <code><a class="el" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678" title="The globally accessible logger replacing std::cout">util::logger</a> &lt;&lt; <a class="el" href="group__printing.html#ga3f8fe48536ee19c54002c9c1db64cabb" title="Newline.">util::cr</a>;</code>  <br /></td></tr>
+<tr class="separator:a5a8792494a10f774e888190f33e9ff98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1542f86a22ae43065b4911126f3de88"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1Logger.html#ac1542f86a22ae43065b4911126f3de88">begin_section</a> ()</td></tr>
+<tr class="memdesc:ac1542f86a22ae43065b4911126f3de88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new section (more indentation), used upon calling <code><a class="el" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678" title="The globally accessible logger replacing std::cout">util::logger</a> &lt;&lt; <a class="el" href="group__printing.html#ga91047ddaf85b4652a50b89c5c9755317" title="Increase indentation.">util::begin_section</a>;</code>  <br /></td></tr>
+<tr class="separator:ac1542f86a22ae43065b4911126f3de88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b48da51580c4b5c47c595e8b1cab822"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1Logger.html#a1b48da51580c4b5c47c595e8b1cab822">end_section</a> ()</td></tr>
+<tr class="memdesc:a1b48da51580c4b5c47c595e8b1cab822"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ends a section (less indentation), used upon calling <code><a class="el" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678" title="The globally accessible logger replacing std::cout">util::logger</a> &lt;&lt; <a class="el" href="group__printing.html#gae4f7a470686ffa2352173b5c0b486623" title="Decrease indentation.">util::end_section</a>;</code>  <br /></td></tr>
+<tr class="separator:a1b48da51580c4b5c47c595e8b1cab822"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad01e112e7fc1c9205ce491eaf9b476fb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1Logger.html#ad01e112e7fc1c9205ce491eaf9b476fb">set_next_width</a> (int n)</td></tr>
+<tr class="memdesc:ad01e112e7fc1c9205ce491eaf9b476fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">for <code><a class="el" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678" title="The globally accessible logger replacing std::cout">util::logger</a> &lt;&lt; util::setw(n);</code> manipulation  <br /></td></tr>
+<tr class="separator:ad01e112e7fc1c9205ce491eaf9b476fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48af6bd8d0d03a3125bccc82890ed1dc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1Logger.html#a48af6bd8d0d03a3125bccc82890ed1dc">set_alignment</a> (std::ios_base::fmtflags alignment)</td></tr>
+<tr class="memdesc:a48af6bd8d0d03a3125bccc82890ed1dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">To change the next alignment in combination with <a class="el" href="group__printing.html#ga90e9eed047f3bebb56929d5b1a5518b2" title="Used as util::logger &lt;&lt; util::setw(5) &lt;&lt; &quot;a&quot; to print &quot;____a&quot; (four spaces before &quot;a&quot;)">util::setw()</a>, e.g., <code><a class="el" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678" title="The globally accessible logger replacing std::cout">util::logger</a> &lt;&lt; <a class="el" href="group__printing.html#ga7a41ac278da6dce6a9c081977d573a51" title="Align the next call to util::setw() to the left.">util::left</a> &lt;&lt; util::setw(5) &lt;&lt; "a";</code>  <br /></td></tr>
+<tr class="separator:a48af6bd8d0d03a3125bccc82890ed1dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa10b6b29378c35568b915535e66fd569"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1Logger.html#aa10b6b29378c35568b915535e66fd569">reset_indent</a> ()</td></tr>
+<tr class="memdesc:aa10b6b29378c35568b915535e66fd569"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the indentation to the left.  <br /></td></tr>
+<tr class="separator:aa10b6b29378c35568b915535e66fd569"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab668d49ead6192cb23159f5cda0740ce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1Logger.html#ab668d49ead6192cb23159f5cda0740ce">echo_title</a> (std::string const &amp;name)</td></tr>
+<tr class="memdesc:ab668d49ead6192cb23159f5cda0740ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Format for main title (green)  <br /></td></tr>
+<tr class="separator:ab668d49ead6192cb23159f5cda0740ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a9c4e64abf037de02bcc03ea5252764"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1Logger.html#a6a9c4e64abf037de02bcc03ea5252764">echo_header</a> (std::string const &amp;name)</td></tr>
+<tr class="memdesc:a6a9c4e64abf037de02bcc03ea5252764"><td class="mdescLeft">&#160;</td><td class="mdescRight">Format for secondary title (blue)  <br /></td></tr>
+<tr class="separator:a6a9c4e64abf037de02bcc03ea5252764"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7840a2529ef40d0e881b621d789b51c"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1Logger.html#ac7840a2529ef40d0e881b621d789b51c">get_color_code</a> (<a class="el" href="group__color.html#ga95747189f62a0ed341c6e2579146beb7">util::Color</a> c) const</td></tr>
+<tr class="memdesc:ac7840a2529ef40d0e881b621d789b51c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns either an ANSI color code or an empty string, depending on the <a class="el" href="classutil_1_1Logger.html#aa880020e76f3450132676d4adee97cfc" title="The coloring scheme.">util::Logger::ColorMode</a>.  <br /></td></tr>
+<tr class="separator:ac7840a2529ef40d0e881b621d789b51c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6aad3f6eebae8ca2df6cbb70b61a2143"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1Logger.html#a6aad3f6eebae8ca2df6cbb70b61a2143">get_colored_number_str</a> (int number) const</td></tr>
+<tr class="memdesc:a6aad3f6eebae8ca2df6cbb70b61a2143"><td class="mdescLeft">&#160;</td><td class="mdescRight">To color numbers depending on the value of the number.  <br /></td></tr>
+<tr class="separator:a6aad3f6eebae8ca2df6cbb70b61a2143"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad44f9101dbfad26ae010070b75ac5074"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1Logger.html#ad44f9101dbfad26ae010070b75ac5074">echo_colored_number</a> (int number)</td></tr>
+<tr class="memdesc:ad44f9101dbfad26ae010070b75ac5074"><td class="mdescLeft">&#160;</td><td class="mdescRight">To log colored numbers.  <br /></td></tr>
+<tr class="separator:ad44f9101dbfad26ae010070b75ac5074"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a037348a66bc990631e75bf65deabf421"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1Logger.html#a037348a66bc990631e75bf65deabf421">echo_error</a> (std::string const &amp;what)</td></tr>
+<tr class="memdesc:a037348a66bc990631e75bf65deabf421"><td class="mdescLeft">&#160;</td><td class="mdescRight">To prepend an error message by a red <code>Error:</code>  <br /></td></tr>
+<tr class="separator:a037348a66bc990631e75bf65deabf421"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adbda8a3440db46270a7764e504b0310e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classutil_1_1Logger.html#aa880020e76f3450132676d4adee97cfc">util::Logger::ColorMode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1Logger.html#adbda8a3440db46270a7764e504b0310e">get_color_mode</a> () const</td></tr>
+<tr class="separator:adbda8a3440db46270a7764e504b0310e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c621919a7dae959843f5f2493e2d3d2"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1Logger.html#a3c621919a7dae959843f5f2493e2d3d2">get_single_char</a> (unsigned long int i) const</td></tr>
+<tr class="memdesc:a3c621919a7dae959843f5f2493e2d3d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a string with a single-char representation of the number <code>i</code>.  <br /></td></tr>
+<tr class="separator:a3c621919a7dae959843f5f2493e2d3d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af468d2e8d42a1fdb2adfbe28875b2156"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1Logger.html#af468d2e8d42a1fdb2adfbe28875b2156">set_mark</a> ()</td></tr>
+<tr class="memdesc:af468d2e8d42a1fdb2adfbe28875b2156"><td class="mdescLeft">&#160;</td><td class="mdescRight">Places a "mark" at the current line position to be able to rewind using <a class="el" href="classutil_1_1Logger.html#af5f8cad20bf51ebbe414e39b9a58542e" title="Moves the cursor up to the line where util::Logger::set_mark() was called.">util::Logger::go_back_to_mark()</a>  <br /></td></tr>
+<tr class="separator:af468d2e8d42a1fdb2adfbe28875b2156"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5f8cad20bf51ebbe414e39b9a58542e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1Logger.html#af5f8cad20bf51ebbe414e39b9a58542e">go_back_to_mark</a> ()</td></tr>
+<tr class="memdesc:af5f8cad20bf51ebbe414e39b9a58542e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves the cursor up to the line where <a class="el" href="classutil_1_1Logger.html#af468d2e8d42a1fdb2adfbe28875b2156" title="Places a &quot;mark&quot; at the current line position to be able to rewind using util::Logger::go_back_to_mark...">util::Logger::set_mark()</a> was called.  <br /></td></tr>
+<tr class="separator:af5f8cad20bf51ebbe414e39b9a58542e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d7a0aa7ce43054caea3738168ef4de9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1Logger.html#a5d7a0aa7ce43054caea3738168ef4de9">cancel_go_back_to_mark</a> ()</td></tr>
+<tr class="memdesc:a5d7a0aa7ce43054caea3738168ef4de9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves the cursor down to the place <a class="el" href="classutil_1_1Logger.html#af5f8cad20bf51ebbe414e39b9a58542e" title="Moves the cursor up to the line where util::Logger::set_mark() was called.">util::Logger::go_back_to_mark()</a> was last called (unless we're already farther down)  <br /></td></tr>
+<tr class="separator:a5d7a0aa7ce43054caea3738168ef4de9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a803fd208a4a66383ff95d4c97339ae12"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1Logger.html#a803fd208a4a66383ff95d4c97339ae12">move_up</a> (int i)</td></tr>
+<tr class="memdesc:a803fd208a4a66383ff95d4c97339ae12"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves the cursor up by i+1 and enters a <a class="el" href="group__printing.html#ga3f8fe48536ee19c54002c9c1db64cabb" title="Newline.">util::cr</a>.  <br /></td></tr>
+<tr class="separator:a803fd208a4a66383ff95d4c97339ae12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41fc84ba70b0e79a10b94cb9de413e3f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1Logger.html#a41fc84ba70b0e79a10b94cb9de413e3f">move_down</a> (int i)</td></tr>
+<tr class="memdesc:a41fc84ba70b0e79a10b94cb9de413e3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves the cursor down by i-1 lines and enters a <a class="el" href="group__printing.html#ga3f8fe48536ee19c54002c9c1db64cabb" title="Newline.">util::cr</a>.  <br /></td></tr>
+<tr class="separator:a41fc84ba70b0e79a10b94cb9de413e3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d666a88e8e9e5bef5d57e6bbfd584ac"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1Logger.html#a5d666a88e8e9e5bef5d57e6bbfd584ac">is_disabled</a> () const</td></tr>
+<tr class="memdesc:a5d666a88e8e9e5bef5d57e6bbfd584ac"><td class="mdescLeft">&#160;</td><td class="mdescRight"><code>true</code> if no output should be printed because of the log level setting  <br /></td></tr>
+<tr class="separator:a5d666a88e8e9e5bef5d57e6bbfd584ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a8573ac407e631363112ca8cba5fc1992"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1Logger.html#a8573ac407e631363112ca8cba5fc1992">process_pending_indent</a> ()</td></tr>
+<tr class="memdesc:a8573ac407e631363112ca8cba5fc1992"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal method used for indentation.  <br /></td></tr>
+<tr class="separator:a8573ac407e631363112ca8cba5fc1992"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a50a8758748f5120f8b0cb2dc7c089227"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1Logger.html#a50a8758748f5120f8b0cb2dc7c089227">m_depth_enabled</a></td></tr>
+<tr class="memdesc:a50a8758748f5120f8b0cb2dc7c089227"><td class="mdescLeft">&#160;</td><td class="mdescRight">Controls whether or not to log things: only <code>true</code> if <code>m_section_index &lt;= m_log_level</code>  <br /></td></tr>
+<tr class="separator:a50a8758748f5120f8b0cb2dc7c089227"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba50860d0bf48336e72133847d6aad7f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classutil_1_1Logger.html#aa880020e76f3450132676d4adee97cfc">util::Logger::ColorMode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1Logger.html#aba50860d0bf48336e72133847d6aad7f">m_color_mode</a></td></tr>
+<tr class="memdesc:aba50860d0bf48336e72133847d6aad7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether or not to use color in the console.  <br /></td></tr>
+<tr class="separator:aba50860d0bf48336e72133847d6aad7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a364d8395c1e1e595f84d301dd36389e3"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1Logger.html#a364d8395c1e1e595f84d301dd36389e3">m_log_level</a></td></tr>
+<tr class="memdesc:a364d8395c1e1e595f84d301dd36389e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">The log level controlling the amount of output.  <br /></td></tr>
+<tr class="separator:a364d8395c1e1e595f84d301dd36389e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8a596d8848be4fd79b674aa82dc52b0"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1Logger.html#ab8a596d8848be4fd79b674aa82dc52b0">m_section_index</a></td></tr>
+<tr class="memdesc:ab8a596d8848be4fd79b674aa82dc52b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">The current section (larger = deeper in sub-sub-sections)  <br /></td></tr>
+<tr class="separator:ab8a596d8848be4fd79b674aa82dc52b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67f984b90f6c0392cde726d8fc75466a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1Logger.html#a67f984b90f6c0392cde726d8fc75466a">m_indent_pending</a></td></tr>
+<tr class="memdesc:a67f984b90f6c0392cde726d8fc75466a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates whether it is still required to print out the indentation space characters.  <br /></td></tr>
+<tr class="separator:a67f984b90f6c0392cde726d8fc75466a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae24d0479d61727c07ade702446b4dcaa"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1Logger.html#ae24d0479d61727c07ade702446b4dcaa">m_disable_dots_for_hidden_sections</a></td></tr>
+<tr class="memdesc:ae24d0479d61727c07ade702446b4dcaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether or not to issue dots to indicate that logs are omitted.  <br /></td></tr>
+<tr class="separator:ae24d0479d61727c07ade702446b4dcaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77f1a4ea3e54a3f37aca843865ded450"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1Logger.html#a77f1a4ea3e54a3f37aca843865ded450">m_n_cr_since_mark</a></td></tr>
+<tr class="memdesc:a77f1a4ea3e54a3f37aca843865ded450"><td class="mdescLeft">&#160;</td><td class="mdescRight">Counts the number of newlines printed since the last mark was set.  <br /></td></tr>
+<tr class="separator:a77f1a4ea3e54a3f37aca843865ded450"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b0b81e6099d07c593cead29b5de00e7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1Logger.html#a4b0b81e6099d07c593cead29b5de00e7">m_max_n_cr_since_mark</a></td></tr>
+<tr class="memdesc:a4b0b81e6099d07c593cead29b5de00e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Counts the number of newlines printed before going back to a mark, to be able to leave the mark section.  <br /></td></tr>
+<tr class="separator:a4b0b81e6099d07c593cead29b5de00e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="aa880020e76f3450132676d4adee97cfc" name="aa880020e76f3450132676d4adee97cfc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa880020e76f3450132676d4adee97cfc">&#9670;&#160;</a></span>ColorMode</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="classutil_1_1Logger.html#aa880020e76f3450132676d4adee97cfc">util::Logger::ColorMode</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The coloring scheme. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aa880020e76f3450132676d4adee97cfca8e328b44a0343229e5ef5e3c4df07ec1" name="aa880020e76f3450132676d4adee97cfca8e328b44a0343229e5ef5e3c4df07ec1"></a>ansi&#160;</td><td class="fielddoc"><p>for color in the terminal </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aa880020e76f3450132676d4adee97cfca334c4a4c42fdb79d7ebc3e73b517e6f8" name="aa880020e76f3450132676d4adee97cfca334c4a4c42fdb79d7ebc3e73b517e6f8"></a>none&#160;</td><td class="fielddoc"><p>No color. </p>
+</td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="logger_8h_source.html#l00058">58</a> of file <a class="el" href="logger_8h_source.html">logger.h</a>.</p>
+
+</div>
+</div>
+<a id="a7050ffd6e9fcaa8bbb4ac9f2aa29b043" name="a7050ffd6e9fcaa8bbb4ac9f2aa29b043"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7050ffd6e9fcaa8bbb4ac9f2aa29b043">&#9670;&#160;</a></span>Action</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="classutil_1_1Logger.html#a7050ffd6e9fcaa8bbb4ac9f2aa29b043">util::Logger::Action</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The (full names of the) available actions on the logger. </p>
+<p>These can be abbreviated, e.g., <code><a class="el" href="group__printing.html#ga3f8fe48536ee19c54002c9c1db64cabb" title="Newline.">util::cr</a></code> instead of <code><a class="el" href="classutil_1_1Logger.html#a7050ffd6e9fcaa8bbb4ac9f2aa29b043a324d8a1d3f81e730d5099a48cee0c5b6" title="newline (&quot;Carriage Return&quot;)">util::Logger::Action::cr</a></code>, etc. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a7050ffd6e9fcaa8bbb4ac9f2aa29b043a86f354b8575a1a736775ae003fa344e5" name="a7050ffd6e9fcaa8bbb4ac9f2aa29b043a86f354b8575a1a736775ae003fa344e5"></a>flush&#160;</td><td class="fielddoc"><p>flush </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a7050ffd6e9fcaa8bbb4ac9f2aa29b043a50687cdc4bc36169eb3b2948c9920715" name="a7050ffd6e9fcaa8bbb4ac9f2aa29b043a50687cdc4bc36169eb3b2948c9920715"></a>endl&#160;</td><td class="fielddoc"><p>flush and newline </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a7050ffd6e9fcaa8bbb4ac9f2aa29b043a324d8a1d3f81e730d5099a48cee0c5b6" name="a7050ffd6e9fcaa8bbb4ac9f2aa29b043a324d8a1d3f81e730d5099a48cee0c5b6"></a>cr&#160;</td><td class="fielddoc"><p>newline ("Carriage Return") </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a7050ffd6e9fcaa8bbb4ac9f2aa29b043ad3f6309599a442c077c55f6596dfa54a" name="a7050ffd6e9fcaa8bbb4ac9f2aa29b043ad3f6309599a442c077c55f6596dfa54a"></a>begin_section&#160;</td><td class="fielddoc"><p>to increase indentation </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a7050ffd6e9fcaa8bbb4ac9f2aa29b043acda483cdc78a925cd036b2e3ddcef8d8" name="a7050ffd6e9fcaa8bbb4ac9f2aa29b043acda483cdc78a925cd036b2e3ddcef8d8"></a>end_section&#160;</td><td class="fielddoc"><p>to decrease indentation </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a7050ffd6e9fcaa8bbb4ac9f2aa29b043a811882fecd5c7618d7099ebbd39ea254" name="a7050ffd6e9fcaa8bbb4ac9f2aa29b043a811882fecd5c7618d7099ebbd39ea254"></a>left&#160;</td><td class="fielddoc"><p>align left </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a7050ffd6e9fcaa8bbb4ac9f2aa29b043a7c4f29407893c334a6cb7a87bf045c0d" name="a7050ffd6e9fcaa8bbb4ac9f2aa29b043a7c4f29407893c334a6cb7a87bf045c0d"></a>right&#160;</td><td class="fielddoc"><p>align right (works in tandem with <a class="el" href="group__printing.html#ga90e9eed047f3bebb56929d5b1a5518b2" title="Used as util::logger &lt;&lt; util::setw(5) &lt;&lt; &quot;a&quot; to print &quot;____a&quot; (four spaces before &quot;a&quot;)">util::setw()</a>) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a7050ffd6e9fcaa8bbb4ac9f2aa29b043a5086e868d32d750f9c952416c47c70f5" name="a7050ffd6e9fcaa8bbb4ac9f2aa29b043a5086e868d32d750f9c952416c47c70f5"></a>reset_indent&#160;</td><td class="fielddoc"><p>reset indentation </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a7050ffd6e9fcaa8bbb4ac9f2aa29b043a49256b9819abacbb8e6e031a03abe81b" name="a7050ffd6e9fcaa8bbb4ac9f2aa29b043a49256b9819abacbb8e6e031a03abe81b"></a>wait&#160;</td><td class="fielddoc"><p>pause the execution of the program </p>
+</td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="logger_8h_source.html#l00065">65</a> of file <a class="el" href="logger_8h_source.html">logger.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a1677adea1b60fe61b65e44c15dd62fd9" name="a1677adea1b60fe61b65e44c15dd62fd9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1677adea1b60fe61b65e44c15dd62fd9">&#9670;&#160;</a></span>Logger()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">util::Logger::Logger </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classutil_1_1Logger.html#aa880020e76f3450132676d4adee97cfc">util::Logger::ColorMode</a>&#160;</td>
+          <td class="paramname"><em>color_mode</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor setting the color mode. </p>
+<p>To turn off support of colored output in the terminal (e.g., if the terminal at hand does not support the ANSI color encoding), then the globally accessible <code><a class="el" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678" title="The globally accessible logger replacing std::cout">util::logger</a></code> can be initialized without color in the file <a class="el" href="logger_8cpp.html">logger.cpp</a>. </p>
+
+<p class="definition">Definition at line <a class="el" href="logger_8cpp_source.html#l00013">13</a> of file <a class="el" href="logger_8cpp_source.html">logger.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="af818aa6efdb1281e42fc779f2e0bb3cd" name="af818aa6efdb1281e42fc779f2e0bb3cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af818aa6efdb1281e42fc779f2e0bb3cd">&#9670;&#160;</a></span>set_log_level()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void util::Logger::set_log_level </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>log_level</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>To control the max level of indentation to be displayed (the rest is truncated from the output) </p>
+
+<p class="definition">Definition at line <a class="el" href="logger_8cpp_source.html#l00025">25</a> of file <a class="el" href="logger_8cpp_source.html">logger.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a375f261904b727f2043caa5bbe52dc31" name="a375f261904b727f2043caa5bbe52dc31"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a375f261904b727f2043caa5bbe52dc31">&#9670;&#160;</a></span>disable_dots_for_hidden_sections()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void util::Logger::disable_dots_for_hidden_sections </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>By default, hidden sections above the max log level get printed as "...", but this method disables this behavior. </p>
+
+<p class="definition">Definition at line <a class="el" href="logger_8cpp_source.html#l00034">34</a> of file <a class="el" href="logger_8cpp_source.html">logger.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ac4d0bc636706ad6817d192f222934e65" name="ac4d0bc636706ad6817d192f222934e65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4d0bc636706ad6817d192f222934e65">&#9670;&#160;</a></span>echo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void util::Logger::echo </td>
+          <td>(</td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Prints a string, taking care of indentation. </p>
+
+<p class="definition">Definition at line <a class="el" href="logger_8cpp_source.html#l00038">38</a> of file <a class="el" href="logger_8cpp_source.html">logger.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a1ff73466fa71bddf50abeb1092533e36" name="a1ff73466fa71bddf50abeb1092533e36"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ff73466fa71bddf50abeb1092533e36">&#9670;&#160;</a></span>flush()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void util::Logger::flush </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Flushes the output to stdout, used upon calling <code><a class="el" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678" title="The globally accessible logger replacing std::cout">util::logger</a> &lt;&lt; <a class="el" href="group__printing.html#ga658d6b62f7620918ba2edb42f287efb3" title="Flush.">util::flush</a>;</code> </p>
+
+<p class="definition">Definition at line <a class="el" href="logger_8cpp_source.html#l00063">63</a> of file <a class="el" href="logger_8cpp_source.html">logger.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a5a8792494a10f774e888190f33e9ff98" name="a5a8792494a10f774e888190f33e9ff98"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a8792494a10f774e888190f33e9ff98">&#9670;&#160;</a></span>new_line()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void util::Logger::new_line </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates an indented newline, used upon calling <code><a class="el" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678" title="The globally accessible logger replacing std::cout">util::logger</a> &lt;&lt; <a class="el" href="group__printing.html#ga3f8fe48536ee19c54002c9c1db64cabb" title="Newline.">util::cr</a>;</code> </p>
+
+<p class="definition">Definition at line <a class="el" href="logger_8cpp_source.html#l00070">70</a> of file <a class="el" href="logger_8cpp_source.html">logger.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ac1542f86a22ae43065b4911126f3de88" name="ac1542f86a22ae43065b4911126f3de88"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac1542f86a22ae43065b4911126f3de88">&#9670;&#160;</a></span>begin_section()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void util::Logger::begin_section </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates a new section (more indentation), used upon calling <code><a class="el" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678" title="The globally accessible logger replacing std::cout">util::logger</a> &lt;&lt; <a class="el" href="group__printing.html#ga91047ddaf85b4652a50b89c5c9755317" title="Increase indentation.">util::begin_section</a>;</code> </p>
+
+<p class="definition">Definition at line <a class="el" href="logger_8cpp_source.html#l00080">80</a> of file <a class="el" href="logger_8cpp_source.html">logger.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a1b48da51580c4b5c47c595e8b1cab822" name="a1b48da51580c4b5c47c595e8b1cab822"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b48da51580c4b5c47c595e8b1cab822">&#9670;&#160;</a></span>end_section()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void util::Logger::end_section </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ends a section (less indentation), used upon calling <code><a class="el" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678" title="The globally accessible logger replacing std::cout">util::logger</a> &lt;&lt; <a class="el" href="group__printing.html#gae4f7a470686ffa2352173b5c0b486623" title="Decrease indentation.">util::end_section</a>;</code> </p>
+
+<p class="definition">Definition at line <a class="el" href="logger_8cpp_source.html#l00092">92</a> of file <a class="el" href="logger_8cpp_source.html">logger.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ad01e112e7fc1c9205ce491eaf9b476fb" name="ad01e112e7fc1c9205ce491eaf9b476fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad01e112e7fc1c9205ce491eaf9b476fb">&#9670;&#160;</a></span>set_next_width()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void util::Logger::set_next_width </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>for <code><a class="el" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678" title="The globally accessible logger replacing std::cout">util::logger</a> &lt;&lt; util::setw(n);</code> manipulation </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">n</td><td>The desired width for the next print call </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="logger_8cpp_source.html#l00101">101</a> of file <a class="el" href="logger_8cpp_source.html">logger.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a48af6bd8d0d03a3125bccc82890ed1dc" name="a48af6bd8d0d03a3125bccc82890ed1dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48af6bd8d0d03a3125bccc82890ed1dc">&#9670;&#160;</a></span>set_alignment()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void util::Logger::set_alignment </td>
+          <td>(</td>
+          <td class="paramtype">std::ios_base::fmtflags&#160;</td>
+          <td class="paramname"><em>alignment</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>To change the next alignment in combination with <a class="el" href="group__printing.html#ga90e9eed047f3bebb56929d5b1a5518b2" title="Used as util::logger &lt;&lt; util::setw(5) &lt;&lt; &quot;a&quot; to print &quot;____a&quot; (four spaces before &quot;a&quot;)">util::setw()</a>, e.g., <code><a class="el" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678" title="The globally accessible logger replacing std::cout">util::logger</a> &lt;&lt; <a class="el" href="group__printing.html#ga7a41ac278da6dce6a9c081977d573a51" title="Align the next call to util::setw() to the left.">util::left</a> &lt;&lt; util::setw(5) &lt;&lt; "a";</code> </p>
+
+<p class="definition">Definition at line <a class="el" href="logger_8cpp_source.html#l00110">110</a> of file <a class="el" href="logger_8cpp_source.html">logger.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aa10b6b29378c35568b915535e66fd569" name="aa10b6b29378c35568b915535e66fd569"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa10b6b29378c35568b915535e66fd569">&#9670;&#160;</a></span>reset_indent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void util::Logger::reset_indent </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Resets the indentation to the left. </p>
+
+<p class="definition">Definition at line <a class="el" href="logger_8cpp_source.html#l00119">119</a> of file <a class="el" href="logger_8cpp_source.html">logger.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ab668d49ead6192cb23159f5cda0740ce" name="ab668d49ead6192cb23159f5cda0740ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab668d49ead6192cb23159f5cda0740ce">&#9670;&#160;</a></span>echo_title()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void util::Logger::echo_title </td>
+          <td>(</td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Format for main title (green) </p>
+
+<p class="definition">Definition at line <a class="el" href="logger_8cpp_source.html#l00126">126</a> of file <a class="el" href="logger_8cpp_source.html">logger.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a6a9c4e64abf037de02bcc03ea5252764" name="a6a9c4e64abf037de02bcc03ea5252764"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a9c4e64abf037de02bcc03ea5252764">&#9670;&#160;</a></span>echo_header()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void util::Logger::echo_header </td>
+          <td>(</td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Format for secondary title (blue) </p>
+
+<p class="definition">Definition at line <a class="el" href="logger_8cpp_source.html#l00130">130</a> of file <a class="el" href="logger_8cpp_source.html">logger.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ac7840a2529ef40d0e881b621d789b51c" name="ac7840a2529ef40d0e881b621d789b51c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7840a2529ef40d0e881b621d789b51c">&#9670;&#160;</a></span>get_color_code()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string util::Logger::get_color_code </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__color.html#ga95747189f62a0ed341c6e2579146beb7">util::Color</a>&#160;</td>
+          <td class="paramname"><em>c</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns either an ANSI color code or an empty string, depending on the <a class="el" href="classutil_1_1Logger.html#aa880020e76f3450132676d4adee97cfc" title="The coloring scheme.">util::Logger::ColorMode</a>. </p>
+
+<p class="definition">Definition at line <a class="el" href="logger_8cpp_source.html#l00134">134</a> of file <a class="el" href="logger_8cpp_source.html">logger.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a6aad3f6eebae8ca2df6cbb70b61a2143" name="a6aad3f6eebae8ca2df6cbb70b61a2143"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6aad3f6eebae8ca2df6cbb70b61a2143">&#9670;&#160;</a></span>get_colored_number_str()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string util::Logger::get_colored_number_str </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>number</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>To color numbers depending on the value of the number. </p>
+
+<p class="definition">Definition at line <a class="el" href="logger_8cpp_source.html#l00141">141</a> of file <a class="el" href="logger_8cpp_source.html">logger.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ad44f9101dbfad26ae010070b75ac5074" name="ad44f9101dbfad26ae010070b75ac5074"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad44f9101dbfad26ae010070b75ac5074">&#9670;&#160;</a></span>echo_colored_number()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void util::Logger::echo_colored_number </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>number</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>To log colored numbers. </p>
+
+<p class="definition">Definition at line <a class="el" href="logger_8cpp_source.html#l00165">165</a> of file <a class="el" href="logger_8cpp_source.html">logger.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a037348a66bc990631e75bf65deabf421" name="a037348a66bc990631e75bf65deabf421"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a037348a66bc990631e75bf65deabf421">&#9670;&#160;</a></span>echo_error()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void util::Logger::echo_error </td>
+          <td>(</td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
+          <td class="paramname"><em>what</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>To prepend an error message by a red <code>Error:</code> </p>
+
+<p class="definition">Definition at line <a class="el" href="logger_8cpp_source.html#l00169">169</a> of file <a class="el" href="logger_8cpp_source.html">logger.cpp</a>.</p>
+
+</div>
+</div>
+<a id="adbda8a3440db46270a7764e504b0310e" name="adbda8a3440db46270a7764e504b0310e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adbda8a3440db46270a7764e504b0310e">&#9670;&#160;</a></span>get_color_mode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classutil_1_1Logger.html#aa880020e76f3450132676d4adee97cfc">util::Logger::ColorMode</a> util::Logger::get_color_mode </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="logger_8h_source.html#l00134">134</a> of file <a class="el" href="logger_8h_source.html">logger.h</a>.</p>
+
+</div>
+</div>
+<a id="a3c621919a7dae959843f5f2493e2d3d2" name="a3c621919a7dae959843f5f2493e2d3d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c621919a7dae959843f5f2493e2d3d2">&#9670;&#160;</a></span>get_single_char()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string util::Logger::get_single_char </td>
+          <td>(</td>
+          <td class="paramtype">unsigned long int&#160;</td>
+          <td class="paramname"><em>i</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns a string with a single-char representation of the number <code>i</code>. </p>
+<p>Currently, sends 0...9 to '0'...'9' and then 10 to 'a', 11 to 'b', etc </p>
+
+<p class="definition">Definition at line <a class="el" href="logger_8cpp_source.html#l00175">175</a> of file <a class="el" href="logger_8cpp_source.html">logger.cpp</a>.</p>
+
+</div>
+</div>
+<a id="af468d2e8d42a1fdb2adfbe28875b2156" name="af468d2e8d42a1fdb2adfbe28875b2156"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af468d2e8d42a1fdb2adfbe28875b2156">&#9670;&#160;</a></span>set_mark()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void util::Logger::set_mark </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Places a "mark" at the current line position to be able to rewind using <a class="el" href="classutil_1_1Logger.html#af5f8cad20bf51ebbe414e39b9a58542e" title="Moves the cursor up to the line where util::Logger::set_mark() was called.">util::Logger::go_back_to_mark()</a> </p>
+
+<p class="definition">Definition at line <a class="el" href="logger_8cpp_source.html#l00183">183</a> of file <a class="el" href="logger_8cpp_source.html">logger.cpp</a>.</p>
+
+</div>
+</div>
+<a id="af5f8cad20bf51ebbe414e39b9a58542e" name="af5f8cad20bf51ebbe414e39b9a58542e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5f8cad20bf51ebbe414e39b9a58542e">&#9670;&#160;</a></span>go_back_to_mark()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void util::Logger::go_back_to_mark </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Moves the cursor up to the line where <a class="el" href="classutil_1_1Logger.html#af468d2e8d42a1fdb2adfbe28875b2156" title="Places a &quot;mark&quot; at the current line position to be able to rewind using util::Logger::go_back_to_mark...">util::Logger::set_mark()</a> was called. </p>
+
+<p class="definition">Definition at line <a class="el" href="logger_8cpp_source.html#l00187">187</a> of file <a class="el" href="logger_8cpp_source.html">logger.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a5d7a0aa7ce43054caea3738168ef4de9" name="a5d7a0aa7ce43054caea3738168ef4de9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d7a0aa7ce43054caea3738168ef4de9">&#9670;&#160;</a></span>cancel_go_back_to_mark()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void util::Logger::cancel_go_back_to_mark </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Moves the cursor down to the place <a class="el" href="classutil_1_1Logger.html#af5f8cad20bf51ebbe414e39b9a58542e" title="Moves the cursor up to the line where util::Logger::set_mark() was called.">util::Logger::go_back_to_mark()</a> was last called (unless we're already farther down) </p>
+
+<p class="definition">Definition at line <a class="el" href="logger_8cpp_source.html#l00192">192</a> of file <a class="el" href="logger_8cpp_source.html">logger.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a803fd208a4a66383ff95d4c97339ae12" name="a803fd208a4a66383ff95d4c97339ae12"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a803fd208a4a66383ff95d4c97339ae12">&#9670;&#160;</a></span>move_up()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void util::Logger::move_up </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Moves the cursor up by i+1 and enters a <a class="el" href="group__printing.html#ga3f8fe48536ee19c54002c9c1db64cabb" title="Newline.">util::cr</a>. </p>
+
+<p class="definition">Definition at line <a class="el" href="logger_8cpp_source.html#l00196">196</a> of file <a class="el" href="logger_8cpp_source.html">logger.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a41fc84ba70b0e79a10b94cb9de413e3f" name="a41fc84ba70b0e79a10b94cb9de413e3f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41fc84ba70b0e79a10b94cb9de413e3f">&#9670;&#160;</a></span>move_down()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void util::Logger::move_down </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Moves the cursor down by i-1 lines and enters a <a class="el" href="group__printing.html#ga3f8fe48536ee19c54002c9c1db64cabb" title="Newline.">util::cr</a>. </p>
+
+<p class="definition">Definition at line <a class="el" href="logger_8cpp_source.html#l00204">204</a> of file <a class="el" href="logger_8cpp_source.html">logger.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a5d666a88e8e9e5bef5d57e6bbfd584ac" name="a5d666a88e8e9e5bef5d57e6bbfd584ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d666a88e8e9e5bef5d57e6bbfd584ac">&#9670;&#160;</a></span>is_disabled()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool util::Logger::is_disabled </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><code>true</code> if no output should be printed because of the log level setting </p>
+
+<p class="definition">Definition at line <a class="el" href="logger_8h_source.html#l00153">153</a> of file <a class="el" href="logger_8h_source.html">logger.h</a>.</p>
+
+</div>
+</div>
+<a id="a8573ac407e631363112ca8cba5fc1992" name="a8573ac407e631363112ca8cba5fc1992"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8573ac407e631363112ca8cba5fc1992">&#9670;&#160;</a></span>process_pending_indent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void util::Logger::process_pending_indent </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Internal method used for indentation. </p>
+
+<p class="definition">Definition at line <a class="el" href="logger_8cpp_source.html#l00047">47</a> of file <a class="el" href="logger_8cpp_source.html">logger.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a50a8758748f5120f8b0cb2dc7c089227" name="a50a8758748f5120f8b0cb2dc7c089227"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50a8758748f5120f8b0cb2dc7c089227">&#9670;&#160;</a></span>m_depth_enabled</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool util::Logger::m_depth_enabled</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Controls whether or not to log things: only <code>true</code> if <code>m_section_index &lt;= m_log_level</code> </p>
+
+<p class="definition">Definition at line <a class="el" href="logger_8h_source.html#l00162">162</a> of file <a class="el" href="logger_8h_source.html">logger.h</a>.</p>
+
+</div>
+</div>
+<a id="aba50860d0bf48336e72133847d6aad7f" name="aba50860d0bf48336e72133847d6aad7f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba50860d0bf48336e72133847d6aad7f">&#9670;&#160;</a></span>m_color_mode</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classutil_1_1Logger.html#aa880020e76f3450132676d4adee97cfc">util::Logger::ColorMode</a> util::Logger::m_color_mode</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Whether or not to use color in the console. </p>
+
+<p class="definition">Definition at line <a class="el" href="logger_8h_source.html#l00164">164</a> of file <a class="el" href="logger_8h_source.html">logger.h</a>.</p>
+
+</div>
+</div>
+<a id="a364d8395c1e1e595f84d301dd36389e3" name="a364d8395c1e1e595f84d301dd36389e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a364d8395c1e1e595f84d301dd36389e3">&#9670;&#160;</a></span>m_log_level</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int util::Logger::m_log_level</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The log level controlling the amount of output. </p>
+
+<p class="definition">Definition at line <a class="el" href="logger_8h_source.html#l00166">166</a> of file <a class="el" href="logger_8h_source.html">logger.h</a>.</p>
+
+</div>
+</div>
+<a id="ab8a596d8848be4fd79b674aa82dc52b0" name="ab8a596d8848be4fd79b674aa82dc52b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8a596d8848be4fd79b674aa82dc52b0">&#9670;&#160;</a></span>m_section_index</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int util::Logger::m_section_index</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The current section (larger = deeper in sub-sub-sections) </p>
+
+<p class="definition">Definition at line <a class="el" href="logger_8h_source.html#l00171">171</a> of file <a class="el" href="logger_8h_source.html">logger.h</a>.</p>
+
+</div>
+</div>
+<a id="a67f984b90f6c0392cde726d8fc75466a" name="a67f984b90f6c0392cde726d8fc75466a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67f984b90f6c0392cde726d8fc75466a">&#9670;&#160;</a></span>m_indent_pending</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool util::Logger::m_indent_pending</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Indicates whether it is still required to print out the indentation space characters. </p>
+<p>It is not desirable to indent directly after receiving a newline instruction, there might be a <code><a class="el" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678" title="The globally accessible logger replacing std::cout">util::logger</a> &lt;&lt; <a class="el" href="group__printing.html#gae4f7a470686ffa2352173b5c0b486623" title="Decrease indentation.">util::end_section</a></code> instruction coming up </p>
+
+<p class="definition">Definition at line <a class="el" href="logger_8h_source.html#l00175">175</a> of file <a class="el" href="logger_8h_source.html">logger.h</a>.</p>
+
+</div>
+</div>
+<a id="ae24d0479d61727c07ade702446b4dcaa" name="ae24d0479d61727c07ade702446b4dcaa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae24d0479d61727c07ade702446b4dcaa">&#9670;&#160;</a></span>m_disable_dots_for_hidden_sections</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool util::Logger::m_disable_dots_for_hidden_sections</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Whether or not to issue dots to indicate that logs are omitted. </p>
+
+<p class="definition">Definition at line <a class="el" href="logger_8h_source.html#l00177">177</a> of file <a class="el" href="logger_8h_source.html">logger.h</a>.</p>
+
+</div>
+</div>
+<a id="a77f1a4ea3e54a3f37aca843865ded450" name="a77f1a4ea3e54a3f37aca843865ded450"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77f1a4ea3e54a3f37aca843865ded450">&#9670;&#160;</a></span>m_n_cr_since_mark</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int util::Logger::m_n_cr_since_mark</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Counts the number of newlines printed since the last mark was set. </p>
+
+<p class="definition">Definition at line <a class="el" href="logger_8h_source.html#l00180">180</a> of file <a class="el" href="logger_8h_source.html">logger.h</a>.</p>
+
+</div>
+</div>
+<a id="a4b0b81e6099d07c593cead29b5de00e7" name="a4b0b81e6099d07c593cead29b5de00e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b0b81e6099d07c593cead29b5de00e7">&#9670;&#160;</a></span>m_max_n_cr_since_mark</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int util::Logger::m_max_n_cr_since_mark</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Counts the number of newlines printed before going back to a mark, to be able to leave the mark section. </p>
+
+<p class="definition">Definition at line <a class="el" href="logger_8h_source.html#l00182">182</a> of file <a class="el" href="logger_8h_source.html">logger.h</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>src/util/<a class="el" href="logger_8h_source.html">logger.h</a></li>
+<li>src/util/<a class="el" href="logger_8cpp_source.html">logger.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceutil.html">util</a></li><li class="navelem"><a class="el" href="classutil_1_1Logger.html">Logger</a></li>
+    <li class="footer">Generated on Wed Dec 18 2024 17:39:46 for Fast Inflation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

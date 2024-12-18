@@ -1,0 +1,288 @@
+<!-- HTML header for doxygen 1.9.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Fast Inflation: src/inf/symmetry/party_sym.cpp Source File</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+MathJax.Hub.Config({
+    TeX: {
+        Macros: {
+            dd: ["{\\text{d}#1\\,}",1],
+            nouts: ["{n_{\\text{o}}}"],
+            ints: ["{[\\![#1]\\!]}",1],
+            outset: ["{\\ints{\\nouts}}"],
+            N: ["{\\mathbb{N}}"],
+            R: ["{\\mathbb{R}}"],
+            Z: ["{\\mathbb{Z}}"],
+            infsize: ["{z}"],
+            infparties: ["{\\set{I}}"],
+            infsources: ["{\\set{S}}"],
+            infmarg: ["{\\set{A}}"],
+            infmargg: ["{\\set{B}}"],
+            netparties: ["{\\set{N}}"],
+            infq: ["{q}"],
+            infqs: ["{\\Delta_{\\infparties}}"],
+            constraintlist: ["{\\mathcal{C}}"],
+            injsets: ["{\\text{InjSets}}"],
+            infconstraints: ["{\\text{InfCons}}"],
+            parents: ["{\\text{Par}}"],
+            targetp: ["{p}"],
+            targetps: ["{\\Delta_{\\netparties}}"],
+            set: ["{\\mathbf{#1}}",1],
+            type: ["{t}"],
+            infevent: "{\\omega}",
+            events: ["{\\Omega_{#1}}",1],
+            infevents: ["{\\events{\\infparties}}"],
+            redinfevents: ["{\\tilde{\\Omega}_{\\infparties}}"],
+            netevents: ["{\\events{\\netparties}}"],
+            vecset: ["{V_{#1}}",1],
+            alice: ["{\\text{A}}"],
+            bob: ["{\\text{B}}"],
+            charlie: ["{\\text{C}}"],
+            symgroup: ["{\\text{Sym}(#1)}",1],
+            shortsymgroup: ["{\\text{Sym}_{#1}}",1],
+            act: ["{(#1\\hspace{2pt}{:}\\hspace{2pt}#2)}",2],
+            actt: ["{[#1\\hspace{2pt}{:}\\hspace{2pt}#2]}",2],
+            margperms: ["{\\text{Perm}_{#1}}",1],
+            permutedmargs: ["{\\mathbb{P}_{#1}^{\\targetp}}",1],
+            redpermutedmargs: ["{\\tilde{\\mathbb{P}}_{#1}^{\\constraintname,\\targetp}}",1],
+            extract: ["{\\text{ext}(#1,#2)}",2],
+            partysym: ["{\\tau}"],
+            sourcesym: ["{\\xi}"],
+            outsym: ["{\\sigma}"],
+            fullgroup: ["{\\text{InfGrp}}"],
+            partygroup : ["{\\text{PartyGrp}}"],
+            outgroup: ["{\\text{OutGrp}}"],
+            sourcegroup: ["{\\text{SrcGrp}}"],
+            distrgroup: ["{\\mathbb{G}^\\targetp}"],
+            constraintname: ["{c}"],
+            marggroup: ["{\\mathbb{G}^{\\constraintname,\\targetp}}"],
+            fullsymexpl: ["{(\\sourcesym,\\partysym,\\outsym)}"],
+            inner: ["{\\langle#1,#2\\rangle}", 2],
+            quovec: ["{f}"],
+            totconstraintmap: ["{K^{\\constraintlist,\\targetp}}"],
+            totconstraintmapelem: ["{K^{\\constraintname,\\targetp}}"],
+            quovecspace: ["{\\tilde{V}_{#1}^{\\constraintname,\\targetp}}", 1],
+            totquovecspace: ["{\\text{ConsSpace}(\\constraintlist,\\targetp)}"],
+            detdistr: ["{\\delta^{#1}}", 1],
+            margperm: ["{\\varphi}"],
+            altquovecembed: ["{\\text{G}_{#1}^{\\constraintname,\\targetp}}", 1],
+            vecset: ["{V_{#1}}", 1],
+            repr: ["{\\lfloor#1\\rfloor}", 1],
+            gid: ["{\\text{id}}"],
+            id: ["{1_{#1}}",1],
+            consscale: ["{K}"],
+            scaletot: ["{K_{\\text{tot}}^{\\constraintlist,\\targetp}}"],
+            minnorm: ["{d}"],
+            Bigsetst: ["\\;\\Big|\\;"],
+            activeset: ["\\mathcal{S}"],
+            conv: ["\\text{conv}"],
+            lVert: ["|\\hspace{-1pt}|"],
+            norm: ["\\lVert#1\\lVert", 1],
+            st: [":\ "],
+        }
+    }
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeDarkModeToggle.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeParagraphLink.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Fast Inflation
+   </div>
+   <div id="projectbrief">To certify causal incompatibility</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('party__sym_8cpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">party_sym.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="party__sym_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &quot;<a class="code" href="party__sym_8h.html">party_sym.h</a>&quot;</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;../../util/debug.h&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;../../util/logger.h&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno"><a class="line" href="classinf_1_1PartySym.html#a6784306bcda1850564e90d971513116f">    5</a></span><a class="code hl_function" href="classinf_1_1PartySym.html#a6784306bcda1850564e90d971513116f">inf::PartySym::PartySym</a>(</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>    <a class="code hl_typedef" href="classinf_1_1PartySym.html#af091acc82f3033bf2ce9b180fb0e7c36">inf::PartySym::Bare</a> <span class="keyword">const</span> &amp;sym, <span class="keywordtype">bool</span> even)</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>    : m_sym(sym),</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>      m_inverse_sym(sym.size(), 0),</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>      m_even(even) {</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <span class="keywordflow">for</span> (<a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <span class="keyword">const</span> before_perm : <a class="code hl_class" href="classutil_1_1Range.html">util::Range</a>(<a class="code hl_variable" href="classinf_1_1PartySym.html#a88aad99a7defc8c2b0b1f9a7855082c0">m_sym</a>.size())) {</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>        <a class="code hl_variable" href="classinf_1_1PartySym.html#a9879c040c97127c6642119a28a21cfc7">m_inverse_sym</a>[<a class="code hl_variable" href="classinf_1_1PartySym.html#a88aad99a7defc8c2b0b1f9a7855082c0">m_sym</a>[before_perm]] = before_perm;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    }</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>}</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="classinf_1_1PartySym.html#a7dc248e1f2f2081923fdb32fc6e89bb5">   15</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1PartySym.html#a7dc248e1f2f2081923fdb32fc6e89bb5">inf::PartySym::act_entrywise</a>(std::vector&lt;Index&gt; <span class="keyword">const</span> &amp;input, std::vector&lt;Index&gt; &amp;output)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <a class="code hl_define" href="group__debug.html#ga06663ee630c22628b3fe11700767367f">ASSERT_EQUAL</a>(input.size(), output.size())</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keywordflow">for</span> (<a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <span class="keyword">const</span> i : <a class="code hl_class" href="classutil_1_1Range.html">util::Range</a>(input.size())) {</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        output[i] = m_sym[input[i]];</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    }</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>}</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="classinf_1_1PartySym.html#ac9de9982e85e2ceaea6a18c8d4213a00">   24</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1PartySym.html#ac9de9982e85e2ceaea6a18c8d4213a00">inf::PartySym::act_on_list</a>(std::vector&lt;T&gt; <span class="keyword">const</span> &amp;input, std::vector&lt;T&gt; &amp;output)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <a class="code hl_define" href="group__debug.html#ga142a617ae6f4d3b050faad2aa1e936bf">ASSERT_TRUE</a>(&amp;input != &amp;output);</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <a class="code hl_define" href="group__debug.html#ga06663ee630c22628b3fe11700767367f">ASSERT_EQUAL</a>(input.size(), output.size());</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <a class="code hl_define" href="group__debug.html#ga06663ee630c22628b3fe11700767367f">ASSERT_EQUAL</a>(input.size(), m_sym.size());</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordflow">for</span> (<a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <span class="keyword">const</span> i : <a class="code hl_class" href="classutil_1_1Range.html">util::Range</a>(m_sym.size())) {</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        output[m_sym[i]] = input[i];</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    }</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>}</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="party__sym_8cpp.html#aef64e76fd7c6fe06c62f312971a36112">   34</a></span><span class="keyword">template</span> <span class="keywordtype">void</span> inf::PartySym::act_on_list&lt;inf::Outcome&gt;(<a class="code hl_typedef" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> <span class="keyword">const</span> &amp;source, <a class="code hl_typedef" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> &amp;dest) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword">template</span> <span class="keywordtype">void</span> inf::PartySym::act_on_list&lt;Index&gt;(std::vector&lt;Index&gt; <span class="keyword">const</span> &amp;source, std::vector&lt;Index&gt; &amp;dest) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="classinf_1_1PartySym.html#a8e0107ed8299b3377eee7eacdc9f5e84">   37</a></span><a class="code hl_class" href="classinf_1_1PartySym.html">inf::PartySym</a> <a class="code hl_function" href="classinf_1_1PartySym.html#a8e0107ed8299b3377eee7eacdc9f5e84">inf::PartySym::get_composition_after</a>(<a class="code hl_class" href="classinf_1_1PartySym.html">inf::PartySym</a> <span class="keyword">const</span> &amp;other)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <a class="code hl_define" href="group__debug.html#ga06663ee630c22628b3fe11700767367f">ASSERT_EQUAL</a>(this-&gt;m_sym.size(), other.<a class="code hl_variable" href="classinf_1_1PartySym.html#a88aad99a7defc8c2b0b1f9a7855082c0">m_sym</a>.size());</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <a class="code hl_typedef" href="classinf_1_1PartySym.html#af091acc82f3033bf2ce9b180fb0e7c36">inf::PartySym::Bare</a> composed_sym(this-&gt;m_sym.size());</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keywordflow">for</span> (<a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <span class="keyword">const</span> i : <a class="code hl_class" href="classutil_1_1Range.html">util::Range</a>(m_sym.size())) {</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        composed_sym[i] = this-&gt;m_sym[other.<a class="code hl_variable" href="classinf_1_1PartySym.html#a88aad99a7defc8c2b0b1f9a7855082c0">m_sym</a>[i]];</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    }</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keywordflow">return</span> <a class="code hl_class" href="classinf_1_1PartySym.html">inf::PartySym</a>(composed_sym);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>}</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="classinf_1_1PartySym.html#a436a1a1a2e5594c068593f5b3337408b">   49</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1PartySym.html#a436a1a1a2e5594c068593f5b3337408b">inf::PartySym::log</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <a class="code hl_variable" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a> &lt;&lt; <span class="stringliteral">&quot;inf::PartySym &quot;</span> &lt;&lt; m_sym;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>}</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="classinf_1_1PartySym.html#a1f1d02bee238f9099ec3b52bca9a8cf2">   53</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="classinf_1_1PartySym.html#a1f1d02bee238f9099ec3b52bca9a8cf2">inf::PartySym::operator==</a>(<a class="code hl_class" href="classinf_1_1PartySym.html">inf::PartySym</a> <span class="keyword">const</span> &amp;other)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keywordflow">return</span> this-&gt;get_bare_sym() == other.<a class="code hl_function" href="classinf_1_1PartySym.html#a91b40d2e42a94445da058833bd77bfe0">get_bare_sym</a>();</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>}</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="classinf_1_1PartySym.html#a8f4b2cdb38caa8a329671bfc95765fb9">   57</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="classinf_1_1PartySym.html#a8f4b2cdb38caa8a329671bfc95765fb9">inf::PartySym::operator&lt;</a>(<a class="code hl_class" href="classinf_1_1PartySym.html">inf::PartySym</a> <span class="keyword">const</span> &amp;other)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keywordflow">return</span> this-&gt;get_bare_sym() &lt; other.<a class="code hl_function" href="classinf_1_1PartySym.html#a91b40d2e42a94445da058833bd77bfe0">get_bare_sym</a>();</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>}</div>
+<div class="ttc" id="aclassinf_1_1PartySym_html"><div class="ttname"><a href="classinf_1_1PartySym.html">inf::PartySym</a></div><div class="ttdoc">Party symmetry.</div><div class="ttdef"><b>Definition</b> <a href="party__sym_8h_source.html#l00017">party_sym.h:17</a></div></div>
+<div class="ttc" id="aclassinf_1_1PartySym_html_a1f1d02bee238f9099ec3b52bca9a8cf2"><div class="ttname"><a href="classinf_1_1PartySym.html#a1f1d02bee238f9099ec3b52bca9a8cf2">inf::PartySym::operator==</a></div><div class="ttdeci">bool operator==(PartySym const &amp;other) const</div><div class="ttdef"><b>Definition</b> <a href="party__sym_8cpp_source.html#l00053">party_sym.cpp:53</a></div></div>
+<div class="ttc" id="aclassinf_1_1PartySym_html_a436a1a1a2e5594c068593f5b3337408b"><div class="ttname"><a href="classinf_1_1PartySym.html#a436a1a1a2e5594c068593f5b3337408b">inf::PartySym::log</a></div><div class="ttdeci">void log() const override</div><div class="ttdoc">This prints the object to the globally accessible util::logger and allows the util::logger &lt;&lt; loggabl...</div><div class="ttdef"><b>Definition</b> <a href="party__sym_8cpp_source.html#l00049">party_sym.cpp:49</a></div></div>
+<div class="ttc" id="aclassinf_1_1PartySym_html_a6784306bcda1850564e90d971513116f"><div class="ttname"><a href="classinf_1_1PartySym.html#a6784306bcda1850564e90d971513116f">inf::PartySym::PartySym</a></div><div class="ttdeci">PartySym(inf::PartySym::Bare const &amp;sym, bool even=true)</div><div class="ttdoc">Constructor, can specify parity of the permutation.</div><div class="ttdef"><b>Definition</b> <a href="party__sym_8cpp_source.html#l00005">party_sym.cpp:5</a></div></div>
+<div class="ttc" id="aclassinf_1_1PartySym_html_a7dc248e1f2f2081923fdb32fc6e89bb5"><div class="ttname"><a href="classinf_1_1PartySym.html#a7dc248e1f2f2081923fdb32fc6e89bb5">inf::PartySym::act_entrywise</a></div><div class="ttdeci">void act_entrywise(std::vector&lt; Index &gt; const &amp;input, std::vector&lt; Index &gt; &amp;output) const</div><div class="ttdoc">Symmetry action, acts on each party entrywise</div><div class="ttdef"><b>Definition</b> <a href="party__sym_8cpp_source.html#l00015">party_sym.cpp:15</a></div></div>
+<div class="ttc" id="aclassinf_1_1PartySym_html_a88aad99a7defc8c2b0b1f9a7855082c0"><div class="ttname"><a href="classinf_1_1PartySym.html#a88aad99a7defc8c2b0b1f9a7855082c0">inf::PartySym::m_sym</a></div><div class="ttdeci">PartySym::Bare m_sym</div><div class="ttdoc">The image of the permutation, i.e., .</div><div class="ttdef"><b>Definition</b> <a href="party__sym_8h_source.html#l00077">party_sym.h:77</a></div></div>
+<div class="ttc" id="aclassinf_1_1PartySym_html_a8e0107ed8299b3377eee7eacdc9f5e84"><div class="ttname"><a href="classinf_1_1PartySym.html#a8e0107ed8299b3377eee7eacdc9f5e84">inf::PartySym::get_composition_after</a></div><div class="ttdeci">PartySym get_composition_after(PartySym const &amp;other) const</div><div class="ttdoc">The composed permutation .</div><div class="ttdef"><b>Definition</b> <a href="party__sym_8cpp_source.html#l00037">party_sym.cpp:37</a></div></div>
+<div class="ttc" id="aclassinf_1_1PartySym_html_a8f4b2cdb38caa8a329671bfc95765fb9"><div class="ttname"><a href="classinf_1_1PartySym.html#a8f4b2cdb38caa8a329671bfc95765fb9">inf::PartySym::operator&lt;</a></div><div class="ttdeci">bool operator&lt;(PartySym const &amp;other) const</div><div class="ttdoc">Lexicographical comparison of m_sym</div><div class="ttdef"><b>Definition</b> <a href="party__sym_8cpp_source.html#l00057">party_sym.cpp:57</a></div></div>
+<div class="ttc" id="aclassinf_1_1PartySym_html_a91b40d2e42a94445da058833bd77bfe0"><div class="ttname"><a href="classinf_1_1PartySym.html#a91b40d2e42a94445da058833bd77bfe0">inf::PartySym::get_bare_sym</a></div><div class="ttdeci">PartySym::Bare const &amp; get_bare_sym() const</div><div class="ttdoc">Returns the image of the symmetry, i.e., .</div><div class="ttdef"><b>Definition</b> <a href="party__sym_8h_source.html#l00062">party_sym.h:62</a></div></div>
+<div class="ttc" id="aclassinf_1_1PartySym_html_a9879c040c97127c6642119a28a21cfc7"><div class="ttname"><a href="classinf_1_1PartySym.html#a9879c040c97127c6642119a28a21cfc7">inf::PartySym::m_inverse_sym</a></div><div class="ttdeci">PartySym::Bare m_inverse_sym</div><div class="ttdoc">The image of the inverse of the permutation, i.e., .</div><div class="ttdef"><b>Definition</b> <a href="party__sym_8h_source.html#l00079">party_sym.h:79</a></div></div>
+<div class="ttc" id="aclassinf_1_1PartySym_html_ac9de9982e85e2ceaea6a18c8d4213a00"><div class="ttname"><a href="classinf_1_1PartySym.html#ac9de9982e85e2ceaea6a18c8d4213a00">inf::PartySym::act_on_list</a></div><div class="ttdeci">void act_on_list(std::vector&lt; T &gt; const &amp;input, std::vector&lt; T &gt; &amp;output) const</div><div class="ttdoc">Symmetry action, essentially the action on events.</div><div class="ttdef"><b>Definition</b> <a href="party__sym_8cpp_source.html#l00024">party_sym.cpp:24</a></div></div>
+<div class="ttc" id="aclassinf_1_1PartySym_html_af091acc82f3033bf2ce9b180fb0e7c36"><div class="ttname"><a href="classinf_1_1PartySym.html#af091acc82f3033bf2ce9b180fb0e7c36">inf::PartySym::Bare</a></div><div class="ttdeci">std::vector&lt; Index &gt; Bare</div><div class="ttdoc">The image of the permutation, .</div><div class="ttdef"><b>Definition</b> <a href="party__sym_8h_source.html#l00020">party_sym.h:20</a></div></div>
+<div class="ttc" id="aclassutil_1_1Range_html"><div class="ttname"><a href="classutil_1_1Range.html">util::Range</a></div><div class="ttdoc">Iterating over a finite integer range.</div><div class="ttdef"><b>Definition</b> <a href="range_8h_source.html#l00131">range.h:131</a></div></div>
+<div class="ttc" id="agroup__debug_html_ga06663ee630c22628b3fe11700767367f"><div class="ttname"><a href="group__debug.html#ga06663ee630c22628b3fe11700767367f">ASSERT_EQUAL</a></div><div class="ttdeci">#define ASSERT_EQUAL(X, Y)</div><div class="ttdoc">Soft assertion, tests for X == Y</div><div class="ttdef"><b>Definition</b> <a href="debug_8h_source.html#l00137">debug.h:137</a></div></div>
+<div class="ttc" id="agroup__debug_html_ga142a617ae6f4d3b050faad2aa1e936bf"><div class="ttname"><a href="group__debug.html#ga142a617ae6f4d3b050faad2aa1e936bf">ASSERT_TRUE</a></div><div class="ttdeci">#define ASSERT_TRUE(X)</div><div class="ttdoc">Soft assertion, tests for X being true.</div><div class="ttdef"><b>Definition</b> <a href="debug_8h_source.html#l00140">debug.h:140</a></div></div>
+<div class="ttc" id="agroup__event_html_gac60a6fcdfce02dc13eb7364d6a2b56b0"><div class="ttname"><a href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a></div><div class="ttdeci">std::vector&lt; inf::Outcome &gt; Event</div><div class="ttdoc">A list of inf::Outcome. Conceptually, this plays the role of  for some set .</div><div class="ttdef"><b>Definition</b> <a href="event_8h_source.html#l00030">event.h:30</a></div></div>
+<div class="ttc" id="agroup__printing_html_ga4c77d1dedfe3a5b95abc21d13d7cd678"><div class="ttname"><a href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a></div><div class="ttdeci">util::Logger logger</div><div class="ttdoc">The globally accessible logger replacing std::cout</div></div>
+<div class="ttc" id="agroup__util_html_ga77731aedac326062ffbdcf367185a07e"><div class="ttname"><a href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a></div><div class="ttdeci">uint64_t Index</div><div class="ttdoc">Use for anything meant to be used as an index.</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00019">types.h:19</a></div></div>
+<div class="ttc" id="aparty__sym_8h_html"><div class="ttname"><a href="party__sym_8h.html">party_sym.h</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_0f453feda2a303bb77c09f5934c109df.html">inf</a></li><li class="navelem"><a class="el" href="dir_bd8c5751801b9c05b9ce9b17f63146be.html">symmetry</a></li><li class="navelem"><a class="el" href="party__sym_8cpp.html">party_sym.cpp</a></li>
+    <li class="footer">Generated on Wed Dec 18 2024 17:39:37 for Fast Inflation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

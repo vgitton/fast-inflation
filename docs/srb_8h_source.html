@@ -1,0 +1,360 @@
+<!-- HTML header for doxygen 1.9.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Fast Inflation: src/user/applications/srb.h Source File</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+MathJax.Hub.Config({
+    TeX: {
+        Macros: {
+            dd: ["{\\text{d}#1\\,}",1],
+            nouts: ["{n_{\\text{o}}}"],
+            ints: ["{[\\![#1]\\!]}",1],
+            outset: ["{\\ints{\\nouts}}"],
+            N: ["{\\mathbb{N}}"],
+            R: ["{\\mathbb{R}}"],
+            Z: ["{\\mathbb{Z}}"],
+            infsize: ["{z}"],
+            infparties: ["{\\set{I}}"],
+            infsources: ["{\\set{S}}"],
+            infmarg: ["{\\set{A}}"],
+            infmargg: ["{\\set{B}}"],
+            netparties: ["{\\set{N}}"],
+            infq: ["{q}"],
+            infqs: ["{\\Delta_{\\infparties}}"],
+            constraintlist: ["{\\mathcal{C}}"],
+            injsets: ["{\\text{InjSets}}"],
+            infconstraints: ["{\\text{InfCons}}"],
+            parents: ["{\\text{Par}}"],
+            targetp: ["{p}"],
+            targetps: ["{\\Delta_{\\netparties}}"],
+            set: ["{\\mathbf{#1}}",1],
+            type: ["{t}"],
+            infevent: "{\\omega}",
+            events: ["{\\Omega_{#1}}",1],
+            infevents: ["{\\events{\\infparties}}"],
+            redinfevents: ["{\\tilde{\\Omega}_{\\infparties}}"],
+            netevents: ["{\\events{\\netparties}}"],
+            vecset: ["{V_{#1}}",1],
+            alice: ["{\\text{A}}"],
+            bob: ["{\\text{B}}"],
+            charlie: ["{\\text{C}}"],
+            symgroup: ["{\\text{Sym}(#1)}",1],
+            shortsymgroup: ["{\\text{Sym}_{#1}}",1],
+            act: ["{(#1\\hspace{2pt}{:}\\hspace{2pt}#2)}",2],
+            actt: ["{[#1\\hspace{2pt}{:}\\hspace{2pt}#2]}",2],
+            margperms: ["{\\text{Perm}_{#1}}",1],
+            permutedmargs: ["{\\mathbb{P}_{#1}^{\\targetp}}",1],
+            redpermutedmargs: ["{\\tilde{\\mathbb{P}}_{#1}^{\\constraintname,\\targetp}}",1],
+            extract: ["{\\text{ext}(#1,#2)}",2],
+            partysym: ["{\\tau}"],
+            sourcesym: ["{\\xi}"],
+            outsym: ["{\\sigma}"],
+            fullgroup: ["{\\text{InfGrp}}"],
+            partygroup : ["{\\text{PartyGrp}}"],
+            outgroup: ["{\\text{OutGrp}}"],
+            sourcegroup: ["{\\text{SrcGrp}}"],
+            distrgroup: ["{\\mathbb{G}^\\targetp}"],
+            constraintname: ["{c}"],
+            marggroup: ["{\\mathbb{G}^{\\constraintname,\\targetp}}"],
+            fullsymexpl: ["{(\\sourcesym,\\partysym,\\outsym)}"],
+            inner: ["{\\langle#1,#2\\rangle}", 2],
+            quovec: ["{f}"],
+            totconstraintmap: ["{K^{\\constraintlist,\\targetp}}"],
+            totconstraintmapelem: ["{K^{\\constraintname,\\targetp}}"],
+            quovecspace: ["{\\tilde{V}_{#1}^{\\constraintname,\\targetp}}", 1],
+            totquovecspace: ["{\\text{ConsSpace}(\\constraintlist,\\targetp)}"],
+            detdistr: ["{\\delta^{#1}}", 1],
+            margperm: ["{\\varphi}"],
+            altquovecembed: ["{\\text{G}_{#1}^{\\constraintname,\\targetp}}", 1],
+            vecset: ["{V_{#1}}", 1],
+            repr: ["{\\lfloor#1\\rfloor}", 1],
+            gid: ["{\\text{id}}"],
+            id: ["{1_{#1}}",1],
+            consscale: ["{K}"],
+            scaletot: ["{K_{\\text{tot}}^{\\constraintlist,\\targetp}}"],
+            minnorm: ["{d}"],
+            Bigsetst: ["\\;\\Big|\\;"],
+            activeset: ["\\mathcal{S}"],
+            conv: ["\\text{conv}"],
+            lVert: ["|\\hspace{-1pt}|"],
+            norm: ["\\lVert#1\\lVert", 1],
+            st: [":\ "],
+        }
+    }
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeDarkModeToggle.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeParagraphLink.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Fast Inflation
+   </div>
+   <div id="projectbrief">To certify causal incompatibility</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('srb_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">srb.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="srb_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;../../inf/constraints/dual_vector.h&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;../../inf/constraints/marginal.h&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;../../inf/inf_problem/inflation.h&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;../../inf/inf_problem/network.h&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;../../inf/inf_problem/target_distr.h&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;../application.h&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceuser.html">user</a> {</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><a class="code hl_typedef" href="classinf_1_1Network.html#a4e586db6e1ab9f11335ed74f25ea0aee">inf::Network::ConstPtr</a> <a class="code hl_function" href="group__SRB.html#ga0b04694a2979c8e54c3fdbfbd9c4b805">get_srb_network</a>();</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><a class="code hl_typedef" href="classinf_1_1TargetDistr.html#a75d7c59680325e198e85d02d673e4abe">inf::TargetDistr::ConstPtr</a> <a class="code hl_function" href="group__SRB.html#ga0db3b911ca8a13dec8909b8de1510da6">get_noisy_srb</a>(<a class="code hl_typedef" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a> visibility, <a class="code hl_typedef" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a> visibility_denom);</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="classuser_1_1srb__sym.html">   47</a></span><span class="keyword">class </span><a class="code hl_class" href="classuser_1_1srb__sym.html">srb_sym</a> : <span class="keyword">public</span> <a class="code hl_class" href="classuser_1_1Application.html">user::Application</a> {</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="classuser_1_1srb__sym.html#a17a3af7db70a77487789b2b65bcf167d">   49</a></span>    <a class="code hl_function" href="classuser_1_1srb__sym.html#a17a3af7db70a77487789b2b65bcf167d">srb_sym</a>() : <a class="code hl_namespace" href="namespaceuser.html">user</a>::<a class="code hl_class" href="classuser_1_1Application.html">Application</a>(<span class="stringliteral">&quot;srb_sym&quot;</span>, <span class="stringliteral">&quot;Symmetries of the Shared Random Bit&quot;</span>, true) {}</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classuser_1_1srb__sym.html#a829abfaf63ea45169ba95d968eaacb28">run</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>};</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="classuser_1_1srb__eval.html">   54</a></span><span class="keyword">class </span><a class="code hl_class" href="classuser_1_1srb__eval.html">srb_eval</a> : <span class="keyword">public</span> <a class="code hl_class" href="classuser_1_1Application.html">user::Application</a> {</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="classuser_1_1srb__eval.html#afd079ca4cc0cc4324386f1325735a489">   56</a></span>    <a class="code hl_function" href="classuser_1_1srb__eval.html#afd079ca4cc0cc4324386f1325735a489">srb_eval</a>() : <a class="code hl_namespace" href="namespaceuser.html">user</a>::<a class="code hl_class" href="classuser_1_1Application.html">Application</a>(<span class="stringliteral">&quot;srb_eval&quot;</span>, <span class="stringliteral">&quot;Dual vector evaluation for the Shared Random Bit&quot;</span>, true) {}</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classuser_1_1srb__eval.html#af151c407d0aef0510992753a9ba80889">run</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>};</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="classuser_1_1srb__vis__222__weak.html">   61</a></span><span class="keyword">class </span><a class="code hl_class" href="classuser_1_1srb__vis__222__weak.html">srb_vis_222_weak</a> : <span class="keyword">public</span> <a class="code hl_class" href="classuser_1_1Application.html">user::Application</a> {</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="classuser_1_1srb__vis__222__weak.html#a109f710a5aa7a559cb14272ef9eeb1a2">   63</a></span>    <a class="code hl_function" href="classuser_1_1srb__vis__222__weak.html#a109f710a5aa7a559cb14272ef9eeb1a2">srb_vis_222_weak</a>() : <a class="code hl_namespace" href="namespaceuser.html">user</a>::<a class="code hl_class" href="classuser_1_1Application.html">Application</a>(<span class="stringliteral">&quot;srb_vis_222_weak&quot;</span>, <span class="stringliteral">&quot;Nonlocal visibility of the Shared Random Bit for the 2x2x2 inflation under {\&quot;A00,B00,C00\&quot;,\&quot;A11,B11,C11\&quot;,\&quot;\&quot;}&quot;</span>, true) {}</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classuser_1_1srb__vis__222__weak.html#a5f5becca8b52d628b1989799ba918cdd">run</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>};</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="classuser_1_1srb__vis__222__strong.html">   68</a></span><span class="keyword">class </span><a class="code hl_class" href="classuser_1_1srb__vis__222__strong.html">srb_vis_222_strong</a> : <span class="keyword">public</span> <a class="code hl_class" href="classuser_1_1Application.html">user::Application</a> {</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="classuser_1_1srb__vis__222__strong.html#aee0f8c0465bdfa30af7e060b5a99e5bd">   70</a></span>    <a class="code hl_function" href="classuser_1_1srb__vis__222__strong.html#aee0f8c0465bdfa30af7e060b5a99e5bd">srb_vis_222_strong</a>() : <a class="code hl_namespace" href="namespaceuser.html">user</a>::<a class="code hl_class" href="classuser_1_1Application.html">Application</a>(<span class="stringliteral">&quot;srb_vis_222_strong&quot;</span>, <span class="stringliteral">&quot;Nonlocal visibility of the Shared Random Bit for the 2x2x2 inflation using all constraints&quot;</span>, true) {}</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classuser_1_1srb__vis__222__strong.html#a76ee92860c6c343b3892c02a37e042e0">run</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>};</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="classuser_1_1srb__dual__vector__io.html">   75</a></span><span class="keyword">class </span><a class="code hl_class" href="classuser_1_1srb__dual__vector__io.html">srb_dual_vector_io</a> : <span class="keyword">public</span> <a class="code hl_class" href="classuser_1_1Application.html">user::Application</a> {</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="classuser_1_1srb__dual__vector__io.html#aa8a6b334eaf819d5cde122a2093dd84f">   77</a></span>    <a class="code hl_function" href="classuser_1_1srb__dual__vector__io.html#aa8a6b334eaf819d5cde122a2093dd84f">srb_dual_vector_io</a>() : <a class="code hl_namespace" href="namespaceuser.html">user</a>::<a class="code hl_class" href="classuser_1_1Application.html">Application</a>(<span class="stringliteral">&quot;srb_dual_vector_io&quot;</span>, <span class="stringliteral">&quot;Testing disk I/O of nonlocality certificates for the Shared Random Bit with the 2x2x2 inflation&quot;</span>, true) {}</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classuser_1_1srb__dual__vector__io.html#a540f26776f13129c802f9f84616afe3f">run</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>};</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="classuser_1_1srb__vis__detailed__test.html">   82</a></span><span class="keyword">class </span><a class="code hl_class" href="classuser_1_1srb__vis__detailed__test.html">srb_vis_detailed_test</a> : <span class="keyword">public</span> <a class="code hl_class" href="classuser_1_1Application.html">user::Application</a> {</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="classuser_1_1srb__vis__detailed__test.html#abb22730afd62a65875ffcad04283b100">   84</a></span>    <a class="code hl_function" href="classuser_1_1srb__vis__detailed__test.html#abb22730afd62a65875ffcad04283b100">srb_vis_detailed_test</a>() : <a class="code hl_namespace" href="namespaceuser.html">user</a>::<a class="code hl_class" href="classuser_1_1Application.html">Application</a>(<span class="stringliteral">&quot;srb_vis_detailed_test&quot;</span>, <span class="stringliteral">&quot;(slow) Nonlocal visibility of the Shared Random Bit for various inflation sizes and solver options&quot;</span>, false) {}</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classuser_1_1srb__vis__detailed__test.html#a35bc930baf13fb070926b0a576dae829">run</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>};</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="classuser_1_1srb__vis__223__weak.html">   89</a></span><span class="keyword">class </span><a class="code hl_class" href="classuser_1_1srb__vis__223__weak.html">srb_vis_223_weak</a> : <span class="keyword">public</span> <a class="code hl_class" href="classuser_1_1Application.html">user::Application</a> {</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno"><a class="line" href="classuser_1_1srb__vis__223__weak.html#aeb1be2be87cefdc0d00be2c560086cbb">   91</a></span>    <a class="code hl_function" href="classuser_1_1srb__vis__223__weak.html#aeb1be2be87cefdc0d00be2c560086cbb">srb_vis_223_weak</a>() : <a class="code hl_namespace" href="namespaceuser.html">user</a>::<a class="code hl_class" href="classuser_1_1Application.html">Application</a>(<span class="stringliteral">&quot;srb_vis_223_weak&quot;</span>, <span class="stringliteral">&quot;Nonlocal visibility of the Shared Random Bit for the 2x2x3 inflation under {\&quot;A00,B00,C00\&quot;,\&quot;A11,B11,C11\&quot;,\&quot;\&quot;}&quot;</span>, true) {}</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classuser_1_1srb__vis__223__weak.html#a6624bb7accf77b5a1d6959cd0b151763">run</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>};</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="classuser_1_1srb__vis__223__strong.html">   96</a></span><span class="keyword">class </span><a class="code hl_class" href="classuser_1_1srb__vis__223__strong.html">srb_vis_223_strong</a> : <span class="keyword">public</span> <a class="code hl_class" href="classuser_1_1Application.html">user::Application</a> {</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="classuser_1_1srb__vis__223__strong.html#aeec804e4a266f18797b1da236e5af04d">   98</a></span>    <a class="code hl_function" href="classuser_1_1srb__vis__223__strong.html#aeec804e4a266f18797b1da236e5af04d">srb_vis_223_strong</a>() : <a class="code hl_namespace" href="namespaceuser.html">user</a>::<a class="code hl_class" href="classuser_1_1Application.html">Application</a>(<span class="stringliteral">&quot;srb_vis_223_strong&quot;</span>, <span class="stringliteral">&quot;Nonlocal visibility of the Shared Random Bit for the 2x2x3 inflation using all constraints&quot;</span>, false) {}</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classuser_1_1srb__vis__223__strong.html#a90610d6b47ec1f55896b86a4de329dab">run</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>};</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno"><a class="line" href="classuser_1_1srb__vis__233__weak.html">  103</a></span><span class="keyword">class </span><a class="code hl_class" href="classuser_1_1srb__vis__233__weak.html">srb_vis_233_weak</a> : <span class="keyword">public</span> <a class="code hl_class" href="classuser_1_1Application.html">user::Application</a> {</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno"><a class="line" href="classuser_1_1srb__vis__233__weak.html#a7d2dc9bfc4835dea98c470ac20bd4437">  105</a></span>    <a class="code hl_function" href="classuser_1_1srb__vis__233__weak.html#a7d2dc9bfc4835dea98c470ac20bd4437">srb_vis_233_weak</a>() : <a class="code hl_namespace" href="namespaceuser.html">user</a>::<a class="code hl_class" href="classuser_1_1Application.html">Application</a>(<span class="stringliteral">&quot;srb_vis_233_weak&quot;</span>, <span class="stringliteral">&quot;Nonlocal visibility of the Shared Random Bit for the 2x3x3 inflation under {\&quot;A00,B00,C00\&quot;,\&quot;A11,B11,C11\&quot;,\&quot;\&quot;}&quot;</span>, false) {}</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classuser_1_1srb__vis__233__weak.html#afaae2b7ca54d8d2fcc4c5a972fb594fe">run</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>};</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno"><a class="line" href="classuser_1_1srb__vis__233__inter.html">  110</a></span><span class="keyword">class </span><a class="code hl_class" href="classuser_1_1srb__vis__233__inter.html">srb_vis_233_inter</a> : <span class="keyword">public</span> <a class="code hl_class" href="classuser_1_1Application.html">user::Application</a> {</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno"><a class="line" href="classuser_1_1srb__vis__233__inter.html#a3348d42601fefbf3e6e82572952371e1">  112</a></span>    <a class="code hl_function" href="classuser_1_1srb__vis__233__inter.html#a3348d42601fefbf3e6e82572952371e1">srb_vis_233_inter</a>() : <a class="code hl_namespace" href="namespaceuser.html">user</a>::<a class="code hl_class" href="classuser_1_1Application.html">Application</a>(<span class="stringliteral">&quot;srb_vis_233_inter&quot;</span>, <span class="stringliteral">&quot;Nonlocal visibility of the Shared Random Bit for the 2x3x3 inflation under {\&quot;A00,B00,C00\&quot;,\&quot;A11,B11,C11\&quot;,\&quot;A22\&quot;,\&quot;\&quot;}&quot;</span>, false) {}</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classuser_1_1srb__vis__233__inter.html#a73037bf11c57713571cf60a6a6782972">run</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>};</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno"><a class="line" href="classuser_1_1srb__vis__233__strong.html">  117</a></span><span class="keyword">class </span><a class="code hl_class" href="classuser_1_1srb__vis__233__strong.html">srb_vis_233_strong</a> : <span class="keyword">public</span> <a class="code hl_class" href="classuser_1_1Application.html">user::Application</a> {</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno"><a class="line" href="classuser_1_1srb__vis__233__strong.html#af3e0ba00c153f4bc74de258814051e2c">  119</a></span>    <a class="code hl_function" href="classuser_1_1srb__vis__233__strong.html#af3e0ba00c153f4bc74de258814051e2c">srb_vis_233_strong</a>() : <a class="code hl_namespace" href="namespaceuser.html">user</a>::<a class="code hl_class" href="classuser_1_1Application.html">Application</a>(<span class="stringliteral">&quot;srb_vis_233_strong&quot;</span>, <span class="stringliteral">&quot;Nonlocal visibility of the Shared Random Bit for the 2x3x3 inflation using all constraints&quot;</span>, false) {}</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classuser_1_1srb__vis__233__strong.html#a893fa35bd966978456cb524851a5d656">run</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>};</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno"><a class="line" href="classuser_1_1srb__vis__333.html">  125</a></span><span class="keyword">class </span><a class="code hl_class" href="classuser_1_1srb__vis__333.html">srb_vis_333</a> : <span class="keyword">public</span> <a class="code hl_class" href="classuser_1_1Application.html">user::Application</a> {</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno"><a class="line" href="classuser_1_1srb__vis__333.html#a599e8eac08a875a1052b715843b622bc">  127</a></span>    <a class="code hl_function" href="classuser_1_1srb__vis__333.html#a599e8eac08a875a1052b715843b622bc">srb_vis_333</a>() : <a class="code hl_namespace" href="namespaceuser.html">user</a>::<a class="code hl_class" href="classuser_1_1Application.html">Application</a>(<span class="stringliteral">&quot;srb_vis_333&quot;</span>, <span class="stringliteral">&quot;Nonlocal visibility of the Shared Random Bit for the 3x3x3 inflation&quot;</span>, false) {}</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classuser_1_1srb__vis__333.html#a83e6b3b4f694e28dc69148619285ce82">run</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>};</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno"><a class="line" href="classuser_1_1srb__vis__334.html">  133</a></span><span class="keyword">class </span><a class="code hl_class" href="classuser_1_1srb__vis__334.html">srb_vis_334</a> : <span class="keyword">public</span> <a class="code hl_class" href="classuser_1_1Application.html">user::Application</a> {</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno"><a class="line" href="classuser_1_1srb__vis__334.html#a337f31735dbc29d1d231f6a287aa85c7">  135</a></span>    <a class="code hl_function" href="classuser_1_1srb__vis__334.html#a337f31735dbc29d1d231f6a287aa85c7">srb_vis_334</a>() : <a class="code hl_namespace" href="namespaceuser.html">user</a>::<a class="code hl_class" href="classuser_1_1Application.html">Application</a>(<span class="stringliteral">&quot;srb_vis_334&quot;</span>, <span class="stringliteral">&quot;Nonlocal visibility of the Shared Random Bit for the 3x3x4 inflation&quot;</span>, false) {}</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classuser_1_1srb__vis__334.html#a939f636f531950f363d0c4b8255712ab">run</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>};</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span> </div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno"><a class="line" href="classuser_1_1srb.html">  140</a></span><span class="keyword">class </span><a class="code hl_class" href="classuser_1_1srb.html">srb</a> : <span class="keyword">public</span> <a class="code hl_class" href="classuser_1_1Application.html">user::Application</a> {</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno"><a class="line" href="classuser_1_1srb.html#adc4838f166d32e1adccdb7499a9a4167">  142</a></span>    <a class="code hl_function" href="classuser_1_1srb.html#adc4838f166d32e1adccdb7499a9a4167">srb</a>() : <a class="code hl_namespace" href="namespaceuser.html">user</a>::<a class="code hl_class" href="classuser_1_1Application.html">Application</a>(<span class="stringliteral">&quot;srb&quot;</span>, <span class="stringliteral">&quot;Placeholder for Shared Random Bit feasibility problems&quot;</span>, false) {}</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classuser_1_1srb.html#a1b99fbff70f6ef505cf04ddba0fe2be0">run</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>};</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span> </div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>} <span class="comment">// namespace user</span></div>
+<div class="ttc" id="aclassinf_1_1Network_html_a4e586db6e1ab9f11335ed74f25ea0aee"><div class="ttname"><a href="classinf_1_1Network.html#a4e586db6e1ab9f11335ed74f25ea0aee">inf::Network::ConstPtr</a></div><div class="ttdeci">std::shared_ptr&lt; const inf::Network &gt; ConstPtr</div><div class="ttdef"><b>Definition</b> <a href="network_8h_source.html#l00045">network.h:45</a></div></div>
+<div class="ttc" id="aclassinf_1_1TargetDistr_html_a75d7c59680325e198e85d02d673e4abe"><div class="ttname"><a href="classinf_1_1TargetDistr.html#a75d7c59680325e198e85d02d673e4abe">inf::TargetDistr::ConstPtr</a></div><div class="ttdeci">std::shared_ptr&lt; const inf::TargetDistr &gt; ConstPtr</div><div class="ttdef"><b>Definition</b> <a href="target__distr_8h_source.html#l00035">target_distr.h:35</a></div></div>
+<div class="ttc" id="aclassuser_1_1Application_html"><div class="ttname"><a href="classuser_1_1Application.html">user::Application</a></div><div class="ttdoc">Parent class of user applications.</div><div class="ttdef"><b>Definition</b> <a href="application_8h_source.html#l00022">application.h:22</a></div></div>
+<div class="ttc" id="aclassuser_1_1srb__dual__vector__io_html"><div class="ttname"><a href="classuser_1_1srb__dual__vector__io.html">user::srb_dual_vector_io</a></div><div class="ttdoc">Writes a nonlocality certificate for the SRB and then reads it back to test its validity.</div><div class="ttdef"><b>Definition</b> <a href="srb_8h_source.html#l00075">srb.h:75</a></div></div>
+<div class="ttc" id="aclassuser_1_1srb__dual__vector__io_html_a540f26776f13129c802f9f84616afe3f"><div class="ttname"><a href="classuser_1_1srb__dual__vector__io.html#a540f26776f13129c802f9f84616afe3f">user::srb_dual_vector_io::run</a></div><div class="ttdeci">void run() override</div><div class="ttdoc">This method runs the application.</div><div class="ttdef"><b>Definition</b> <a href="srb_8cpp_source.html#l00132">srb.cpp:132</a></div></div>
+<div class="ttc" id="aclassuser_1_1srb__dual__vector__io_html_aa8a6b334eaf819d5cde122a2093dd84f"><div class="ttname"><a href="classuser_1_1srb__dual__vector__io.html#aa8a6b334eaf819d5cde122a2093dd84f">user::srb_dual_vector_io::srb_dual_vector_io</a></div><div class="ttdeci">srb_dual_vector_io()</div><div class="ttdef"><b>Definition</b> <a href="srb_8h_source.html#l00077">srb.h:77</a></div></div>
+<div class="ttc" id="aclassuser_1_1srb__eval_html"><div class="ttname"><a href="classuser_1_1srb__eval.html">user::srb_eval</a></div><div class="ttdoc">See user::test_dual_vector_eval()</div><div class="ttdef"><b>Definition</b> <a href="srb_8h_source.html#l00054">srb.h:54</a></div></div>
+<div class="ttc" id="aclassuser_1_1srb__eval_html_af151c407d0aef0510992753a9ba80889"><div class="ttname"><a href="classuser_1_1srb__eval.html#af151c407d0aef0510992753a9ba80889">user::srb_eval::run</a></div><div class="ttdeci">void run() override</div><div class="ttdoc">This method runs the application.</div><div class="ttdef"><b>Definition</b> <a href="srb_8cpp_source.html#l00074">srb.cpp:74</a></div></div>
+<div class="ttc" id="aclassuser_1_1srb__eval_html_afd079ca4cc0cc4324386f1325735a489"><div class="ttname"><a href="classuser_1_1srb__eval.html#afd079ca4cc0cc4324386f1325735a489">user::srb_eval::srb_eval</a></div><div class="ttdeci">srb_eval()</div><div class="ttdef"><b>Definition</b> <a href="srb_8h_source.html#l00056">srb.h:56</a></div></div>
+<div class="ttc" id="aclassuser_1_1srb__sym_html"><div class="ttname"><a href="classuser_1_1srb__sym.html">user::srb_sym</a></div><div class="ttdoc">user::Application that shows info about the problem and its symmetries for various inflation sizes</div><div class="ttdef"><b>Definition</b> <a href="srb_8h_source.html#l00047">srb.h:47</a></div></div>
+<div class="ttc" id="aclassuser_1_1srb__sym_html_a17a3af7db70a77487789b2b65bcf167d"><div class="ttname"><a href="classuser_1_1srb__sym.html#a17a3af7db70a77487789b2b65bcf167d">user::srb_sym::srb_sym</a></div><div class="ttdeci">srb_sym()</div><div class="ttdef"><b>Definition</b> <a href="srb_8h_source.html#l00049">srb.h:49</a></div></div>
+<div class="ttc" id="aclassuser_1_1srb__sym_html_a829abfaf63ea45169ba95d968eaacb28"><div class="ttname"><a href="classuser_1_1srb__sym.html#a829abfaf63ea45169ba95d968eaacb28">user::srb_sym::run</a></div><div class="ttdeci">void run() override</div><div class="ttdoc">This method runs the application.</div><div class="ttdef"><b>Definition</b> <a href="srb_8cpp_source.html#l00040">srb.cpp:40</a></div></div>
+<div class="ttc" id="aclassuser_1_1srb__vis__222__strong_html"><div class="ttname"><a href="classuser_1_1srb__vis__222__strong.html">user::srb_vis_222_strong</a></div><div class="ttdoc">Visibility of SRB under  inflation, with all constraints.</div><div class="ttdef"><b>Definition</b> <a href="srb_8h_source.html#l00068">srb.h:68</a></div></div>
+<div class="ttc" id="aclassuser_1_1srb__vis__222__strong_html_a76ee92860c6c343b3892c02a37e042e0"><div class="ttname"><a href="classuser_1_1srb__vis__222__strong.html#a76ee92860c6c343b3892c02a37e042e0">user::srb_vis_222_strong::run</a></div><div class="ttdeci">void run() override</div><div class="ttdoc">This method runs the application.</div><div class="ttdef"><b>Definition</b> <a href="srb_8cpp_source.html#l00107">srb.cpp:107</a></div></div>
+<div class="ttc" id="aclassuser_1_1srb__vis__222__strong_html_aee0f8c0465bdfa30af7e060b5a99e5bd"><div class="ttname"><a href="classuser_1_1srb__vis__222__strong.html#aee0f8c0465bdfa30af7e060b5a99e5bd">user::srb_vis_222_strong::srb_vis_222_strong</a></div><div class="ttdeci">srb_vis_222_strong()</div><div class="ttdef"><b>Definition</b> <a href="srb_8h_source.html#l00070">srb.h:70</a></div></div>
+<div class="ttc" id="aclassuser_1_1srb__vis__222__weak_html"><div class="ttname"><a href="classuser_1_1srb__vis__222__weak.html">user::srb_vis_222_weak</a></div><div class="ttdoc">Visibility of SRB under  inflation, using only the order-2 diagonal constraint.</div><div class="ttdef"><b>Definition</b> <a href="srb_8h_source.html#l00061">srb.h:61</a></div></div>
+<div class="ttc" id="aclassuser_1_1srb__vis__222__weak_html_a109f710a5aa7a559cb14272ef9eeb1a2"><div class="ttname"><a href="classuser_1_1srb__vis__222__weak.html#a109f710a5aa7a559cb14272ef9eeb1a2">user::srb_vis_222_weak::srb_vis_222_weak</a></div><div class="ttdeci">srb_vis_222_weak()</div><div class="ttdef"><b>Definition</b> <a href="srb_8h_source.html#l00063">srb.h:63</a></div></div>
+<div class="ttc" id="aclassuser_1_1srb__vis__222__weak_html_a5f5becca8b52d628b1989799ba918cdd"><div class="ttname"><a href="classuser_1_1srb__vis__222__weak.html#a5f5becca8b52d628b1989799ba918cdd">user::srb_vis_222_weak::run</a></div><div class="ttdeci">void run() override</div><div class="ttdoc">This method runs the application.</div><div class="ttdef"><b>Definition</b> <a href="srb_8cpp_source.html#l00081">srb.cpp:81</a></div></div>
+<div class="ttc" id="aclassuser_1_1srb__vis__223__strong_html"><div class="ttname"><a href="classuser_1_1srb__vis__223__strong.html">user::srb_vis_223_strong</a></div><div class="ttdoc">Visibility of SRB under  inflation, with all constraints.</div><div class="ttdef"><b>Definition</b> <a href="srb_8h_source.html#l00096">srb.h:96</a></div></div>
+<div class="ttc" id="aclassuser_1_1srb__vis__223__strong_html_a90610d6b47ec1f55896b86a4de329dab"><div class="ttname"><a href="classuser_1_1srb__vis__223__strong.html#a90610d6b47ec1f55896b86a4de329dab">user::srb_vis_223_strong::run</a></div><div class="ttdeci">void run() override</div><div class="ttdoc">This method runs the application.</div><div class="ttdef"><b>Definition</b> <a href="srb_8cpp_source.html#l00269">srb.cpp:269</a></div></div>
+<div class="ttc" id="aclassuser_1_1srb__vis__223__strong_html_aeec804e4a266f18797b1da236e5af04d"><div class="ttname"><a href="classuser_1_1srb__vis__223__strong.html#aeec804e4a266f18797b1da236e5af04d">user::srb_vis_223_strong::srb_vis_223_strong</a></div><div class="ttdeci">srb_vis_223_strong()</div><div class="ttdef"><b>Definition</b> <a href="srb_8h_source.html#l00098">srb.h:98</a></div></div>
+<div class="ttc" id="aclassuser_1_1srb__vis__223__weak_html"><div class="ttname"><a href="classuser_1_1srb__vis__223__weak.html">user::srb_vis_223_weak</a></div><div class="ttdoc">Visibility of SRB under  inflation, using only the order-2 diagonal constraint.</div><div class="ttdef"><b>Definition</b> <a href="srb_8h_source.html#l00089">srb.h:89</a></div></div>
+<div class="ttc" id="aclassuser_1_1srb__vis__223__weak_html_a6624bb7accf77b5a1d6959cd0b151763"><div class="ttname"><a href="classuser_1_1srb__vis__223__weak.html#a6624bb7accf77b5a1d6959cd0b151763">user::srb_vis_223_weak::run</a></div><div class="ttdeci">void run() override</div><div class="ttdoc">This method runs the application.</div><div class="ttdef"><b>Definition</b> <a href="srb_8cpp_source.html#l00250">srb.cpp:250</a></div></div>
+<div class="ttc" id="aclassuser_1_1srb__vis__223__weak_html_aeb1be2be87cefdc0d00be2c560086cbb"><div class="ttname"><a href="classuser_1_1srb__vis__223__weak.html#aeb1be2be87cefdc0d00be2c560086cbb">user::srb_vis_223_weak::srb_vis_223_weak</a></div><div class="ttdeci">srb_vis_223_weak()</div><div class="ttdef"><b>Definition</b> <a href="srb_8h_source.html#l00091">srb.h:91</a></div></div>
+<div class="ttc" id="aclassuser_1_1srb__vis__233__inter_html"><div class="ttname"><a href="classuser_1_1srb__vis__233__inter.html">user::srb_vis_233_inter</a></div><div class="ttdoc">Visibility of SRB under  inflation, using only the full diagonal constraint.</div><div class="ttdef"><b>Definition</b> <a href="srb_8h_source.html#l00110">srb.h:110</a></div></div>
+<div class="ttc" id="aclassuser_1_1srb__vis__233__inter_html_a3348d42601fefbf3e6e82572952371e1"><div class="ttname"><a href="classuser_1_1srb__vis__233__inter.html#a3348d42601fefbf3e6e82572952371e1">user::srb_vis_233_inter::srb_vis_233_inter</a></div><div class="ttdeci">srb_vis_233_inter()</div><div class="ttdef"><b>Definition</b> <a href="srb_8h_source.html#l00112">srb.h:112</a></div></div>
+<div class="ttc" id="aclassuser_1_1srb__vis__233__inter_html_a73037bf11c57713571cf60a6a6782972"><div class="ttname"><a href="classuser_1_1srb__vis__233__inter.html#a73037bf11c57713571cf60a6a6782972">user::srb_vis_233_inter::run</a></div><div class="ttdeci">void run() override</div><div class="ttdoc">This method runs the application.</div><div class="ttdef"><b>Definition</b> <a href="srb_8cpp_source.html#l00314">srb.cpp:314</a></div></div>
+<div class="ttc" id="aclassuser_1_1srb__vis__233__strong_html"><div class="ttname"><a href="classuser_1_1srb__vis__233__strong.html">user::srb_vis_233_strong</a></div><div class="ttdoc">Visibility of SRB under  inflation, with all constraints.</div><div class="ttdef"><b>Definition</b> <a href="srb_8h_source.html#l00117">srb.h:117</a></div></div>
+<div class="ttc" id="aclassuser_1_1srb__vis__233__strong_html_a893fa35bd966978456cb524851a5d656"><div class="ttname"><a href="classuser_1_1srb__vis__233__strong.html#a893fa35bd966978456cb524851a5d656">user::srb_vis_233_strong::run</a></div><div class="ttdeci">void run() override</div><div class="ttdoc">This method runs the application.</div><div class="ttdef"><b>Definition</b> <a href="srb_8cpp_source.html#l00332">srb.cpp:332</a></div></div>
+<div class="ttc" id="aclassuser_1_1srb__vis__233__strong_html_af3e0ba00c153f4bc74de258814051e2c"><div class="ttname"><a href="classuser_1_1srb__vis__233__strong.html#af3e0ba00c153f4bc74de258814051e2c">user::srb_vis_233_strong::srb_vis_233_strong</a></div><div class="ttdeci">srb_vis_233_strong()</div><div class="ttdef"><b>Definition</b> <a href="srb_8h_source.html#l00119">srb.h:119</a></div></div>
+<div class="ttc" id="aclassuser_1_1srb__vis__233__weak_html"><div class="ttname"><a href="classuser_1_1srb__vis__233__weak.html">user::srb_vis_233_weak</a></div><div class="ttdoc">Visibility of SRB under  inflation, using only the order-2 diagonal constraint.</div><div class="ttdef"><b>Definition</b> <a href="srb_8h_source.html#l00103">srb.h:103</a></div></div>
+<div class="ttc" id="aclassuser_1_1srb__vis__233__weak_html_a7d2dc9bfc4835dea98c470ac20bd4437"><div class="ttname"><a href="classuser_1_1srb__vis__233__weak.html#a7d2dc9bfc4835dea98c470ac20bd4437">user::srb_vis_233_weak::srb_vis_233_weak</a></div><div class="ttdeci">srb_vis_233_weak()</div><div class="ttdef"><b>Definition</b> <a href="srb_8h_source.html#l00105">srb.h:105</a></div></div>
+<div class="ttc" id="aclassuser_1_1srb__vis__233__weak_html_afaae2b7ca54d8d2fcc4c5a972fb594fe"><div class="ttname"><a href="classuser_1_1srb__vis__233__weak.html#afaae2b7ca54d8d2fcc4c5a972fb594fe">user::srb_vis_233_weak::run</a></div><div class="ttdeci">void run() override</div><div class="ttdoc">This method runs the application.</div><div class="ttdef"><b>Definition</b> <a href="srb_8cpp_source.html#l00295">srb.cpp:295</a></div></div>
+<div class="ttc" id="aclassuser_1_1srb__vis__333_html"><div class="ttname"><a href="classuser_1_1srb__vis__333.html">user::srb_vis_333</a></div><div class="ttdoc">Visibility of SRB under  inflation, using only main constraint.</div><div class="ttdef"><b>Definition</b> <a href="srb_8h_source.html#l00125">srb.h:125</a></div></div>
+<div class="ttc" id="aclassuser_1_1srb__vis__333_html_a599e8eac08a875a1052b715843b622bc"><div class="ttname"><a href="classuser_1_1srb__vis__333.html#a599e8eac08a875a1052b715843b622bc">user::srb_vis_333::srb_vis_333</a></div><div class="ttdeci">srb_vis_333()</div><div class="ttdef"><b>Definition</b> <a href="srb_8h_source.html#l00127">srb.h:127</a></div></div>
+<div class="ttc" id="aclassuser_1_1srb__vis__333_html_a83e6b3b4f694e28dc69148619285ce82"><div class="ttname"><a href="classuser_1_1srb__vis__333.html#a83e6b3b4f694e28dc69148619285ce82">user::srb_vis_333::run</a></div><div class="ttdeci">void run() override</div><div class="ttdoc">This method runs the application.</div><div class="ttdef"><b>Definition</b> <a href="srb_8cpp_source.html#l00355">srb.cpp:355</a></div></div>
+<div class="ttc" id="aclassuser_1_1srb__vis__334_html"><div class="ttname"><a href="classuser_1_1srb__vis__334.html">user::srb_vis_334</a></div><div class="ttdoc">Visibility of SRB under  inflation, using only main constraint of  inflation.</div><div class="ttdef"><b>Definition</b> <a href="srb_8h_source.html#l00133">srb.h:133</a></div></div>
+<div class="ttc" id="aclassuser_1_1srb__vis__334_html_a337f31735dbc29d1d231f6a287aa85c7"><div class="ttname"><a href="classuser_1_1srb__vis__334.html#a337f31735dbc29d1d231f6a287aa85c7">user::srb_vis_334::srb_vis_334</a></div><div class="ttdeci">srb_vis_334()</div><div class="ttdef"><b>Definition</b> <a href="srb_8h_source.html#l00135">srb.h:135</a></div></div>
+<div class="ttc" id="aclassuser_1_1srb__vis__334_html_a939f636f531950f363d0c4b8255712ab"><div class="ttname"><a href="classuser_1_1srb__vis__334.html#a939f636f531950f363d0c4b8255712ab">user::srb_vis_334::run</a></div><div class="ttdeci">void run() override</div><div class="ttdoc">This method runs the application.</div><div class="ttdef"><b>Definition</b> <a href="srb_8cpp_source.html#l00378">srb.cpp:378</a></div></div>
+<div class="ttc" id="aclassuser_1_1srb__vis__detailed__test_html"><div class="ttname"><a href="classuser_1_1srb__vis__detailed__test.html">user::srb_vis_detailed_test</a></div><div class="ttdoc">Visibility of SRB under a variety of inflation sizes and solver options.</div><div class="ttdef"><b>Definition</b> <a href="srb_8h_source.html#l00082">srb.h:82</a></div></div>
+<div class="ttc" id="aclassuser_1_1srb__vis__detailed__test_html_a35bc930baf13fb070926b0a576dae829"><div class="ttname"><a href="classuser_1_1srb__vis__detailed__test.html#a35bc930baf13fb070926b0a576dae829">user::srb_vis_detailed_test::run</a></div><div class="ttdeci">void run() override</div><div class="ttdoc">This method runs the application.</div><div class="ttdef"><b>Definition</b> <a href="srb_8cpp_source.html#l00188">srb.cpp:188</a></div></div>
+<div class="ttc" id="aclassuser_1_1srb__vis__detailed__test_html_abb22730afd62a65875ffcad04283b100"><div class="ttname"><a href="classuser_1_1srb__vis__detailed__test.html#abb22730afd62a65875ffcad04283b100">user::srb_vis_detailed_test::srb_vis_detailed_test</a></div><div class="ttdeci">srb_vis_detailed_test()</div><div class="ttdef"><b>Definition</b> <a href="srb_8h_source.html#l00084">srb.h:84</a></div></div>
+<div class="ttc" id="aclassuser_1_1srb_html"><div class="ttname"><a href="classuser_1_1srb.html">user::srb</a></div><div class="ttdoc">Placeholder for Shared Random Bit feasibility problems.</div><div class="ttdef"><b>Definition</b> <a href="srb_8h_source.html#l00140">srb.h:140</a></div></div>
+<div class="ttc" id="aclassuser_1_1srb_html_a1b99fbff70f6ef505cf04ddba0fe2be0"><div class="ttname"><a href="classuser_1_1srb.html#a1b99fbff70f6ef505cf04ddba0fe2be0">user::srb::run</a></div><div class="ttdeci">void run() override</div><div class="ttdoc">This method runs the application.</div><div class="ttdef"><b>Definition</b> <a href="srb_8cpp_source.html#l00401">srb.cpp:401</a></div></div>
+<div class="ttc" id="aclassuser_1_1srb_html_adc4838f166d32e1adccdb7499a9a4167"><div class="ttname"><a href="classuser_1_1srb.html#adc4838f166d32e1adccdb7499a9a4167">user::srb::srb</a></div><div class="ttdeci">srb()</div><div class="ttdef"><b>Definition</b> <a href="srb_8h_source.html#l00142">srb.h:142</a></div></div>
+<div class="ttc" id="agroup__SRB_html_ga0b04694a2979c8e54c3fdbfbd9c4b805"><div class="ttname"><a href="group__SRB.html#ga0b04694a2979c8e54c3fdbfbd9c4b805">user::get_srb_network</a></div><div class="ttdeci">inf::Network::ConstPtr get_srb_network()</div><div class="ttdoc">Triangle network with 2 outcomes.</div><div class="ttdef"><b>Definition</b> <a href="srb_8cpp_source.html#l00009">srb.cpp:9</a></div></div>
+<div class="ttc" id="agroup__SRB_html_ga0db3b911ca8a13dec8909b8de1510da6"><div class="ttname"><a href="group__SRB.html#ga0db3b911ca8a13dec8909b8de1510da6">user::get_noisy_srb</a></div><div class="ttdeci">inf::TargetDistr::ConstPtr get_noisy_srb(Num visibility, Num visibility_denom)</div><div class="ttdoc">Noisy shared random bit distribution.</div><div class="ttdef"><b>Definition</b> <a href="srb_8cpp_source.html#l00013">srb.cpp:13</a></div></div>
+<div class="ttc" id="agroup__util_html_gaea24f8b468377784fdb704692e9168f5"><div class="ttname"><a href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a></div><div class="ttdeci">int64_t Num</div><div class="ttdoc">Signed integers.</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00015">types.h:15</a></div></div>
+<div class="ttc" id="anamespaceuser_html"><div class="ttname"><a href="namespaceuser.html">user</a></div><div class="ttdoc">The namespace for application code.</div><div class="ttdef"><b>Definition</b> <a href="app__manager_8h_source.html#l00029">app_manager.h:29</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_8b0164eb0fb74115683f9812cb2f78f0.html">user</a></li><li class="navelem"><a class="el" href="dir_ab65e9ac623390ac7028fb64dac045ab.html">applications</a></li><li class="navelem"><a class="el" href="srb_8h.html">srb.h</a></li>
+    <li class="footer">Generated on Wed Dec 18 2024 17:39:37 for Fast Inflation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,1066 @@
+<!-- HTML header for doxygen 1.9.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Fast Inflation: Debugging</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+MathJax.Hub.Config({
+    TeX: {
+        Macros: {
+            dd: ["{\\text{d}#1\\,}",1],
+            nouts: ["{n_{\\text{o}}}"],
+            ints: ["{[\\![#1]\\!]}",1],
+            outset: ["{\\ints{\\nouts}}"],
+            N: ["{\\mathbb{N}}"],
+            R: ["{\\mathbb{R}}"],
+            Z: ["{\\mathbb{Z}}"],
+            infsize: ["{z}"],
+            infparties: ["{\\set{I}}"],
+            infsources: ["{\\set{S}}"],
+            infmarg: ["{\\set{A}}"],
+            infmargg: ["{\\set{B}}"],
+            netparties: ["{\\set{N}}"],
+            infq: ["{q}"],
+            infqs: ["{\\Delta_{\\infparties}}"],
+            constraintlist: ["{\\mathcal{C}}"],
+            injsets: ["{\\text{InjSets}}"],
+            infconstraints: ["{\\text{InfCons}}"],
+            parents: ["{\\text{Par}}"],
+            targetp: ["{p}"],
+            targetps: ["{\\Delta_{\\netparties}}"],
+            set: ["{\\mathbf{#1}}",1],
+            type: ["{t}"],
+            infevent: "{\\omega}",
+            events: ["{\\Omega_{#1}}",1],
+            infevents: ["{\\events{\\infparties}}"],
+            redinfevents: ["{\\tilde{\\Omega}_{\\infparties}}"],
+            netevents: ["{\\events{\\netparties}}"],
+            vecset: ["{V_{#1}}",1],
+            alice: ["{\\text{A}}"],
+            bob: ["{\\text{B}}"],
+            charlie: ["{\\text{C}}"],
+            symgroup: ["{\\text{Sym}(#1)}",1],
+            shortsymgroup: ["{\\text{Sym}_{#1}}",1],
+            act: ["{(#1\\hspace{2pt}{:}\\hspace{2pt}#2)}",2],
+            actt: ["{[#1\\hspace{2pt}{:}\\hspace{2pt}#2]}",2],
+            margperms: ["{\\text{Perm}_{#1}}",1],
+            permutedmargs: ["{\\mathbb{P}_{#1}^{\\targetp}}",1],
+            redpermutedmargs: ["{\\tilde{\\mathbb{P}}_{#1}^{\\constraintname,\\targetp}}",1],
+            extract: ["{\\text{ext}(#1,#2)}",2],
+            partysym: ["{\\tau}"],
+            sourcesym: ["{\\xi}"],
+            outsym: ["{\\sigma}"],
+            fullgroup: ["{\\text{InfGrp}}"],
+            partygroup : ["{\\text{PartyGrp}}"],
+            outgroup: ["{\\text{OutGrp}}"],
+            sourcegroup: ["{\\text{SrcGrp}}"],
+            distrgroup: ["{\\mathbb{G}^\\targetp}"],
+            constraintname: ["{c}"],
+            marggroup: ["{\\mathbb{G}^{\\constraintname,\\targetp}}"],
+            fullsymexpl: ["{(\\sourcesym,\\partysym,\\outsym)}"],
+            inner: ["{\\langle#1,#2\\rangle}", 2],
+            quovec: ["{f}"],
+            totconstraintmap: ["{K^{\\constraintlist,\\targetp}}"],
+            totconstraintmapelem: ["{K^{\\constraintname,\\targetp}}"],
+            quovecspace: ["{\\tilde{V}_{#1}^{\\constraintname,\\targetp}}", 1],
+            totquovecspace: ["{\\text{ConsSpace}(\\constraintlist,\\targetp)}"],
+            detdistr: ["{\\delta^{#1}}", 1],
+            margperm: ["{\\varphi}"],
+            altquovecembed: ["{\\text{G}_{#1}^{\\constraintname,\\targetp}}", 1],
+            vecset: ["{V_{#1}}", 1],
+            repr: ["{\\lfloor#1\\rfloor}", 1],
+            gid: ["{\\text{id}}"],
+            id: ["{1_{#1}}",1],
+            consscale: ["{K}"],
+            scaletot: ["{K_{\\text{tot}}^{\\constraintlist,\\targetp}}"],
+            minnorm: ["{d}"],
+            Bigsetst: ["\\;\\Big|\\;"],
+            activeset: ["\\mathcal{S}"],
+            conv: ["\\text{conv}"],
+            lVert: ["|\\hspace{-1pt}|"],
+            norm: ["\\lVert#1\\lVert", 1],
+            st: [":\ "],
+        }
+    }
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeDarkModeToggle.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeParagraphLink.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Fast Inflation
+   </div>
+   <div id="projectbrief">To certify causal incompatibility</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('group__debug.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Functions</a>  </div>
+  <div class="headertitle"><div class="title">Debugging<div class="ingroups"><a class="el" href="group__util.html">Utilities</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+<a name="details" id="details"></a><h2 class="groupheader">Module description</h2>
+<p>Support for <code>gdb</code> and soft/hard assertions. </p>
+<h3><a class="anchor" id="autotoc_md33"></a>
+Assertions</h3>
+<p>The hard assertions look like <a class="el" href="group__debug.html#ga3fabbc72ef82f3dbc7a2420c983e65a8" title="Hard assertion, tests for X being true (so X should be a bool) and calls THROW_ERROR else.">HARD_ASSERT_TRUE(X)</a>, <a class="el" href="group__debug.html#ga69ff6a82935ddbd218bd4fbac9e5dd20" title="Hard assertion, tests for X == Y and calls THROW_ERROR else.">HARD_ASSERT_EQUAL(X,Y)</a>, etc. Such assertions are always tripped, and throw an error indicating the file, line, and expected statement.</p>
+<p>The soft assertions look like <a class="el" href="group__debug.html#ga142a617ae6f4d3b050faad2aa1e936bf" title="Soft assertion, tests for X being true.">ASSERT_TRUE(X)</a>, <a class="el" href="group__debug.html#ga06663ee630c22628b3fe11700767367f" title="Soft assertion, tests for X == Y">ASSERT_EQUAL(X,Y)</a>, etc. Such assertions are only tripped in debug mode, which is internally controlled by the <code>NDEBUG</code> macro only defined in released mode. For instance: </p><div class="fragment"><div class="line"><span class="preprocessor">#ifndef NDEBUG</span></div>
+<div class="line">    <span class="comment">// Here code only executed in debug mode</span></div>
+<div class="line"><span class="preprocessor">#else</span></div>
+<div class="line">    <span class="comment">// Here code only executed in release mode</span></div>
+<div class="line"><span class="preprocessor">#endif</span></div>
+</div><!-- fragment --><p> However, the point of the debugging macros is to <em>not</em> have to use such <code>#ifndef NDEBUG</code> statements in applications. For those cases where this is actually convenient, one can use </p><div class="fragment"><div class="line"><a class="code hl_define" href="group__debug.html#gac1ee6e006b614dd9b0021a0034db646d">DEBUG_RUN</a>(</div>
+<div class="line">    <span class="comment">// Here code only executed in debug mode</span></div>
+<div class="line">    <span class="keywordtype">int</span> x = 0;</div>
+<div class="line">    ++x;</div>
+<div class="line">    <a class="code hl_variable" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a> &lt;&lt; x &lt;&lt; <a class="code hl_variable" href="group__printing.html#ga3f8fe48536ee19c54002c9c1db64cabb">util::cr</a>;</div>
+<div class="line">)</div>
+<div class="ttc" id="agroup__debug_html_gac1ee6e006b614dd9b0021a0034db646d"><div class="ttname"><a href="group__debug.html#gac1ee6e006b614dd9b0021a0034db646d">DEBUG_RUN</a></div><div class="ttdeci">#define DEBUG_RUN(X)</div><div class="ttdoc">To run an instruction only in debug mode.</div><div class="ttdef"><b>Definition</b> <a href="debug_8h_source.html#l00071">debug.h:71</a></div></div>
+<div class="ttc" id="agroup__printing_html_ga3f8fe48536ee19c54002c9c1db64cabb"><div class="ttname"><a href="group__printing.html#ga3f8fe48536ee19c54002c9c1db64cabb">util::cr</a></div><div class="ttdeci">constexpr util::Logger::Action cr</div><div class="ttdoc">Newline.</div><div class="ttdef"><b>Definition</b> <a href="logger_8h_source.html#l00197">logger.h:197</a></div></div>
+<div class="ttc" id="agroup__printing_html_ga4c77d1dedfe3a5b95abc21d13d7cd678"><div class="ttname"><a href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a></div><div class="ttdeci">util::Logger logger</div><div class="ttdoc">The globally accessible logger replacing std::cout</div></div>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md34"></a>
+Support for gdb</h3>
+<p>Gdb support is currently turned off (to speed up compilation, mostly). It can be brought back in the makefile by uncommenting the <code>-g</code> flag in the <code>DEBUGFLAGS</code> variable. </p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:gab4b18ba819a8b935db54eb4d4d1cd39f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__debug.html#gab4b18ba819a8b935db54eb4d4d1cd39f">BREAK_HERE</a>&#160;&#160;&#160;<a class="el" href="group__debug.html#gaf5c8ff0242aa3f522145ef32a01f9f8d">util::break_here</a>();</td></tr>
+<tr class="memdesc:gab4b18ba819a8b935db54eb4d4d1cd39f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use to set a breakpoint for gdb.  <br /></td></tr>
+<tr class="separator:gab4b18ba819a8b935db54eb4d4d1cd39f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac1ee6e006b614dd9b0021a0034db646d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__debug.html#gac1ee6e006b614dd9b0021a0034db646d">DEBUG_RUN</a>(X)&#160;&#160;&#160;X</td></tr>
+<tr class="memdesc:gac1ee6e006b614dd9b0021a0034db646d"><td class="mdescLeft">&#160;</td><td class="mdescRight">To run an instruction only in debug mode.  <br /></td></tr>
+<tr class="separator:gac1ee6e006b614dd9b0021a0034db646d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga00d5f6bd3cd6287f0037f90bd3057c62"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__debug.html#ga00d5f6bd3cd6287f0037f90bd3057c62">DEBUG_LOG</a>(X)&#160;&#160;&#160;<a class="el" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a> &lt;&lt; #X &lt;&lt; &quot; = &quot; &lt;&lt; X &lt;&lt; <a class="el" href="group__printing.html#ga3f8fe48536ee19c54002c9c1db64cabb">util::cr</a>;</td></tr>
+<tr class="memdesc:ga00d5f6bd3cd6287f0037f90bd3057c62"><td class="mdescLeft">&#160;</td><td class="mdescRight">To print a statement only in debug mode.  <br /></td></tr>
+<tr class="separator:ga00d5f6bd3cd6287f0037f90bd3057c62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga44d4e64ea98b1a9c055f030e33e24f17"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__debug.html#ga44d4e64ea98b1a9c055f030e33e24f17">THROW_ERROR</a>(error_message)&#160;&#160;&#160;throw std::logic_error(<a class="el" href="group__debug.html#ga3750a33daddaa31716f0e7114c7c7f1f">util::get_error_str</a>(__FILE__, __LINE__, __PRETTY_FUNCTION__, error_message));</td></tr>
+<tr class="memdesc:ga44d4e64ea98b1a9c055f030e33e24f17"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro throws a std::logic_error with an error message indicating the file, line and function where the macro was called.  <br /></td></tr>
+<tr class="separator:ga44d4e64ea98b1a9c055f030e33e24f17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga69ff6a82935ddbd218bd4fbac9e5dd20"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__debug.html#ga69ff6a82935ddbd218bd4fbac9e5dd20">HARD_ASSERT_EQUAL</a>(X,  Y)</td></tr>
+<tr class="memdesc:ga69ff6a82935ddbd218bd4fbac9e5dd20"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hard assertion, tests for <code>X == Y</code> and calls THROW_ERROR else.  <br /></td></tr>
+<tr class="separator:ga69ff6a82935ddbd218bd4fbac9e5dd20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3fabbc72ef82f3dbc7a2420c983e65a8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__debug.html#ga3fabbc72ef82f3dbc7a2420c983e65a8">HARD_ASSERT_TRUE</a>(X)</td></tr>
+<tr class="memdesc:ga3fabbc72ef82f3dbc7a2420c983e65a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hard assertion, tests for <code>X</code> being <code>true</code> (so <code>X</code> should be a <code>bool</code>) and calls THROW_ERROR else.  <br /></td></tr>
+<tr class="separator:ga3fabbc72ef82f3dbc7a2420c983e65a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac29875de100792ec8b992d6fecf882f5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__debug.html#gac29875de100792ec8b992d6fecf882f5">HARD_ASSERT_LT</a>(X,  Y)</td></tr>
+<tr class="memdesc:gac29875de100792ec8b992d6fecf882f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hard assertion, tests for <code>X &lt; Y</code> and calls THROW_ERROR else.  <br /></td></tr>
+<tr class="separator:gac29875de100792ec8b992d6fecf882f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6da1ce7e4184bf9275bccaf79625b128"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__debug.html#ga6da1ce7e4184bf9275bccaf79625b128">HARD_ASSERT_LTE</a>(X,  Y)</td></tr>
+<tr class="memdesc:ga6da1ce7e4184bf9275bccaf79625b128"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hard assertion, tests for <code>X &lt;= Y</code> and calls THROW_ERROR else.  <br /></td></tr>
+<tr class="separator:ga6da1ce7e4184bf9275bccaf79625b128"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga01c8595226cb7bbf2d266ea707a5bc88"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__debug.html#ga01c8595226cb7bbf2d266ea707a5bc88">HARD_ASSERT_MAP_CONTAINS</a>(map,  element)</td></tr>
+<tr class="memdesc:ga01c8595226cb7bbf2d266ea707a5bc88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hard assertion to check that a map indeed contains an element.  <br /></td></tr>
+<tr class="separator:ga01c8595226cb7bbf2d266ea707a5bc88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga06663ee630c22628b3fe11700767367f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__debug.html#ga06663ee630c22628b3fe11700767367f">ASSERT_EQUAL</a>(X,  Y)&#160;&#160;&#160;<a class="el" href="group__debug.html#ga69ff6a82935ddbd218bd4fbac9e5dd20">HARD_ASSERT_EQUAL</a>(X, Y)</td></tr>
+<tr class="memdesc:ga06663ee630c22628b3fe11700767367f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Soft assertion, tests for <code>X == Y</code>  <br /></td></tr>
+<tr class="separator:ga06663ee630c22628b3fe11700767367f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga142a617ae6f4d3b050faad2aa1e936bf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__debug.html#ga142a617ae6f4d3b050faad2aa1e936bf">ASSERT_TRUE</a>(X)&#160;&#160;&#160;<a class="el" href="group__debug.html#ga3fabbc72ef82f3dbc7a2420c983e65a8">HARD_ASSERT_TRUE</a>(X)</td></tr>
+<tr class="memdesc:ga142a617ae6f4d3b050faad2aa1e936bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Soft assertion, tests for <code>X</code> being true.  <br /></td></tr>
+<tr class="separator:ga142a617ae6f4d3b050faad2aa1e936bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga60f45ee0c4949ef50243feb6fbb8a808"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__debug.html#ga60f45ee0c4949ef50243feb6fbb8a808">ASSERT_LT</a>(X,  Y)&#160;&#160;&#160;<a class="el" href="group__debug.html#gac29875de100792ec8b992d6fecf882f5">HARD_ASSERT_LT</a>(X, Y)</td></tr>
+<tr class="memdesc:ga60f45ee0c4949ef50243feb6fbb8a808"><td class="mdescLeft">&#160;</td><td class="mdescRight">Soft assertion, tests for <code>X &lt; Y</code>  <br /></td></tr>
+<tr class="separator:ga60f45ee0c4949ef50243feb6fbb8a808"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga638ec8e14378667db38503cf0963ed1e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__debug.html#ga638ec8e14378667db38503cf0963ed1e">ASSERT_LTE</a>(X,  Y)&#160;&#160;&#160;<a class="el" href="group__debug.html#ga6da1ce7e4184bf9275bccaf79625b128">HARD_ASSERT_LTE</a>(X, Y)</td></tr>
+<tr class="memdesc:ga638ec8e14378667db38503cf0963ed1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Soft assertion, tests for <code>X &lt;= Y</code>  <br /></td></tr>
+<tr class="separator:ga638ec8e14378667db38503cf0963ed1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga210f8465ee7860ddb1b878240a2f0acf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__debug.html#ga210f8465ee7860ddb1b878240a2f0acf">ASSERT_MAP_CONTAINS</a>(map,  element)&#160;&#160;&#160;<a class="el" href="group__debug.html#ga01c8595226cb7bbf2d266ea707a5bc88">HARD_ASSERT_MAP_CONTAINS</a>(map, element)</td></tr>
+<tr class="memdesc:ga210f8465ee7860ddb1b878240a2f0acf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Soft assertion to check that a map indeed contains an element.  <br /></td></tr>
+<tr class="separator:ga210f8465ee7860ddb1b878240a2f0acf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:gaf5c8ff0242aa3f522145ef32a01f9f8d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__debug.html#gaf5c8ff0242aa3f522145ef32a01f9f8d">util::break_here</a> ()</td></tr>
+<tr class="memdesc:gaf5c8ff0242aa3f522145ef32a01f9f8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dummy function, use <a class="el" href="group__debug.html#gab4b18ba819a8b935db54eb4d4d1cd39f" title="Use to set a breakpoint for gdb.">BREAK_HERE</a> instead.  <br /></td></tr>
+<tr class="separator:gaf5c8ff0242aa3f522145ef32a01f9f8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3750a33daddaa31716f0e7114c7c7f1f"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__debug.html#ga3750a33daddaa31716f0e7114c7c7f1f">util::get_error_str</a> (std::string const &amp;file, int line, std::string const &amp;function_name, std::string const &amp;error_message)</td></tr>
+<tr class="memdesc:ga3750a33daddaa31716f0e7114c7c7f1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">This internal function combines the file, line, function name and error message in a nice error string.  <br /></td></tr>
+<tr class="separator:ga3750a33daddaa31716f0e7114c7c7f1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga74efcf4e8fa9fe7bc71a9b23ff57213e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__debug.html#ga74efcf4e8fa9fe7bc71a9b23ff57213e">util::assert_equal_fail</a> (std::string const &amp;file, int line, std::string const &amp;function, std::string const &amp;first_arg, std::string const &amp;second_arg, std::string const &amp;first_val, std::string const &amp;second_val)</td></tr>
+<tr class="memdesc:ga74efcf4e8fa9fe7bc71a9b23ff57213e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal function to pretty-print <a class="el" href="group__debug.html#ga06663ee630c22628b3fe11700767367f" title="Soft assertion, tests for X == Y">ASSERT_EQUAL</a> fail statements.  <br /></td></tr>
+<tr class="separator:ga74efcf4e8fa9fe7bc71a9b23ff57213e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6f54d49bb579c96bac3002c36dafb31e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__debug.html#ga6f54d49bb579c96bac3002c36dafb31e">util::assert_true_fail</a> (std::string const &amp;file, int line, std::string const &amp;function, std::string const &amp;arg)</td></tr>
+<tr class="memdesc:ga6f54d49bb579c96bac3002c36dafb31e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal function to pretty-print <a class="el" href="group__debug.html#ga142a617ae6f4d3b050faad2aa1e936bf" title="Soft assertion, tests for X being true.">ASSERT_TRUE</a> fail statements.  <br /></td></tr>
+<tr class="separator:ga6f54d49bb579c96bac3002c36dafb31e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga40f486e1e5b6f27ebaab356302399a4e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__debug.html#ga40f486e1e5b6f27ebaab356302399a4e">util::assert_lt_fail</a> (std::string const &amp;file, int line, std::string const &amp;function, std::string const &amp;first_arg, std::string const &amp;second_arg, std::string const &amp;first_val, std::string const &amp;second_val)</td></tr>
+<tr class="memdesc:ga40f486e1e5b6f27ebaab356302399a4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal function to pretty-print <a class="el" href="group__debug.html#ga60f45ee0c4949ef50243feb6fbb8a808" title="Soft assertion, tests for X &lt; Y">ASSERT_LT</a> fail statements.  <br /></td></tr>
+<tr class="separator:ga40f486e1e5b6f27ebaab356302399a4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabfb09cc378d570256c727b8c8bd1d558"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__debug.html#gabfb09cc378d570256c727b8c8bd1d558">util::assert_lte_fail</a> (std::string const &amp;file, int line, std::string const &amp;function, std::string const &amp;first_arg, std::string const &amp;second_arg, std::string const &amp;first_val, std::string const &amp;second_val)</td></tr>
+<tr class="memdesc:gabfb09cc378d570256c727b8c8bd1d558"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal function to pretty-print <a class="el" href="group__debug.html#ga638ec8e14378667db38503cf0963ed1e" title="Soft assertion, tests for X &lt;= Y">ASSERT_LTE</a> fail statements.  <br /></td></tr>
+<tr class="separator:gabfb09cc378d570256c727b8c8bd1d558"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gada5b6453a5196f71cb18a4e7442519a6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__debug.html#gada5b6453a5196f71cb18a4e7442519a6">util::assert_map_contains_fail</a> (std::string const &amp;file, int line, std::string const &amp;function, std::string const &amp;map_name, std::string const &amp;element_name, std::string const &amp;element_val)</td></tr>
+<tr class="memdesc:gada5b6453a5196f71cb18a4e7442519a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal function to pretty-print <a class="el" href="group__debug.html#ga210f8465ee7860ddb1b878240a2f0acf" title="Soft assertion to check that a map indeed contains an element.">ASSERT_MAP_CONTAINS</a> fail statements.  <br /></td></tr>
+<tr class="separator:gada5b6453a5196f71cb18a4e7442519a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="gab4b18ba819a8b935db54eb4d4d1cd39f" name="gab4b18ba819a8b935db54eb4d4d1cd39f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab4b18ba819a8b935db54eb4d4d1cd39f">&#9670;&#160;</a></span>BREAK_HERE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define BREAK_HERE&#160;&#160;&#160;<a class="el" href="group__debug.html#gaf5c8ff0242aa3f522145ef32a01f9f8d">util::break_here</a>();</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Use to set a breakpoint for gdb. </p>
+<p>In <code>~/.gdbinit</code>, place </p><div class="fragment"><div class="line">set breakpoint pending on</div>
+<div class="line"><span class="keywordflow">break</span> break_here</div>
+</div><!-- fragment --><p> to be able to use the <a class="el" href="group__debug.html#gab4b18ba819a8b935db54eb4d4d1cd39f" title="Use to set a breakpoint for gdb.">BREAK_HERE</a> macro, which evaluates to a call to the dummy function <code>void break_here() {}</code> in debug mode, and to nothing in release mode. Then, gdb will break on the line where this macro was called. </p>
+
+<p class="definition">Definition at line <a class="el" href="debug_8h_source.html#l00063">63</a> of file <a class="el" href="debug_8h_source.html">debug.h</a>.</p>
+
+</div>
+</div>
+<a id="gac1ee6e006b614dd9b0021a0034db646d" name="gac1ee6e006b614dd9b0021a0034db646d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac1ee6e006b614dd9b0021a0034db646d">&#9670;&#160;</a></span>DEBUG_RUN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DEBUG_RUN</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">X</td><td>)</td>
+          <td>&#160;&#160;&#160;X</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>To run an instruction only in debug mode. </p>
+
+<p class="definition">Definition at line <a class="el" href="debug_8h_source.html#l00071">71</a> of file <a class="el" href="debug_8h_source.html">debug.h</a>.</p>
+
+</div>
+</div>
+<a id="ga00d5f6bd3cd6287f0037f90bd3057c62" name="ga00d5f6bd3cd6287f0037f90bd3057c62"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga00d5f6bd3cd6287f0037f90bd3057c62">&#9670;&#160;</a></span>DEBUG_LOG</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DEBUG_LOG</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">X</td><td>)</td>
+          <td>&#160;&#160;&#160;<a class="el" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a> &lt;&lt; #X &lt;&lt; &quot; = &quot; &lt;&lt; X &lt;&lt; <a class="el" href="group__printing.html#ga3f8fe48536ee19c54002c9c1db64cabb">util::cr</a>;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>To print a statement only in debug mode. </p>
+
+<p class="definition">Definition at line <a class="el" href="debug_8h_source.html#l00074">74</a> of file <a class="el" href="debug_8h_source.html">debug.h</a>.</p>
+
+</div>
+</div>
+<a id="ga44d4e64ea98b1a9c055f030e33e24f17" name="ga44d4e64ea98b1a9c055f030e33e24f17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga44d4e64ea98b1a9c055f030e33e24f17">&#9670;&#160;</a></span>THROW_ERROR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define THROW_ERROR</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">error_message</td><td>)</td>
+          <td>&#160;&#160;&#160;throw std::logic_error(<a class="el" href="group__debug.html#ga3750a33daddaa31716f0e7114c7c7f1f">util::get_error_str</a>(__FILE__, __LINE__, __PRETTY_FUNCTION__, error_message));</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This macro throws a std::logic_error with an error message indicating the file, line and function where the macro was called. </p>
+
+<p class="definition">Definition at line <a class="el" href="debug_8h_source.html#l00090">90</a> of file <a class="el" href="debug_8h_source.html">debug.h</a>.</p>
+
+</div>
+</div>
+<a id="ga69ff6a82935ddbd218bd4fbac9e5dd20" name="ga69ff6a82935ddbd218bd4fbac9e5dd20"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga69ff6a82935ddbd218bd4fbac9e5dd20">&#9670;&#160;</a></span>HARD_ASSERT_EQUAL</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define HARD_ASSERT_EQUAL</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">X, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">Y&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">    <span class="keywordflow">if</span> (not((X) == (Y))) {                                                                                    \</div>
+<div class="line">        util::assert_equal_fail(__FILE__, __LINE__, __PRETTY_FUNCTION__, #X, #Y, <a class="code hl_function" href="group__str.html#ga6948292bb3a41f65610efe2f043a1f1e">util::str</a>(X), <a class="code hl_function" href="group__str.html#ga6948292bb3a41f65610efe2f043a1f1e">util::str</a>(Y)); \</div>
+<div class="line">    }</div>
+<div class="ttc" id="agroup__str_html_ga6948292bb3a41f65610efe2f043a1f1e"><div class="ttname"><a href="group__str.html#ga6948292bb3a41f65610efe2f043a1f1e">util::str</a></div><div class="ttdeci">std::string str(T const &amp;x)</div><div class="ttdoc">The default for std::to_string()-compatible types, e.g., int, double, etc.</div><div class="ttdef"><b>Definition</b> <a href="to__string_8h_source.html#l00029">to_string.h:29</a></div></div>
+</div><!-- fragment -->
+<p>Hard assertion, tests for <code>X == Y</code> and calls THROW_ERROR else. </p>
+<p>Tests for <code>X == Y</code>: if false, throws exception indicating the values that <code>X</code> and <code>Y</code> had, together with the location of the assertion. </p>
+
+<p class="definition">Definition at line <a class="el" href="debug_8h_source.html#l00097">97</a> of file <a class="el" href="debug_8h_source.html">debug.h</a>.</p>
+
+</div>
+</div>
+<a id="ga3fabbc72ef82f3dbc7a2420c983e65a8" name="ga3fabbc72ef82f3dbc7a2420c983e65a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3fabbc72ef82f3dbc7a2420c983e65a8">&#9670;&#160;</a></span>HARD_ASSERT_TRUE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define HARD_ASSERT_TRUE</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">X</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">    <span class="keywordflow">if</span> (not(X)) {                                                            \</div>
+<div class="line">        util::assert_true_fail(__FILE__, __LINE__, __PRETTY_FUNCTION__, #X); \</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+<p>Hard assertion, tests for <code>X</code> being <code>true</code> (so <code>X</code> should be a <code>bool</code>) and calls THROW_ERROR else. </p>
+
+<p class="definition">Definition at line <a class="el" href="debug_8h_source.html#l00103">103</a> of file <a class="el" href="debug_8h_source.html">debug.h</a>.</p>
+
+</div>
+</div>
+<a id="gac29875de100792ec8b992d6fecf882f5" name="gac29875de100792ec8b992d6fecf882f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac29875de100792ec8b992d6fecf882f5">&#9670;&#160;</a></span>HARD_ASSERT_LT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define HARD_ASSERT_LT</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">X, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">Y&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">    <span class="keywordflow">if</span> (not((X) &lt; (Y))) {                                                                                  \</div>
+<div class="line">        util::assert_lt_fail(__FILE__, __LINE__, __PRETTY_FUNCTION__, #X, #Y, <a class="code hl_function" href="group__str.html#ga6948292bb3a41f65610efe2f043a1f1e">util::str</a>(X), <a class="code hl_function" href="group__str.html#ga6948292bb3a41f65610efe2f043a1f1e">util::str</a>(Y)); \</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+<p>Hard assertion, tests for <code>X &lt; Y</code> and calls THROW_ERROR else. </p>
+
+<p class="definition">Definition at line <a class="el" href="debug_8h_source.html#l00109">109</a> of file <a class="el" href="debug_8h_source.html">debug.h</a>.</p>
+
+</div>
+</div>
+<a id="ga6da1ce7e4184bf9275bccaf79625b128" name="ga6da1ce7e4184bf9275bccaf79625b128"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6da1ce7e4184bf9275bccaf79625b128">&#9670;&#160;</a></span>HARD_ASSERT_LTE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define HARD_ASSERT_LTE</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">X, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">Y&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">    <span class="keywordflow">if</span> (not((X) &lt;= (Y))) {                                                                                  \</div>
+<div class="line">        util::assert_lte_fail(__FILE__, __LINE__, __PRETTY_FUNCTION__, #X, #Y, <a class="code hl_function" href="group__str.html#ga6948292bb3a41f65610efe2f043a1f1e">util::str</a>(X), <a class="code hl_function" href="group__str.html#ga6948292bb3a41f65610efe2f043a1f1e">util::str</a>(Y)); \</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+<p>Hard assertion, tests for <code>X &lt;= Y</code> and calls THROW_ERROR else. </p>
+
+<p class="definition">Definition at line <a class="el" href="debug_8h_source.html#l00115">115</a> of file <a class="el" href="debug_8h_source.html">debug.h</a>.</p>
+
+</div>
+</div>
+<a id="ga01c8595226cb7bbf2d266ea707a5bc88" name="ga01c8595226cb7bbf2d266ea707a5bc88"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga01c8595226cb7bbf2d266ea707a5bc88">&#9670;&#160;</a></span>HARD_ASSERT_MAP_CONTAINS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define HARD_ASSERT_MAP_CONTAINS</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">map, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">element&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">    <span class="keywordflow">if</span> (not map.contains(element)) {                                                                                 \</div>
+<div class="line">        util::assert_map_contains_fail(__FILE__, __LINE__, __PRETTY_FUNCTION__, #map, #element, <a class="code hl_function" href="group__str.html#ga6948292bb3a41f65610efe2f043a1f1e">util::str</a>(element)); \</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+<p>Hard assertion to check that a map indeed contains an element. </p>
+<p>This macro has proven useful. The compilation flag <code>-D_GLIBCXX_DEBUG</code> equips std::vector with bound checks for <code>operator[]</code> but does not do the same for std::map. Hence, using this assertion fills that gap. </p>
+
+<p class="definition">Definition at line <a class="el" href="debug_8h_source.html#l00123">123</a> of file <a class="el" href="debug_8h_source.html">debug.h</a>.</p>
+
+</div>
+</div>
+<a id="ga06663ee630c22628b3fe11700767367f" name="ga06663ee630c22628b3fe11700767367f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga06663ee630c22628b3fe11700767367f">&#9670;&#160;</a></span>ASSERT_EQUAL</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ASSERT_EQUAL</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">X, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">Y&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;<a class="el" href="group__debug.html#ga69ff6a82935ddbd218bd4fbac9e5dd20">HARD_ASSERT_EQUAL</a>(X, Y)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Soft assertion, tests for <code>X == Y</code> </p>
+<p>This soft assertion is only triggered in debug mode: the code </p><div class="fragment"><div class="line"><a class="code hl_define" href="group__debug.html#ga06663ee630c22628b3fe11700767367f">ASSERT_EQUAL</a>(0,1)</div>
+<div class="ttc" id="agroup__debug_html_ga06663ee630c22628b3fe11700767367f"><div class="ttname"><a href="group__debug.html#ga06663ee630c22628b3fe11700767367f">ASSERT_EQUAL</a></div><div class="ttdeci">#define ASSERT_EQUAL(X, Y)</div><div class="ttdoc">Soft assertion, tests for X == Y</div><div class="ttdef"><b>Definition</b> <a href="debug_8h_source.html#l00137">debug.h:137</a></div></div>
+</div><!-- fragment --><p> only throws an error when compiled in debug mode, but not in release mode. </p>
+
+<p class="definition">Definition at line <a class="el" href="debug_8h_source.html#l00137">137</a> of file <a class="el" href="debug_8h_source.html">debug.h</a>.</p>
+
+</div>
+</div>
+<a id="ga142a617ae6f4d3b050faad2aa1e936bf" name="ga142a617ae6f4d3b050faad2aa1e936bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga142a617ae6f4d3b050faad2aa1e936bf">&#9670;&#160;</a></span>ASSERT_TRUE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ASSERT_TRUE</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">X</td><td>)</td>
+          <td>&#160;&#160;&#160;<a class="el" href="group__debug.html#ga3fabbc72ef82f3dbc7a2420c983e65a8">HARD_ASSERT_TRUE</a>(X)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Soft assertion, tests for <code>X</code> being true. </p>
+
+<p class="definition">Definition at line <a class="el" href="debug_8h_source.html#l00140">140</a> of file <a class="el" href="debug_8h_source.html">debug.h</a>.</p>
+
+</div>
+</div>
+<a id="ga60f45ee0c4949ef50243feb6fbb8a808" name="ga60f45ee0c4949ef50243feb6fbb8a808"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga60f45ee0c4949ef50243feb6fbb8a808">&#9670;&#160;</a></span>ASSERT_LT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ASSERT_LT</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">X, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">Y&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;<a class="el" href="group__debug.html#gac29875de100792ec8b992d6fecf882f5">HARD_ASSERT_LT</a>(X, Y)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Soft assertion, tests for <code>X &lt; Y</code> </p>
+
+<p class="definition">Definition at line <a class="el" href="debug_8h_source.html#l00143">143</a> of file <a class="el" href="debug_8h_source.html">debug.h</a>.</p>
+
+</div>
+</div>
+<a id="ga638ec8e14378667db38503cf0963ed1e" name="ga638ec8e14378667db38503cf0963ed1e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga638ec8e14378667db38503cf0963ed1e">&#9670;&#160;</a></span>ASSERT_LTE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ASSERT_LTE</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">X, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">Y&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;<a class="el" href="group__debug.html#ga6da1ce7e4184bf9275bccaf79625b128">HARD_ASSERT_LTE</a>(X, Y)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Soft assertion, tests for <code>X &lt;= Y</code> </p>
+
+<p class="definition">Definition at line <a class="el" href="debug_8h_source.html#l00146">146</a> of file <a class="el" href="debug_8h_source.html">debug.h</a>.</p>
+
+</div>
+</div>
+<a id="ga210f8465ee7860ddb1b878240a2f0acf" name="ga210f8465ee7860ddb1b878240a2f0acf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga210f8465ee7860ddb1b878240a2f0acf">&#9670;&#160;</a></span>ASSERT_MAP_CONTAINS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ASSERT_MAP_CONTAINS</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">map, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">element&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;<a class="el" href="group__debug.html#ga01c8595226cb7bbf2d266ea707a5bc88">HARD_ASSERT_MAP_CONTAINS</a>(map, element)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Soft assertion to check that a map indeed contains an element. </p>
+<p>This macro has proven useful. The compilation flag <code>-D_GLIBCXX_DEBUG</code> equips std::vector with bound checks for <code>operator[]</code> but does not do the same for std::map. Hence, using this soft assertion fills that gap. </p>
+
+<p class="definition">Definition at line <a class="el" href="debug_8h_source.html#l00151">151</a> of file <a class="el" href="debug_8h_source.html">debug.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="gaf5c8ff0242aa3f522145ef32a01f9f8d" name="gaf5c8ff0242aa3f522145ef32a01f9f8d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf5c8ff0242aa3f522145ef32a01f9f8d">&#9670;&#160;</a></span>break_here()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void util::break_here </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dummy function, use <a class="el" href="group__debug.html#gab4b18ba819a8b935db54eb4d4d1cd39f" title="Use to set a breakpoint for gdb.">BREAK_HERE</a> instead. </p>
+
+<p class="definition">Definition at line <a class="el" href="debug_8cpp_source.html#l00006">6</a> of file <a class="el" href="debug_8cpp_source.html">debug.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ga3750a33daddaa31716f0e7114c7c7f1f" name="ga3750a33daddaa31716f0e7114c7c7f1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3750a33daddaa31716f0e7114c7c7f1f">&#9670;&#160;</a></span>get_error_str()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string util::get_error_str </td>
+          <td>(</td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
+          <td class="paramname"><em>file</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>line</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
+          <td class="paramname"><em>function_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
+          <td class="paramname"><em>error_message</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This internal function combines the file, line, function name and error message in a nice error string. </p>
+
+<p class="definition">Definition at line <a class="el" href="debug_8cpp_source.html#l00008">8</a> of file <a class="el" href="debug_8cpp_source.html">debug.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ga74efcf4e8fa9fe7bc71a9b23ff57213e" name="ga74efcf4e8fa9fe7bc71a9b23ff57213e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga74efcf4e8fa9fe7bc71a9b23ff57213e">&#9670;&#160;</a></span>assert_equal_fail()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void util::assert_equal_fail </td>
+          <td>(</td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
+          <td class="paramname"><em>file</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>line</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
+          <td class="paramname"><em>function</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
+          <td class="paramname"><em>first_arg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
+          <td class="paramname"><em>second_arg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
+          <td class="paramname"><em>first_val</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
+          <td class="paramname"><em>second_val</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Internal function to pretty-print <a class="el" href="group__debug.html#ga06663ee630c22628b3fe11700767367f" title="Soft assertion, tests for X == Y">ASSERT_EQUAL</a> fail statements. </p>
+
+<p class="definition">Definition at line <a class="el" href="debug_8cpp_source.html#l00016">16</a> of file <a class="el" href="debug_8cpp_source.html">debug.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ga6f54d49bb579c96bac3002c36dafb31e" name="ga6f54d49bb579c96bac3002c36dafb31e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6f54d49bb579c96bac3002c36dafb31e">&#9670;&#160;</a></span>assert_true_fail()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void util::assert_true_fail </td>
+          <td>(</td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
+          <td class="paramname"><em>file</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>line</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
+          <td class="paramname"><em>function</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
+          <td class="paramname"><em>arg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Internal function to pretty-print <a class="el" href="group__debug.html#ga142a617ae6f4d3b050faad2aa1e936bf" title="Soft assertion, tests for X being true.">ASSERT_TRUE</a> fail statements. </p>
+
+<p class="definition">Definition at line <a class="el" href="debug_8cpp_source.html#l00031">31</a> of file <a class="el" href="debug_8cpp_source.html">debug.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ga40f486e1e5b6f27ebaab356302399a4e" name="ga40f486e1e5b6f27ebaab356302399a4e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga40f486e1e5b6f27ebaab356302399a4e">&#9670;&#160;</a></span>assert_lt_fail()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void util::assert_lt_fail </td>
+          <td>(</td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
+          <td class="paramname"><em>file</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>line</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
+          <td class="paramname"><em>function</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
+          <td class="paramname"><em>first_arg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
+          <td class="paramname"><em>second_arg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
+          <td class="paramname"><em>first_val</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
+          <td class="paramname"><em>second_val</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Internal function to pretty-print <a class="el" href="group__debug.html#ga60f45ee0c4949ef50243feb6fbb8a808" title="Soft assertion, tests for X &lt; Y">ASSERT_LT</a> fail statements. </p>
+
+<p class="definition">Definition at line <a class="el" href="debug_8cpp_source.html#l00043">43</a> of file <a class="el" href="debug_8cpp_source.html">debug.cpp</a>.</p>
+
+</div>
+</div>
+<a id="gabfb09cc378d570256c727b8c8bd1d558" name="gabfb09cc378d570256c727b8c8bd1d558"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gabfb09cc378d570256c727b8c8bd1d558">&#9670;&#160;</a></span>assert_lte_fail()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void util::assert_lte_fail </td>
+          <td>(</td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
+          <td class="paramname"><em>file</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>line</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
+          <td class="paramname"><em>function</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
+          <td class="paramname"><em>first_arg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
+          <td class="paramname"><em>second_arg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
+          <td class="paramname"><em>first_val</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
+          <td class="paramname"><em>second_val</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Internal function to pretty-print <a class="el" href="group__debug.html#ga638ec8e14378667db38503cf0963ed1e" title="Soft assertion, tests for X &lt;= Y">ASSERT_LTE</a> fail statements. </p>
+
+<p class="definition">Definition at line <a class="el" href="debug_8cpp_source.html#l00058">58</a> of file <a class="el" href="debug_8cpp_source.html">debug.cpp</a>.</p>
+
+</div>
+</div>
+<a id="gada5b6453a5196f71cb18a4e7442519a6" name="gada5b6453a5196f71cb18a4e7442519a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gada5b6453a5196f71cb18a4e7442519a6">&#9670;&#160;</a></span>assert_map_contains_fail()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void util::assert_map_contains_fail </td>
+          <td>(</td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
+          <td class="paramname"><em>file</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>line</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
+          <td class="paramname"><em>function</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
+          <td class="paramname"><em>map_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
+          <td class="paramname"><em>element_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
+          <td class="paramname"><em>element_val</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Internal function to pretty-print <a class="el" href="group__debug.html#ga210f8465ee7860ddb1b878240a2f0acf" title="Soft assertion to check that a map indeed contains an element.">ASSERT_MAP_CONTAINS</a> fail statements. </p>
+
+<p class="definition">Definition at line <a class="el" href="debug_8cpp_source.html#l00073">73</a> of file <a class="el" href="debug_8cpp_source.html">debug.cpp</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Wed Dec 18 2024 17:39:41 for Fast Inflation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

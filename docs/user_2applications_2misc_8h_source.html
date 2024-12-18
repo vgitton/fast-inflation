@@ -1,0 +1,372 @@
+<!-- HTML header for doxygen 1.9.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Fast Inflation: src/user/applications/misc.h Source File</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+MathJax.Hub.Config({
+    TeX: {
+        Macros: {
+            dd: ["{\\text{d}#1\\,}",1],
+            nouts: ["{n_{\\text{o}}}"],
+            ints: ["{[\\![#1]\\!]}",1],
+            outset: ["{\\ints{\\nouts}}"],
+            N: ["{\\mathbb{N}}"],
+            R: ["{\\mathbb{R}}"],
+            Z: ["{\\mathbb{Z}}"],
+            infsize: ["{z}"],
+            infparties: ["{\\set{I}}"],
+            infsources: ["{\\set{S}}"],
+            infmarg: ["{\\set{A}}"],
+            infmargg: ["{\\set{B}}"],
+            netparties: ["{\\set{N}}"],
+            infq: ["{q}"],
+            infqs: ["{\\Delta_{\\infparties}}"],
+            constraintlist: ["{\\mathcal{C}}"],
+            injsets: ["{\\text{InjSets}}"],
+            infconstraints: ["{\\text{InfCons}}"],
+            parents: ["{\\text{Par}}"],
+            targetp: ["{p}"],
+            targetps: ["{\\Delta_{\\netparties}}"],
+            set: ["{\\mathbf{#1}}",1],
+            type: ["{t}"],
+            infevent: "{\\omega}",
+            events: ["{\\Omega_{#1}}",1],
+            infevents: ["{\\events{\\infparties}}"],
+            redinfevents: ["{\\tilde{\\Omega}_{\\infparties}}"],
+            netevents: ["{\\events{\\netparties}}"],
+            vecset: ["{V_{#1}}",1],
+            alice: ["{\\text{A}}"],
+            bob: ["{\\text{B}}"],
+            charlie: ["{\\text{C}}"],
+            symgroup: ["{\\text{Sym}(#1)}",1],
+            shortsymgroup: ["{\\text{Sym}_{#1}}",1],
+            act: ["{(#1\\hspace{2pt}{:}\\hspace{2pt}#2)}",2],
+            actt: ["{[#1\\hspace{2pt}{:}\\hspace{2pt}#2]}",2],
+            margperms: ["{\\text{Perm}_{#1}}",1],
+            permutedmargs: ["{\\mathbb{P}_{#1}^{\\targetp}}",1],
+            redpermutedmargs: ["{\\tilde{\\mathbb{P}}_{#1}^{\\constraintname,\\targetp}}",1],
+            extract: ["{\\text{ext}(#1,#2)}",2],
+            partysym: ["{\\tau}"],
+            sourcesym: ["{\\xi}"],
+            outsym: ["{\\sigma}"],
+            fullgroup: ["{\\text{InfGrp}}"],
+            partygroup : ["{\\text{PartyGrp}}"],
+            outgroup: ["{\\text{OutGrp}}"],
+            sourcegroup: ["{\\text{SrcGrp}}"],
+            distrgroup: ["{\\mathbb{G}^\\targetp}"],
+            constraintname: ["{c}"],
+            marggroup: ["{\\mathbb{G}^{\\constraintname,\\targetp}}"],
+            fullsymexpl: ["{(\\sourcesym,\\partysym,\\outsym)}"],
+            inner: ["{\\langle#1,#2\\rangle}", 2],
+            quovec: ["{f}"],
+            totconstraintmap: ["{K^{\\constraintlist,\\targetp}}"],
+            totconstraintmapelem: ["{K^{\\constraintname,\\targetp}}"],
+            quovecspace: ["{\\tilde{V}_{#1}^{\\constraintname,\\targetp}}", 1],
+            totquovecspace: ["{\\text{ConsSpace}(\\constraintlist,\\targetp)}"],
+            detdistr: ["{\\delta^{#1}}", 1],
+            margperm: ["{\\varphi}"],
+            altquovecembed: ["{\\text{G}_{#1}^{\\constraintname,\\targetp}}", 1],
+            vecset: ["{V_{#1}}", 1],
+            repr: ["{\\lfloor#1\\rfloor}", 1],
+            gid: ["{\\text{id}}"],
+            id: ["{1_{#1}}",1],
+            consscale: ["{K}"],
+            scaletot: ["{K_{\\text{tot}}^{\\constraintlist,\\targetp}}"],
+            minnorm: ["{d}"],
+            Bigsetst: ["\\;\\Big|\\;"],
+            activeset: ["\\mathcal{S}"],
+            conv: ["\\text{conv}"],
+            lVert: ["|\\hspace{-1pt}|"],
+            norm: ["\\lVert#1\\lVert", 1],
+            st: [":\ "],
+        }
+    }
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeDarkModeToggle.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeParagraphLink.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Fast Inflation
+   </div>
+   <div id="projectbrief">To certify causal incompatibility</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('user_2applications_2misc_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">misc.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="user_2applications_2misc_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;../../inf/inf_problem/target_distr.h&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;../application.h&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceuser.html">user</a> {</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keywordtype">void</span> <a class="code hl_function" href="group__misc__tests.html#ga9790d6560cfcd9f65b2400a308f42244">test_dual_vector_eval</a>(<a class="code hl_typedef" href="classinf_1_1TargetDistr.html#a75d7c59680325e198e85d02d673e4abe">inf::TargetDistr::ConstPtr</a> <span class="keyword">const</span> &amp;d);</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keywordtype">void</span> <a class="code hl_function" href="group__misc__tests.html#gae23782ae4a4bea2002d0b783b4c40592">print_event_latex_format</a>(<a class="code hl_class" href="classinf_1_1Inflation.html">inf::Inflation</a> <span class="keyword">const</span> &amp;inflation, <a class="code hl_typedef" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> <span class="keyword">const</span> &amp;event);</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="classuser_1_1frac.html">   29</a></span><span class="keyword">class </span><a class="code hl_class" href="classuser_1_1frac.html">frac</a> : <span class="keyword">public</span> <a class="code hl_class" href="classuser_1_1Application.html">user::Application</a> {</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="classuser_1_1frac.html#ad9f0b5c43ce7eec9cd50cf1c7b795811">   31</a></span>    <a class="code hl_function" href="classuser_1_1frac.html#ad9f0b5c43ce7eec9cd50cf1c7b795811">frac</a>() : <a class="code hl_namespace" href="namespaceuser.html">user</a>::<a class="code hl_class" href="classuser_1_1Application.html">Application</a>(<span class="stringliteral">&quot;frac&quot;</span>, <span class="stringliteral">&quot;Tests util::Frac&quot;</span>, true) {}</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classuser_1_1frac.html#a4eb32c3d9a16add2b881b4744870cdbb">run</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>};</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="classuser_1_1event__sym.html">   36</a></span><span class="keyword">class </span><a class="code hl_class" href="classuser_1_1event__sym.html">event_sym</a> : <span class="keyword">public</span> <a class="code hl_class" href="classuser_1_1Application.html">user::Application</a> {</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="classuser_1_1event__sym.html#aa65d44289305898a72677144a4d0f546">   38</a></span>    <a class="code hl_function" href="classuser_1_1event__sym.html#aa65d44289305898a72677144a4d0f546">event_sym</a>() : <a class="code hl_namespace" href="namespaceuser.html">user</a>::<a class="code hl_class" href="classuser_1_1Application.html">Application</a>(<span class="stringliteral">&quot;event_sym&quot;</span>, <span class="stringliteral">&quot;Tests symmetry transformations on inflation events&quot;</span>, true) {}</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classuser_1_1event__sym.html#a62997411291d97a4f2e2aa1430553627">run</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>};</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="classuser_1_1fully__corrective__fw.html">   43</a></span><span class="keyword">class </span><a class="code hl_class" href="classuser_1_1fully__corrective__fw.html">fully_corrective_fw</a> : <span class="keyword">public</span> <a class="code hl_class" href="classuser_1_1Application.html">user::Application</a> {</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="classuser_1_1fully__corrective__fw.html#a8fab94602b12c69f42c8d7f744daa0ba">   45</a></span>    <a class="code hl_function" href="classuser_1_1fully__corrective__fw.html#a8fab94602b12c69f42c8d7f744daa0ba">fully_corrective_fw</a>() : <a class="code hl_namespace" href="namespaceuser.html">user</a>::<a class="code hl_class" href="classuser_1_1Application.html">Application</a>(<span class="stringliteral">&quot;fully_corrective_fw&quot;</span>, <span class="stringliteral">&quot;Tests inf::FullyCorrectiveFW&quot;</span>, true) {}</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classuser_1_1fully__corrective__fw.html#a7911402ba5c714164a2f1673d1d82687">run</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>};</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="classuser_1_1pairwise__fw.html">   50</a></span><span class="keyword">class </span><a class="code hl_class" href="classuser_1_1pairwise__fw.html">pairwise_fw</a> : <span class="keyword">public</span> <a class="code hl_class" href="classuser_1_1Application.html">user::Application</a> {</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="classuser_1_1pairwise__fw.html#aa56e3de7abe97ab3615a84cbd65a359b">   52</a></span>    <a class="code hl_function" href="classuser_1_1pairwise__fw.html#aa56e3de7abe97ab3615a84cbd65a359b">pairwise_fw</a>() : <a class="code hl_namespace" href="namespaceuser.html">user</a>::<a class="code hl_class" href="classuser_1_1Application.html">Application</a>(<span class="stringliteral">&quot;pairwise_fw&quot;</span>, <span class="stringliteral">&quot;Detailed test of inf::PairwiseFW&quot;</span>, false) {}</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classuser_1_1pairwise__fw.html#a099b4a81564e1cae357f6564d688b055">run</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>};</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="classuser_1_1event__tensor.html">   57</a></span><span class="keyword">class </span><a class="code hl_class" href="classuser_1_1event__tensor.html">event_tensor</a> : <span class="keyword">public</span> <a class="code hl_class" href="classuser_1_1Application.html">user::Application</a> {</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="classuser_1_1event__tensor.html#a764165cbe8e37792e2b55dfc7620423f">   59</a></span>    <a class="code hl_function" href="classuser_1_1event__tensor.html#a764165cbe8e37792e2b55dfc7620423f">event_tensor</a>() : <a class="code hl_namespace" href="namespaceuser.html">user</a>::<a class="code hl_class" href="classuser_1_1Application.html">Application</a>(<span class="stringliteral">&quot;event_tensor&quot;</span>, <span class="stringliteral">&quot;Tests inf::EventTensor&quot;</span>, true) {}</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classuser_1_1event__tensor.html#ae389e259e0e04837c39388f867ab81ef">run</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>};</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="classuser_1_1event__tree.html">   64</a></span><span class="keyword">class </span><a class="code hl_class" href="classuser_1_1event__tree.html">event_tree</a> : <span class="keyword">public</span> <a class="code hl_class" href="classuser_1_1Application.html">user::Application</a> {</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="classuser_1_1event__tree.html#a8dbb13640bc161e2b1537bfa53a165d4">   66</a></span>    <a class="code hl_function" href="classuser_1_1event__tree.html#a8dbb13640bc161e2b1537bfa53a165d4">event_tree</a>() : <a class="code hl_namespace" href="namespaceuser.html">user</a>::<a class="code hl_class" href="classuser_1_1Application.html">Application</a>(<span class="stringliteral">&quot;event_tree&quot;</span>, <span class="stringliteral">&quot;Tests inf::EventTree&quot;</span>, true) {}</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classuser_1_1event__tree.html#a8fe61ba96f27ed6f27ab74735a4e0e8a">run</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>};</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="classuser_1_1inf__tree__filler.html">   71</a></span><span class="keyword">class </span><a class="code hl_class" href="classuser_1_1inf__tree__filler.html">inf_tree_filler</a> : <span class="keyword">public</span> <a class="code hl_class" href="classuser_1_1Application.html">user::Application</a> {</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="classuser_1_1inf__tree__filler.html#ae942cadfd317e7bdcd4ae1b920660aba">   73</a></span>    <a class="code hl_function" href="classuser_1_1inf__tree__filler.html#ae942cadfd317e7bdcd4ae1b920660aba">inf_tree_filler</a>() : <a class="code hl_namespace" href="namespaceuser.html">user</a>::<a class="code hl_class" href="classuser_1_1Application.html">Application</a>(<span class="stringliteral">&quot;inf_tree_filler&quot;</span>, <span class="stringliteral">&quot;Tests inf::TreeFiller&quot;</span>, true) {}</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classuser_1_1inf__tree__filler.html#afd49677fd9c5b2391b1931234f28cffc">run</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>};</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="classuser_1_1distribution__marginal.html">   79</a></span><span class="keyword">class </span><a class="code hl_class" href="classuser_1_1distribution__marginal.html">distribution_marginal</a> : <span class="keyword">public</span> <a class="code hl_class" href="classuser_1_1Application.html">user::Application</a> {</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="classuser_1_1distribution__marginal.html#aa5e30a1a86369982bea25b710adfdec3">   81</a></span>    <a class="code hl_function" href="classuser_1_1distribution__marginal.html#aa5e30a1a86369982bea25b710adfdec3">distribution_marginal</a>() : <a class="code hl_namespace" href="namespaceuser.html">user</a>::<a class="code hl_class" href="classuser_1_1Application.html">Application</a>(<span class="stringliteral">&quot;distribution_marginal&quot;</span>, <span class="stringliteral">&quot;Tests marginals of a triangle distribution&quot;</span>, true) {}</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classuser_1_1distribution__marginal.html#a969e041e0d922fff3b5194b31b5d753a">run</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>};</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="classuser_1_1inflation__marginal.html">   86</a></span><span class="keyword">class </span><a class="code hl_class" href="classuser_1_1inflation__marginal.html">inflation_marginal</a> : <span class="keyword">public</span> <a class="code hl_class" href="classuser_1_1Application.html">user::Application</a> {</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="classuser_1_1inflation__marginal.html#ab81ff2a439d3e17ed20ed26c055b4ecc">   88</a></span>    <a class="code hl_function" href="classuser_1_1inflation__marginal.html#ab81ff2a439d3e17ed20ed26c055b4ecc">inflation_marginal</a>() : <a class="code hl_namespace" href="namespaceuser.html">user</a>::<a class="code hl_class" href="classuser_1_1Application.html">Application</a>(<span class="stringliteral">&quot;inflation_marginal&quot;</span>, <span class="stringliteral">&quot;Tests inf::Marginal&quot;</span>, true) {}</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classuser_1_1inflation__marginal.html#a83044c22cba1881e73e18e1eaf03924c">run</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>};</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno"><a class="line" href="classuser_1_1dual__vector__bounds.html">   93</a></span><span class="keyword">class </span><a class="code hl_class" href="classuser_1_1dual__vector__bounds.html">dual_vector_bounds</a> : <span class="keyword">public</span> <a class="code hl_class" href="classuser_1_1Application.html">user::Application</a> {</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="classuser_1_1dual__vector__bounds.html#a27bbe3c60715108780fa3f83cff2d71d">   95</a></span>    <a class="code hl_function" href="classuser_1_1dual__vector__bounds.html#a27bbe3c60715108780fa3f83cff2d71d">dual_vector_bounds</a>() : <a class="code hl_namespace" href="namespaceuser.html">user</a>::<a class="code hl_class" href="classuser_1_1Application.html">Application</a>(<span class="stringliteral">&quot;dual_vector_bounds&quot;</span>, <span class="stringliteral">&quot;Tests the bounds of an inf::DualVector&quot;</span>, true) {}</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classuser_1_1dual__vector__bounds.html#abf7b2fb85be16fa674892644a7a655d9">run</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>};</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno"><a class="line" href="classuser_1_1dual__vector__io.html">  100</a></span><span class="keyword">class </span><a class="code hl_class" href="classuser_1_1dual__vector__io.html">dual_vector_io</a> : <span class="keyword">public</span> <a class="code hl_class" href="classuser_1_1Application.html">user::Application</a> {</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="classuser_1_1dual__vector__io.html#a610f4819c75acf824eba3f4ab75a3e97">  102</a></span>    <a class="code hl_function" href="classuser_1_1dual__vector__io.html#a610f4819c75acf824eba3f4ab75a3e97">dual_vector_io</a>() : <a class="code hl_namespace" href="namespaceuser.html">user</a>::<a class="code hl_class" href="classuser_1_1Application.html">Application</a>(<span class="stringliteral">&quot;dual_vector_io&quot;</span>, <span class="stringliteral">&quot;Tests the I/O of an inf::DualVector&quot;</span>, true) {}</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classuser_1_1dual__vector__io.html#ad54c8bf2528b69a0054db636522e6d15">run</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>};</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno"><a class="line" href="classuser_1_1opt__bounds.html">  107</a></span><span class="keyword">class </span><a class="code hl_class" href="classuser_1_1opt__bounds.html">opt_bounds</a> : <span class="keyword">public</span> <a class="code hl_class" href="classuser_1_1Application.html">user::Application</a> {</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno"><a class="line" href="classuser_1_1opt__bounds.html#ad3e6c3a30b6e083dbc53be2d06511c3a">  109</a></span>    <a class="code hl_function" href="classuser_1_1opt__bounds.html#ad3e6c3a30b6e083dbc53be2d06511c3a">opt_bounds</a>() : <a class="code hl_namespace" href="namespaceuser.html">user</a>::<a class="code hl_class" href="classuser_1_1Application.html">Application</a>(<span class="stringliteral">&quot;opt_bounds&quot;</span>, <span class="stringliteral">&quot;Tests the use of bounds of an inf::DualVector by an inf::Optimizer&quot;</span>, true) {}</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classuser_1_1opt__bounds.html#a062eba0df739988f1bda732d662814a0">run</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>};</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno"><a class="line" href="classuser_1_1opt__time.html">  114</a></span><span class="keyword">class </span><a class="code hl_class" href="classuser_1_1opt__time.html">opt_time</a> : <span class="keyword">public</span> <a class="code hl_class" href="classuser_1_1Application.html">user::Application</a> {</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno"><a class="line" href="classuser_1_1opt__time.html#abc4cb72ecaf58a498b480cff93f387da">  116</a></span>    <a class="code hl_function" href="classuser_1_1opt__time.html#abc4cb72ecaf58a498b480cff93f387da">opt_time</a>() : <a class="code hl_namespace" href="namespaceuser.html">user</a>::<a class="code hl_class" href="classuser_1_1Application.html">Application</a>(<span class="stringliteral">&quot;opt_time&quot;</span>, <span class="stringliteral">&quot;Times an inf::Optimizer&quot;</span>, false) {}</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classuser_1_1opt__time.html#ad25ef764df0f0a1728f0380a6fca56ee">run</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>};</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno"><a class="line" href="classuser_1_1file__stream.html">  121</a></span><span class="keyword">class </span><a class="code hl_class" href="classuser_1_1file__stream.html">file_stream</a> : <span class="keyword">public</span> <a class="code hl_class" href="classuser_1_1Application.html">user::Application</a> {</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno"><a class="line" href="classuser_1_1file__stream.html#a132f75ed65232e303c3244f41dcf3027">  123</a></span>    <a class="code hl_function" href="classuser_1_1file__stream.html#a132f75ed65232e303c3244f41dcf3027">file_stream</a>() : <a class="code hl_namespace" href="namespaceuser.html">user</a>::<a class="code hl_class" href="classuser_1_1Application.html">Application</a>(<span class="stringliteral">&quot;file_stream&quot;</span>, <span class="stringliteral">&quot;Tests the text and binary serialization mechanism&quot;</span>, true) {}</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classuser_1_1file__stream.html#a1d86500356e11054d87a767633b2c496">run</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>};</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno"><a class="line" href="classuser_1_1tree__splitter.html">  128</a></span><span class="keyword">class </span><a class="code hl_class" href="classuser_1_1tree__splitter.html">tree_splitter</a> : <span class="keyword">public</span> <a class="code hl_class" href="classuser_1_1Application.html">user::Application</a> {</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno"><a class="line" href="classuser_1_1tree__splitter.html#a37b14cf1388b1551ec628bf30fc7e7bc">  130</a></span>    <a class="code hl_function" href="classuser_1_1tree__splitter.html#a37b14cf1388b1551ec628bf30fc7e7bc">tree_splitter</a>() : <a class="code hl_namespace" href="namespaceuser.html">user</a>::<a class="code hl_class" href="classuser_1_1Application.html">Application</a>(<span class="stringliteral">&quot;tree_splitter&quot;</span>, <span class="stringliteral">&quot;Testing inf::TreeSplitter in a simple example&quot;</span>, true) {}</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classuser_1_1tree__splitter.html#a1bf1664445cdf6d92b3aa58e6f9ea707">run</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>};</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno"><a class="line" href="classuser_1_1inf__tree__splitting.html">  135</a></span><span class="keyword">class </span><a class="code hl_class" href="classuser_1_1inf__tree__splitting.html">inf_tree_splitting</a> : <span class="keyword">public</span> <a class="code hl_class" href="classuser_1_1Application.html">user::Application</a> {</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno"><a class="line" href="classuser_1_1inf__tree__splitting.html#a555f6a08318a68307fb57694521cf379">  137</a></span>    <a class="code hl_function" href="classuser_1_1inf__tree__splitting.html#a555f6a08318a68307fb57694521cf379">inf_tree_splitting</a>() : <a class="code hl_namespace" href="namespaceuser.html">user</a>::<a class="code hl_class" href="classuser_1_1Application.html">Application</a>(<span class="stringliteral">&quot;inf_tree_splitting&quot;</span>, <span class="stringliteral">&quot;Looking at how to evenly split the inflation event tree&quot;</span>, false) {}</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classuser_1_1inf__tree__splitting.html#a3d145288348c394e3826d95e50b0bdac">run</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>};</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span> </div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>} <span class="comment">// namespace user</span></div>
+<div class="ttc" id="aclassinf_1_1Inflation_html"><div class="ttname"><a href="classinf_1_1Inflation.html">inf::Inflation</a></div><div class="ttdoc">Describes an inflation of a network, currently restricted to canonical inflations of the triangle net...</div><div class="ttdef"><b>Definition</b> <a href="inflation_8h_source.html#l00051">inflation.h:51</a></div></div>
+<div class="ttc" id="aclassinf_1_1TargetDistr_html_a75d7c59680325e198e85d02d673e4abe"><div class="ttname"><a href="classinf_1_1TargetDistr.html#a75d7c59680325e198e85d02d673e4abe">inf::TargetDistr::ConstPtr</a></div><div class="ttdeci">std::shared_ptr&lt; const inf::TargetDistr &gt; ConstPtr</div><div class="ttdef"><b>Definition</b> <a href="target__distr_8h_source.html#l00035">target_distr.h:35</a></div></div>
+<div class="ttc" id="aclassuser_1_1Application_html"><div class="ttname"><a href="classuser_1_1Application.html">user::Application</a></div><div class="ttdoc">Parent class of user applications.</div><div class="ttdef"><b>Definition</b> <a href="application_8h_source.html#l00022">application.h:22</a></div></div>
+<div class="ttc" id="aclassuser_1_1distribution__marginal_html"><div class="ttname"><a href="classuser_1_1distribution__marginal.html">user::distribution_marginal</a></div><div class="ttdoc">Tests marginals of a triangle distribution.</div><div class="ttdef"><b>Definition</b> <a href="user_2applications_2misc_8h_source.html#l00079">misc.h:79</a></div></div>
+<div class="ttc" id="aclassuser_1_1distribution__marginal_html_a969e041e0d922fff3b5194b31b5d753a"><div class="ttname"><a href="classuser_1_1distribution__marginal.html#a969e041e0d922fff3b5194b31b5d753a">user::distribution_marginal::run</a></div><div class="ttdeci">void run() override</div><div class="ttdoc">This method runs the application.</div><div class="ttdef"><b>Definition</b> <a href="misc_8cpp_source.html#l00631">misc.cpp:631</a></div></div>
+<div class="ttc" id="aclassuser_1_1distribution__marginal_html_aa5e30a1a86369982bea25b710adfdec3"><div class="ttname"><a href="classuser_1_1distribution__marginal.html#aa5e30a1a86369982bea25b710adfdec3">user::distribution_marginal::distribution_marginal</a></div><div class="ttdeci">distribution_marginal()</div><div class="ttdef"><b>Definition</b> <a href="user_2applications_2misc_8h_source.html#l00081">misc.h:81</a></div></div>
+<div class="ttc" id="aclassuser_1_1dual__vector__bounds_html"><div class="ttname"><a href="classuser_1_1dual__vector__bounds.html">user::dual_vector_bounds</a></div><div class="ttdoc">Tests the mechanism that stores the bounds of an inf::DualVector.</div><div class="ttdef"><b>Definition</b> <a href="user_2applications_2misc_8h_source.html#l00093">misc.h:93</a></div></div>
+<div class="ttc" id="aclassuser_1_1dual__vector__bounds_html_a27bbe3c60715108780fa3f83cff2d71d"><div class="ttname"><a href="classuser_1_1dual__vector__bounds.html#a27bbe3c60715108780fa3f83cff2d71d">user::dual_vector_bounds::dual_vector_bounds</a></div><div class="ttdeci">dual_vector_bounds()</div><div class="ttdef"><b>Definition</b> <a href="user_2applications_2misc_8h_source.html#l00095">misc.h:95</a></div></div>
+<div class="ttc" id="aclassuser_1_1dual__vector__bounds_html_abf7b2fb85be16fa674892644a7a655d9"><div class="ttname"><a href="classuser_1_1dual__vector__bounds.html#abf7b2fb85be16fa674892644a7a655d9">user::dual_vector_bounds::run</a></div><div class="ttdeci">void run() override</div><div class="ttdoc">This method runs the application.</div><div class="ttdef"><b>Definition</b> <a href="misc_8cpp_source.html#l00696">misc.cpp:696</a></div></div>
+<div class="ttc" id="aclassuser_1_1dual__vector__io_html"><div class="ttname"><a href="classuser_1_1dual__vector__io.html">user::dual_vector_io</a></div><div class="ttdoc">Tests the mechanism that reads/writes an inf::DualVector to disk.</div><div class="ttdef"><b>Definition</b> <a href="user_2applications_2misc_8h_source.html#l00100">misc.h:100</a></div></div>
+<div class="ttc" id="aclassuser_1_1dual__vector__io_html_a610f4819c75acf824eba3f4ab75a3e97"><div class="ttname"><a href="classuser_1_1dual__vector__io.html#a610f4819c75acf824eba3f4ab75a3e97">user::dual_vector_io::dual_vector_io</a></div><div class="ttdeci">dual_vector_io()</div><div class="ttdef"><b>Definition</b> <a href="user_2applications_2misc_8h_source.html#l00102">misc.h:102</a></div></div>
+<div class="ttc" id="aclassuser_1_1dual__vector__io_html_ad54c8bf2528b69a0054db636522e6d15"><div class="ttname"><a href="classuser_1_1dual__vector__io.html#ad54c8bf2528b69a0054db636522e6d15">user::dual_vector_io::run</a></div><div class="ttdeci">void run() override</div><div class="ttdoc">This method runs the application.</div><div class="ttdef"><b>Definition</b> <a href="misc_8cpp_source.html#l00722">misc.cpp:722</a></div></div>
+<div class="ttc" id="aclassuser_1_1event__sym_html"><div class="ttname"><a href="classuser_1_1event__sym.html">user::event_sym</a></div><div class="ttdoc">Used to test and display the effect of symmetry transformations on inflation events.</div><div class="ttdef"><b>Definition</b> <a href="user_2applications_2misc_8h_source.html#l00036">misc.h:36</a></div></div>
+<div class="ttc" id="aclassuser_1_1event__sym_html_a62997411291d97a4f2e2aa1430553627"><div class="ttname"><a href="classuser_1_1event__sym.html#a62997411291d97a4f2e2aa1430553627">user::event_sym::run</a></div><div class="ttdeci">void run() override</div><div class="ttdoc">This method runs the application.</div><div class="ttdef"><b>Definition</b> <a href="misc_8cpp_source.html#l00228">misc.cpp:228</a></div></div>
+<div class="ttc" id="aclassuser_1_1event__sym_html_aa65d44289305898a72677144a4d0f546"><div class="ttname"><a href="classuser_1_1event__sym.html#aa65d44289305898a72677144a4d0f546">user::event_sym::event_sym</a></div><div class="ttdeci">event_sym()</div><div class="ttdef"><b>Definition</b> <a href="user_2applications_2misc_8h_source.html#l00038">misc.h:38</a></div></div>
+<div class="ttc" id="aclassuser_1_1event__tensor_html"><div class="ttname"><a href="classuser_1_1event__tensor.html">user::event_tensor</a></div><div class="ttdoc">Tests inf::EventTensor.</div><div class="ttdef"><b>Definition</b> <a href="user_2applications_2misc_8h_source.html#l00057">misc.h:57</a></div></div>
+<div class="ttc" id="aclassuser_1_1event__tensor_html_a764165cbe8e37792e2b55dfc7620423f"><div class="ttname"><a href="classuser_1_1event__tensor.html#a764165cbe8e37792e2b55dfc7620423f">user::event_tensor::event_tensor</a></div><div class="ttdeci">event_tensor()</div><div class="ttdef"><b>Definition</b> <a href="user_2applications_2misc_8h_source.html#l00059">misc.h:59</a></div></div>
+<div class="ttc" id="aclassuser_1_1event__tensor_html_ae389e259e0e04837c39388f867ab81ef"><div class="ttname"><a href="classuser_1_1event__tensor.html#ae389e259e0e04837c39388f867ab81ef">user::event_tensor::run</a></div><div class="ttdeci">void run() override</div><div class="ttdoc">This method runs the application.</div><div class="ttdef"><b>Definition</b> <a href="misc_8cpp_source.html#l00463">misc.cpp:463</a></div></div>
+<div class="ttc" id="aclassuser_1_1event__tree_html"><div class="ttname"><a href="classuser_1_1event__tree.html">user::event_tree</a></div><div class="ttdoc">Tests inf::EventTree, including IO mecanism.</div><div class="ttdef"><b>Definition</b> <a href="user_2applications_2misc_8h_source.html#l00064">misc.h:64</a></div></div>
+<div class="ttc" id="aclassuser_1_1event__tree_html_a8dbb13640bc161e2b1537bfa53a165d4"><div class="ttname"><a href="classuser_1_1event__tree.html#a8dbb13640bc161e2b1537bfa53a165d4">user::event_tree::event_tree</a></div><div class="ttdeci">event_tree()</div><div class="ttdef"><b>Definition</b> <a href="user_2applications_2misc_8h_source.html#l00066">misc.h:66</a></div></div>
+<div class="ttc" id="aclassuser_1_1event__tree_html_a8fe61ba96f27ed6f27ab74735a4e0e8a"><div class="ttname"><a href="classuser_1_1event__tree.html#a8fe61ba96f27ed6f27ab74735a4e0e8a">user::event_tree::run</a></div><div class="ttdeci">void run() override</div><div class="ttdoc">This method runs the application.</div><div class="ttdef"><b>Definition</b> <a href="misc_8cpp_source.html#l00486">misc.cpp:486</a></div></div>
+<div class="ttc" id="aclassuser_1_1file__stream_html"><div class="ttname"><a href="classuser_1_1file__stream.html">user::file_stream</a></div><div class="ttdoc">Tests the util::FileStream serialization mechanism in both binary and text form for a dummy class.</div><div class="ttdef"><b>Definition</b> <a href="user_2applications_2misc_8h_source.html#l00121">misc.h:121</a></div></div>
+<div class="ttc" id="aclassuser_1_1file__stream_html_a132f75ed65232e303c3244f41dcf3027"><div class="ttname"><a href="classuser_1_1file__stream.html#a132f75ed65232e303c3244f41dcf3027">user::file_stream::file_stream</a></div><div class="ttdeci">file_stream()</div><div class="ttdef"><b>Definition</b> <a href="user_2applications_2misc_8h_source.html#l00123">misc.h:123</a></div></div>
+<div class="ttc" id="aclassuser_1_1file__stream_html_a1d86500356e11054d87a767633b2c496"><div class="ttname"><a href="classuser_1_1file__stream.html#a1d86500356e11054d87a767633b2c496">user::file_stream::run</a></div><div class="ttdeci">void run() override</div><div class="ttdoc">This method runs the application.</div><div class="ttdef"><b>Definition</b> <a href="misc_8cpp_source.html#l00900">misc.cpp:900</a></div></div>
+<div class="ttc" id="aclassuser_1_1frac_html"><div class="ttname"><a href="classuser_1_1frac.html">user::frac</a></div><div class="ttdoc">Tests util::Frac.</div><div class="ttdef"><b>Definition</b> <a href="user_2applications_2misc_8h_source.html#l00029">misc.h:29</a></div></div>
+<div class="ttc" id="aclassuser_1_1frac_html_a4eb32c3d9a16add2b881b4744870cdbb"><div class="ttname"><a href="classuser_1_1frac.html#a4eb32c3d9a16add2b881b4744870cdbb">user::frac::run</a></div><div class="ttdeci">void run() override</div><div class="ttdoc">This method runs the application.</div><div class="ttdef"><b>Definition</b> <a href="misc_8cpp_source.html#l00206">misc.cpp:206</a></div></div>
+<div class="ttc" id="aclassuser_1_1frac_html_ad9f0b5c43ce7eec9cd50cf1c7b795811"><div class="ttname"><a href="classuser_1_1frac.html#ad9f0b5c43ce7eec9cd50cf1c7b795811">user::frac::frac</a></div><div class="ttdeci">frac()</div><div class="ttdef"><b>Definition</b> <a href="user_2applications_2misc_8h_source.html#l00031">misc.h:31</a></div></div>
+<div class="ttc" id="aclassuser_1_1fully__corrective__fw_html"><div class="ttname"><a href="classuser_1_1fully__corrective__fw.html">user::fully_corrective_fw</a></div><div class="ttdoc">Tests inf::FullyCorrectiveFW.</div><div class="ttdef"><b>Definition</b> <a href="user_2applications_2misc_8h_source.html#l00043">misc.h:43</a></div></div>
+<div class="ttc" id="aclassuser_1_1fully__corrective__fw_html_a7911402ba5c714164a2f1673d1d82687"><div class="ttname"><a href="classuser_1_1fully__corrective__fw.html#a7911402ba5c714164a2f1673d1d82687">user::fully_corrective_fw::run</a></div><div class="ttdeci">void run() override</div><div class="ttdoc">This method runs the application.</div><div class="ttdef"><b>Definition</b> <a href="misc_8cpp_source.html#l00317">misc.cpp:317</a></div></div>
+<div class="ttc" id="aclassuser_1_1fully__corrective__fw_html_a8fab94602b12c69f42c8d7f744daa0ba"><div class="ttname"><a href="classuser_1_1fully__corrective__fw.html#a8fab94602b12c69f42c8d7f744daa0ba">user::fully_corrective_fw::fully_corrective_fw</a></div><div class="ttdeci">fully_corrective_fw()</div><div class="ttdef"><b>Definition</b> <a href="user_2applications_2misc_8h_source.html#l00045">misc.h:45</a></div></div>
+<div class="ttc" id="aclassuser_1_1inf__tree__filler_html"><div class="ttname"><a href="classuser_1_1inf__tree__filler.html">user::inf_tree_filler</a></div><div class="ttdoc">Tests inf::TreeFiller.</div><div class="ttdef"><b>Definition</b> <a href="user_2applications_2misc_8h_source.html#l00071">misc.h:71</a></div></div>
+<div class="ttc" id="aclassuser_1_1inf__tree__filler_html_ae942cadfd317e7bdcd4ae1b920660aba"><div class="ttname"><a href="classuser_1_1inf__tree__filler.html#ae942cadfd317e7bdcd4ae1b920660aba">user::inf_tree_filler::inf_tree_filler</a></div><div class="ttdeci">inf_tree_filler()</div><div class="ttdef"><b>Definition</b> <a href="user_2applications_2misc_8h_source.html#l00073">misc.h:73</a></div></div>
+<div class="ttc" id="aclassuser_1_1inf__tree__filler_html_afd49677fd9c5b2391b1931234f28cffc"><div class="ttname"><a href="classuser_1_1inf__tree__filler.html#afd49677fd9c5b2391b1931234f28cffc">user::inf_tree_filler::run</a></div><div class="ttdeci">void run() override</div><div class="ttdoc">This method runs the application.</div><div class="ttdef"><b>Definition</b> <a href="misc_8cpp_source.html#l00589">misc.cpp:589</a></div></div>
+<div class="ttc" id="aclassuser_1_1inf__tree__splitting_html"><div class="ttname"><a href="classuser_1_1inf__tree__splitting.html">user::inf_tree_splitting</a></div><div class="ttdoc">Tests the tree splitting of inflation event trees.</div><div class="ttdef"><b>Definition</b> <a href="user_2applications_2misc_8h_source.html#l00135">misc.h:135</a></div></div>
+<div class="ttc" id="aclassuser_1_1inf__tree__splitting_html_a3d145288348c394e3826d95e50b0bdac"><div class="ttname"><a href="classuser_1_1inf__tree__splitting.html#a3d145288348c394e3826d95e50b0bdac">user::inf_tree_splitting::run</a></div><div class="ttdeci">void run() override</div><div class="ttdoc">This method runs the application.</div><div class="ttdef"><b>Definition</b> <a href="misc_8cpp_source.html#l00963">misc.cpp:963</a></div></div>
+<div class="ttc" id="aclassuser_1_1inf__tree__splitting_html_a555f6a08318a68307fb57694521cf379"><div class="ttname"><a href="classuser_1_1inf__tree__splitting.html#a555f6a08318a68307fb57694521cf379">user::inf_tree_splitting::inf_tree_splitting</a></div><div class="ttdeci">inf_tree_splitting()</div><div class="ttdef"><b>Definition</b> <a href="user_2applications_2misc_8h_source.html#l00137">misc.h:137</a></div></div>
+<div class="ttc" id="aclassuser_1_1inflation__marginal_html"><div class="ttname"><a href="classuser_1_1inflation__marginal.html">user::inflation_marginal</a></div><div class="ttdoc">Tests inf::Marginal.</div><div class="ttdef"><b>Definition</b> <a href="user_2applications_2misc_8h_source.html#l00086">misc.h:86</a></div></div>
+<div class="ttc" id="aclassuser_1_1inflation__marginal_html_a83044c22cba1881e73e18e1eaf03924c"><div class="ttname"><a href="classuser_1_1inflation__marginal.html#a83044c22cba1881e73e18e1eaf03924c">user::inflation_marginal::run</a></div><div class="ttdeci">void run() override</div><div class="ttdoc">This method runs the application.</div><div class="ttdef"><b>Definition</b> <a href="misc_8cpp_source.html#l00658">misc.cpp:658</a></div></div>
+<div class="ttc" id="aclassuser_1_1inflation__marginal_html_ab81ff2a439d3e17ed20ed26c055b4ecc"><div class="ttname"><a href="classuser_1_1inflation__marginal.html#ab81ff2a439d3e17ed20ed26c055b4ecc">user::inflation_marginal::inflation_marginal</a></div><div class="ttdeci">inflation_marginal()</div><div class="ttdef"><b>Definition</b> <a href="user_2applications_2misc_8h_source.html#l00088">misc.h:88</a></div></div>
+<div class="ttc" id="aclassuser_1_1opt__bounds_html"><div class="ttname"><a href="classuser_1_1opt__bounds.html">user::opt_bounds</a></div><div class="ttdoc">Tests the mechanism that uses the bounds of an inf::DualVector to speed up the optimizations of inner...</div><div class="ttdef"><b>Definition</b> <a href="user_2applications_2misc_8h_source.html#l00107">misc.h:107</a></div></div>
+<div class="ttc" id="aclassuser_1_1opt__bounds_html_a062eba0df739988f1bda732d662814a0"><div class="ttname"><a href="classuser_1_1opt__bounds.html#a062eba0df739988f1bda732d662814a0">user::opt_bounds::run</a></div><div class="ttdeci">void run() override</div><div class="ttdoc">This method runs the application.</div><div class="ttdef"><b>Definition</b> <a href="misc_8cpp_source.html#l00765">misc.cpp:765</a></div></div>
+<div class="ttc" id="aclassuser_1_1opt__bounds_html_ad3e6c3a30b6e083dbc53be2d06511c3a"><div class="ttname"><a href="classuser_1_1opt__bounds.html#ad3e6c3a30b6e083dbc53be2d06511c3a">user::opt_bounds::opt_bounds</a></div><div class="ttdeci">opt_bounds()</div><div class="ttdef"><b>Definition</b> <a href="user_2applications_2misc_8h_source.html#l00109">misc.h:109</a></div></div>
+<div class="ttc" id="aclassuser_1_1opt__time_html"><div class="ttname"><a href="classuser_1_1opt__time.html">user::opt_time</a></div><div class="ttdoc">To test the time that an inf::Optimizer takes for various options. This one takes more time to execut...</div><div class="ttdef"><b>Definition</b> <a href="user_2applications_2misc_8h_source.html#l00114">misc.h:114</a></div></div>
+<div class="ttc" id="aclassuser_1_1opt__time_html_abc4cb72ecaf58a498b480cff93f387da"><div class="ttname"><a href="classuser_1_1opt__time.html#abc4cb72ecaf58a498b480cff93f387da">user::opt_time::opt_time</a></div><div class="ttdeci">opt_time()</div><div class="ttdef"><b>Definition</b> <a href="user_2applications_2misc_8h_source.html#l00116">misc.h:116</a></div></div>
+<div class="ttc" id="aclassuser_1_1opt__time_html_ad25ef764df0f0a1728f0380a6fca56ee"><div class="ttname"><a href="classuser_1_1opt__time.html#ad25ef764df0f0a1728f0380a6fca56ee">user::opt_time::run</a></div><div class="ttdeci">void run() override</div><div class="ttdoc">This method runs the application.</div><div class="ttdef"><b>Definition</b> <a href="misc_8cpp_source.html#l00822">misc.cpp:822</a></div></div>
+<div class="ttc" id="aclassuser_1_1pairwise__fw_html"><div class="ttname"><a href="classuser_1_1pairwise__fw.html">user::pairwise_fw</a></div><div class="ttdoc">A detailed test to investigate the behavior of inf::PairwiseFW.</div><div class="ttdef"><b>Definition</b> <a href="user_2applications_2misc_8h_source.html#l00050">misc.h:50</a></div></div>
+<div class="ttc" id="aclassuser_1_1pairwise__fw_html_a099b4a81564e1cae357f6564d688b055"><div class="ttname"><a href="classuser_1_1pairwise__fw.html#a099b4a81564e1cae357f6564d688b055">user::pairwise_fw::run</a></div><div class="ttdeci">void run() override</div><div class="ttdoc">This method runs the application.</div><div class="ttdef"><b>Definition</b> <a href="misc_8cpp_source.html#l00396">misc.cpp:396</a></div></div>
+<div class="ttc" id="aclassuser_1_1pairwise__fw_html_aa56e3de7abe97ab3615a84cbd65a359b"><div class="ttname"><a href="classuser_1_1pairwise__fw.html#aa56e3de7abe97ab3615a84cbd65a359b">user::pairwise_fw::pairwise_fw</a></div><div class="ttdeci">pairwise_fw()</div><div class="ttdef"><b>Definition</b> <a href="user_2applications_2misc_8h_source.html#l00052">misc.h:52</a></div></div>
+<div class="ttc" id="aclassuser_1_1tree__splitter_html"><div class="ttname"><a href="classuser_1_1tree__splitter.html">user::tree_splitter</a></div><div class="ttdoc">Tests the tree splitting mechanism on a simple case as described in inf::TreeSplitter.</div><div class="ttdef"><b>Definition</b> <a href="user_2applications_2misc_8h_source.html#l00128">misc.h:128</a></div></div>
+<div class="ttc" id="aclassuser_1_1tree__splitter_html_a1bf1664445cdf6d92b3aa58e6f9ea707"><div class="ttname"><a href="classuser_1_1tree__splitter.html#a1bf1664445cdf6d92b3aa58e6f9ea707">user::tree_splitter::run</a></div><div class="ttdeci">void run() override</div><div class="ttdoc">This method runs the application.</div><div class="ttdef"><b>Definition</b> <a href="misc_8cpp_source.html#l00934">misc.cpp:934</a></div></div>
+<div class="ttc" id="aclassuser_1_1tree__splitter_html_a37b14cf1388b1551ec628bf30fc7e7bc"><div class="ttname"><a href="classuser_1_1tree__splitter.html#a37b14cf1388b1551ec628bf30fc7e7bc">user::tree_splitter::tree_splitter</a></div><div class="ttdeci">tree_splitter()</div><div class="ttdef"><b>Definition</b> <a href="user_2applications_2misc_8h_source.html#l00130">misc.h:130</a></div></div>
+<div class="ttc" id="agroup__event_html_gac60a6fcdfce02dc13eb7364d6a2b56b0"><div class="ttname"><a href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a></div><div class="ttdeci">std::vector&lt; inf::Outcome &gt; Event</div><div class="ttdoc">A list of inf::Outcome. Conceptually, this plays the role of  for some set .</div><div class="ttdef"><b>Definition</b> <a href="event_8h_source.html#l00030">event.h:30</a></div></div>
+<div class="ttc" id="agroup__misc__tests_html_ga9790d6560cfcd9f65b2400a308f42244"><div class="ttname"><a href="group__misc__tests.html#ga9790d6560cfcd9f65b2400a308f42244">user::test_dual_vector_eval</a></div><div class="ttdeci">void test_dual_vector_eval(inf::TargetDistr::ConstPtr const &amp;d)</div><div class="ttdoc">This function tests the evaluation of inner products, see inf::DualVector and inf::Marginal.</div><div class="ttdef"><b>Definition</b> <a href="misc_8cpp_source.html#l00097">misc.cpp:97</a></div></div>
+<div class="ttc" id="agroup__misc__tests_html_gae23782ae4a4bea2002d0b783b4c40592"><div class="ttname"><a href="group__misc__tests.html#gae23782ae4a4bea2002d0b783b4c40592">user::print_event_latex_format</a></div><div class="ttdeci">void print_event_latex_format(inf::Inflation const &amp;inflation, inf::Event const &amp;event)</div><div class="ttdoc">We use this to conveniently print events in our latex source code format.</div><div class="ttdef"><b>Definition</b> <a href="misc_8cpp_source.html#l00192">misc.cpp:192</a></div></div>
+<div class="ttc" id="anamespaceuser_html"><div class="ttname"><a href="namespaceuser.html">user</a></div><div class="ttdoc">The namespace for application code.</div><div class="ttdef"><b>Definition</b> <a href="app__manager_8h_source.html#l00029">app_manager.h:29</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_8b0164eb0fb74115683f9812cb2f78f0.html">user</a></li><li class="navelem"><a class="el" href="dir_ab65e9ac623390ac7028fb64dac045ab.html">applications</a></li><li class="navelem"><a class="el" href="user_2applications_2misc_8h.html">misc.h</a></li>
+    <li class="footer">Generated on Wed Dec 18 2024 17:39:37 for Fast Inflation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

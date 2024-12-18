@@ -1,0 +1,307 @@
+<!-- HTML header for doxygen 1.9.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Fast Inflation: src/user/application.cpp Source File</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+MathJax.Hub.Config({
+    TeX: {
+        Macros: {
+            dd: ["{\\text{d}#1\\,}",1],
+            nouts: ["{n_{\\text{o}}}"],
+            ints: ["{[\\![#1]\\!]}",1],
+            outset: ["{\\ints{\\nouts}}"],
+            N: ["{\\mathbb{N}}"],
+            R: ["{\\mathbb{R}}"],
+            Z: ["{\\mathbb{Z}}"],
+            infsize: ["{z}"],
+            infparties: ["{\\set{I}}"],
+            infsources: ["{\\set{S}}"],
+            infmarg: ["{\\set{A}}"],
+            infmargg: ["{\\set{B}}"],
+            netparties: ["{\\set{N}}"],
+            infq: ["{q}"],
+            infqs: ["{\\Delta_{\\infparties}}"],
+            constraintlist: ["{\\mathcal{C}}"],
+            injsets: ["{\\text{InjSets}}"],
+            infconstraints: ["{\\text{InfCons}}"],
+            parents: ["{\\text{Par}}"],
+            targetp: ["{p}"],
+            targetps: ["{\\Delta_{\\netparties}}"],
+            set: ["{\\mathbf{#1}}",1],
+            type: ["{t}"],
+            infevent: "{\\omega}",
+            events: ["{\\Omega_{#1}}",1],
+            infevents: ["{\\events{\\infparties}}"],
+            redinfevents: ["{\\tilde{\\Omega}_{\\infparties}}"],
+            netevents: ["{\\events{\\netparties}}"],
+            vecset: ["{V_{#1}}",1],
+            alice: ["{\\text{A}}"],
+            bob: ["{\\text{B}}"],
+            charlie: ["{\\text{C}}"],
+            symgroup: ["{\\text{Sym}(#1)}",1],
+            shortsymgroup: ["{\\text{Sym}_{#1}}",1],
+            act: ["{(#1\\hspace{2pt}{:}\\hspace{2pt}#2)}",2],
+            actt: ["{[#1\\hspace{2pt}{:}\\hspace{2pt}#2]}",2],
+            margperms: ["{\\text{Perm}_{#1}}",1],
+            permutedmargs: ["{\\mathbb{P}_{#1}^{\\targetp}}",1],
+            redpermutedmargs: ["{\\tilde{\\mathbb{P}}_{#1}^{\\constraintname,\\targetp}}",1],
+            extract: ["{\\text{ext}(#1,#2)}",2],
+            partysym: ["{\\tau}"],
+            sourcesym: ["{\\xi}"],
+            outsym: ["{\\sigma}"],
+            fullgroup: ["{\\text{InfGrp}}"],
+            partygroup : ["{\\text{PartyGrp}}"],
+            outgroup: ["{\\text{OutGrp}}"],
+            sourcegroup: ["{\\text{SrcGrp}}"],
+            distrgroup: ["{\\mathbb{G}^\\targetp}"],
+            constraintname: ["{c}"],
+            marggroup: ["{\\mathbb{G}^{\\constraintname,\\targetp}}"],
+            fullsymexpl: ["{(\\sourcesym,\\partysym,\\outsym)}"],
+            inner: ["{\\langle#1,#2\\rangle}", 2],
+            quovec: ["{f}"],
+            totconstraintmap: ["{K^{\\constraintlist,\\targetp}}"],
+            totconstraintmapelem: ["{K^{\\constraintname,\\targetp}}"],
+            quovecspace: ["{\\tilde{V}_{#1}^{\\constraintname,\\targetp}}", 1],
+            totquovecspace: ["{\\text{ConsSpace}(\\constraintlist,\\targetp)}"],
+            detdistr: ["{\\delta^{#1}}", 1],
+            margperm: ["{\\varphi}"],
+            altquovecembed: ["{\\text{G}_{#1}^{\\constraintname,\\targetp}}", 1],
+            vecset: ["{V_{#1}}", 1],
+            repr: ["{\\lfloor#1\\rfloor}", 1],
+            gid: ["{\\text{id}}"],
+            id: ["{1_{#1}}",1],
+            consscale: ["{K}"],
+            scaletot: ["{K_{\\text{tot}}^{\\constraintlist,\\targetp}}"],
+            minnorm: ["{d}"],
+            Bigsetst: ["\\;\\Big|\\;"],
+            activeset: ["\\mathcal{S}"],
+            conv: ["\\text{conv}"],
+            lVert: ["|\\hspace{-1pt}|"],
+            norm: ["\\lVert#1\\lVert", 1],
+            st: [":\ "],
+        }
+    }
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeDarkModeToggle.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeParagraphLink.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Fast Inflation
+   </div>
+   <div id="projectbrief">To certify causal incompatibility</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('application_8cpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">application.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="application_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &quot;<a class="code" href="application_8h.html">application.h</a>&quot;</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;../inf/optimization/optimizer.h&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;../util/logger.h&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno"><a class="line" href="classuser_1_1Application.html#ab9898b792c8ea75a4225919e9a873a64">    5</a></span><a class="code hl_function" href="classuser_1_1Application.html#ab9898b792c8ea75a4225919e9a873a64">user::Application::Application</a>(std::string <span class="keyword">const</span> &amp;name,</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>                               std::string <span class="keyword">const</span> &amp;description,</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>                               <span class="keywordtype">bool</span> is_test)</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    : m_name(name),</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>      m_description(description),</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>      m_is_test(is_test),</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>      m_chrono(<a class="code hl_namespace" href="namespaceutil.html">util</a>::Chrono::State::paused),</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>      m_inf_cli(nullptr),</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>      m_feas_options(nullptr) {}</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="classuser_1_1Application.html#a85c64ea675191c57c687636096acc84a">   15</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classuser_1_1Application.html#a85c64ea675191c57c687636096acc84a">user::Application::set_inf_cli</a>(<a class="code hl_typedef" href="classuser_1_1InfCLI.html#a72e727e1528f28fcbb88bd803efb4795">user::InfCLI::ConstPtr</a> <span class="keyword">const</span> &amp;inf_cli) {</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    m_inf_cli = inf_cli;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>}</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="classuser_1_1Application.html#aa080c0554e2c7fad158e3f6c2303055e">   19</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classuser_1_1Application.html#aa080c0554e2c7fad158e3f6c2303055e">user::Application::set_feas_options</a>(<a class="code hl_typedef" href="classinf_1_1FeasOptions.html#a47cd0d666aa21be8252f703a0fbc654f">inf::FeasOptions::Ptr</a> <span class="keyword">const</span> &amp;feas_options) {</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    m_feas_options = feas_options;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>}</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="classuser_1_1Application.html#a412561a20ac115dadb8690f6bfdf4e1f">   23</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="classuser_1_1Application.html#a412561a20ac115dadb8690f6bfdf4e1f">user::Application::name_equals</a>(std::string <span class="keyword">const</span> &amp;name)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keywordflow">return</span> m_name == name;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>}</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="classuser_1_1Application.html#a32bf6119f9530bcdd17471d02f4b3615">   27</a></span>std::string <span class="keyword">const</span> &amp;<a class="code hl_function" href="classuser_1_1Application.html#a32bf6119f9530bcdd17471d02f4b3615">user::Application::get_name</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keywordflow">return</span> m_name;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>}</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="classuser_1_1Application.html#a2cd8c0338bc942250eb733a8af909175">   31</a></span>std::string <span class="keyword">const</span> &amp;<a class="code hl_function" href="classuser_1_1Application.html#a2cd8c0338bc942250eb733a8af909175">user::Application::get_description</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keywordflow">return</span> m_description;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>}</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="classuser_1_1Application.html#a608b0c5da50bd4f2f701a11acf45122b">   35</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="classuser_1_1Application.html#a608b0c5da50bd4f2f701a11acf45122b">user::Application::is_test</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keywordflow">return</span> m_is_test;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>}</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="classuser_1_1Application.html#aed1053d304725cbd53e42b195398fc6c">   39</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classuser_1_1Application.html#aed1053d304725cbd53e42b195398fc6c">user::Application::log_execution_time</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <a class="code hl_variable" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        &lt;&lt; <span class="stringliteral">&quot;opt: &quot;</span> &lt;&lt; <a class="code hl_variable" href="classinf_1_1Optimizer.html#a66df2661347928818e0a2a1ee763b5b0">inf::Optimizer::total_optimization_chrono</a></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        &lt;&lt; <span class="stringliteral">&quot;, fw: &quot;</span> &lt;&lt; <a class="code hl_variable" href="classinf_1_1FrankWolfe.html#a6d42f579c58b52ec89d31ed8ec599d53">inf::FrankWolfe::total_fw_chrono</a></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        &lt;&lt; <span class="stringliteral">&quot;, tot: &quot;</span> &lt;&lt; m_chrono;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>}</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="classuser_1_1Application.html#a229c9b883a505f8d09e13f79d15b05c4">   46</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="classuser_1_1Application.html#a229c9b883a505f8d09e13f79d15b05c4">user::Application::time_and_run</a>() {</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keywordtype">bool</span> success = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    m_chrono.reset();</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    m_chrono.start();</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keywordflow">try</span> {</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        run();</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        success = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    } <span class="keywordflow">catch</span> (std::exception <span class="keyword">const</span> &amp;e) {</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        success = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <a class="code hl_variable" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a>.<a class="code hl_function" href="classutil_1_1Logger.html#a037348a66bc990631e75bf65deabf421">echo_error</a>(e.what());</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    } <span class="keywordflow">catch</span> (...) {</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        success = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        <a class="code hl_variable" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a>.<a class="code hl_function" href="classutil_1_1Logger.html#a037348a66bc990631e75bf65deabf421">echo_error</a>(<span class="stringliteral">&quot;An exception of unknown type occured.&quot;</span>);</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    }</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    m_chrono.pause();</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keywordflow">return</span> success;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>}</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="classuser_1_1Application.html#a438bc6e9fe5d146eb5a962ae79cce317">   68</a></span><a class="code hl_class" href="classuser_1_1InfCLI.html">user::InfCLI</a> <span class="keyword">const</span> &amp;<a class="code hl_function" href="classuser_1_1Application.html#a438bc6e9fe5d146eb5a962ae79cce317">user::Application::get_inf_cli</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <a class="code hl_define" href="group__debug.html#ga3fabbc72ef82f3dbc7a2420c983e65a8">HARD_ASSERT_TRUE</a>(m_inf_cli != <span class="keyword">nullptr</span>)</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keywordflow">return</span> *m_inf_cli;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>}</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="classuser_1_1Application.html#aa053b2208699654f0c2b0956b5914ee2">   73</a></span><a class="code hl_typedef" href="classinf_1_1FeasOptions.html#a47cd0d666aa21be8252f703a0fbc654f">inf::FeasOptions::Ptr</a> <span class="keyword">const</span> &amp;<a class="code hl_function" href="classuser_1_1Application.html#aa053b2208699654f0c2b0956b5914ee2">user::Application::get_feas_options</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <a class="code hl_define" href="group__debug.html#ga3fabbc72ef82f3dbc7a2420c983e65a8">HARD_ASSERT_TRUE</a>(m_feas_options != <span class="keyword">nullptr</span>)</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="keywordflow">return</span> m_feas_options;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>}</div>
+<div class="ttc" id="aapplication_8h_html"><div class="ttname"><a href="application_8h.html">application.h</a></div></div>
+<div class="ttc" id="aclassinf_1_1FeasOptions_html_a47cd0d666aa21be8252f703a0fbc654f"><div class="ttname"><a href="classinf_1_1FeasOptions.html#a47cd0d666aa21be8252f703a0fbc654f">inf::FeasOptions::Ptr</a></div><div class="ttdeci">std::shared_ptr&lt; inf::FeasOptions &gt; Ptr</div><div class="ttdef"><b>Definition</b> <a href="feas__options_8h_source.html#l00030">feas_options.h:30</a></div></div>
+<div class="ttc" id="aclassinf_1_1FrankWolfe_html_a6d42f579c58b52ec89d31ed8ec599d53"><div class="ttname"><a href="classinf_1_1FrankWolfe.html#a6d42f579c58b52ec89d31ed8ec599d53">inf::FrankWolfe::total_fw_chrono</a></div><div class="ttdeci">static util::Chrono total_fw_chrono</div><div class="ttdoc">To time the total time spent solving the Frank-Wolfe problem.</div><div class="ttdef"><b>Definition</b> <a href="frank__wolfe_8h_source.html#l00042">frank_wolfe.h:42</a></div></div>
+<div class="ttc" id="aclassinf_1_1Optimizer_html_a66df2661347928818e0a2a1ee763b5b0"><div class="ttname"><a href="classinf_1_1Optimizer.html#a66df2661347928818e0a2a1ee763b5b0">inf::Optimizer::total_optimization_chrono</a></div><div class="ttdeci">static util::Chrono total_optimization_chrono</div><div class="ttdoc">The total time spent in inf::Optimizer::optimize()</div><div class="ttdef"><b>Definition</b> <a href="optimizer_8h_source.html#l00037">optimizer.h:37</a></div></div>
+<div class="ttc" id="aclassuser_1_1Application_html_a229c9b883a505f8d09e13f79d15b05c4"><div class="ttname"><a href="classuser_1_1Application.html#a229c9b883a505f8d09e13f79d15b05c4">user::Application::time_and_run</a></div><div class="ttdeci">bool time_and_run()</div><div class="ttdoc">Times a call to user::Application::run() and catches exceptions.</div><div class="ttdef"><b>Definition</b> <a href="application_8cpp_source.html#l00046">application.cpp:46</a></div></div>
+<div class="ttc" id="aclassuser_1_1Application_html_a2cd8c0338bc942250eb733a8af909175"><div class="ttname"><a href="classuser_1_1Application.html#a2cd8c0338bc942250eb733a8af909175">user::Application::get_description</a></div><div class="ttdeci">std::string const &amp; get_description() const</div><div class="ttdoc">Get the description of what the application does.</div><div class="ttdef"><b>Definition</b> <a href="application_8cpp_source.html#l00031">application.cpp:31</a></div></div>
+<div class="ttc" id="aclassuser_1_1Application_html_a32bf6119f9530bcdd17471d02f4b3615"><div class="ttname"><a href="classuser_1_1Application.html#a32bf6119f9530bcdd17471d02f4b3615">user::Application::get_name</a></div><div class="ttdeci">std::string const &amp; get_name() const</div><div class="ttdoc">Application name passed to user::Application::Application()</div><div class="ttdef"><b>Definition</b> <a href="application_8cpp_source.html#l00027">application.cpp:27</a></div></div>
+<div class="ttc" id="aclassuser_1_1Application_html_a412561a20ac115dadb8690f6bfdf4e1f"><div class="ttname"><a href="classuser_1_1Application.html#a412561a20ac115dadb8690f6bfdf4e1f">user::Application::name_equals</a></div><div class="ttdeci">bool name_equals(std::string const &amp;name) const</div><div class="ttdoc">Returns true is the name passed to user::Application::Application() matches the argument name</div><div class="ttdef"><b>Definition</b> <a href="application_8cpp_source.html#l00023">application.cpp:23</a></div></div>
+<div class="ttc" id="aclassuser_1_1Application_html_a438bc6e9fe5d146eb5a962ae79cce317"><div class="ttname"><a href="classuser_1_1Application.html#a438bc6e9fe5d146eb5a962ae79cce317">user::Application::get_inf_cli</a></div><div class="ttdeci">user::InfCLI const &amp; get_inf_cli() const</div><div class="ttdoc">The command-line argument, this is mostly provided so that child applications can access the --vis pa...</div><div class="ttdef"><b>Definition</b> <a href="application_8cpp_source.html#l00068">application.cpp:68</a></div></div>
+<div class="ttc" id="aclassuser_1_1Application_html_a608b0c5da50bd4f2f701a11acf45122b"><div class="ttname"><a href="classuser_1_1Application.html#a608b0c5da50bd4f2f701a11acf45122b">user::Application::is_test</a></div><div class="ttdeci">bool is_test() const</div><div class="ttdoc">Whether or not the application is to be included in the list of tests.</div><div class="ttdef"><b>Definition</b> <a href="application_8cpp_source.html#l00035">application.cpp:35</a></div></div>
+<div class="ttc" id="aclassuser_1_1Application_html_a85c64ea675191c57c687636096acc84a"><div class="ttname"><a href="classuser_1_1Application.html#a85c64ea675191c57c687636096acc84a">user::Application::set_inf_cli</a></div><div class="ttdeci">void set_inf_cli(user::InfCLI::ConstPtr const &amp;inf_cli)</div><div class="ttdoc">To inherit the user::InfCLI storing the command-line parameters.</div><div class="ttdef"><b>Definition</b> <a href="application_8cpp_source.html#l00015">application.cpp:15</a></div></div>
+<div class="ttc" id="aclassuser_1_1Application_html_aa053b2208699654f0c2b0956b5914ee2"><div class="ttname"><a href="classuser_1_1Application.html#aa053b2208699654f0c2b0956b5914ee2">user::Application::get_feas_options</a></div><div class="ttdeci">inf::FeasOptions::Ptr const &amp; get_feas_options() const</div><div class="ttdoc">This allows child classes to be able to receive and modify the inf::FeasOptions initialized from the ...</div><div class="ttdef"><b>Definition</b> <a href="application_8cpp_source.html#l00073">application.cpp:73</a></div></div>
+<div class="ttc" id="aclassuser_1_1Application_html_aa080c0554e2c7fad158e3f6c2303055e"><div class="ttname"><a href="classuser_1_1Application.html#aa080c0554e2c7fad158e3f6c2303055e">user::Application::set_feas_options</a></div><div class="ttdeci">void set_feas_options(inf::FeasOptions::Ptr const &amp;feas_options)</div><div class="ttdoc">To inherit the inf::FeasOptions storing the inflation problem specifications.</div><div class="ttdef"><b>Definition</b> <a href="application_8cpp_source.html#l00019">application.cpp:19</a></div></div>
+<div class="ttc" id="aclassuser_1_1Application_html_ab9898b792c8ea75a4225919e9a873a64"><div class="ttname"><a href="classuser_1_1Application.html#ab9898b792c8ea75a4225919e9a873a64">user::Application::Application</a></div><div class="ttdeci">Application(std::string const &amp;name, std::string const &amp;description=&quot;&quot;, bool is_test=false)</div><div class="ttdoc">Constructor with command line target name.</div><div class="ttdef"><b>Definition</b> <a href="application_8cpp_source.html#l00005">application.cpp:5</a></div></div>
+<div class="ttc" id="aclassuser_1_1Application_html_aed1053d304725cbd53e42b195398fc6c"><div class="ttname"><a href="classuser_1_1Application.html#aed1053d304725cbd53e42b195398fc6c">user::Application::log_execution_time</a></div><div class="ttdeci">void log_execution_time() const</div><div class="ttdoc">Logs the execution time of the application.</div><div class="ttdef"><b>Definition</b> <a href="application_8cpp_source.html#l00039">application.cpp:39</a></div></div>
+<div class="ttc" id="aclassuser_1_1InfCLI_html"><div class="ttname"><a href="classuser_1_1InfCLI.html">user::InfCLI</a></div><div class="ttdoc">This class defines the command-line parameters that are expected.</div><div class="ttdef"><b>Definition</b> <a href="inf__cli_8h_source.html#l00016">inf_cli.h:16</a></div></div>
+<div class="ttc" id="aclassuser_1_1InfCLI_html_a72e727e1528f28fcbb88bd803efb4795"><div class="ttname"><a href="classuser_1_1InfCLI.html#a72e727e1528f28fcbb88bd803efb4795">user::InfCLI::ConstPtr</a></div><div class="ttdeci">std::shared_ptr&lt; const user::InfCLI &gt; ConstPtr</div><div class="ttdef"><b>Definition</b> <a href="inf__cli_8h_source.html#l00019">inf_cli.h:19</a></div></div>
+<div class="ttc" id="aclassutil_1_1Logger_html_a037348a66bc990631e75bf65deabf421"><div class="ttname"><a href="classutil_1_1Logger.html#a037348a66bc990631e75bf65deabf421">util::Logger::echo_error</a></div><div class="ttdeci">void echo_error(std::string const &amp;what)</div><div class="ttdoc">To prepend an error message by a red Error:</div><div class="ttdef"><b>Definition</b> <a href="logger_8cpp_source.html#l00169">logger.cpp:169</a></div></div>
+<div class="ttc" id="agroup__debug_html_ga3fabbc72ef82f3dbc7a2420c983e65a8"><div class="ttname"><a href="group__debug.html#ga3fabbc72ef82f3dbc7a2420c983e65a8">HARD_ASSERT_TRUE</a></div><div class="ttdeci">#define HARD_ASSERT_TRUE(X)</div><div class="ttdoc">Hard assertion, tests for X being true (so X should be a bool) and calls THROW_ERROR else.</div><div class="ttdef"><b>Definition</b> <a href="debug_8h_source.html#l00103">debug.h:103</a></div></div>
+<div class="ttc" id="agroup__printing_html_ga4c77d1dedfe3a5b95abc21d13d7cd678"><div class="ttname"><a href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a></div><div class="ttdeci">util::Logger logger</div><div class="ttdoc">The globally accessible logger replacing std::cout</div></div>
+<div class="ttc" id="anamespaceutil_html"><div class="ttname"><a href="namespaceutil.html">util</a></div><div class="ttdoc">The namespace for general purpose code, not specifically related to inflation.</div><div class="ttdef"><b>Definition</b> <a href="misc_8cpp_source.html#l00355">misc.cpp:355</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_8b0164eb0fb74115683f9812cb2f78f0.html">user</a></li><li class="navelem"><a class="el" href="application_8cpp.html">application.cpp</a></li>
+    <li class="footer">Generated on Wed Dec 18 2024 17:39:37 for Fast Inflation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

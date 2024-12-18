@@ -1,0 +1,281 @@
+<!-- HTML header for doxygen 1.9.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Fast Inflation: Inflation constraints</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+MathJax.Hub.Config({
+    TeX: {
+        Macros: {
+            dd: ["{\\text{d}#1\\,}",1],
+            nouts: ["{n_{\\text{o}}}"],
+            ints: ["{[\\![#1]\\!]}",1],
+            outset: ["{\\ints{\\nouts}}"],
+            N: ["{\\mathbb{N}}"],
+            R: ["{\\mathbb{R}}"],
+            Z: ["{\\mathbb{Z}}"],
+            infsize: ["{z}"],
+            infparties: ["{\\set{I}}"],
+            infsources: ["{\\set{S}}"],
+            infmarg: ["{\\set{A}}"],
+            infmargg: ["{\\set{B}}"],
+            netparties: ["{\\set{N}}"],
+            infq: ["{q}"],
+            infqs: ["{\\Delta_{\\infparties}}"],
+            constraintlist: ["{\\mathcal{C}}"],
+            injsets: ["{\\text{InjSets}}"],
+            infconstraints: ["{\\text{InfCons}}"],
+            parents: ["{\\text{Par}}"],
+            targetp: ["{p}"],
+            targetps: ["{\\Delta_{\\netparties}}"],
+            set: ["{\\mathbf{#1}}",1],
+            type: ["{t}"],
+            infevent: "{\\omega}",
+            events: ["{\\Omega_{#1}}",1],
+            infevents: ["{\\events{\\infparties}}"],
+            redinfevents: ["{\\tilde{\\Omega}_{\\infparties}}"],
+            netevents: ["{\\events{\\netparties}}"],
+            vecset: ["{V_{#1}}",1],
+            alice: ["{\\text{A}}"],
+            bob: ["{\\text{B}}"],
+            charlie: ["{\\text{C}}"],
+            symgroup: ["{\\text{Sym}(#1)}",1],
+            shortsymgroup: ["{\\text{Sym}_{#1}}",1],
+            act: ["{(#1\\hspace{2pt}{:}\\hspace{2pt}#2)}",2],
+            actt: ["{[#1\\hspace{2pt}{:}\\hspace{2pt}#2]}",2],
+            margperms: ["{\\text{Perm}_{#1}}",1],
+            permutedmargs: ["{\\mathbb{P}_{#1}^{\\targetp}}",1],
+            redpermutedmargs: ["{\\tilde{\\mathbb{P}}_{#1}^{\\constraintname,\\targetp}}",1],
+            extract: ["{\\text{ext}(#1,#2)}",2],
+            partysym: ["{\\tau}"],
+            sourcesym: ["{\\xi}"],
+            outsym: ["{\\sigma}"],
+            fullgroup: ["{\\text{InfGrp}}"],
+            partygroup : ["{\\text{PartyGrp}}"],
+            outgroup: ["{\\text{OutGrp}}"],
+            sourcegroup: ["{\\text{SrcGrp}}"],
+            distrgroup: ["{\\mathbb{G}^\\targetp}"],
+            constraintname: ["{c}"],
+            marggroup: ["{\\mathbb{G}^{\\constraintname,\\targetp}}"],
+            fullsymexpl: ["{(\\sourcesym,\\partysym,\\outsym)}"],
+            inner: ["{\\langle#1,#2\\rangle}", 2],
+            quovec: ["{f}"],
+            totconstraintmap: ["{K^{\\constraintlist,\\targetp}}"],
+            totconstraintmapelem: ["{K^{\\constraintname,\\targetp}}"],
+            quovecspace: ["{\\tilde{V}_{#1}^{\\constraintname,\\targetp}}", 1],
+            totquovecspace: ["{\\text{ConsSpace}(\\constraintlist,\\targetp)}"],
+            detdistr: ["{\\delta^{#1}}", 1],
+            margperm: ["{\\varphi}"],
+            altquovecembed: ["{\\text{G}_{#1}^{\\constraintname,\\targetp}}", 1],
+            vecset: ["{V_{#1}}", 1],
+            repr: ["{\\lfloor#1\\rfloor}", 1],
+            gid: ["{\\text{id}}"],
+            id: ["{1_{#1}}",1],
+            consscale: ["{K}"],
+            scaletot: ["{K_{\\text{tot}}^{\\constraintlist,\\targetp}}"],
+            minnorm: ["{d}"],
+            Bigsetst: ["\\;\\Big|\\;"],
+            activeset: ["\\mathcal{S}"],
+            conv: ["\\text{conv}"],
+            lVert: ["|\\hspace{-1pt}|"],
+            norm: ["\\lVert#1\\lVert", 1],
+            st: [":\ "],
+        }
+    }
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeDarkModeToggle.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeParagraphLink.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Fast Inflation
+   </div>
+   <div id="projectbrief">To certify causal incompatibility</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('group__infcons.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#typedef-members">Typedefs</a>  </div>
+  <div class="headertitle"><div class="title">Inflation constraints<div class="ingroups"><a class="el" href="group__inflation.html">Inflation</a> &raquo; <a class="el" href="group__infback.html">Inflation backend</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+<a name="details" id="details"></a><h2 class="groupheader">Module description</h2>
+<p>To specify and manipulate inflation constraints of the form \(\infq_{\infmarg_0\cdots\infmarg_{k-1}\infmargg} = \targetp_{\infmarg_0}\cdots\targetp_{\infmarg_{k-1}}\cdot\infq_{\infmargg}\). </p>
+<p>The top-level class is <a class="el" href="classinf_1_1ConstraintSet.html" title="A set of inf::Constraint that, together with the inflation size, determines the inflation problem at ...">inf::ConstraintSet</a>, which handles a set of <a class="el" href="classinf_1_1Constraint.html" title="Describes a single constraint of the form .">inf::Constraint</a>. The user inputs constraints in the format described in <a class="el" href="classinf_1_1ConstraintParser.html" title="To convert a human-readable formulation of inflation constraints into the necessary internal format.">inf::ConstraintParser</a>, which is the class in charge of interpreting the user's text description of the constraints. The class <a class="el" href="classinf_1_1DualVector.html" title="Describes a dual vector  through its embedding .">inf::DualVector</a> represents a dual vector acting on a constraint, and the class <a class="el" href="classinf_1_1Marginal.html" title="This class represents an inflation marginal  for some set of inflation parties  and allows to efficie...">inf::Marginal</a> is used to efficiently evaluate the inner product of an <a class="el" href="classinf_1_1DualVector.html" title="Describes a dual vector  through its embedding .">inf::DualVector</a> with a deterministic inflation distribution. </p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Constraint.html">inf::Constraint</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Describes a single constraint of the form \(\infq_{\infmarg_{0}\cdots\infmarg_{k-1}\infmargg} = \targetp_{\infmarg_{0}} \cdots \targetp_{\infmarg_{k-1}}\cdot \infq_{\infmargg}\).  <a href="classinf_1_1Constraint.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1ConstraintParser.html">inf::ConstraintParser</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">To convert a human-readable formulation of inflation constraints into the necessary internal format.  <a href="classinf_1_1ConstraintParser.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1ConstraintSet.html">inf::ConstraintSet</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A set of <a class="el" href="classinf_1_1Constraint.html" title="Describes a single constraint of the form .">inf::Constraint</a> that, together with the inflation size, determines the inflation problem at hand.  <a href="classinf_1_1ConstraintSet.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1DualVector.html">inf::DualVector</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Describes a dual vector \(\quovec\in\quovecspace{\infmarg}\) through its embedding \(\altquovecembed\infmarg(\quovec) \in \vecset\infmarg\).  <a href="classinf_1_1DualVector.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Marginal.html">inf::Marginal</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class represents an inflation marginal \(\infq_\infmarg\) for some set of inflation parties \(\infmarg \subset \infparties\) and allows to efficiently evaluate inner products.  <a href="classinf_1_1Marginal.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:ga8fa19943a83fd41acae30b7bcc935295"><td class="memItemLeft" align="right" valign="top">typedef std::vector&lt; <a class="el" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__infcons.html#ga8fa19943a83fd41acae30b7bcc935295">inf::Quovec</a></td></tr>
+<tr class="memdesc:ga8fa19943a83fd41acae30b7bcc935295"><td class="mdescLeft">&#160;</td><td class="mdescRight">A "quotiented vector" denotes an element of some \(\quovecspace{\infmarg}\) for some \(\infmarg\subset\infparties\).  <br /></td></tr>
+<tr class="separator:ga8fa19943a83fd41acae30b7bcc935295"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5b78fc573dc491459e18e8550a342e37"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__infcons.html#ga5b78fc573dc491459e18e8550a342e37">inf::QuovecIndex</a></td></tr>
+<tr class="memdesc:ga5b78fc573dc491459e18e8550a342e37"><td class="mdescLeft">&#160;</td><td class="mdescRight">We use this type to explicitly indicate that an index indicates a component of an <a class="el" href="group__infcons.html#ga8fa19943a83fd41acae30b7bcc935295" title="A &quot;quotiented vector&quot; denotes an element of some  for some .">inf::Quovec</a>.  <br /></td></tr>
+<tr class="separator:ga5b78fc573dc491459e18e8550a342e37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a id="ga8fa19943a83fd41acae30b7bcc935295" name="ga8fa19943a83fd41acae30b7bcc935295"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga8fa19943a83fd41acae30b7bcc935295">&#9670;&#160;</a></span>Quovec</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::vector&lt;<a class="el" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a>&gt; <a class="el" href="group__infcons.html#ga8fa19943a83fd41acae30b7bcc935295">inf::Quovec</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A "quotiented vector" denotes an element of some \(\quovecspace{\infmarg}\) for some \(\infmarg\subset\infparties\). </p>
+<p>Given an inflation constraint \(\constraintname = (\infmarg_0,\dots,\infmarg_{k-1},\infmargg) \in \infconstraints\), the group of constraint symmetries \(\marggroup\) denotes all the inflation symmetries of \(\distrgroup\) (see <a class="el" href="classinf_1_1Inflation.html#abfa6a2b7897bb9f1d3c406a864e9acdf" title="Returns the symmetries of the inflation, typically including the symmetries of the specified inf::Tar...">inf::Inflation::get_inflation_symmetries()</a>) that leave both \(\infmarg_0 \cup \dots \cup \infmarg_{k-1}\) and \(\infmargg\) invariant. Then, for an inflation marginal \(\infmarg \in \{\infmarg_0\cup\cdots\infmarg_{k-1}\cup\infmargg, \infmargg\}\), the reduced set of marginal events is \(\repr{\events\infmarg \setminus \marggroup}\), and the quovec vector space \(\quovecspace\infmarg\) is the vector space of all functions \(\repr{\events\infmarg\setminus\marggroup} \to \R\). (In fact, thanks to the way we approach exact arithmetic, a quovec has its image in \(\Z\).) A quovec \(\quovec\in\quovecspace\infmarg\) is occasionally stored in an <a class="el" href="classinf_1_1DualVector.html" title="Describes a dual vector  through its embedding .">inf::DualVector</a> when we require the embedding \(\altquovecembed\infmarg(\quovec)\). </p>
+
+<p class="definition">Definition at line <a class="el" href="dual__vector_8h_source.html#l00029">29</a> of file <a class="el" href="dual__vector_8h_source.html">dual_vector.h</a>.</p>
+
+</div>
+</div>
+<a id="ga5b78fc573dc491459e18e8550a342e37" name="ga5b78fc573dc491459e18e8550a342e37"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5b78fc573dc491459e18e8550a342e37">&#9670;&#160;</a></span>QuovecIndex</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <a class="el" href="group__infcons.html#ga5b78fc573dc491459e18e8550a342e37">inf::QuovecIndex</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>We use this type to explicitly indicate that an index indicates a component of an <a class="el" href="group__infcons.html#ga8fa19943a83fd41acae30b7bcc935295" title="A &quot;quotiented vector&quot; denotes an element of some  for some .">inf::Quovec</a>. </p>
+
+<p class="definition">Definition at line <a class="el" href="dual__vector_8h_source.html#l00032">32</a> of file <a class="el" href="dual__vector_8h_source.html">dual_vector.h</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Wed Dec 18 2024 17:39:41 for Fast Inflation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

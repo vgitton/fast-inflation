@@ -1,0 +1,922 @@
+<!-- HTML header for doxygen 1.9.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Fast Inflation: inf::PairwiseFW Class Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+MathJax.Hub.Config({
+    TeX: {
+        Macros: {
+            dd: ["{\\text{d}#1\\,}",1],
+            nouts: ["{n_{\\text{o}}}"],
+            ints: ["{[\\![#1]\\!]}",1],
+            outset: ["{\\ints{\\nouts}}"],
+            N: ["{\\mathbb{N}}"],
+            R: ["{\\mathbb{R}}"],
+            Z: ["{\\mathbb{Z}}"],
+            infsize: ["{z}"],
+            infparties: ["{\\set{I}}"],
+            infsources: ["{\\set{S}}"],
+            infmarg: ["{\\set{A}}"],
+            infmargg: ["{\\set{B}}"],
+            netparties: ["{\\set{N}}"],
+            infq: ["{q}"],
+            infqs: ["{\\Delta_{\\infparties}}"],
+            constraintlist: ["{\\mathcal{C}}"],
+            injsets: ["{\\text{InjSets}}"],
+            infconstraints: ["{\\text{InfCons}}"],
+            parents: ["{\\text{Par}}"],
+            targetp: ["{p}"],
+            targetps: ["{\\Delta_{\\netparties}}"],
+            set: ["{\\mathbf{#1}}",1],
+            type: ["{t}"],
+            infevent: "{\\omega}",
+            events: ["{\\Omega_{#1}}",1],
+            infevents: ["{\\events{\\infparties}}"],
+            redinfevents: ["{\\tilde{\\Omega}_{\\infparties}}"],
+            netevents: ["{\\events{\\netparties}}"],
+            vecset: ["{V_{#1}}",1],
+            alice: ["{\\text{A}}"],
+            bob: ["{\\text{B}}"],
+            charlie: ["{\\text{C}}"],
+            symgroup: ["{\\text{Sym}(#1)}",1],
+            shortsymgroup: ["{\\text{Sym}_{#1}}",1],
+            act: ["{(#1\\hspace{2pt}{:}\\hspace{2pt}#2)}",2],
+            actt: ["{[#1\\hspace{2pt}{:}\\hspace{2pt}#2]}",2],
+            margperms: ["{\\text{Perm}_{#1}}",1],
+            permutedmargs: ["{\\mathbb{P}_{#1}^{\\targetp}}",1],
+            redpermutedmargs: ["{\\tilde{\\mathbb{P}}_{#1}^{\\constraintname,\\targetp}}",1],
+            extract: ["{\\text{ext}(#1,#2)}",2],
+            partysym: ["{\\tau}"],
+            sourcesym: ["{\\xi}"],
+            outsym: ["{\\sigma}"],
+            fullgroup: ["{\\text{InfGrp}}"],
+            partygroup : ["{\\text{PartyGrp}}"],
+            outgroup: ["{\\text{OutGrp}}"],
+            sourcegroup: ["{\\text{SrcGrp}}"],
+            distrgroup: ["{\\mathbb{G}^\\targetp}"],
+            constraintname: ["{c}"],
+            marggroup: ["{\\mathbb{G}^{\\constraintname,\\targetp}}"],
+            fullsymexpl: ["{(\\sourcesym,\\partysym,\\outsym)}"],
+            inner: ["{\\langle#1,#2\\rangle}", 2],
+            quovec: ["{f}"],
+            totconstraintmap: ["{K^{\\constraintlist,\\targetp}}"],
+            totconstraintmapelem: ["{K^{\\constraintname,\\targetp}}"],
+            quovecspace: ["{\\tilde{V}_{#1}^{\\constraintname,\\targetp}}", 1],
+            totquovecspace: ["{\\text{ConsSpace}(\\constraintlist,\\targetp)}"],
+            detdistr: ["{\\delta^{#1}}", 1],
+            margperm: ["{\\varphi}"],
+            altquovecembed: ["{\\text{G}_{#1}^{\\constraintname,\\targetp}}", 1],
+            vecset: ["{V_{#1}}", 1],
+            repr: ["{\\lfloor#1\\rfloor}", 1],
+            gid: ["{\\text{id}}"],
+            id: ["{1_{#1}}",1],
+            consscale: ["{K}"],
+            scaletot: ["{K_{\\text{tot}}^{\\constraintlist,\\targetp}}"],
+            minnorm: ["{d}"],
+            Bigsetst: ["\\;\\Big|\\;"],
+            activeset: ["\\mathcal{S}"],
+            conv: ["\\text{conv}"],
+            lVert: ["|\\hspace{-1pt}|"],
+            norm: ["\\lVert#1\\lVert", 1],
+            st: [":\ "],
+        }
+    }
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeDarkModeToggle.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeParagraphLink.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Fast Inflation
+   </div>
+   <div id="projectbrief">To certify causal incompatibility</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classinf_1_1PairwiseFW.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#pub-types">Public Types</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="classinf_1_1PairwiseFW-members.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">inf::PairwiseFW Class Reference<div class="ingroups"><a class="el" href="group__inflation.html">Inflation</a> &raquo; <a class="el" href="group__infback.html">Inflation backend</a> &raquo; <a class="el" href="group__fw.html">Frank-Wolfe</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &quot;<a class="el" href="pairwise__fw_8h_source.html">inf/frank_wolfe/pairwise_fw.h</a>&quot;</code></p>
+<a name="details" id="details"></a><h2 class="groupheader">Class description</h2>
+<div class="textblock"><p>A pairwise Frank-Wolfe algorithm. </p>
+<p>This class and the algorithm it implements are based on the algorithm described in Appendix C of the article "Improved local models and new Bell inequalities via Frank-Wolfe algorithms", by Sébastien Designolle, Gabriele Iommazzo, Mathieu Besançon, Sebastian Knebel, Patrick Gelß, and Sebastian Pokutta published in Phys. Rev. Research 5, 043059 (2023). See <a href="https://arxiv.org/abs/2302.04721">https://arxiv.org/abs/2302.04721</a>. The notation that we use in the documentation of this class refers to the notation of their Appendix C.</p>
+<p>We are minimizing the function \(f(x) = \frac12\norm{x}^2\). The gradient is thus \(\nabla f(x) = x\).</p>
+<p>Note that our tests suggest that this algorithm is far slower than the fully-corrective algorithm of <a class="el" href="classinf_1_1FullyCorrectiveFW.html" title="The fully-corrective algorithm.">inf::FullyCorrectiveFW</a> for the typical inflation problems that we considered. We leave this class for completeness, and to allow users that do not have access to Mosek to try out the code on simple instances. It may well be that the implementation of <a class="el" href="classinf_1_1PairwiseFW.html" title="A pairwise Frank-Wolfe algorithm.">inf::PairwiseFW</a> is flawed and that a better implementation would perform better.</p>
+<p>The behavior of this class is tested in the <a class="el" href="classuser_1_1pairwise__fw.html" title="A detailed test to investigate the behavior of inf::PairwiseFW.">user::pairwise_fw</a> application. </p>
+
+<p class="definition">Definition at line <a class="el" href="pairwise__fw_8h_source.html#l00030">30</a> of file <a class="el" href="pairwise__fw_8h_source.html">pairwise_fw.h</a>.</p>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1PairwiseFW_1_1Data.html">Data</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The data held by the <a class="el" href="classinf_1_1PairwiseFW.html" title="A pairwise Frank-Wolfe algorithm.">inf::PairwiseFW</a> algorithm.  <a href="classinf_1_1PairwiseFW_1_1Data.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a283ad093e3a1c4fd5ce4df26fa0d0f61"><td class="memItemLeft" align="right" valign="top">typedef std::tuple&lt; std::vector&lt; double &gt;, std::vector&lt; double &gt;, bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1PairwiseFW.html#a283ad093e3a1c4fd5ce4df26fa0d0f61">Iterate</a></td></tr>
+<tr class="memdesc:a283ad093e3a1c4fd5ce4df26fa0d0f61"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is used to keep track of the steps that we took to be able to plot the steps that the algorithm follows in e.g. Mathematica.  <br /></td></tr>
+<tr class="separator:a283ad093e3a1c4fd5ce4df26fa0d0f61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_types_classinf_1_1FrankWolfe"><td colspan="2" onclick="javascript:toggleInherit('pub_types_classinf_1_1FrankWolfe')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="classinf_1_1FrankWolfe.html">inf::FrankWolfe</a></td></tr>
+<tr class="memitem:a5ccc3ba389671c303b6535981104aaa8 inherit pub_types_classinf_1_1FrankWolfe"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1FrankWolfe.html#a5ccc3ba389671c303b6535981104aaa8">Algo</a> { <a class="el" href="classinf_1_1FrankWolfe.html#a5ccc3ba389671c303b6535981104aaa8ad412669713d6585430fc37100b80dccc">fully_corrective</a>
+, <a class="el" href="classinf_1_1FrankWolfe.html#a5ccc3ba389671c303b6535981104aaa8a7ef88332fab25a2499253c227f09a95d">pairwise</a>
+ }</td></tr>
+<tr class="memdesc:a5ccc3ba389671c303b6535981104aaa8"><td class="mdescLeft">&#160;</td><td class="mdescRight">The different types of Frank-Wolfe algorithms that we implement, see <a class="el" href="classinf_1_1FrankWolfe.html" title="The interface to the different Frank-Wolfe algorithms that we implement.">inf::FrankWolfe</a> for a general description.  <a href="classinf_1_1FrankWolfe.html#a5ccc3ba389671c303b6535981104aaa8">More...</a><br /></td></tr>
+<tr class="separator:a5ccc3ba389671c303b6535981104aaa8 inherit pub_types_classinf_1_1FrankWolfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9035fcec8b485d937507a4629c26e3c inherit pub_types_classinf_1_1FrankWolfe"><td class="memItemLeft" align="right" valign="top">typedef std::unique_ptr&lt; <a class="el" href="classinf_1_1FrankWolfe.html">inf::FrankWolfe</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1FrankWolfe.html#ad9035fcec8b485d937507a4629c26e3c">UniquePtr</a></td></tr>
+<tr class="separator:ad9035fcec8b485d937507a4629c26e3c inherit pub_types_classinf_1_1FrankWolfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a7c8e26e83dfddaf84e005ad5cb7cde44"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1PairwiseFW.html#a7c8e26e83dfddaf84e005ad5cb7cde44">PairwiseFW</a> (<a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> dimension)</td></tr>
+<tr class="separator:a7c8e26e83dfddaf84e005ad5cb7cde44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7495260de8e7991451f34dcc4d92cee"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classinf_1_1FrankWolfe_1_1Solution.html">inf::FrankWolfe::Solution</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1PairwiseFW.html#ad7495260de8e7991451f34dcc4d92cee">solve</a> () override</td></tr>
+<tr class="memdesc:ad7495260de8e7991451f34dcc4d92cee"><td class="mdescLeft">&#160;</td><td class="mdescRight">This solves the Frank-Wolfe problem, i.e., the problem of finding the next <a class="el" href="classinf_1_1DualVector.html" title="Describes a dual vector  through its embedding .">inf::DualVector</a> that may be a separating hyperplane based on the inflation events that have been encountered.  <br /></td></tr>
+<tr class="separator:ad7495260de8e7991451f34dcc4d92cee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95f8459cf886ed5df061f3fae97d3e8e"><td class="memItemLeft" align="right" valign="top">std::set&lt; <a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> &gt; const &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1PairwiseFW.html#a95f8459cf886ed5df061f3fae97d3e8e">get_stored_events</a> () const override</td></tr>
+<tr class="memdesc:a95f8459cf886ed5df061f3fae97d3e8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">This returns the inflation events that have been passed to <a class="el" href="classinf_1_1FrankWolfe.html#a14a36f6c3f1ef5cbb7212e2883f1ac4f" title="This method is called with the output of the inf::Optimizer, notifying the Frank-Wolfe algorithm that...">inf::FrankWolfe::memorize_event_and_quovec()</a> since the last call of <a class="el" href="classinf_1_1FrankWolfe.html#adf08d48ca3942be62ae7124a9ce5e778" title="This is used to reset the inf::FrankWolfe algorithm to its initial state (m_dimension does not change...">inf::FrankWolfe::reset()</a>  <br /></td></tr>
+<tr class="separator:a95f8459cf886ed5df061f3fae97d3e8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c53d33bbbe3886d2613ef75a3f5ce6f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1PairwiseFW.html#a6c53d33bbbe3886d2613ef75a3f5ce6f">get_n_stored_events</a> () const override</td></tr>
+<tr class="memdesc:a6c53d33bbbe3886d2613ef75a3f5ce6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">This corresponds to <code><a class="el" href="classinf_1_1FrankWolfe.html#a46a3a288b146a39e78562e50aaa7af1c" title="This returns the inflation events that have been passed to inf::FrankWolfe::memorize_event_and_quovec...">inf::FrankWolfe::get_stored_events()</a>.size()</code>  <br /></td></tr>
+<tr class="separator:a6c53d33bbbe3886d2613ef75a3f5ce6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3fbca0ce3fb905132bac67ec4aa9dc60"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1PairwiseFW.html#a3fbca0ce3fb905132bac67ec4aa9dc60">reset</a> () override</td></tr>
+<tr class="memdesc:a3fbca0ce3fb905132bac67ec4aa9dc60"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is used to reset the <a class="el" href="classinf_1_1FrankWolfe.html" title="The interface to the different Frank-Wolfe algorithms that we implement.">inf::FrankWolfe</a> algorithm to its initial state (m_dimension does not change).  <br /></td></tr>
+<tr class="separator:a3fbca0ce3fb905132bac67ec4aa9dc60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43c5b67f606300b3f4241148c13013b1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1PairwiseFW.html#a43c5b67f606300b3f4241148c13013b1">set_store_iterates</a> (bool)</td></tr>
+<tr class="memdesc:a43c5b67f606300b3f4241148c13013b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">This allows to tell the <a class="el" href="classinf_1_1PairwiseFW.html" title="A pairwise Frank-Wolfe algorithm.">inf::PairwiseFW</a> to store the iterates for plotting purposes.  <br /></td></tr>
+<tr class="separator:a43c5b67f606300b3f4241148c13013b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac73d951fb9be87b397995f4d894dd62"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classinf_1_1PairwiseFW.html#a283ad093e3a1c4fd5ce4df26fa0d0f61">inf::PairwiseFW::Iterate</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1PairwiseFW.html#aac73d951fb9be87b397995f4d894dd62">get_iterates</a> () const</td></tr>
+<tr class="memdesc:aac73d951fb9be87b397995f4d894dd62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the steps take by <a class="el" href="classinf_1_1PairwiseFW.html" title="A pairwise Frank-Wolfe algorithm.">inf::PairwiseFW</a>, see <a class="el" href="classinf_1_1PairwiseFW.html#a283ad093e3a1c4fd5ce4df26fa0d0f61" title="This is used to keep track of the steps that we took to be able to plot the steps that the algorithm ...">inf::PairwiseFW::Iterate</a>.  <br /></td></tr>
+<tr class="separator:aac73d951fb9be87b397995f4d894dd62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classinf_1_1FrankWolfe"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classinf_1_1FrankWolfe')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classinf_1_1FrankWolfe.html">inf::FrankWolfe</a></td></tr>
+<tr class="memitem:aeff0ecc87dee04d923d76620e39641e7 inherit pub_methods_classinf_1_1FrankWolfe"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1FrankWolfe.html#aeff0ecc87dee04d923d76620e39641e7">FrankWolfe</a> (<a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> dimension)</td></tr>
+<tr class="memdesc:aeff0ecc87dee04d923d76620e39641e7 inherit pub_methods_classinf_1_1FrankWolfe"><td class="mdescLeft">&#160;</td><td class="mdescRight">This just initializes <code>m_dimension</code>  <br /></td></tr>
+<tr class="separator:aeff0ecc87dee04d923d76620e39641e7 inherit pub_methods_classinf_1_1FrankWolfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01f7f110c553e19a296b55358c101e0c inherit pub_methods_classinf_1_1FrankWolfe"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1FrankWolfe.html#a01f7f110c553e19a296b55358c101e0c">~FrankWolfe</a> ()</td></tr>
+<tr class="separator:a01f7f110c553e19a296b55358c101e0c inherit pub_methods_classinf_1_1FrankWolfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14a36f6c3f1ef5cbb7212e2883f1ac4f inherit pub_methods_classinf_1_1FrankWolfe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1FrankWolfe.html#a14a36f6c3f1ef5cbb7212e2883f1ac4f">memorize_event_and_quovec</a> (<a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> const &amp;event, std::vector&lt; <a class="el" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a> &gt; const &amp;quovec, double denom)</td></tr>
+<tr class="memdesc:a14a36f6c3f1ef5cbb7212e2883f1ac4f inherit pub_methods_classinf_1_1FrankWolfe"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method is called with the output of the <a class="el" href="classinf_1_1Optimizer.html" title="This class defines the interface for inf::BruteForceOpt and inf::TreeOpt.">inf::Optimizer</a>, notifying the Frank-Wolfe algorithm that a new interesting inflation event \(\infevent\in\infevents\) with associated quovec \(\quovec = \totconstraintmap(\detdistr\infevent)\) has been found.  <br /></td></tr>
+<tr class="separator:a14a36f6c3f1ef5cbb7212e2883f1ac4f inherit pub_methods_classinf_1_1FrankWolfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a833aa6fd20da0f418ecd74c7b6e25b8a inherit pub_methods_classinf_1_1FrankWolfe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classinf_1_1FrankWolfe_1_1Solution.html">inf::FrankWolfe::Solution</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1FrankWolfe.html#a833aa6fd20da0f418ecd74c7b6e25b8a">time_and_solve</a> ()</td></tr>
+<tr class="memdesc:a833aa6fd20da0f418ecd74c7b6e25b8a inherit pub_methods_classinf_1_1FrankWolfe"><td class="mdescLeft">&#160;</td><td class="mdescRight">This times a call to <a class="el" href="classinf_1_1FrankWolfe.html#a64b5f9c36893da3b96857091050d201a" title="This solves the Frank-Wolfe problem, i.e., the problem of finding the next inf::DualVector that may b...">inf::FrankWolfe::solve()</a>  <br /></td></tr>
+<tr class="separator:a833aa6fd20da0f418ecd74c7b6e25b8a inherit pub_methods_classinf_1_1FrankWolfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:ab4f84aeb0b7ee6f3080ea422c4ef7e14"><td class="memItemLeft" align="right" valign="top">static const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1PairwiseFW.html#ab4f84aeb0b7ee6f3080ea422c4ef7e14">inconclusive_tolerance</a> = 1.0e-12</td></tr>
+<tr class="memdesc:ab4f84aeb0b7ee6f3080ea422c4ef7e14"><td class="mdescLeft">&#160;</td><td class="mdescRight">To be compared to m_s_squared.  <br /></td></tr>
+<tr class="separator:ab4f84aeb0b7ee6f3080ea422c4ef7e14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adbb661d3a93d8d3a248c1c162ec1131c"><td class="memItemLeft" align="right" valign="top">static const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1PairwiseFW.html#adbb661d3a93d8d3a248c1c162ec1131c">lazy_tolerance</a> = 1.0</td></tr>
+<tr class="memdesc:adbb661d3a93d8d3a248c1c162ec1131c"><td class="mdescLeft">&#160;</td><td class="mdescRight">The lazy tolerance \(K\).  <br /></td></tr>
+<tr class="separator:adbb661d3a93d8d3a248c1c162ec1131c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_static_attribs_classinf_1_1FrankWolfe"><td colspan="2" onclick="javascript:toggleInherit('pub_static_attribs_classinf_1_1FrankWolfe')"><img src="closed.png" alt="-"/>&#160;Static Public Attributes inherited from <a class="el" href="classinf_1_1FrankWolfe.html">inf::FrankWolfe</a></td></tr>
+<tr class="memitem:a6d42f579c58b52ec89d31ed8ec599d53 inherit pub_static_attribs_classinf_1_1FrankWolfe"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classutil_1_1Chrono.html">util::Chrono</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1FrankWolfe.html#a6d42f579c58b52ec89d31ed8ec599d53">total_fw_chrono</a></td></tr>
+<tr class="memdesc:a6d42f579c58b52ec89d31ed8ec599d53 inherit pub_static_attribs_classinf_1_1FrankWolfe"><td class="mdescLeft">&#160;</td><td class="mdescRight">To time the total time spent solving the Frank-Wolfe problem.  <br /></td></tr>
+<tr class="separator:a6d42f579c58b52ec89d31ed8ec599d53 inherit pub_static_attribs_classinf_1_1FrankWolfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a1ce30f810d2224dbcebabc9d1dd1f327"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1PairwiseFW.html#a1ce30f810d2224dbcebabc9d1dd1f327">memorize_event_and_quovec_double</a> (<a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> const &amp;event, std::vector&lt; double &gt; const &amp;row) override</td></tr>
+<tr class="memdesc:a1ce30f810d2224dbcebabc9d1dd1f327"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method is called by <a class="el" href="classinf_1_1FrankWolfe.html#a14a36f6c3f1ef5cbb7212e2883f1ac4f" title="This method is called with the output of the inf::Optimizer, notifying the Frank-Wolfe algorithm that...">inf::FrankWolfe::memorize_event_and_quovec()</a>  <br /></td></tr>
+<tr class="separator:a1ce30f810d2224dbcebabc9d1dd1f327"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a33ca2eb45a910a1cf3f8facbe6fd293c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1PairwiseFW.html#a33ca2eb45a910a1cf3f8facbe6fd293c">is_inconclusive</a> () const</td></tr>
+<tr class="memdesc:a33ca2eb45a910a1cf3f8facbe6fd293c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns <code>true</code> if the norm \(\norm{x}\) of the current iterate is too small.  <br /></td></tr>
+<tr class="separator:a33ca2eb45a910a1cf3f8facbe6fd293c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d67da4d9d6fc506d5f6f0e432c7c3dc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classinf_1_1FrankWolfe_1_1Solution.html">inf::FrankWolfe::Solution</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1PairwiseFW.html#a8d67da4d9d6fc506d5f6f0e432c7c3dc">get_current_solution</a> () const</td></tr>
+<tr class="memdesc:a8d67da4d9d6fc506d5f6f0e432c7c3dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current iterate \(x\), essentially.  <br /></td></tr>
+<tr class="separator:a8d67da4d9d6fc506d5f6f0e432c7c3dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d8c670b3ccbaef6f9353bcf2ae9c5f4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1PairwiseFW.html#a9d8c670b3ccbaef6f9353bcf2ae9c5f4">find_min_and_max_inner_products</a> (<a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> &amp;i_min, <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> &amp;i_max) const</td></tr>
+<tr class="memdesc:a9d8c670b3ccbaef6f9353bcf2ae9c5f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method determines the pair of vertices to use to do the next pairwise step.  <br /></td></tr>
+<tr class="separator:a9d8c670b3ccbaef6f9353bcf2ae9c5f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a8fd9d2007b0786fbdec5789c1df36652"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1PairwiseFW.html#a8fd9d2007b0786fbdec5789c1df36652">m_store_iterates</a></td></tr>
+<tr class="memdesc:a8fd9d2007b0786fbdec5789c1df36652"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether or not to store the iterates, see <a class="el" href="classinf_1_1PairwiseFW.html#a283ad093e3a1c4fd5ce4df26fa0d0f61" title="This is used to keep track of the steps that we took to be able to plot the steps that the algorithm ...">inf::PairwiseFW::Iterate</a>. <code>false</code> by default.  <br /></td></tr>
+<tr class="separator:a8fd9d2007b0786fbdec5789c1df36652"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a658f3aff32b16dc70e9d0a57fdd1cb91"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classinf_1_1PairwiseFW.html#a283ad093e3a1c4fd5ce4df26fa0d0f61">inf::PairwiseFW::Iterate</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1PairwiseFW.html#a658f3aff32b16dc70e9d0a57fdd1cb91">m_iterates</a></td></tr>
+<tr class="memdesc:a658f3aff32b16dc70e9d0a57fdd1cb91"><td class="mdescLeft">&#160;</td><td class="mdescRight">The list of steps taken by <a class="el" href="classinf_1_1PairwiseFW.html" title="A pairwise Frank-Wolfe algorithm.">inf::PairwiseFW</a>, or empty list depending on <code>m_store_iterates</code>  <br /></td></tr>
+<tr class="separator:a658f3aff32b16dc70e9d0a57fdd1cb91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8653d1b93406a93414f9be9e5a5fc9d0"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1PairwiseFW.html#a8653d1b93406a93414f9be9e5a5fc9d0">m_last_fw_vertex</a></td></tr>
+<tr class="memdesc:a8653d1b93406a93414f9be9e5a5fc9d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">The last vertex that was used for a Frank-Wolfe step, only relevant if <code>m_store_iterates == true</code>  <br /></td></tr>
+<tr class="separator:a8653d1b93406a93414f9be9e5a5fc9d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11f75362f988a9126a782bec0c5d99d1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classinf_1_1PairwiseFW_1_1Data.html">inf::PairwiseFW::Data</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1PairwiseFW.html#a11f75362f988a9126a782bec0c5d99d1">m_data</a></td></tr>
+<tr class="memdesc:a11f75362f988a9126a782bec0c5d99d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">The vertices, current iterate and its weights.  <br /></td></tr>
+<tr class="separator:a11f75362f988a9126a782bec0c5d99d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a810c0b9d91d549bb346362990c4174b1"><td class="memItemLeft" align="right" valign="top">std::set&lt; <a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1PairwiseFW.html#a810c0b9d91d549bb346362990c4174b1">m_events</a></td></tr>
+<tr class="memdesc:a810c0b9d91d549bb346362990c4174b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is mutable to allow the method <a class="el" href="classinf_1_1FrankWolfe.html#a46a3a288b146a39e78562e50aaa7af1c" title="This returns the inflation events that have been passed to inf::FrankWolfe::memorize_event_and_quovec...">inf::FrankWolfe::get_stored_events()</a> to retrieve the set of events, even though technically <code>m_events</code> has to change then to store the set of events.  <br /></td></tr>
+<tr class="separator:a810c0b9d91d549bb346362990c4174b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac708be210b56cf02251b3b1ddb026147"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1PairwiseFW.html#ac708be210b56cf02251b3b1ddb026147">m_phi</a></td></tr>
+<tr class="memdesc:ac708be210b56cf02251b3b1ddb026147"><td class="mdescLeft">&#160;</td><td class="mdescRight">The parameter \(\Phi\) of the pairwise algorithm.  <br /></td></tr>
+<tr class="separator:ac708be210b56cf02251b3b1ddb026147"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pub_static_methods_classinf_1_1FrankWolfe"><td colspan="2" onclick="javascript:toggleInherit('pub_static_methods_classinf_1_1FrankWolfe')"><img src="closed.png" alt="-"/>&#160;Static Public Member Functions inherited from <a class="el" href="classinf_1_1FrankWolfe.html">inf::FrankWolfe</a></td></tr>
+<tr class="memitem:a4a88c2bbc8615324c20c5ae46c64dc5b inherit pub_static_methods_classinf_1_1FrankWolfe"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1FrankWolfe.html#a4a88c2bbc8615324c20c5ae46c64dc5b">log</a> (<a class="el" href="classinf_1_1FrankWolfe.html#a5ccc3ba389671c303b6535981104aaa8">inf::FrankWolfe::Algo</a> algo)</td></tr>
+<tr class="separator:a4a88c2bbc8615324c20c5ae46c64dc5b inherit pub_static_methods_classinf_1_1FrankWolfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a49d1ffdfcd4e7feed0b8d8a35e886d inherit pub_static_methods_classinf_1_1FrankWolfe"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classinf_1_1FrankWolfe.html#ad9035fcec8b485d937507a4629c26e3c">inf::FrankWolfe::UniquePtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1FrankWolfe.html#a3a49d1ffdfcd4e7feed0b8d8a35e886d">get_frank_wolfe</a> (<a class="el" href="classinf_1_1FrankWolfe.html#a5ccc3ba389671c303b6535981104aaa8">inf::FrankWolfe::Algo</a> algo, <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> dimension, <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> n_threads)</td></tr>
+<tr class="memdesc:a3a49d1ffdfcd4e7feed0b8d8a35e886d inherit pub_static_methods_classinf_1_1FrankWolfe"><td class="mdescLeft">&#160;</td><td class="mdescRight">To conveniently instantiate a subclass an <a class="el" href="classinf_1_1FullyCorrectiveFW.html" title="The fully-corrective algorithm.">inf::FullyCorrectiveFW</a> or an <a class="el" href="classinf_1_1PairwiseFW.html" title="A pairwise Frank-Wolfe algorithm.">inf::PairwiseFW</a>.  <br /></td></tr>
+<tr class="separator:a3a49d1ffdfcd4e7feed0b8d8a35e886d inherit pub_static_methods_classinf_1_1FrankWolfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_attribs_classinf_1_1FrankWolfe"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classinf_1_1FrankWolfe')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classinf_1_1FrankWolfe.html">inf::FrankWolfe</a></td></tr>
+<tr class="memitem:a9d9dede46ae29811e13c6bcbbe13e912 inherit pro_attribs_classinf_1_1FrankWolfe"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1FrankWolfe.html#a9d9dede46ae29811e13c6bcbbe13e912">m_dimension</a></td></tr>
+<tr class="memdesc:a9d9dede46ae29811e13c6bcbbe13e912 inherit pro_attribs_classinf_1_1FrankWolfe"><td class="mdescLeft">&#160;</td><td class="mdescRight">dimension The dimension of the space in which the Frank-Wolfe algorithm takes place  <br /></td></tr>
+<tr class="separator:a9d9dede46ae29811e13c6bcbbe13e912 inherit pro_attribs_classinf_1_1FrankWolfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a283ad093e3a1c4fd5ce4df26fa0d0f61" name="a283ad093e3a1c4fd5ce4df26fa0d0f61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a283ad093e3a1c4fd5ce4df26fa0d0f61">&#9670;&#160;</a></span>Iterate</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::tuple&lt;std::vector&lt;double&gt;, std::vector&lt;double&gt;, bool&gt; <a class="el" href="classinf_1_1PairwiseFW.html#a283ad093e3a1c4fd5ce4df26fa0d0f61">inf::PairwiseFW::Iterate</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This is used to keep track of the steps that we took to be able to plot the steps that the algorithm follows in e.g. Mathematica. </p>
+<p>The first element indicates the current iterate \(x\). The second indicates the direction that was followed to obtain the iterate. The third is true for Frank-Wolfe steps, and false for pairwise steps. </p>
+
+<p class="definition">Definition at line <a class="el" href="pairwise__fw_8h_source.html#l00155">155</a> of file <a class="el" href="pairwise__fw_8h_source.html">pairwise_fw.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a7c8e26e83dfddaf84e005ad5cb7cde44" name="a7c8e26e83dfddaf84e005ad5cb7cde44"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c8e26e83dfddaf84e005ad5cb7cde44">&#9670;&#160;</a></span>PairwiseFW()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">inf::PairwiseFW::PairwiseFW </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a>&#160;</td>
+          <td class="paramname"><em>dimension</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pairwise__fw_8cpp_source.html#l00258">258</a> of file <a class="el" href="pairwise__fw_8cpp_source.html">pairwise_fw.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="ad7495260de8e7991451f34dcc4d92cee" name="ad7495260de8e7991451f34dcc4d92cee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7495260de8e7991451f34dcc4d92cee">&#9670;&#160;</a></span>solve()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classinf_1_1FrankWolfe_1_1Solution.html">inf::FrankWolfe::Solution</a> inf::PairwiseFW::solve </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This solves the Frank-Wolfe problem, i.e., the problem of finding the next <a class="el" href="classinf_1_1DualVector.html" title="Describes a dual vector  through its embedding .">inf::DualVector</a> that may be a separating hyperplane based on the inflation events that have been encountered. </p>
+
+<p>Implements <a class="el" href="classinf_1_1FrankWolfe.html#a64b5f9c36893da3b96857091050d201a">inf::FrankWolfe</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="pairwise__fw_8cpp_source.html#l00279">279</a> of file <a class="el" href="pairwise__fw_8cpp_source.html">pairwise_fw.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a95f8459cf886ed5df061f3fae97d3e8e" name="a95f8459cf886ed5df061f3fae97d3e8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95f8459cf886ed5df061f3fae97d3e8e">&#9670;&#160;</a></span>get_stored_events()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::set&lt; <a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> &gt; const  &amp; inf::PairwiseFW::get_stored_events </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This returns the inflation events that have been passed to <a class="el" href="classinf_1_1FrankWolfe.html#a14a36f6c3f1ef5cbb7212e2883f1ac4f" title="This method is called with the output of the inf::Optimizer, notifying the Frank-Wolfe algorithm that...">inf::FrankWolfe::memorize_event_and_quovec()</a> since the last call of <a class="el" href="classinf_1_1FrankWolfe.html#adf08d48ca3942be62ae7124a9ce5e778" title="This is used to reset the inf::FrankWolfe algorithm to its initial state (m_dimension does not change...">inf::FrankWolfe::reset()</a> </p>
+
+<p>Implements <a class="el" href="classinf_1_1FrankWolfe.html#a46a3a288b146a39e78562e50aaa7af1c">inf::FrankWolfe</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="pairwise__fw_8cpp_source.html#l00321">321</a> of file <a class="el" href="pairwise__fw_8cpp_source.html">pairwise_fw.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a6c53d33bbbe3886d2613ef75a3f5ce6f" name="a6c53d33bbbe3886d2613ef75a3f5ce6f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c53d33bbbe3886d2613ef75a3f5ce6f">&#9670;&#160;</a></span>get_n_stored_events()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> inf::PairwiseFW::get_n_stored_events </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This corresponds to <code><a class="el" href="classinf_1_1FrankWolfe.html#a46a3a288b146a39e78562e50aaa7af1c" title="This returns the inflation events that have been passed to inf::FrankWolfe::memorize_event_and_quovec...">inf::FrankWolfe::get_stored_events()</a>.size()</code> </p>
+
+<p>Implements <a class="el" href="classinf_1_1FrankWolfe.html#a53bfae51859bf32aadff2d1617c8804c">inf::FrankWolfe</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="pairwise__fw_8cpp_source.html#l00326">326</a> of file <a class="el" href="pairwise__fw_8cpp_source.html">pairwise_fw.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a3fbca0ce3fb905132bac67ec4aa9dc60" name="a3fbca0ce3fb905132bac67ec4aa9dc60"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3fbca0ce3fb905132bac67ec4aa9dc60">&#9670;&#160;</a></span>reset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void inf::PairwiseFW::reset </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This is used to reset the <a class="el" href="classinf_1_1FrankWolfe.html" title="The interface to the different Frank-Wolfe algorithms that we implement.">inf::FrankWolfe</a> algorithm to its initial state (m_dimension does not change). </p>
+<p>When the previously encountered inflation events are needed, the user should call <a class="el" href="classinf_1_1FrankWolfe.html#a46a3a288b146a39e78562e50aaa7af1c" title="This returns the inflation events that have been passed to inf::FrankWolfe::memorize_event_and_quovec...">inf::FrankWolfe::get_stored_events()</a> first </p>
+
+<p>Implements <a class="el" href="classinf_1_1FrankWolfe.html#adf08d48ca3942be62ae7124a9ce5e778">inf::FrankWolfe</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="pairwise__fw_8cpp_source.html#l00330">330</a> of file <a class="el" href="pairwise__fw_8cpp_source.html">pairwise_fw.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a43c5b67f606300b3f4241148c13013b1" name="a43c5b67f606300b3f4241148c13013b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43c5b67f606300b3f4241148c13013b1">&#9670;&#160;</a></span>set_store_iterates()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void inf::PairwiseFW::set_store_iterates </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>store</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This allows to tell the <a class="el" href="classinf_1_1PairwiseFW.html" title="A pairwise Frank-Wolfe algorithm.">inf::PairwiseFW</a> to store the iterates for plotting purposes. </p>
+<p>It is recommended to not call this for performance, but it can be nice to investigate what happens on small instances. </p>
+
+<p class="definition">Definition at line <a class="el" href="pairwise__fw_8cpp_source.html#l00336">336</a> of file <a class="el" href="pairwise__fw_8cpp_source.html">pairwise_fw.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aac73d951fb9be87b397995f4d894dd62" name="aac73d951fb9be87b397995f4d894dd62"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac73d951fb9be87b397995f4d894dd62">&#9670;&#160;</a></span>get_iterates()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="classinf_1_1PairwiseFW.html#a283ad093e3a1c4fd5ce4df26fa0d0f61">inf::PairwiseFW::Iterate</a> &gt; inf::PairwiseFW::get_iterates </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the steps take by <a class="el" href="classinf_1_1PairwiseFW.html" title="A pairwise Frank-Wolfe algorithm.">inf::PairwiseFW</a>, see <a class="el" href="classinf_1_1PairwiseFW.html#a283ad093e3a1c4fd5ce4df26fa0d0f61" title="This is used to keep track of the steps that we took to be able to plot the steps that the algorithm ...">inf::PairwiseFW::Iterate</a>. </p>
+
+<p class="definition">Definition at line <a class="el" href="pairwise__fw_8cpp_source.html#l00340">340</a> of file <a class="el" href="pairwise__fw_8cpp_source.html">pairwise_fw.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a1ce30f810d2224dbcebabc9d1dd1f327" name="a1ce30f810d2224dbcebabc9d1dd1f327"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ce30f810d2224dbcebabc9d1dd1f327">&#9670;&#160;</a></span>memorize_event_and_quovec_double()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void inf::PairwiseFW::memorize_event_and_quovec_double </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> const &amp;&#160;</td>
+          <td class="paramname"><em>event</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; double &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>quovec</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This method is called by <a class="el" href="classinf_1_1FrankWolfe.html#a14a36f6c3f1ef5cbb7212e2883f1ac4f" title="This method is called with the output of the inf::Optimizer, notifying the Frank-Wolfe algorithm that...">inf::FrankWolfe::memorize_event_and_quovec()</a> </p>
+<p>This will be called with the output of the <a class="el" href="classinf_1_1Optimizer.html" title="This class defines the interface for inf::BruteForceOpt and inf::TreeOpt.">inf::Optimizer</a>, notifying the Frank-Wolfe algorithm that a new interesting inflation event \(\infevent\in\infevents\) with associated quovec \(\quovec = \totconstraintmap(\detdistr\infevent)\) has been found </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">event</td><td>The inflation event \(\infevent\in\infevents\) associated to <code>quovec</code> </td></tr>
+    <tr><td class="paramname">quovec</td><td>The dual vector \(\quovec = \totconstraintmap(\detdistr\infevent)\), where \(\infevent\) corresponds to <code>event</code> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="classinf_1_1FrankWolfe.html#aec1bd71c95a1225f9e11c9d39cfc4432">inf::FrankWolfe</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="pairwise__fw_8cpp_source.html#l00346">346</a> of file <a class="el" href="pairwise__fw_8cpp_source.html">pairwise_fw.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a33ca2eb45a910a1cf3f8facbe6fd293c" name="a33ca2eb45a910a1cf3f8facbe6fd293c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33ca2eb45a910a1cf3f8facbe6fd293c">&#9670;&#160;</a></span>is_inconclusive()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool inf::PairwiseFW::is_inconclusive </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns <code>true</code> if the norm \(\norm{x}\) of the current iterate is too small. </p>
+
+<p class="definition">Definition at line <a class="el" href="pairwise__fw_8cpp_source.html#l00360">360</a> of file <a class="el" href="pairwise__fw_8cpp_source.html">pairwise_fw.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a8d67da4d9d6fc506d5f6f0e432c7c3dc" name="a8d67da4d9d6fc506d5f6f0e432c7c3dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d67da4d9d6fc506d5f6f0e432c7c3dc">&#9670;&#160;</a></span>get_current_solution()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classinf_1_1FrankWolfe_1_1Solution.html">inf::FrankWolfe::Solution</a> inf::PairwiseFW::get_current_solution </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the current iterate \(x\), essentially. </p>
+
+<p class="definition">Definition at line <a class="el" href="pairwise__fw_8cpp_source.html#l00364">364</a> of file <a class="el" href="pairwise__fw_8cpp_source.html">pairwise_fw.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a9d8c670b3ccbaef6f9353bcf2ae9c5f4" name="a9d8c670b3ccbaef6f9353bcf2ae9c5f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d8c670b3ccbaef6f9353bcf2ae9c5f4">&#9670;&#160;</a></span>find_min_and_max_inner_products()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void inf::PairwiseFW::find_min_and_max_inner_products </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> &amp;&#160;</td>
+          <td class="paramname"><em>i_min</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> &amp;&#160;</td>
+          <td class="paramname"><em>i_max</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This method determines the pair of vertices to use to do the next pairwise step. </p>
+<p>Two different approaches are proposed for this purpose, see the implementation </p>
+
+<p class="definition">Definition at line <a class="el" href="pairwise__fw_8cpp_source.html#l00368">368</a> of file <a class="el" href="pairwise__fw_8cpp_source.html">pairwise_fw.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="ab4f84aeb0b7ee6f3080ea422c4ef7e14" name="ab4f84aeb0b7ee6f3080ea422c4ef7e14"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4f84aeb0b7ee6f3080ea422c4ef7e14">&#9670;&#160;</a></span>inconclusive_tolerance</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const double inf::PairwiseFW::inconclusive_tolerance = 1.0e-12</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>To be compared to m_s_squared. </p>
+
+<p class="definition">Definition at line <a class="el" href="pairwise__fw_8h_source.html#l00158">158</a> of file <a class="el" href="pairwise__fw_8h_source.html">pairwise_fw.h</a>.</p>
+
+</div>
+</div>
+<a id="adbb661d3a93d8d3a248c1c162ec1131c" name="adbb661d3a93d8d3a248c1c162ec1131c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adbb661d3a93d8d3a248c1c162ec1131c">&#9670;&#160;</a></span>lazy_tolerance</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const double inf::PairwiseFW::lazy_tolerance = 1.0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The lazy tolerance \(K\). </p>
+
+<p class="definition">Definition at line <a class="el" href="pairwise__fw_8h_source.html#l00160">160</a> of file <a class="el" href="pairwise__fw_8h_source.html">pairwise_fw.h</a>.</p>
+
+</div>
+</div>
+<a id="a8fd9d2007b0786fbdec5789c1df36652" name="a8fd9d2007b0786fbdec5789c1df36652"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8fd9d2007b0786fbdec5789c1df36652">&#9670;&#160;</a></span>m_store_iterates</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool inf::PairwiseFW::m_store_iterates</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Whether or not to store the iterates, see <a class="el" href="classinf_1_1PairwiseFW.html#a283ad093e3a1c4fd5ce4df26fa0d0f61" title="This is used to keep track of the steps that we took to be able to plot the steps that the algorithm ...">inf::PairwiseFW::Iterate</a>. <code>false</code> by default. </p>
+
+<p class="definition">Definition at line <a class="el" href="pairwise__fw_8h_source.html#l00190">190</a> of file <a class="el" href="pairwise__fw_8h_source.html">pairwise_fw.h</a>.</p>
+
+</div>
+</div>
+<a id="a658f3aff32b16dc70e9d0a57fdd1cb91" name="a658f3aff32b16dc70e9d0a57fdd1cb91"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a658f3aff32b16dc70e9d0a57fdd1cb91">&#9670;&#160;</a></span>m_iterates</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="classinf_1_1PairwiseFW.html#a283ad093e3a1c4fd5ce4df26fa0d0f61">inf::PairwiseFW::Iterate</a>&gt; inf::PairwiseFW::m_iterates</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The list of steps taken by <a class="el" href="classinf_1_1PairwiseFW.html" title="A pairwise Frank-Wolfe algorithm.">inf::PairwiseFW</a>, or empty list depending on <code>m_store_iterates</code> </p>
+
+<p class="definition">Definition at line <a class="el" href="pairwise__fw_8h_source.html#l00192">192</a> of file <a class="el" href="pairwise__fw_8h_source.html">pairwise_fw.h</a>.</p>
+
+</div>
+</div>
+<a id="a8653d1b93406a93414f9be9e5a5fc9d0" name="a8653d1b93406a93414f9be9e5a5fc9d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8653d1b93406a93414f9be9e5a5fc9d0">&#9670;&#160;</a></span>m_last_fw_vertex</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;double&gt; inf::PairwiseFW::m_last_fw_vertex</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The last vertex that was used for a Frank-Wolfe step, only relevant if <code>m_store_iterates == true</code> </p>
+
+<p class="definition">Definition at line <a class="el" href="pairwise__fw_8h_source.html#l00194">194</a> of file <a class="el" href="pairwise__fw_8h_source.html">pairwise_fw.h</a>.</p>
+
+</div>
+</div>
+<a id="a11f75362f988a9126a782bec0c5d99d1" name="a11f75362f988a9126a782bec0c5d99d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11f75362f988a9126a782bec0c5d99d1">&#9670;&#160;</a></span>m_data</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classinf_1_1PairwiseFW_1_1Data.html">inf::PairwiseFW::Data</a> inf::PairwiseFW::m_data</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The vertices, current iterate and its weights. </p>
+
+<p class="definition">Definition at line <a class="el" href="pairwise__fw_8h_source.html#l00196">196</a> of file <a class="el" href="pairwise__fw_8h_source.html">pairwise_fw.h</a>.</p>
+
+</div>
+</div>
+<a id="a810c0b9d91d549bb346362990c4174b1" name="a810c0b9d91d549bb346362990c4174b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a810c0b9d91d549bb346362990c4174b1">&#9670;&#160;</a></span>m_events</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::set&lt;<a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a>&gt; inf::PairwiseFW::m_events</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">mutable</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This is mutable to allow the method <a class="el" href="classinf_1_1FrankWolfe.html#a46a3a288b146a39e78562e50aaa7af1c" title="This returns the inflation events that have been passed to inf::FrankWolfe::memorize_event_and_quovec...">inf::FrankWolfe::get_stored_events()</a> to retrieve the set of events, even though technically <code>m_events</code> has to change then to store the set of events. </p>
+
+<p class="definition">Definition at line <a class="el" href="pairwise__fw_8h_source.html#l00199">199</a> of file <a class="el" href="pairwise__fw_8h_source.html">pairwise_fw.h</a>.</p>
+
+</div>
+</div>
+<a id="ac708be210b56cf02251b3b1ddb026147" name="ac708be210b56cf02251b3b1ddb026147"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac708be210b56cf02251b3b1ddb026147">&#9670;&#160;</a></span>m_phi</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double inf::PairwiseFW::m_phi</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The parameter \(\Phi\) of the pairwise algorithm. </p>
+
+<p class="definition">Definition at line <a class="el" href="pairwise__fw_8h_source.html#l00201">201</a> of file <a class="el" href="pairwise__fw_8h_source.html">pairwise_fw.h</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>src/inf/frank_wolfe/<a class="el" href="pairwise__fw_8h_source.html">pairwise_fw.h</a></li>
+<li>src/inf/frank_wolfe/<a class="el" href="pairwise__fw_8cpp_source.html">pairwise_fw.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceinf.html">inf</a></li><li class="navelem"><a class="el" href="classinf_1_1PairwiseFW.html">PairwiseFW</a></li>
+    <li class="footer">Generated on Wed Dec 18 2024 17:39:43 for Fast Inflation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

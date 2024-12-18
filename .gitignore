@@ -1,0 +1,7 @@
+# Ignore these directories
+bin/
+
+# Executables
+debug_inf
+release_inf
+

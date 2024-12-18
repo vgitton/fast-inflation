@@ -1,0 +1,1107 @@
+<!-- HTML header for doxygen 1.9.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Fast Inflation: inf::PairwiseFW::Data Class Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+MathJax.Hub.Config({
+    TeX: {
+        Macros: {
+            dd: ["{\\text{d}#1\\,}",1],
+            nouts: ["{n_{\\text{o}}}"],
+            ints: ["{[\\![#1]\\!]}",1],
+            outset: ["{\\ints{\\nouts}}"],
+            N: ["{\\mathbb{N}}"],
+            R: ["{\\mathbb{R}}"],
+            Z: ["{\\mathbb{Z}}"],
+            infsize: ["{z}"],
+            infparties: ["{\\set{I}}"],
+            infsources: ["{\\set{S}}"],
+            infmarg: ["{\\set{A}}"],
+            infmargg: ["{\\set{B}}"],
+            netparties: ["{\\set{N}}"],
+            infq: ["{q}"],
+            infqs: ["{\\Delta_{\\infparties}}"],
+            constraintlist: ["{\\mathcal{C}}"],
+            injsets: ["{\\text{InjSets}}"],
+            infconstraints: ["{\\text{InfCons}}"],
+            parents: ["{\\text{Par}}"],
+            targetp: ["{p}"],
+            targetps: ["{\\Delta_{\\netparties}}"],
+            set: ["{\\mathbf{#1}}",1],
+            type: ["{t}"],
+            infevent: "{\\omega}",
+            events: ["{\\Omega_{#1}}",1],
+            infevents: ["{\\events{\\infparties}}"],
+            redinfevents: ["{\\tilde{\\Omega}_{\\infparties}}"],
+            netevents: ["{\\events{\\netparties}}"],
+            vecset: ["{V_{#1}}",1],
+            alice: ["{\\text{A}}"],
+            bob: ["{\\text{B}}"],
+            charlie: ["{\\text{C}}"],
+            symgroup: ["{\\text{Sym}(#1)}",1],
+            shortsymgroup: ["{\\text{Sym}_{#1}}",1],
+            act: ["{(#1\\hspace{2pt}{:}\\hspace{2pt}#2)}",2],
+            actt: ["{[#1\\hspace{2pt}{:}\\hspace{2pt}#2]}",2],
+            margperms: ["{\\text{Perm}_{#1}}",1],
+            permutedmargs: ["{\\mathbb{P}_{#1}^{\\targetp}}",1],
+            redpermutedmargs: ["{\\tilde{\\mathbb{P}}_{#1}^{\\constraintname,\\targetp}}",1],
+            extract: ["{\\text{ext}(#1,#2)}",2],
+            partysym: ["{\\tau}"],
+            sourcesym: ["{\\xi}"],
+            outsym: ["{\\sigma}"],
+            fullgroup: ["{\\text{InfGrp}}"],
+            partygroup : ["{\\text{PartyGrp}}"],
+            outgroup: ["{\\text{OutGrp}}"],
+            sourcegroup: ["{\\text{SrcGrp}}"],
+            distrgroup: ["{\\mathbb{G}^\\targetp}"],
+            constraintname: ["{c}"],
+            marggroup: ["{\\mathbb{G}^{\\constraintname,\\targetp}}"],
+            fullsymexpl: ["{(\\sourcesym,\\partysym,\\outsym)}"],
+            inner: ["{\\langle#1,#2\\rangle}", 2],
+            quovec: ["{f}"],
+            totconstraintmap: ["{K^{\\constraintlist,\\targetp}}"],
+            totconstraintmapelem: ["{K^{\\constraintname,\\targetp}}"],
+            quovecspace: ["{\\tilde{V}_{#1}^{\\constraintname,\\targetp}}", 1],
+            totquovecspace: ["{\\text{ConsSpace}(\\constraintlist,\\targetp)}"],
+            detdistr: ["{\\delta^{#1}}", 1],
+            margperm: ["{\\varphi}"],
+            altquovecembed: ["{\\text{G}_{#1}^{\\constraintname,\\targetp}}", 1],
+            vecset: ["{V_{#1}}", 1],
+            repr: ["{\\lfloor#1\\rfloor}", 1],
+            gid: ["{\\text{id}}"],
+            id: ["{1_{#1}}",1],
+            consscale: ["{K}"],
+            scaletot: ["{K_{\\text{tot}}^{\\constraintlist,\\targetp}}"],
+            minnorm: ["{d}"],
+            Bigsetst: ["\\;\\Big|\\;"],
+            activeset: ["\\mathcal{S}"],
+            conv: ["\\text{conv}"],
+            lVert: ["|\\hspace{-1pt}|"],
+            norm: ["\\lVert#1\\lVert", 1],
+            st: [":\ "],
+        }
+    }
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeDarkModeToggle.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeParagraphLink.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Fast Inflation
+   </div>
+   <div id="projectbrief">To certify causal incompatibility</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classinf_1_1PairwiseFW_1_1Data.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="classinf_1_1PairwiseFW_1_1Data-members.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">inf::PairwiseFW::Data Class Reference</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &quot;<a class="el" href="pairwise__fw_8h_source.html">inf/frank_wolfe/pairwise_fw.h</a>&quot;</code></p>
+<a name="details" id="details"></a><h2 class="groupheader">Class description</h2>
+<div class="textblock"><p>The data held by the <a class="el" href="classinf_1_1PairwiseFW.html" title="A pairwise Frank-Wolfe algorithm.">inf::PairwiseFW</a> algorithm. </p>
+
+<p class="definition">Definition at line <a class="el" href="pairwise__fw_8h_source.html#l00033">33</a> of file <a class="el" href="pairwise__fw_8h_source.html">pairwise_fw.h</a>.</p>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:abc395519f072c500ab2095bb616a6da2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1PairwiseFW_1_1Data.html#abc395519f072c500ab2095bb616a6da2">Data</a> (<a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> dimension)</td></tr>
+<tr class="separator:abc395519f072c500ab2095bb616a6da2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a156c7bf57e45ebdfb17eb6aae49a0aee"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1PairwiseFW_1_1Data.html#a156c7bf57e45ebdfb17eb6aae49a0aee">get_vertex_count</a> () const</td></tr>
+<tr class="separator:a156c7bf57e45ebdfb17eb6aae49a0aee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc5d427646a0ce0d3817a01f41fb304d"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> &gt; const &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1PairwiseFW_1_1Data.html#adc5d427646a0ce0d3817a01f41fb304d">get_events</a> () const</td></tr>
+<tr class="separator:adc5d427646a0ce0d3817a01f41fb304d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71b714549bf55cdf07f96521b01ce470"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1PairwiseFW_1_1Data.html#a71b714549bf55cdf07f96521b01ce470">get_weight</a> (<a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> vertex_i) const</td></tr>
+<tr class="memdesc:a71b714549bf55cdf07f96521b01ce470"><td class="mdescLeft">&#160;</td><td class="mdescRight">The weight \(q_\mu\) of the current iterate \(x = \sum_\mu q_\mu d_\mu\).  <br /></td></tr>
+<tr class="separator:a71b714549bf55cdf07f96521b01ce470"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad5610e99e76a234a70d4b14d0f15983"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt; const &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1PairwiseFW_1_1Data.html#aad5610e99e76a234a70d4b14d0f15983">get_vertex</a> (<a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> vertex_i) const</td></tr>
+<tr class="memdesc:aad5610e99e76a234a70d4b14d0f15983"><td class="mdescLeft">&#160;</td><td class="mdescRight">The vertex \(d_\mu\).  <br /></td></tr>
+<tr class="separator:aad5610e99e76a234a70d4b14d0f15983"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a888dc752e59307eacf5372caff84d384"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1PairwiseFW_1_1Data.html#a888dc752e59307eacf5372caff84d384">get_x_dot_vertex</a> (<a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> vertex_i) const</td></tr>
+<tr class="memdesc:a888dc752e59307eacf5372caff84d384"><td class="mdescLeft">&#160;</td><td class="mdescRight">The inner product \(\inner{x}{d_\mu}\) where \(x\) denotes the current iterate.  <br /></td></tr>
+<tr class="separator:a888dc752e59307eacf5372caff84d384"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6ba26a0c5d4515287cc815624ae9abd"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1PairwiseFW_1_1Data.html#ac6ba26a0c5d4515287cc815624ae9abd">get_vertex_dot_vertex</a> (<a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> i, <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> j) const</td></tr>
+<tr class="memdesc:ac6ba26a0c5d4515287cc815624ae9abd"><td class="mdescLeft">&#160;</td><td class="mdescRight">The list of inner products \(\inner{d_\mu}{d_\lambda}\) is stored as a flat array using the canonical bijection between \(\N\) and \(\N^2\).  <br /></td></tr>
+<tr class="separator:ac6ba26a0c5d4515287cc815624ae9abd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0a1ac12a8ade30dd20da7246e2c7189"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1PairwiseFW_1_1Data.html#aa0a1ac12a8ade30dd20da7246e2c7189">get_x_dot_x</a> () const</td></tr>
+<tr class="memdesc:aa0a1ac12a8ade30dd20da7246e2c7189"><td class="mdescLeft">&#160;</td><td class="mdescRight">The norm \(\norm{x}^2\) of the current iterate.  <br /></td></tr>
+<tr class="separator:aa0a1ac12a8ade30dd20da7246e2c7189"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42bef0f9553a4353b03e37e5f3f4b14b"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt; const &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1PairwiseFW_1_1Data.html#a42bef0f9553a4353b03e37e5f3f4b14b">get_x</a> () const</td></tr>
+<tr class="memdesc:a42bef0f9553a4353b03e37e5f3f4b14b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The current iterate \(x\).  <br /></td></tr>
+<tr class="separator:a42bef0f9553a4353b03e37e5f3f4b14b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a089bb7b9901a8514cda136fcbfe72ff8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1PairwiseFW_1_1Data.html#a089bb7b9901a8514cda136fcbfe72ff8">check_health</a> () const</td></tr>
+<tr class="memdesc:a089bb7b9901a8514cda136fcbfe72ff8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hard assertions about the state of the data.  <br /></td></tr>
+<tr class="separator:a089bb7b9901a8514cda136fcbfe72ff8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7cf88cf2b269c5e1c3bc62d9cb21765"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1PairwiseFW_1_1Data.html#ac7cf88cf2b269c5e1c3bc62d9cb21765">reset</a> ()</td></tr>
+<tr class="memdesc:ac7cf88cf2b269c5e1c3bc62d9cb21765"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the data as if it had just been created from the constructor.  <br /></td></tr>
+<tr class="separator:ac7cf88cf2b269c5e1c3bc62d9cb21765"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d75ec5b2d5e151a30ec4a62e702dbc6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1PairwiseFW_1_1Data.html#a4d75ec5b2d5e151a30ec4a62e702dbc6">memorize_event_and_vertex</a> (<a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> const &amp;event, std::vector&lt; double &gt; const &amp;vertex)</td></tr>
+<tr class="memdesc:a4d75ec5b2d5e151a30ec4a62e702dbc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appends a zero weighted vertex, unless we had no vertex so far, in which case it appends a one weighted vertex and also sets x to be this vertex.  <br /></td></tr>
+<tr class="separator:a4d75ec5b2d5e151a30ec4a62e702dbc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e4623d27ba161d9ac9c647a5e63d721"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1PairwiseFW_1_1Data.html#a0e4623d27ba161d9ac9c647a5e63d721">take_pairwise_step</a> (<a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> i_min, <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> i_max)</td></tr>
+<tr class="memdesc:a0e4623d27ba161d9ac9c647a5e63d721"><td class="mdescLeft">&#160;</td><td class="mdescRight">Takes a pairwise step in the direction \(a = d_\alpha - d_\lambda\).  <br /></td></tr>
+<tr class="separator:a0e4623d27ba161d9ac9c647a5e63d721"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a742c2cc6a24641859717d586f3561a74"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1PairwiseFW_1_1Data.html#a742c2cc6a24641859717d586f3561a74">clean_up_vertices</a> ()</td></tr>
+<tr class="memdesc:a742c2cc6a24641859717d586f3561a74"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove cache elements with low weight. Warning: this invalidates indices referring to the cache.  <br /></td></tr>
+<tr class="separator:a742c2cc6a24641859717d586f3561a74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:a4e91dd88a7d2dd01fe42090bae9dce2f"><td class="memItemLeft" align="right" valign="top">static const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1PairwiseFW_1_1Data.html#a4e91dd88a7d2dd01fe42090bae9dce2f">cleanup_tolerance</a> = 1.0e-10</td></tr>
+<tr class="memdesc:a4e91dd88a7d2dd01fe42090bae9dce2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">This tolerance parameter is used to know when to use a drop step.  <br /></td></tr>
+<tr class="separator:a4e91dd88a7d2dd01fe42090bae9dce2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a7b47df9b975acb2d1fbada383b0c9add"><td class="memItemLeft" align="right" valign="top">double &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1PairwiseFW_1_1Data.html#a7b47df9b975acb2d1fbada383b0c9add">get_vertex_dot_vertex</a> (<a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> i, <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> j)</td></tr>
+<tr class="memdesc:a7b47df9b975acb2d1fbada383b0c9add"><td class="mdescLeft">&#160;</td><td class="mdescRight">The list of inner products \(\inner{d_\mu}{d_\lambda}\) is stored as a flat array using the canonical bijection between \(\N\) and \(\N^2\).  <br /></td></tr>
+<tr class="separator:a7b47df9b975acb2d1fbada383b0c9add"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9480577a332516cc8b5be854bc33be62"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1PairwiseFW_1_1Data.html#a9480577a332516cc8b5be854bc33be62">remove_vertex</a> (<a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> vertex_i)</td></tr>
+<tr class="memdesc:a9480577a332516cc8b5be854bc33be62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Warning: this induces a re-ordering of the cache.  <br /></td></tr>
+<tr class="separator:a9480577a332516cc8b5be854bc33be62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48880712bd5eb2ae900d64a71e084925"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1PairwiseFW_1_1Data.html#a48880712bd5eb2ae900d64a71e084925">update_x_from_weights</a> ()</td></tr>
+<tr class="memdesc:a48880712bd5eb2ae900d64a71e084925"><td class="mdescLeft">&#160;</td><td class="mdescRight">This update m_x from the weights, and sets m_x_dot_vertex and m_x_dot_x.  <br /></td></tr>
+<tr class="separator:a48880712bd5eb2ae900d64a71e084925"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:ad32de4d371052d5b984c96dca8862949"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1PairwiseFW_1_1Data.html#ad32de4d371052d5b984c96dca8862949">m_dimension</a></td></tr>
+<tr class="memdesc:ad32de4d371052d5b984c96dca8862949"><td class="mdescLeft">&#160;</td><td class="mdescRight">The dimension of every vertex.  <br /></td></tr>
+<tr class="separator:ad32de4d371052d5b984c96dca8862949"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d3f36a5f42e9149f27bc2add152a96b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1PairwiseFW_1_1Data.html#a4d3f36a5f42e9149f27bc2add152a96b">m_vertex_count</a></td></tr>
+<tr class="memdesc:a4d3f36a5f42e9149f27bc2add152a96b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The size of m_events, m_weights, m_vertices, m_x_dot_vertex.  <br /></td></tr>
+<tr class="separator:a4d3f36a5f42e9149f27bc2add152a96b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe672338491a1a5b35ccfa563e7fce9c"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1PairwiseFW_1_1Data.html#afe672338491a1a5b35ccfa563e7fce9c">m_events</a></td></tr>
+<tr class="memdesc:afe672338491a1a5b35ccfa563e7fce9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">At any point in time, m_events, m_weights and m_vertices have the same size, and the entries of index i refer to each other.  <br /></td></tr>
+<tr class="separator:afe672338491a1a5b35ccfa563e7fce9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6dac3ddd96d0254422219ba8523de884"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1PairwiseFW_1_1Data.html#a6dac3ddd96d0254422219ba8523de884">m_weights</a></td></tr>
+<tr class="memdesc:a6dac3ddd96d0254422219ba8523de884"><td class="mdescLeft">&#160;</td><td class="mdescRight">The weights \(q_\mu\) of the current iterate \(x = \sum_\mu q_\mu d_\mu\).  <br /></td></tr>
+<tr class="separator:a6dac3ddd96d0254422219ba8523de884"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a394919c120ca6d907ebaa7190fb00b44"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::vector&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1PairwiseFW_1_1Data.html#a394919c120ca6d907ebaa7190fb00b44">m_vertices</a></td></tr>
+<tr class="memdesc:a394919c120ca6d907ebaa7190fb00b44"><td class="mdescLeft">&#160;</td><td class="mdescRight">The list of vertices \(\activeset = \{d_\mu\}_{\mu}\), each stored as a list of components for each dimension.  <br /></td></tr>
+<tr class="separator:a394919c120ca6d907ebaa7190fb00b44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5bc13245545fe67f3c1d6f9de9f34a5e"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1PairwiseFW_1_1Data.html#a5bc13245545fe67f3c1d6f9de9f34a5e">m_x_dot_vertex</a></td></tr>
+<tr class="memdesc:a5bc13245545fe67f3c1d6f9de9f34a5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The i-th entry contains <code>&lt;m_x, m_vertex_cache[i]&gt;</code>  <br /></td></tr>
+<tr class="separator:a5bc13245545fe67f3c1d6f9de9f34a5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96c3e30bfe71e62f328dce1d4d2ebdc4"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1PairwiseFW_1_1Data.html#a96c3e30bfe71e62f328dce1d4d2ebdc4">m_vertex_dot_vertex</a></td></tr>
+<tr class="memdesc:a96c3e30bfe71e62f328dce1d4d2ebdc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">The f(i,j)-th entry contains <code>&lt;m_vertex_cache[i], m_vertex_cache[j]&gt;</code>, where f is a bijection from \(\mathbb{N}^{\times 2}\) to \(\mathbb{N}\).  <br /></td></tr>
+<tr class="separator:a96c3e30bfe71e62f328dce1d4d2ebdc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38b7c9dfc9140b8418e553d318c342b5"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1PairwiseFW_1_1Data.html#a38b7c9dfc9140b8418e553d318c342b5">m_x_dot_x</a></td></tr>
+<tr class="memdesc:a38b7c9dfc9140b8418e553d318c342b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">The norm squared of m_x.  <br /></td></tr>
+<tr class="separator:a38b7c9dfc9140b8418e553d318c342b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15a13e2c01cef75765f2b7bf3b264619"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1PairwiseFW_1_1Data.html#a15a13e2c01cef75765f2b7bf3b264619">m_x</a></td></tr>
+<tr class="memdesc:a15a13e2c01cef75765f2b7bf3b264619"><td class="mdescLeft">&#160;</td><td class="mdescRight">Always have <code>m_x = \sum_i m_weights[i]*m_vertices[i]</code>. This vector is meant to minimize the Euclidean norm over the convex hull of the cached vertices.  <br /></td></tr>
+<tr class="separator:a15a13e2c01cef75765f2b7bf3b264619"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="abc395519f072c500ab2095bb616a6da2" name="abc395519f072c500ab2095bb616a6da2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc395519f072c500ab2095bb616a6da2">&#9670;&#160;</a></span>Data()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">inf::PairwiseFW::Data::Data </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a>&#160;</td>
+          <td class="paramname"><em>dimension</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pairwise__fw_8cpp_source.html#l00013">13</a> of file <a class="el" href="pairwise__fw_8cpp_source.html">pairwise_fw.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a156c7bf57e45ebdfb17eb6aae49a0aee" name="a156c7bf57e45ebdfb17eb6aae49a0aee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a156c7bf57e45ebdfb17eb6aae49a0aee">&#9670;&#160;</a></span>get_vertex_count()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> inf::PairwiseFW::Data::get_vertex_count </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pairwise__fw_8h_source.html#l00048">48</a> of file <a class="el" href="pairwise__fw_8h_source.html">pairwise_fw.h</a>.</p>
+
+</div>
+</div>
+<a id="adc5d427646a0ce0d3817a01f41fb304d" name="adc5d427646a0ce0d3817a01f41fb304d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc5d427646a0ce0d3817a01f41fb304d">&#9670;&#160;</a></span>get_events()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> &gt; const  &amp; inf::PairwiseFW::Data::get_events </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pairwise__fw_8h_source.html#l00051">51</a> of file <a class="el" href="pairwise__fw_8h_source.html">pairwise_fw.h</a>.</p>
+
+</div>
+</div>
+<a id="a71b714549bf55cdf07f96521b01ce470" name="a71b714549bf55cdf07f96521b01ce470"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71b714549bf55cdf07f96521b01ce470">&#9670;&#160;</a></span>get_weight()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double inf::PairwiseFW::Data::get_weight </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a>&#160;</td>
+          <td class="paramname"><em>vertex_i</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The weight \(q_\mu\) of the current iterate \(x = \sum_\mu q_\mu d_\mu\). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vertex_i</td><td>Describes \(\mu\) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="pairwise__fw_8h_source.html#l00056">56</a> of file <a class="el" href="pairwise__fw_8h_source.html">pairwise_fw.h</a>.</p>
+
+</div>
+</div>
+<a id="aad5610e99e76a234a70d4b14d0f15983" name="aad5610e99e76a234a70d4b14d0f15983"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad5610e99e76a234a70d4b14d0f15983">&#9670;&#160;</a></span>get_vertex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; double &gt; const  &amp; inf::PairwiseFW::Data::get_vertex </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a>&#160;</td>
+          <td class="paramname"><em>vertex_i</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The vertex \(d_\mu\). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vertex_i</td><td>Describes \(\mu\) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="pairwise__fw_8h_source.html#l00062">62</a> of file <a class="el" href="pairwise__fw_8h_source.html">pairwise_fw.h</a>.</p>
+
+</div>
+</div>
+<a id="a888dc752e59307eacf5372caff84d384" name="a888dc752e59307eacf5372caff84d384"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a888dc752e59307eacf5372caff84d384">&#9670;&#160;</a></span>get_x_dot_vertex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double inf::PairwiseFW::Data::get_x_dot_vertex </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a>&#160;</td>
+          <td class="paramname"><em>vertex_i</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The inner product \(\inner{x}{d_\mu}\) where \(x\) denotes the current iterate. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vertex_i</td><td>Describes \(\mu\) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="pairwise__fw_8h_source.html#l00068">68</a> of file <a class="el" href="pairwise__fw_8h_source.html">pairwise_fw.h</a>.</p>
+
+</div>
+</div>
+<a id="a7b47df9b975acb2d1fbada383b0c9add" name="a7b47df9b975acb2d1fbada383b0c9add"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b47df9b975acb2d1fbada383b0c9add">&#9670;&#160;</a></span>get_vertex_dot_vertex() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double &amp; inf::PairwiseFW::Data::get_vertex_dot_vertex </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a>&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a>&#160;</td>
+          <td class="paramname"><em>j</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The list of inner products \(\inner{d_\mu}{d_\lambda}\) is stored as a flat array using the canonical bijection between \(\N\) and \(\N^2\). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>Describes \(\mu\) </td></tr>
+    <tr><td class="paramname">j</td><td>Describes \(\lambda\) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="pairwise__fw_8h_source.html#l00077">77</a> of file <a class="el" href="pairwise__fw_8h_source.html">pairwise_fw.h</a>.</p>
+
+</div>
+</div>
+<a id="ac6ba26a0c5d4515287cc815624ae9abd" name="ac6ba26a0c5d4515287cc815624ae9abd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac6ba26a0c5d4515287cc815624ae9abd">&#9670;&#160;</a></span>get_vertex_dot_vertex() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double inf::PairwiseFW::Data::get_vertex_dot_vertex </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a>&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a>&#160;</td>
+          <td class="paramname"><em>j</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The list of inner products \(\inner{d_\mu}{d_\lambda}\) is stored as a flat array using the canonical bijection between \(\N\) and \(\N^2\). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>Describes \(\mu\) </td></tr>
+    <tr><td class="paramname">j</td><td>Describes \(\lambda\) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="pairwise__fw_8h_source.html#l00086">86</a> of file <a class="el" href="pairwise__fw_8h_source.html">pairwise_fw.h</a>.</p>
+
+</div>
+</div>
+<a id="aa0a1ac12a8ade30dd20da7246e2c7189" name="aa0a1ac12a8ade30dd20da7246e2c7189"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0a1ac12a8ade30dd20da7246e2c7189">&#9670;&#160;</a></span>get_x_dot_x()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double inf::PairwiseFW::Data::get_x_dot_x </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The norm \(\norm{x}^2\) of the current iterate. </p>
+
+<p class="definition">Definition at line <a class="el" href="pairwise__fw_8h_source.html#l00090">90</a> of file <a class="el" href="pairwise__fw_8h_source.html">pairwise_fw.h</a>.</p>
+
+</div>
+</div>
+<a id="a42bef0f9553a4353b03e37e5f3f4b14b" name="a42bef0f9553a4353b03e37e5f3f4b14b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42bef0f9553a4353b03e37e5f3f4b14b">&#9670;&#160;</a></span>get_x()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; double &gt; const  &amp; inf::PairwiseFW::Data::get_x </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The current iterate \(x\). </p>
+
+<p class="definition">Definition at line <a class="el" href="pairwise__fw_8h_source.html#l00094">94</a> of file <a class="el" href="pairwise__fw_8h_source.html">pairwise_fw.h</a>.</p>
+
+</div>
+</div>
+<a id="a089bb7b9901a8514cda136fcbfe72ff8" name="a089bb7b9901a8514cda136fcbfe72ff8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a089bb7b9901a8514cda136fcbfe72ff8">&#9670;&#160;</a></span>check_health()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void inf::PairwiseFW::Data::check_health </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Hard assertions about the state of the data. </p>
+
+<p class="definition">Definition at line <a class="el" href="pairwise__fw_8cpp_source.html#l00024">24</a> of file <a class="el" href="pairwise__fw_8cpp_source.html">pairwise_fw.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ac7cf88cf2b269c5e1c3bc62d9cb21765" name="ac7cf88cf2b269c5e1c3bc62d9cb21765"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7cf88cf2b269c5e1c3bc62d9cb21765">&#9670;&#160;</a></span>reset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void inf::PairwiseFW::Data::reset </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Resets the data as if it had just been created from the constructor. </p>
+
+<p class="definition">Definition at line <a class="el" href="pairwise__fw_8cpp_source.html#l00073">73</a> of file <a class="el" href="pairwise__fw_8cpp_source.html">pairwise_fw.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a4d75ec5b2d5e151a30ec4a62e702dbc6" name="a4d75ec5b2d5e151a30ec4a62e702dbc6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d75ec5b2d5e151a30ec4a62e702dbc6">&#9670;&#160;</a></span>memorize_event_and_vertex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void inf::PairwiseFW::Data::memorize_event_and_vertex </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> const &amp;&#160;</td>
+          <td class="paramname"><em>event</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; double &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>vertex</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Appends a zero weighted vertex, unless we had no vertex so far, in which case it appends a one weighted vertex and also sets x to be this vertex. </p>
+
+<p class="definition">Definition at line <a class="el" href="pairwise__fw_8cpp_source.html#l00084">84</a> of file <a class="el" href="pairwise__fw_8cpp_source.html">pairwise_fw.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a0e4623d27ba161d9ac9c647a5e63d721" name="a0e4623d27ba161d9ac9c647a5e63d721"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e4623d27ba161d9ac9c647a5e63d721">&#9670;&#160;</a></span>take_pairwise_step()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void inf::PairwiseFW::Data::take_pairwise_step </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a>&#160;</td>
+          <td class="paramname"><em>i_min</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a>&#160;</td>
+          <td class="paramname"><em>i_max</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Takes a pairwise step in the direction \(a = d_\alpha - d_\lambda\). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i_min</td><td>Describes \(\lambda\) </td></tr>
+    <tr><td class="paramname">i_max</td><td>Describes \(\alpha\) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="pairwise__fw_8cpp_source.html#l00115">115</a> of file <a class="el" href="pairwise__fw_8cpp_source.html">pairwise_fw.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a742c2cc6a24641859717d586f3561a74" name="a742c2cc6a24641859717d586f3561a74"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a742c2cc6a24641859717d586f3561a74">&#9670;&#160;</a></span>clean_up_vertices()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void inf::PairwiseFW::Data::clean_up_vertices </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Remove cache elements with low weight. Warning: this invalidates indices referring to the cache. </p>
+
+<p class="definition">Definition at line <a class="el" href="pairwise__fw_8cpp_source.html#l00163">163</a> of file <a class="el" href="pairwise__fw_8cpp_source.html">pairwise_fw.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a9480577a332516cc8b5be854bc33be62" name="a9480577a332516cc8b5be854bc33be62"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9480577a332516cc8b5be854bc33be62">&#9670;&#160;</a></span>remove_vertex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void inf::PairwiseFW::Data::remove_vertex </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a>&#160;</td>
+          <td class="paramname"><em>vertex_i</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Warning: this induces a re-ordering of the cache. </p>
+
+<p class="definition">Definition at line <a class="el" href="pairwise__fw_8cpp_source.html#l00197">197</a> of file <a class="el" href="pairwise__fw_8cpp_source.html">pairwise_fw.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a48880712bd5eb2ae900d64a71e084925" name="a48880712bd5eb2ae900d64a71e084925"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48880712bd5eb2ae900d64a71e084925">&#9670;&#160;</a></span>update_x_from_weights()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void inf::PairwiseFW::Data::update_x_from_weights </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This update m_x from the weights, and sets m_x_dot_vertex and m_x_dot_x. </p>
+
+<p class="definition">Definition at line <a class="el" href="pairwise__fw_8cpp_source.html#l00235">235</a> of file <a class="el" href="pairwise__fw_8cpp_source.html">pairwise_fw.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a4e91dd88a7d2dd01fe42090bae9dce2f" name="a4e91dd88a7d2dd01fe42090bae9dce2f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e91dd88a7d2dd01fe42090bae9dce2f">&#9670;&#160;</a></span>cleanup_tolerance</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const double inf::PairwiseFW::Data::cleanup_tolerance = 1.0e-10</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This tolerance parameter is used to know when to use a drop step. </p>
+
+<p class="definition">Definition at line <a class="el" href="pairwise__fw_8h_source.html#l00036">36</a> of file <a class="el" href="pairwise__fw_8h_source.html">pairwise_fw.h</a>.</p>
+
+</div>
+</div>
+<a id="ad32de4d371052d5b984c96dca8862949" name="ad32de4d371052d5b984c96dca8862949"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad32de4d371052d5b984c96dca8862949">&#9670;&#160;</a></span>m_dimension</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> inf::PairwiseFW::Data::m_dimension</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The dimension of every vertex. </p>
+
+<p class="definition">Definition at line <a class="el" href="pairwise__fw_8h_source.html#l00121">121</a> of file <a class="el" href="pairwise__fw_8h_source.html">pairwise_fw.h</a>.</p>
+
+</div>
+</div>
+<a id="a4d3f36a5f42e9149f27bc2add152a96b" name="a4d3f36a5f42e9149f27bc2add152a96b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d3f36a5f42e9149f27bc2add152a96b">&#9670;&#160;</a></span>m_vertex_count</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> inf::PairwiseFW::Data::m_vertex_count</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The size of m_events, m_weights, m_vertices, m_x_dot_vertex. </p>
+
+<p class="definition">Definition at line <a class="el" href="pairwise__fw_8h_source.html#l00123">123</a> of file <a class="el" href="pairwise__fw_8h_source.html">pairwise_fw.h</a>.</p>
+
+</div>
+</div>
+<a id="afe672338491a1a5b35ccfa563e7fce9c" name="afe672338491a1a5b35ccfa563e7fce9c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe672338491a1a5b35ccfa563e7fce9c">&#9670;&#160;</a></span>m_events</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a>&gt; inf::PairwiseFW::Data::m_events</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>At any point in time, m_events, m_weights and m_vertices have the same size, and the entries of index i refer to each other. </p>
+
+<p class="definition">Definition at line <a class="el" href="pairwise__fw_8h_source.html#l00126">126</a> of file <a class="el" href="pairwise__fw_8h_source.html">pairwise_fw.h</a>.</p>
+
+</div>
+</div>
+<a id="a6dac3ddd96d0254422219ba8523de884" name="a6dac3ddd96d0254422219ba8523de884"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6dac3ddd96d0254422219ba8523de884">&#9670;&#160;</a></span>m_weights</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;double&gt; inf::PairwiseFW::Data::m_weights</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The weights \(q_\mu\) of the current iterate \(x = \sum_\mu q_\mu d_\mu\). </p>
+
+<p class="definition">Definition at line <a class="el" href="pairwise__fw_8h_source.html#l00128">128</a> of file <a class="el" href="pairwise__fw_8h_source.html">pairwise_fw.h</a>.</p>
+
+</div>
+</div>
+<a id="a394919c120ca6d907ebaa7190fb00b44" name="a394919c120ca6d907ebaa7190fb00b44"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a394919c120ca6d907ebaa7190fb00b44">&#9670;&#160;</a></span>m_vertices</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::vector&lt;double&gt; &gt; inf::PairwiseFW::Data::m_vertices</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The list of vertices \(\activeset = \{d_\mu\}_{\mu}\), each stored as a list of components for each dimension. </p>
+
+<p class="definition">Definition at line <a class="el" href="pairwise__fw_8h_source.html#l00130">130</a> of file <a class="el" href="pairwise__fw_8h_source.html">pairwise_fw.h</a>.</p>
+
+</div>
+</div>
+<a id="a5bc13245545fe67f3c1d6f9de9f34a5e" name="a5bc13245545fe67f3c1d6f9de9f34a5e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5bc13245545fe67f3c1d6f9de9f34a5e">&#9670;&#160;</a></span>m_x_dot_vertex</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;double&gt; inf::PairwiseFW::Data::m_x_dot_vertex</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The i-th entry contains <code>&lt;m_x, m_vertex_cache[i]&gt;</code> </p>
+
+<p class="definition">Definition at line <a class="el" href="pairwise__fw_8h_source.html#l00132">132</a> of file <a class="el" href="pairwise__fw_8h_source.html">pairwise_fw.h</a>.</p>
+
+</div>
+</div>
+<a id="a96c3e30bfe71e62f328dce1d4d2ebdc4" name="a96c3e30bfe71e62f328dce1d4d2ebdc4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96c3e30bfe71e62f328dce1d4d2ebdc4">&#9670;&#160;</a></span>m_vertex_dot_vertex</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;double&gt; inf::PairwiseFW::Data::m_vertex_dot_vertex</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The f(i,j)-th entry contains <code>&lt;m_vertex_cache[i], m_vertex_cache[j]&gt;</code>, where f is a bijection from \(\mathbb{N}^{\times 2}\) to \(\mathbb{N}\). </p>
+
+<p class="definition">Definition at line <a class="el" href="pairwise__fw_8h_source.html#l00135">135</a> of file <a class="el" href="pairwise__fw_8h_source.html">pairwise_fw.h</a>.</p>
+
+</div>
+</div>
+<a id="a38b7c9dfc9140b8418e553d318c342b5" name="a38b7c9dfc9140b8418e553d318c342b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38b7c9dfc9140b8418e553d318c342b5">&#9670;&#160;</a></span>m_x_dot_x</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double inf::PairwiseFW::Data::m_x_dot_x</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The norm squared of m_x. </p>
+
+<p class="definition">Definition at line <a class="el" href="pairwise__fw_8h_source.html#l00137">137</a> of file <a class="el" href="pairwise__fw_8h_source.html">pairwise_fw.h</a>.</p>
+
+</div>
+</div>
+<a id="a15a13e2c01cef75765f2b7bf3b264619" name="a15a13e2c01cef75765f2b7bf3b264619"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15a13e2c01cef75765f2b7bf3b264619">&#9670;&#160;</a></span>m_x</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;double&gt; inf::PairwiseFW::Data::m_x</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Always have <code>m_x = \sum_i m_weights[i]*m_vertices[i]</code>. This vector is meant to minimize the Euclidean norm over the convex hull of the cached vertices. </p>
+
+<p class="definition">Definition at line <a class="el" href="pairwise__fw_8h_source.html#l00141">141</a> of file <a class="el" href="pairwise__fw_8h_source.html">pairwise_fw.h</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>src/inf/frank_wolfe/<a class="el" href="pairwise__fw_8h_source.html">pairwise_fw.h</a></li>
+<li>src/inf/frank_wolfe/<a class="el" href="pairwise__fw_8cpp_source.html">pairwise_fw.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceinf.html">inf</a></li><li class="navelem"><a class="el" href="classinf_1_1PairwiseFW.html">PairwiseFW</a></li><li class="navelem"><a class="el" href="classinf_1_1PairwiseFW_1_1Data.html">Data</a></li>
+    <li class="footer">Generated on Wed Dec 18 2024 17:39:43 for Fast Inflation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,569 @@
+<!-- HTML header for doxygen 1.9.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Fast Inflation: util Namespace Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+MathJax.Hub.Config({
+    TeX: {
+        Macros: {
+            dd: ["{\\text{d}#1\\,}",1],
+            nouts: ["{n_{\\text{o}}}"],
+            ints: ["{[\\![#1]\\!]}",1],
+            outset: ["{\\ints{\\nouts}}"],
+            N: ["{\\mathbb{N}}"],
+            R: ["{\\mathbb{R}}"],
+            Z: ["{\\mathbb{Z}}"],
+            infsize: ["{z}"],
+            infparties: ["{\\set{I}}"],
+            infsources: ["{\\set{S}}"],
+            infmarg: ["{\\set{A}}"],
+            infmargg: ["{\\set{B}}"],
+            netparties: ["{\\set{N}}"],
+            infq: ["{q}"],
+            infqs: ["{\\Delta_{\\infparties}}"],
+            constraintlist: ["{\\mathcal{C}}"],
+            injsets: ["{\\text{InjSets}}"],
+            infconstraints: ["{\\text{InfCons}}"],
+            parents: ["{\\text{Par}}"],
+            targetp: ["{p}"],
+            targetps: ["{\\Delta_{\\netparties}}"],
+            set: ["{\\mathbf{#1}}",1],
+            type: ["{t}"],
+            infevent: "{\\omega}",
+            events: ["{\\Omega_{#1}}",1],
+            infevents: ["{\\events{\\infparties}}"],
+            redinfevents: ["{\\tilde{\\Omega}_{\\infparties}}"],
+            netevents: ["{\\events{\\netparties}}"],
+            vecset: ["{V_{#1}}",1],
+            alice: ["{\\text{A}}"],
+            bob: ["{\\text{B}}"],
+            charlie: ["{\\text{C}}"],
+            symgroup: ["{\\text{Sym}(#1)}",1],
+            shortsymgroup: ["{\\text{Sym}_{#1}}",1],
+            act: ["{(#1\\hspace{2pt}{:}\\hspace{2pt}#2)}",2],
+            actt: ["{[#1\\hspace{2pt}{:}\\hspace{2pt}#2]}",2],
+            margperms: ["{\\text{Perm}_{#1}}",1],
+            permutedmargs: ["{\\mathbb{P}_{#1}^{\\targetp}}",1],
+            redpermutedmargs: ["{\\tilde{\\mathbb{P}}_{#1}^{\\constraintname,\\targetp}}",1],
+            extract: ["{\\text{ext}(#1,#2)}",2],
+            partysym: ["{\\tau}"],
+            sourcesym: ["{\\xi}"],
+            outsym: ["{\\sigma}"],
+            fullgroup: ["{\\text{InfGrp}}"],
+            partygroup : ["{\\text{PartyGrp}}"],
+            outgroup: ["{\\text{OutGrp}}"],
+            sourcegroup: ["{\\text{SrcGrp}}"],
+            distrgroup: ["{\\mathbb{G}^\\targetp}"],
+            constraintname: ["{c}"],
+            marggroup: ["{\\mathbb{G}^{\\constraintname,\\targetp}}"],
+            fullsymexpl: ["{(\\sourcesym,\\partysym,\\outsym)}"],
+            inner: ["{\\langle#1,#2\\rangle}", 2],
+            quovec: ["{f}"],
+            totconstraintmap: ["{K^{\\constraintlist,\\targetp}}"],
+            totconstraintmapelem: ["{K^{\\constraintname,\\targetp}}"],
+            quovecspace: ["{\\tilde{V}_{#1}^{\\constraintname,\\targetp}}", 1],
+            totquovecspace: ["{\\text{ConsSpace}(\\constraintlist,\\targetp)}"],
+            detdistr: ["{\\delta^{#1}}", 1],
+            margperm: ["{\\varphi}"],
+            altquovecembed: ["{\\text{G}_{#1}^{\\constraintname,\\targetp}}", 1],
+            vecset: ["{V_{#1}}", 1],
+            repr: ["{\\lfloor#1\\rfloor}", 1],
+            gid: ["{\\text{id}}"],
+            id: ["{1_{#1}}",1],
+            consscale: ["{K}"],
+            scaletot: ["{K_{\\text{tot}}^{\\constraintlist,\\targetp}}"],
+            minnorm: ["{d}"],
+            Bigsetst: ["\\;\\Big|\\;"],
+            activeset: ["\\mathcal{S}"],
+            conv: ["\\text{conv}"],
+            lVert: ["|\\hspace{-1pt}|"],
+            norm: ["\\lVert#1\\lVert", 1],
+            st: [":\ "],
+        }
+    }
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeDarkModeToggle.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeParagraphLink.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Fast Inflation
+   </div>
+   <div id="projectbrief">To certify causal incompatibility</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('namespaceutil.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle"><div class="title">util Namespace Reference</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>The namespace for general purpose code, not specifically related to inflation.  
+<a href="namespaceutil.html#details">More...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1BaseCLI.html">BaseCLI</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class provides support to extract command-line options of the form <code>--option value</code>  <a href="classutil_1_1BaseCLI.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1Chrono.html">Chrono</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A simple stopwatch class.  <a href="classutil_1_1Chrono.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1FileStream.html">FileStream</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This abstract class provides a common interface to <a class="el" href="classutil_1_1InputFileStream.html" title="The specialization of util::FileStream to write to a file.">util::InputFileStream</a> and <a class="el" href="classutil_1_1OutputFileStream.html" title="The specialization of util::FileStream to write to a file.">util::OutputFileStream</a> to unify the read/write mechanism into a single mechanism.  <a href="classutil_1_1FileStream.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1Frac.html">Frac</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A class to represent rational numbers.  <a href="classutil_1_1Frac.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1InputFileStream.html">InputFileStream</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The specialization of <a class="el" href="classutil_1_1FileStream.html" title="This abstract class provides a common interface to util::InputFileStream and util::OutputFileStream t...">util::FileStream</a> to write to a file.  <a href="classutil_1_1InputFileStream.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1Iterator.html">Iterator</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Iterator over incrementable type <code>T</code>, see <a class="el" href="classutil_1_1Range.html" title="Iterating over a finite integer range.">util::Range</a>  <a href="classutil_1_1Iterator.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1Loggable.html">Loggable</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines printable classes.  <a href="classutil_1_1Loggable.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1Logger.html">Logger</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This custom logger providing additional functionalities over <code>std::cout</code>  <a href="classutil_1_1Logger.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1OutputFileStream.html">OutputFileStream</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The specialization of <a class="el" href="classutil_1_1FileStream.html" title="This abstract class provides a common interface to util::InputFileStream and util::OutputFileStream t...">util::FileStream</a> to write to a file.  <a href="classutil_1_1OutputFileStream.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1PermIterator.html">PermIterator</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">To iterate over permutations, see <a class="el" href="classutil_1_1Permutations.html" title="To iterate over permutations.">util::Permutations</a>.  <a href="classutil_1_1PermIterator.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1Permutations.html">Permutations</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">To iterate over permutations.  <a href="classutil_1_1Permutations.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1ProductIterator.html">ProductIterator</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Iterator over <code>std::vector&lt;T&gt;</code>, see <a class="el" href="classutil_1_1ProductRange.html" title="This class implements a range over std::vector&lt;T&gt;, akin to Python product ranges.">util::ProductRange</a>  <a href="classutil_1_1ProductIterator.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1ProductRange.html">ProductRange</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class implements a range over <code>std::vector&lt;T&gt;</code>, akin to Python product ranges.  <a href="classutil_1_1ProductRange.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1Range.html">Range</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Iterating over a finite integer range.  <a href="classutil_1_1Range.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1RNG.html">RNG</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A uniform random integer generator over a specified range.  <a href="classutil_1_1RNG.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1Serializable.html">Serializable</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Abstract class that defines the interface of a class that is serializable.  <a href="classutil_1_1Serializable.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1TestWritableClass.html">TestWritableClass</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:ga95747189f62a0ed341c6e2579146beb7"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__color.html#ga95747189f62a0ed341c6e2579146beb7">Color</a> { <br />
+&#160;&#160;<a class="el" href="group__color.html#gga95747189f62a0ed341c6e2579146beb7a3d4044d65abdda407a92991f1300ec97">Color::fg</a>
+, <a class="el" href="group__color.html#gga95747189f62a0ed341c6e2579146beb7a1ffd9e753c8054cc61456ac7fac1ac89">Color::black</a>
+, <a class="el" href="group__color.html#gga95747189f62a0ed341c6e2579146beb7abda9643ac6601722a28f238714274da4">Color::red</a>
+, <a class="el" href="group__color.html#gga95747189f62a0ed341c6e2579146beb7a9f27410725ab8cc8854a2769c7a516b8">Color::green</a>
+, <br />
+&#160;&#160;<a class="el" href="group__color.html#gga95747189f62a0ed341c6e2579146beb7ad487dd0b55dfcacdd920ccbdaeafa351">Color::yellow</a>
+, <a class="el" href="group__color.html#gga95747189f62a0ed341c6e2579146beb7a48d6215903dff56238e52e8891380c8f">Color::blue</a>
+, <a class="el" href="group__color.html#gga95747189f62a0ed341c6e2579146beb7a4c2a4a7078da0ac6733464eacfd00f86">Color::magenta</a>
+, <a class="el" href="group__color.html#gga95747189f62a0ed341c6e2579146beb7a6411532ba4971f378391776a9db629d3">Color::cyan</a>
+, <br />
+&#160;&#160;<a class="el" href="group__color.html#gga95747189f62a0ed341c6e2579146beb7ad508fe45cecaf653904a0e774084bb5c">Color::white</a>
+, <a class="el" href="group__color.html#gga95747189f62a0ed341c6e2579146beb7a4b941312e74e20a2bea068c855193141">Color::alt_black</a>
+, <a class="el" href="group__color.html#gga95747189f62a0ed341c6e2579146beb7a149d51a260fd14f179310d953fff777b">Color::alt_red</a>
+, <a class="el" href="group__color.html#gga95747189f62a0ed341c6e2579146beb7a549891cfc059bd98e742bfbc19abd347">Color::alt_green</a>
+, <br />
+&#160;&#160;<a class="el" href="group__color.html#gga95747189f62a0ed341c6e2579146beb7a6c7eaf8a5070bfe6625d2d32418e882f">Color::alt_yellow</a>
+, <a class="el" href="group__color.html#gga95747189f62a0ed341c6e2579146beb7ae75d528cfa0aef8636b0f5a57e64a21f">Color::alt_blue</a>
+, <a class="el" href="group__color.html#gga95747189f62a0ed341c6e2579146beb7a83de4ee4cc952b668dee1eff7b86f649">Color::alt_magenta</a>
+, <a class="el" href="group__color.html#gga95747189f62a0ed341c6e2579146beb7a317a41e7965526b7aeec8610f6400efd">Color::alt_cyan</a>
+, <br />
+&#160;&#160;<a class="el" href="group__color.html#gga95747189f62a0ed341c6e2579146beb7a36ac3da3612899c7dd7cb73c7916d4e1">Color::alt_white</a>
+<br />
+ }</td></tr>
+<tr class="memdesc:ga95747189f62a0ed341c6e2579146beb7"><td class="mdescLeft">&#160;</td><td class="mdescRight">The available colors.  <a href="group__color.html#ga95747189f62a0ed341c6e2579146beb7">More...</a><br /></td></tr>
+<tr class="separator:ga95747189f62a0ed341c6e2579146beb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a655fc737bb95fe98abf20f974f594b91"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a655fc737bb95fe98abf20f974f594b91"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceutil.html#a655fc737bb95fe98abf20f974f594b91">log_mathematica</a> (T const &amp;t)</td></tr>
+<tr class="separator:a655fc737bb95fe98abf20f974f594b91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0f03b65bb3a2508b60c641d70d217cf"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ae0f03b65bb3a2508b60c641d70d217cf"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceutil.html#ae0f03b65bb3a2508b60c641d70d217cf">log_mathematica</a> (std::vector&lt; T &gt; const &amp;list)</td></tr>
+<tr class="separator:ae0f03b65bb3a2508b60c641d70d217cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b6ac241701713685956e8fed27de4df"><td class="memTemplParams" colspan="2">template&lt;typename T , typename U , typename V &gt; </td></tr>
+<tr class="memitem:a1b6ac241701713685956e8fed27de4df"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceutil.html#a1b6ac241701713685956e8fed27de4df">log_mathematica</a> (std::tuple&lt; T, U, V &gt; const &amp;tuple)</td></tr>
+<tr class="separator:a1b6ac241701713685956e8fed27de4df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8cab1ae45eab9a0aee34b31dd9b03d73"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a8cab1ae45eab9a0aee34b31dd9b03d73"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceutil.html#a8cab1ae45eab9a0aee34b31dd9b03d73">log_mathematica</a> (std::string const &amp;name, T const &amp;value)</td></tr>
+<tr class="separator:a8cab1ae45eab9a0aee34b31dd9b03d73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1b5822d8d00e0a75cd0565bd7315c579"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__color.html#ga1b5822d8d00e0a75cd0565bd7315c579">get_ansi_escape_code</a> (<a class="el" href="group__color.html#ga95747189f62a0ed341c6e2579146beb7">util::Color</a> c)</td></tr>
+<tr class="memdesc:ga1b5822d8d00e0a75cd0565bd7315c579"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the escape code for ANSI coloring.  <br /></td></tr>
+<tr class="separator:ga1b5822d8d00e0a75cd0565bd7315c579"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf5c8ff0242aa3f522145ef32a01f9f8d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__debug.html#gaf5c8ff0242aa3f522145ef32a01f9f8d">break_here</a> ()</td></tr>
+<tr class="memdesc:gaf5c8ff0242aa3f522145ef32a01f9f8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dummy function, use <a class="el" href="group__debug.html#gab4b18ba819a8b935db54eb4d4d1cd39f" title="Use to set a breakpoint for gdb.">BREAK_HERE</a> instead.  <br /></td></tr>
+<tr class="separator:gaf5c8ff0242aa3f522145ef32a01f9f8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3750a33daddaa31716f0e7114c7c7f1f"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__debug.html#ga3750a33daddaa31716f0e7114c7c7f1f">get_error_str</a> (std::string const &amp;file, int line, std::string const &amp;function_name, std::string const &amp;error_message)</td></tr>
+<tr class="memdesc:ga3750a33daddaa31716f0e7114c7c7f1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">This internal function combines the file, line, function name and error message in a nice error string.  <br /></td></tr>
+<tr class="separator:ga3750a33daddaa31716f0e7114c7c7f1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga74efcf4e8fa9fe7bc71a9b23ff57213e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__debug.html#ga74efcf4e8fa9fe7bc71a9b23ff57213e">assert_equal_fail</a> (std::string const &amp;file, int line, std::string const &amp;function, std::string const &amp;first_arg, std::string const &amp;second_arg, std::string const &amp;first_val, std::string const &amp;second_val)</td></tr>
+<tr class="memdesc:ga74efcf4e8fa9fe7bc71a9b23ff57213e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal function to pretty-print <a class="el" href="group__debug.html#ga06663ee630c22628b3fe11700767367f" title="Soft assertion, tests for X == Y">ASSERT_EQUAL</a> fail statements.  <br /></td></tr>
+<tr class="separator:ga74efcf4e8fa9fe7bc71a9b23ff57213e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6f54d49bb579c96bac3002c36dafb31e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__debug.html#ga6f54d49bb579c96bac3002c36dafb31e">assert_true_fail</a> (std::string const &amp;file, int line, std::string const &amp;function, std::string const &amp;arg)</td></tr>
+<tr class="memdesc:ga6f54d49bb579c96bac3002c36dafb31e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal function to pretty-print <a class="el" href="group__debug.html#ga142a617ae6f4d3b050faad2aa1e936bf" title="Soft assertion, tests for X being true.">ASSERT_TRUE</a> fail statements.  <br /></td></tr>
+<tr class="separator:ga6f54d49bb579c96bac3002c36dafb31e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga40f486e1e5b6f27ebaab356302399a4e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__debug.html#ga40f486e1e5b6f27ebaab356302399a4e">assert_lt_fail</a> (std::string const &amp;file, int line, std::string const &amp;function, std::string const &amp;first_arg, std::string const &amp;second_arg, std::string const &amp;first_val, std::string const &amp;second_val)</td></tr>
+<tr class="memdesc:ga40f486e1e5b6f27ebaab356302399a4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal function to pretty-print <a class="el" href="group__debug.html#ga60f45ee0c4949ef50243feb6fbb8a808" title="Soft assertion, tests for X &lt; Y">ASSERT_LT</a> fail statements.  <br /></td></tr>
+<tr class="separator:ga40f486e1e5b6f27ebaab356302399a4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabfb09cc378d570256c727b8c8bd1d558"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__debug.html#gabfb09cc378d570256c727b8c8bd1d558">assert_lte_fail</a> (std::string const &amp;file, int line, std::string const &amp;function, std::string const &amp;first_arg, std::string const &amp;second_arg, std::string const &amp;first_val, std::string const &amp;second_val)</td></tr>
+<tr class="memdesc:gabfb09cc378d570256c727b8c8bd1d558"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal function to pretty-print <a class="el" href="group__debug.html#ga638ec8e14378667db38503cf0963ed1e" title="Soft assertion, tests for X &lt;= Y">ASSERT_LTE</a> fail statements.  <br /></td></tr>
+<tr class="separator:gabfb09cc378d570256c727b8c8bd1d558"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gada5b6453a5196f71cb18a4e7442519a6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__debug.html#gada5b6453a5196f71cb18a4e7442519a6">assert_map_contains_fail</a> (std::string const &amp;file, int line, std::string const &amp;function, std::string const &amp;map_name, std::string const &amp;element_name, std::string const &amp;element_val)</td></tr>
+<tr class="memdesc:gada5b6453a5196f71cb18a4e7442519a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal function to pretty-print <a class="el" href="group__debug.html#ga210f8465ee7860ddb1b878240a2f0acf" title="Soft assertion to check that a map indeed contains an element.">ASSERT_MAP_CONTAINS</a> fail statements.  <br /></td></tr>
+<tr class="separator:gada5b6453a5196f71cb18a4e7442519a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga278923f8bcbb0bf9e61b53c64b8e57ee"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga278923f8bcbb0bf9e61b53c64b8e57ee"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if&lt; std::is_arithmetic&lt; T &gt;::value, std::string &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__serialization.html#ga278923f8bcbb0bf9e61b53c64b8e57ee">to_hex_str</a> (T const &amp;var)</td></tr>
+<tr class="memdesc:ga278923f8bcbb0bf9e61b53c64b8e57ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a numerical value into a string.  <br /></td></tr>
+<tr class="separator:ga278923f8bcbb0bf9e61b53c64b8e57ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaee04cbdd41ec3e18d251661537a7e89b"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
+<tr class="memitem:gaee04cbdd41ec3e18d251661537a7e89b"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__serialization.html#gaee04cbdd41ec3e18d251661537a7e89b">to_hex_str</a> (<a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> const &amp;index)</td></tr>
+<tr class="memdesc:gaee04cbdd41ec3e18d251661537a7e89b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specialization to appropriately convert an <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e" title="Use for anything meant to be used as an index.">Index</a> into a string.  <br /></td></tr>
+<tr class="separator:gaee04cbdd41ec3e18d251661537a7e89b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac0b20ed70aed9c4be0d8151792c71907"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
+<tr class="memitem:gac0b20ed70aed9c4be0d8151792c71907"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__serialization.html#gac0b20ed70aed9c4be0d8151792c71907">to_hex_str</a> (uint8_t const &amp;outcome)</td></tr>
+<tr class="memdesc:gac0b20ed70aed9c4be0d8151792c71907"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specialization to appropriately convert an <a class="el" href="group__event.html#gadcaa27c4242b65837f0f7a00e96856d4" title="An outcome is stored in the smallest format available to save memory.">inf::Outcome</a> into a string.  <br /></td></tr>
+<tr class="separator:gac0b20ed70aed9c4be0d8151792c71907"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga78726e533c1b8b2879a515350c6c2a99"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga78726e533c1b8b2879a515350c6c2a99"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if&lt; std::is_arithmetic&lt; T &gt;::value, void &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__serialization.html#ga78726e533c1b8b2879a515350c6c2a99">read_hex_str</a> (T &amp;var, std::string const &amp;<a class="el" href="group__str.html#ga6948292bb3a41f65610efe2f043a1f1e">str</a>)</td></tr>
+<tr class="memdesc:ga78726e533c1b8b2879a515350c6c2a99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads a numerical value from a hexadecimal string.  <br /></td></tr>
+<tr class="separator:ga78726e533c1b8b2879a515350c6c2a99"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga52d52d30401e6facdf7c6bd575628e7d"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
+<tr class="memitem:ga52d52d30401e6facdf7c6bd575628e7d"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__serialization.html#ga52d52d30401e6facdf7c6bd575628e7d">read_hex_str</a> (<a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> &amp;var, std::string const &amp;<a class="el" href="group__str.html#ga6948292bb3a41f65610efe2f043a1f1e">str</a>)</td></tr>
+<tr class="memdesc:ga52d52d30401e6facdf7c6bd575628e7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specialization to appropriately read an <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e" title="Use for anything meant to be used as an index.">Index</a> from a string.  <br /></td></tr>
+<tr class="separator:ga52d52d30401e6facdf7c6bd575628e7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5fa7914d29158187af53266fd0ca2f93"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
+<tr class="memitem:ga5fa7914d29158187af53266fd0ca2f93"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__serialization.html#ga5fa7914d29158187af53266fd0ca2f93">read_hex_str</a> (uint8_t &amp;var, std::string const &amp;<a class="el" href="group__str.html#ga6948292bb3a41f65610efe2f043a1f1e">str</a>)</td></tr>
+<tr class="memdesc:ga5fa7914d29158187af53266fd0ca2f93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specialization to appropriately read an <a class="el" href="group__event.html#gadcaa27c4242b65837f0f7a00e96856d4" title="An outcome is stored in the smallest format available to save memory.">inf::Outcome</a> from a string.  <br /></td></tr>
+<tr class="separator:ga5fa7914d29158187af53266fd0ca2f93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga90e9eed047f3bebb56929d5b1a5518b2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classutil_1_1Logger_1_1WidthManip.html">util::Logger::WidthManip</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__printing.html#ga90e9eed047f3bebb56929d5b1a5518b2">setw</a> (int width)</td></tr>
+<tr class="memdesc:ga90e9eed047f3bebb56929d5b1a5518b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used as <code><a class="el" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678" title="The globally accessible logger replacing std::cout">util::logger</a> &lt;&lt; util::setw(5) &lt;&lt; "a"</code> to print <code>"____a"</code> (four spaces before "a")  <br /></td></tr>
+<tr class="separator:ga90e9eed047f3bebb56929d5b1a5518b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga87f996f8102e604181f04025d1e98c32"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__printing.html#ga87f996f8102e604181f04025d1e98c32">phantom</a> (std::string const &amp;<a class="el" href="group__str.html#ga6948292bb3a41f65610efe2f043a1f1e">str</a>)</td></tr>
+<tr class="memdesc:ga87f996f8102e604181f04025d1e98c32"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used as <code><a class="el" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678" title="The globally accessible logger replacing std::cout">util::logger</a> &lt;&lt; <a class="el" href="group__printing.html#ga87f996f8102e604181f04025d1e98c32" title="Used as util::logger &lt;&lt; util::phantom(&quot;bonjour&quot;) to print 7 spaces.">util::phantom</a>("bonjour")</code> to print 7 spaces.  <br /></td></tr>
+<tr class="separator:ga87f996f8102e604181f04025d1e98c32"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3447a5426739557886c9472646c4716f"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga3447a5426739557886c9472646c4716f"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__maths.html#ga3447a5426739557886c9472646c4716f">factorial</a> (T n)</td></tr>
+<tr class="memdesc:ga3447a5426739557886c9472646c4716f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factorial of integer-like types.  <br /></td></tr>
+<tr class="separator:ga3447a5426739557886c9472646c4716f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga860effafb2a36ac348511a4b5a8b3635"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga860effafb2a36ac348511a4b5a8b3635"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__maths.html#ga860effafb2a36ac348511a4b5a8b3635">pow</a> (T x, T n)</td></tr>
+<tr class="memdesc:ga860effafb2a36ac348511a4b5a8b3635"><td class="mdescLeft">&#160;</td><td class="mdescRight">Integer powers of arithmetic types.  <br /></td></tr>
+<tr class="separator:ga860effafb2a36ac348511a4b5a8b3635"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga266718faaef8cd994ace2b9403c166ff"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga266718faaef8cd994ace2b9403c166ff"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__maths.html#ga266718faaef8cd994ace2b9403c166ff">sum</a> (std::vector&lt; T &gt; const &amp;vec)</td></tr>
+<tr class="memdesc:ga266718faaef8cd994ace2b9403c166ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sums the element of a std::vector.  <br /></td></tr>
+<tr class="separator:ga266718faaef8cd994ace2b9403c166ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0ec0dd2f5070d554ff8b3e841ac085ab"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga0ec0dd2f5070d554ff8b3e841ac085ab"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__maths.html#ga0ec0dd2f5070d554ff8b3e841ac085ab">norm_squared</a> (std::vector&lt; T &gt; const &amp;vec)</td></tr>
+<tr class="memdesc:ga0ec0dd2f5070d554ff8b3e841ac085ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sums the squares of the elements of a list.  <br /></td></tr>
+<tr class="separator:ga0ec0dd2f5070d554ff8b3e841ac085ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga475f5ede6d565c21e62b3c9da2b9a21f"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga475f5ede6d565c21e62b3c9da2b9a21f"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__maths.html#ga475f5ede6d565c21e62b3c9da2b9a21f">inner_product</a> (std::vector&lt; T &gt; const &amp;v1, std::vector&lt; T &gt; const &amp;v2)</td></tr>
+<tr class="memdesc:ga475f5ede6d565c21e62b3c9da2b9a21f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dot product.  <br /></td></tr>
+<tr class="separator:ga475f5ede6d565c21e62b3c9da2b9a21f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga471f884a53ac13896c9c545f6aa07855"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga471f884a53ac13896c9c545f6aa07855"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__maths.html#ga471f884a53ac13896c9c545f6aa07855">simplify_by_gcd</a> (std::vector&lt; T &gt; &amp;vec)</td></tr>
+<tr class="memdesc:ga471f884a53ac13896c9c545f6aa07855"><td class="mdescLeft">&#160;</td><td class="mdescRight">Divides each entry by the greatest common divisor of all of the entries.  <br /></td></tr>
+<tr class="separator:ga471f884a53ac13896c9c545f6aa07855"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga54cd5330e2d40c6b2d8a104a91ac0882"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga54cd5330e2d40c6b2d8a104a91ac0882"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__misc.html#ga54cd5330e2d40c6b2d8a104a91ac0882">pop_back</a> (std::vector&lt; T &gt; &amp;container)</td></tr>
+<tr class="memdesc:ga54cd5330e2d40c6b2d8a104a91ac0882"><td class="mdescLeft">&#160;</td><td class="mdescRight">The STL <a class="el" href="group__misc.html#ga54cd5330e2d40c6b2d8a104a91ac0882" title="The STL pop_back() function does not return the value of the element popped, this one does.">pop_back()</a> function does not return the value of the element popped, this one does.  <br /></td></tr>
+<tr class="separator:ga54cd5330e2d40c6b2d8a104a91ac0882"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr class="memitem:ga6948292bb3a41f65610efe2f043a1f1e"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga6948292bb3a41f65610efe2f043a1f1e"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__str.html#ga6948292bb3a41f65610efe2f043a1f1e">str</a> (T const &amp;x)</td></tr>
+<tr class="memdesc:ga6948292bb3a41f65610efe2f043a1f1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The default for std::to_string()-compatible types, e.g., int, double, etc.  <br /></td></tr>
+<tr class="separator:ga6948292bb3a41f65610efe2f043a1f1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga08bcc3fab3aa8d6e9b97eaed48df66ef"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
+<tr class="memitem:ga08bcc3fab3aa8d6e9b97eaed48df66ef"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__str.html#ga08bcc3fab3aa8d6e9b97eaed48df66ef">str</a> (double const &amp;x)</td></tr>
+<tr class="memdesc:ga08bcc3fab3aa8d6e9b97eaed48df66ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specialization for double to get scientific notation.  <br /></td></tr>
+<tr class="separator:ga08bcc3fab3aa8d6e9b97eaed48df66ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf0809d1f7ea5a311c9149797eaa1086d"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
+<tr class="memitem:gaf0809d1f7ea5a311c9149797eaa1086d"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__str.html#gaf0809d1f7ea5a311c9149797eaa1086d">str</a> (bool const &amp;b)</td></tr>
+<tr class="memdesc:gaf0809d1f7ea5a311c9149797eaa1086d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specialization for bool to get <code>true</code> or <code>false</code>  <br /></td></tr>
+<tr class="separator:gaf0809d1f7ea5a311c9149797eaa1086d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafef4beaa8b542de219ba13312111cecc"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
+<tr class="memitem:gafef4beaa8b542de219ba13312111cecc"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__str.html#gafef4beaa8b542de219ba13312111cecc">str</a> (std::string const &amp;string)</td></tr>
+<tr class="memdesc:gafef4beaa8b542de219ba13312111cecc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specialize to std::string to trivially return argument.  <br /></td></tr>
+<tr class="separator:gafef4beaa8b542de219ba13312111cecc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga52de3f433a92872f53959b24f4102897"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__str.html#ga52de3f433a92872f53959b24f4102897">str</a> (char const *string)</td></tr>
+<tr class="memdesc:ga52de3f433a92872f53959b24f4102897"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specialize to <code>char const*</code>  <br /></td></tr>
+<tr class="separator:ga52de3f433a92872f53959b24f4102897"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf0589dfa0cf7b7dcf19ee325fba5221e"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:gaf0589dfa0cf7b7dcf19ee325fba5221e"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__str.html#gaf0589dfa0cf7b7dcf19ee325fba5221e">str</a> (std::vector&lt; T &gt; const &amp;vec)</td></tr>
+<tr class="memdesc:gaf0589dfa0cf7b7dcf19ee325fba5221e"><td class="mdescLeft">&#160;</td><td class="mdescRight">To stringify <code>std::vector&lt;T&gt;</code>  <br /></td></tr>
+<tr class="separator:gaf0589dfa0cf7b7dcf19ee325fba5221e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad30fcd5aeab70e9ce580d61cdfa2d8e8"><td class="memTemplParams" colspan="2">template&lt;typename T , typename U &gt; </td></tr>
+<tr class="memitem:gad30fcd5aeab70e9ce580d61cdfa2d8e8"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__str.html#gad30fcd5aeab70e9ce580d61cdfa2d8e8">str</a> (std::pair&lt; T, U &gt; const &amp;pair)</td></tr>
+<tr class="memdesc:gad30fcd5aeab70e9ce580d61cdfa2d8e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">To stringify pairs.  <br /></td></tr>
+<tr class="separator:gad30fcd5aeab70e9ce580d61cdfa2d8e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4336eb94aa92e5fa3a78ffa35198d775"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__str.html#ga4336eb94aa92e5fa3a78ffa35198d775">remove_spaces</a> (std::string const &amp;s)</td></tr>
+<tr class="memdesc:ga4336eb94aa92e5fa3a78ffa35198d775"><td class="mdescLeft">&#160;</td><td class="mdescRight">To remove the spaces of a string.  <br /></td></tr>
+<tr class="separator:ga4336eb94aa92e5fa3a78ffa35198d775"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:ga4c77d1dedfe3a5b95abc21d13d7cd678"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classutil_1_1Logger.html">util::Logger</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">logger</a></td></tr>
+<tr class="memdesc:ga4c77d1dedfe3a5b95abc21d13d7cd678"><td class="mdescLeft">&#160;</td><td class="mdescRight">The globally accessible logger replacing <code>std::cout</code>  <br /></td></tr>
+<tr class="separator:ga4c77d1dedfe3a5b95abc21d13d7cd678"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga658d6b62f7620918ba2edb42f287efb3"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classutil_1_1Logger.html#a7050ffd6e9fcaa8bbb4ac9f2aa29b043">util::Logger::Action</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__printing.html#ga658d6b62f7620918ba2edb42f287efb3">flush</a> = util::Logger::Action::flush</td></tr>
+<tr class="memdesc:ga658d6b62f7620918ba2edb42f287efb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flush.  <br /></td></tr>
+<tr class="separator:ga658d6b62f7620918ba2edb42f287efb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad044940d41835be0baff2d20415c1536"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classutil_1_1Logger.html#a7050ffd6e9fcaa8bbb4ac9f2aa29b043">util::Logger::Action</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__printing.html#gad044940d41835be0baff2d20415c1536">endl</a> = util::Logger::Action::endl</td></tr>
+<tr class="memdesc:gad044940d41835be0baff2d20415c1536"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flush and newline.  <br /></td></tr>
+<tr class="separator:gad044940d41835be0baff2d20415c1536"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3f8fe48536ee19c54002c9c1db64cabb"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classutil_1_1Logger.html#a7050ffd6e9fcaa8bbb4ac9f2aa29b043">util::Logger::Action</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__printing.html#ga3f8fe48536ee19c54002c9c1db64cabb">cr</a> = util::Logger::Action::cr</td></tr>
+<tr class="memdesc:ga3f8fe48536ee19c54002c9c1db64cabb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Newline.  <br /></td></tr>
+<tr class="separator:ga3f8fe48536ee19c54002c9c1db64cabb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga91047ddaf85b4652a50b89c5c9755317"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classutil_1_1Logger.html#a7050ffd6e9fcaa8bbb4ac9f2aa29b043">util::Logger::Action</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__printing.html#ga91047ddaf85b4652a50b89c5c9755317">begin_section</a> = util::Logger::Action::begin_section</td></tr>
+<tr class="memdesc:ga91047ddaf85b4652a50b89c5c9755317"><td class="mdescLeft">&#160;</td><td class="mdescRight">Increase indentation.  <br /></td></tr>
+<tr class="separator:ga91047ddaf85b4652a50b89c5c9755317"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae4f7a470686ffa2352173b5c0b486623"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classutil_1_1Logger.html#a7050ffd6e9fcaa8bbb4ac9f2aa29b043">util::Logger::Action</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__printing.html#gae4f7a470686ffa2352173b5c0b486623">end_section</a> = util::Logger::Action::end_section</td></tr>
+<tr class="memdesc:gae4f7a470686ffa2352173b5c0b486623"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decrease indentation.  <br /></td></tr>
+<tr class="separator:gae4f7a470686ffa2352173b5c0b486623"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7a41ac278da6dce6a9c081977d573a51"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classutil_1_1Logger.html#a7050ffd6e9fcaa8bbb4ac9f2aa29b043">util::Logger::Action</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__printing.html#ga7a41ac278da6dce6a9c081977d573a51">left</a> = util::Logger::Action::left</td></tr>
+<tr class="memdesc:ga7a41ac278da6dce6a9c081977d573a51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Align the next call to <a class="el" href="group__printing.html#ga90e9eed047f3bebb56929d5b1a5518b2" title="Used as util::logger &lt;&lt; util::setw(5) &lt;&lt; &quot;a&quot; to print &quot;____a&quot; (four spaces before &quot;a&quot;)">util::setw()</a> to the left.  <br /></td></tr>
+<tr class="separator:ga7a41ac278da6dce6a9c081977d573a51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga03b623ada421513032157fd73d43863c"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classutil_1_1Logger.html#a7050ffd6e9fcaa8bbb4ac9f2aa29b043">util::Logger::Action</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__printing.html#ga03b623ada421513032157fd73d43863c">right</a> = util::Logger::Action::right</td></tr>
+<tr class="memdesc:ga03b623ada421513032157fd73d43863c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Align the next call to <a class="el" href="group__printing.html#ga90e9eed047f3bebb56929d5b1a5518b2" title="Used as util::logger &lt;&lt; util::setw(5) &lt;&lt; &quot;a&quot; to print &quot;____a&quot; (four spaces before &quot;a&quot;)">util::setw()</a> to the right.  <br /></td></tr>
+<tr class="separator:ga03b623ada421513032157fd73d43863c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3ec724aee4926e314039a1715f3844c9"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classutil_1_1Logger.html#a7050ffd6e9fcaa8bbb4ac9f2aa29b043">util::Logger::Action</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__printing.html#ga3ec724aee4926e314039a1715f3844c9">reset_indent</a> = util::Logger::Action::reset_indent</td></tr>
+<tr class="memdesc:ga3ec724aee4926e314039a1715f3844c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset indentation to zero.  <br /></td></tr>
+<tr class="separator:ga3ec724aee4926e314039a1715f3844c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac5ec9420a30c005fbdf110810dc0765a"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classutil_1_1Logger.html#a7050ffd6e9fcaa8bbb4ac9f2aa29b043">util::Logger::Action</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__printing.html#gac5ec9420a30c005fbdf110810dc0765a">wait</a> = util::Logger::Action::wait</td></tr>
+<tr class="memdesc:gac5ec9420a30c005fbdf110810dc0765a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pause the execution of the program, internally calling <code>std::cin</code>  <br /></td></tr>
+<tr class="separator:gac5ec9420a30c005fbdf110810dc0765a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7d731f43f6d60e3846cbdbd55eaeed2e"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="group__color.html#ga95747189f62a0ed341c6e2579146beb7">util::Color</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__printing.html#ga7d731f43f6d60e3846cbdbd55eaeed2e">begin_comment</a> = <a class="el" href="group__color.html#gga95747189f62a0ed341c6e2579146beb7a4b941312e74e20a2bea068c855193141">util::Color::alt_black</a></td></tr>
+<tr class="memdesc:ga7d731f43f6d60e3846cbdbd55eaeed2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dimmed color.  <br /></td></tr>
+<tr class="separator:ga7d731f43f6d60e3846cbdbd55eaeed2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadf8906b27dc371eaf882b3b3b5639495"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="group__color.html#ga95747189f62a0ed341c6e2579146beb7">util::Color</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__printing.html#gadf8906b27dc371eaf882b3b3b5639495">end_comment</a> = <a class="el" href="group__color.html#gga95747189f62a0ed341c6e2579146beb7a3d4044d65abdda407a92991f1300ec97">util::Color::fg</a></td></tr>
+<tr class="memdesc:gadf8906b27dc371eaf882b3b3b5639495"><td class="mdescLeft">&#160;</td><td class="mdescRight">End dimmed color.  <br /></td></tr>
+<tr class="separator:gadf8906b27dc371eaf882b3b3b5639495"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>The namespace for general purpose code, not specifically related to inflation. </p>
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="a655fc737bb95fe98abf20f974f594b91" name="a655fc737bb95fe98abf20f974f594b91"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a655fc737bb95fe98abf20f974f594b91">&#9670;&#160;</a></span>log_mathematica() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void util::log_mathematica </td>
+          <td>(</td>
+          <td class="paramtype">T const &amp;&#160;</td>
+          <td class="paramname"><em>t</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="misc_8cpp_source.html#l00358">358</a> of file <a class="el" href="misc_8cpp_source.html">misc.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ae0f03b65bb3a2508b60c641d70d217cf" name="ae0f03b65bb3a2508b60c641d70d217cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0f03b65bb3a2508b60c641d70d217cf">&#9670;&#160;</a></span>log_mathematica() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void util::log_mathematica </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; T &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>list</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="misc_8cpp_source.html#l00375">375</a> of file <a class="el" href="misc_8cpp_source.html">misc.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a1b6ac241701713685956e8fed27de4df" name="a1b6ac241701713685956e8fed27de4df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b6ac241701713685956e8fed27de4df">&#9670;&#160;</a></span>log_mathematica() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename U , typename V &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void util::log_mathematica </td>
+          <td>(</td>
+          <td class="paramtype">std::tuple&lt; T, U, V &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>tuple</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="misc_8cpp_source.html#l00365">365</a> of file <a class="el" href="misc_8cpp_source.html">misc.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a8cab1ae45eab9a0aee34b31dd9b03d73" name="a8cab1ae45eab9a0aee34b31dd9b03d73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8cab1ae45eab9a0aee34b31dd9b03d73">&#9670;&#160;</a></span>log_mathematica() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void util::log_mathematica </td>
+          <td>(</td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T const &amp;&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="misc_8cpp_source.html#l00388">388</a> of file <a class="el" href="misc_8cpp_source.html">misc.cpp</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceutil.html">util</a></li>
+    <li class="footer">Generated on Wed Dec 18 2024 17:39:46 for Fast Inflation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

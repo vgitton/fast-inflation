@@ -1,0 +1,244 @@
+<!-- HTML header for doxygen 1.9.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Fast Inflation: Member List</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+MathJax.Hub.Config({
+    TeX: {
+        Macros: {
+            dd: ["{\\text{d}#1\\,}",1],
+            nouts: ["{n_{\\text{o}}}"],
+            ints: ["{[\\![#1]\\!]}",1],
+            outset: ["{\\ints{\\nouts}}"],
+            N: ["{\\mathbb{N}}"],
+            R: ["{\\mathbb{R}}"],
+            Z: ["{\\mathbb{Z}}"],
+            infsize: ["{z}"],
+            infparties: ["{\\set{I}}"],
+            infsources: ["{\\set{S}}"],
+            infmarg: ["{\\set{A}}"],
+            infmargg: ["{\\set{B}}"],
+            netparties: ["{\\set{N}}"],
+            infq: ["{q}"],
+            infqs: ["{\\Delta_{\\infparties}}"],
+            constraintlist: ["{\\mathcal{C}}"],
+            injsets: ["{\\text{InjSets}}"],
+            infconstraints: ["{\\text{InfCons}}"],
+            parents: ["{\\text{Par}}"],
+            targetp: ["{p}"],
+            targetps: ["{\\Delta_{\\netparties}}"],
+            set: ["{\\mathbf{#1}}",1],
+            type: ["{t}"],
+            infevent: "{\\omega}",
+            events: ["{\\Omega_{#1}}",1],
+            infevents: ["{\\events{\\infparties}}"],
+            redinfevents: ["{\\tilde{\\Omega}_{\\infparties}}"],
+            netevents: ["{\\events{\\netparties}}"],
+            vecset: ["{V_{#1}}",1],
+            alice: ["{\\text{A}}"],
+            bob: ["{\\text{B}}"],
+            charlie: ["{\\text{C}}"],
+            symgroup: ["{\\text{Sym}(#1)}",1],
+            shortsymgroup: ["{\\text{Sym}_{#1}}",1],
+            act: ["{(#1\\hspace{2pt}{:}\\hspace{2pt}#2)}",2],
+            actt: ["{[#1\\hspace{2pt}{:}\\hspace{2pt}#2]}",2],
+            margperms: ["{\\text{Perm}_{#1}}",1],
+            permutedmargs: ["{\\mathbb{P}_{#1}^{\\targetp}}",1],
+            redpermutedmargs: ["{\\tilde{\\mathbb{P}}_{#1}^{\\constraintname,\\targetp}}",1],
+            extract: ["{\\text{ext}(#1,#2)}",2],
+            partysym: ["{\\tau}"],
+            sourcesym: ["{\\xi}"],
+            outsym: ["{\\sigma}"],
+            fullgroup: ["{\\text{InfGrp}}"],
+            partygroup : ["{\\text{PartyGrp}}"],
+            outgroup: ["{\\text{OutGrp}}"],
+            sourcegroup: ["{\\text{SrcGrp}}"],
+            distrgroup: ["{\\mathbb{G}^\\targetp}"],
+            constraintname: ["{c}"],
+            marggroup: ["{\\mathbb{G}^{\\constraintname,\\targetp}}"],
+            fullsymexpl: ["{(\\sourcesym,\\partysym,\\outsym)}"],
+            inner: ["{\\langle#1,#2\\rangle}", 2],
+            quovec: ["{f}"],
+            totconstraintmap: ["{K^{\\constraintlist,\\targetp}}"],
+            totconstraintmapelem: ["{K^{\\constraintname,\\targetp}}"],
+            quovecspace: ["{\\tilde{V}_{#1}^{\\constraintname,\\targetp}}", 1],
+            totquovecspace: ["{\\text{ConsSpace}(\\constraintlist,\\targetp)}"],
+            detdistr: ["{\\delta^{#1}}", 1],
+            margperm: ["{\\varphi}"],
+            altquovecembed: ["{\\text{G}_{#1}^{\\constraintname,\\targetp}}", 1],
+            vecset: ["{V_{#1}}", 1],
+            repr: ["{\\lfloor#1\\rfloor}", 1],
+            gid: ["{\\text{id}}"],
+            id: ["{1_{#1}}",1],
+            consscale: ["{K}"],
+            scaletot: ["{K_{\\text{tot}}^{\\constraintlist,\\targetp}}"],
+            minnorm: ["{d}"],
+            Bigsetst: ["\\;\\Big|\\;"],
+            activeset: ["\\mathcal{S}"],
+            conv: ["\\text{conv}"],
+            lVert: ["|\\hspace{-1pt}|"],
+            norm: ["\\lVert#1\\lVert", 1],
+            st: [":\ "],
+        }
+    }
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeDarkModeToggle.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeParagraphLink.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Fast Inflation
+   </div>
+   <div id="projectbrief">To certify causal incompatibility</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classinf_1_1Constraint.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">inf::Constraint Member List</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>This is the complete list of members for <a class="el" href="classinf_1_1Constraint.html">inf::Constraint</a>, including all inherited members.</p>
+<table class="directory">
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1Constraint.html#aeb16da1375506748a807a96b51c2fcda">compute_inflation_event_quovec</a>(inf::Event const &amp;inflation_event, inf::Quovec &amp;ret, const Index offset) const</td><td class="entry"><a class="el" href="classinf_1_1Constraint.html">inf::Constraint</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1Constraint.html#a049b3a91fc3fb6dab93951a10c61c4d3">Constraint</a>(inf::Inflation::ConstPtr const &amp;inflation, inf::Constraint::Description const &amp;description, inf::DualVector::StoreBounds store_bounds)</td><td class="entry"><a class="el" href="classinf_1_1Constraint.html">inf::Constraint</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1Constraint.html#a9af530da5633c7e8d6ee25e29488b715">Description</a> typedef</td><td class="entry"><a class="el" href="classinf_1_1Constraint.html">inf::Constraint</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1Constraint.html#a34a857617723361d4646c14b34412f8a">EvaluatorPair</a> typedef</td><td class="entry"><a class="el" href="classinf_1_1Constraint.html">inf::Constraint</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1Constraint.html#a0f7a0a8d15cfabd25c7804f632412960">get_constraint_group</a>(inf::Inflation const &amp;inflation, std::vector&lt; Index &gt; const &amp;lhs_marg, std::vector&lt; Index &gt; const &amp;rhs_marg)</td><td class="entry"><a class="el" href="classinf_1_1Constraint.html">inf::Constraint</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1Constraint.html#a3647bf14ff19b0e558085229637daa94">get_dual_vector</a>() const</td><td class="entry"><a class="el" href="classinf_1_1Constraint.html">inf::Constraint</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1Constraint.html#a97d36dee33389f270e1828cc462b4e2d">get_lhs_denom</a>() const</td><td class="entry"><a class="el" href="classinf_1_1Constraint.html">inf::Constraint</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1Constraint.html#aa0dde43c2cd089b9592663b1b8b81a99">get_marg_evaluators</a>() const</td><td class="entry"><a class="el" href="classinf_1_1Constraint.html">inf::Constraint</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1Constraint.html#a73d6c2cb02840f2daa8055da69dd86a9">get_pretty_description</a>() const</td><td class="entry"><a class="el" href="classinf_1_1Constraint.html">inf::Constraint</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1Constraint.html#ad6c6fddb7d2df3e72aa29e81697c210e">get_quovec_size</a>() const</td><td class="entry"><a class="el" href="classinf_1_1Constraint.html">inf::Constraint</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1Constraint.html#a4edba80a718e5a147f47b6288abd0e55">get_rhs_denom</a>() const</td><td class="entry"><a class="el" href="classinf_1_1Constraint.html">inf::Constraint</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1Constraint.html#ad805b58479b154d4c129ab4d3026d2fa">io_dual_vector</a>(util::FileStream &amp;stream)</td><td class="entry"><a class="el" href="classinf_1_1Constraint.html">inf::Constraint</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1Constraint.html#a41ff765b03f20de8c752f3387059754f">log</a>() const override</td><td class="entry"><a class="el" href="classinf_1_1Constraint.html">inf::Constraint</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1Constraint.html#afc8de0049be481bc67ce9752bc380303">m_constraint_group</a></td><td class="entry"><a class="el" href="classinf_1_1Constraint.html">inf::Constraint</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1Constraint.html#adf339fc0428a07eb4cfc1fa0db0df617">m_inflation</a></td><td class="entry"><a class="el" href="classinf_1_1Constraint.html">inf::Constraint</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1Constraint.html#af674b22f045e2b876deeae5a4193a5ea">m_lhs_dual_vector</a></td><td class="entry"><a class="el" href="classinf_1_1Constraint.html">inf::Constraint</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1Constraint.html#a9edd7cb8eff07cd149f982cb9203f798">m_lhs_inflation_marginal</a></td><td class="entry"><a class="el" href="classinf_1_1Constraint.html">inf::Constraint</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1Constraint.html#a8f7342fef529b25a81574fa6bf970afa">m_lhs_scale</a></td><td class="entry"><a class="el" href="classinf_1_1Constraint.html">inf::Constraint</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1Constraint.html#a539137d741d4a2a40a68cb38bf818379">m_pretty_description</a></td><td class="entry"><a class="el" href="classinf_1_1Constraint.html">inf::Constraint</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1Constraint.html#aca39c9e1f819a081bacba3f787bb3980">m_rhs_inflation_marginal</a></td><td class="entry"><a class="el" href="classinf_1_1Constraint.html">inf::Constraint</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1Constraint.html#a2218be49df2addaa6c5a67fc4b9c339d">m_rhs_reduced_dual_vector</a></td><td class="entry"><a class="el" href="classinf_1_1Constraint.html">inf::Constraint</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1Constraint.html#ad26c77e4a989bd9462d3c913e5199580">m_rhs_scale</a></td><td class="entry"><a class="el" href="classinf_1_1Constraint.html">inf::Constraint</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1Constraint.html#ad9f309029d0996c3b48f7ccafc5bb9a5">m_rhs_target_tensor</a></td><td class="entry"><a class="el" href="classinf_1_1Constraint.html">inf::Constraint</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1Constraint.html#a07223a450813df868f5983703eae9669">m_target_distribution_fixed</a></td><td class="entry"><a class="el" href="classinf_1_1Constraint.html">inf::Constraint</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1Constraint.html#a21abb33e7aa6efe043a820dfb80c8df0">m_target_marginal_names</a></td><td class="entry"><a class="el" href="classinf_1_1Constraint.html">inf::Constraint</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1Constraint.html#ac5ff3d4a18c462871a48cc31490c0a42">pretty_description</a>(inf::Constraint::Description description)</td><td class="entry"><a class="el" href="classinf_1_1Constraint.html">inf::Constraint</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1Constraint.html#a6a27630bf9bb6e380855e7890e935a52">set_dual_vector_from_quovec</a>(inf::Quovec const &amp;coeffs, const Index start_pos)</td><td class="entry"><a class="el" href="classinf_1_1Constraint.html">inf::Constraint</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1Constraint.html#aa3cfad75e0439bedfb7c0a53d80842ca">set_lhs_scale</a>(Num scale)</td><td class="entry"><a class="el" href="classinf_1_1Constraint.html">inf::Constraint</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1Constraint.html#a33dfeb0c7d160891d5777406af88e277">set_rhs_scale</a>(Num scale)</td><td class="entry"><a class="el" href="classinf_1_1Constraint.html">inf::Constraint</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1Constraint.html#ae4fb3329cf68a6bfb3635e5a22c94547">set_target_distribution</a>(inf::TargetDistr const &amp;d)</td><td class="entry"><a class="el" href="classinf_1_1Constraint.html">inf::Constraint</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1Constraint.html#a56940861a7bffd338a899402c949c6c9">UniquePtr</a> typedef</td><td class="entry"><a class="el" href="classinf_1_1Constraint.html">inf::Constraint</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1Constraint.html#a85d494666c97f66178fa37ef7f91edd2">update_rhs_reduced_dual_vector</a>()</td><td class="entry"><a class="el" href="classinf_1_1Constraint.html">inf::Constraint</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+</table></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Wed Dec 18 2024 17:39:41 for Fast Inflation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

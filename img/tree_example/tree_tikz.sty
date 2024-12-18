@@ -1,0 +1,33 @@
+
+\usepackage{tikz}
+
+\usetikzlibrary{
+    arrows.meta,
+    tikzmark,
+    shapes.geometric,
+    shapes.misc,
+    positioning,
+    shadings,
+    shadows,
+    calc,
+    scopes,
+    decorations.pathreplacing,
+    decorations.pathmorphing
+}
+
+\usepackage{xcolor}
+
+\definecolor{yellow}{HTML}{F2C078}
+\definecolor{pink}{HTML}{CC7E85}
+\definecolor{red}{HTML}{CA1551}
+\definecolor{green}{HTML}{1B998B}
+\definecolor{blue}{HTML}{235789}
+
+\newcommand{\centertikz}[1]{\ \vcenter{\hbox{\begin{tikzpicture}#1\end{tikzpicture}}}\ }
+
+\newenvironment{absolutetikz}[1][]{\begin{tikzpicture}[remember picture,overlay,shift={(current page.center)}]
+    \begin{scope}[#1]
+}{\end{scope}\end{tikzpicture}}
+
+\tikzstyle{tree node} = [draw=yellow,fill=yellow!5,inner sep=2pt,circle]
+\tikzstyle{tree edge} = [draw=black!60,line width=0.8pt,arrows={->}]

@@ -1,0 +1,315 @@
+<!-- HTML header for doxygen 1.9.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Fast Inflation: src/inf/events/event_tensor.h Source File</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+MathJax.Hub.Config({
+    TeX: {
+        Macros: {
+            dd: ["{\\text{d}#1\\,}",1],
+            nouts: ["{n_{\\text{o}}}"],
+            ints: ["{[\\![#1]\\!]}",1],
+            outset: ["{\\ints{\\nouts}}"],
+            N: ["{\\mathbb{N}}"],
+            R: ["{\\mathbb{R}}"],
+            Z: ["{\\mathbb{Z}}"],
+            infsize: ["{z}"],
+            infparties: ["{\\set{I}}"],
+            infsources: ["{\\set{S}}"],
+            infmarg: ["{\\set{A}}"],
+            infmargg: ["{\\set{B}}"],
+            netparties: ["{\\set{N}}"],
+            infq: ["{q}"],
+            infqs: ["{\\Delta_{\\infparties}}"],
+            constraintlist: ["{\\mathcal{C}}"],
+            injsets: ["{\\text{InjSets}}"],
+            infconstraints: ["{\\text{InfCons}}"],
+            parents: ["{\\text{Par}}"],
+            targetp: ["{p}"],
+            targetps: ["{\\Delta_{\\netparties}}"],
+            set: ["{\\mathbf{#1}}",1],
+            type: ["{t}"],
+            infevent: "{\\omega}",
+            events: ["{\\Omega_{#1}}",1],
+            infevents: ["{\\events{\\infparties}}"],
+            redinfevents: ["{\\tilde{\\Omega}_{\\infparties}}"],
+            netevents: ["{\\events{\\netparties}}"],
+            vecset: ["{V_{#1}}",1],
+            alice: ["{\\text{A}}"],
+            bob: ["{\\text{B}}"],
+            charlie: ["{\\text{C}}"],
+            symgroup: ["{\\text{Sym}(#1)}",1],
+            shortsymgroup: ["{\\text{Sym}_{#1}}",1],
+            act: ["{(#1\\hspace{2pt}{:}\\hspace{2pt}#2)}",2],
+            actt: ["{[#1\\hspace{2pt}{:}\\hspace{2pt}#2]}",2],
+            margperms: ["{\\text{Perm}_{#1}}",1],
+            permutedmargs: ["{\\mathbb{P}_{#1}^{\\targetp}}",1],
+            redpermutedmargs: ["{\\tilde{\\mathbb{P}}_{#1}^{\\constraintname,\\targetp}}",1],
+            extract: ["{\\text{ext}(#1,#2)}",2],
+            partysym: ["{\\tau}"],
+            sourcesym: ["{\\xi}"],
+            outsym: ["{\\sigma}"],
+            fullgroup: ["{\\text{InfGrp}}"],
+            partygroup : ["{\\text{PartyGrp}}"],
+            outgroup: ["{\\text{OutGrp}}"],
+            sourcegroup: ["{\\text{SrcGrp}}"],
+            distrgroup: ["{\\mathbb{G}^\\targetp}"],
+            constraintname: ["{c}"],
+            marggroup: ["{\\mathbb{G}^{\\constraintname,\\targetp}}"],
+            fullsymexpl: ["{(\\sourcesym,\\partysym,\\outsym)}"],
+            inner: ["{\\langle#1,#2\\rangle}", 2],
+            quovec: ["{f}"],
+            totconstraintmap: ["{K^{\\constraintlist,\\targetp}}"],
+            totconstraintmapelem: ["{K^{\\constraintname,\\targetp}}"],
+            quovecspace: ["{\\tilde{V}_{#1}^{\\constraintname,\\targetp}}", 1],
+            totquovecspace: ["{\\text{ConsSpace}(\\constraintlist,\\targetp)}"],
+            detdistr: ["{\\delta^{#1}}", 1],
+            margperm: ["{\\varphi}"],
+            altquovecembed: ["{\\text{G}_{#1}^{\\constraintname,\\targetp}}", 1],
+            vecset: ["{V_{#1}}", 1],
+            repr: ["{\\lfloor#1\\rfloor}", 1],
+            gid: ["{\\text{id}}"],
+            id: ["{1_{#1}}",1],
+            consscale: ["{K}"],
+            scaletot: ["{K_{\\text{tot}}^{\\constraintlist,\\targetp}}"],
+            minnorm: ["{d}"],
+            Bigsetst: ["\\;\\Big|\\;"],
+            activeset: ["\\mathcal{S}"],
+            conv: ["\\text{conv}"],
+            lVert: ["|\\hspace{-1pt}|"],
+            norm: ["\\lVert#1\\lVert", 1],
+            st: [":\ "],
+        }
+    }
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeDarkModeToggle.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeParagraphLink.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Fast Inflation
+   </div>
+   <div id="projectbrief">To certify causal incompatibility</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('event__tensor_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">event_tensor.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="event__tensor_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;../../util/frac.h&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="event_8h.html">event.h</a>&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceinf.html">inf</a> {</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="classinf_1_1EventTensor.html">   45</a></span><span class="keyword">class </span><a class="code hl_class" href="classinf_1_1EventTensor.html">EventTensor</a> {</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="classinf_1_1EventTensor.html#ad84da2b448286189d1021e19a2011214">   48</a></span>    <span class="keyword">typedef</span> <a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <a class="code hl_typedef" href="classinf_1_1EventTensor.html#ad84da2b448286189d1021e19a2011214">EventHash</a>;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="classinf_1_1EventTensor.html#a242a1e6adae3f0ec6b2d5dc557dd74f7">   49</a></span>    <span class="keyword">typedef</span> std::unique_ptr&lt;inf::EventTensor&gt; <a class="code hl_typedef" href="classinf_1_1EventTensor.html#a242a1e6adae3f0ec6b2d5dc557dd74f7">UniquePtr</a>;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="classinf_1_1EventTensor.html#a5fff0983df974482f7d2dcdde1e4ac92">   50</a></span>    <span class="keyword">typedef</span> std::unique_ptr&lt;const inf::EventTensor&gt; <a class="code hl_typedef" href="classinf_1_1EventTensor.html#a5fff0983df974482f7d2dcdde1e4ac92">UniqueConstPtr</a>;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <a class="code hl_class" href="classinf_1_1EventTensor.html">EventTensor</a>(<a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <span class="keyword">const</span> n_parties,</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>                <a class="code hl_typedef" href="group__event.html#gadcaa27c4242b65837f0f7a00e96856d4">inf::Outcome</a> <span class="keyword">const</span> base);</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="classinf_1_1EventTensor.html#a405fdb43c7a953ba2e53c273e6986583">   59</a></span>    <a class="code hl_function" href="classinf_1_1EventTensor.html#a405fdb43c7a953ba2e53c273e6986583">EventTensor</a>(<a class="code hl_class" href="classinf_1_1EventTensor.html">EventTensor</a> <span class="keyword">const</span> &amp;other) = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="classinf_1_1EventTensor.html#ad47ff26ea0bd2e0bfb80da06620746cb">   60</a></span>    <a class="code hl_function" href="classinf_1_1EventTensor.html#ad47ff26ea0bd2e0bfb80da06620746cb">EventTensor</a>(<a class="code hl_class" href="classinf_1_1EventTensor.html">EventTensor</a> &amp;&amp;other) = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="classinf_1_1EventTensor.html#a74f303eb03cf67e4164e444ed7ff3fd8">   61</a></span>    <a class="code hl_class" href="classinf_1_1EventTensor.html">EventTensor</a> &amp;<a class="code hl_function" href="classinf_1_1EventTensor.html#a74f303eb03cf67e4164e444ed7ff3fd8">operator=</a>(<a class="code hl_class" href="classinf_1_1EventTensor.html">EventTensor</a> &amp;&amp;other) = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="classinf_1_1EventTensor.html#aa0db4970a9485f93e4db37267dc08b64">   62</a></span>    <a class="code hl_class" href="classinf_1_1EventTensor.html">EventTensor</a> &amp;<a class="code hl_function" href="classinf_1_1EventTensor.html#aa0db4970a9485f93e4db37267dc08b64">operator=</a>(<a class="code hl_class" href="classinf_1_1EventTensor.html">EventTensor</a> <span class="keyword">const</span> &amp;other) = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classinf_1_1EventTensor.html#a251eeb6aa34202e3c2829f855521ef38">is_scalar</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1EventTensor.html#af0eeb7a41b8d232c8a1bf7cda8fece04">log_single_event</a>(</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        std::string <span class="keyword">const</span> &amp;math_name,</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        <span class="keywordtype">bool</span> &amp;first_element,</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        <a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> &amp;count,</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        <a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <span class="keyword">const</span> items_per_line,</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        <a class="code hl_typedef" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> <span class="keyword">const</span> &amp;event) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1EventTensor.html#a4691fac83e2aa5c1c1e0795748a0e93b">log</a>(std::string <span class="keyword">const</span> &amp;math_name) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    <a class="code hl_typedef" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a> <a class="code hl_function" href="classinf_1_1EventTensor.html#ade04b2193c01629823a8b4ed00071966">get_num</a>(<a class="code hl_typedef" href="classinf_1_1EventTensor.html#ad84da2b448286189d1021e19a2011214">inf::EventTensor::EventHash</a> hash) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <a class="code hl_typedef" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a> &amp;<a class="code hl_function" href="classinf_1_1EventTensor.html#ade04b2193c01629823a8b4ed00071966">get_num</a>(<a class="code hl_typedef" href="classinf_1_1EventTensor.html#ad84da2b448286189d1021e19a2011214">inf::EventTensor::EventHash</a> <span class="keyword">const</span> hash);</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <a class="code hl_typedef" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a> <a class="code hl_function" href="classinf_1_1EventTensor.html#ade04b2193c01629823a8b4ed00071966">get_num</a>(<a class="code hl_typedef" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> <span class="keyword">const</span> &amp;event) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    <a class="code hl_typedef" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a> &amp;<a class="code hl_function" href="classinf_1_1EventTensor.html#ade04b2193c01629823a8b4ed00071966">get_num</a>(<a class="code hl_typedef" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> <span class="keyword">const</span> &amp;event);</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    <a class="code hl_class" href="classutil_1_1Frac.html">util::Frac</a> <a class="code hl_function" href="classinf_1_1EventTensor.html#a9abd421749182a04440d57412e5e5f7a">get_frac</a>(<a class="code hl_typedef" href="classinf_1_1EventTensor.html#ad84da2b448286189d1021e19a2011214">inf::EventTensor::EventHash</a> hash) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    <a class="code hl_class" href="classutil_1_1Frac.html">util::Frac</a> <a class="code hl_function" href="classinf_1_1EventTensor.html#a9abd421749182a04440d57412e5e5f7a">get_frac</a>(<a class="code hl_typedef" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> <span class="keyword">const</span> &amp;event) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classinf_1_1EventTensor.html#a71264caaca320badbe32d01ff087e991">has_same_shape_as</a>(<a class="code hl_class" href="classinf_1_1EventTensor.html">inf::EventTensor</a> <span class="keyword">const</span> &amp;other) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1EventTensor.html#ab473b9fad92e1ef35d98a1addc0296dc">simplify</a>();</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    <span class="keyword">static</span> std::vector&lt;Index&gt; <a class="code hl_function" href="classinf_1_1EventTensor.html#ad7417a773a2585faf3e7bced79efbef7">compute_weights</a>(<a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <span class="keyword">const</span> n_parties, <a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <span class="keyword">const</span> base);</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    std::vector&lt;Index&gt; <span class="keyword">const</span> &amp;<a class="code hl_function" href="classinf_1_1EventTensor.html#a897e0e74151db5bd2ee641069cf9b6e4">get_party_weights</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    <a class="code hl_typedef" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a> <a class="code hl_function" href="classinf_1_1EventTensor.html#a9b8673dd0d6a9de3c00168afb743eba5">get_denom</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1EventTensor.html#a39ba758d88e01c85e8ce4c964eb4f44a">set_denom</a>(<a class="code hl_typedef" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a> <span class="keyword">const</span> denom);</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span> </div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    <a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <a class="code hl_function" href="classinf_1_1EventTensor.html#a083c4e6df59b5b74455e41d4e5435ab9">get_n_parties</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    <a class="code hl_typedef" href="group__event.html#gadcaa27c4242b65837f0f7a00e96856d4">inf::Outcome</a> <a class="code hl_function" href="classinf_1_1EventTensor.html#a64d5834d3f36b5b5e13b5ae1903455b8">get_base</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    <a class="code hl_class" href="classutil_1_1Range.html">util::Range&lt;inf::EventTensor::EventHash&gt;</a> <a class="code hl_function" href="classinf_1_1EventTensor.html#a8541b721bccaabd4e20d91b136b34fe6">get_hash_range</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    <a class="code hl_class" href="classutil_1_1ProductRange.html">inf::EventRange</a> <a class="code hl_function" href="classinf_1_1EventTensor.html#adc2d6423af84b864b20b7e9a920a65dd">get_event_range</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span> </div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1EventTensor.html#a7fa67e62f6581fdafab5ce226b63865b">set_to_tensor_product</a>(std::vector&lt;inf::EventTensor const *&gt; <span class="keyword">const</span> &amp;factors);</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span> </div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>    <a class="code hl_typedef" href="classinf_1_1EventTensor.html#ad84da2b448286189d1021e19a2011214">inf::EventTensor::EventHash</a> <a class="code hl_function" href="classinf_1_1EventTensor.html#ad237a63bbfec62ccf307e27bcdceddf8">get_event_hash</a>(<a class="code hl_typedef" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> <span class="keyword">const</span> &amp;event) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span> </div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>  <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno"><a class="line" href="classinf_1_1EventTensor.html#ae52d16ffb9cc7454ee7c5696b8209bde">  169</a></span>    <a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <a class="code hl_variable" href="classinf_1_1EventTensor.html#ae52d16ffb9cc7454ee7c5696b8209bde">m_n_parties</a>;</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno"><a class="line" href="classinf_1_1EventTensor.html#ab12ac85bba5b76268fdb0e7a80adf661">  171</a></span>    <a class="code hl_typedef" href="group__event.html#gadcaa27c4242b65837f0f7a00e96856d4">inf::Outcome</a> <a class="code hl_variable" href="classinf_1_1EventTensor.html#ab12ac85bba5b76268fdb0e7a80adf661">m_base</a>;</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno"><a class="line" href="classinf_1_1EventTensor.html#aff3280851975ad89f4c50476e5434dc4">  174</a></span>    std::vector&lt;Num&gt; <a class="code hl_variable" href="classinf_1_1EventTensor.html#aff3280851975ad89f4c50476e5434dc4">m_data</a>;</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno"><a class="line" href="classinf_1_1EventTensor.html#a22649e759f3a9bf92f192f3276ba88be">  177</a></span>    std::vector&lt;Index&gt; <a class="code hl_variable" href="classinf_1_1EventTensor.html#a22649e759f3a9bf92f192f3276ba88be">m_weights</a>;</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno"><a class="line" href="classinf_1_1EventTensor.html#a0dcb33331bf8b38a0c865bdf4fa598c7">  180</a></span>    <a class="code hl_typedef" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a> <a class="code hl_variable" href="classinf_1_1EventTensor.html#a0dcb33331bf8b38a0c865bdf4fa598c7">m_denom</a>;</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>};</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span> </div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>} <span class="comment">// namespace inf</span></div>
+<div class="ttc" id="aclassinf_1_1EventTensor_html"><div class="ttname"><a href="classinf_1_1EventTensor.html">inf::EventTensor</a></div><div class="ttdoc">Stores a function from a set of inf::Event of fixed length to Num.</div><div class="ttdef"><b>Definition</b> <a href="event__tensor_8h_source.html#l00045">event_tensor.h:45</a></div></div>
+<div class="ttc" id="aclassinf_1_1EventTensor_html_a083c4e6df59b5b74455e41d4e5435ab9"><div class="ttname"><a href="classinf_1_1EventTensor.html#a083c4e6df59b5b74455e41d4e5435ab9">inf::EventTensor::get_n_parties</a></div><div class="ttdeci">Index get_n_parties() const</div><div class="ttdoc">The length of each inf::Event to which the inf::EventTensor assigns values.</div><div class="ttdef"><b>Definition</b> <a href="event__tensor_8cpp_source.html#l00182">event_tensor.cpp:182</a></div></div>
+<div class="ttc" id="aclassinf_1_1EventTensor_html_a0dcb33331bf8b38a0c865bdf4fa598c7"><div class="ttname"><a href="classinf_1_1EventTensor.html#a0dcb33331bf8b38a0c865bdf4fa598c7">inf::EventTensor::m_denom</a></div><div class="ttdeci">Num m_denom</div><div class="ttdoc">The denominator, meant to be te denominator of all of m_data</div><div class="ttdef"><b>Definition</b> <a href="event__tensor_8h_source.html#l00180">event_tensor.h:180</a></div></div>
+<div class="ttc" id="aclassinf_1_1EventTensor_html_a22649e759f3a9bf92f192f3276ba88be"><div class="ttname"><a href="classinf_1_1EventTensor.html#a22649e759f3a9bf92f192f3276ba88be">inf::EventTensor::m_weights</a></div><div class="ttdeci">std::vector&lt; Index &gt; m_weights</div><div class="ttdoc">Used to quickly compute the hash of an event.</div><div class="ttdef"><b>Definition</b> <a href="event__tensor_8h_source.html#l00177">event_tensor.h:177</a></div></div>
+<div class="ttc" id="aclassinf_1_1EventTensor_html_a242a1e6adae3f0ec6b2d5dc557dd74f7"><div class="ttname"><a href="classinf_1_1EventTensor.html#a242a1e6adae3f0ec6b2d5dc557dd74f7">inf::EventTensor::UniquePtr</a></div><div class="ttdeci">std::unique_ptr&lt; inf::EventTensor &gt; UniquePtr</div><div class="ttdef"><b>Definition</b> <a href="event__tensor_8h_source.html#l00049">event_tensor.h:49</a></div></div>
+<div class="ttc" id="aclassinf_1_1EventTensor_html_a251eeb6aa34202e3c2829f855521ef38"><div class="ttname"><a href="classinf_1_1EventTensor.html#a251eeb6aa34202e3c2829f855521ef38">inf::EventTensor::is_scalar</a></div><div class="ttdeci">bool is_scalar() const</div><div class="ttdoc">Returns true if the inf::EventTensor is scalar, i.e., is a function over inf::Events of zero length (...</div><div class="ttdef"><b>Definition</b> <a href="event__tensor_8cpp_source.html#l00028">event_tensor.cpp:28</a></div></div>
+<div class="ttc" id="aclassinf_1_1EventTensor_html_a39ba758d88e01c85e8ce4c964eb4f44a"><div class="ttname"><a href="classinf_1_1EventTensor.html#a39ba758d88e01c85e8ce4c964eb4f44a">inf::EventTensor::set_denom</a></div><div class="ttdeci">void set_denom(Num const denom)</div><div class="ttdoc">Set the denominator, soft assertion preventing to set it to zero.</div><div class="ttdef"><b>Definition</b> <a href="event__tensor_8cpp_source.html#l00176">event_tensor.cpp:176</a></div></div>
+<div class="ttc" id="aclassinf_1_1EventTensor_html_a405fdb43c7a953ba2e53c273e6986583"><div class="ttname"><a href="classinf_1_1EventTensor.html#a405fdb43c7a953ba2e53c273e6986583">inf::EventTensor::EventTensor</a></div><div class="ttdeci">EventTensor(EventTensor const &amp;other)=default</div></div>
+<div class="ttc" id="aclassinf_1_1EventTensor_html_a4691fac83e2aa5c1c1e0795748a0e93b"><div class="ttname"><a href="classinf_1_1EventTensor.html#a4691fac83e2aa5c1c1e0795748a0e93b">inf::EventTensor::log</a></div><div class="ttdeci">void log(std::string const &amp;math_name) const</div><div class="ttdoc">Logs the contents of the tensor in the format math_name(000) = 1, ...</div><div class="ttdef"><b>Definition</b> <a href="event__tensor_8cpp_source.html#l00032">event_tensor.cpp:32</a></div></div>
+<div class="ttc" id="aclassinf_1_1EventTensor_html_a5fff0983df974482f7d2dcdde1e4ac92"><div class="ttname"><a href="classinf_1_1EventTensor.html#a5fff0983df974482f7d2dcdde1e4ac92">inf::EventTensor::UniqueConstPtr</a></div><div class="ttdeci">std::unique_ptr&lt; const inf::EventTensor &gt; UniqueConstPtr</div><div class="ttdef"><b>Definition</b> <a href="event__tensor_8h_source.html#l00050">event_tensor.h:50</a></div></div>
+<div class="ttc" id="aclassinf_1_1EventTensor_html_a64d5834d3f36b5b5e13b5ae1903455b8"><div class="ttname"><a href="classinf_1_1EventTensor.html#a64d5834d3f36b5b5e13b5ae1903455b8">inf::EventTensor::get_base</a></div><div class="ttdeci">inf::Outcome get_base() const</div><div class="ttdoc">The number of values/outcomes of each inf::Event to which the inf::EventTensor assigns values.</div><div class="ttdef"><b>Definition</b> <a href="event__tensor_8cpp_source.html#l00186">event_tensor.cpp:186</a></div></div>
+<div class="ttc" id="aclassinf_1_1EventTensor_html_a71264caaca320badbe32d01ff087e991"><div class="ttname"><a href="classinf_1_1EventTensor.html#a71264caaca320badbe32d01ff087e991">inf::EventTensor::has_same_shape_as</a></div><div class="ttdeci">bool has_same_shape_as(inf::EventTensor const &amp;other) const</div><div class="ttdoc">Returns true if the *this and other have the same number of parties and number of outcomes per party.</div><div class="ttdef"><b>Definition</b> <a href="event__tensor_8cpp_source.html#l00097">event_tensor.cpp:97</a></div></div>
+<div class="ttc" id="aclassinf_1_1EventTensor_html_a74f303eb03cf67e4164e444ed7ff3fd8"><div class="ttname"><a href="classinf_1_1EventTensor.html#a74f303eb03cf67e4164e444ed7ff3fd8">inf::EventTensor::operator=</a></div><div class="ttdeci">EventTensor &amp; operator=(EventTensor &amp;&amp;other)=default</div></div>
+<div class="ttc" id="aclassinf_1_1EventTensor_html_a7fa67e62f6581fdafab5ce226b63865b"><div class="ttname"><a href="classinf_1_1EventTensor.html#a7fa67e62f6581fdafab5ce226b63865b">inf::EventTensor::set_to_tensor_product</a></div><div class="ttdeci">void set_to_tensor_product(std::vector&lt; inf::EventTensor const * &gt; const &amp;factors)</div><div class="ttdoc">Sets the current tensor to the tensor product of the elements of factors, and calls inf::EventTensor:...</div><div class="ttdef"><b>Definition</b> <a href="event__tensor_8cpp_source.html#l00106">event_tensor.cpp:106</a></div></div>
+<div class="ttc" id="aclassinf_1_1EventTensor_html_a8541b721bccaabd4e20d91b136b34fe6"><div class="ttname"><a href="classinf_1_1EventTensor.html#a8541b721bccaabd4e20d91b136b34fe6">inf::EventTensor::get_hash_range</a></div><div class="ttdeci">util::Range&lt; inf::EventTensor::EventHash &gt; get_hash_range() const</div><div class="ttdoc">To iterate over all hashes of the inf::EventTensor.</div><div class="ttdef"><b>Definition</b> <a href="event__tensor_8cpp_source.html#l00190">event_tensor.cpp:190</a></div></div>
+<div class="ttc" id="aclassinf_1_1EventTensor_html_a897e0e74151db5bd2ee641069cf9b6e4"><div class="ttname"><a href="classinf_1_1EventTensor.html#a897e0e74151db5bd2ee641069cf9b6e4">inf::EventTensor::get_party_weights</a></div><div class="ttdeci">std::vector&lt; Index &gt; const &amp; get_party_weights() const</div><div class="ttdoc">Returns a view over the party weights used to compute hashes inf::EventTensor.</div><div class="ttdef"><b>Definition</b> <a href="event__tensor_8cpp_source.html#l00168">event_tensor.cpp:168</a></div></div>
+<div class="ttc" id="aclassinf_1_1EventTensor_html_a9abd421749182a04440d57412e5e5f7a"><div class="ttname"><a href="classinf_1_1EventTensor.html#a9abd421749182a04440d57412e5e5f7a">inf::EventTensor::get_frac</a></div><div class="ttdeci">util::Frac get_frac(inf::EventTensor::EventHash hash) const</div><div class="ttdoc">To get the fraction associated to the hash of the event, including the denominator of the inf::EventT...</div><div class="ttdef"><b>Definition</b> <a href="event__tensor_8cpp_source.html#l00089">event_tensor.cpp:89</a></div></div>
+<div class="ttc" id="aclassinf_1_1EventTensor_html_a9b8673dd0d6a9de3c00168afb743eba5"><div class="ttname"><a href="classinf_1_1EventTensor.html#a9b8673dd0d6a9de3c00168afb743eba5">inf::EventTensor::get_denom</a></div><div class="ttdeci">Num get_denom() const</div><div class="ttdoc">Returns the common denominator of all of the entries of the inf::EventTensor.</div><div class="ttdef"><b>Definition</b> <a href="event__tensor_8cpp_source.html#l00172">event_tensor.cpp:172</a></div></div>
+<div class="ttc" id="aclassinf_1_1EventTensor_html_aa0db4970a9485f93e4db37267dc08b64"><div class="ttname"><a href="classinf_1_1EventTensor.html#aa0db4970a9485f93e4db37267dc08b64">inf::EventTensor::operator=</a></div><div class="ttdeci">EventTensor &amp; operator=(EventTensor const &amp;other)=default</div></div>
+<div class="ttc" id="aclassinf_1_1EventTensor_html_ab12ac85bba5b76268fdb0e7a80adf661"><div class="ttname"><a href="classinf_1_1EventTensor.html#ab12ac85bba5b76268fdb0e7a80adf661">inf::EventTensor::m_base</a></div><div class="ttdeci">inf::Outcome m_base</div><div class="ttdoc">The bound (excluded) on the entries of the inf::Event keys.</div><div class="ttdef"><b>Definition</b> <a href="event__tensor_8h_source.html#l00171">event_tensor.h:171</a></div></div>
+<div class="ttc" id="aclassinf_1_1EventTensor_html_ab473b9fad92e1ef35d98a1addc0296dc"><div class="ttname"><a href="classinf_1_1EventTensor.html#ab473b9fad92e1ef35d98a1addc0296dc">inf::EventTensor::simplify</a></div><div class="ttdeci">void simplify()</div><div class="ttdoc">Divides the common denominator and all of the numerators by the GCD of them all.</div><div class="ttdef"><b>Definition</b> <a href="event__tensor_8cpp_source.html#l00151">event_tensor.cpp:151</a></div></div>
+<div class="ttc" id="aclassinf_1_1EventTensor_html_ad237a63bbfec62ccf307e27bcdceddf8"><div class="ttname"><a href="classinf_1_1EventTensor.html#ad237a63bbfec62ccf307e27bcdceddf8">inf::EventTensor::get_event_hash</a></div><div class="ttdeci">inf::EventTensor::EventHash get_event_hash(inf::Event const &amp;event) const</div><div class="ttdoc">Hashes an inf::Event.</div><div class="ttdef"><b>Definition</b> <a href="event__tensor_8cpp_source.html#l00194">event_tensor.cpp:194</a></div></div>
+<div class="ttc" id="aclassinf_1_1EventTensor_html_ad47ff26ea0bd2e0bfb80da06620746cb"><div class="ttname"><a href="classinf_1_1EventTensor.html#ad47ff26ea0bd2e0bfb80da06620746cb">inf::EventTensor::EventTensor</a></div><div class="ttdeci">EventTensor(EventTensor &amp;&amp;other)=default</div></div>
+<div class="ttc" id="aclassinf_1_1EventTensor_html_ad7417a773a2585faf3e7bced79efbef7"><div class="ttname"><a href="classinf_1_1EventTensor.html#ad7417a773a2585faf3e7bced79efbef7">inf::EventTensor::compute_weights</a></div><div class="ttdeci">static std::vector&lt; Index &gt; compute_weights(Index const n_parties, Index const base)</div><div class="ttdoc">Used to compute hashes for the inf::EventTensor.</div><div class="ttdef"><b>Definition</b> <a href="event__tensor_8cpp_source.html#l00007">event_tensor.cpp:7</a></div></div>
+<div class="ttc" id="aclassinf_1_1EventTensor_html_ad84da2b448286189d1021e19a2011214"><div class="ttname"><a href="classinf_1_1EventTensor.html#ad84da2b448286189d1021e19a2011214">inf::EventTensor::EventHash</a></div><div class="ttdeci">Index EventHash</div><div class="ttdoc">Internally, the inf::EventTensor assigns a Num to an inf::Event by first hashing it.</div><div class="ttdef"><b>Definition</b> <a href="event__tensor_8h_source.html#l00048">event_tensor.h:48</a></div></div>
+<div class="ttc" id="aclassinf_1_1EventTensor_html_adc2d6423af84b864b20b7e9a920a65dd"><div class="ttname"><a href="classinf_1_1EventTensor.html#adc2d6423af84b864b20b7e9a920a65dd">inf::EventTensor::get_event_range</a></div><div class="ttdeci">inf::EventRange get_event_range() const</div><div class="ttdoc">The inf::EventRange over which the inf::EventTensor is valued.</div><div class="ttdef"><b>Definition</b> <a href="event__tensor_8cpp_source.html#l00101">event_tensor.cpp:101</a></div></div>
+<div class="ttc" id="aclassinf_1_1EventTensor_html_ade04b2193c01629823a8b4ed00071966"><div class="ttname"><a href="classinf_1_1EventTensor.html#ade04b2193c01629823a8b4ed00071966">inf::EventTensor::get_num</a></div><div class="ttdeci">Num get_num(inf::EventTensor::EventHash hash) const</div><div class="ttdoc">Const getter from hash.</div><div class="ttdef"><b>Definition</b> <a href="event__tensor_8cpp_source.html#l00069">event_tensor.cpp:69</a></div></div>
+<div class="ttc" id="aclassinf_1_1EventTensor_html_ae52d16ffb9cc7454ee7c5696b8209bde"><div class="ttname"><a href="classinf_1_1EventTensor.html#ae52d16ffb9cc7454ee7c5696b8209bde">inf::EventTensor::m_n_parties</a></div><div class="ttdeci">Index m_n_parties</div><div class="ttdoc">The length of the inf::Event keys.</div><div class="ttdef"><b>Definition</b> <a href="event__tensor_8h_source.html#l00169">event_tensor.h:169</a></div></div>
+<div class="ttc" id="aclassinf_1_1EventTensor_html_af0eeb7a41b8d232c8a1bf7cda8fece04"><div class="ttname"><a href="classinf_1_1EventTensor.html#af0eeb7a41b8d232c8a1bf7cda8fece04">inf::EventTensor::log_single_event</a></div><div class="ttdeci">void log_single_event(std::string const &amp;math_name, bool &amp;first_element, Index &amp;count, Index const items_per_line, inf::Event const &amp;event) const</div><div class="ttdoc">Logs a string of the form &quot;p(000) = 1&quot;`.</div><div class="ttdef"><b>Definition</b> <a href="event__tensor_8cpp_source.html#l00049">event_tensor.cpp:49</a></div></div>
+<div class="ttc" id="aclassinf_1_1EventTensor_html_aff3280851975ad89f4c50476e5434dc4"><div class="ttname"><a href="classinf_1_1EventTensor.html#aff3280851975ad89f4c50476e5434dc4">inf::EventTensor::m_data</a></div><div class="ttdeci">std::vector&lt; Num &gt; m_data</div><div class="ttdoc">The data: accessing this data requires hashing the inf::Events keys first.</div><div class="ttdef"><b>Definition</b> <a href="event__tensor_8h_source.html#l00174">event_tensor.h:174</a></div></div>
+<div class="ttc" id="aclassutil_1_1Frac_html"><div class="ttname"><a href="classutil_1_1Frac.html">util::Frac</a></div><div class="ttdoc">A class to represent rational numbers.</div><div class="ttdef"><b>Definition</b> <a href="frac_8h_source.html#l00024">frac.h:24</a></div></div>
+<div class="ttc" id="aclassutil_1_1ProductRange_html"><div class="ttname"><a href="classutil_1_1ProductRange.html">util::ProductRange</a></div><div class="ttdoc">This class implements a range over std::vector&lt;T&gt;, akin to Python product ranges.</div><div class="ttdef"><b>Definition</b> <a href="product__range_8h_source.html#l00073">product_range.h:73</a></div></div>
+<div class="ttc" id="aclassutil_1_1Range_html"><div class="ttname"><a href="classutil_1_1Range.html">util::Range</a></div><div class="ttdoc">Iterating over a finite integer range.</div><div class="ttdef"><b>Definition</b> <a href="range_8h_source.html#l00131">range.h:131</a></div></div>
+<div class="ttc" id="aevent_8h_html"><div class="ttname"><a href="event_8h.html">event.h</a></div></div>
+<div class="ttc" id="agroup__event_html_gac60a6fcdfce02dc13eb7364d6a2b56b0"><div class="ttname"><a href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a></div><div class="ttdeci">std::vector&lt; inf::Outcome &gt; Event</div><div class="ttdoc">A list of inf::Outcome. Conceptually, this plays the role of  for some set .</div><div class="ttdef"><b>Definition</b> <a href="event_8h_source.html#l00030">event.h:30</a></div></div>
+<div class="ttc" id="agroup__event_html_gadcaa27c4242b65837f0f7a00e96856d4"><div class="ttname"><a href="group__event.html#gadcaa27c4242b65837f0f7a00e96856d4">inf::Outcome</a></div><div class="ttdeci">uint8_t Outcome</div><div class="ttdoc">An outcome is stored in the smallest format available to save memory.</div><div class="ttdef"><b>Definition</b> <a href="event_8h_source.html#l00026">event.h:26</a></div></div>
+<div class="ttc" id="agroup__util_html_ga77731aedac326062ffbdcf367185a07e"><div class="ttname"><a href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a></div><div class="ttdeci">uint64_t Index</div><div class="ttdoc">Use for anything meant to be used as an index.</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00019">types.h:19</a></div></div>
+<div class="ttc" id="agroup__util_html_gaea24f8b468377784fdb704692e9168f5"><div class="ttname"><a href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a></div><div class="ttdeci">int64_t Num</div><div class="ttdoc">Signed integers.</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00015">types.h:15</a></div></div>
+<div class="ttc" id="anamespaceinf_html"><div class="ttname"><a href="namespaceinf.html">inf</a></div><div class="ttdoc">The namespace for the inflation code.</div><div class="ttdef"><b>Definition</b> <a href="constraint_8h_source.html#l00006">constraint.h:6</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_0f453feda2a303bb77c09f5934c109df.html">inf</a></li><li class="navelem"><a class="el" href="dir_1243aa0eff7b525c411128cc646aae72.html">events</a></li><li class="navelem"><a class="el" href="event__tensor_8h.html">event_tensor.h</a></li>
+    <li class="footer">Generated on Wed Dec 18 2024 17:39:35 for Fast Inflation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,228 @@
+<!-- HTML header for doxygen 1.9.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Fast Inflation: Member List</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+MathJax.Hub.Config({
+    TeX: {
+        Macros: {
+            dd: ["{\\text{d}#1\\,}",1],
+            nouts: ["{n_{\\text{o}}}"],
+            ints: ["{[\\![#1]\\!]}",1],
+            outset: ["{\\ints{\\nouts}}"],
+            N: ["{\\mathbb{N}}"],
+            R: ["{\\mathbb{R}}"],
+            Z: ["{\\mathbb{Z}}"],
+            infsize: ["{z}"],
+            infparties: ["{\\set{I}}"],
+            infsources: ["{\\set{S}}"],
+            infmarg: ["{\\set{A}}"],
+            infmargg: ["{\\set{B}}"],
+            netparties: ["{\\set{N}}"],
+            infq: ["{q}"],
+            infqs: ["{\\Delta_{\\infparties}}"],
+            constraintlist: ["{\\mathcal{C}}"],
+            injsets: ["{\\text{InjSets}}"],
+            infconstraints: ["{\\text{InfCons}}"],
+            parents: ["{\\text{Par}}"],
+            targetp: ["{p}"],
+            targetps: ["{\\Delta_{\\netparties}}"],
+            set: ["{\\mathbf{#1}}",1],
+            type: ["{t}"],
+            infevent: "{\\omega}",
+            events: ["{\\Omega_{#1}}",1],
+            infevents: ["{\\events{\\infparties}}"],
+            redinfevents: ["{\\tilde{\\Omega}_{\\infparties}}"],
+            netevents: ["{\\events{\\netparties}}"],
+            vecset: ["{V_{#1}}",1],
+            alice: ["{\\text{A}}"],
+            bob: ["{\\text{B}}"],
+            charlie: ["{\\text{C}}"],
+            symgroup: ["{\\text{Sym}(#1)}",1],
+            shortsymgroup: ["{\\text{Sym}_{#1}}",1],
+            act: ["{(#1\\hspace{2pt}{:}\\hspace{2pt}#2)}",2],
+            actt: ["{[#1\\hspace{2pt}{:}\\hspace{2pt}#2]}",2],
+            margperms: ["{\\text{Perm}_{#1}}",1],
+            permutedmargs: ["{\\mathbb{P}_{#1}^{\\targetp}}",1],
+            redpermutedmargs: ["{\\tilde{\\mathbb{P}}_{#1}^{\\constraintname,\\targetp}}",1],
+            extract: ["{\\text{ext}(#1,#2)}",2],
+            partysym: ["{\\tau}"],
+            sourcesym: ["{\\xi}"],
+            outsym: ["{\\sigma}"],
+            fullgroup: ["{\\text{InfGrp}}"],
+            partygroup : ["{\\text{PartyGrp}}"],
+            outgroup: ["{\\text{OutGrp}}"],
+            sourcegroup: ["{\\text{SrcGrp}}"],
+            distrgroup: ["{\\mathbb{G}^\\targetp}"],
+            constraintname: ["{c}"],
+            marggroup: ["{\\mathbb{G}^{\\constraintname,\\targetp}}"],
+            fullsymexpl: ["{(\\sourcesym,\\partysym,\\outsym)}"],
+            inner: ["{\\langle#1,#2\\rangle}", 2],
+            quovec: ["{f}"],
+            totconstraintmap: ["{K^{\\constraintlist,\\targetp}}"],
+            totconstraintmapelem: ["{K^{\\constraintname,\\targetp}}"],
+            quovecspace: ["{\\tilde{V}_{#1}^{\\constraintname,\\targetp}}", 1],
+            totquovecspace: ["{\\text{ConsSpace}(\\constraintlist,\\targetp)}"],
+            detdistr: ["{\\delta^{#1}}", 1],
+            margperm: ["{\\varphi}"],
+            altquovecembed: ["{\\text{G}_{#1}^{\\constraintname,\\targetp}}", 1],
+            vecset: ["{V_{#1}}", 1],
+            repr: ["{\\lfloor#1\\rfloor}", 1],
+            gid: ["{\\text{id}}"],
+            id: ["{1_{#1}}",1],
+            consscale: ["{K}"],
+            scaletot: ["{K_{\\text{tot}}^{\\constraintlist,\\targetp}}"],
+            minnorm: ["{d}"],
+            Bigsetst: ["\\;\\Big|\\;"],
+            activeset: ["\\mathcal{S}"],
+            conv: ["\\text{conv}"],
+            lVert: ["|\\hspace{-1pt}|"],
+            norm: ["\\lVert#1\\lVert", 1],
+            st: [":\ "],
+        }
+    }
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeDarkModeToggle.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeParagraphLink.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Fast Inflation
+   </div>
+   <div id="projectbrief">To certify causal incompatibility</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classinf_1_1Symmetry.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">inf::Symmetry Member List</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>This is the complete list of members for <a class="el" href="classinf_1_1Symmetry.html">inf::Symmetry</a>, including all inherited members.</p>
+<table class="directory">
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1Symmetry.html#a6516ff80f19436f1a2d59b540480b915">act_on_event</a>(inf::Event const &amp;input, inf::Event &amp;output) const</td><td class="entry"><a class="el" href="classinf_1_1Symmetry.html">inf::Symmetry</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1Symmetry.html#a7b70c718a629a6cf6f32ea7bef16da89">get_composition_after</a>(inf::Symmetry const &amp;other) const</td><td class="entry"><a class="el" href="classinf_1_1Symmetry.html">inf::Symmetry</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1Symmetry.html#a08106c5116d47b100cdec19af1974fe7">get_outcome_sym</a>() const</td><td class="entry"><a class="el" href="classinf_1_1Symmetry.html">inf::Symmetry</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1Symmetry.html#a18638cbcee419ae80d27003c479e2084">get_party_sym</a>() const</td><td class="entry"><a class="el" href="classinf_1_1Symmetry.html">inf::Symmetry</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1Symmetry.html#a901d22b86ef5923b628db86fbdd7ba4f">Group</a> typedef</td><td class="entry"><a class="el" href="classinf_1_1Symmetry.html">inf::Symmetry</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1Symmetry.html#a7d690c293aa903f220c8954aa1bfd77c">log</a>() const override</td><td class="entry"><a class="el" href="classinf_1_1Symmetry.html">inf::Symmetry</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1Symmetry.html#a0da2d99287274fcd117743ad0267fd8b">m_outcome_sym</a></td><td class="entry"><a class="el" href="classinf_1_1Symmetry.html">inf::Symmetry</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1Symmetry.html#a61ec726b27aa3976f56d53cf6cf3f6dd">m_party_sym</a></td><td class="entry"><a class="el" href="classinf_1_1Symmetry.html">inf::Symmetry</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1Symmetry.html#a9dc28c7e3242bc706746be387cb5895e">operator&lt;</a>(inf::Symmetry const &amp;other) const</td><td class="entry"><a class="el" href="classinf_1_1Symmetry.html">inf::Symmetry</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1Symmetry.html#aa279a7bda6089615ff96276cc39fb841">operator=</a>(Symmetry &amp;&amp;other)=default</td><td class="entry"><a class="el" href="classinf_1_1Symmetry.html">inf::Symmetry</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1Symmetry.html#a3d734963a4ab00b42864f2e137cd5cdb">operator=</a>(Symmetry const &amp;other)=default</td><td class="entry"><a class="el" href="classinf_1_1Symmetry.html">inf::Symmetry</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1Symmetry.html#abe780d13eff32e9888541b86ac35758b">operator==</a>(inf::Symmetry const &amp;other) const</td><td class="entry"><a class="el" href="classinf_1_1Symmetry.html">inf::Symmetry</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1Symmetry.html#a5ed4d274be3ef52425b7ebcfe96901b9">Symmetry</a>()</td><td class="entry"><a class="el" href="classinf_1_1Symmetry.html">inf::Symmetry</a></td><td class="entry"><span class="mlabel">explicit</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1Symmetry.html#a8025e5256de8b66770b03dbb800ecb43">Symmetry</a>(inf::PartySym const &amp;party_sym, inf::OutcomeSym const &amp;outcome_sym)</td><td class="entry"><a class="el" href="classinf_1_1Symmetry.html">inf::Symmetry</a></td><td class="entry"><span class="mlabel">explicit</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1Symmetry.html#a917f6665ddb027804f37acd89c78c0ad">Symmetry</a>(Symmetry &amp;&amp;other)=default</td><td class="entry"><a class="el" href="classinf_1_1Symmetry.html">inf::Symmetry</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1Symmetry.html#a6f3c1adf0fd273b3e80c44bb5ef69768">Symmetry</a>(Symmetry const &amp;other)=default</td><td class="entry"><a class="el" href="classinf_1_1Symmetry.html">inf::Symmetry</a></td><td class="entry"></td></tr>
+</table></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Wed Dec 18 2024 17:39:43 for Fast Inflation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

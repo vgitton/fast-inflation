@@ -1,0 +1,780 @@
+<!-- HTML header for doxygen 1.9.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Fast Inflation: user::Application Class Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+MathJax.Hub.Config({
+    TeX: {
+        Macros: {
+            dd: ["{\\text{d}#1\\,}",1],
+            nouts: ["{n_{\\text{o}}}"],
+            ints: ["{[\\![#1]\\!]}",1],
+            outset: ["{\\ints{\\nouts}}"],
+            N: ["{\\mathbb{N}}"],
+            R: ["{\\mathbb{R}}"],
+            Z: ["{\\mathbb{Z}}"],
+            infsize: ["{z}"],
+            infparties: ["{\\set{I}}"],
+            infsources: ["{\\set{S}}"],
+            infmarg: ["{\\set{A}}"],
+            infmargg: ["{\\set{B}}"],
+            netparties: ["{\\set{N}}"],
+            infq: ["{q}"],
+            infqs: ["{\\Delta_{\\infparties}}"],
+            constraintlist: ["{\\mathcal{C}}"],
+            injsets: ["{\\text{InjSets}}"],
+            infconstraints: ["{\\text{InfCons}}"],
+            parents: ["{\\text{Par}}"],
+            targetp: ["{p}"],
+            targetps: ["{\\Delta_{\\netparties}}"],
+            set: ["{\\mathbf{#1}}",1],
+            type: ["{t}"],
+            infevent: "{\\omega}",
+            events: ["{\\Omega_{#1}}",1],
+            infevents: ["{\\events{\\infparties}}"],
+            redinfevents: ["{\\tilde{\\Omega}_{\\infparties}}"],
+            netevents: ["{\\events{\\netparties}}"],
+            vecset: ["{V_{#1}}",1],
+            alice: ["{\\text{A}}"],
+            bob: ["{\\text{B}}"],
+            charlie: ["{\\text{C}}"],
+            symgroup: ["{\\text{Sym}(#1)}",1],
+            shortsymgroup: ["{\\text{Sym}_{#1}}",1],
+            act: ["{(#1\\hspace{2pt}{:}\\hspace{2pt}#2)}",2],
+            actt: ["{[#1\\hspace{2pt}{:}\\hspace{2pt}#2]}",2],
+            margperms: ["{\\text{Perm}_{#1}}",1],
+            permutedmargs: ["{\\mathbb{P}_{#1}^{\\targetp}}",1],
+            redpermutedmargs: ["{\\tilde{\\mathbb{P}}_{#1}^{\\constraintname,\\targetp}}",1],
+            extract: ["{\\text{ext}(#1,#2)}",2],
+            partysym: ["{\\tau}"],
+            sourcesym: ["{\\xi}"],
+            outsym: ["{\\sigma}"],
+            fullgroup: ["{\\text{InfGrp}}"],
+            partygroup : ["{\\text{PartyGrp}}"],
+            outgroup: ["{\\text{OutGrp}}"],
+            sourcegroup: ["{\\text{SrcGrp}}"],
+            distrgroup: ["{\\mathbb{G}^\\targetp}"],
+            constraintname: ["{c}"],
+            marggroup: ["{\\mathbb{G}^{\\constraintname,\\targetp}}"],
+            fullsymexpl: ["{(\\sourcesym,\\partysym,\\outsym)}"],
+            inner: ["{\\langle#1,#2\\rangle}", 2],
+            quovec: ["{f}"],
+            totconstraintmap: ["{K^{\\constraintlist,\\targetp}}"],
+            totconstraintmapelem: ["{K^{\\constraintname,\\targetp}}"],
+            quovecspace: ["{\\tilde{V}_{#1}^{\\constraintname,\\targetp}}", 1],
+            totquovecspace: ["{\\text{ConsSpace}(\\constraintlist,\\targetp)}"],
+            detdistr: ["{\\delta^{#1}}", 1],
+            margperm: ["{\\varphi}"],
+            altquovecembed: ["{\\text{G}_{#1}^{\\constraintname,\\targetp}}", 1],
+            vecset: ["{V_{#1}}", 1],
+            repr: ["{\\lfloor#1\\rfloor}", 1],
+            gid: ["{\\text{id}}"],
+            id: ["{1_{#1}}",1],
+            consscale: ["{K}"],
+            scaletot: ["{K_{\\text{tot}}^{\\constraintlist,\\targetp}}"],
+            minnorm: ["{d}"],
+            Bigsetst: ["\\;\\Big|\\;"],
+            activeset: ["\\mathcal{S}"],
+            conv: ["\\text{conv}"],
+            lVert: ["|\\hspace{-1pt}|"],
+            norm: ["\\lVert#1\\lVert", 1],
+            st: [":\ "],
+        }
+    }
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeDarkModeToggle.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeParagraphLink.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Fast Inflation
+   </div>
+   <div id="projectbrief">To certify causal incompatibility</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classuser_1_1Application.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="classuser_1_1Application-members.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">user::Application Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span><div class="ingroups"><a class="el" href="group__applications.html">Applications</a> &raquo; <a class="el" href="group__user.html">Application interface</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &quot;<a class="el" href="application_8h_source.html">user/application.h</a>&quot;</code></p>
+<a name="details" id="details"></a><h2 class="groupheader">Class description</h2>
+<div class="textblock"><p>Parent class of user applications. </p>
+<p>Notice that each child class gets access to some <a class="el" href="classinf_1_1FeasOptions.html" title="To conviently manipulate the parameters of an inf::FeasProblem.">inf::FeasOptions</a>, appropriately initialized with the command-line parameters, see <a class="el" href="classuser_1_1Application.html#aa053b2208699654f0c2b0956b5914ee2" title="This allows child classes to be able to receive and modify the inf::FeasOptions initialized from the ...">user::Application::get_feas_options()</a>.</p>
+<p>For performance reasons, the constructor of any derived class should be trivial, and any initialization code should be called only <em>after</em> the <a class="el" href="classuser_1_1Application.html#a5ecc20125278d02b5be0bcff2ff6e66f" title="This method runs the application.">user::Application::run()</a> method is called. The reason is that internally, <em>all</em> available classes will be constructed every time the executable is ran, but only the target application whose name matches the command-line arguments will see its <a class="el" href="classuser_1_1Application.html#a5ecc20125278d02b5be0bcff2ff6e66f" title="This method runs the application.">user::Application::run()</a> method called. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="group__user.html#gac8692e8f531289da15d184fef94841aa" title="Specifies the existing applications/examples.">user::get_application_list()</a> for available applications </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="application_8h_source.html#l00022">22</a> of file <a class="el" href="application_8h_source.html">application.h</a>.</p>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:ab7af308c39fbb1fccda6855c102423e2"><td class="memItemLeft" align="right" valign="top">typedef std::shared_ptr&lt; <a class="el" href="classuser_1_1Application.html">user::Application</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1Application.html#ab7af308c39fbb1fccda6855c102423e2">Ptr</a></td></tr>
+<tr class="separator:ab7af308c39fbb1fccda6855c102423e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:ab9898b792c8ea75a4225919e9a873a64"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1Application.html#ab9898b792c8ea75a4225919e9a873a64">Application</a> (std::string const &amp;name, std::string const &amp;description=&quot;&quot;, bool <a class="el" href="classuser_1_1Application.html#a608b0c5da50bd4f2f701a11acf45122b">is_test</a>=false)</td></tr>
+<tr class="memdesc:ab9898b792c8ea75a4225919e9a873a64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor with command line target name.  <br /></td></tr>
+<tr class="separator:ab9898b792c8ea75a4225919e9a873a64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85c64ea675191c57c687636096acc84a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1Application.html#a85c64ea675191c57c687636096acc84a">set_inf_cli</a> (<a class="el" href="classuser_1_1InfCLI.html#a72e727e1528f28fcbb88bd803efb4795">user::InfCLI::ConstPtr</a> const &amp;inf_cli)</td></tr>
+<tr class="memdesc:a85c64ea675191c57c687636096acc84a"><td class="mdescLeft">&#160;</td><td class="mdescRight">To inherit the <a class="el" href="classuser_1_1InfCLI.html" title="This class defines the command-line parameters that are expected.">user::InfCLI</a> storing the command-line parameters.  <br /></td></tr>
+<tr class="separator:a85c64ea675191c57c687636096acc84a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa080c0554e2c7fad158e3f6c2303055e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1Application.html#aa080c0554e2c7fad158e3f6c2303055e">set_feas_options</a> (<a class="el" href="classinf_1_1FeasOptions.html#a47cd0d666aa21be8252f703a0fbc654f">inf::FeasOptions::Ptr</a> const &amp;feas_options)</td></tr>
+<tr class="memdesc:aa080c0554e2c7fad158e3f6c2303055e"><td class="mdescLeft">&#160;</td><td class="mdescRight">To inherit the <a class="el" href="classinf_1_1FeasOptions.html" title="To conviently manipulate the parameters of an inf::FeasProblem.">inf::FeasOptions</a> storing the inflation problem specifications.  <br /></td></tr>
+<tr class="separator:aa080c0554e2c7fad158e3f6c2303055e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a412561a20ac115dadb8690f6bfdf4e1f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1Application.html#a412561a20ac115dadb8690f6bfdf4e1f">name_equals</a> (std::string const &amp;name) const</td></tr>
+<tr class="memdesc:a412561a20ac115dadb8690f6bfdf4e1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns <code>true</code> is the name passed to <a class="el" href="classuser_1_1Application.html#ab9898b792c8ea75a4225919e9a873a64" title="Constructor with command line target name.">user::Application::Application()</a> matches the argument <code>name</code>  <br /></td></tr>
+<tr class="separator:a412561a20ac115dadb8690f6bfdf4e1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32bf6119f9530bcdd17471d02f4b3615"><td class="memItemLeft" align="right" valign="top">std::string const &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1Application.html#a32bf6119f9530bcdd17471d02f4b3615">get_name</a> () const</td></tr>
+<tr class="memdesc:a32bf6119f9530bcdd17471d02f4b3615"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classuser_1_1Application.html" title="Parent class of user applications.">Application</a> name passed to <a class="el" href="classuser_1_1Application.html#ab9898b792c8ea75a4225919e9a873a64" title="Constructor with command line target name.">user::Application::Application()</a>  <br /></td></tr>
+<tr class="separator:a32bf6119f9530bcdd17471d02f4b3615"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2cd8c0338bc942250eb733a8af909175"><td class="memItemLeft" align="right" valign="top">std::string const &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1Application.html#a2cd8c0338bc942250eb733a8af909175">get_description</a> () const</td></tr>
+<tr class="memdesc:a2cd8c0338bc942250eb733a8af909175"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the description of what the application does.  <br /></td></tr>
+<tr class="separator:a2cd8c0338bc942250eb733a8af909175"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a608b0c5da50bd4f2f701a11acf45122b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1Application.html#a608b0c5da50bd4f2f701a11acf45122b">is_test</a> () const</td></tr>
+<tr class="memdesc:a608b0c5da50bd4f2f701a11acf45122b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether or not the application is to be included in the list of tests.  <br /></td></tr>
+<tr class="separator:a608b0c5da50bd4f2f701a11acf45122b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed1053d304725cbd53e42b195398fc6c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1Application.html#aed1053d304725cbd53e42b195398fc6c">log_execution_time</a> () const</td></tr>
+<tr class="memdesc:aed1053d304725cbd53e42b195398fc6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs the execution time of the application.  <br /></td></tr>
+<tr class="separator:aed1053d304725cbd53e42b195398fc6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a229c9b883a505f8d09e13f79d15b05c4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1Application.html#a229c9b883a505f8d09e13f79d15b05c4">time_and_run</a> ()</td></tr>
+<tr class="memdesc:a229c9b883a505f8d09e13f79d15b05c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Times a call to <a class="el" href="classuser_1_1Application.html#a5ecc20125278d02b5be0bcff2ff6e66f" title="This method runs the application.">user::Application::run()</a> and catches exceptions.  <br /></td></tr>
+<tr class="separator:a229c9b883a505f8d09e13f79d15b05c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ecc20125278d02b5be0bcff2ff6e66f"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1Application.html#a5ecc20125278d02b5be0bcff2ff6e66f">run</a> ()=0</td></tr>
+<tr class="memdesc:a5ecc20125278d02b5be0bcff2ff6e66f"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method runs the application.  <br /></td></tr>
+<tr class="separator:a5ecc20125278d02b5be0bcff2ff6e66f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a438bc6e9fe5d146eb5a962ae79cce317"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classuser_1_1InfCLI.html">user::InfCLI</a> const &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1Application.html#a438bc6e9fe5d146eb5a962ae79cce317">get_inf_cli</a> () const</td></tr>
+<tr class="memdesc:a438bc6e9fe5d146eb5a962ae79cce317"><td class="mdescLeft">&#160;</td><td class="mdescRight">The command-line argument, this is mostly provided so that child applications can access the <code>--vis</code> parameter.  <br /></td></tr>
+<tr class="separator:a438bc6e9fe5d146eb5a962ae79cce317"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa053b2208699654f0c2b0956b5914ee2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classinf_1_1FeasOptions.html#a47cd0d666aa21be8252f703a0fbc654f">inf::FeasOptions::Ptr</a> const &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1Application.html#aa053b2208699654f0c2b0956b5914ee2">get_feas_options</a> () const</td></tr>
+<tr class="memdesc:aa053b2208699654f0c2b0956b5914ee2"><td class="mdescLeft">&#160;</td><td class="mdescRight">This allows child classes to be able to receive and modify the <a class="el" href="classinf_1_1FeasOptions.html" title="To conviently manipulate the parameters of an inf::FeasProblem.">inf::FeasOptions</a> initialized from the command-line arguments.  <br /></td></tr>
+<tr class="separator:aa053b2208699654f0c2b0956b5914ee2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a320391039bd12bf108967105d8c94c5c"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1Application.html#a320391039bd12bf108967105d8c94c5c">m_name</a></td></tr>
+<tr class="memdesc:a320391039bd12bf108967105d8c94c5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">The identifier of the <a class="el" href="classuser_1_1Application.html" title="Parent class of user applications.">user::Application</a> to make it callable from the command line.  <br /></td></tr>
+<tr class="separator:a320391039bd12bf108967105d8c94c5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa924cd6b697a9c9eb25794fcd9098c8d"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1Application.html#aa924cd6b697a9c9eb25794fcd9098c8d">m_description</a></td></tr>
+<tr class="memdesc:aa924cd6b697a9c9eb25794fcd9098c8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The description displayed when listing all existing applications.  <br /></td></tr>
+<tr class="separator:aa924cd6b697a9c9eb25794fcd9098c8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a198ab68fa31d4948ca5e939033f72847"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1Application.html#a198ab68fa31d4948ca5e939033f72847">m_is_test</a></td></tr>
+<tr class="memdesc:a198ab68fa31d4948ca5e939033f72847"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether or not the application is to be run with the other tests.  <br /></td></tr>
+<tr class="separator:a198ab68fa31d4948ca5e939033f72847"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82a1e68fd154bbcb7ed6abaa9c82d7f1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classutil_1_1Chrono.html">util::Chrono</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1Application.html#a82a1e68fd154bbcb7ed6abaa9c82d7f1">m_chrono</a></td></tr>
+<tr class="memdesc:a82a1e68fd154bbcb7ed6abaa9c82d7f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">The execution time of the application.  <br /></td></tr>
+<tr class="separator:a82a1e68fd154bbcb7ed6abaa9c82d7f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a087ac1a0c5bf041326d16ddeb79099e3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classuser_1_1InfCLI.html#a72e727e1528f28fcbb88bd803efb4795">user::InfCLI::ConstPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1Application.html#a087ac1a0c5bf041326d16ddeb79099e3">m_inf_cli</a></td></tr>
+<tr class="memdesc:a087ac1a0c5bf041326d16ddeb79099e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">The command-line parameters.  <br /></td></tr>
+<tr class="separator:a087ac1a0c5bf041326d16ddeb79099e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9667a2f32682d03bebf3607c65e2d38"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classinf_1_1FeasOptions.html#a47cd0d666aa21be8252f703a0fbc654f">inf::FeasOptions::Ptr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1Application.html#ac9667a2f32682d03bebf3607c65e2d38">m_feas_options</a></td></tr>
+<tr class="memdesc:ac9667a2f32682d03bebf3607c65e2d38"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is not a pointer-to-const because we want each child <a class="el" href="classuser_1_1Application.html" title="Parent class of user applications.">user::Application</a> to be able to modify the <a class="el" href="classinf_1_1FeasOptions.html" title="To conviently manipulate the parameters of an inf::FeasProblem.">inf::FeasOptions</a>, starting from the ones initalized based on the command-line parameters.  <br /></td></tr>
+<tr class="separator:ac9667a2f32682d03bebf3607c65e2d38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="ab7af308c39fbb1fccda6855c102423e2" name="ab7af308c39fbb1fccda6855c102423e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7af308c39fbb1fccda6855c102423e2">&#9670;&#160;</a></span>Ptr</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::shared_ptr&lt;<a class="el" href="classuser_1_1Application.html">user::Application</a>&gt; <a class="el" href="classuser_1_1Application.html#ab7af308c39fbb1fccda6855c102423e2">user::Application::Ptr</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="application_8h_source.html#l00024">24</a> of file <a class="el" href="application_8h_source.html">application.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ab9898b792c8ea75a4225919e9a873a64" name="ab9898b792c8ea75a4225919e9a873a64"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9898b792c8ea75a4225919e9a873a64">&#9670;&#160;</a></span>Application()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">user::Application::Application </td>
+          <td>(</td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
+          <td class="paramname"><em>description</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>is_test</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor with command line target name. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>The name that will then be callable from the command line using <code>./{debug|release}_inf name</code> </td></tr>
+    <tr><td class="paramname">description</td><td>A short description, displayed when listing the existing applications </td></tr>
+    <tr><td class="paramname">is_test</td><td>Set to <code>true</code> to register the application as a test that will be ran with <code>./{debug|release}_inf test</code> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="application_8cpp_source.html#l00005">5</a> of file <a class="el" href="application_8cpp_source.html">application.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a85c64ea675191c57c687636096acc84a" name="a85c64ea675191c57c687636096acc84a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85c64ea675191c57c687636096acc84a">&#9670;&#160;</a></span>set_inf_cli()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void user::Application::set_inf_cli </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classuser_1_1InfCLI.html#a72e727e1528f28fcbb88bd803efb4795">user::InfCLI::ConstPtr</a> const &amp;&#160;</td>
+          <td class="paramname"><em>inf_cli</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>To inherit the <a class="el" href="classuser_1_1InfCLI.html" title="This class defines the command-line parameters that are expected.">user::InfCLI</a> storing the command-line parameters. </p>
+
+<p class="definition">Definition at line <a class="el" href="application_8cpp_source.html#l00015">15</a> of file <a class="el" href="application_8cpp_source.html">application.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aa080c0554e2c7fad158e3f6c2303055e" name="aa080c0554e2c7fad158e3f6c2303055e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa080c0554e2c7fad158e3f6c2303055e">&#9670;&#160;</a></span>set_feas_options()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void user::Application::set_feas_options </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classinf_1_1FeasOptions.html#a47cd0d666aa21be8252f703a0fbc654f">inf::FeasOptions::Ptr</a> const &amp;&#160;</td>
+          <td class="paramname"><em>feas_options</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>To inherit the <a class="el" href="classinf_1_1FeasOptions.html" title="To conviently manipulate the parameters of an inf::FeasProblem.">inf::FeasOptions</a> storing the inflation problem specifications. </p>
+
+<p class="definition">Definition at line <a class="el" href="application_8cpp_source.html#l00019">19</a> of file <a class="el" href="application_8cpp_source.html">application.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a412561a20ac115dadb8690f6bfdf4e1f" name="a412561a20ac115dadb8690f6bfdf4e1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a412561a20ac115dadb8690f6bfdf4e1f">&#9670;&#160;</a></span>name_equals()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool user::Application::name_equals </td>
+          <td>(</td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns <code>true</code> is the name passed to <a class="el" href="classuser_1_1Application.html#ab9898b792c8ea75a4225919e9a873a64" title="Constructor with command line target name.">user::Application::Application()</a> matches the argument <code>name</code> </p>
+
+<p class="definition">Definition at line <a class="el" href="application_8cpp_source.html#l00023">23</a> of file <a class="el" href="application_8cpp_source.html">application.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a32bf6119f9530bcdd17471d02f4b3615" name="a32bf6119f9530bcdd17471d02f4b3615"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32bf6119f9530bcdd17471d02f4b3615">&#9670;&#160;</a></span>get_name()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string const  &amp; user::Application::get_name </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classuser_1_1Application.html" title="Parent class of user applications.">Application</a> name passed to <a class="el" href="classuser_1_1Application.html#ab9898b792c8ea75a4225919e9a873a64" title="Constructor with command line target name.">user::Application::Application()</a> </p>
+
+<p class="definition">Definition at line <a class="el" href="application_8cpp_source.html#l00027">27</a> of file <a class="el" href="application_8cpp_source.html">application.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a2cd8c0338bc942250eb733a8af909175" name="a2cd8c0338bc942250eb733a8af909175"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2cd8c0338bc942250eb733a8af909175">&#9670;&#160;</a></span>get_description()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string const  &amp; user::Application::get_description </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the description of what the application does. </p>
+
+<p class="definition">Definition at line <a class="el" href="application_8cpp_source.html#l00031">31</a> of file <a class="el" href="application_8cpp_source.html">application.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a608b0c5da50bd4f2f701a11acf45122b" name="a608b0c5da50bd4f2f701a11acf45122b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a608b0c5da50bd4f2f701a11acf45122b">&#9670;&#160;</a></span>is_test()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool user::Application::is_test </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Whether or not the application is to be included in the list of tests. </p>
+
+<p class="definition">Definition at line <a class="el" href="application_8cpp_source.html#l00035">35</a> of file <a class="el" href="application_8cpp_source.html">application.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aed1053d304725cbd53e42b195398fc6c" name="aed1053d304725cbd53e42b195398fc6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed1053d304725cbd53e42b195398fc6c">&#9670;&#160;</a></span>log_execution_time()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void user::Application::log_execution_time </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Logs the execution time of the application. </p>
+
+<p class="definition">Definition at line <a class="el" href="application_8cpp_source.html#l00039">39</a> of file <a class="el" href="application_8cpp_source.html">application.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a229c9b883a505f8d09e13f79d15b05c4" name="a229c9b883a505f8d09e13f79d15b05c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a229c9b883a505f8d09e13f79d15b05c4">&#9670;&#160;</a></span>time_and_run()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool user::Application::time_and_run </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Times a call to <a class="el" href="classuser_1_1Application.html#a5ecc20125278d02b5be0bcff2ff6e66f" title="This method runs the application.">user::Application::run()</a> and catches exceptions. </p>
+
+<p class="definition">Definition at line <a class="el" href="application_8cpp_source.html#l00046">46</a> of file <a class="el" href="application_8cpp_source.html">application.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a5ecc20125278d02b5be0bcff2ff6e66f" name="a5ecc20125278d02b5be0bcff2ff6e66f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ecc20125278d02b5be0bcff2ff6e66f">&#9670;&#160;</a></span>run()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void user::Application::run </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This method runs the application. </p>
+
+<p>Implemented in <a class="el" href="classuser_1_1ejm__sym.html#ac9d3d78eb61ef5afc53c7cdb89f9492e">user::ejm_sym</a>, <a class="el" href="classuser_1_1ejm__eval.html#a66e283a11e89f207f2b8194cfad9be37">user::ejm_eval</a>, <a class="el" href="classuser_1_1ejm__symtree.html#a5c1fec5101a8e487549beb029cae4289">user::ejm_symtree</a>, <a class="el" href="classuser_1_1ejm.html#a354098feaa97df3eb403025a0bb5f490">user::ejm</a>, <a class="el" href="classuser_1_1ejm__vis__222__weak.html#a24d83e8b50bce74d5ed4496a659b8344">user::ejm_vis_222_weak</a>, <a class="el" href="classuser_1_1ejm__vis__222__strong.html#aab2b06b8556a1486cee8c464eeab68bb">user::ejm_vis_222_strong</a>, <a class="el" href="classuser_1_1ejm__vis__223__weak.html#ac2b2f01bc90d146f7ba8e500f34581a4">user::ejm_vis_223_weak</a>, <a class="el" href="classuser_1_1ejm__vis__223__strong.html#a3bc923e4d47cc520fe59ce109d855a2b">user::ejm_vis_223_strong</a>, <a class="el" href="classuser_1_1ejm__vis__224__weak.html#a7dfc40ea3a6246e8dbb82799dd7763e8">user::ejm_vis_224_weak</a>, <a class="el" href="classuser_1_1ejm__vis__224__weak__bis.html#ab2e58ebcd99b2a38187ec1638026e15a">user::ejm_vis_224_weak_bis</a>, <a class="el" href="classuser_1_1ejm__vis__224__inter__v1.html#ab4d0f788eb9e4964363f319153cc1a83">user::ejm_vis_224_inter_v1</a>, <a class="el" href="classuser_1_1ejm__vis__224__inter__v2__diag__A.html#a272c1dc2813fc9904b2ef10267fa13e6">user::ejm_vis_224_inter_v2_diag_A</a>, <a class="el" href="classuser_1_1ejm__vis__224__inter__v2__diag__C.html#a4ad95fe2edcab59d0ff1d7392074d1ac">user::ejm_vis_224_inter_v2_diag_C</a>, <a class="el" href="classuser_1_1ejm__find__nl__certificate.html#a668e7cdafc164b8180a1b42f450a5306">user::ejm_find_nl_certificate</a>, <a class="el" href="classuser_1_1ejm__check__nl__certificate.html#a97dc7103b6254ae2eee0f1e5a958bc97">user::ejm_check_nl_certificate</a>, <a class="el" href="classuser_1_1ejm__scan__222.html#a343c5f6f3d780e92c4f6bcab5493ee5b">user::ejm_scan_222</a>, <a class="el" href="classuser_1_1frac.html#a4eb32c3d9a16add2b881b4744870cdbb">user::frac</a>, <a class="el" href="classuser_1_1event__sym.html#a62997411291d97a4f2e2aa1430553627">user::event_sym</a>, <a class="el" href="classuser_1_1fully__corrective__fw.html#a7911402ba5c714164a2f1673d1d82687">user::fully_corrective_fw</a>, <a class="el" href="classuser_1_1pairwise__fw.html#a099b4a81564e1cae357f6564d688b055">user::pairwise_fw</a>, <a class="el" href="classuser_1_1event__tensor.html#ae389e259e0e04837c39388f867ab81ef">user::event_tensor</a>, <a class="el" href="classuser_1_1event__tree.html#a8fe61ba96f27ed6f27ab74735a4e0e8a">user::event_tree</a>, <a class="el" href="classuser_1_1inf__tree__filler.html#afd49677fd9c5b2391b1931234f28cffc">user::inf_tree_filler</a>, <a class="el" href="classuser_1_1distribution__marginal.html#a969e041e0d922fff3b5194b31b5d753a">user::distribution_marginal</a>, <a class="el" href="classuser_1_1inflation__marginal.html#a83044c22cba1881e73e18e1eaf03924c">user::inflation_marginal</a>, <a class="el" href="classuser_1_1dual__vector__bounds.html#abf7b2fb85be16fa674892644a7a655d9">user::dual_vector_bounds</a>, <a class="el" href="classuser_1_1dual__vector__io.html#ad54c8bf2528b69a0054db636522e6d15">user::dual_vector_io</a>, <a class="el" href="classuser_1_1opt__bounds.html#a062eba0df739988f1bda732d662814a0">user::opt_bounds</a>, <a class="el" href="classuser_1_1opt__time.html#ad25ef764df0f0a1728f0380a6fca56ee">user::opt_time</a>, <a class="el" href="classuser_1_1file__stream.html#a1d86500356e11054d87a767633b2c496">user::file_stream</a>, <a class="el" href="classuser_1_1tree__splitter.html#a1bf1664445cdf6d92b3aa58e6f9ea707">user::tree_splitter</a>, <a class="el" href="classuser_1_1inf__tree__splitting.html#a3d145288348c394e3826d95e50b0bdac">user::inf_tree_splitting</a>, <a class="el" href="classuser_1_1srb__sym.html#a829abfaf63ea45169ba95d968eaacb28">user::srb_sym</a>, <a class="el" href="classuser_1_1srb__eval.html#af151c407d0aef0510992753a9ba80889">user::srb_eval</a>, <a class="el" href="classuser_1_1srb__vis__222__weak.html#a5f5becca8b52d628b1989799ba918cdd">user::srb_vis_222_weak</a>, <a class="el" href="classuser_1_1srb__vis__222__strong.html#a76ee92860c6c343b3892c02a37e042e0">user::srb_vis_222_strong</a>, <a class="el" href="classuser_1_1srb__dual__vector__io.html#a540f26776f13129c802f9f84616afe3f">user::srb_dual_vector_io</a>, <a class="el" href="classuser_1_1srb__vis__detailed__test.html#a35bc930baf13fb070926b0a576dae829">user::srb_vis_detailed_test</a>, <a class="el" href="classuser_1_1srb__vis__223__weak.html#a6624bb7accf77b5a1d6959cd0b151763">user::srb_vis_223_weak</a>, <a class="el" href="classuser_1_1srb__vis__223__strong.html#a90610d6b47ec1f55896b86a4de329dab">user::srb_vis_223_strong</a>, <a class="el" href="classuser_1_1srb__vis__233__weak.html#afaae2b7ca54d8d2fcc4c5a972fb594fe">user::srb_vis_233_weak</a>, <a class="el" href="classuser_1_1srb__vis__233__inter.html#a73037bf11c57713571cf60a6a6782972">user::srb_vis_233_inter</a>, <a class="el" href="classuser_1_1srb__vis__233__strong.html#a893fa35bd966978456cb524851a5d656">user::srb_vis_233_strong</a>, <a class="el" href="classuser_1_1srb__vis__333.html#a83e6b3b4f694e28dc69148619285ce82">user::srb_vis_333</a>, <a class="el" href="classuser_1_1srb__vis__334.html#a939f636f531950f363d0c4b8255712ab">user::srb_vis_334</a>, <a class="el" href="classuser_1_1srb.html#a1b99fbff70f6ef505cf04ddba0fe2be0">user::srb</a>, <a class="el" href="classuser_1_1y__basis.html#a93f67c251992d2cab6f5eda50a880dd6">user::y_basis</a>, <a class="el" href="classuser_1_1y__basis__sym.html#aef8a60a5a2a2677fd7769291eb38aa46">user::y_basis_sym</a>, and <a class="el" href="classuser_1_1pjm.html#affd822555f9429c098b6e71f3aa3e8c4">user::pjm</a>.</p>
+
+</div>
+</div>
+<a id="a438bc6e9fe5d146eb5a962ae79cce317" name="a438bc6e9fe5d146eb5a962ae79cce317"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a438bc6e9fe5d146eb5a962ae79cce317">&#9670;&#160;</a></span>get_inf_cli()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classuser_1_1InfCLI.html">user::InfCLI</a> const  &amp; user::Application::get_inf_cli </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The command-line argument, this is mostly provided so that child applications can access the <code>--vis</code> parameter. </p>
+
+<p class="definition">Definition at line <a class="el" href="application_8cpp_source.html#l00068">68</a> of file <a class="el" href="application_8cpp_source.html">application.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aa053b2208699654f0c2b0956b5914ee2" name="aa053b2208699654f0c2b0956b5914ee2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa053b2208699654f0c2b0956b5914ee2">&#9670;&#160;</a></span>get_feas_options()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classinf_1_1FeasOptions.html#a47cd0d666aa21be8252f703a0fbc654f">inf::FeasOptions::Ptr</a> const  &amp; user::Application::get_feas_options </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This allows child classes to be able to receive and modify the <a class="el" href="classinf_1_1FeasOptions.html" title="To conviently manipulate the parameters of an inf::FeasProblem.">inf::FeasOptions</a> initialized from the command-line arguments. </p>
+<p>The idea is that the <a class="el" href="classinf_1_1FeasOptions.html" title="To conviently manipulate the parameters of an inf::FeasProblem.">inf::FeasOptions</a> of each <a class="el" href="classuser_1_1Application.html" title="Parent class of user applications.">user::Application</a> are initialized in inf::AppManager::parse_argv() based on the command-line arguments, but each child <a class="el" href="classuser_1_1Application.html" title="Parent class of user applications.">user::Application</a> can then modify it in their <a class="el" href="classuser_1_1Application.html#a5ecc20125278d02b5be0bcff2ff6e66f" title="This method runs the application.">user::Application::run()</a> override using e.g. </p><div class="fragment"><div class="line">(*<a class="code hl_function" href="classuser_1_1Application.html#aa053b2208699654f0c2b0956b5914ee2">get_feas_options</a>()).set(<a class="code hl_typedef" href="classinf_1_1Inflation.html#ada371f0e56db6c2fa76d01e809805bd6">inf::Inflation::Size</a>({2,2,2}));</div>
+<div class="ttc" id="aclassinf_1_1Inflation_html_ada371f0e56db6c2fa76d01e809805bd6"><div class="ttname"><a href="classinf_1_1Inflation.html#ada371f0e56db6c2fa76d01e809805bd6">inf::Inflation::Size</a></div><div class="ttdeci">std::vector&lt; Index &gt; Size</div><div class="ttdoc">The inflation size (number of copies of each source), e.g., .</div><div class="ttdef"><b>Definition</b> <a href="inflation_8h_source.html#l00058">inflation.h:58</a></div></div>
+<div class="ttc" id="aclassuser_1_1Application_html_aa053b2208699654f0c2b0956b5914ee2"><div class="ttname"><a href="classuser_1_1Application.html#aa053b2208699654f0c2b0956b5914ee2">user::Application::get_feas_options</a></div><div class="ttdeci">inf::FeasOptions::Ptr const &amp; get_feas_options() const</div><div class="ttdoc">This allows child classes to be able to receive and modify the inf::FeasOptions initialized from the ...</div><div class="ttdef"><b>Definition</b> <a href="application_8cpp_source.html#l00073">application.cpp:73</a></div></div>
+</div><!-- fragment --> 
+<p class="definition">Definition at line <a class="el" href="application_8cpp_source.html#l00073">73</a> of file <a class="el" href="application_8cpp_source.html">application.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a320391039bd12bf108967105d8c94c5c" name="a320391039bd12bf108967105d8c94c5c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a320391039bd12bf108967105d8c94c5c">&#9670;&#160;</a></span>m_name</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string user::Application::m_name</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The identifier of the <a class="el" href="classuser_1_1Application.html" title="Parent class of user applications.">user::Application</a> to make it callable from the command line. </p>
+
+<p class="definition">Definition at line <a class="el" href="application_8h_source.html#l00076">76</a> of file <a class="el" href="application_8h_source.html">application.h</a>.</p>
+
+</div>
+</div>
+<a id="aa924cd6b697a9c9eb25794fcd9098c8d" name="aa924cd6b697a9c9eb25794fcd9098c8d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa924cd6b697a9c9eb25794fcd9098c8d">&#9670;&#160;</a></span>m_description</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string user::Application::m_description</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The description displayed when listing all existing applications. </p>
+
+<p class="definition">Definition at line <a class="el" href="application_8h_source.html#l00078">78</a> of file <a class="el" href="application_8h_source.html">application.h</a>.</p>
+
+</div>
+</div>
+<a id="a198ab68fa31d4948ca5e939033f72847" name="a198ab68fa31d4948ca5e939033f72847"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a198ab68fa31d4948ca5e939033f72847">&#9670;&#160;</a></span>m_is_test</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool user::Application::m_is_test</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Whether or not the application is to be run with the other tests. </p>
+
+<p class="definition">Definition at line <a class="el" href="application_8h_source.html#l00080">80</a> of file <a class="el" href="application_8h_source.html">application.h</a>.</p>
+
+</div>
+</div>
+<a id="a82a1e68fd154bbcb7ed6abaa9c82d7f1" name="a82a1e68fd154bbcb7ed6abaa9c82d7f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82a1e68fd154bbcb7ed6abaa9c82d7f1">&#9670;&#160;</a></span>m_chrono</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classutil_1_1Chrono.html">util::Chrono</a> user::Application::m_chrono</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The execution time of the application. </p>
+
+<p class="definition">Definition at line <a class="el" href="application_8h_source.html#l00082">82</a> of file <a class="el" href="application_8h_source.html">application.h</a>.</p>
+
+</div>
+</div>
+<a id="a087ac1a0c5bf041326d16ddeb79099e3" name="a087ac1a0c5bf041326d16ddeb79099e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a087ac1a0c5bf041326d16ddeb79099e3">&#9670;&#160;</a></span>m_inf_cli</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classuser_1_1InfCLI.html#a72e727e1528f28fcbb88bd803efb4795">user::InfCLI::ConstPtr</a> user::Application::m_inf_cli</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The command-line parameters. </p>
+
+<p class="definition">Definition at line <a class="el" href="application_8h_source.html#l00085">85</a> of file <a class="el" href="application_8h_source.html">application.h</a>.</p>
+
+</div>
+</div>
+<a id="ac9667a2f32682d03bebf3607c65e2d38" name="ac9667a2f32682d03bebf3607c65e2d38"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9667a2f32682d03bebf3607c65e2d38">&#9670;&#160;</a></span>m_feas_options</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classinf_1_1FeasOptions.html#a47cd0d666aa21be8252f703a0fbc654f">inf::FeasOptions::Ptr</a> user::Application::m_feas_options</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This is not a pointer-to-const because we want each child <a class="el" href="classuser_1_1Application.html" title="Parent class of user applications.">user::Application</a> to be able to modify the <a class="el" href="classinf_1_1FeasOptions.html" title="To conviently manipulate the parameters of an inf::FeasProblem.">inf::FeasOptions</a>, starting from the ones initalized based on the command-line parameters. </p>
+
+<p class="definition">Definition at line <a class="el" href="application_8h_source.html#l00088">88</a> of file <a class="el" href="application_8h_source.html">application.h</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>src/user/<a class="el" href="application_8h_source.html">application.h</a></li>
+<li>src/user/<a class="el" href="application_8cpp_source.html">application.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceuser.html">user</a></li><li class="navelem"><a class="el" href="classuser_1_1Application.html">Application</a></li>
+    <li class="footer">Generated on Wed Dec 18 2024 17:39:43 for Fast Inflation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

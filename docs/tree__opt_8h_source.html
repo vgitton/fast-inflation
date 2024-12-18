@@ -1,0 +1,332 @@
+<!-- HTML header for doxygen 1.9.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Fast Inflation: src/inf/optimization/tree_opt.h Source File</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+MathJax.Hub.Config({
+    TeX: {
+        Macros: {
+            dd: ["{\\text{d}#1\\,}",1],
+            nouts: ["{n_{\\text{o}}}"],
+            ints: ["{[\\![#1]\\!]}",1],
+            outset: ["{\\ints{\\nouts}}"],
+            N: ["{\\mathbb{N}}"],
+            R: ["{\\mathbb{R}}"],
+            Z: ["{\\mathbb{Z}}"],
+            infsize: ["{z}"],
+            infparties: ["{\\set{I}}"],
+            infsources: ["{\\set{S}}"],
+            infmarg: ["{\\set{A}}"],
+            infmargg: ["{\\set{B}}"],
+            netparties: ["{\\set{N}}"],
+            infq: ["{q}"],
+            infqs: ["{\\Delta_{\\infparties}}"],
+            constraintlist: ["{\\mathcal{C}}"],
+            injsets: ["{\\text{InjSets}}"],
+            infconstraints: ["{\\text{InfCons}}"],
+            parents: ["{\\text{Par}}"],
+            targetp: ["{p}"],
+            targetps: ["{\\Delta_{\\netparties}}"],
+            set: ["{\\mathbf{#1}}",1],
+            type: ["{t}"],
+            infevent: "{\\omega}",
+            events: ["{\\Omega_{#1}}",1],
+            infevents: ["{\\events{\\infparties}}"],
+            redinfevents: ["{\\tilde{\\Omega}_{\\infparties}}"],
+            netevents: ["{\\events{\\netparties}}"],
+            vecset: ["{V_{#1}}",1],
+            alice: ["{\\text{A}}"],
+            bob: ["{\\text{B}}"],
+            charlie: ["{\\text{C}}"],
+            symgroup: ["{\\text{Sym}(#1)}",1],
+            shortsymgroup: ["{\\text{Sym}_{#1}}",1],
+            act: ["{(#1\\hspace{2pt}{:}\\hspace{2pt}#2)}",2],
+            actt: ["{[#1\\hspace{2pt}{:}\\hspace{2pt}#2]}",2],
+            margperms: ["{\\text{Perm}_{#1}}",1],
+            permutedmargs: ["{\\mathbb{P}_{#1}^{\\targetp}}",1],
+            redpermutedmargs: ["{\\tilde{\\mathbb{P}}_{#1}^{\\constraintname,\\targetp}}",1],
+            extract: ["{\\text{ext}(#1,#2)}",2],
+            partysym: ["{\\tau}"],
+            sourcesym: ["{\\xi}"],
+            outsym: ["{\\sigma}"],
+            fullgroup: ["{\\text{InfGrp}}"],
+            partygroup : ["{\\text{PartyGrp}}"],
+            outgroup: ["{\\text{OutGrp}}"],
+            sourcegroup: ["{\\text{SrcGrp}}"],
+            distrgroup: ["{\\mathbb{G}^\\targetp}"],
+            constraintname: ["{c}"],
+            marggroup: ["{\\mathbb{G}^{\\constraintname,\\targetp}}"],
+            fullsymexpl: ["{(\\sourcesym,\\partysym,\\outsym)}"],
+            inner: ["{\\langle#1,#2\\rangle}", 2],
+            quovec: ["{f}"],
+            totconstraintmap: ["{K^{\\constraintlist,\\targetp}}"],
+            totconstraintmapelem: ["{K^{\\constraintname,\\targetp}}"],
+            quovecspace: ["{\\tilde{V}_{#1}^{\\constraintname,\\targetp}}", 1],
+            totquovecspace: ["{\\text{ConsSpace}(\\constraintlist,\\targetp)}"],
+            detdistr: ["{\\delta^{#1}}", 1],
+            margperm: ["{\\varphi}"],
+            altquovecembed: ["{\\text{G}_{#1}^{\\constraintname,\\targetp}}", 1],
+            vecset: ["{V_{#1}}", 1],
+            repr: ["{\\lfloor#1\\rfloor}", 1],
+            gid: ["{\\text{id}}"],
+            id: ["{1_{#1}}",1],
+            consscale: ["{K}"],
+            scaletot: ["{K_{\\text{tot}}^{\\constraintlist,\\targetp}}"],
+            minnorm: ["{d}"],
+            Bigsetst: ["\\;\\Big|\\;"],
+            activeset: ["\\mathcal{S}"],
+            conv: ["\\text{conv}"],
+            lVert: ["|\\hspace{-1pt}|"],
+            norm: ["\\lVert#1\\lVert", 1],
+            st: [":\ "],
+        }
+    }
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeDarkModeToggle.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeParagraphLink.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Fast Inflation
+   </div>
+   <div id="projectbrief">To certify causal incompatibility</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('tree__opt_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">tree_opt.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="tree__opt_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;../events/event_tree.h&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;../events/tree_splitter.h&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="optimizer_8h.html">optimizer.h</a>&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;shared_mutex&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceinf.html">inf</a> {</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="classinf_1_1TreeOpt.html">   32</a></span><span class="keyword">class </span><a class="code hl_class" href="classinf_1_1TreeOpt.html">TreeOpt</a> : <span class="keyword">public</span> <a class="code hl_class" href="classinf_1_1Optimizer.html">inf::Optimizer</a> {</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="classinf_1_1TreeOpt_1_1GlobalMinimum.html">   38</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classinf_1_1TreeOpt_1_1GlobalMinimum.html">GlobalMinimum</a> {</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>      <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        <a class="code hl_function" href="classinf_1_1TreeOpt_1_1GlobalMinimum.html#ad9adba702264fe8764eb01e0900f1540">GlobalMinimum</a>();</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1TreeOpt_1_1GlobalMinimum.html#a3ccfed811a97fda3b12bd7904e8e821e">set_if_smaller</a>(<a class="code hl_typedef" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a> score);</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <a class="code hl_typedef" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a> <a class="code hl_function" href="classinf_1_1TreeOpt_1_1GlobalMinimum.html#afa27bf59d998574900af1a3f62343fa6">get</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1TreeOpt_1_1GlobalMinimum.html#a87b8179fad5047df9c2511ac8ae361bb">reset</a>();</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>      <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="classinf_1_1TreeOpt_1_1GlobalMinimum.html#a230f78e8ce3087218f800e87661de7f9">   52</a></span>        <a class="code hl_typedef" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a> <a class="code hl_variable" href="classinf_1_1TreeOpt_1_1GlobalMinimum.html#a230f78e8ce3087218f800e87661de7f9">m_global_minimum</a>;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="classinf_1_1TreeOpt_1_1GlobalMinimum.html#a8d79c1d1bf2586df6fa0f73e77d7bb90">   55</a></span>        <span class="keyword">mutable</span> std::shared_mutex <a class="code hl_variable" href="classinf_1_1TreeOpt_1_1GlobalMinimum.html#a8d79c1d1bf2586df6fa0f73e77d7bb90">m_shared_mutex</a>;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    };</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="structinf_1_1TreeOpt_1_1ThreadWorker.html">   60</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structinf_1_1TreeOpt_1_1ThreadWorker.html">ThreadWorker</a> {</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        <a class="code hl_struct" href="structinf_1_1TreeOpt_1_1ThreadWorker.html">ThreadWorker</a>(<a class="code hl_class" href="classinf_1_1Marginal_1_1EvaluatorSet.html">inf::Marginal::EvaluatorSet</a> <span class="keyword">const</span> &amp;<a class="code hl_variable" href="structinf_1_1TreeOpt_1_1ThreadWorker.html#a71d20fb15d58eac8a9026db8ba5f0c82">marg_evaluators</a>);</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="structinf_1_1TreeOpt_1_1ThreadWorker.html#a71d20fb15d58eac8a9026db8ba5f0c82">   67</a></span>        <a class="code hl_class" href="classinf_1_1Marginal_1_1EvaluatorSet.html">inf::Marginal::EvaluatorSet</a> <a class="code hl_variable" href="structinf_1_1TreeOpt_1_1ThreadWorker.html#a71d20fb15d58eac8a9026db8ba5f0c82">marg_evaluators</a>;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="structinf_1_1TreeOpt_1_1ThreadWorker.html#a8eefdd2793b2fdec60b37619c09a6587">   72</a></span>        <a class="code hl_typedef" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a> <a class="code hl_variable" href="structinf_1_1TreeOpt_1_1ThreadWorker.html#a8eefdd2793b2fdec60b37619c09a6587">current_minimum</a>;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="structinf_1_1TreeOpt_1_1ThreadWorker.html#a648e6427c5799b8e5e6c66341b7e18c9">   74</a></span>        <a class="code hl_typedef" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> <a class="code hl_variable" href="structinf_1_1TreeOpt_1_1ThreadWorker.html#a648e6427c5799b8e5e6c66341b7e18c9">current_best_event</a>;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="structinf_1_1TreeOpt_1_1ThreadWorker.html#a8d281252ea08ee494b995c96f510ed97">   77</a></span>        <a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <a class="code hl_variable" href="structinf_1_1TreeOpt_1_1ThreadWorker.html#a8d281252ea08ee494b995c96f510ed97">last_depth_processed</a>;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="structinf_1_1TreeOpt_1_1ThreadWorker.html#a4f8ef2fa28c2e6f4e5f27daff7923c46">   79</a></span>        <a class="code hl_typedef" href="classinf_1_1EventTree_1_1NodePos.html#a84fc1d9dd559195e123c096ee1188fdd">inf::EventTree::NodePos::Queue</a> <a class="code hl_variable" href="structinf_1_1TreeOpt_1_1ThreadWorker.html#a4f8ef2fa28c2e6f4e5f27daff7923c46">queue</a>;</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="structinf_1_1TreeOpt_1_1ThreadWorker.html#a22be910a6d3fb4e153a6ae88a364a7d8">   87</a></span>        <a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <a class="code hl_variable" href="structinf_1_1TreeOpt_1_1ThreadWorker.html#a22be910a6d3fb4e153a6ae88a364a7d8">n_leaves_effective</a>;</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    };</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="structinf_1_1TreeOpt_1_1ThreadReturn.html">   92</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structinf_1_1TreeOpt_1_1ThreadReturn.html">ThreadReturn</a> {</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        <a class="code hl_struct" href="structinf_1_1TreeOpt_1_1ThreadReturn.html">ThreadReturn</a>(<a class="code hl_class" href="classinf_1_1Optimizer_1_1PreSolution.html">inf::Optimizer::PreSolution</a> &amp;&amp;<a class="code hl_variable" href="structinf_1_1TreeOpt_1_1ThreadReturn.html#a7dd0f206186da0de262f2890e87cf876">pre_solution</a>, <a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <span class="keyword">const</span> <a class="code hl_variable" href="structinf_1_1TreeOpt_1_1ThreadReturn.html#a62e8d4c7aceecb31ffeb2c66b62d2a95">n_leaves_effective</a>);</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno"><a class="line" href="structinf_1_1TreeOpt_1_1ThreadReturn.html#a7dd0f206186da0de262f2890e87cf876">   99</a></span>        <a class="code hl_class" href="classinf_1_1Optimizer_1_1PreSolution.html">inf::Optimizer::PreSolution</a> <span class="keyword">const</span> <a class="code hl_variable" href="structinf_1_1TreeOpt_1_1ThreadReturn.html#a7dd0f206186da0de262f2890e87cf876">pre_solution</a>;</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno"><a class="line" href="structinf_1_1TreeOpt_1_1ThreadReturn.html#a62e8d4c7aceecb31ffeb2c66b62d2a95">  101</a></span>        <a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <span class="keyword">const</span> <a class="code hl_variable" href="structinf_1_1TreeOpt_1_1ThreadReturn.html#a62e8d4c7aceecb31ffeb2c66b62d2a95">n_leaves_effective</a>;</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    };</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <a class="code hl_class" href="classinf_1_1TreeOpt.html">TreeOpt</a>(<a class="code hl_typedef" href="classinf_1_1ConstraintSet.html#ae1ca6aedd9bb271719b185fd0ef0f194">inf::ConstraintSet::Ptr</a> <span class="keyword">const</span> &amp;constraints,</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>            <a class="code hl_enumeration" href="classinf_1_1EventTree.html#a3fc302d7a899deaf35f6138a7bcbe67c">inf::EventTree::IO</a> symtree_io,</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>            <a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> n_threads);</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <a class="code hl_class" href="classinf_1_1TreeOpt.html">TreeOpt</a>(<a class="code hl_class" href="classinf_1_1TreeOpt.html">TreeOpt</a> <span class="keyword">const</span> &amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <a class="code hl_class" href="classinf_1_1TreeOpt.html">TreeOpt</a>(<a class="code hl_class" href="classinf_1_1TreeOpt.html">TreeOpt</a> &amp;&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <a class="code hl_class" href="classinf_1_1TreeOpt.html">TreeOpt</a> &amp;operator=(<a class="code hl_class" href="classinf_1_1TreeOpt.html">TreeOpt</a> <span class="keyword">const</span> &amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    <a class="code hl_class" href="classinf_1_1TreeOpt.html">TreeOpt</a> &amp;operator=(<a class="code hl_class" href="classinf_1_1TreeOpt.html">TreeOpt</a> &amp;&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    <a class="code hl_class" href="classinf_1_1Optimizer_1_1PreSolution.html">inf::Optimizer::PreSolution</a> <a class="code hl_function" href="classinf_1_1TreeOpt.html#a85a33707f3d49f8679c5cdb9d75af5e3">get_pre_solution</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1TreeOpt.html#af085dc05eb85fd97db7e03ca9ba55bb1">log_info</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1TreeOpt.html#ad5dbed3596c1a29bf04f524430a88a23">log_status</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>  <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno"><a class="line" href="classinf_1_1TreeOpt.html#ae55aea444c29283c41c0b3587e4f9c52">  126</a></span>    <a class="code hl_class" href="classinf_1_1EventTree.html">inf::EventTree</a> <span class="keyword">const</span> *<a class="code hl_variable" href="classinf_1_1TreeOpt.html#ae55aea444c29283c41c0b3587e4f9c52">m_event_tree</a>;</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno"><a class="line" href="classinf_1_1TreeOpt.html#a706e0a0881c430ee8ddb13f3aba8e4b6">  128</a></span>    <a class="code hl_enumeration" href="classinf_1_1EventTree.html#a3fc302d7a899deaf35f6138a7bcbe67c">inf::EventTree::IO</a> <span class="keyword">const</span> <a class="code hl_variable" href="classinf_1_1TreeOpt.html#a706e0a0881c430ee8ddb13f3aba8e4b6">m_symtree_io</a>;</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno"><a class="line" href="classinf_1_1TreeOpt.html#a84203d8b357225cb1aff3eb0d61c0030">  132</a></span>    <a class="code hl_class" href="classinf_1_1Marginal_1_1EvaluatorSet.html">inf::Marginal::EvaluatorSet</a> <span class="keyword">const</span> <a class="code hl_variable" href="classinf_1_1TreeOpt.html#a84203d8b357225cb1aff3eb0d61c0030">m_marg_evaluators</a>;</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno"><a class="line" href="classinf_1_1TreeOpt.html#a2e953b1be2bad45f016a80e602ea85a3">  134</a></span>    <a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <span class="keyword">const</span> <a class="code hl_variable" href="classinf_1_1TreeOpt.html#a2e953b1be2bad45f016a80e602ea85a3">m_n_threads</a>;</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno"><a class="line" href="classinf_1_1TreeOpt.html#a0431636c971e51ce2887d191417350b9">  137</a></span>    <a class="code hl_typedef" href="classinf_1_1TreeSplitter.html#ae0ba7ca1dc677a7edf501f12f12dd0dd">inf::TreeSplitter::PathPartitionConstPtr</a> <a class="code hl_variable" href="classinf_1_1TreeOpt.html#a0431636c971e51ce2887d191417350b9">m_path_partition</a>;</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno"><a class="line" href="classinf_1_1TreeOpt.html#a92cfd95c1fdcd28bdedf578b5c1e3252">  140</a></span>    <span class="keywordtype">bool</span> <span class="keyword">const</span> <a class="code hl_variable" href="classinf_1_1TreeOpt.html#a92cfd95c1fdcd28bdedf578b5c1e3252">m_store_bounds</a>;</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno"><a class="line" href="classinf_1_1TreeOpt.html#a9d40e2fccfc2ef47f8b8e3258594de7e">  142</a></span>    <a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <span class="keyword">const</span> <a class="code hl_variable" href="classinf_1_1TreeOpt.html#a9d40e2fccfc2ef47f8b8e3258594de7e">m_inflation_n_parties</a>;</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno"><a class="line" href="classinf_1_1TreeOpt.html#adfa1b7671387d53499398856df746e4a">  144</a></span>    <a class="code hl_typedef" href="group__event.html#gadcaa27c4242b65837f0f7a00e96856d4">inf::Outcome</a> <span class="keyword">const</span> <a class="code hl_variable" href="classinf_1_1TreeOpt.html#adfa1b7671387d53499398856df746e4a">m_outcome_unknown</a>;</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno"><a class="line" href="classinf_1_1TreeOpt.html#a984b0320e44828d916f43b7d527b9ce0">  146</a></span>    <a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <a class="code hl_variable" href="classinf_1_1TreeOpt.html#a984b0320e44828d916f43b7d527b9ce0">m_n_leaves_effective</a>;</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno"><a class="line" href="classinf_1_1TreeOpt.html#a166b48950d3b6985cecda2329beefd97">  148</a></span>    <a class="code hl_class" href="classinf_1_1TreeOpt_1_1GlobalMinimum.html">GlobalMinimum</a> <a class="code hl_variable" href="classinf_1_1TreeOpt.html#a166b48950d3b6985cecda2329beefd97">m_global_minimum</a>;</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    <a class="code hl_struct" href="structinf_1_1TreeOpt_1_1ThreadReturn.html">inf::TreeOpt::ThreadReturn</a> <a class="code hl_function" href="classinf_1_1TreeOpt.html#af5ea697b19ec98fda533955c92a3c0ba">thread_opt</a>(std::vector&lt;inf::TreeSplitter::Path&gt; <span class="keyword">const</span> &amp;paths);</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1TreeOpt.html#acefacfbba6063059143c3fffab8f663d">go_down_from</a>(<a class="code hl_struct" href="structinf_1_1TreeOpt_1_1ThreadWorker.html">inf::TreeOpt::ThreadWorker</a> &amp;thread_worker,</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>                      <a class="code hl_class" href="classinf_1_1EventTree_1_1NodePos.html">inf::EventTree::NodePos</a> <span class="keyword">const</span> &amp;node_pos);</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>};</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span> </div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>} <span class="comment">// namespace inf</span></div>
+<div class="ttc" id="aclassinf_1_1ConstraintSet_html_ae1ca6aedd9bb271719b185fd0ef0f194"><div class="ttname"><a href="classinf_1_1ConstraintSet.html#ae1ca6aedd9bb271719b185fd0ef0f194">inf::ConstraintSet::Ptr</a></div><div class="ttdeci">std::shared_ptr&lt; inf::ConstraintSet &gt; Ptr</div><div class="ttdef"><b>Definition</b> <a href="constraint__set_8h_source.html#l00031">constraint_set.h:31</a></div></div>
+<div class="ttc" id="aclassinf_1_1EventTree_1_1NodePos_html"><div class="ttname"><a href="classinf_1_1EventTree_1_1NodePos.html">inf::EventTree::NodePos</a></div><div class="ttdoc">This lightweight data structure uniquely identifies a node in some inf::EventTree.</div><div class="ttdef"><b>Definition</b> <a href="event__tree_8h_source.html#l00127">event_tree.h:127</a></div></div>
+<div class="ttc" id="aclassinf_1_1EventTree_1_1NodePos_html_a84fc1d9dd559195e123c096ee1188fdd"><div class="ttname"><a href="classinf_1_1EventTree_1_1NodePos.html#a84fc1d9dd559195e123c096ee1188fdd">inf::EventTree::NodePos::Queue</a></div><div class="ttdeci">std::vector&lt; inf::EventTree::NodePos &gt; Queue</div><div class="ttdoc">Iterating over each inf::EventTree::Node stored in a inf::EventTree requires a queue/stack to keep tr...</div><div class="ttdef"><b>Definition</b> <a href="event__tree_8h_source.html#l00131">event_tree.h:131</a></div></div>
+<div class="ttc" id="aclassinf_1_1EventTree_html"><div class="ttname"><a href="classinf_1_1EventTree.html">inf::EventTree</a></div><div class="ttdoc">Storing a set of inf::Event as a tree.</div><div class="ttdef"><b>Definition</b> <a href="event__tree_8h_source.html#l00107">event_tree.h:107</a></div></div>
+<div class="ttc" id="aclassinf_1_1EventTree_html_a3fc302d7a899deaf35f6138a7bcbe67c"><div class="ttname"><a href="classinf_1_1EventTree.html#a3fc302d7a899deaf35f6138a7bcbe67c">inf::EventTree::IO</a></div><div class="ttdeci">IO</div><div class="ttdoc">An inf::EventTree can take some time to initialize, and this option is used to control whether an inf...</div><div class="ttdef"><b>Definition</b> <a href="event__tree_8h_source.html#l00111">event_tree.h:111</a></div></div>
+<div class="ttc" id="aclassinf_1_1Marginal_1_1EvaluatorSet_html"><div class="ttname"><a href="classinf_1_1Marginal_1_1EvaluatorSet.html">inf::Marginal::EvaluatorSet</a></div><div class="ttdoc">This class is a convenience for storing multiple inf::Marginal::Evaluator and adding up their results...</div><div class="ttdef"><b>Definition</b> <a href="marginal_8h_source.html#l00173">marginal.h:173</a></div></div>
+<div class="ttc" id="aclassinf_1_1Optimizer_1_1PreSolution_html"><div class="ttname"><a href="classinf_1_1Optimizer_1_1PreSolution.html">inf::Optimizer::PreSolution</a></div><div class="ttdoc">This is the base of the inf::Solution returned by an inf::Optimizer, containing the optimizer (an inf...</div><div class="ttdef"><b>Definition</b> <a href="optimizer_8h_source.html#l00050">optimizer.h:50</a></div></div>
+<div class="ttc" id="aclassinf_1_1Optimizer_html"><div class="ttname"><a href="classinf_1_1Optimizer.html">inf::Optimizer</a></div><div class="ttdoc">This class defines the interface for inf::BruteForceOpt and inf::TreeOpt.</div><div class="ttdef"><b>Definition</b> <a href="optimizer_8h_source.html#l00033">optimizer.h:33</a></div></div>
+<div class="ttc" id="aclassinf_1_1TreeOpt_1_1GlobalMinimum_html"><div class="ttname"><a href="classinf_1_1TreeOpt_1_1GlobalMinimum.html">inf::TreeOpt::GlobalMinimum</a></div><div class="ttdoc">This is the shared data between threads, storing the global smallest value found so far,...</div><div class="ttdef"><b>Definition</b> <a href="tree__opt_8h_source.html#l00038">tree_opt.h:38</a></div></div>
+<div class="ttc" id="aclassinf_1_1TreeOpt_1_1GlobalMinimum_html_a230f78e8ce3087218f800e87661de7f9"><div class="ttname"><a href="classinf_1_1TreeOpt_1_1GlobalMinimum.html#a230f78e8ce3087218f800e87661de7f9">inf::TreeOpt::GlobalMinimum::m_global_minimum</a></div><div class="ttdeci">Num m_global_minimum</div><div class="ttdoc">The current global minimum accross all threads.</div><div class="ttdef"><b>Definition</b> <a href="tree__opt_8h_source.html#l00052">tree_opt.h:52</a></div></div>
+<div class="ttc" id="aclassinf_1_1TreeOpt_1_1GlobalMinimum_html_a3ccfed811a97fda3b12bd7904e8e821e"><div class="ttname"><a href="classinf_1_1TreeOpt_1_1GlobalMinimum.html#a3ccfed811a97fda3b12bd7904e8e821e">inf::TreeOpt::GlobalMinimum::set_if_smaller</a></div><div class="ttdeci">void set_if_smaller(Num score)</div><div class="ttdoc">Sets m_global_minimum = min(m_global_minimum, score) in a thread-safe manner.</div><div class="ttdef"><b>Definition</b> <a href="tree__opt_8cpp_source.html#l00011">tree_opt.cpp:11</a></div></div>
+<div class="ttc" id="aclassinf_1_1TreeOpt_1_1GlobalMinimum_html_a87b8179fad5047df9c2511ac8ae361bb"><div class="ttname"><a href="classinf_1_1TreeOpt_1_1GlobalMinimum.html#a87b8179fad5047df9c2511ac8ae361bb">inf::TreeOpt::GlobalMinimum::reset</a></div><div class="ttdeci">void reset()</div><div class="ttdoc">Reset m_global_minimum to the largest Num.</div><div class="ttdef"><b>Definition</b> <a href="tree__opt_8cpp_source.html#l00026">tree_opt.cpp:26</a></div></div>
+<div class="ttc" id="aclassinf_1_1TreeOpt_1_1GlobalMinimum_html_a8d79c1d1bf2586df6fa0f73e77d7bb90"><div class="ttname"><a href="classinf_1_1TreeOpt_1_1GlobalMinimum.html#a8d79c1d1bf2586df6fa0f73e77d7bb90">inf::TreeOpt::GlobalMinimum::m_shared_mutex</a></div><div class="ttdeci">std::shared_mutex m_shared_mutex</div><div class="ttdoc">This mutex allows threads to know when they are allowed to access m_global_minimum</div><div class="ttdef"><b>Definition</b> <a href="tree__opt_8h_source.html#l00055">tree_opt.h:55</a></div></div>
+<div class="ttc" id="aclassinf_1_1TreeOpt_1_1GlobalMinimum_html_ad9adba702264fe8764eb01e0900f1540"><div class="ttname"><a href="classinf_1_1TreeOpt_1_1GlobalMinimum.html#ad9adba702264fe8764eb01e0900f1540">inf::TreeOpt::GlobalMinimum::GlobalMinimum</a></div><div class="ttdeci">GlobalMinimum()</div><div class="ttdoc">Initializes m_global_minimum to the largest Num.</div><div class="ttdef"><b>Definition</b> <a href="tree__opt_8cpp_source.html#l00008">tree_opt.cpp:8</a></div></div>
+<div class="ttc" id="aclassinf_1_1TreeOpt_1_1GlobalMinimum_html_afa27bf59d998574900af1a3f62343fa6"><div class="ttname"><a href="classinf_1_1TreeOpt_1_1GlobalMinimum.html#afa27bf59d998574900af1a3f62343fa6">inf::TreeOpt::GlobalMinimum::get</a></div><div class="ttdeci">Num get() const</div><div class="ttdoc">Gets the current value of m_global_minimum in a thread-safe manner.</div><div class="ttdef"><b>Definition</b> <a href="tree__opt_8cpp_source.html#l00020">tree_opt.cpp:20</a></div></div>
+<div class="ttc" id="aclassinf_1_1TreeOpt_html"><div class="ttname"><a href="classinf_1_1TreeOpt.html">inf::TreeOpt</a></div><div class="ttdoc">This inf::Optimizer is the most efficient one we used, it uses multi-threading and a branch-and-bound...</div><div class="ttdef"><b>Definition</b> <a href="tree__opt_8h_source.html#l00032">tree_opt.h:32</a></div></div>
+<div class="ttc" id="aclassinf_1_1TreeOpt_html_a0431636c971e51ce2887d191417350b9"><div class="ttname"><a href="classinf_1_1TreeOpt.html#a0431636c971e51ce2887d191417350b9">inf::TreeOpt::m_path_partition</a></div><div class="ttdeci">inf::TreeSplitter::PathPartitionConstPtr m_path_partition</div><div class="ttdoc">When m_n_threads &gt; 1, this contains a partition of m_event_tree into m_n_threads approximately equal ...</div><div class="ttdef"><b>Definition</b> <a href="tree__opt_8h_source.html#l00137">tree_opt.h:137</a></div></div>
+<div class="ttc" id="aclassinf_1_1TreeOpt_html_a166b48950d3b6985cecda2329beefd97"><div class="ttname"><a href="classinf_1_1TreeOpt.html#a166b48950d3b6985cecda2329beefd97">inf::TreeOpt::m_global_minimum</a></div><div class="ttdeci">GlobalMinimum m_global_minimum</div><div class="ttdoc">The thread-safe readable/writable global minimum value shared by the threads.</div><div class="ttdef"><b>Definition</b> <a href="tree__opt_8h_source.html#l00148">tree_opt.h:148</a></div></div>
+<div class="ttc" id="aclassinf_1_1TreeOpt_html_a2e953b1be2bad45f016a80e602ea85a3"><div class="ttname"><a href="classinf_1_1TreeOpt.html#a2e953b1be2bad45f016a80e602ea85a3">inf::TreeOpt::m_n_threads</a></div><div class="ttdeci">Index const m_n_threads</div><div class="ttdoc">The number of threads to use to accelerate the tree search.</div><div class="ttdef"><b>Definition</b> <a href="tree__opt_8h_source.html#l00134">tree_opt.h:134</a></div></div>
+<div class="ttc" id="aclassinf_1_1TreeOpt_html_a706e0a0881c430ee8ddb13f3aba8e4b6"><div class="ttname"><a href="classinf_1_1TreeOpt.html#a706e0a0881c430ee8ddb13f3aba8e4b6">inf::TreeOpt::m_symtree_io</a></div><div class="ttdeci">inf::EventTree::IO const m_symtree_io</div><div class="ttdoc">How to obtain the reduced set of inflation events , see inf::EventTree::IO.</div><div class="ttdef"><b>Definition</b> <a href="tree__opt_8h_source.html#l00128">tree_opt.h:128</a></div></div>
+<div class="ttc" id="aclassinf_1_1TreeOpt_html_a84203d8b357225cb1aff3eb0d61c0030"><div class="ttname"><a href="classinf_1_1TreeOpt.html#a84203d8b357225cb1aff3eb0d61c0030">inf::TreeOpt::m_marg_evaluators</a></div><div class="ttdeci">inf::Marginal::EvaluatorSet const m_marg_evaluators</div><div class="ttdoc">To allow each inf::TreeOpt::ThreadWorker to evaluate the underlying inf::DualVector.</div><div class="ttdef"><b>Definition</b> <a href="tree__opt_8h_source.html#l00132">tree_opt.h:132</a></div></div>
+<div class="ttc" id="aclassinf_1_1TreeOpt_html_a85a33707f3d49f8679c5cdb9d75af5e3"><div class="ttname"><a href="classinf_1_1TreeOpt.html#a85a33707f3d49f8679c5cdb9d75af5e3">inf::TreeOpt::get_pre_solution</a></div><div class="ttdeci">inf::Optimizer::PreSolution get_pre_solution() override</div><div class="ttdoc">This method is in charge of producing the optimizer (depending on m_stop_mode, see inf::Optimizer::St...</div><div class="ttdef"><b>Definition</b> <a href="tree__opt_8cpp_source.html#l00074">tree_opt.cpp:74</a></div></div>
+<div class="ttc" id="aclassinf_1_1TreeOpt_html_a92cfd95c1fdcd28bdedf578b5c1e3252"><div class="ttname"><a href="classinf_1_1TreeOpt.html#a92cfd95c1fdcd28bdedf578b5c1e3252">inf::TreeOpt::m_store_bounds</a></div><div class="ttdeci">bool const m_store_bounds</div><div class="ttdoc">This is constraints.get_store_bounds() == inf::DualVector::StoreBounds::yes, which is stored as a boo...</div><div class="ttdef"><b>Definition</b> <a href="tree__opt_8h_source.html#l00140">tree_opt.h:140</a></div></div>
+<div class="ttc" id="aclassinf_1_1TreeOpt_html_a984b0320e44828d916f43b7d527b9ce0"><div class="ttname"><a href="classinf_1_1TreeOpt.html#a984b0320e44828d916f43b7d527b9ce0">inf::TreeOpt::m_n_leaves_effective</a></div><div class="ttdeci">Index m_n_leaves_effective</div><div class="ttdoc">The sum of the n_leaves_effective of the thread workers, see inf::TreeOpt::ThreadWorker::n_leaves_eff...</div><div class="ttdef"><b>Definition</b> <a href="tree__opt_8h_source.html#l00146">tree_opt.h:146</a></div></div>
+<div class="ttc" id="aclassinf_1_1TreeOpt_html_a9d40e2fccfc2ef47f8b8e3258594de7e"><div class="ttname"><a href="classinf_1_1TreeOpt.html#a9d40e2fccfc2ef47f8b8e3258594de7e">inf::TreeOpt::m_inflation_n_parties</a></div><div class="ttdeci">Index const m_inflation_n_parties</div><div class="ttdoc">The number  of inflation parties.</div><div class="ttdef"><b>Definition</b> <a href="tree__opt_8h_source.html#l00142">tree_opt.h:142</a></div></div>
+<div class="ttc" id="aclassinf_1_1TreeOpt_html_acefacfbba6063059143c3fffab8f663d"><div class="ttname"><a href="classinf_1_1TreeOpt.html#acefacfbba6063059143c3fffab8f663d">inf::TreeOpt::go_down_from</a></div><div class="ttdeci">void go_down_from(inf::TreeOpt::ThreadWorker &amp;thread_worker, inf::EventTree::NodePos const &amp;node_pos)</div><div class="ttdoc">This function investigates a single node of inf::TreeOpt::m_event_tree.</div><div class="ttdef"><b>Definition</b> <a href="tree__opt_8cpp_source.html#l00165">tree_opt.cpp:165</a></div></div>
+<div class="ttc" id="aclassinf_1_1TreeOpt_html_ad5dbed3596c1a29bf04f524430a88a23"><div class="ttname"><a href="classinf_1_1TreeOpt.html#ad5dbed3596c1a29bf04f524430a88a23">inf::TreeOpt::log_status</a></div><div class="ttdeci">void log_status() const override</div><div class="ttdoc">Logs information about the optimization status, this is meant to be called regularly within the inf::...</div><div class="ttdef"><b>Definition</b> <a href="tree__opt_8cpp_source.html#l00120">tree_opt.cpp:120</a></div></div>
+<div class="ttc" id="aclassinf_1_1TreeOpt_html_adfa1b7671387d53499398856df746e4a"><div class="ttname"><a href="classinf_1_1TreeOpt.html#adfa1b7671387d53499398856df746e4a">inf::TreeOpt::m_outcome_unknown</a></div><div class="ttdeci">inf::Outcome const m_outcome_unknown</div><div class="ttdoc">The unknown outcome &quot;?&quot;, stored as , where  is the physical number of outcomes per party.</div><div class="ttdef"><b>Definition</b> <a href="tree__opt_8h_source.html#l00144">tree_opt.h:144</a></div></div>
+<div class="ttc" id="aclassinf_1_1TreeOpt_html_ae55aea444c29283c41c0b3587e4f9c52"><div class="ttname"><a href="classinf_1_1TreeOpt.html#ae55aea444c29283c41c0b3587e4f9c52">inf::TreeOpt::m_event_tree</a></div><div class="ttdeci">inf::EventTree const  * m_event_tree</div><div class="ttdoc">The relevant set of inf::Constraint defining the inner products .</div><div class="ttdef"><b>Definition</b> <a href="tree__opt_8h_source.html#l00126">tree_opt.h:126</a></div></div>
+<div class="ttc" id="aclassinf_1_1TreeOpt_html_af085dc05eb85fd97db7e03ca9ba55bb1"><div class="ttname"><a href="classinf_1_1TreeOpt.html#af085dc05eb85fd97db7e03ca9ba55bb1">inf::TreeOpt::log_info</a></div><div class="ttdeci">void log_info() const override</div><div class="ttdoc">Logs information about the inf::Optimizer to util::logger, this is meant to be called on initializing...</div><div class="ttdef"><b>Definition</b> <a href="tree__opt_8cpp_source.html#l00115">tree_opt.cpp:115</a></div></div>
+<div class="ttc" id="aclassinf_1_1TreeOpt_html_af5ea697b19ec98fda533955c92a3c0ba"><div class="ttname"><a href="classinf_1_1TreeOpt.html#af5ea697b19ec98fda533955c92a3c0ba">inf::TreeOpt::thread_opt</a></div><div class="ttdeci">inf::TreeOpt::ThreadReturn thread_opt(std::vector&lt; inf::TreeSplitter::Path &gt; const &amp;paths)</div><div class="ttdoc">This function is a single-threaded minimization.</div><div class="ttdef"><b>Definition</b> <a href="tree__opt_8cpp_source.html#l00125">tree_opt.cpp:125</a></div></div>
+<div class="ttc" id="aclassinf_1_1TreeSplitter_html_ae0ba7ca1dc677a7edf501f12f12dd0dd"><div class="ttname"><a href="classinf_1_1TreeSplitter.html#ae0ba7ca1dc677a7edf501f12f12dd0dd">inf::TreeSplitter::PathPartitionConstPtr</a></div><div class="ttdeci">std::shared_ptr&lt; const PathPartition &gt; PathPartitionConstPtr</div><div class="ttdef"><b>Definition</b> <a href="tree__splitter_8h_source.html#l00067">tree_splitter.h:67</a></div></div>
+<div class="ttc" id="agroup__event_html_gac60a6fcdfce02dc13eb7364d6a2b56b0"><div class="ttname"><a href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a></div><div class="ttdeci">std::vector&lt; inf::Outcome &gt; Event</div><div class="ttdoc">A list of inf::Outcome. Conceptually, this plays the role of  for some set .</div><div class="ttdef"><b>Definition</b> <a href="event_8h_source.html#l00030">event.h:30</a></div></div>
+<div class="ttc" id="agroup__event_html_gadcaa27c4242b65837f0f7a00e96856d4"><div class="ttname"><a href="group__event.html#gadcaa27c4242b65837f0f7a00e96856d4">inf::Outcome</a></div><div class="ttdeci">uint8_t Outcome</div><div class="ttdoc">An outcome is stored in the smallest format available to save memory.</div><div class="ttdef"><b>Definition</b> <a href="event_8h_source.html#l00026">event.h:26</a></div></div>
+<div class="ttc" id="agroup__util_html_ga77731aedac326062ffbdcf367185a07e"><div class="ttname"><a href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a></div><div class="ttdeci">uint64_t Index</div><div class="ttdoc">Use for anything meant to be used as an index.</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00019">types.h:19</a></div></div>
+<div class="ttc" id="agroup__util_html_gaea24f8b468377784fdb704692e9168f5"><div class="ttname"><a href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a></div><div class="ttdeci">int64_t Num</div><div class="ttdoc">Signed integers.</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00015">types.h:15</a></div></div>
+<div class="ttc" id="anamespaceinf_html"><div class="ttname"><a href="namespaceinf.html">inf</a></div><div class="ttdoc">The namespace for the inflation code.</div><div class="ttdef"><b>Definition</b> <a href="constraint_8h_source.html#l00006">constraint.h:6</a></div></div>
+<div class="ttc" id="aoptimizer_8h_html"><div class="ttname"><a href="optimizer_8h.html">optimizer.h</a></div></div>
+<div class="ttc" id="astructinf_1_1TreeOpt_1_1ThreadReturn_html"><div class="ttname"><a href="structinf_1_1TreeOpt_1_1ThreadReturn.html">inf::TreeOpt::ThreadReturn</a></div><div class="ttdoc">This is what each thread returns, essentially an inf::Optimizer::PreSolution.</div><div class="ttdef"><b>Definition</b> <a href="tree__opt_8h_source.html#l00092">tree_opt.h:92</a></div></div>
+<div class="ttc" id="astructinf_1_1TreeOpt_1_1ThreadReturn_html_a62e8d4c7aceecb31ffeb2c66b62d2a95"><div class="ttname"><a href="structinf_1_1TreeOpt_1_1ThreadReturn.html#a62e8d4c7aceecb31ffeb2c66b62d2a95">inf::TreeOpt::ThreadReturn::n_leaves_effective</a></div><div class="ttdeci">Index const n_leaves_effective</div><div class="ttdoc">See inf::TreeOpt::ThreadWorker::n_leaves_effective.</div><div class="ttdef"><b>Definition</b> <a href="tree__opt_8h_source.html#l00101">tree_opt.h:101</a></div></div>
+<div class="ttc" id="astructinf_1_1TreeOpt_1_1ThreadReturn_html_a7dd0f206186da0de262f2890e87cf876"><div class="ttname"><a href="structinf_1_1TreeOpt_1_1ThreadReturn.html#a7dd0f206186da0de262f2890e87cf876">inf::TreeOpt::ThreadReturn::pre_solution</a></div><div class="ttdeci">inf::Optimizer::PreSolution const pre_solution</div><div class="ttdoc">The inf::Optimizer::PreSolution holding the minimum score and the corresponding optimizer inflation e...</div><div class="ttdef"><b>Definition</b> <a href="tree__opt_8h_source.html#l00099">tree_opt.h:99</a></div></div>
+<div class="ttc" id="astructinf_1_1TreeOpt_1_1ThreadWorker_html"><div class="ttname"><a href="structinf_1_1TreeOpt_1_1ThreadWorker.html">inf::TreeOpt::ThreadWorker</a></div><div class="ttdoc">This struct encapsulates the data that each thread works with.</div><div class="ttdef"><b>Definition</b> <a href="tree__opt_8h_source.html#l00060">tree_opt.h:60</a></div></div>
+<div class="ttc" id="astructinf_1_1TreeOpt_1_1ThreadWorker_html_a22be910a6d3fb4e153a6ae88a364a7d8"><div class="ttname"><a href="structinf_1_1TreeOpt_1_1ThreadWorker.html#a22be910a6d3fb4e153a6ae88a364a7d8">inf::TreeOpt::ThreadWorker::n_leaves_effective</a></div><div class="ttdeci">Index n_leaves_effective</div><div class="ttdoc">The number of leaves perceived thanks to the branch-and-bound approach.</div><div class="ttdef"><b>Definition</b> <a href="tree__opt_8h_source.html#l00087">tree_opt.h:87</a></div></div>
+<div class="ttc" id="astructinf_1_1TreeOpt_1_1ThreadWorker_html_a4f8ef2fa28c2e6f4e5f27daff7923c46"><div class="ttname"><a href="structinf_1_1TreeOpt_1_1ThreadWorker.html#a4f8ef2fa28c2e6f4e5f27daff7923c46">inf::TreeOpt::ThreadWorker::queue</a></div><div class="ttdeci">inf::EventTree::NodePos::Queue queue</div><div class="ttdoc">The stack of fill requests to be processed in inf::TreeOpt::go_down_from()</div><div class="ttdef"><b>Definition</b> <a href="tree__opt_8h_source.html#l00079">tree_opt.h:79</a></div></div>
+<div class="ttc" id="astructinf_1_1TreeOpt_1_1ThreadWorker_html_a648e6427c5799b8e5e6c66341b7e18c9"><div class="ttname"><a href="structinf_1_1TreeOpt_1_1ThreadWorker.html#a648e6427c5799b8e5e6c66341b7e18c9">inf::TreeOpt::ThreadWorker::current_best_event</a></div><div class="ttdeci">inf::Event current_best_event</div><div class="ttdoc">Inflation event corresponding to the score of inf::TreeOpt::CurrentMinimum::current_minimum</div><div class="ttdef"><b>Definition</b> <a href="tree__opt_8h_source.html#l00074">tree_opt.h:74</a></div></div>
+<div class="ttc" id="astructinf_1_1TreeOpt_1_1ThreadWorker_html_a71d20fb15d58eac8a9026db8ba5f0c82"><div class="ttname"><a href="structinf_1_1TreeOpt_1_1ThreadWorker.html#a71d20fb15d58eac8a9026db8ba5f0c82">inf::TreeOpt::ThreadWorker::marg_evaluators</a></div><div class="ttdeci">inf::Marginal::EvaluatorSet marg_evaluators</div><div class="ttdoc">To allow the inf::TreeOpt::ThreadWorker to evaluate the underlying inf::DualVector,...</div><div class="ttdef"><b>Definition</b> <a href="tree__opt_8h_source.html#l00067">tree_opt.h:67</a></div></div>
+<div class="ttc" id="astructinf_1_1TreeOpt_1_1ThreadWorker_html_a8d281252ea08ee494b995c96f510ed97"><div class="ttname"><a href="structinf_1_1TreeOpt_1_1ThreadWorker.html#a8d281252ea08ee494b995c96f510ed97">inf::TreeOpt::ThreadWorker::last_depth_processed</a></div><div class="ttdeci">Index last_depth_processed</div><div class="ttdoc">This stores the last depth of the tree that was processed, allowing to reset the outcomes stored in i...</div><div class="ttdef"><b>Definition</b> <a href="tree__opt_8h_source.html#l00077">tree_opt.h:77</a></div></div>
+<div class="ttc" id="astructinf_1_1TreeOpt_1_1ThreadWorker_html_a8eefdd2793b2fdec60b37619c09a6587"><div class="ttname"><a href="structinf_1_1TreeOpt_1_1ThreadWorker.html#a8eefdd2793b2fdec60b37619c09a6587">inf::TreeOpt::ThreadWorker::current_minimum</a></div><div class="ttdeci">Num current_minimum</div><div class="ttdoc">The current best (i.e., minimum) score found by the thread.</div><div class="ttdef"><b>Definition</b> <a href="tree__opt_8h_source.html#l00072">tree_opt.h:72</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_0f453feda2a303bb77c09f5934c109df.html">inf</a></li><li class="navelem"><a class="el" href="dir_b002022c0861f82d74f29c498083ffdf.html">optimization</a></li><li class="navelem"><a class="el" href="tree__opt_8h.html">tree_opt.h</a></li>
+    <li class="footer">Generated on Wed Dec 18 2024 17:39:36 for Fast Inflation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

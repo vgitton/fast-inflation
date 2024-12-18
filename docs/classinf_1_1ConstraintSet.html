@@ -1,0 +1,1049 @@
+<!-- HTML header for doxygen 1.9.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Fast Inflation: inf::ConstraintSet Class Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+MathJax.Hub.Config({
+    TeX: {
+        Macros: {
+            dd: ["{\\text{d}#1\\,}",1],
+            nouts: ["{n_{\\text{o}}}"],
+            ints: ["{[\\![#1]\\!]}",1],
+            outset: ["{\\ints{\\nouts}}"],
+            N: ["{\\mathbb{N}}"],
+            R: ["{\\mathbb{R}}"],
+            Z: ["{\\mathbb{Z}}"],
+            infsize: ["{z}"],
+            infparties: ["{\\set{I}}"],
+            infsources: ["{\\set{S}}"],
+            infmarg: ["{\\set{A}}"],
+            infmargg: ["{\\set{B}}"],
+            netparties: ["{\\set{N}}"],
+            infq: ["{q}"],
+            infqs: ["{\\Delta_{\\infparties}}"],
+            constraintlist: ["{\\mathcal{C}}"],
+            injsets: ["{\\text{InjSets}}"],
+            infconstraints: ["{\\text{InfCons}}"],
+            parents: ["{\\text{Par}}"],
+            targetp: ["{p}"],
+            targetps: ["{\\Delta_{\\netparties}}"],
+            set: ["{\\mathbf{#1}}",1],
+            type: ["{t}"],
+            infevent: "{\\omega}",
+            events: ["{\\Omega_{#1}}",1],
+            infevents: ["{\\events{\\infparties}}"],
+            redinfevents: ["{\\tilde{\\Omega}_{\\infparties}}"],
+            netevents: ["{\\events{\\netparties}}"],
+            vecset: ["{V_{#1}}",1],
+            alice: ["{\\text{A}}"],
+            bob: ["{\\text{B}}"],
+            charlie: ["{\\text{C}}"],
+            symgroup: ["{\\text{Sym}(#1)}",1],
+            shortsymgroup: ["{\\text{Sym}_{#1}}",1],
+            act: ["{(#1\\hspace{2pt}{:}\\hspace{2pt}#2)}",2],
+            actt: ["{[#1\\hspace{2pt}{:}\\hspace{2pt}#2]}",2],
+            margperms: ["{\\text{Perm}_{#1}}",1],
+            permutedmargs: ["{\\mathbb{P}_{#1}^{\\targetp}}",1],
+            redpermutedmargs: ["{\\tilde{\\mathbb{P}}_{#1}^{\\constraintname,\\targetp}}",1],
+            extract: ["{\\text{ext}(#1,#2)}",2],
+            partysym: ["{\\tau}"],
+            sourcesym: ["{\\xi}"],
+            outsym: ["{\\sigma}"],
+            fullgroup: ["{\\text{InfGrp}}"],
+            partygroup : ["{\\text{PartyGrp}}"],
+            outgroup: ["{\\text{OutGrp}}"],
+            sourcegroup: ["{\\text{SrcGrp}}"],
+            distrgroup: ["{\\mathbb{G}^\\targetp}"],
+            constraintname: ["{c}"],
+            marggroup: ["{\\mathbb{G}^{\\constraintname,\\targetp}}"],
+            fullsymexpl: ["{(\\sourcesym,\\partysym,\\outsym)}"],
+            inner: ["{\\langle#1,#2\\rangle}", 2],
+            quovec: ["{f}"],
+            totconstraintmap: ["{K^{\\constraintlist,\\targetp}}"],
+            totconstraintmapelem: ["{K^{\\constraintname,\\targetp}}"],
+            quovecspace: ["{\\tilde{V}_{#1}^{\\constraintname,\\targetp}}", 1],
+            totquovecspace: ["{\\text{ConsSpace}(\\constraintlist,\\targetp)}"],
+            detdistr: ["{\\delta^{#1}}", 1],
+            margperm: ["{\\varphi}"],
+            altquovecembed: ["{\\text{G}_{#1}^{\\constraintname,\\targetp}}", 1],
+            vecset: ["{V_{#1}}", 1],
+            repr: ["{\\lfloor#1\\rfloor}", 1],
+            gid: ["{\\text{id}}"],
+            id: ["{1_{#1}}",1],
+            consscale: ["{K}"],
+            scaletot: ["{K_{\\text{tot}}^{\\constraintlist,\\targetp}}"],
+            minnorm: ["{d}"],
+            Bigsetst: ["\\;\\Big|\\;"],
+            activeset: ["\\mathcal{S}"],
+            conv: ["\\text{conv}"],
+            lVert: ["|\\hspace{-1pt}|"],
+            norm: ["\\lVert#1\\lVert", 1],
+            st: [":\ "],
+        }
+    }
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeDarkModeToggle.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeParagraphLink.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Fast Inflation
+   </div>
+   <div id="projectbrief">To certify causal incompatibility</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classinf_1_1ConstraintSet.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="classinf_1_1ConstraintSet-members.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">inf::ConstraintSet Class Reference<div class="ingroups"><a class="el" href="group__inflation.html">Inflation</a> &raquo; <a class="el" href="group__infback.html">Inflation backend</a> &raquo; <a class="el" href="group__infcons.html">Inflation constraints</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &quot;<a class="el" href="constraint__set_8h_source.html">inf/constraints/constraint_set.h</a>&quot;</code></p>
+<a name="details" id="details"></a><h2 class="groupheader">Class description</h2>
+<div class="textblock"><p>A set of <a class="el" href="classinf_1_1Constraint.html" title="Describes a single constraint of the form .">inf::Constraint</a> that, together with the inflation size, determines the inflation problem at hand. </p>
+<p>In the paper, a set of constraints is denoted \(\constraintlist \subset \infconstraints\). Each element \(\constraintname = (\infmarg_0,\dots,\infmarg_{k-1},\infmargg) \in \constraintlist\) represents a single constraint and is represented, in the code, with the class <a class="el" href="classinf_1_1Constraint.html" title="Describes a single constraint of the form .">inf::Constraint</a>.</p>
+<p>The class <a class="el" href="classinf_1_1ConstraintSet.html" title="A set of inf::Constraint that, together with the inflation size, determines the inflation problem at ...">inf::ConstraintSet</a> is in particular in charge of coordinating the arithmetic of the internal <a class="el" href="classinf_1_1Constraint.html" title="Describes a single constraint of the form .">inf::Constraint</a>, see <a class="el" href="classinf_1_1ConstraintSet.html#af649f8cfbbc0aed6c141d7ae25956554" title="This arithmetic method looks at the denominators of the LHS and RHS of each constraint,...">inf::ConstraintSet::update_constraint_scale_factors()</a>. This is done, as explained in the paper, by computing adequate scale factors \(\consscale\) that will eventually appear in the calculation of inner products, see <a class="el" href="classinf_1_1Marginal.html" title="This class represents an inflation marginal  for some set of inflation parties  and allows to efficie...">inf::Marginal</a>. Furthermore, the <a class="el" href="classinf_1_1ConstraintSet.html" title="A set of inf::Constraint that, together with the inflation size, determines the inflation problem at ...">inf::ConstraintSet</a> computes the maximal absolute value that a dual vector component can have, as explained in the paper. This is implemented in <a class="el" href="classinf_1_1ConstraintSet.html#af649f8cfbbc0aed6c141d7ae25956554" title="This arithmetic method looks at the denominators of the LHS and RHS of each constraint,...">inf::ConstraintSet::update_constraint_scale_factors()</a>. The methods that can modify the dual vector components (<a class="el" href="classinf_1_1ConstraintSet.html#a9ffcaa2938719ef1be1b4853909525b1" title="This updates every internal inf::DualVector.">inf::ConstraintSet::set_dual_vector_from_quovec()</a>, <a class="el" href="classinf_1_1ConstraintSet.html#aedcbf7151dc048bb246f189a54c361f2" title="This reads the current dual vector held by inf::ConstraintSet from a text file.">inf::ConstraintSet::read_dual_vector_from_file()</a>) then check that the bound is respected. The method <a class="el" href="classinf_1_1ConstraintSet.html#aab71db55e40fa6543ebe7f2b013fc150" title="This updates every internal inf::Constraint with this target distribution.">inf::ConstraintSet::set_target_distribution()</a> can change the denominator of the target distribution, and hence also the overflow bound. To make sure that the internal quovecs always respect the bound, <a class="el" href="classinf_1_1ConstraintSet.html#aab71db55e40fa6543ebe7f2b013fc150" title="This updates every internal inf::Constraint with this target distribution.">inf::ConstraintSet::set_target_distribution()</a> resets the internal quovecs to be all zero. </p>
+
+<p class="definition">Definition at line <a class="el" href="constraint__set_8h_source.html#l00029">29</a> of file <a class="el" href="constraint__set_8h_source.html">constraint_set.h</a>.</p>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:ae1ca6aedd9bb271719b185fd0ef0f194"><td class="memItemLeft" align="right" valign="top">typedef std::shared_ptr&lt; <a class="el" href="classinf_1_1ConstraintSet.html">inf::ConstraintSet</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1ConstraintSet.html#ae1ca6aedd9bb271719b185fd0ef0f194">Ptr</a></td></tr>
+<tr class="separator:ae1ca6aedd9bb271719b185fd0ef0f194"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03de00b33554963f8743b469ae41126f"><td class="memItemLeft" align="right" valign="top">typedef std::shared_ptr&lt; const <a class="el" href="classinf_1_1ConstraintSet.html">inf::ConstraintSet</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1ConstraintSet.html#a03de00b33554963f8743b469ae41126f">ConstPtr</a></td></tr>
+<tr class="separator:a03de00b33554963f8743b469ae41126f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08a03fd03aea0d150a2174064cc3fa37"><td class="memItemLeft" align="right" valign="top">typedef std::vector&lt; <a class="el" href="classinf_1_1Constraint.html#a9af530da5633c7e8d6ee25e29488b715">inf::Constraint::Description</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1ConstraintSet.html#a08a03fd03aea0d150a2174064cc3fa37">Description</a></td></tr>
+<tr class="memdesc:a08a03fd03aea0d150a2174064cc3fa37"><td class="mdescLeft">&#160;</td><td class="mdescRight">A text description of the set of constraints, see <a class="el" href="classinf_1_1ConstraintParser.html" title="To convert a human-readable formulation of inflation constraints into the necessary internal format.">inf::ConstraintParser</a> for the format of each <a class="el" href="classinf_1_1Constraint.html#a9af530da5633c7e8d6ee25e29488b715" title="The text description of an inflation constraint, see inf::ConstraintParser for the adequate format.">inf::Constraint::Description</a>.  <br /></td></tr>
+<tr class="separator:a08a03fd03aea0d150a2174064cc3fa37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a3f1c78e746a81a7276045798f357ffbb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1ConstraintSet.html#a3f1c78e746a81a7276045798f357ffbb">ConstraintSet</a> (<a class="el" href="classinf_1_1Inflation.html#ac594d5b8d7cbdd7cdfe569baa351f0ba">inf::Inflation::ConstPtr</a> const &amp;inflation, <a class="el" href="classinf_1_1ConstraintSet.html#a08a03fd03aea0d150a2174064cc3fa37">inf::ConstraintSet::Description</a> const &amp;constraints, <a class="el" href="classinf_1_1DualVector.html#a615feaafdbd4a08901a07ad60260d398">inf::DualVector::StoreBounds</a> store_bounds)</td></tr>
+<tr class="memdesc:a3f1c78e746a81a7276045798f357ffbb"><td class="mdescLeft">&#160;</td><td class="mdescRight">The set of constraints is defined by an <a class="el" href="classinf_1_1Inflation.html" title="Describes an inflation of a network, currently restricted to canonical inflations of the triangle net...">inf::Inflation</a> and a list of <a class="el" href="classinf_1_1Constraint.html#a9af530da5633c7e8d6ee25e29488b715" title="The text description of an inflation constraint, see inf::ConstraintParser for the adequate format.">inf::Constraint::Description</a>.  <br /></td></tr>
+<tr class="separator:a3f1c78e746a81a7276045798f357ffbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a904f169ffc7d83d1a89e6ddf172e971d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1ConstraintSet.html#a904f169ffc7d83d1a89e6ddf172e971d">log</a> () const override</td></tr>
+<tr class="memdesc:a904f169ffc7d83d1a89e6ddf172e971d"><td class="mdescLeft">&#160;</td><td class="mdescRight">This prints the object to the globally accessible <code><a class="el" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678" title="The globally accessible logger replacing std::cout">util::logger</a></code> and allows the <code><a class="el" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678" title="The globally accessible logger replacing std::cout">util::logger</a> &lt;&lt; loggable</code> syntax.  <br /></td></tr>
+<tr class="separator:a904f169ffc7d83d1a89e6ddf172e971d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a013370a0bcd418f8afdf18a3ac7cdbe8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1ConstraintSet.html#a013370a0bcd418f8afdf18a3ac7cdbe8">log_dual_vectors</a> () const</td></tr>
+<tr class="memdesc:a013370a0bcd418f8afdf18a3ac7cdbe8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs the current values held in each internal <a class="el" href="classinf_1_1DualVector.html" title="Describes a dual vector  through its embedding .">inf::DualVector</a>.  <br /></td></tr>
+<tr class="separator:a013370a0bcd418f8afdf18a3ac7cdbe8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac18a3e9eec538bef886a434b2113c71"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classinf_1_1Inflation.html#ac594d5b8d7cbdd7cdfe569baa351f0ba">inf::Inflation::ConstPtr</a> const &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1ConstraintSet.html#aac18a3e9eec538bef886a434b2113c71">get_inflation</a> () const</td></tr>
+<tr class="memdesc:aac18a3e9eec538bef886a434b2113c71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the underlying inflation.  <br /></td></tr>
+<tr class="separator:aac18a3e9eec538bef886a434b2113c71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a539c4e10b165747b7c66ba2b26c5a35b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classinf_1_1DualVector.html#a615feaafdbd4a08901a07ad60260d398">inf::DualVector::StoreBounds</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1ConstraintSet.html#a539c4e10b165747b7c66ba2b26c5a35b">get_store_bounds</a> () const</td></tr>
+<tr class="memdesc:a539c4e10b165747b7c66ba2b26c5a35b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether or not each underlying <a class="el" href="classinf_1_1DualVector.html" title="Describes a dual vector  through its embedding .">inf::DualVector</a> members store upper/lower bounds.  <br /></td></tr>
+<tr class="separator:a539c4e10b165747b7c66ba2b26c5a35b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f647aaecc2a8ce00873fcacaf6f827a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1ConstraintSet.html#a2f647aaecc2a8ce00873fcacaf6f827a">get_quovec_size</a> () const</td></tr>
+<tr class="memdesc:a2f647aaecc2a8ce00873fcacaf6f827a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The size of the list representation of a quovec \(\{\quovec_\constraintname\}_{\constraintname\in\constraintlist} \in \totquovecspace\).  <br /></td></tr>
+<tr class="separator:a2f647aaecc2a8ce00873fcacaf6f827a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff102c56d819813d913a738360f8d8f9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1ConstraintSet.html#aff102c56d819813d913a738360f8d8f9">get_max_dual_vector_component</a> () const</td></tr>
+<tr class="memdesc:aff102c56d819813d913a738360f8d8f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">The max overflow-safe value that can be held by a dual vector.  <br /></td></tr>
+<tr class="separator:aff102c56d819813d913a738360f8d8f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6f595cb0067c61653228294592db040"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classinf_1_1Marginal_1_1EvaluatorSet.html">inf::Marginal::EvaluatorSet</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1ConstraintSet.html#ad6f595cb0067c61653228294592db040">get_marg_evaluators</a> () const</td></tr>
+<tr class="memdesc:ad6f595cb0067c61653228294592db040"><td class="mdescLeft">&#160;</td><td class="mdescRight">The set of <a class="el" href="classinf_1_1Marginal_1_1Evaluator.html" title="This class contains minimal data allowing to perform the operations described in inf::Marginal.">inf::Marginal::Evaluator</a>, allowing to efficiently evaluate inner products.  <br /></td></tr>
+<tr class="separator:ad6f595cb0067c61653228294592db040"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab71db55e40fa6543ebe7f2b013fc150"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1ConstraintSet.html#aab71db55e40fa6543ebe7f2b013fc150">set_target_distribution</a> (<a class="el" href="classinf_1_1TargetDistr.html">inf::TargetDistr</a> const &amp;d)</td></tr>
+<tr class="memdesc:aab71db55e40fa6543ebe7f2b013fc150"><td class="mdescLeft">&#160;</td><td class="mdescRight">This updates every internal <a class="el" href="classinf_1_1Constraint.html" title="Describes a single constraint of the form .">inf::Constraint</a> with this target distribution.  <br /></td></tr>
+<tr class="separator:aab71db55e40fa6543ebe7f2b013fc150"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ffcaa2938719ef1be1b4853909525b1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1ConstraintSet.html#a9ffcaa2938719ef1be1b4853909525b1">set_dual_vector_from_quovec</a> (<a class="el" href="group__infcons.html#ga8fa19943a83fd41acae30b7bcc935295">inf::Quovec</a> const &amp;coeffs)</td></tr>
+<tr class="memdesc:a9ffcaa2938719ef1be1b4853909525b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">This updates every internal <a class="el" href="classinf_1_1DualVector.html" title="Describes a dual vector  through its embedding .">inf::DualVector</a>.  <br /></td></tr>
+<tr class="separator:a9ffcaa2938719ef1be1b4853909525b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3978bd76651b03e0c721c0cebbd7559"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__infcons.html#ga8fa19943a83fd41acae30b7bcc935295">inf::Quovec</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1ConstraintSet.html#af3978bd76651b03e0c721c0cebbd7559">get_inflation_event_quovec</a> (<a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> const &amp;inflation_event) const</td></tr>
+<tr class="memdesc:af3978bd76651b03e0c721c0cebbd7559"><td class="mdescLeft">&#160;</td><td class="mdescRight">This returns \(\{\totconstraintmapelem(\detdistr\infevent)\}_{\constraintname\in\constraintlist}\).  <br /></td></tr>
+<tr class="separator:af3978bd76651b03e0c721c0cebbd7559"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87041af2b9fb04dee4c238eddcd93de0"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1ConstraintSet.html#a87041af2b9fb04dee4c238eddcd93de0">get_quovec_denom</a> () const</td></tr>
+<tr class="memdesc:a87041af2b9fb04dee4c238eddcd93de0"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the total scale factor \(\scaletot \in \N\) that appears in both inner product evaluation and quovec calculations.  <br /></td></tr>
+<tr class="separator:a87041af2b9fb04dee4c238eddcd93de0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67b94bc21f590851d38d08482364d49d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1ConstraintSet.html#a67b94bc21f590851d38d08482364d49d">write_dual_vector_to_file</a> (std::string const &amp;filename, std::string const &amp;metadata)</td></tr>
+<tr class="memdesc:a67b94bc21f590851d38d08482364d49d"><td class="mdescLeft">&#160;</td><td class="mdescRight">This saves the current dual vector held by <a class="el" href="classinf_1_1ConstraintSet.html" title="A set of inf::Constraint that, together with the inflation size, determines the inflation problem at ...">inf::ConstraintSet</a> to a text file.  <br /></td></tr>
+<tr class="separator:a67b94bc21f590851d38d08482364d49d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aedcbf7151dc048bb246f189a54c361f2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1ConstraintSet.html#aedcbf7151dc048bb246f189a54c361f2">read_dual_vector_from_file</a> (std::string const &amp;filename, std::string const &amp;metadata)</td></tr>
+<tr class="memdesc:aedcbf7151dc048bb246f189a54c361f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">This reads the current dual vector held by <a class="el" href="classinf_1_1ConstraintSet.html" title="A set of inf::Constraint that, together with the inflation size, determines the inflation problem at ...">inf::ConstraintSet</a> from a text file.  <br /></td></tr>
+<tr class="separator:aedcbf7151dc048bb246f189a54c361f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a46f36f2a44b43ed2806aeb803d6ecdcb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1ConstraintSet.html#a46f36f2a44b43ed2806aeb803d6ecdcb">io_dual_vector</a> (<a class="el" href="classutil_1_1FileStream.html">util::FileStream</a> &amp;stream)</td></tr>
+<tr class="memdesc:a46f36f2a44b43ed2806aeb803d6ecdcb"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is used by <a class="el" href="classinf_1_1ConstraintSet.html#a67b94bc21f590851d38d08482364d49d" title="This saves the current dual vector held by inf::ConstraintSet to a text file.">write_dual_vector_to_file()</a> and <a class="el" href="classinf_1_1ConstraintSet.html#aedcbf7151dc048bb246f189a54c361f2" title="This reads the current dual vector held by inf::ConstraintSet from a text file.">read_dual_vector_from_file()</a>  <br /></td></tr>
+<tr class="separator:a46f36f2a44b43ed2806aeb803d6ecdcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a323259a21078259dcb43e3cea751ed0d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1ConstraintSet.html#a323259a21078259dcb43e3cea751ed0d">init_quovec_size</a> ()</td></tr>
+<tr class="memdesc:a323259a21078259dcb43e3cea751ed0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes <code>m_quovec_size</code>  <br /></td></tr>
+<tr class="separator:a323259a21078259dcb43e3cea751ed0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af649f8cfbbc0aed6c141d7ae25956554"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1ConstraintSet.html#af649f8cfbbc0aed6c141d7ae25956554">update_constraint_scale_factors</a> ()</td></tr>
+<tr class="memdesc:af649f8cfbbc0aed6c141d7ae25956554"><td class="mdescLeft">&#160;</td><td class="mdescRight">This arithmetic method looks at the denominators of the LHS and RHS of each constraint, simplifies where possible, and assigns the appropriate scale factors to the constraints.  <br /></td></tr>
+<tr class="separator:af649f8cfbbc0aed6c141d7ae25956554"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb5f3096d09640af3fa608ccf3ab1e45"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1ConstraintSet.html#aeb5f3096d09640af3fa608ccf3ab1e45">hard_assert_quovecs_within_bound</a> () const</td></tr>
+<tr class="memdesc:aeb5f3096d09640af3fa608ccf3ab1e45"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method checks that the internal <a class="el" href="classinf_1_1DualVector.html" title="Describes a dual vector  through its embedding .">inf::DualVector</a> held by each <a class="el" href="classinf_1_1Constraint.html" title="Describes a single constraint of the form .">inf::Constraint</a> has components no bigger than <code>m_max_dual_vector_component</code>.  <br /></td></tr>
+<tr class="separator:aeb5f3096d09640af3fa608ccf3ab1e45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:ac1571360431b69672cb5bbb262ff8fc8"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classinf_1_1Inflation.html#ac594d5b8d7cbdd7cdfe569baa351f0ba">inf::Inflation::ConstPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1ConstraintSet.html#ac1571360431b69672cb5bbb262ff8fc8">m_inflation</a></td></tr>
+<tr class="memdesc:ac1571360431b69672cb5bbb262ff8fc8"><td class="mdescLeft">&#160;</td><td class="mdescRight">The underlying inflation.  <br /></td></tr>
+<tr class="separator:ac1571360431b69672cb5bbb262ff8fc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02633b7ef12937280d4a961dfa98b567"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classinf_1_1Constraint.html#a56940861a7bffd338a899402c949c6c9">inf::Constraint::UniquePtr</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1ConstraintSet.html#a02633b7ef12937280d4a961dfa98b567">m_constraints</a></td></tr>
+<tr class="memdesc:a02633b7ef12937280d4a961dfa98b567"><td class="mdescLeft">&#160;</td><td class="mdescRight">The list of <a class="el" href="classinf_1_1Constraint.html" title="Describes a single constraint of the form .">inf::Constraint</a>.  <br /></td></tr>
+<tr class="separator:a02633b7ef12937280d4a961dfa98b567"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ca10d587f2fb568b9d0a499bf4865f9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classinf_1_1DualVector.html#a615feaafdbd4a08901a07ad60260d398">inf::DualVector::StoreBounds</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1ConstraintSet.html#a1ca10d587f2fb568b9d0a499bf4865f9">m_store_bounds</a></td></tr>
+<tr class="memdesc:a1ca10d587f2fb568b9d0a499bf4865f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is stored to be retrievable by the <a class="el" href="classinf_1_1Optimizer.html" title="This class defines the interface for inf::BruteForceOpt and inf::TreeOpt.">inf::Optimizer</a>.  <br /></td></tr>
+<tr class="separator:a1ca10d587f2fb568b9d0a499bf4865f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e4ccad11678862a57d33dce76e3fff8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1ConstraintSet.html#a6e4ccad11678862a57d33dce76e3fff8">m_quovec_size</a></td></tr>
+<tr class="memdesc:a6e4ccad11678862a57d33dce76e3fff8"><td class="mdescLeft">&#160;</td><td class="mdescRight">The sum of each constraint's quovec size, see <a class="el" href="classinf_1_1ConstraintSet.html#a2f647aaecc2a8ce00873fcacaf6f827a" title="The size of the list representation of a quovec .">inf::ConstraintSet::get_quovec_size()</a>  <br /></td></tr>
+<tr class="separator:a6e4ccad11678862a57d33dce76e3fff8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0da496dd5d4e0aec556f48173e1b53cb"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1ConstraintSet.html#a0da496dd5d4e0aec556f48173e1b53cb">m_quovec_denom</a></td></tr>
+<tr class="memdesc:a0da496dd5d4e0aec556f48173e1b53cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is used to be able to bring back the quovecs into a normalized floating point form, see inf::ConstaintSet::get_quovec_denom()  <br /></td></tr>
+<tr class="separator:a0da496dd5d4e0aec556f48173e1b53cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39585524a28d2fe77be9a83f06c0ec82"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1ConstraintSet.html#a39585524a28d2fe77be9a83f06c0ec82">m_max_dual_vector_component</a></td></tr>
+<tr class="memdesc:a39585524a28d2fe77be9a83f06c0ec82"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the maximal value a dual vector entry can take to be guaranteed to never overflow, see inf::ConstraintSet::check_quovec_for_overflow()  <br /></td></tr>
+<tr class="separator:a39585524a28d2fe77be9a83f06c0ec82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="ae1ca6aedd9bb271719b185fd0ef0f194" name="ae1ca6aedd9bb271719b185fd0ef0f194"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1ca6aedd9bb271719b185fd0ef0f194">&#9670;&#160;</a></span>Ptr</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::shared_ptr&lt;<a class="el" href="classinf_1_1ConstraintSet.html">inf::ConstraintSet</a>&gt; <a class="el" href="classinf_1_1ConstraintSet.html#ae1ca6aedd9bb271719b185fd0ef0f194">inf::ConstraintSet::Ptr</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="constraint__set_8h_source.html#l00031">31</a> of file <a class="el" href="constraint__set_8h_source.html">constraint_set.h</a>.</p>
+
+</div>
+</div>
+<a id="a03de00b33554963f8743b469ae41126f" name="a03de00b33554963f8743b469ae41126f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03de00b33554963f8743b469ae41126f">&#9670;&#160;</a></span>ConstPtr</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::shared_ptr&lt;const <a class="el" href="classinf_1_1ConstraintSet.html">inf::ConstraintSet</a>&gt; <a class="el" href="classinf_1_1ConstraintSet.html#a03de00b33554963f8743b469ae41126f">inf::ConstraintSet::ConstPtr</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="constraint__set_8h_source.html#l00032">32</a> of file <a class="el" href="constraint__set_8h_source.html">constraint_set.h</a>.</p>
+
+</div>
+</div>
+<a id="a08a03fd03aea0d150a2174064cc3fa37" name="a08a03fd03aea0d150a2174064cc3fa37"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08a03fd03aea0d150a2174064cc3fa37">&#9670;&#160;</a></span>Description</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::vector&lt;<a class="el" href="classinf_1_1Constraint.html#a9af530da5633c7e8d6ee25e29488b715">inf::Constraint::Description</a>&gt; <a class="el" href="classinf_1_1ConstraintSet.html#a08a03fd03aea0d150a2174064cc3fa37">inf::ConstraintSet::Description</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A text description of the set of constraints, see <a class="el" href="classinf_1_1ConstraintParser.html" title="To convert a human-readable formulation of inflation constraints into the necessary internal format.">inf::ConstraintParser</a> for the format of each <a class="el" href="classinf_1_1Constraint.html#a9af530da5633c7e8d6ee25e29488b715" title="The text description of an inflation constraint, see inf::ConstraintParser for the adequate format.">inf::Constraint::Description</a>. </p>
+<p>Note that the user is allowed to input two or more identical constraints. This is not recommended for performance since duplicate constraints are not removed. </p>
+
+<p class="definition">Definition at line <a class="el" href="constraint__set_8h_source.html#l00037">37</a> of file <a class="el" href="constraint__set_8h_source.html">constraint_set.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a3f1c78e746a81a7276045798f357ffbb" name="a3f1c78e746a81a7276045798f357ffbb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f1c78e746a81a7276045798f357ffbb">&#9670;&#160;</a></span>ConstraintSet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">inf::ConstraintSet::ConstraintSet </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classinf_1_1Inflation.html#ac594d5b8d7cbdd7cdfe569baa351f0ba">inf::Inflation::ConstPtr</a> const &amp;&#160;</td>
+          <td class="paramname"><em>inflation</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classinf_1_1ConstraintSet.html#a08a03fd03aea0d150a2174064cc3fa37">inf::ConstraintSet::Description</a> const &amp;&#160;</td>
+          <td class="paramname"><em>constraints</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classinf_1_1DualVector.html#a615feaafdbd4a08901a07ad60260d398">inf::DualVector::StoreBounds</a>&#160;</td>
+          <td class="paramname"><em>store_bounds</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The set of constraints is defined by an <a class="el" href="classinf_1_1Inflation.html" title="Describes an inflation of a network, currently restricted to canonical inflations of the triangle net...">inf::Inflation</a> and a list of <a class="el" href="classinf_1_1Constraint.html#a9af530da5633c7e8d6ee25e29488b715" title="The text description of an inflation constraint, see inf::ConstraintParser for the adequate format.">inf::Constraint::Description</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">inflation</td><td>The underlying inflation </td></tr>
+    <tr><td class="paramname">constraints</td><td>This describes the constraints to impose in the inflation problem, see <a class="el" href="classinf_1_1ConstraintParser.html" title="To convert a human-readable formulation of inflation constraints into the necessary internal format.">inf::ConstraintParser</a> for the relevant format. </td></tr>
+    <tr><td class="paramname">store_bounds</td><td>This indicates whether or not the underlying <a class="el" href="classinf_1_1DualVector.html" title="Describes a dual vector  through its embedding .">inf::DualVector</a> should store upper/lower bounds to allow for a branch-and-bound optimization of inner products. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="constraint__set_8cpp_source.html#l00008">8</a> of file <a class="el" href="constraint__set_8cpp_source.html">constraint_set.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a904f169ffc7d83d1a89e6ddf172e971d" name="a904f169ffc7d83d1a89e6ddf172e971d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a904f169ffc7d83d1a89e6ddf172e971d">&#9670;&#160;</a></span>log()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void inf::ConstraintSet::log </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This prints the object to the globally accessible <code><a class="el" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678" title="The globally accessible logger replacing std::cout">util::logger</a></code> and allows the <code><a class="el" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678" title="The globally accessible logger replacing std::cout">util::logger</a> &lt;&lt; loggable</code> syntax. </p>
+
+<p>Implements <a class="el" href="classutil_1_1Loggable.html#a63b97911b9abef8b12af6a3fdeb45750">util::Loggable</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="constraint__set_8cpp_source.html#l00029">29</a> of file <a class="el" href="constraint__set_8cpp_source.html">constraint_set.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a013370a0bcd418f8afdf18a3ac7cdbe8" name="a013370a0bcd418f8afdf18a3ac7cdbe8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a013370a0bcd418f8afdf18a3ac7cdbe8">&#9670;&#160;</a></span>log_dual_vectors()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void inf::ConstraintSet::log_dual_vectors </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Logs the current values held in each internal <a class="el" href="classinf_1_1DualVector.html" title="Describes a dual vector  through its embedding .">inf::DualVector</a>. </p>
+
+<p class="definition">Definition at line <a class="el" href="constraint__set_8cpp_source.html#l00052">52</a> of file <a class="el" href="constraint__set_8cpp_source.html">constraint_set.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aac18a3e9eec538bef886a434b2113c71" name="aac18a3e9eec538bef886a434b2113c71"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac18a3e9eec538bef886a434b2113c71">&#9670;&#160;</a></span>get_inflation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classinf_1_1Inflation.html#ac594d5b8d7cbdd7cdfe569baa351f0ba">inf::Inflation::ConstPtr</a> const  &amp; inf::ConstraintSet::get_inflation </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the underlying inflation. </p>
+
+<p class="definition">Definition at line <a class="el" href="constraint__set_8cpp_source.html#l00064">64</a> of file <a class="el" href="constraint__set_8cpp_source.html">constraint_set.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a539c4e10b165747b7c66ba2b26c5a35b" name="a539c4e10b165747b7c66ba2b26c5a35b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a539c4e10b165747b7c66ba2b26c5a35b">&#9670;&#160;</a></span>get_store_bounds()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classinf_1_1DualVector.html#a615feaafdbd4a08901a07ad60260d398">inf::DualVector::StoreBounds</a> inf::ConstraintSet::get_store_bounds </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Whether or not each underlying <a class="el" href="classinf_1_1DualVector.html" title="Describes a dual vector  through its embedding .">inf::DualVector</a> members store upper/lower bounds. </p>
+
+<p class="definition">Definition at line <a class="el" href="constraint__set_8cpp_source.html#l00068">68</a> of file <a class="el" href="constraint__set_8cpp_source.html">constraint_set.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a2f647aaecc2a8ce00873fcacaf6f827a" name="a2f647aaecc2a8ce00873fcacaf6f827a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f647aaecc2a8ce00873fcacaf6f827a">&#9670;&#160;</a></span>get_quovec_size()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> inf::ConstraintSet::get_quovec_size </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The size of the list representation of a quovec \(\{\quovec_\constraintname\}_{\constraintname\in\constraintlist} \in \totquovecspace\). </p>
+<p>This is the sum of the size of the list representation of each \(\quovec_\constraintname \in \quovecspace{\infmarg_{0}\cdots\infmarg_{k-1}\infmargg}\), where \(\constraintname = (\infmarg_0,\dots,\infmarg_{k-1},\infmargg)\). In other words, this is the sum of the number of event orbits of each constraint, relative to the relevant marginal symmetries \(\marggroup\):  </p><p class="formulaDsp">
+\[
+    \sum_{\constraintname = (\infmarg_0,\dots,\infmarg_{k-1},\infmargg)\in\constraintlist} | \events{\infmarg_0\dots\infmarg_{k-1}\infmargg} \setminus \marggroup |
+\]
+</p>
+ 
+<p class="definition">Definition at line <a class="el" href="constraint__set_8cpp_source.html#l00072">72</a> of file <a class="el" href="constraint__set_8cpp_source.html">constraint_set.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aff102c56d819813d913a738360f8d8f9" name="aff102c56d819813d913a738360f8d8f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff102c56d819813d913a738360f8d8f9">&#9670;&#160;</a></span>get_max_dual_vector_component()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a> inf::ConstraintSet::get_max_dual_vector_component </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The max overflow-safe value that can be held by a dual vector. </p>
+
+<p class="definition">Definition at line <a class="el" href="constraint__set_8cpp_source.html#l00076">76</a> of file <a class="el" href="constraint__set_8cpp_source.html">constraint_set.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ad6f595cb0067c61653228294592db040" name="ad6f595cb0067c61653228294592db040"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6f595cb0067c61653228294592db040">&#9670;&#160;</a></span>get_marg_evaluators()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classinf_1_1Marginal_1_1EvaluatorSet.html">inf::Marginal::EvaluatorSet</a> inf::ConstraintSet::get_marg_evaluators </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The set of <a class="el" href="classinf_1_1Marginal_1_1Evaluator.html" title="This class contains minimal data allowing to perform the operations described in inf::Marginal.">inf::Marginal::Evaluator</a>, allowing to efficiently evaluate inner products. </p>
+
+<p class="definition">Definition at line <a class="el" href="constraint__set_8cpp_source.html#l00080">80</a> of file <a class="el" href="constraint__set_8cpp_source.html">constraint_set.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aab71db55e40fa6543ebe7f2b013fc150" name="aab71db55e40fa6543ebe7f2b013fc150"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab71db55e40fa6543ebe7f2b013fc150">&#9670;&#160;</a></span>set_target_distribution()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void inf::ConstraintSet::set_target_distribution </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classinf_1_1TargetDistr.html">inf::TargetDistr</a> const &amp;&#160;</td>
+          <td class="paramname"><em>d</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This updates every internal <a class="el" href="classinf_1_1Constraint.html" title="Describes a single constraint of the form .">inf::Constraint</a> with this target distribution. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classinf_1_1Constraint.html#ae4fb3329cf68a6bfb3635e5a22c94547" title="To modify the target distribution . This updates m_rhs_target_tensor and m_rhs_reduced_dual_vector.">inf::Constraint::set_target_distribution()</a> </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>This method resets the internal dual vector to zero! </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="constraint__set_8cpp_source.html#l00094">94</a> of file <a class="el" href="constraint__set_8cpp_source.html">constraint_set.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a9ffcaa2938719ef1be1b4853909525b1" name="a9ffcaa2938719ef1be1b4853909525b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ffcaa2938719ef1be1b4853909525b1">&#9670;&#160;</a></span>set_dual_vector_from_quovec()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void inf::ConstraintSet::set_dual_vector_from_quovec </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__infcons.html#ga8fa19943a83fd41acae30b7bcc935295">inf::Quovec</a> const &amp;&#160;</td>
+          <td class="paramname"><em>coeffs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This updates every internal <a class="el" href="classinf_1_1DualVector.html" title="Describes a dual vector  through its embedding .">inf::DualVector</a>. </p>
+<p>This method should only be called after <a class="el" href="classinf_1_1ConstraintSet.html#aab71db55e40fa6543ebe7f2b013fc150" title="This updates every internal inf::Constraint with this target distribution.">inf::ConstraintSet::set_target_distribution()</a> has been called. This is checked internally. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classinf_1_1Constraint.html#a6a27630bf9bb6e380855e7890e935a52" title="Sets the left-hand-side inf::DualVector m_lhs_dual_vector and update m_rhs_reduced_dual_vector approp...">inf::Constraint::set_dual_vector_from_quovec()</a> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">coeffs</td><td>This is a representation of a quovec \(\{\quovec_\constraintname\}_{\constraintname\in\constraintlist} \in \totquovecspace\) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="constraint__set_8cpp_source.html#l00102">102</a> of file <a class="el" href="constraint__set_8cpp_source.html">constraint_set.cpp</a>.</p>
+
+</div>
+</div>
+<a id="af3978bd76651b03e0c721c0cebbd7559" name="af3978bd76651b03e0c721c0cebbd7559"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3978bd76651b03e0c721c0cebbd7559">&#9670;&#160;</a></span>get_inflation_event_quovec()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__infcons.html#ga8fa19943a83fd41acae30b7bcc935295">inf::Quovec</a> inf::ConstraintSet::get_inflation_event_quovec </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> const &amp;&#160;</td>
+          <td class="paramname"><em>inflation_event</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This returns \(\{\totconstraintmapelem(\detdistr\infevent)\}_{\constraintname\in\constraintlist}\). </p>
+<p>In other words, this returns the direct sum of each constraint's quovec,  </p><p class="formulaDsp">
+\[
+    \{\quovec_\constraintname = \totconstraintmapelem(\detdistr\infevent) \in \quovecspace{\infmarg_0\dots\infmarg_{k-1}\infmargg}\}_{\constraintname\in\constraintlist} \in \totquovecspace,
+\]
+</p>
+<p> where \(\infevent\in\infevents\) is an inflation event, \(\detdistr\infevent\in\infqs\) is the deterministic inflation distribution with support on the event \(\infevent\), \(\constraintname = (\infmarg_0,\dots,\infmarg_{k-1},\infmargg)\) is an inflation constraint, and \(\totconstraintmapelem(\infq) \sim \infq_{\infmarg_{0}\cdots\infmarg_{k-1}\infmargg} - \targetp_{\infmarg_0}\cdots\targetp_{\infmarg_{k-1}}\cdot\infq_{\infmargg}\) (in reality, this map is pre- and postprocessed with some symmetrization operation as described in the paper). </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classinf_1_1Constraint.html#aeb16da1375506748a807a96b51c2fcda" title="This returns  where  is passed as inflation_event.">inf::Constraint::compute_inflation_event_quovec()</a> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">inflation_event</td><td>Encodes a deterministic inflation distribution \(\detdistr\infevent\). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>\(\{\totconstraintmapelem(\detdistr\infevent)\}_{\constraintname\in\constraintlist}\) </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="constraint__set_8cpp_source.html#l00115">115</a> of file <a class="el" href="constraint__set_8cpp_source.html">constraint_set.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a87041af2b9fb04dee4c238eddcd93de0" name="a87041af2b9fb04dee4c238eddcd93de0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87041af2b9fb04dee4c238eddcd93de0">&#9670;&#160;</a></span>get_quovec_denom()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double inf::ConstraintSet::get_quovec_denom </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This is the total scale factor \(\scaletot \in \N\) that appears in both inner product evaluation and quovec calculations. </p>
+<p>The way that inner products (see <a class="el" href="classinf_1_1ConstraintSet.html#ad6f595cb0067c61653228294592db040" title="The set of inf::Marginal::Evaluator, allowing to efficiently evaluate inner products.">inf::ConstraintSet::get_marg_evaluators()</a>) and quovecs (see <a class="el" href="classinf_1_1ConstraintSet.html#af3978bd76651b03e0c721c0cebbd7559" title="This returns .">inf::ConstraintSet::get_inflation_event_quovec()</a>) are obtained with our exact arithmetic is that they are \(\scaletot \cdot \text{(true value)}\). For minimizing inner products and checking their signs, this positive scale factor is irrelevant. However, for numerical stability of the Frank-Wolfe algorithm, it is convenient to cancel out this scale factor, and this method is used in <a class="el" href="classinf_1_1FrankWolfe.html#a14a36f6c3f1ef5cbb7212e2883f1ac4f" title="This method is called with the output of the inf::Optimizer, notifying the Frank-Wolfe algorithm that...">inf::FrankWolfe::memorize_event_and_quovec()</a>. </p><dl class="section return"><dt>Returns</dt><dd>\(\scaletot\in\N\) </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="constraint__set_8cpp_source.html#l00128">128</a> of file <a class="el" href="constraint__set_8cpp_source.html">constraint_set.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a67b94bc21f590851d38d08482364d49d" name="a67b94bc21f590851d38d08482364d49d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67b94bc21f590851d38d08482364d49d">&#9670;&#160;</a></span>write_dual_vector_to_file()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void inf::ConstraintSet::write_dual_vector_to_file </td>
+          <td>(</td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
+          <td class="paramname"><em>filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
+          <td class="paramname"><em>metadata</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This saves the current dual vector held by <a class="el" href="classinf_1_1ConstraintSet.html" title="A set of inf::Constraint that, together with the inflation size, determines the inflation problem at ...">inf::ConstraintSet</a> to a text file. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>The filename (without extension) to save the dual vector to </td></tr>
+    <tr><td class="paramname">metadata</td><td>An arbitrary string to give a little context in the file, e.g., a text description of which nonlocality problem was considered when obtaining this dual vector.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>The idea is that one can run <a class="el" href="classinf_1_1FeasProblem.html#a2b39812f7569a37bb16271c861341a4f" title="This is the heavy function that checks feasibility of a target distribution.">inf::FeasProblem::get_feasibility()</a>, and then, if the resulting distribution is nonlocal, one can call inf::FeasProblem::save_dual_vector_to_file() to store the corresponding nonlocality certificate for later re-use.</p>
+<p>This method can't be const, because of the <a class="el" href="classutil_1_1Serializable.html" title="Abstract class that defines the interface of a class that is serializable.">util::Serializable</a> and <a class="el" href="classutil_1_1FileStream.html" title="This abstract class provides a common interface to util::InputFileStream and util::OutputFileStream t...">util::FileStream</a> interface that does not allow (by design!) to output const objects, see <a class="el" href="classutil_1_1OutputFileStream.html" title="The specialization of util::FileStream to write to a file.">util::OutputFileStream</a>. </p>
+
+<p class="definition">Definition at line <a class="el" href="constraint__set_8cpp_source.html#l00134">134</a> of file <a class="el" href="constraint__set_8cpp_source.html">constraint_set.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aedcbf7151dc048bb246f189a54c361f2" name="aedcbf7151dc048bb246f189a54c361f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aedcbf7151dc048bb246f189a54c361f2">&#9670;&#160;</a></span>read_dual_vector_from_file()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void inf::ConstraintSet::read_dual_vector_from_file </td>
+          <td>(</td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
+          <td class="paramname"><em>filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
+          <td class="paramname"><em>metadata</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This reads the current dual vector held by <a class="el" href="classinf_1_1ConstraintSet.html" title="A set of inf::Constraint that, together with the inflation size, determines the inflation problem at ...">inf::ConstraintSet</a> from a text file. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>The filename (without extension) to read the dual vector from </td></tr>
+    <tr><td class="paramname">metadata</td><td>This string needs to match the one passed to inf::ConstraintSet::save_dual_vector_to_file() </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="constraint__set_8cpp_source.html#l00139">139</a> of file <a class="el" href="constraint__set_8cpp_source.html">constraint_set.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a46f36f2a44b43ed2806aeb803d6ecdcb" name="a46f36f2a44b43ed2806aeb803d6ecdcb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46f36f2a44b43ed2806aeb803d6ecdcb">&#9670;&#160;</a></span>io_dual_vector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void inf::ConstraintSet::io_dual_vector </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classutil_1_1FileStream.html">util::FileStream</a> &amp;&#160;</td>
+          <td class="paramname"><em>stream</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This is used by <a class="el" href="classinf_1_1ConstraintSet.html#a67b94bc21f590851d38d08482364d49d" title="This saves the current dual vector held by inf::ConstraintSet to a text file.">write_dual_vector_to_file()</a> and <a class="el" href="classinf_1_1ConstraintSet.html#aedcbf7151dc048bb246f189a54c361f2" title="This reads the current dual vector held by inf::ConstraintSet from a text file.">read_dual_vector_from_file()</a> </p>
+
+<p class="definition">Definition at line <a class="el" href="constraint__set_8cpp_source.html#l00148">148</a> of file <a class="el" href="constraint__set_8cpp_source.html">constraint_set.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a323259a21078259dcb43e3cea751ed0d" name="a323259a21078259dcb43e3cea751ed0d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a323259a21078259dcb43e3cea751ed0d">&#9670;&#160;</a></span>init_quovec_size()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void inf::ConstraintSet::init_quovec_size </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Initializes <code>m_quovec_size</code> </p>
+
+<p class="definition">Definition at line <a class="el" href="constraint__set_8cpp_source.html#l00160">160</a> of file <a class="el" href="constraint__set_8cpp_source.html">constraint_set.cpp</a>.</p>
+
+</div>
+</div>
+<a id="af649f8cfbbc0aed6c141d7ae25956554" name="af649f8cfbbc0aed6c141d7ae25956554"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af649f8cfbbc0aed6c141d7ae25956554">&#9670;&#160;</a></span>update_constraint_scale_factors()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void inf::ConstraintSet::update_constraint_scale_factors </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This arithmetic method looks at the denominators of the LHS and RHS of each constraint, simplifies where possible, and assigns the appropriate scale factors to the constraints. </p>
+<p>The way this method works is explained in the paper. </p>
+
+<p class="definition">Definition at line <a class="el" href="constraint__set_8cpp_source.html#l00211">211</a> of file <a class="el" href="constraint__set_8cpp_source.html">constraint_set.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aeb5f3096d09640af3fa608ccf3ab1e45" name="aeb5f3096d09640af3fa608ccf3ab1e45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb5f3096d09640af3fa608ccf3ab1e45">&#9670;&#160;</a></span>hard_assert_quovecs_within_bound()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void inf::ConstraintSet::hard_assert_quovecs_within_bound </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This method checks that the internal <a class="el" href="classinf_1_1DualVector.html" title="Describes a dual vector  through its embedding .">inf::DualVector</a> held by each <a class="el" href="classinf_1_1Constraint.html" title="Describes a single constraint of the form .">inf::Constraint</a> has components no bigger than <code>m_max_dual_vector_component</code>. </p>
+<p>The idea is that, when computing inner products with the <a class="el" href="group__util.html#gaea24f8b468377784fdb704692e9168f5" title="Signed integers.">Num</a> arithmetic type, we want to avoid any overflow. To do so, as described in the paper, it is sufficient to ensure that the components (values) of a quovec are not too large. This method checks that the maximal value is respected, and ensures correct behavior. In practice, we never encountered an issue with this since <a class="el" href="group__util.html#gaea24f8b468377784fdb704692e9168f5" title="Signed integers.">Num</a> is capable of holding fairly large numbers. However, the larger the denominator of the distribution and the larger the constraints (in the sense that they feature many products of \(\targetp\) in their right-hand side), the more likely this is to be triggered. This is thus a fundamental limit of the current implementation. The alternative would be to use proper exact arithmetic types that can hold exactly arbitrarily large number, but this would probably slow down the code significantly, which is not desired for the applications we had in mind when writing this code. </p>
+
+<p class="definition">Definition at line <a class="el" href="constraint__set_8cpp_source.html#l00283">283</a> of file <a class="el" href="constraint__set_8cpp_source.html">constraint_set.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="ac1571360431b69672cb5bbb262ff8fc8" name="ac1571360431b69672cb5bbb262ff8fc8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac1571360431b69672cb5bbb262ff8fc8">&#9670;&#160;</a></span>m_inflation</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classinf_1_1Inflation.html#ac594d5b8d7cbdd7cdfe569baa351f0ba">inf::Inflation::ConstPtr</a> inf::ConstraintSet::m_inflation</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The underlying inflation. </p>
+
+<p class="definition">Definition at line <a class="el" href="constraint__set_8h_source.html#l00141">141</a> of file <a class="el" href="constraint__set_8h_source.html">constraint_set.h</a>.</p>
+
+</div>
+</div>
+<a id="a02633b7ef12937280d4a961dfa98b567" name="a02633b7ef12937280d4a961dfa98b567"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02633b7ef12937280d4a961dfa98b567">&#9670;&#160;</a></span>m_constraints</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="classinf_1_1Constraint.html#a56940861a7bffd338a899402c949c6c9">inf::Constraint::UniquePtr</a>&gt; inf::ConstraintSet::m_constraints</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The list of <a class="el" href="classinf_1_1Constraint.html" title="Describes a single constraint of the form .">inf::Constraint</a>. </p>
+<p>These are pointers to avoid having to have move constructors, required by std::vector </p>
+
+<p class="definition">Definition at line <a class="el" href="constraint__set_8h_source.html#l00145">145</a> of file <a class="el" href="constraint__set_8h_source.html">constraint_set.h</a>.</p>
+
+</div>
+</div>
+<a id="a1ca10d587f2fb568b9d0a499bf4865f9" name="a1ca10d587f2fb568b9d0a499bf4865f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ca10d587f2fb568b9d0a499bf4865f9">&#9670;&#160;</a></span>m_store_bounds</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classinf_1_1DualVector.html#a615feaafdbd4a08901a07ad60260d398">inf::DualVector::StoreBounds</a> inf::ConstraintSet::m_store_bounds</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This is stored to be retrievable by the <a class="el" href="classinf_1_1Optimizer.html" title="This class defines the interface for inf::BruteForceOpt and inf::TreeOpt.">inf::Optimizer</a>. </p>
+
+<p class="definition">Definition at line <a class="el" href="constraint__set_8h_source.html#l00148">148</a> of file <a class="el" href="constraint__set_8h_source.html">constraint_set.h</a>.</p>
+
+</div>
+</div>
+<a id="a6e4ccad11678862a57d33dce76e3fff8" name="a6e4ccad11678862a57d33dce76e3fff8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e4ccad11678862a57d33dce76e3fff8">&#9670;&#160;</a></span>m_quovec_size</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> inf::ConstraintSet::m_quovec_size</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The sum of each constraint's quovec size, see <a class="el" href="classinf_1_1ConstraintSet.html#a2f647aaecc2a8ce00873fcacaf6f827a" title="The size of the list representation of a quovec .">inf::ConstraintSet::get_quovec_size()</a> </p>
+
+<p class="definition">Definition at line <a class="el" href="constraint__set_8h_source.html#l00151">151</a> of file <a class="el" href="constraint__set_8h_source.html">constraint_set.h</a>.</p>
+
+</div>
+</div>
+<a id="a0da496dd5d4e0aec556f48173e1b53cb" name="a0da496dd5d4e0aec556f48173e1b53cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0da496dd5d4e0aec556f48173e1b53cb">&#9670;&#160;</a></span>m_quovec_denom</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double inf::ConstraintSet::m_quovec_denom</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This is used to be able to bring back the quovecs into a normalized floating point form, see inf::ConstaintSet::get_quovec_denom() </p>
+
+<p class="definition">Definition at line <a class="el" href="constraint__set_8h_source.html#l00158">158</a> of file <a class="el" href="constraint__set_8h_source.html">constraint_set.h</a>.</p>
+
+</div>
+</div>
+<a id="a39585524a28d2fe77be9a83f06c0ec82" name="a39585524a28d2fe77be9a83f06c0ec82"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39585524a28d2fe77be9a83f06c0ec82">&#9670;&#160;</a></span>m_max_dual_vector_component</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a> inf::ConstraintSet::m_max_dual_vector_component</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This is the maximal value a dual vector entry can take to be guaranteed to never overflow, see inf::ConstraintSet::check_quovec_for_overflow() </p>
+
+<p class="definition">Definition at line <a class="el" href="constraint__set_8h_source.html#l00160">160</a> of file <a class="el" href="constraint__set_8h_source.html">constraint_set.h</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>src/inf/constraints/<a class="el" href="constraint__set_8h_source.html">constraint_set.h</a></li>
+<li>src/inf/constraints/<a class="el" href="constraint__set_8cpp_source.html">constraint_set.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceinf.html">inf</a></li><li class="navelem"><a class="el" href="classinf_1_1ConstraintSet.html">ConstraintSet</a></li>
+    <li class="footer">Generated on Wed Dec 18 2024 17:39:41 for Fast Inflation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

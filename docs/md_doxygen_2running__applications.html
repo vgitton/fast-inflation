@@ -1,0 +1,253 @@
+<!-- HTML header for doxygen 1.9.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Fast Inflation: Running applications</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+MathJax.Hub.Config({
+    TeX: {
+        Macros: {
+            dd: ["{\\text{d}#1\\,}",1],
+            nouts: ["{n_{\\text{o}}}"],
+            ints: ["{[\\![#1]\\!]}",1],
+            outset: ["{\\ints{\\nouts}}"],
+            N: ["{\\mathbb{N}}"],
+            R: ["{\\mathbb{R}}"],
+            Z: ["{\\mathbb{Z}}"],
+            infsize: ["{z}"],
+            infparties: ["{\\set{I}}"],
+            infsources: ["{\\set{S}}"],
+            infmarg: ["{\\set{A}}"],
+            infmargg: ["{\\set{B}}"],
+            netparties: ["{\\set{N}}"],
+            infq: ["{q}"],
+            infqs: ["{\\Delta_{\\infparties}}"],
+            constraintlist: ["{\\mathcal{C}}"],
+            injsets: ["{\\text{InjSets}}"],
+            infconstraints: ["{\\text{InfCons}}"],
+            parents: ["{\\text{Par}}"],
+            targetp: ["{p}"],
+            targetps: ["{\\Delta_{\\netparties}}"],
+            set: ["{\\mathbf{#1}}",1],
+            type: ["{t}"],
+            infevent: "{\\omega}",
+            events: ["{\\Omega_{#1}}",1],
+            infevents: ["{\\events{\\infparties}}"],
+            redinfevents: ["{\\tilde{\\Omega}_{\\infparties}}"],
+            netevents: ["{\\events{\\netparties}}"],
+            vecset: ["{V_{#1}}",1],
+            alice: ["{\\text{A}}"],
+            bob: ["{\\text{B}}"],
+            charlie: ["{\\text{C}}"],
+            symgroup: ["{\\text{Sym}(#1)}",1],
+            shortsymgroup: ["{\\text{Sym}_{#1}}",1],
+            act: ["{(#1\\hspace{2pt}{:}\\hspace{2pt}#2)}",2],
+            actt: ["{[#1\\hspace{2pt}{:}\\hspace{2pt}#2]}",2],
+            margperms: ["{\\text{Perm}_{#1}}",1],
+            permutedmargs: ["{\\mathbb{P}_{#1}^{\\targetp}}",1],
+            redpermutedmargs: ["{\\tilde{\\mathbb{P}}_{#1}^{\\constraintname,\\targetp}}",1],
+            extract: ["{\\text{ext}(#1,#2)}",2],
+            partysym: ["{\\tau}"],
+            sourcesym: ["{\\xi}"],
+            outsym: ["{\\sigma}"],
+            fullgroup: ["{\\text{InfGrp}}"],
+            partygroup : ["{\\text{PartyGrp}}"],
+            outgroup: ["{\\text{OutGrp}}"],
+            sourcegroup: ["{\\text{SrcGrp}}"],
+            distrgroup: ["{\\mathbb{G}^\\targetp}"],
+            constraintname: ["{c}"],
+            marggroup: ["{\\mathbb{G}^{\\constraintname,\\targetp}}"],
+            fullsymexpl: ["{(\\sourcesym,\\partysym,\\outsym)}"],
+            inner: ["{\\langle#1,#2\\rangle}", 2],
+            quovec: ["{f}"],
+            totconstraintmap: ["{K^{\\constraintlist,\\targetp}}"],
+            totconstraintmapelem: ["{K^{\\constraintname,\\targetp}}"],
+            quovecspace: ["{\\tilde{V}_{#1}^{\\constraintname,\\targetp}}", 1],
+            totquovecspace: ["{\\text{ConsSpace}(\\constraintlist,\\targetp)}"],
+            detdistr: ["{\\delta^{#1}}", 1],
+            margperm: ["{\\varphi}"],
+            altquovecembed: ["{\\text{G}_{#1}^{\\constraintname,\\targetp}}", 1],
+            vecset: ["{V_{#1}}", 1],
+            repr: ["{\\lfloor#1\\rfloor}", 1],
+            gid: ["{\\text{id}}"],
+            id: ["{1_{#1}}",1],
+            consscale: ["{K}"],
+            scaletot: ["{K_{\\text{tot}}^{\\constraintlist,\\targetp}}"],
+            minnorm: ["{d}"],
+            Bigsetst: ["\\;\\Big|\\;"],
+            activeset: ["\\mathcal{S}"],
+            conv: ["\\text{conv}"],
+            lVert: ["|\\hspace{-1pt}|"],
+            norm: ["\\lVert#1\\lVert", 1],
+            st: [":\ "],
+        }
+    }
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeDarkModeToggle.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeParagraphLink.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Fast Inflation
+   </div>
+   <div id="projectbrief">To certify causal incompatibility</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('md_doxygen_2running__applications.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div><div class="header">
+  <div class="headertitle"><div class="title">Running applications</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="toc"><h3>Table of Contents</h3>
+<ul><li class="level1"><a href="#autotoc_md14">Application system</a></li>
+<li class="level1"><a href="#autotoc_md15">Timers</a></li>
+<li class="level1"><a href="#autotoc_md16">Test system</a></li>
+<li class="level1"><a href="#CLIparams">Command-line parameters</a></li>
+<li class="level1"><a href="#autotoc_md17">Creating new applications</a></li>
+</ul>
+</div>
+<div class="textblock"><h1><a class="anchor" id="autotoc_md14"></a>
+Application system</h1>
+<p>The idea of the application system that we use is that the main function always stay the same: it merely parses the command-line arguments to decide which application (which can be thought of as the effective main function) should be ran.</p>
+<p><b>Running an application:</b> <code>./{debug|release}_inf app [parameters]</code></p>
+<p>This requires having compiled at least once.</p>
+<p><em>Examples:</em></p><ul>
+<li><code>./bin/debug.exe srb</code> (debug mode, application <code>srb</code>)</li>
+<li><code>./bin/release.exe ejm</code> (release mode, application <code>ejm</code>)</li>
+</ul>
+<p><b>Obtaining the existing application names:</b></p>
+<p>Use <code>./{debug|release}_inf</code> without any parameter to display the registered application names.</p>
+<h1><a class="anchor" id="autotoc_md15"></a>
+Timers</h1>
+<p>The applications will typically displayed three times:</p><ul>
+<li>the "opt" time corresponds to the time recorded by <a class="el" href="classinf_1_1Optimizer.html#a66df2661347928818e0a2a1ee763b5b0" title="The total time spent in inf::Optimizer::optimize()">inf::Optimizer::total_optimization_chrono</a>.</li>
+<li>the "fw" time corresponds to the time recorded by <a class="el" href="classinf_1_1FrankWolfe.html#a6d42f579c58b52ec89d31ed8ec599d53" title="To time the total time spent solving the Frank-Wolfe problem.">inf::FrankWolfe::total_fw_chrono</a>.</li>
+<li>the "tot" time corresponds to the time recorded by <a class="el" href="classutil_1_1Chrono.html#adfbffbcc984ec19ea1f65a8a1ac7c5a1" title="The globally accessible time of execution of the whole program.">util::Chrono::process_clock</a>.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md16"></a>
+Test system</h1>
+<p>Some applications can be flagged as being a test. Ideally, such applications should be short to execute and test basic functions of the code. For this, they should use hard assertions (see <a class="el" href="md_doxygen_2installation.html#debug-vs-release-modes">debug vs release</a>). Then, all tests can be ran directly by calling the special application name <code>test</code>, e.g., with <code>./debug_inf test</code>. This will execute all applications registered as a test but bypassing their output and merely showing whether or not the test is passed, i.e., whether or not any assertion failed.</p>
+<h1><a class="anchor" id="CLIparams"></a>
+Command-line parameters</h1>
+<p>Currently, the optional command-line parameters, apart from the application name <code>app</code>, are as follows:</p><ul>
+<li><code>--verb</code> : controls the level of output produced. See the <a class="el" href="group__printing.html">printing module</a> for more information.</li>
+<li><code>--threads</code> : sets the number of threads used by some parts of the program, see <a class="el" href="classinf_1_1FullyCorrectiveFW.html" title="The fully-corrective algorithm.">inf::FullyCorrectiveFW</a> and <a class="el" href="classinf_1_1TreeOpt.html" title="This inf::Optimizer is the most efficient one we used, it uses multi-threading and a branch-and-bound...">inf::TreeOpt</a> for more information about how multithreading is used.</li>
+<li><code>--symtree-io {none|read|write}</code> : sets whether the inflation event tree should be read/written to disk, see <a class="el" href="classinf_1_1EventTree.html#a3fc302d7a899deaf35f6138a7bcbe67c" title="An inf::EventTree can take some time to initialize, and this option is used to control whether an inf...">inf::EventTree::IO</a> for more information.</li>
+</ul>
+<dl class="section warning"><dt>Warning</dt><dd>Note that since this parameter is <code>read</code> by default, a fresh installation of the codebase may produce errors because the event tree have not been written to the <code>data/</code> folder yet. In this case, it is necessary to re-run the failed application passing <code>--symtree-io write</code> in the command-line parameters to compute the event tree and write it to disk (thus incurring a longer execution time). The next runs can then omit this since the event tree will be successfully read from disk.</dd></dl>
+<ul>
+<li><code>--vis</code> : this parameter is used by some applications to pick a visibility, i.e., to select a target distribution from a one-parameter family of distributions. See the application <a class="el" href="classuser_1_1ejm.html" title="Placeholder for EJM inflation compatibility problems.">user::ejm</a>.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md17"></a>
+Creating new applications</h1>
+<p>Please refer to the <a class="el" href="group__user.html">application interface</a> module. </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Wed Dec 18 2024 17:39:41 for Fast Inflation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

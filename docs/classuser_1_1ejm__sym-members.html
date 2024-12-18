@@ -1,0 +1,232 @@
+<!-- HTML header for doxygen 1.9.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Fast Inflation: Member List</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+MathJax.Hub.Config({
+    TeX: {
+        Macros: {
+            dd: ["{\\text{d}#1\\,}",1],
+            nouts: ["{n_{\\text{o}}}"],
+            ints: ["{[\\![#1]\\!]}",1],
+            outset: ["{\\ints{\\nouts}}"],
+            N: ["{\\mathbb{N}}"],
+            R: ["{\\mathbb{R}}"],
+            Z: ["{\\mathbb{Z}}"],
+            infsize: ["{z}"],
+            infparties: ["{\\set{I}}"],
+            infsources: ["{\\set{S}}"],
+            infmarg: ["{\\set{A}}"],
+            infmargg: ["{\\set{B}}"],
+            netparties: ["{\\set{N}}"],
+            infq: ["{q}"],
+            infqs: ["{\\Delta_{\\infparties}}"],
+            constraintlist: ["{\\mathcal{C}}"],
+            injsets: ["{\\text{InjSets}}"],
+            infconstraints: ["{\\text{InfCons}}"],
+            parents: ["{\\text{Par}}"],
+            targetp: ["{p}"],
+            targetps: ["{\\Delta_{\\netparties}}"],
+            set: ["{\\mathbf{#1}}",1],
+            type: ["{t}"],
+            infevent: "{\\omega}",
+            events: ["{\\Omega_{#1}}",1],
+            infevents: ["{\\events{\\infparties}}"],
+            redinfevents: ["{\\tilde{\\Omega}_{\\infparties}}"],
+            netevents: ["{\\events{\\netparties}}"],
+            vecset: ["{V_{#1}}",1],
+            alice: ["{\\text{A}}"],
+            bob: ["{\\text{B}}"],
+            charlie: ["{\\text{C}}"],
+            symgroup: ["{\\text{Sym}(#1)}",1],
+            shortsymgroup: ["{\\text{Sym}_{#1}}",1],
+            act: ["{(#1\\hspace{2pt}{:}\\hspace{2pt}#2)}",2],
+            actt: ["{[#1\\hspace{2pt}{:}\\hspace{2pt}#2]}",2],
+            margperms: ["{\\text{Perm}_{#1}}",1],
+            permutedmargs: ["{\\mathbb{P}_{#1}^{\\targetp}}",1],
+            redpermutedmargs: ["{\\tilde{\\mathbb{P}}_{#1}^{\\constraintname,\\targetp}}",1],
+            extract: ["{\\text{ext}(#1,#2)}",2],
+            partysym: ["{\\tau}"],
+            sourcesym: ["{\\xi}"],
+            outsym: ["{\\sigma}"],
+            fullgroup: ["{\\text{InfGrp}}"],
+            partygroup : ["{\\text{PartyGrp}}"],
+            outgroup: ["{\\text{OutGrp}}"],
+            sourcegroup: ["{\\text{SrcGrp}}"],
+            distrgroup: ["{\\mathbb{G}^\\targetp}"],
+            constraintname: ["{c}"],
+            marggroup: ["{\\mathbb{G}^{\\constraintname,\\targetp}}"],
+            fullsymexpl: ["{(\\sourcesym,\\partysym,\\outsym)}"],
+            inner: ["{\\langle#1,#2\\rangle}", 2],
+            quovec: ["{f}"],
+            totconstraintmap: ["{K^{\\constraintlist,\\targetp}}"],
+            totconstraintmapelem: ["{K^{\\constraintname,\\targetp}}"],
+            quovecspace: ["{\\tilde{V}_{#1}^{\\constraintname,\\targetp}}", 1],
+            totquovecspace: ["{\\text{ConsSpace}(\\constraintlist,\\targetp)}"],
+            detdistr: ["{\\delta^{#1}}", 1],
+            margperm: ["{\\varphi}"],
+            altquovecembed: ["{\\text{G}_{#1}^{\\constraintname,\\targetp}}", 1],
+            vecset: ["{V_{#1}}", 1],
+            repr: ["{\\lfloor#1\\rfloor}", 1],
+            gid: ["{\\text{id}}"],
+            id: ["{1_{#1}}",1],
+            consscale: ["{K}"],
+            scaletot: ["{K_{\\text{tot}}^{\\constraintlist,\\targetp}}"],
+            minnorm: ["{d}"],
+            Bigsetst: ["\\;\\Big|\\;"],
+            activeset: ["\\mathcal{S}"],
+            conv: ["\\text{conv}"],
+            lVert: ["|\\hspace{-1pt}|"],
+            norm: ["\\lVert#1\\lVert", 1],
+            st: [":\ "],
+        }
+    }
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeDarkModeToggle.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeParagraphLink.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Fast Inflation
+   </div>
+   <div id="projectbrief">To certify causal incompatibility</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classuser_1_1ejm__sym.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">user::ejm_sym Member List</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>This is the complete list of members for <a class="el" href="classuser_1_1ejm__sym.html">user::ejm_sym</a>, including all inherited members.</p>
+<table class="directory">
+  <tr class="even"><td class="entry"><a class="el" href="classuser_1_1Application.html#ab9898b792c8ea75a4225919e9a873a64">Application</a>(std::string const &amp;name, std::string const &amp;description=&quot;&quot;, bool is_test=false)</td><td class="entry"><a class="el" href="classuser_1_1Application.html">user::Application</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classuser_1_1ejm__sym.html#a80b6921faeab1470ea29385a90073026">ejm_sym</a>()</td><td class="entry"><a class="el" href="classuser_1_1ejm__sym.html">user::ejm_sym</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classuser_1_1Application.html#a2cd8c0338bc942250eb733a8af909175">get_description</a>() const</td><td class="entry"><a class="el" href="classuser_1_1Application.html">user::Application</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classuser_1_1Application.html#aa053b2208699654f0c2b0956b5914ee2">get_feas_options</a>() const</td><td class="entry"><a class="el" href="classuser_1_1Application.html">user::Application</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classuser_1_1Application.html#a438bc6e9fe5d146eb5a962ae79cce317">get_inf_cli</a>() const</td><td class="entry"><a class="el" href="classuser_1_1Application.html">user::Application</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classuser_1_1Application.html#a32bf6119f9530bcdd17471d02f4b3615">get_name</a>() const</td><td class="entry"><a class="el" href="classuser_1_1Application.html">user::Application</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classuser_1_1Application.html#a608b0c5da50bd4f2f701a11acf45122b">is_test</a>() const</td><td class="entry"><a class="el" href="classuser_1_1Application.html">user::Application</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classuser_1_1Application.html#aed1053d304725cbd53e42b195398fc6c">log_execution_time</a>() const</td><td class="entry"><a class="el" href="classuser_1_1Application.html">user::Application</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classuser_1_1Application.html#a82a1e68fd154bbcb7ed6abaa9c82d7f1">m_chrono</a></td><td class="entry"><a class="el" href="classuser_1_1Application.html">user::Application</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classuser_1_1Application.html#aa924cd6b697a9c9eb25794fcd9098c8d">m_description</a></td><td class="entry"><a class="el" href="classuser_1_1Application.html">user::Application</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classuser_1_1Application.html#ac9667a2f32682d03bebf3607c65e2d38">m_feas_options</a></td><td class="entry"><a class="el" href="classuser_1_1Application.html">user::Application</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classuser_1_1Application.html#a087ac1a0c5bf041326d16ddeb79099e3">m_inf_cli</a></td><td class="entry"><a class="el" href="classuser_1_1Application.html">user::Application</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classuser_1_1Application.html#a198ab68fa31d4948ca5e939033f72847">m_is_test</a></td><td class="entry"><a class="el" href="classuser_1_1Application.html">user::Application</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classuser_1_1Application.html#a320391039bd12bf108967105d8c94c5c">m_name</a></td><td class="entry"><a class="el" href="classuser_1_1Application.html">user::Application</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classuser_1_1Application.html#a412561a20ac115dadb8690f6bfdf4e1f">name_equals</a>(std::string const &amp;name) const</td><td class="entry"><a class="el" href="classuser_1_1Application.html">user::Application</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classuser_1_1Application.html#ab7af308c39fbb1fccda6855c102423e2">Ptr</a> typedef</td><td class="entry"><a class="el" href="classuser_1_1Application.html">user::Application</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classuser_1_1ejm__sym.html#ac9d3d78eb61ef5afc53c7cdb89f9492e">run</a>() override</td><td class="entry"><a class="el" href="classuser_1_1ejm__sym.html">user::ejm_sym</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classuser_1_1Application.html#aa080c0554e2c7fad158e3f6c2303055e">set_feas_options</a>(inf::FeasOptions::Ptr const &amp;feas_options)</td><td class="entry"><a class="el" href="classuser_1_1Application.html">user::Application</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classuser_1_1Application.html#a85c64ea675191c57c687636096acc84a">set_inf_cli</a>(user::InfCLI::ConstPtr const &amp;inf_cli)</td><td class="entry"><a class="el" href="classuser_1_1Application.html">user::Application</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classuser_1_1Application.html#a229c9b883a505f8d09e13f79d15b05c4">time_and_run</a>()</td><td class="entry"><a class="el" href="classuser_1_1Application.html">user::Application</a></td><td class="entry"></td></tr>
+</table></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Wed Dec 18 2024 17:39:44 for Fast Inflation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,222 @@
+<!-- HTML header for doxygen 1.9.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Fast Inflation: Class Members</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+MathJax.Hub.Config({
+    TeX: {
+        Macros: {
+            dd: ["{\\text{d}#1\\,}",1],
+            nouts: ["{n_{\\text{o}}}"],
+            ints: ["{[\\![#1]\\!]}",1],
+            outset: ["{\\ints{\\nouts}}"],
+            N: ["{\\mathbb{N}}"],
+            R: ["{\\mathbb{R}}"],
+            Z: ["{\\mathbb{Z}}"],
+            infsize: ["{z}"],
+            infparties: ["{\\set{I}}"],
+            infsources: ["{\\set{S}}"],
+            infmarg: ["{\\set{A}}"],
+            infmargg: ["{\\set{B}}"],
+            netparties: ["{\\set{N}}"],
+            infq: ["{q}"],
+            infqs: ["{\\Delta_{\\infparties}}"],
+            constraintlist: ["{\\mathcal{C}}"],
+            injsets: ["{\\text{InjSets}}"],
+            infconstraints: ["{\\text{InfCons}}"],
+            parents: ["{\\text{Par}}"],
+            targetp: ["{p}"],
+            targetps: ["{\\Delta_{\\netparties}}"],
+            set: ["{\\mathbf{#1}}",1],
+            type: ["{t}"],
+            infevent: "{\\omega}",
+            events: ["{\\Omega_{#1}}",1],
+            infevents: ["{\\events{\\infparties}}"],
+            redinfevents: ["{\\tilde{\\Omega}_{\\infparties}}"],
+            netevents: ["{\\events{\\netparties}}"],
+            vecset: ["{V_{#1}}",1],
+            alice: ["{\\text{A}}"],
+            bob: ["{\\text{B}}"],
+            charlie: ["{\\text{C}}"],
+            symgroup: ["{\\text{Sym}(#1)}",1],
+            shortsymgroup: ["{\\text{Sym}_{#1}}",1],
+            act: ["{(#1\\hspace{2pt}{:}\\hspace{2pt}#2)}",2],
+            actt: ["{[#1\\hspace{2pt}{:}\\hspace{2pt}#2]}",2],
+            margperms: ["{\\text{Perm}_{#1}}",1],
+            permutedmargs: ["{\\mathbb{P}_{#1}^{\\targetp}}",1],
+            redpermutedmargs: ["{\\tilde{\\mathbb{P}}_{#1}^{\\constraintname,\\targetp}}",1],
+            extract: ["{\\text{ext}(#1,#2)}",2],
+            partysym: ["{\\tau}"],
+            sourcesym: ["{\\xi}"],
+            outsym: ["{\\sigma}"],
+            fullgroup: ["{\\text{InfGrp}}"],
+            partygroup : ["{\\text{PartyGrp}}"],
+            outgroup: ["{\\text{OutGrp}}"],
+            sourcegroup: ["{\\text{SrcGrp}}"],
+            distrgroup: ["{\\mathbb{G}^\\targetp}"],
+            constraintname: ["{c}"],
+            marggroup: ["{\\mathbb{G}^{\\constraintname,\\targetp}}"],
+            fullsymexpl: ["{(\\sourcesym,\\partysym,\\outsym)}"],
+            inner: ["{\\langle#1,#2\\rangle}", 2],
+            quovec: ["{f}"],
+            totconstraintmap: ["{K^{\\constraintlist,\\targetp}}"],
+            totconstraintmapelem: ["{K^{\\constraintname,\\targetp}}"],
+            quovecspace: ["{\\tilde{V}_{#1}^{\\constraintname,\\targetp}}", 1],
+            totquovecspace: ["{\\text{ConsSpace}(\\constraintlist,\\targetp)}"],
+            detdistr: ["{\\delta^{#1}}", 1],
+            margperm: ["{\\varphi}"],
+            altquovecembed: ["{\\text{G}_{#1}^{\\constraintname,\\targetp}}", 1],
+            vecset: ["{V_{#1}}", 1],
+            repr: ["{\\lfloor#1\\rfloor}", 1],
+            gid: ["{\\text{id}}"],
+            id: ["{1_{#1}}",1],
+            consscale: ["{K}"],
+            scaletot: ["{K_{\\text{tot}}^{\\constraintlist,\\targetp}}"],
+            minnorm: ["{d}"],
+            Bigsetst: ["\\;\\Big|\\;"],
+            activeset: ["\\mathcal{S}"],
+            conv: ["\\text{conv}"],
+            lVert: ["|\\hspace{-1pt}|"],
+            norm: ["\\lVert#1\\lVert", 1],
+            st: [":\ "],
+        }
+    }
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeDarkModeToggle.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeParagraphLink.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Fast Inflation
+   </div>
+   <div id="projectbrief">To certify causal incompatibility</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('functions_r.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="contents">
+<div class="textblock">Here is a list of all class members with links to the classes they belong to:</div>
+
+<h3><a id="index_r" name="index_r"></a>- r -</h3><ul>
+<li>Range()&#160;:&#160;<a class="el" href="classutil_1_1Range.html#acb24c31c77b53bcf313ae2c6498c237a">util::Range&lt; T &gt;</a></li>
+<li>read_and_check_dual_vector()&#160;:&#160;<a class="el" href="classinf_1_1FeasProblem.html#a967d13f93f96a6479427eed84af80a13">inf::FeasProblem</a></li>
+<li>read_dual_vector_from_file()&#160;:&#160;<a class="el" href="classinf_1_1ConstraintSet.html#aedcbf7151dc048bb246f189a54c361f2">inf::ConstraintSet</a>, <a class="el" href="classinf_1_1FeasProblem.html#a9b9828fbc58c0c6fba7cc5363cb332d8">inf::FeasProblem</a></li>
+<li>remove_vertex()&#160;:&#160;<a class="el" href="classinf_1_1PairwiseFW_1_1Data.html#a9480577a332516cc8b5be854bc33be62">inf::PairwiseFW::Data</a></li>
+<li>reset()&#160;:&#160;<a class="el" href="classinf_1_1FrankWolfe.html#adf08d48ca3942be62ae7124a9ce5e778">inf::FrankWolfe</a>, <a class="el" href="classinf_1_1FullyCorrectiveFW.html#ab1e9d4ab1c7d0a5709e9bcc2858b4e89">inf::FullyCorrectiveFW</a>, <a class="el" href="classinf_1_1PairwiseFW_1_1Data.html#ac7cf88cf2b269c5e1c3bc62d9cb21765">inf::PairwiseFW::Data</a>, <a class="el" href="classinf_1_1PairwiseFW.html#a3fbca0ce3fb905132bac67ec4aa9dc60">inf::PairwiseFW</a>, <a class="el" href="classinf_1_1TreeOpt_1_1GlobalMinimum.html#a87b8179fad5047df9c2511ac8ae361bb">inf::TreeOpt::GlobalMinimum</a>, <a class="el" href="classutil_1_1Chrono.html#a91fd57c9eb2bd2097e38099a8e332b95">util::Chrono</a></li>
+<li>reset_indent()&#160;:&#160;<a class="el" href="classutil_1_1Logger.html#aa10b6b29378c35568b915535e66fd569">util::Logger</a></li>
+<li>RetainEvents&#160;:&#160;<a class="el" href="classinf_1_1FeasProblem.html#a648f1b146995d89f9e982a976024328e">inf::FeasProblem</a></li>
+<li>RNG()&#160;:&#160;<a class="el" href="classutil_1_1RNG.html#a3ce108ebd0a9741ff503feacadff1725">util::RNG&lt; T &gt;</a></li>
+<li>round_dual_vector()&#160;:&#160;<a class="el" href="classinf_1_1FeasProblem.html#a214bc08460029dad21510eaad96c6eaf">inf::FeasProblem</a></li>
+<li>run()&#160;:&#160;<a class="el" href="classuser_1_1Application.html#a5ecc20125278d02b5be0bcff2ff6e66f">user::Application</a>, <a class="el" href="classuser_1_1distribution__marginal.html#a969e041e0d922fff3b5194b31b5d753a">user::distribution_marginal</a>, <a class="el" href="classuser_1_1dual__vector__bounds.html#abf7b2fb85be16fa674892644a7a655d9">user::dual_vector_bounds</a>, <a class="el" href="classuser_1_1dual__vector__io.html#ad54c8bf2528b69a0054db636522e6d15">user::dual_vector_io</a>, <a class="el" href="classuser_1_1ejm.html#a354098feaa97df3eb403025a0bb5f490">user::ejm</a>, <a class="el" href="classuser_1_1ejm__check__nl__certificate.html#a97dc7103b6254ae2eee0f1e5a958bc97">user::ejm_check_nl_certificate</a>, <a class="el" href="classuser_1_1ejm__eval.html#a66e283a11e89f207f2b8194cfad9be37">user::ejm_eval</a>, <a class="el" href="classuser_1_1ejm__find__nl__certificate.html#a668e7cdafc164b8180a1b42f450a5306">user::ejm_find_nl_certificate</a>, <a class="el" href="classuser_1_1ejm__scan__222.html#a343c5f6f3d780e92c4f6bcab5493ee5b">user::ejm_scan_222</a>, <a class="el" href="classuser_1_1ejm__sym.html#ac9d3d78eb61ef5afc53c7cdb89f9492e">user::ejm_sym</a>, <a class="el" href="classuser_1_1ejm__symtree.html#a5c1fec5101a8e487549beb029cae4289">user::ejm_symtree</a>, <a class="el" href="classuser_1_1ejm__vis__222__strong.html#aab2b06b8556a1486cee8c464eeab68bb">user::ejm_vis_222_strong</a>, <a class="el" href="classuser_1_1ejm__vis__222__weak.html#a24d83e8b50bce74d5ed4496a659b8344">user::ejm_vis_222_weak</a>, <a class="el" href="classuser_1_1ejm__vis__223__strong.html#a3bc923e4d47cc520fe59ce109d855a2b">user::ejm_vis_223_strong</a>, <a class="el" href="classuser_1_1ejm__vis__223__weak.html#ac2b2f01bc90d146f7ba8e500f34581a4">user::ejm_vis_223_weak</a>, <a class="el" href="classuser_1_1ejm__vis__224__inter__v1.html#ab4d0f788eb9e4964363f319153cc1a83">user::ejm_vis_224_inter_v1</a>, <a class="el" href="classuser_1_1ejm__vis__224__inter__v2__diag__A.html#a272c1dc2813fc9904b2ef10267fa13e6">user::ejm_vis_224_inter_v2_diag_A</a>, <a class="el" href="classuser_1_1ejm__vis__224__inter__v2__diag__C.html#a4ad95fe2edcab59d0ff1d7392074d1ac">user::ejm_vis_224_inter_v2_diag_C</a>, <a class="el" href="classuser_1_1ejm__vis__224__weak.html#a7dfc40ea3a6246e8dbb82799dd7763e8">user::ejm_vis_224_weak</a>, <a class="el" href="classuser_1_1ejm__vis__224__weak__bis.html#ab2e58ebcd99b2a38187ec1638026e15a">user::ejm_vis_224_weak_bis</a>, <a class="el" href="classuser_1_1event__sym.html#a62997411291d97a4f2e2aa1430553627">user::event_sym</a>, <a class="el" href="classuser_1_1event__tensor.html#ae389e259e0e04837c39388f867ab81ef">user::event_tensor</a>, <a class="el" href="classuser_1_1event__tree.html#a8fe61ba96f27ed6f27ab74735a4e0e8a">user::event_tree</a>, <a class="el" href="classuser_1_1file__stream.html#a1d86500356e11054d87a767633b2c496">user::file_stream</a>, <a class="el" href="classuser_1_1frac.html#a4eb32c3d9a16add2b881b4744870cdbb">user::frac</a>, <a class="el" href="classuser_1_1fully__corrective__fw.html#a7911402ba5c714164a2f1673d1d82687">user::fully_corrective_fw</a>, <a class="el" href="classuser_1_1inf__tree__filler.html#afd49677fd9c5b2391b1931234f28cffc">user::inf_tree_filler</a>, <a class="el" href="classuser_1_1inf__tree__splitting.html#a3d145288348c394e3826d95e50b0bdac">user::inf_tree_splitting</a>, <a class="el" href="classuser_1_1inflation__marginal.html#a83044c22cba1881e73e18e1eaf03924c">user::inflation_marginal</a>, <a class="el" href="classuser_1_1opt__bounds.html#a062eba0df739988f1bda732d662814a0">user::opt_bounds</a>, <a class="el" href="classuser_1_1opt__time.html#ad25ef764df0f0a1728f0380a6fca56ee">user::opt_time</a>, <a class="el" href="classuser_1_1pairwise__fw.html#a099b4a81564e1cae357f6564d688b055">user::pairwise_fw</a>, <a class="el" href="classuser_1_1pjm.html#affd822555f9429c098b6e71f3aa3e8c4">user::pjm</a>, <a class="el" href="classuser_1_1srb.html#a1b99fbff70f6ef505cf04ddba0fe2be0">user::srb</a>, <a class="el" href="classuser_1_1srb__dual__vector__io.html#a540f26776f13129c802f9f84616afe3f">user::srb_dual_vector_io</a>, <a class="el" href="classuser_1_1srb__eval.html#af151c407d0aef0510992753a9ba80889">user::srb_eval</a>, <a class="el" href="classuser_1_1srb__sym.html#a829abfaf63ea45169ba95d968eaacb28">user::srb_sym</a>, <a class="el" href="classuser_1_1srb__vis__222__strong.html#a76ee92860c6c343b3892c02a37e042e0">user::srb_vis_222_strong</a>, <a class="el" href="classuser_1_1srb__vis__222__weak.html#a5f5becca8b52d628b1989799ba918cdd">user::srb_vis_222_weak</a>, <a class="el" href="classuser_1_1srb__vis__223__strong.html#a90610d6b47ec1f55896b86a4de329dab">user::srb_vis_223_strong</a>, <a class="el" href="classuser_1_1srb__vis__223__weak.html#a6624bb7accf77b5a1d6959cd0b151763">user::srb_vis_223_weak</a>, <a class="el" href="classuser_1_1srb__vis__233__inter.html#a73037bf11c57713571cf60a6a6782972">user::srb_vis_233_inter</a>, <a class="el" href="classuser_1_1srb__vis__233__strong.html#a893fa35bd966978456cb524851a5d656">user::srb_vis_233_strong</a>, <a class="el" href="classuser_1_1srb__vis__233__weak.html#afaae2b7ca54d8d2fcc4c5a972fb594fe">user::srb_vis_233_weak</a>, <a class="el" href="classuser_1_1srb__vis__333.html#a83e6b3b4f694e28dc69148619285ce82">user::srb_vis_333</a>, <a class="el" href="classuser_1_1srb__vis__334.html#a939f636f531950f363d0c4b8255712ab">user::srb_vis_334</a>, <a class="el" href="classuser_1_1srb__vis__detailed__test.html#a35bc930baf13fb070926b0a576dae829">user::srb_vis_detailed_test</a>, <a class="el" href="classuser_1_1tree__splitter.html#a1bf1664445cdf6d92b3aa58e6f9ea707">user::tree_splitter</a>, <a class="el" href="classuser_1_1y__basis.html#a93f67c251992d2cab6f5eda50a880dd6">user::y_basis</a>, <a class="el" href="classuser_1_1y__basis__sym.html#aef8a60a5a2a2677fd7769291eb38aa46">user::y_basis_sym</a></li>
+<li>run_all_tests()&#160;:&#160;<a class="el" href="classuser_1_1AppManager.html#a6cd156ae0a4eeba01b62f943d722fa3b">user::AppManager</a></li>
+<li>run_application()&#160;:&#160;<a class="el" href="classuser_1_1AppManager.html#a09ec8f782529147867ea62490c04241c">user::AppManager</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Wed Dec 18 2024 17:39:51 for Fast Inflation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,300 @@
+<!-- HTML header for doxygen 1.9.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Fast Inflation: src/util/math.h Source File</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+MathJax.Hub.Config({
+    TeX: {
+        Macros: {
+            dd: ["{\\text{d}#1\\,}",1],
+            nouts: ["{n_{\\text{o}}}"],
+            ints: ["{[\\![#1]\\!]}",1],
+            outset: ["{\\ints{\\nouts}}"],
+            N: ["{\\mathbb{N}}"],
+            R: ["{\\mathbb{R}}"],
+            Z: ["{\\mathbb{Z}}"],
+            infsize: ["{z}"],
+            infparties: ["{\\set{I}}"],
+            infsources: ["{\\set{S}}"],
+            infmarg: ["{\\set{A}}"],
+            infmargg: ["{\\set{B}}"],
+            netparties: ["{\\set{N}}"],
+            infq: ["{q}"],
+            infqs: ["{\\Delta_{\\infparties}}"],
+            constraintlist: ["{\\mathcal{C}}"],
+            injsets: ["{\\text{InjSets}}"],
+            infconstraints: ["{\\text{InfCons}}"],
+            parents: ["{\\text{Par}}"],
+            targetp: ["{p}"],
+            targetps: ["{\\Delta_{\\netparties}}"],
+            set: ["{\\mathbf{#1}}",1],
+            type: ["{t}"],
+            infevent: "{\\omega}",
+            events: ["{\\Omega_{#1}}",1],
+            infevents: ["{\\events{\\infparties}}"],
+            redinfevents: ["{\\tilde{\\Omega}_{\\infparties}}"],
+            netevents: ["{\\events{\\netparties}}"],
+            vecset: ["{V_{#1}}",1],
+            alice: ["{\\text{A}}"],
+            bob: ["{\\text{B}}"],
+            charlie: ["{\\text{C}}"],
+            symgroup: ["{\\text{Sym}(#1)}",1],
+            shortsymgroup: ["{\\text{Sym}_{#1}}",1],
+            act: ["{(#1\\hspace{2pt}{:}\\hspace{2pt}#2)}",2],
+            actt: ["{[#1\\hspace{2pt}{:}\\hspace{2pt}#2]}",2],
+            margperms: ["{\\text{Perm}_{#1}}",1],
+            permutedmargs: ["{\\mathbb{P}_{#1}^{\\targetp}}",1],
+            redpermutedmargs: ["{\\tilde{\\mathbb{P}}_{#1}^{\\constraintname,\\targetp}}",1],
+            extract: ["{\\text{ext}(#1,#2)}",2],
+            partysym: ["{\\tau}"],
+            sourcesym: ["{\\xi}"],
+            outsym: ["{\\sigma}"],
+            fullgroup: ["{\\text{InfGrp}}"],
+            partygroup : ["{\\text{PartyGrp}}"],
+            outgroup: ["{\\text{OutGrp}}"],
+            sourcegroup: ["{\\text{SrcGrp}}"],
+            distrgroup: ["{\\mathbb{G}^\\targetp}"],
+            constraintname: ["{c}"],
+            marggroup: ["{\\mathbb{G}^{\\constraintname,\\targetp}}"],
+            fullsymexpl: ["{(\\sourcesym,\\partysym,\\outsym)}"],
+            inner: ["{\\langle#1,#2\\rangle}", 2],
+            quovec: ["{f}"],
+            totconstraintmap: ["{K^{\\constraintlist,\\targetp}}"],
+            totconstraintmapelem: ["{K^{\\constraintname,\\targetp}}"],
+            quovecspace: ["{\\tilde{V}_{#1}^{\\constraintname,\\targetp}}", 1],
+            totquovecspace: ["{\\text{ConsSpace}(\\constraintlist,\\targetp)}"],
+            detdistr: ["{\\delta^{#1}}", 1],
+            margperm: ["{\\varphi}"],
+            altquovecembed: ["{\\text{G}_{#1}^{\\constraintname,\\targetp}}", 1],
+            vecset: ["{V_{#1}}", 1],
+            repr: ["{\\lfloor#1\\rfloor}", 1],
+            gid: ["{\\text{id}}"],
+            id: ["{1_{#1}}",1],
+            consscale: ["{K}"],
+            scaletot: ["{K_{\\text{tot}}^{\\constraintlist,\\targetp}}"],
+            minnorm: ["{d}"],
+            Bigsetst: ["\\;\\Big|\\;"],
+            activeset: ["\\mathcal{S}"],
+            conv: ["\\text{conv}"],
+            lVert: ["|\\hspace{-1pt}|"],
+            norm: ["\\lVert#1\\lVert", 1],
+            st: [":\ "],
+        }
+    }
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeDarkModeToggle.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeParagraphLink.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Fast Inflation
+   </div>
+   <div id="projectbrief">To certify causal incompatibility</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('math_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">math.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="math_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;limits&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">// For std::gcd()</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;numeric&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;../types.h&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="debug_8h.html">debug.h</a>&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="range_8h.html">range.h</a>&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceutil.html">util</a> {</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="group__maths.html#ga3447a5426739557886c9472646c4716f">   32</a></span><a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <a class="code hl_function" href="group__maths.html#ga3447a5426739557886c9472646c4716f">factorial</a>(T n) {</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> ret = 1;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordflow">for</span> (<a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> i : <a class="code hl_class" href="classutil_1_1Range.html">Range</a>(T(2), T(n + 1))) {</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        <a class="code hl_define" href="group__debug.html#ga60f45ee0c4949ef50243feb6fbb8a808">ASSERT_LT</a>(ret, (std::numeric_limits&lt;Index&gt;::max() / i));</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        ret *= i;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    }</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keywordflow">return</span> ret;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>}</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="group__maths.html#ga860effafb2a36ac348511a4b5a8b3635">   49</a></span>T <a class="code hl_function" href="group__maths.html#ga860effafb2a36ac348511a4b5a8b3635">pow</a>(T x, T n) {</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    T ret = 1;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keywordflow">for</span> (<a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> i : <a class="code hl_class" href="classutil_1_1Range.html">util::Range</a>(n)) {</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        (void)i;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <a class="code hl_define" href="group__debug.html#ga60f45ee0c4949ef50243feb6fbb8a808">ASSERT_LT</a>(ret, (std::numeric_limits&lt;T&gt;::max() / x));</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        ret *= x;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    }</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keywordflow">return</span> ret;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>}</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="group__maths.html#ga266718faaef8cd994ace2b9403c166ff">   66</a></span>T <a class="code hl_function" href="group__maths.html#ga266718faaef8cd994ace2b9403c166ff">sum</a>(std::vector&lt;T&gt; <span class="keyword">const</span> &amp;vec) {</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    T ret = 0;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keywordflow">for</span> (T element : vec) {</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        ret += element;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    }</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="keywordflow">return</span> ret;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>}</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="group__maths.html#ga0ec0dd2f5070d554ff8b3e841ac085ab">   78</a></span>T <a class="code hl_function" href="group__maths.html#ga0ec0dd2f5070d554ff8b3e841ac085ab">norm_squared</a>(std::vector&lt;T&gt; <span class="keyword">const</span> &amp;vec) {</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    T ret = 0;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="keywordflow">for</span> (T element : vec) {</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        ret += element * element;</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    }</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <span class="keywordflow">return</span> ret;</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>}</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno"><a class="line" href="group__maths.html#ga475f5ede6d565c21e62b3c9da2b9a21f">   93</a></span>T <a class="code hl_function" href="group__maths.html#ga475f5ede6d565c21e62b3c9da2b9a21f">inner_product</a>(std::vector&lt;T&gt; <span class="keyword">const</span> &amp;v1, std::vector&lt;T&gt; <span class="keyword">const</span> &amp;v2) {</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    T ret = 0;</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <a class="code hl_define" href="group__debug.html#ga06663ee630c22628b3fe11700767367f">ASSERT_EQUAL</a>(v1.size(), v2.size());</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <span class="keyword">const</span> size = v1.size();</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <span class="keywordflow">for</span> (<a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> i(0); i &lt; size; ++i) {</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        ret += v1[i] * v2[i];</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    }</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <span class="keywordflow">return</span> ret;</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>}</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno"><a class="line" href="group__maths.html#ga471f884a53ac13896c9c545f6aa07855">  106</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="group__maths.html#ga471f884a53ac13896c9c545f6aa07855">simplify_by_gcd</a>(std::vector&lt;T&gt; &amp;vec) {</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    T the_gcd = vec[0];</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <span class="keywordflow">for</span> (<a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> i : <a class="code hl_class" href="classutil_1_1Range.html">util::Range</a>(<a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a>(1), vec.size())) {</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        the_gcd = std::gcd(the_gcd, vec[i]);</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>        <span class="keywordflow">if</span> (the_gcd == 1)</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>            <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    }</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <span class="keywordflow">for</span> (T &amp;vec_element : vec) {</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        vec_element /= the_gcd;</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    }</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>}</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>} <span class="comment">// namespace util</span></div>
+<div class="ttc" id="aclassutil_1_1Range_html"><div class="ttname"><a href="classutil_1_1Range.html">util::Range</a></div><div class="ttdoc">Iterating over a finite integer range.</div><div class="ttdef"><b>Definition</b> <a href="range_8h_source.html#l00131">range.h:131</a></div></div>
+<div class="ttc" id="adebug_8h_html"><div class="ttname"><a href="debug_8h.html">debug.h</a></div></div>
+<div class="ttc" id="agroup__debug_html_ga06663ee630c22628b3fe11700767367f"><div class="ttname"><a href="group__debug.html#ga06663ee630c22628b3fe11700767367f">ASSERT_EQUAL</a></div><div class="ttdeci">#define ASSERT_EQUAL(X, Y)</div><div class="ttdoc">Soft assertion, tests for X == Y</div><div class="ttdef"><b>Definition</b> <a href="debug_8h_source.html#l00137">debug.h:137</a></div></div>
+<div class="ttc" id="agroup__debug_html_ga60f45ee0c4949ef50243feb6fbb8a808"><div class="ttname"><a href="group__debug.html#ga60f45ee0c4949ef50243feb6fbb8a808">ASSERT_LT</a></div><div class="ttdeci">#define ASSERT_LT(X, Y)</div><div class="ttdoc">Soft assertion, tests for X &lt; Y</div><div class="ttdef"><b>Definition</b> <a href="debug_8h_source.html#l00143">debug.h:143</a></div></div>
+<div class="ttc" id="agroup__maths_html_ga0ec0dd2f5070d554ff8b3e841ac085ab"><div class="ttname"><a href="group__maths.html#ga0ec0dd2f5070d554ff8b3e841ac085ab">util::norm_squared</a></div><div class="ttdeci">T norm_squared(std::vector&lt; T &gt; const &amp;vec)</div><div class="ttdoc">Sums the squares of the elements of a list.</div><div class="ttdef"><b>Definition</b> <a href="math_8h_source.html#l00078">math.h:78</a></div></div>
+<div class="ttc" id="agroup__maths_html_ga266718faaef8cd994ace2b9403c166ff"><div class="ttname"><a href="group__maths.html#ga266718faaef8cd994ace2b9403c166ff">util::sum</a></div><div class="ttdeci">T sum(std::vector&lt; T &gt; const &amp;vec)</div><div class="ttdoc">Sums the element of a std::vector.</div><div class="ttdef"><b>Definition</b> <a href="math_8h_source.html#l00066">math.h:66</a></div></div>
+<div class="ttc" id="agroup__maths_html_ga3447a5426739557886c9472646c4716f"><div class="ttname"><a href="group__maths.html#ga3447a5426739557886c9472646c4716f">util::factorial</a></div><div class="ttdeci">Index factorial(T n)</div><div class="ttdoc">Factorial of integer-like types.</div><div class="ttdef"><b>Definition</b> <a href="math_8h_source.html#l00032">math.h:32</a></div></div>
+<div class="ttc" id="agroup__maths_html_ga471f884a53ac13896c9c545f6aa07855"><div class="ttname"><a href="group__maths.html#ga471f884a53ac13896c9c545f6aa07855">util::simplify_by_gcd</a></div><div class="ttdeci">void simplify_by_gcd(std::vector&lt; T &gt; &amp;vec)</div><div class="ttdoc">Divides each entry by the greatest common divisor of all of the entries.</div><div class="ttdef"><b>Definition</b> <a href="math_8h_source.html#l00106">math.h:106</a></div></div>
+<div class="ttc" id="agroup__maths_html_ga475f5ede6d565c21e62b3c9da2b9a21f"><div class="ttname"><a href="group__maths.html#ga475f5ede6d565c21e62b3c9da2b9a21f">util::inner_product</a></div><div class="ttdeci">T inner_product(std::vector&lt; T &gt; const &amp;v1, std::vector&lt; T &gt; const &amp;v2)</div><div class="ttdoc">Dot product.</div><div class="ttdef"><b>Definition</b> <a href="math_8h_source.html#l00093">math.h:93</a></div></div>
+<div class="ttc" id="agroup__maths_html_ga860effafb2a36ac348511a4b5a8b3635"><div class="ttname"><a href="group__maths.html#ga860effafb2a36ac348511a4b5a8b3635">util::pow</a></div><div class="ttdeci">T pow(T x, T n)</div><div class="ttdoc">Integer powers of arithmetic types.</div><div class="ttdef"><b>Definition</b> <a href="math_8h_source.html#l00049">math.h:49</a></div></div>
+<div class="ttc" id="agroup__util_html_ga77731aedac326062ffbdcf367185a07e"><div class="ttname"><a href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a></div><div class="ttdeci">uint64_t Index</div><div class="ttdoc">Use for anything meant to be used as an index.</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00019">types.h:19</a></div></div>
+<div class="ttc" id="anamespaceutil_html"><div class="ttname"><a href="namespaceutil.html">util</a></div><div class="ttdoc">The namespace for general purpose code, not specifically related to inflation.</div><div class="ttdef"><b>Definition</b> <a href="misc_8cpp_source.html#l00355">misc.cpp:355</a></div></div>
+<div class="ttc" id="arange_8h_html"><div class="ttname"><a href="range_8h.html">range.h</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_b7878ad5ecbf2506f4125b9d34c97e45.html">util</a></li><li class="navelem"><a class="el" href="math_8h.html">math.h</a></li>
+    <li class="footer">Generated on Wed Dec 18 2024 17:39:38 for Fast Inflation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,369 @@
+<!-- HTML header for doxygen 1.9.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Fast Inflation: src/inf/constraints/dual_vector.h Source File</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+MathJax.Hub.Config({
+    TeX: {
+        Macros: {
+            dd: ["{\\text{d}#1\\,}",1],
+            nouts: ["{n_{\\text{o}}}"],
+            ints: ["{[\\![#1]\\!]}",1],
+            outset: ["{\\ints{\\nouts}}"],
+            N: ["{\\mathbb{N}}"],
+            R: ["{\\mathbb{R}}"],
+            Z: ["{\\mathbb{Z}}"],
+            infsize: ["{z}"],
+            infparties: ["{\\set{I}}"],
+            infsources: ["{\\set{S}}"],
+            infmarg: ["{\\set{A}}"],
+            infmargg: ["{\\set{B}}"],
+            netparties: ["{\\set{N}}"],
+            infq: ["{q}"],
+            infqs: ["{\\Delta_{\\infparties}}"],
+            constraintlist: ["{\\mathcal{C}}"],
+            injsets: ["{\\text{InjSets}}"],
+            infconstraints: ["{\\text{InfCons}}"],
+            parents: ["{\\text{Par}}"],
+            targetp: ["{p}"],
+            targetps: ["{\\Delta_{\\netparties}}"],
+            set: ["{\\mathbf{#1}}",1],
+            type: ["{t}"],
+            infevent: "{\\omega}",
+            events: ["{\\Omega_{#1}}",1],
+            infevents: ["{\\events{\\infparties}}"],
+            redinfevents: ["{\\tilde{\\Omega}_{\\infparties}}"],
+            netevents: ["{\\events{\\netparties}}"],
+            vecset: ["{V_{#1}}",1],
+            alice: ["{\\text{A}}"],
+            bob: ["{\\text{B}}"],
+            charlie: ["{\\text{C}}"],
+            symgroup: ["{\\text{Sym}(#1)}",1],
+            shortsymgroup: ["{\\text{Sym}_{#1}}",1],
+            act: ["{(#1\\hspace{2pt}{:}\\hspace{2pt}#2)}",2],
+            actt: ["{[#1\\hspace{2pt}{:}\\hspace{2pt}#2]}",2],
+            margperms: ["{\\text{Perm}_{#1}}",1],
+            permutedmargs: ["{\\mathbb{P}_{#1}^{\\targetp}}",1],
+            redpermutedmargs: ["{\\tilde{\\mathbb{P}}_{#1}^{\\constraintname,\\targetp}}",1],
+            extract: ["{\\text{ext}(#1,#2)}",2],
+            partysym: ["{\\tau}"],
+            sourcesym: ["{\\xi}"],
+            outsym: ["{\\sigma}"],
+            fullgroup: ["{\\text{InfGrp}}"],
+            partygroup : ["{\\text{PartyGrp}}"],
+            outgroup: ["{\\text{OutGrp}}"],
+            sourcegroup: ["{\\text{SrcGrp}}"],
+            distrgroup: ["{\\mathbb{G}^\\targetp}"],
+            constraintname: ["{c}"],
+            marggroup: ["{\\mathbb{G}^{\\constraintname,\\targetp}}"],
+            fullsymexpl: ["{(\\sourcesym,\\partysym,\\outsym)}"],
+            inner: ["{\\langle#1,#2\\rangle}", 2],
+            quovec: ["{f}"],
+            totconstraintmap: ["{K^{\\constraintlist,\\targetp}}"],
+            totconstraintmapelem: ["{K^{\\constraintname,\\targetp}}"],
+            quovecspace: ["{\\tilde{V}_{#1}^{\\constraintname,\\targetp}}", 1],
+            totquovecspace: ["{\\text{ConsSpace}(\\constraintlist,\\targetp)}"],
+            detdistr: ["{\\delta^{#1}}", 1],
+            margperm: ["{\\varphi}"],
+            altquovecembed: ["{\\text{G}_{#1}^{\\constraintname,\\targetp}}", 1],
+            vecset: ["{V_{#1}}", 1],
+            repr: ["{\\lfloor#1\\rfloor}", 1],
+            gid: ["{\\text{id}}"],
+            id: ["{1_{#1}}",1],
+            consscale: ["{K}"],
+            scaletot: ["{K_{\\text{tot}}^{\\constraintlist,\\targetp}}"],
+            minnorm: ["{d}"],
+            Bigsetst: ["\\;\\Big|\\;"],
+            activeset: ["\\mathcal{S}"],
+            conv: ["\\text{conv}"],
+            lVert: ["|\\hspace{-1pt}|"],
+            norm: ["\\lVert#1\\lVert", 1],
+            st: [":\ "],
+        }
+    }
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeDarkModeToggle.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeParagraphLink.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Fast Inflation
+   </div>
+   <div id="projectbrief">To certify causal incompatibility</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('dual__vector_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">dual_vector.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="dual__vector_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;../inf_problem/inflation.h&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;../symmetry/symmetry.h&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;../symmetry/tensor_with_orbits.h&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">// Here we use a forward declaration rather than an #include because</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">// inf::Marginal depends on inf::DualVector::StoreBounds</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceinf.html">inf</a> {</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">class </span>Marginal;</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>}</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;../../util/frac.h&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;../../util/math.h&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceinf.html">inf</a> {</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="group__infcons.html#ga8fa19943a83fd41acae30b7bcc935295">   29</a></span><span class="keyword">typedef</span> std::vector&lt;Num&gt; <a class="code hl_typedef" href="group__infcons.html#ga8fa19943a83fd41acae30b7bcc935295">Quovec</a>;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="group__infcons.html#ga5b78fc573dc491459e18e8550a342e37">   32</a></span><span class="keyword">typedef</span> <a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <a class="code hl_typedef" href="group__infcons.html#ga5b78fc573dc491459e18e8550a342e37">QuovecIndex</a>;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="classinf_1_1DualVector.html">   74</a></span><span class="keyword">class </span><a class="code hl_class" href="classinf_1_1DualVector.html">DualVector</a> : <span class="keyword">public</span> <a class="code hl_class" href="classinf_1_1TensorWithOrbits.html">inf::TensorWithOrbits</a>, <span class="keyword">public</span> <a class="code hl_class" href="classutil_1_1Serializable.html">util::Serializable</a> {</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="classinf_1_1DualVector.html#ae75d4d2e2f9bf637558789adc6ae94b3">   76</a></span>    <span class="keyword">typedef</span> std::unique_ptr&lt;inf::DualVector&gt; <a class="code hl_typedef" href="classinf_1_1DualVector.html#ae75d4d2e2f9bf637558789adc6ae94b3">UniquePtr</a>;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="classinf_1_1DualVector.html#a615feaafdbd4a08901a07ad60260d398">   84</a></span>    <span class="keyword">enum class</span> <a class="code hl_enumeration" href="classinf_1_1DualVector.html#a615feaafdbd4a08901a07ad60260d398">StoreBounds</a> {</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        <a class="code hl_enumvalue" href="classinf_1_1DualVector.html#a615feaafdbd4a08901a07ad60260d398aa6105c0a611b41b08f1209506350279e">yes</a>, </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        <a class="code hl_enumvalue" href="classinf_1_1DualVector.html#a615feaafdbd4a08901a07ad60260d398a7fa3b767c460b54a2be4d49030b349c7">no</a>   </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    };</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1TensorWithOrbits.html#a4ead21bd50b7b7f4d0205cde2e438697">log</a>(<a class="code hl_enumeration" href="classinf_1_1DualVector.html#a615feaafdbd4a08901a07ad60260d398">inf::DualVector::StoreBounds</a> store_bounds);</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="comment">// We need this to make the `util::logger &lt;&lt; dual_vector` syntax possible, otherwise the abovel log()</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <span class="comment">// function hides it</span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <span class="keyword">using </span><a class="code hl_function" href="classinf_1_1TensorWithOrbits.html#a4ead21bd50b7b7f4d0205cde2e438697">inf::TensorWithOrbits::log</a>;</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="classinf_1_1DualVector.html#a3ac0be707f8f14bf1e429fcb6b17f9a0">   96</a></span>    <span class="keyword">enum class</span> <a class="code hl_enumeration" href="classinf_1_1DualVector.html#a3ac0be707f8f14bf1e429fcb6b17f9a0">BoundType</a> {</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        <a class="code hl_enumvalue" href="classinf_1_1DualVector.html#a3ac0be707f8f14bf1e429fcb6b17f9a0a81e073b428b50247daba38531dcf412a">lower</a>, </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        <a class="code hl_enumvalue" href="classinf_1_1DualVector.html#a3ac0be707f8f14bf1e429fcb6b17f9a0a0122b4c2c01ee1c698ecc309d2b8eb5a">upper</a>  </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    };</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="keyword">static</span> <a class="code hl_typedef" href="group__event.html#gadcaa27c4242b65837f0f7a00e96856d4">inf::Outcome</a> <a class="code hl_function" href="classinf_1_1DualVector.html#a704636660183462ef8caaa6e10977461">get_outcomes_per_party</a>(<a class="code hl_typedef" href="group__event.html#gadcaa27c4242b65837f0f7a00e96856d4">inf::Outcome</a> n_outcomes, <a class="code hl_enumeration" href="classinf_1_1DualVector.html#a615feaafdbd4a08901a07ad60260d398">inf::DualVector::StoreBounds</a> store_bounds);</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <span class="keyword">static</span> std::vector&lt;Index&gt; <a class="code hl_function" href="classinf_1_1DualVector.html#a626a13e68bcabbf18efae5c8cd6f1567">compute_weights</a>(<a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> n_parties, <a class="code hl_typedef" href="group__event.html#gadcaa27c4242b65837f0f7a00e96856d4">inf::Outcome</a> n_outcomes, <a class="code hl_enumeration" href="classinf_1_1DualVector.html#a615feaafdbd4a08901a07ad60260d398">inf::DualVector::StoreBounds</a> store_bounds);</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <span class="comment">// Constructor</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    <a class="code hl_class" href="classinf_1_1DualVector.html">DualVector</a>(<a class="code hl_class" href="classinf_1_1Marginal.html">inf::Marginal</a> <span class="keyword">const</span> &amp;marginal, <a class="code hl_enumeration" href="classinf_1_1DualVector.html#a3ac0be707f8f14bf1e429fcb6b17f9a0">inf::DualVector::BoundType</a> bound_type);</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    <a class="code hl_class" href="classinf_1_1DualVector.html">DualVector</a>(<a class="code hl_class" href="classinf_1_1DualVector.html">inf::DualVector</a> <span class="keyword">const</span> &amp;other) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    <a class="code hl_class" href="classinf_1_1DualVector.html">DualVector</a>(<a class="code hl_class" href="classinf_1_1DualVector.html">inf::DualVector</a> &amp;&amp;other) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    <a class="code hl_class" href="classinf_1_1DualVector.html">DualVector</a> &amp;operator=(<a class="code hl_class" href="classinf_1_1DualVector.html">inf::DualVector</a> <span class="keyword">const</span> &amp;other) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    <a class="code hl_class" href="classinf_1_1DualVector.html">DualVector</a> &amp;operator=(<a class="code hl_class" href="classinf_1_1DualVector.html">inf::DualVector</a> &amp;&amp;other) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    <span class="comment">// Getters and setters</span></div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    <a class="code hl_typedef" href="classinf_1_1Inflation.html#ac594d5b8d7cbdd7cdfe569baa351f0ba">inf::Inflation::ConstPtr</a> <span class="keyword">const</span> &amp;<a class="code hl_function" href="classinf_1_1DualVector.html#ab6af4757eeabf48b07392f34df2bbc2f">get_inflation</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    std::vector&lt;inf::QuovecIndex&gt; <span class="keyword">const</span> &amp;<a class="code hl_function" href="classinf_1_1DualVector.html#ac5245461094db93bca9b1485f5322db4">get_event_to_quovec_index</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1DualVector.html#a0f118cadbce3a9b4d087aed2bfe3bbc5">set_from_quovec</a>(<a class="code hl_typedef" href="group__infcons.html#ga8fa19943a83fd41acae30b7bcc935295">inf::Quovec</a> <span class="keyword">const</span> &amp;quovec, <a class="code hl_typedef" href="group__infcons.html#ga5b78fc573dc491459e18e8550a342e37">inf::QuovecIndex</a> start_pos);</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1DualVector.html#aca99682fc244d48099098978dfceb70b">hard_assert_within_bound</a>(<a class="code hl_typedef" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a> <span class="keyword">const</span> bound) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    <span class="comment">// Overrides from inf::TensorWithOrbits</span></div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span> </div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    std::string <a class="code hl_function" href="classinf_1_1DualVector.html#a81e2913269e41e2c57c0941113178795">get_math_name</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1DualVector.html#ad4bbedd7af0dc10736905db790af4237">log_header</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span> </div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    <span class="comment">// Overrides from inf::Orbitable</span></div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span> </div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1DualVector.html#ae036c425e933fe336eb779eb635e7c02">log_event</a>(<a class="code hl_typedef" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> <span class="keyword">const</span> &amp;event) <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span> </div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>    <span class="comment">// We need to modify the access to the number of orbits based on whether or not there are unknowns</span></div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>    <span class="comment">// Hide these ones, they are ambiguous</span></div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>  <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>    <span class="keyword">using </span><a class="code hl_function" href="classinf_1_1Orbitable.html#aef04cd8a458a13472f5b95105929e6b4">inf::Orbitable::get_orbits</a>;</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    <span class="keyword">using </span><a class="code hl_function" href="classinf_1_1Orbitable.html#a99544b7fb94b81957e20601859c42782">inf::TensorWithOrbits::get_n_orbits</a>;</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span> </div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>    <a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <a class="code hl_function" href="classinf_1_1DualVector.html#a2195ab6ae1897eff28abee9629eda675">get_n_orbits_with_unknown</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>    <a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <a class="code hl_function" href="classinf_1_1DualVector.html#a2bb62dee0c86469348cc49ed3b001b8f">get_n_orbits_no_unknown</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>    std::vector&lt;inf::Event&gt; <span class="keyword">const</span> &amp;<a class="code hl_function" href="classinf_1_1DualVector.html#a460ae9be024af38dc2d2dad80bb6c8a2">get_orbit_repr_no_unknown</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span> </div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>    <span class="comment">// Override from util::Serializable</span></div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span> </div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1DualVector.html#a5748f067eaba001eaf1ab03fc0732f60">io</a>(<a class="code hl_class" href="classutil_1_1FileStream.html">util::FileStream</a> &amp;stream) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span> </div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>  <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno"><a class="line" href="classinf_1_1DualVector.html#ae7fd350bc544d55295f14f096c159a33">  188</a></span>    <span class="keyword">const</span> <a class="code hl_typedef" href="classinf_1_1Inflation.html#ac594d5b8d7cbdd7cdfe569baa351f0ba">inf::Inflation::ConstPtr</a> <a class="code hl_variable" href="classinf_1_1DualVector.html#ae7fd350bc544d55295f14f096c159a33">m_inflation</a>;</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span> </div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno"><a class="line" href="classinf_1_1DualVector.html#a0e2c9d3a7678940f18312d85d2a93aa6">  191</a></span>    <span class="keyword">const</span> <a class="code hl_enumeration" href="classinf_1_1DualVector.html#a615feaafdbd4a08901a07ad60260d398">inf::DualVector::StoreBounds</a> <a class="code hl_variable" href="classinf_1_1DualVector.html#a0e2c9d3a7678940f18312d85d2a93aa6">m_store_bounds</a>;</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno"><a class="line" href="classinf_1_1DualVector.html#a0df7cf085fd3d780cb830269619837cc">  193</a></span>    <a class="code hl_typedef" href="group__infcons.html#ga5b78fc573dc491459e18e8550a342e37">inf::QuovecIndex</a> <a class="code hl_variable" href="classinf_1_1DualVector.html#a0df7cf085fd3d780cb830269619837cc">m_n_orbits_no_unknown</a>;</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno"><a class="line" href="classinf_1_1DualVector.html#ae60705ba714e3860785dbb6c00b31e01">  195</a></span>    std::vector&lt;inf::Event&gt; <a class="code hl_variable" href="classinf_1_1DualVector.html#ae60705ba714e3860785dbb6c00b31e01">m_orbit_repr_no_unknown</a>;</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span> </div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1DualVector.html#a4a0a54b98384ba4062c053d2b2ce024a">init_orbits</a>(<a class="code hl_typedef" href="classinf_1_1Symmetry.html#a901d22b86ef5923b628db86fbdd7ba4f">inf::Symmetry::Group</a> <span class="keyword">const</span> &amp;marginal_symmetries);</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span> </div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno"><a class="line" href="classinf_1_1DualVector.html#a910c50c1d26b0a425132af0ff7964031">  201</a></span>    std::vector&lt;std::vector&lt;inf::EventTensor::EventHash&gt;&gt; <a class="code hl_variable" href="classinf_1_1DualVector.html#a910c50c1d26b0a425132af0ff7964031">m_quovec_index_to_orbit</a>;</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno"><a class="line" href="classinf_1_1DualVector.html#ab1412817958efad10ac222be11507523">  203</a></span>    std::vector&lt;inf::QuovecIndex&gt; <a class="code hl_variable" href="classinf_1_1DualVector.html#ab1412817958efad10ac222be11507523">m_event_to_quovec_index</a>;</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1DualVector.html#af6b54ca3e5bc46dd8437e9c278d54aac">init_quovec_index_maps</a>();</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span> </div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1DualVector.html#a1eab1c59d704da54ecfdada3f30e6942">set_orbit_coeff</a>(<a class="code hl_typedef" href="group__infcons.html#ga5b78fc573dc491459e18e8550a342e37">inf::QuovecIndex</a> quovec_index, <a class="code hl_typedef" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a> coeff);</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span> </div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno"><a class="line" href="classinf_1_1DualVector.html#ad5d592d1d0aff51481f95e06a63c4e23">  214</a></span>    <a class="code hl_enumeration" href="classinf_1_1DualVector.html#a3ac0be707f8f14bf1e429fcb6b17f9a0">inf::DualVector::BoundType</a> <a class="code hl_variable" href="classinf_1_1DualVector.html#ad5d592d1d0aff51481f95e06a63c4e23">m_bound_type</a>;</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span> </div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno"><a class="line" href="classinf_1_1DualVector.html#ac8512fb844f08801480e9df967ea8769">  221</a></span>    <span class="keyword">typedef</span> std::pair&lt;QuovecIndex, std::vector&lt;QuovecIndex&gt;&gt; <a class="code hl_typedef" href="classinf_1_1DualVector.html#ac8512fb844f08801480e9df967ea8769">BoundRule</a>;</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno"><a class="line" href="classinf_1_1DualVector.html#aa0d7a32f8203f83b0274306091db1e18">  223</a></span>    std::vector&lt;inf::DualVector::BoundRule&gt; <a class="code hl_variable" href="classinf_1_1DualVector.html#aa0d7a32f8203f83b0274306091db1e18">m_bound_rules</a>;</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1DualVector.html#aeff5addd3fb125cb58f81e9bdd46784c">init_bound_rules</a>();</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span> </div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>    <a class="code hl_typedef" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a> <a class="code hl_function" href="classinf_1_1DualVector.html#a365def0ad68d68231ec4e98819f67fda">min_or_max</a>(<a class="code hl_typedef" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a> <span class="keyword">const</span> a, <a class="code hl_typedef" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a> <span class="keyword">const</span> b) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>};</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span> </div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>} <span class="comment">// namespace inf</span></div>
+<div class="ttc" id="aclassinf_1_1DualVector_html"><div class="ttname"><a href="classinf_1_1DualVector.html">inf::DualVector</a></div><div class="ttdoc">Describes a dual vector  through its embedding .</div><div class="ttdef"><b>Definition</b> <a href="dual__vector_8h_source.html#l00074">dual_vector.h:74</a></div></div>
+<div class="ttc" id="aclassinf_1_1DualVector_html_a0df7cf085fd3d780cb830269619837cc"><div class="ttname"><a href="classinf_1_1DualVector.html#a0df7cf085fd3d780cb830269619837cc">inf::DualVector::m_n_orbits_no_unknown</a></div><div class="ttdeci">inf::QuovecIndex m_n_orbits_no_unknown</div><div class="ttdoc">This is get_n_orbits() if we don't store the bounds, otherwise, it is get_orbit_repr_no_unknown()....</div><div class="ttdef"><b>Definition</b> <a href="dual__vector_8h_source.html#l00193">dual_vector.h:193</a></div></div>
+<div class="ttc" id="aclassinf_1_1DualVector_html_a0e2c9d3a7678940f18312d85d2a93aa6"><div class="ttname"><a href="classinf_1_1DualVector.html#a0e2c9d3a7678940f18312d85d2a93aa6">inf::DualVector::m_store_bounds</a></div><div class="ttdeci">const inf::DualVector::StoreBounds m_store_bounds</div><div class="ttdoc">Whether or not the inf::DualVector stores bounds, see inf::DualVector::StoreBounds.</div><div class="ttdef"><b>Definition</b> <a href="dual__vector_8h_source.html#l00191">dual_vector.h:191</a></div></div>
+<div class="ttc" id="aclassinf_1_1DualVector_html_a0f118cadbce3a9b4d087aed2bfe3bbc5"><div class="ttname"><a href="classinf_1_1DualVector.html#a0f118cadbce3a9b4d087aed2bfe3bbc5">inf::DualVector::set_from_quovec</a></div><div class="ttdeci">void set_from_quovec(inf::Quovec const &amp;quovec, inf::QuovecIndex start_pos)</div><div class="ttdoc">This sets the coefficients (image) of the inf::DualVector, including bounds if necessary.</div><div class="ttdef"><b>Definition</b> <a href="dual__vector_8cpp_source.html#l00069">dual_vector.cpp:69</a></div></div>
+<div class="ttc" id="aclassinf_1_1DualVector_html_a1eab1c59d704da54ecfdada3f30e6942"><div class="ttname"><a href="classinf_1_1DualVector.html#a1eab1c59d704da54ecfdada3f30e6942">inf::DualVector::set_orbit_coeff</a></div><div class="ttdeci">void set_orbit_coeff(inf::QuovecIndex quovec_index, Num coeff)</div><div class="ttdoc">To set all the coefficients of an orbit to the same value, used in inf::DualVector::set_from_quovec()</div><div class="ttdef"><b>Definition</b> <a href="dual__vector_8cpp_source.html#l00272">dual_vector.cpp:272</a></div></div>
+<div class="ttc" id="aclassinf_1_1DualVector_html_a2195ab6ae1897eff28abee9629eda675"><div class="ttname"><a href="classinf_1_1DualVector.html#a2195ab6ae1897eff28abee9629eda675">inf::DualVector::get_n_orbits_with_unknown</a></div><div class="ttdeci">Index get_n_orbits_with_unknown() const</div><div class="ttdoc">Returns the total number of orbits of the dual vector, including the one with unknowns.</div><div class="ttdef"><b>Definition</b> <a href="dual__vector_8cpp_source.html#l00153">dual_vector.cpp:153</a></div></div>
+<div class="ttc" id="aclassinf_1_1DualVector_html_a2bb62dee0c86469348cc49ed3b001b8f"><div class="ttname"><a href="classinf_1_1DualVector.html#a2bb62dee0c86469348cc49ed3b001b8f">inf::DualVector::get_n_orbits_no_unknown</a></div><div class="ttdeci">Index get_n_orbits_no_unknown() const</div><div class="ttdoc">Returns the number of orbits with no unknown of the dual vector.</div><div class="ttdef"><b>Definition</b> <a href="dual__vector_8cpp_source.html#l00157">dual_vector.cpp:157</a></div></div>
+<div class="ttc" id="aclassinf_1_1DualVector_html_a365def0ad68d68231ec4e98819f67fda"><div class="ttname"><a href="classinf_1_1DualVector.html#a365def0ad68d68231ec4e98819f67fda">inf::DualVector::min_or_max</a></div><div class="ttdeci">Num min_or_max(Num const a, Num const b) const</div><div class="ttdoc">Returns min(a,b) or max(a,b) depending on m_bound_type.</div><div class="ttdef"><b>Definition</b> <a href="dual__vector_8cpp_source.html#l00316">dual_vector.cpp:316</a></div></div>
+<div class="ttc" id="aclassinf_1_1DualVector_html_a3ac0be707f8f14bf1e429fcb6b17f9a0"><div class="ttname"><a href="classinf_1_1DualVector.html#a3ac0be707f8f14bf1e429fcb6b17f9a0">inf::DualVector::BoundType</a></div><div class="ttdeci">BoundType</div><div class="ttdoc">This controls whether the bounds that the inf::DualVector computes are upper or lower bounds.</div><div class="ttdef"><b>Definition</b> <a href="dual__vector_8h_source.html#l00096">dual_vector.h:96</a></div></div>
+<div class="ttc" id="aclassinf_1_1DualVector_html_a3ac0be707f8f14bf1e429fcb6b17f9a0a0122b4c2c01ee1c698ecc309d2b8eb5a"><div class="ttname"><a href="classinf_1_1DualVector.html#a3ac0be707f8f14bf1e429fcb6b17f9a0a0122b4c2c01ee1c698ecc309d2b8eb5a">inf::DualVector::BoundType::upper</a></div><div class="ttdeci">@ upper</div><div class="ttdoc">Upper bounds are computed.</div></div>
+<div class="ttc" id="aclassinf_1_1DualVector_html_a3ac0be707f8f14bf1e429fcb6b17f9a0a81e073b428b50247daba38531dcf412a"><div class="ttname"><a href="classinf_1_1DualVector.html#a3ac0be707f8f14bf1e429fcb6b17f9a0a81e073b428b50247daba38531dcf412a">inf::DualVector::BoundType::lower</a></div><div class="ttdeci">@ lower</div><div class="ttdoc">Lower bounds are computed.</div></div>
+<div class="ttc" id="aclassinf_1_1DualVector_html_a460ae9be024af38dc2d2dad80bb6c8a2"><div class="ttname"><a href="classinf_1_1DualVector.html#a460ae9be024af38dc2d2dad80bb6c8a2">inf::DualVector::get_orbit_repr_no_unknown</a></div><div class="ttdeci">std::vector&lt; inf::Event &gt; const &amp; get_orbit_repr_no_unknown() const</div><div class="ttdoc">Returns the orbit representatives with no unknowns.</div><div class="ttdef"><b>Definition</b> <a href="dual__vector_8cpp_source.html#l00161">dual_vector.cpp:161</a></div></div>
+<div class="ttc" id="aclassinf_1_1DualVector_html_a4a0a54b98384ba4062c053d2b2ce024a"><div class="ttname"><a href="classinf_1_1DualVector.html#a4a0a54b98384ba4062c053d2b2ce024a">inf::DualVector::init_orbits</a></div><div class="ttdeci">void init_orbits(inf::Symmetry::Group const &amp;marginal_symmetries)</div><div class="ttdoc">Initializes the orbits depending on m_store_bounds and based on marginal_symmetries which represents ...</div><div class="ttdef"><b>Definition</b> <a href="dual__vector_8cpp_source.html#l00189">dual_vector.cpp:189</a></div></div>
+<div class="ttc" id="aclassinf_1_1DualVector_html_a5748f067eaba001eaf1ab03fc0732f60"><div class="ttname"><a href="classinf_1_1DualVector.html#a5748f067eaba001eaf1ab03fc0732f60">inf::DualVector::io</a></div><div class="ttdeci">void io(util::FileStream &amp;stream) override</div><div class="ttdoc">This method defines what data is to be read/written to disk, and in what order.</div><div class="ttdef"><b>Definition</b> <a href="dual__vector_8cpp_source.html#l00167">dual_vector.cpp:167</a></div></div>
+<div class="ttc" id="aclassinf_1_1DualVector_html_a615feaafdbd4a08901a07ad60260d398"><div class="ttname"><a href="classinf_1_1DualVector.html#a615feaafdbd4a08901a07ad60260d398">inf::DualVector::StoreBounds</a></div><div class="ttdeci">StoreBounds</div><div class="ttdoc">This controls whether or not an inf::DualVector will store some bounds.</div><div class="ttdef"><b>Definition</b> <a href="dual__vector_8h_source.html#l00084">dual_vector.h:84</a></div></div>
+<div class="ttc" id="aclassinf_1_1DualVector_html_a615feaafdbd4a08901a07ad60260d398a7fa3b767c460b54a2be4d49030b349c7"><div class="ttname"><a href="classinf_1_1DualVector.html#a615feaafdbd4a08901a07ad60260d398a7fa3b767c460b54a2be4d49030b349c7">inf::DualVector::StoreBounds::no</a></div><div class="ttdeci">@ no</div><div class="ttdoc">Do not store bounds.</div></div>
+<div class="ttc" id="aclassinf_1_1DualVector_html_a615feaafdbd4a08901a07ad60260d398aa6105c0a611b41b08f1209506350279e"><div class="ttname"><a href="classinf_1_1DualVector.html#a615feaafdbd4a08901a07ad60260d398aa6105c0a611b41b08f1209506350279e">inf::DualVector::StoreBounds::yes</a></div><div class="ttdeci">@ yes</div><div class="ttdoc">Do store bounds, implies a slightly increased memory usage.</div></div>
+<div class="ttc" id="aclassinf_1_1DualVector_html_a626a13e68bcabbf18efae5c8cd6f1567"><div class="ttname"><a href="classinf_1_1DualVector.html#a626a13e68bcabbf18efae5c8cd6f1567">inf::DualVector::compute_weights</a></div><div class="ttdeci">static std::vector&lt; Index &gt; compute_weights(Index n_parties, inf::Outcome n_outcomes, inf::DualVector::StoreBounds store_bounds)</div><div class="ttdoc">This method calls inf::EventTensor::get_party_weights(), but increments n_outcomes by 1 if store_boun...</div><div class="ttdef"><b>Definition</b> <a href="dual__vector_8cpp_source.html#l00028">dual_vector.cpp:28</a></div></div>
+<div class="ttc" id="aclassinf_1_1DualVector_html_a704636660183462ef8caaa6e10977461"><div class="ttname"><a href="classinf_1_1DualVector.html#a704636660183462ef8caaa6e10977461">inf::DualVector::get_outcomes_per_party</a></div><div class="ttdeci">static inf::Outcome get_outcomes_per_party(inf::Outcome n_outcomes, inf::DualVector::StoreBounds store_bounds)</div><div class="ttdoc">This method returns n_outcomes+1 if store_bounds == inf::DualVector::StoreBounds::yes and n_outcomes ...</div><div class="ttdef"><b>Definition</b> <a href="dual__vector_8cpp_source.html#l00021">dual_vector.cpp:21</a></div></div>
+<div class="ttc" id="aclassinf_1_1DualVector_html_a81e2913269e41e2c57c0941113178795"><div class="ttname"><a href="classinf_1_1DualVector.html#a81e2913269e41e2c57c0941113178795">inf::DualVector::get_math_name</a></div><div class="ttdeci">std::string get_math_name() const override</div><div class="ttdoc">Math name for inf::TensorWithOrbits::log_data_short() and inf::TensorWithOrbits::log_data_long()</div><div class="ttdef"><b>Definition</b> <a href="dual__vector_8cpp_source.html#l00135">dual_vector.cpp:135</a></div></div>
+<div class="ttc" id="aclassinf_1_1DualVector_html_a910c50c1d26b0a425132af0ff7964031"><div class="ttname"><a href="classinf_1_1DualVector.html#a910c50c1d26b0a425132af0ff7964031">inf::DualVector::m_quovec_index_to_orbit</a></div><div class="ttdeci">std::vector&lt; std::vector&lt; inf::EventTensor::EventHash &gt; &gt; m_quovec_index_to_orbit</div><div class="ttdoc">Contains, e.g., { {(0,0,0),(1,1,1),(2,2,2),(3,3,3)}, {(0,0,1),(0,0,2),...}, ...} but with the events ...</div><div class="ttdef"><b>Definition</b> <a href="dual__vector_8h_source.html#l00201">dual_vector.h:201</a></div></div>
+<div class="ttc" id="aclassinf_1_1DualVector_html_aa0d7a32f8203f83b0274306091db1e18"><div class="ttname"><a href="classinf_1_1DualVector.html#aa0d7a32f8203f83b0274306091db1e18">inf::DualVector::m_bound_rules</a></div><div class="ttdeci">std::vector&lt; inf::DualVector::BoundRule &gt; m_bound_rules</div><div class="ttdoc">The bound rules allowing to quickly compute the upper/lower bounds directly from the quovecs.</div><div class="ttdef"><b>Definition</b> <a href="dual__vector_8h_source.html#l00223">dual_vector.h:223</a></div></div>
+<div class="ttc" id="aclassinf_1_1DualVector_html_ab1412817958efad10ac222be11507523"><div class="ttname"><a href="classinf_1_1DualVector.html#ab1412817958efad10ac222be11507523">inf::DualVector::m_event_to_quovec_index</a></div><div class="ttdeci">std::vector&lt; inf::QuovecIndex &gt; m_event_to_quovec_index</div><div class="ttdoc">Contains, e.g., {(0,0,0) -&gt; 0, (1,1,1) -&gt; 0, ..., (0,0,1) -&gt; 1, (0,0,2) -&gt; 1, ..} but with the events...</div><div class="ttdef"><b>Definition</b> <a href="dual__vector_8h_source.html#l00203">dual_vector.h:203</a></div></div>
+<div class="ttc" id="aclassinf_1_1DualVector_html_ab6af4757eeabf48b07392f34df2bbc2f"><div class="ttname"><a href="classinf_1_1DualVector.html#ab6af4757eeabf48b07392f34df2bbc2f">inf::DualVector::get_inflation</a></div><div class="ttdeci">inf::Inflation::ConstPtr const &amp; get_inflation() const</div><div class="ttdoc">The underlying inflation.</div><div class="ttdef"><b>Definition</b> <a href="dual__vector_8cpp_source.html#l00061">dual_vector.cpp:61</a></div></div>
+<div class="ttc" id="aclassinf_1_1DualVector_html_ac5245461094db93bca9b1485f5322db4"><div class="ttname"><a href="classinf_1_1DualVector.html#ac5245461094db93bca9b1485f5322db4">inf::DualVector::get_event_to_quovec_index</a></div><div class="ttdeci">std::vector&lt; inf::QuovecIndex &gt; const &amp; get_event_to_quovec_index() const</div><div class="ttdoc">To map the hash of each marginal event  to the quovec index of its orbit.</div><div class="ttdef"><b>Definition</b> <a href="dual__vector_8cpp_source.html#l00065">dual_vector.cpp:65</a></div></div>
+<div class="ttc" id="aclassinf_1_1DualVector_html_ac8512fb844f08801480e9df967ea8769"><div class="ttname"><a href="classinf_1_1DualVector.html#ac8512fb844f08801480e9df967ea8769">inf::DualVector::BoundRule</a></div><div class="ttdeci">std::pair&lt; QuovecIndex, std::vector&lt; QuovecIndex &gt; &gt; BoundRule</div><div class="ttdoc">This type describes how to compute upper/lower bounds: bound_rule.first is the quovec index to set as...</div><div class="ttdef"><b>Definition</b> <a href="dual__vector_8h_source.html#l00221">dual_vector.h:221</a></div></div>
+<div class="ttc" id="aclassinf_1_1DualVector_html_aca99682fc244d48099098978dfceb70b"><div class="ttname"><a href="classinf_1_1DualVector.html#aca99682fc244d48099098978dfceb70b">inf::DualVector::hard_assert_within_bound</a></div><div class="ttdeci">void hard_assert_within_bound(Num const bound) const</div><div class="ttdoc">This hard-asserts that the dual vector's components are less than the specified bound in absolute val...</div><div class="ttdef"><b>Definition</b> <a href="dual__vector_8cpp_source.html#l00118">dual_vector.cpp:118</a></div></div>
+<div class="ttc" id="aclassinf_1_1DualVector_html_ad4bbedd7af0dc10736905db790af4237"><div class="ttname"><a href="classinf_1_1DualVector.html#ad4bbedd7af0dc10736905db790af4237">inf::DualVector::log_header</a></div><div class="ttdeci">void log_header() const override</div><div class="ttdoc">Header logged by the various logging functions.</div><div class="ttdef"><b>Definition</b> <a href="dual__vector_8cpp_source.html#l00139">dual_vector.cpp:139</a></div></div>
+<div class="ttc" id="aclassinf_1_1DualVector_html_ad5d592d1d0aff51481f95e06a63c4e23"><div class="ttname"><a href="classinf_1_1DualVector.html#ad5d592d1d0aff51481f95e06a63c4e23">inf::DualVector::m_bound_type</a></div><div class="ttdeci">inf::DualVector::BoundType m_bound_type</div><div class="ttdoc">This indicates whether the dual vector computes its lower or upper bounds, see inf::DualVector::Bound...</div><div class="ttdef"><b>Definition</b> <a href="dual__vector_8h_source.html#l00214">dual_vector.h:214</a></div></div>
+<div class="ttc" id="aclassinf_1_1DualVector_html_ae036c425e933fe336eb779eb635e7c02"><div class="ttname"><a href="classinf_1_1DualVector.html#ae036c425e933fe336eb779eb635e7c02">inf::DualVector::log_event</a></div><div class="ttdeci">void log_event(inf::Event const &amp;event) const override</div><div class="ttdoc">Logs an event, e.g., (0,0,2)</div><div class="ttdef"><b>Definition</b> <a href="dual__vector_8cpp_source.html#l00145">dual_vector.cpp:145</a></div></div>
+<div class="ttc" id="aclassinf_1_1DualVector_html_ae60705ba714e3860785dbb6c00b31e01"><div class="ttname"><a href="classinf_1_1DualVector.html#ae60705ba714e3860785dbb6c00b31e01">inf::DualVector::m_orbit_repr_no_unknown</a></div><div class="ttdeci">std::vector&lt; inf::Event &gt; m_orbit_repr_no_unknown</div><div class="ttdoc">The representative of each orbit with no unknowns.</div><div class="ttdef"><b>Definition</b> <a href="dual__vector_8h_source.html#l00195">dual_vector.h:195</a></div></div>
+<div class="ttc" id="aclassinf_1_1DualVector_html_ae75d4d2e2f9bf637558789adc6ae94b3"><div class="ttname"><a href="classinf_1_1DualVector.html#ae75d4d2e2f9bf637558789adc6ae94b3">inf::DualVector::UniquePtr</a></div><div class="ttdeci">std::unique_ptr&lt; inf::DualVector &gt; UniquePtr</div><div class="ttdef"><b>Definition</b> <a href="dual__vector_8h_source.html#l00076">dual_vector.h:76</a></div></div>
+<div class="ttc" id="aclassinf_1_1DualVector_html_ae7fd350bc544d55295f14f096c159a33"><div class="ttname"><a href="classinf_1_1DualVector.html#ae7fd350bc544d55295f14f096c159a33">inf::DualVector::m_inflation</a></div><div class="ttdeci">const inf::Inflation::ConstPtr m_inflation</div><div class="ttdoc">The underlying inflation.</div><div class="ttdef"><b>Definition</b> <a href="dual__vector_8h_source.html#l00188">dual_vector.h:188</a></div></div>
+<div class="ttc" id="aclassinf_1_1DualVector_html_aeff5addd3fb125cb58f81e9bdd46784c"><div class="ttname"><a href="classinf_1_1DualVector.html#aeff5addd3fb125cb58f81e9bdd46784c">inf::DualVector::init_bound_rules</a></div><div class="ttdeci">void init_bound_rules()</div><div class="ttdoc">Initializes the rules for computing the upper/lower bounds.</div><div class="ttdef"><b>Definition</b> <a href="dual__vector_8cpp_source.html#l00281">dual_vector.cpp:281</a></div></div>
+<div class="ttc" id="aclassinf_1_1DualVector_html_af6b54ca3e5bc46dd8437e9c278d54aac"><div class="ttname"><a href="classinf_1_1DualVector.html#af6b54ca3e5bc46dd8437e9c278d54aac">inf::DualVector::init_quovec_index_maps</a></div><div class="ttdeci">void init_quovec_index_maps()</div><div class="ttdoc">Initializes m_quovec_index_to_orbit, m_event_to_quovec_index, m_orbit_repr_no_unknown,...</div><div class="ttdef"><b>Definition</b> <a href="dual__vector_8cpp_source.html#l00214">dual_vector.cpp:214</a></div></div>
+<div class="ttc" id="aclassinf_1_1Inflation_html_ac594d5b8d7cbdd7cdfe569baa351f0ba"><div class="ttname"><a href="classinf_1_1Inflation.html#ac594d5b8d7cbdd7cdfe569baa351f0ba">inf::Inflation::ConstPtr</a></div><div class="ttdeci">std::shared_ptr&lt; const inf::Inflation &gt; ConstPtr</div><div class="ttdef"><b>Definition</b> <a href="inflation_8h_source.html#l00072">inflation.h:72</a></div></div>
+<div class="ttc" id="aclassinf_1_1Marginal_html"><div class="ttname"><a href="classinf_1_1Marginal.html">inf::Marginal</a></div><div class="ttdoc">This class represents an inflation marginal  for some set of inflation parties  and allows to efficie...</div><div class="ttdef"><b>Definition</b> <a href="marginal_8h_source.html#l00038">marginal.h:38</a></div></div>
+<div class="ttc" id="aclassinf_1_1Orbitable_html_a99544b7fb94b81957e20601859c42782"><div class="ttname"><a href="classinf_1_1Orbitable.html#a99544b7fb94b81957e20601859c42782">inf::Orbitable::get_n_orbits</a></div><div class="ttdeci">Index get_n_orbits() const</div><div class="ttdoc">The number of orbits produced (only sensible after inf::Orbitable::init_orbits() has been called)</div><div class="ttdef"><b>Definition</b> <a href="orbitable_8cpp_source.html#l00016">orbitable.cpp:16</a></div></div>
+<div class="ttc" id="aclassinf_1_1Orbitable_html_aef04cd8a458a13472f5b95105929e6b4"><div class="ttname"><a href="classinf_1_1Orbitable.html#aef04cd8a458a13472f5b95105929e6b4">inf::Orbitable::get_orbits</a></div><div class="ttdeci">inf::Orbitable::OrbitMap const &amp; get_orbits() const</div><div class="ttdoc">Returns the underlying inf::Orbitable::OrbitMap.</div><div class="ttdef"><b>Definition</b> <a href="orbitable_8cpp_source.html#l00022">orbitable.cpp:22</a></div></div>
+<div class="ttc" id="aclassinf_1_1Symmetry_html_a901d22b86ef5923b628db86fbdd7ba4f"><div class="ttname"><a href="classinf_1_1Symmetry.html#a901d22b86ef5923b628db86fbdd7ba4f">inf::Symmetry::Group</a></div><div class="ttdeci">std::set&lt; inf::Symmetry &gt; Group</div><div class="ttdoc">A set of symmetries, typically a group.</div><div class="ttdef"><b>Definition</b> <a href="symmetry_8h_source.html#l00037">symmetry.h:37</a></div></div>
+<div class="ttc" id="aclassinf_1_1TensorWithOrbits_html"><div class="ttname"><a href="classinf_1_1TensorWithOrbits.html">inf::TensorWithOrbits</a></div><div class="ttdoc">An inf::EventTensor that is also an inf::Orbitable.</div><div class="ttdef"><b>Definition</b> <a href="tensor__with__orbits_8h_source.html#l00018">tensor_with_orbits.h:18</a></div></div>
+<div class="ttc" id="aclassinf_1_1TensorWithOrbits_html_a4ead21bd50b7b7f4d0205cde2e438697"><div class="ttname"><a href="classinf_1_1TensorWithOrbits.html#a4ead21bd50b7b7f4d0205cde2e438697">inf::TensorWithOrbits::log</a></div><div class="ttdeci">void log() const override</div><div class="ttdoc">Short log using inf::TensorWithOrbits::log_header(), inf::TensorWithOrbits::log_data_short(),...</div><div class="ttdef"><b>Definition</b> <a href="tensor__with__orbits_8cpp_source.html#l00036">tensor_with_orbits.cpp:36</a></div></div>
+<div class="ttc" id="aclassutil_1_1FileStream_html"><div class="ttname"><a href="classutil_1_1FileStream.html">util::FileStream</a></div><div class="ttdoc">This abstract class provides a common interface to util::InputFileStream and util::OutputFileStream t...</div><div class="ttdef"><b>Definition</b> <a href="file__stream_8h_source.html#l00098">file_stream.h:98</a></div></div>
+<div class="ttc" id="aclassutil_1_1Serializable_html"><div class="ttname"><a href="classutil_1_1Serializable.html">util::Serializable</a></div><div class="ttdoc">Abstract class that defines the interface of a class that is serializable.</div><div class="ttdef"><b>Definition</b> <a href="file__stream_8h_source.html#l00038">file_stream.h:38</a></div></div>
+<div class="ttc" id="agroup__event_html_gac60a6fcdfce02dc13eb7364d6a2b56b0"><div class="ttname"><a href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a></div><div class="ttdeci">std::vector&lt; inf::Outcome &gt; Event</div><div class="ttdoc">A list of inf::Outcome. Conceptually, this plays the role of  for some set .</div><div class="ttdef"><b>Definition</b> <a href="event_8h_source.html#l00030">event.h:30</a></div></div>
+<div class="ttc" id="agroup__event_html_gadcaa27c4242b65837f0f7a00e96856d4"><div class="ttname"><a href="group__event.html#gadcaa27c4242b65837f0f7a00e96856d4">inf::Outcome</a></div><div class="ttdeci">uint8_t Outcome</div><div class="ttdoc">An outcome is stored in the smallest format available to save memory.</div><div class="ttdef"><b>Definition</b> <a href="event_8h_source.html#l00026">event.h:26</a></div></div>
+<div class="ttc" id="agroup__infcons_html_ga5b78fc573dc491459e18e8550a342e37"><div class="ttname"><a href="group__infcons.html#ga5b78fc573dc491459e18e8550a342e37">inf::QuovecIndex</a></div><div class="ttdeci">Index QuovecIndex</div><div class="ttdoc">We use this type to explicitly indicate that an index indicates a component of an inf::Quovec.</div><div class="ttdef"><b>Definition</b> <a href="dual__vector_8h_source.html#l00032">dual_vector.h:32</a></div></div>
+<div class="ttc" id="agroup__infcons_html_ga8fa19943a83fd41acae30b7bcc935295"><div class="ttname"><a href="group__infcons.html#ga8fa19943a83fd41acae30b7bcc935295">inf::Quovec</a></div><div class="ttdeci">std::vector&lt; Num &gt; Quovec</div><div class="ttdoc">A &quot;quotiented vector&quot; denotes an element of some  for some .</div><div class="ttdef"><b>Definition</b> <a href="dual__vector_8h_source.html#l00029">dual_vector.h:29</a></div></div>
+<div class="ttc" id="agroup__util_html_ga77731aedac326062ffbdcf367185a07e"><div class="ttname"><a href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a></div><div class="ttdeci">uint64_t Index</div><div class="ttdoc">Use for anything meant to be used as an index.</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00019">types.h:19</a></div></div>
+<div class="ttc" id="agroup__util_html_gaea24f8b468377784fdb704692e9168f5"><div class="ttname"><a href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a></div><div class="ttdeci">int64_t Num</div><div class="ttdoc">Signed integers.</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00015">types.h:15</a></div></div>
+<div class="ttc" id="anamespaceinf_html"><div class="ttname"><a href="namespaceinf.html">inf</a></div><div class="ttdoc">The namespace for the inflation code.</div><div class="ttdef"><b>Definition</b> <a href="constraint_8h_source.html#l00006">constraint.h:6</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_0f453feda2a303bb77c09f5934c109df.html">inf</a></li><li class="navelem"><a class="el" href="dir_70aecdc092d65e330aa359045744aeda.html">constraints</a></li><li class="navelem"><a class="el" href="dual__vector_8h.html">dual_vector.h</a></li>
+    <li class="footer">Generated on Wed Dec 18 2024 17:39:35 for Fast Inflation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

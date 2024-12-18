@@ -1,0 +1,385 @@
+<!-- HTML header for doxygen 1.9.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Fast Inflation: Class Members - Variables</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+MathJax.Hub.Config({
+    TeX: {
+        Macros: {
+            dd: ["{\\text{d}#1\\,}",1],
+            nouts: ["{n_{\\text{o}}}"],
+            ints: ["{[\\![#1]\\!]}",1],
+            outset: ["{\\ints{\\nouts}}"],
+            N: ["{\\mathbb{N}}"],
+            R: ["{\\mathbb{R}}"],
+            Z: ["{\\mathbb{Z}}"],
+            infsize: ["{z}"],
+            infparties: ["{\\set{I}}"],
+            infsources: ["{\\set{S}}"],
+            infmarg: ["{\\set{A}}"],
+            infmargg: ["{\\set{B}}"],
+            netparties: ["{\\set{N}}"],
+            infq: ["{q}"],
+            infqs: ["{\\Delta_{\\infparties}}"],
+            constraintlist: ["{\\mathcal{C}}"],
+            injsets: ["{\\text{InjSets}}"],
+            infconstraints: ["{\\text{InfCons}}"],
+            parents: ["{\\text{Par}}"],
+            targetp: ["{p}"],
+            targetps: ["{\\Delta_{\\netparties}}"],
+            set: ["{\\mathbf{#1}}",1],
+            type: ["{t}"],
+            infevent: "{\\omega}",
+            events: ["{\\Omega_{#1}}",1],
+            infevents: ["{\\events{\\infparties}}"],
+            redinfevents: ["{\\tilde{\\Omega}_{\\infparties}}"],
+            netevents: ["{\\events{\\netparties}}"],
+            vecset: ["{V_{#1}}",1],
+            alice: ["{\\text{A}}"],
+            bob: ["{\\text{B}}"],
+            charlie: ["{\\text{C}}"],
+            symgroup: ["{\\text{Sym}(#1)}",1],
+            shortsymgroup: ["{\\text{Sym}_{#1}}",1],
+            act: ["{(#1\\hspace{2pt}{:}\\hspace{2pt}#2)}",2],
+            actt: ["{[#1\\hspace{2pt}{:}\\hspace{2pt}#2]}",2],
+            margperms: ["{\\text{Perm}_{#1}}",1],
+            permutedmargs: ["{\\mathbb{P}_{#1}^{\\targetp}}",1],
+            redpermutedmargs: ["{\\tilde{\\mathbb{P}}_{#1}^{\\constraintname,\\targetp}}",1],
+            extract: ["{\\text{ext}(#1,#2)}",2],
+            partysym: ["{\\tau}"],
+            sourcesym: ["{\\xi}"],
+            outsym: ["{\\sigma}"],
+            fullgroup: ["{\\text{InfGrp}}"],
+            partygroup : ["{\\text{PartyGrp}}"],
+            outgroup: ["{\\text{OutGrp}}"],
+            sourcegroup: ["{\\text{SrcGrp}}"],
+            distrgroup: ["{\\mathbb{G}^\\targetp}"],
+            constraintname: ["{c}"],
+            marggroup: ["{\\mathbb{G}^{\\constraintname,\\targetp}}"],
+            fullsymexpl: ["{(\\sourcesym,\\partysym,\\outsym)}"],
+            inner: ["{\\langle#1,#2\\rangle}", 2],
+            quovec: ["{f}"],
+            totconstraintmap: ["{K^{\\constraintlist,\\targetp}}"],
+            totconstraintmapelem: ["{K^{\\constraintname,\\targetp}}"],
+            quovecspace: ["{\\tilde{V}_{#1}^{\\constraintname,\\targetp}}", 1],
+            totquovecspace: ["{\\text{ConsSpace}(\\constraintlist,\\targetp)}"],
+            detdistr: ["{\\delta^{#1}}", 1],
+            margperm: ["{\\varphi}"],
+            altquovecembed: ["{\\text{G}_{#1}^{\\constraintname,\\targetp}}", 1],
+            vecset: ["{V_{#1}}", 1],
+            repr: ["{\\lfloor#1\\rfloor}", 1],
+            gid: ["{\\text{id}}"],
+            id: ["{1_{#1}}",1],
+            consscale: ["{K}"],
+            scaletot: ["{K_{\\text{tot}}^{\\constraintlist,\\targetp}}"],
+            minnorm: ["{d}"],
+            Bigsetst: ["\\;\\Big|\\;"],
+            activeset: ["\\mathcal{S}"],
+            conv: ["\\text{conv}"],
+            lVert: ["|\\hspace{-1pt}|"],
+            norm: ["\\lVert#1\\lVert", 1],
+            st: [":\ "],
+        }
+    }
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeDarkModeToggle.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeParagraphLink.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Fast Inflation
+   </div>
+   <div id="projectbrief">To certify causal incompatibility</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('functions_vars_m.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="contents">
+<div class="textblock">Here is a list of all variables with links to the classes they belong to:</div>
+
+<h3><a id="index_m" name="index_m"></a>- m -</h3><ul>
+<li>m_A&#160;:&#160;<a class="el" href="classutil_1_1TestWritableClass.html#a4292226f002476b7c0147ea7485b5496">util::TestWritableClass</a></li>
+<li>m_application_list&#160;:&#160;<a class="el" href="classuser_1_1AppManager.html#af6eda6259d1c10faee00e0412fce1b1a">user::AppManager</a></li>
+<li>m_base&#160;:&#160;<a class="el" href="classinf_1_1EventTensor.html#ab12ac85bba5b76268fdb0e7a80adf661">inf::EventTensor</a></li>
+<li>m_base_cli&#160;:&#160;<a class="el" href="classuser_1_1InfCLI.html#a9da9910b005d25bb7090e0e39f59eb00">user::InfCLI</a></li>
+<li>m_bases&#160;:&#160;<a class="el" href="classutil_1_1ProductRange.html#a359c48cf41654bd5249f4769e58c0b80">util::ProductRange&lt; T &gt;</a></li>
+<li>m_bound&#160;:&#160;<a class="el" href="classutil_1_1Range.html#ab7101fa6a934850a61276e5529cb393e">util::Range&lt; T &gt;</a></li>
+<li>m_bound_rules&#160;:&#160;<a class="el" href="classinf_1_1DualVector.html#aa0d7a32f8203f83b0274306091db1e18">inf::DualVector</a></li>
+<li>m_bound_type&#160;:&#160;<a class="el" href="classinf_1_1DualVector.html#ad5d592d1d0aff51481f95e06a63c4e23">inf::DualVector</a></li>
+<li>m_chrono&#160;:&#160;<a class="el" href="classuser_1_1Application.html#a82a1e68fd154bbcb7ed6abaa9c82d7f1">user::Application</a></li>
+<li>m_color_mode&#160;:&#160;<a class="el" href="classutil_1_1Logger.html#aba50860d0bf48336e72133847d6aad7f">util::Logger</a></li>
+<li>m_compile_mode&#160;:&#160;<a class="el" href="classuser_1_1AppManager.html#adc00962cab3c96508a472497abeb7e54">user::AppManager</a></li>
+<li>m_constraint_group&#160;:&#160;<a class="el" href="classinf_1_1Constraint.html#afc8de0049be481bc67ce9752bc380303">inf::Constraint</a></li>
+<li>m_constraint_set&#160;:&#160;<a class="el" href="classinf_1_1FeasProblem.html#ad4d6039a091b7d8356cd46aaf5388eac">inf::FeasProblem</a></li>
+<li>m_constraint_set_description&#160;:&#160;<a class="el" href="classinf_1_1FeasOptions.html#adfe39cdc16c14327bf0e34bd5b48ca12">inf::FeasOptions</a></li>
+<li>m_constraints&#160;:&#160;<a class="el" href="classinf_1_1ConstraintSet.html#a02633b7ef12937280d4a961dfa98b567">inf::ConstraintSet</a>, <a class="el" href="classinf_1_1Optimizer.html#a140c5d9590193dcdf8196b8f216936ea">inf::Optimizer</a></li>
+<li>m_current_syms&#160;:&#160;<a class="el" href="classinf_1_1TreeFiller.html#a7aa6bf50926aa17eb9f939099c76c745">inf::TreeFiller</a></li>
+<li>m_data&#160;:&#160;<a class="el" href="classinf_1_1EventTensor.html#aff3280851975ad89f4c50476e5434dc4">inf::EventTensor</a>, <a class="el" href="classinf_1_1PairwiseFW.html#a11f75362f988a9126a782bec0c5d99d1">inf::PairwiseFW</a></li>
+<li>m_denom&#160;:&#160;<a class="el" href="classinf_1_1EventTensor.html#a0dcb33331bf8b38a0c865bdf4fa598c7">inf::EventTensor</a>, <a class="el" href="classinf_1_1Marginal.html#ad337b170f4edaabbec648c45395bba5a">inf::Marginal</a>, <a class="el" href="classutil_1_1Frac.html#a971a650ac2d4f452118d033c17fe8e80">util::Frac</a></li>
+<li>m_depth&#160;:&#160;<a class="el" href="classinf_1_1EventTree.html#ad0c1271434a94a399cd051ea6a4a6845">inf::EventTree</a></li>
+<li>m_depth_enabled&#160;:&#160;<a class="el" href="classutil_1_1Logger.html#a50a8758748f5120f8b0cb2dc7c089227">util::Logger</a></li>
+<li>m_description&#160;:&#160;<a class="el" href="classuser_1_1Application.html#aa924cd6b697a9c9eb25794fcd9098c8d">user::Application</a></li>
+<li>m_dimension&#160;:&#160;<a class="el" href="classinf_1_1FrankWolfe.html#a9d9dede46ae29811e13c6bcbbe13e912">inf::FrankWolfe</a>, <a class="el" href="classinf_1_1PairwiseFW_1_1Data.html#ad32de4d371052d5b984c96dca8862949">inf::PairwiseFW::Data</a></li>
+<li>m_disable_dots_for_hidden_sections&#160;:&#160;<a class="el" href="classutil_1_1Logger.html#ae24d0479d61727c07ade702446b4dcaa">util::Logger</a></li>
+<li>m_distribution&#160;:&#160;<a class="el" href="classinf_1_1FeasProblem.html#ad8cc7ccd58b530895363308f5bfb6be4">inf::FeasProblem</a>, <a class="el" href="classutil_1_1RNG.html#a1e3fa55785471caeb335604eea170dae">util::RNG&lt; T &gt;</a></li>
+<li>m_dual_vector&#160;:&#160;<a class="el" href="classinf_1_1Marginal_1_1Evaluator.html#a7ce841ecb252dfa1631a7d4c611fe0a3">inf::Marginal::Evaluator</a></li>
+<li>m_duration&#160;:&#160;<a class="el" href="classutil_1_1Chrono.html#ac1283d1196c4ac06e7d1ad6efd07962d">util::Chrono</a></li>
+<li>m_evaluators&#160;:&#160;<a class="el" href="classinf_1_1BruteForceOpt.html#ac9db6331a56b0cacdb5377581f0e5b3b">inf::BruteForceOpt</a>, <a class="el" href="classinf_1_1Marginal_1_1EvaluatorSet.html#aba92842e3d88434f1185fe75afd67f97">inf::Marginal::EvaluatorSet</a></li>
+<li>m_even&#160;:&#160;<a class="el" href="classinf_1_1PartySym.html#a859aba36038296fcb5c23c1674c5f7b3">inf::PartySym</a></li>
+<li>m_event&#160;:&#160;<a class="el" href="classutil_1_1ProductIterator.html#a1d3248f471a9c760dc73c330cb9a782b">util::ProductIterator&lt; T &gt;</a></li>
+<li>m_event_tensor&#160;:&#160;<a class="el" href="classinf_1_1TensorWithOrbits.html#a2a4fb7f187427bb1022659421230ce59">inf::TensorWithOrbits</a></li>
+<li>m_event_to_quovec_index&#160;:&#160;<a class="el" href="classinf_1_1DualVector.html#ab1412817958efad10ac222be11507523">inf::DualVector</a></li>
+<li>m_event_tree&#160;:&#160;<a class="el" href="classinf_1_1TreeOpt.html#ae55aea444c29283c41c0b3587e4f9c52">inf::TreeOpt</a>, <a class="el" href="classinf_1_1TreeSplitter.html#a0156d864ba5f4f9288b72aef3eed1d24">inf::TreeSplitter</a></li>
+<li>m_events&#160;:&#160;<a class="el" href="classinf_1_1FullyCorrectiveFW.html#aff8987f6944f850310e97bf8aa06ff4e">inf::FullyCorrectiveFW</a>, <a class="el" href="classinf_1_1PairwiseFW_1_1Data.html#afe672338491a1a5b35ccfa563e7fce9c">inf::PairwiseFW::Data</a>, <a class="el" href="classinf_1_1PairwiseFW.html#a810c0b9d91d549bb346362990c4174b1">inf::PairwiseFW</a></li>
+<li>m_extension&#160;:&#160;<a class="el" href="classutil_1_1FileStream.html#a6e10ca809c9a5e1c020859643d01b605">util::FileStream</a></li>
+<li>m_feas_options&#160;:&#160;<a class="el" href="classuser_1_1Application.html#ac9667a2f32682d03bebf3607c65e2d38">user::Application</a></li>
+<li>m_feas_problem&#160;:&#160;<a class="el" href="classinf_1_1VisProblem.html#a11f5a6009d3e9d72181a9e3abd339819">inf::VisProblem</a></li>
+<li>m_feas_problem_options&#160;:&#160;<a class="el" href="classinf_1_1VisProblem.html#ab4d74826c248df91825f05758983faef">inf::VisProblem</a></li>
+<li>m_finished_initialization&#160;:&#160;<a class="el" href="classinf_1_1EventTree.html#a661b1b346708e45607871fbac3b65c7b">inf::EventTree</a></li>
+<li>m_first&#160;:&#160;<a class="el" href="classutil_1_1Range.html#aacfb5a6ab60e77b6fa12daf9072c5901">util::Range&lt; T &gt;</a></li>
+<li>m_format&#160;:&#160;<a class="el" href="classutil_1_1FileStream.html#a78665e0b6f9c6d2dd5618a77b82ff8f7">util::FileStream</a></li>
+<li>m_frank_wolfe&#160;:&#160;<a class="el" href="classinf_1_1FeasProblem.html#a614db8a0a2d2a09f6d1c0bd13dccdf0e">inf::FeasProblem</a></li>
+<li>m_fw_algo&#160;:&#160;<a class="el" href="classinf_1_1FeasOptions.html#a995eb4abae3e5c767a775a826a3ece70">inf::FeasOptions</a></li>
+<li>m_generator&#160;:&#160;<a class="el" href="classutil_1_1RNG.html#ad356350095b680fe22f9cbbba78d209a">util::RNG&lt; T &gt;</a></li>
+<li>m_get_distribution&#160;:&#160;<a class="el" href="classinf_1_1VisProblem.html#ac781b13cfe0864f72a820fc8d1308f54">inf::VisProblem</a></li>
+<li>m_global_minimum&#160;:&#160;<a class="el" href="classinf_1_1TreeOpt_1_1GlobalMinimum.html#a230f78e8ce3087218f800e87661de7f9">inf::TreeOpt::GlobalMinimum</a>, <a class="el" href="classinf_1_1TreeOpt.html#a166b48950d3b6985cecda2329beefd97">inf::TreeOpt</a></li>
+<li>m_indent_pending&#160;:&#160;<a class="el" href="classutil_1_1Logger.html#a67f984b90f6c0392cde726d8fc75466a">util::Logger</a></li>
+<li>m_inf_cli&#160;:&#160;<a class="el" href="classuser_1_1Application.html#a087ac1a0c5bf041326d16ddeb79099e3">user::Application</a>, <a class="el" href="classuser_1_1AppManager.html#a609434e6ed957178d8afc32ccfc43767">user::AppManager</a></li>
+<li>m_inflation&#160;:&#160;<a class="el" href="classinf_1_1Constraint.html#adf339fc0428a07eb4cfc1fa0db0df617">inf::Constraint</a>, <a class="el" href="classinf_1_1ConstraintSet.html#ac1571360431b69672cb5bbb262ff8fc8">inf::ConstraintSet</a>, <a class="el" href="classinf_1_1DualVector.html#ae7fd350bc544d55295f14f096c159a33">inf::DualVector</a>, <a class="el" href="classinf_1_1Marginal.html#a0d95d3698445402673809004820ef23e">inf::Marginal</a>, <a class="el" href="classinf_1_1Optimizer_1_1Solution.html#aa504c6ac47e46b05cac807a37daf24e0">inf::Optimizer::Solution</a>, <a class="el" href="classinf_1_1TreeFiller.html#a8c2dbe562a748a908a94a5878e09b748">inf::TreeFiller</a></li>
+<li>m_inflation_event&#160;:&#160;<a class="el" href="classinf_1_1Marginal_1_1Evaluator.html#a07323457a8f412b46fbc68a6319d17d4">inf::Marginal::Evaluator</a></li>
+<li>m_inflation_inverse_party_symmetries&#160;:&#160;<a class="el" href="classinf_1_1TreeFiller.html#a865fe5233bacaf2acada796fcdb4a045">inf::TreeFiller</a></li>
+<li>m_inflation_n_parties&#160;:&#160;<a class="el" href="classinf_1_1TreeFiller.html#a62b8399d9371ce27420dfcfd139e8b1d">inf::TreeFiller</a>, <a class="el" href="classinf_1_1TreeOpt.html#a9d40e2fccfc2ef47f8b8e3258594de7e">inf::TreeOpt</a></li>
+<li>m_inflation_outcome_symmetries&#160;:&#160;<a class="el" href="classinf_1_1TreeFiller.html#ad417b8f14459a2b8ba9b5bdf6a6bf2f0">inf::TreeFiller</a></li>
+<li>m_inflation_size&#160;:&#160;<a class="el" href="classinf_1_1FeasOptions.html#a7c4b6bd2ab29eec1112f3a996fbf360d">inf::FeasOptions</a></li>
+<li>m_inflation_symmetries&#160;:&#160;<a class="el" href="classinf_1_1Inflation.html#acfc4c83503297dd55886c44df1a61296">inf::Inflation</a></li>
+<li>m_initialized&#160;:&#160;<a class="el" href="classuser_1_1InfCLI.html#a0b3fe145ed9e19d86a2b8bf926d38dac">user::InfCLI</a></li>
+<li>m_instream&#160;:&#160;<a class="el" href="classutil_1_1InputFileStream.html#a31af270182f629b72740bb6079560287">util::InputFileStream</a></li>
+<li>m_inverse_sym&#160;:&#160;<a class="el" href="classinf_1_1OutcomeSym.html#aa0b9d5635de202d6038a2cd655fec6c4">inf::OutcomeSym</a>, <a class="el" href="classinf_1_1PartySym.html#a9879c040c97127c6642119a28a21cfc7">inf::PartySym</a></li>
+<li>m_is_not_done&#160;:&#160;<a class="el" href="classutil_1_1PermIterator.html#a70a7e37be6c4802f42d2cb99507d7206">util::PermIterator&lt; T &gt;</a>, <a class="el" href="classutil_1_1ProductIterator.html#a53e5baf6b1db4eb88c7d6c81adaec0f5">util::ProductIterator&lt; T &gt;</a></li>
+<li>m_is_reading&#160;:&#160;<a class="el" href="classutil_1_1FileStream.html#a370c5b81844b4962c6b05673f72b70e2">util::FileStream</a></li>
+<li>m_is_scalar_marginal&#160;:&#160;<a class="el" href="classinf_1_1Marginal_1_1Evaluator.html#a71fb6e508bc82908c3bb6de32d4201a1">inf::Marginal::Evaluator</a></li>
+<li>m_is_test&#160;:&#160;<a class="el" href="classuser_1_1Application.html#a198ab68fa31d4948ca5e939033f72847">user::Application</a></li>
+<li>m_iterates&#160;:&#160;<a class="el" href="classinf_1_1PairwiseFW.html#a658f3aff32b16dc70e9d0a57fdd1cb91">inf::PairwiseFW</a></li>
+<li>m_last_fw_vertex&#160;:&#160;<a class="el" href="classinf_1_1PairwiseFW.html#a8653d1b93406a93414f9be9e5a5fc9d0">inf::PairwiseFW</a></li>
+<li>m_last_outcomes&#160;:&#160;<a class="el" href="classutil_1_1ProductIterator.html#ac62bb5fce3e0f787bd607b5e74d58609">util::ProductIterator&lt; T &gt;</a></li>
+<li>m_last_party&#160;:&#160;<a class="el" href="classutil_1_1ProductIterator.html#a899748b03fce72c19c27b1ac03f06ebb">util::ProductIterator&lt; T &gt;</a></li>
+<li>m_leave_thresholds&#160;:&#160;<a class="el" href="classinf_1_1TreeSplitter.html#acbd3fff17b0029083b181998c1c1f5d4">inf::TreeSplitter</a></li>
+<li>m_lhs_dual_vector&#160;:&#160;<a class="el" href="classinf_1_1Constraint.html#af674b22f045e2b876deeae5a4193a5ea">inf::Constraint</a></li>
+<li>m_lhs_inflation_marginal&#160;:&#160;<a class="el" href="classinf_1_1Constraint.html#a9edd7cb8eff07cd149f982cb9203f798">inf::Constraint</a></li>
+<li>m_lhs_marginal_parties&#160;:&#160;<a class="el" href="classinf_1_1ConstraintParser.html#a6aef35bd510b2e301a612c91091f3e6c">inf::ConstraintParser</a></li>
+<li>m_lhs_scale&#160;:&#160;<a class="el" href="classinf_1_1Constraint.html#a8f7342fef529b25a81574fa6bf970afa">inf::Constraint</a></li>
+<li>m_log_level&#160;:&#160;<a class="el" href="classuser_1_1InfCLI.html#af42ce3cc66b52bd3e91cfed00c50412b">user::InfCLI</a>, <a class="el" href="classutil_1_1Logger.html#a364d8395c1e1e595f84d301dd36389e3">util::Logger</a></li>
+<li>m_marg_evaluators&#160;:&#160;<a class="el" href="classinf_1_1TreeOpt.html#a84203d8b357225cb1aff3eb0d61c0030">inf::TreeOpt</a></li>
+<li>m_marg_event_hashes&#160;:&#160;<a class="el" href="classinf_1_1Marginal_1_1Evaluator.html#ae2d2ac532147ba2bf16e5dc0a898363e">inf::Marginal::Evaluator</a></li>
+<li>m_marginal_parties&#160;:&#160;<a class="el" href="classinf_1_1Marginal.html#a1f6884af9e581379eb2699c425ed8aac">inf::Marginal</a></li>
+<li>m_marginal_permutations&#160;:&#160;<a class="el" href="classinf_1_1Marginal.html#a62d4f0c005020e47f23a959bf5c180a4">inf::Marginal</a></li>
+<li>m_marginal_symmetries&#160;:&#160;<a class="el" href="classinf_1_1Marginal.html#a622bd374c834ca6a0db5869ded1db45c">inf::Marginal</a></li>
+<li>m_marginals&#160;:&#160;<a class="el" href="classinf_1_1TargetDistr.html#a48a152deadac20795624f32d052589de">inf::TargetDistr</a></li>
+<li>m_matrix&#160;:&#160;<a class="el" href="classinf_1_1FullyCorrectiveFW.html#a607451c0bf1e2c2516e8a76ce7d5def1">inf::FullyCorrectiveFW</a></li>
+<li>m_max_dual_vector_component&#160;:&#160;<a class="el" href="classinf_1_1ConstraintSet.html#a39585524a28d2fe77be9a83f06c0ec82">inf::ConstraintSet</a></li>
+<li>m_max_n_cr_since_mark&#160;:&#160;<a class="el" href="classutil_1_1Logger.html#a4b0b81e6099d07c593cead29b5de00e7">util::Logger</a></li>
+<li>m_max_visibility&#160;:&#160;<a class="el" href="classinf_1_1VisProblem.html#a0272b8221e12610ce0f8cb8e1e0ba622">inf::VisProblem</a></li>
+<li>m_memory_footprint&#160;:&#160;<a class="el" href="classinf_1_1EventTree.html#a6d7193127c3ffb0cd5299a78c63a4506">inf::EventTree</a></li>
+<li>m_min_visibility&#160;:&#160;<a class="el" href="classinf_1_1VisProblem.html#adca76b0ba1423aa133cc57588ac172a9">inf::VisProblem</a></li>
+<li>m_model&#160;:&#160;<a class="el" href="classinf_1_1FullyCorrectiveFW.html#aa941975da2103e14aca5d84037d23b39">inf::FullyCorrectiveFW</a></li>
+<li>m_model_disposer&#160;:&#160;<a class="el" href="classinf_1_1FullyCorrectiveFW.html#a416aae05c01fbdcb9ed3c2f95aa4fd51">inf::FullyCorrectiveFW</a></li>
+<li>m_n_cr_since_mark&#160;:&#160;<a class="el" href="classutil_1_1Logger.html#a77f1a4ea3e54a3f37aca843865ded450">util::Logger</a></li>
+<li>m_n_iterations&#160;:&#160;<a class="el" href="classinf_1_1FeasProblem.html#a49679aa34011f5328a1b23a03c10ca0f">inf::FeasProblem</a></li>
+<li>m_n_leaves&#160;:&#160;<a class="el" href="classinf_1_1EventTree.html#a01ae595ded331d2e7d4249c3296d6c06">inf::EventTree</a></li>
+<li>m_n_leaves_effective&#160;:&#160;<a class="el" href="classinf_1_1TreeOpt.html#a984b0320e44828d916f43b7d527b9ce0">inf::TreeOpt</a></li>
+<li>m_n_marginal_parties&#160;:&#160;<a class="el" href="classinf_1_1Marginal_1_1Evaluator.html#a9b88d8b286382f18eaa0f95974f27386">inf::Marginal::Evaluator</a></li>
+<li>m_n_nodes_total&#160;:&#160;<a class="el" href="classinf_1_1EventTree.html#a5896710e4bd24f09359e77a07df2c1e8">inf::EventTree</a></li>
+<li>m_n_orbits_no_unknown&#160;:&#160;<a class="el" href="classinf_1_1DualVector.html#a0df7cf085fd3d780cb830269619837cc">inf::DualVector</a></li>
+<li>m_n_outcomes&#160;:&#160;<a class="el" href="classinf_1_1Marginal_1_1Evaluator.html#a2acff79179ad0b8c5c03f84081e7fb47">inf::Marginal::Evaluator</a>, <a class="el" href="classinf_1_1Network.html#a21e5ab7921650db2c9ef4635dda3bfb1">inf::Network</a>, <a class="el" href="classinf_1_1TreeFiller.html#a04b3f21b007bc36a1f74fb77d2c87ab7">inf::TreeFiller</a></li>
+<li>m_n_parties&#160;:&#160;<a class="el" href="classinf_1_1EventTensor.html#ae52d16ffb9cc7454ee7c5696b8209bde">inf::EventTensor</a>, <a class="el" href="classinf_1_1Inflation.html#a26eb83295c67419f8095e495ba0272c0">inf::Inflation</a>, <a class="el" href="classinf_1_1Network.html#af5b4b2e710ca80c28f494fcfb78e75ac">inf::Network</a></li>
+<li>m_n_splits&#160;:&#160;<a class="el" href="classinf_1_1TreeSplitter.html#a5dd6ba21ce908f82c0e8452a4e9ae785">inf::TreeSplitter</a></li>
+<li>m_n_threads&#160;:&#160;<a class="el" href="classinf_1_1FeasOptions.html#aca1995aca270844ae92b78eb34c900ba">inf::FeasOptions</a>, <a class="el" href="classinf_1_1FullyCorrectiveFW.html#ab5869193fc2faf7574b5e707786733fb">inf::FullyCorrectiveFW</a>, <a class="el" href="classinf_1_1TreeOpt.html#a2e953b1be2bad45f016a80e602ea85a3">inf::TreeOpt</a>, <a class="el" href="classuser_1_1InfCLI.html#a792d5d376f52df966c69196d5ac3034c">user::InfCLI</a></li>
+<li>m_name&#160;:&#160;<a class="el" href="classinf_1_1Network.html#a6a7f777aeda2fe56afe3d4ae90e87765">inf::Network</a>, <a class="el" href="classinf_1_1TargetDistr.html#a847dec9e48a2584a9f316930695c4aec">inf::TargetDistr</a>, <a class="el" href="classuser_1_1Application.html#a320391039bd12bf108967105d8c94c5c">user::Application</a></li>
+<li>m_name_map&#160;:&#160;<a class="el" href="classinf_1_1Inflation.html#a6750c255213ba91ca6a72fa589532084">inf::Inflation</a></li>
+<li>m_named_args&#160;:&#160;<a class="el" href="classutil_1_1BaseCLI.html#a4b16e5e0a700aa8209fcb059911c3181">util::BaseCLI</a></li>
+<li>m_network&#160;:&#160;<a class="el" href="classinf_1_1TargetDistr.html#aa2cc50ee58cc301d6b6ddb583bd8ee91">inf::TargetDistr</a></li>
+<li>m_node_cache&#160;:&#160;<a class="el" href="classinf_1_1EventTree.html#ad009fd7770109b55127c79efc5a24cae">inf::EventTree</a></li>
+<li>m_node_chrono&#160;:&#160;<a class="el" href="classinf_1_1TreeFiller.html#a8362162598bafa2628a13b3b4d781e24">inf::TreeFiller</a></li>
+<li>m_num&#160;:&#160;<a class="el" href="classutil_1_1Frac.html#a5d0d1012c2f680fc9b09b4155741fffe">util::Frac</a></li>
+<li>m_optimizer&#160;:&#160;<a class="el" href="classinf_1_1FeasProblem.html#a7551388b4546ed9e573c489899486286">inf::FeasProblem</a></li>
+<li>m_options&#160;:&#160;<a class="el" href="classinf_1_1FeasProblem.html#a244abb6873ea5a7b5f42ab70665aa4f1">inf::FeasProblem</a></li>
+<li>m_orbit_repr_no_unknown&#160;:&#160;<a class="el" href="classinf_1_1DualVector.html#ae60705ba714e3860785dbb6c00b31e01">inf::DualVector</a></li>
+<li>m_orbits&#160;:&#160;<a class="el" href="classinf_1_1Orbitable.html#af0b5df58c28e730a3bd9f9f0f0102a77">inf::Orbitable</a></li>
+<li>m_orbits_initialized&#160;:&#160;<a class="el" href="classinf_1_1Orbitable.html#a469eff31a9f610b8b2d6977fd245aaea">inf::Orbitable</a></li>
+<li>m_outcome_last&#160;:&#160;<a class="el" href="classinf_1_1Network.html#a063f0cf64a3d56eb4908cb11ff14e82c">inf::Network</a></li>
+<li>m_outcome_sym&#160;:&#160;<a class="el" href="classinf_1_1Symmetry.html#a0da2d99287274fcd117743ad0267fd8b">inf::Symmetry</a></li>
+<li>m_outcome_unknown&#160;:&#160;<a class="el" href="classinf_1_1Network.html#a4e80fc514db3689b3bfa64d90a2afa99">inf::Network</a>, <a class="el" href="classinf_1_1TreeOpt.html#adfa1b7671387d53499398856df746e4a">inf::TreeOpt</a></li>
+<li>m_outstream&#160;:&#160;<a class="el" href="classutil_1_1OutputFileStream.html#a76e8152c0d738ccee562cdac0e4b14e5">util::OutputFileStream</a></li>
+<li>m_parties&#160;:&#160;<a class="el" href="classinf_1_1Inflation.html#a1d646e2a74f9d46086eeffdc6a0340f0">inf::Inflation</a></li>
+<li>m_party_map&#160;:&#160;<a class="el" href="classinf_1_1Inflation.html#a1da3095bcec5ac25281d08ca25ed346a">inf::Inflation</a></li>
+<li>m_party_name_map&#160;:&#160;<a class="el" href="classinf_1_1Network.html#a2b753c1511576841d355c600a5c9a157">inf::Network</a></li>
+<li>m_party_names&#160;:&#160;<a class="el" href="classinf_1_1Inflation.html#a34c7add257d1d66199860734bb6ca42f">inf::Inflation</a>, <a class="el" href="classinf_1_1Network.html#af6cd02c39e7282a72909dc771d2f55b5">inf::Network</a></li>
+<li>m_party_sym&#160;:&#160;<a class="el" href="classinf_1_1Symmetry.html#a61ec726b27aa3976f56d53cf6cf3f6dd">inf::Symmetry</a></li>
+<li>m_party_to_update_rules&#160;:&#160;<a class="el" href="classinf_1_1Marginal_1_1Evaluator.html#afd973bf6aca4d33eeba7abc9cc0e59b8">inf::Marginal::Evaluator</a></li>
+<li>m_path_partition&#160;:&#160;<a class="el" href="classinf_1_1TreeOpt.html#a0431636c971e51ce2887d191417350b9">inf::TreeOpt</a>, <a class="el" href="classinf_1_1TreeSplitter.html#af009fb3e525a3002f02cac6914eeeed9">inf::TreeSplitter</a></li>
+<li>m_perm&#160;:&#160;<a class="el" href="classutil_1_1PermIterator.html#a925798e951fc2964373de8ba64f785c0">util::PermIterator&lt; T &gt;</a></li>
+<li>m_phi&#160;:&#160;<a class="el" href="classinf_1_1PairwiseFW.html#ac708be210b56cf02251b3b1ddb026147">inf::PairwiseFW</a></li>
+<li>m_pre_sol&#160;:&#160;<a class="el" href="classinf_1_1Optimizer_1_1Solution.html#acfa08d950a632746d357d7c4bc99f9f6">inf::Optimizer::Solution</a></li>
+<li>m_pretty_description&#160;:&#160;<a class="el" href="classinf_1_1Constraint.html#a539137d741d4a2a40a68cb38bf818379">inf::Constraint</a></li>
+<li>m_quality_factor&#160;:&#160;<a class="el" href="classinf_1_1TreeSplitter.html#aed7afa3a973bfd755c57ab48ecaa0ac7">inf::TreeSplitter</a></li>
+<li>m_quovec_denom&#160;:&#160;<a class="el" href="classinf_1_1ConstraintSet.html#a0da496dd5d4e0aec556f48173e1b53cb">inf::ConstraintSet</a></li>
+<li>m_quovec_index_to_orbit&#160;:&#160;<a class="el" href="classinf_1_1DualVector.html#a910c50c1d26b0a425132af0ff7964031">inf::DualVector</a></li>
+<li>m_quovec_size&#160;:&#160;<a class="el" href="classinf_1_1ConstraintSet.html#a6e4ccad11678862a57d33dce76e3fff8">inf::ConstraintSet</a></li>
+<li>m_retain_events&#160;:&#160;<a class="el" href="classinf_1_1VisProblem.html#ae69a623298a0bbce89d6cb011266d700">inf::VisProblem</a></li>
+<li>m_rhs_inflation_marginal&#160;:&#160;<a class="el" href="classinf_1_1Constraint.html#aca39c9e1f819a081bacba3f787bb3980">inf::Constraint</a></li>
+<li>m_rhs_marginal_parties&#160;:&#160;<a class="el" href="classinf_1_1ConstraintParser.html#a4c4ff0bf9ec4f840fc9f3fcec484a2e4">inf::ConstraintParser</a></li>
+<li>m_rhs_reduced_dual_vector&#160;:&#160;<a class="el" href="classinf_1_1Constraint.html#a2218be49df2addaa6c5a67fc4b9c339d">inf::Constraint</a></li>
+<li>m_rhs_scale&#160;:&#160;<a class="el" href="classinf_1_1Constraint.html#ad26c77e4a989bd9462d3c913e5199580">inf::Constraint</a></li>
+<li>m_rhs_target_tensor&#160;:&#160;<a class="el" href="classinf_1_1Constraint.html#ad9f309029d0996c3b48f7ccafc5bb9a5">inf::Constraint</a></li>
+<li>m_rng&#160;:&#160;<a class="el" href="classinf_1_1Inflation.html#a87e99e18d46ca656e99e4188b76a49d6">inf::Inflation</a></li>
+<li>m_s&#160;:&#160;<a class="el" href="classinf_1_1FullyCorrectiveFW.html#a835c72b3aa26f313efa0d280ec8274c4">inf::FullyCorrectiveFW</a></li>
+<li>m_scale&#160;:&#160;<a class="el" href="classinf_1_1Marginal_1_1Evaluator.html#a2f9656511f677267a07d8782b5f6a43b">inf::Marginal::Evaluator</a></li>
+<li>m_search_mode&#160;:&#160;<a class="el" href="classinf_1_1FeasOptions.html#a2f890ca24ad54706e28d5c55295d2d00">inf::FeasOptions</a></li>
+<li>m_section_index&#160;:&#160;<a class="el" href="classutil_1_1Logger.html#ab8a596d8848be4fd79b674aa82dc52b0">util::Logger</a></li>
+<li>m_shared_mutex&#160;:&#160;<a class="el" href="classinf_1_1TreeOpt_1_1GlobalMinimum.html#a8d79c1d1bf2586df6fa0f73e77d7bb90">inf::TreeOpt::GlobalMinimum</a></li>
+<li>m_short_name&#160;:&#160;<a class="el" href="classinf_1_1TargetDistr.html#ad9f49cc94640070f3e425e8e78d8830a">inf::TargetDistr</a></li>
+<li>m_size&#160;:&#160;<a class="el" href="classinf_1_1Inflation.html#a146b9539935f13bcfc61f32af0d21cdd">inf::Inflation</a>, <a class="el" href="classutil_1_1Permutations.html#ad3d5c8bb343361a4b828e64d929a4edc">util::Permutations&lt; T &gt;</a></li>
+<li>m_source_induced_syms&#160;:&#160;<a class="el" href="classinf_1_1Inflation.html#a076e7a062963f0dac7662a6da2ec7c05">inf::Inflation</a></li>
+<li>m_start_time&#160;:&#160;<a class="el" href="classutil_1_1Chrono.html#a37a04fa3fa881f062fd8b57c54f20d8a">util::Chrono</a></li>
+<li>m_state&#160;:&#160;<a class="el" href="classutil_1_1Chrono.html#a3321440bff572de49b1f41605dc21e34">util::Chrono</a></li>
+<li>m_stop_mode&#160;:&#160;<a class="el" href="classinf_1_1FeasOptions.html#aeb1989b9e9a5ffc210cad6a5f0f6c111">inf::FeasOptions</a>, <a class="el" href="classinf_1_1Optimizer.html#a5895fe01de040cf08e71f332e94a5ef1">inf::Optimizer</a>, <a class="el" href="classinf_1_1Optimizer_1_1Solution.html#a279d4aeeb4253ed81b0344efc0bc5904">inf::Optimizer::Solution</a></li>
+<li>m_store_bounds&#160;:&#160;<a class="el" href="classinf_1_1ConstraintSet.html#a1ca10d587f2fb568b9d0a499bf4865f9">inf::ConstraintSet</a>, <a class="el" href="classinf_1_1DualVector.html#a0e2c9d3a7678940f18312d85d2a93aa6">inf::DualVector</a>, <a class="el" href="classinf_1_1FeasOptions.html#ab96e1b13f747434d08cbfe84c539d39d">inf::FeasOptions</a>, <a class="el" href="classinf_1_1Marginal.html#a2b519b731dc5398f0e454d5659194da8">inf::Marginal</a>, <a class="el" href="classinf_1_1TreeOpt.html#a92cfd95c1fdcd28bdedf578b5c1e3252">inf::TreeOpt</a></li>
+<li>m_store_iterates&#160;:&#160;<a class="el" href="classinf_1_1PairwiseFW.html#a8fd9d2007b0786fbdec5789c1df36652">inf::PairwiseFW</a></li>
+<li>m_sym&#160;:&#160;<a class="el" href="classinf_1_1OutcomeSym.html#aee39e3509606fba239801b35c72afdfa">inf::OutcomeSym</a>, <a class="el" href="classinf_1_1PartySym.html#a88aad99a7defc8c2b0b1f9a7855082c0">inf::PartySym</a></li>
+<li>m_sym_chrono&#160;:&#160;<a class="el" href="classinf_1_1TreeFiller.html#a37d6034366ecfbc798b2d186135fc2f5">inf::TreeFiller</a></li>
+<li>m_sym_group&#160;:&#160;<a class="el" href="classinf_1_1Orbitable.html#aeab7eb37046e998275f4e4ca0e0b58b6">inf::Orbitable</a></li>
+<li>m_symtree&#160;:&#160;<a class="el" href="classinf_1_1Inflation.html#ad18a3f973c2ac6748bae88779b9fb9f1">inf::Inflation</a></li>
+<li>m_symtree_io&#160;:&#160;<a class="el" href="classinf_1_1FeasOptions.html#a34cb6000e1449ee59907b31a369df62d">inf::FeasOptions</a>, <a class="el" href="classinf_1_1TreeOpt.html#a706e0a0881c430ee8ddb13f3aba8e4b6">inf::TreeOpt</a>, <a class="el" href="classuser_1_1InfCLI.html#a73ec497248f18229fcf4e2a0a3d44705">user::InfCLI</a></li>
+<li>m_target_application_name&#160;:&#160;<a class="el" href="classuser_1_1InfCLI.html#a7514f0d925ed87af006eb49dc6f0582b">user::InfCLI</a></li>
+<li>m_target_distr&#160;:&#160;<a class="el" href="classinf_1_1Inflation.html#a270394afb79b5d4888232d7ac5425139">inf::Inflation</a></li>
+<li>m_target_distribution_fixed&#160;:&#160;<a class="el" href="classinf_1_1Constraint.html#a07223a450813df868f5983703eae9669">inf::Constraint</a></li>
+<li>m_target_marginal_names&#160;:&#160;<a class="el" href="classinf_1_1Constraint.html#a21abb33e7aa6efe043a820dfb80c8df0">inf::Constraint</a>, <a class="el" href="classinf_1_1ConstraintParser.html#a5c9ee770886df83c3403a4c12cbdbee2">inf::ConstraintParser</a></li>
+<li>m_tree&#160;:&#160;<a class="el" href="classinf_1_1TreeFiller.html#ab2a5cf6810cb295207e12d78bbc95ddb">inf::TreeFiller</a></li>
+<li>m_unknown_outcome&#160;:&#160;<a class="el" href="classinf_1_1TreeFiller.html#a482c57e7c57f0877b8305e6487dfa186">inf::TreeFiller</a></li>
+<li>m_unnamed_args&#160;:&#160;<a class="el" href="classutil_1_1BaseCLI.html#a767db891735fd6031d0dded914258a5a">util::BaseCLI</a></li>
+<li>m_usage&#160;:&#160;<a class="el" href="classuser_1_1InfCLI.html#aa8e1eda7852bc5139070b04dce8c1433">user::InfCLI</a></li>
+<li>m_use_distr_symmetries&#160;:&#160;<a class="el" href="classinf_1_1FeasOptions.html#a120457a1fc351465576d47be77e6d81e">inf::FeasOptions</a>, <a class="el" href="classinf_1_1Inflation.html#a4d7f1820b16101accad4813a01e36d47">inf::Inflation</a></li>
+<li>m_val&#160;:&#160;<a class="el" href="classutil_1_1Iterator.html#a1afccf75fb868bff50cf823612032317">util::Iterator&lt; T &gt;</a></li>
+<li>m_vertex_count&#160;:&#160;<a class="el" href="classinf_1_1PairwiseFW_1_1Data.html#a4d3f36a5f42e9149f27bc2add152a96b">inf::PairwiseFW::Data</a></li>
+<li>m_vertex_dot_vertex&#160;:&#160;<a class="el" href="classinf_1_1PairwiseFW_1_1Data.html#a96c3e30bfe71e62f328dce1d4d2ebdc4">inf::PairwiseFW::Data</a></li>
+<li>m_vertices&#160;:&#160;<a class="el" href="classinf_1_1PairwiseFW_1_1Data.html#a394919c120ca6d907ebaa7190fb00b44">inf::PairwiseFW::Data</a></li>
+<li>m_visibility_denom&#160;:&#160;<a class="el" href="classinf_1_1VisProblem.html#a3d486ce2464dc65f13fba5bafefdb821">inf::VisProblem</a></li>
+<li>m_visibility_param&#160;:&#160;<a class="el" href="classuser_1_1InfCLI.html#a28a4b06eab6f469570be4d66daaef1d5">user::InfCLI</a></li>
+<li>m_w&#160;:&#160;<a class="el" href="classinf_1_1FullyCorrectiveFW.html#a905a8fd2952b3ae51ec8b5a0124afd64">inf::FullyCorrectiveFW</a></li>
+<li>m_weights&#160;:&#160;<a class="el" href="classinf_1_1EventTensor.html#a22649e759f3a9bf92f192f3276ba88be">inf::EventTensor</a>, <a class="el" href="classinf_1_1PairwiseFW_1_1Data.html#a6dac3ddd96d0254422219ba8523de884">inf::PairwiseFW::Data</a></li>
+<li>m_working_event&#160;:&#160;<a class="el" href="classinf_1_1TreeFiller.html#abd357941d7909e0f89b7da4c16523a03">inf::TreeFiller</a></li>
+<li>m_x&#160;:&#160;<a class="el" href="classinf_1_1PairwiseFW_1_1Data.html#a15a13e2c01cef75765f2b7bf3b264619">inf::PairwiseFW::Data</a></li>
+<li>m_x_dot_vertex&#160;:&#160;<a class="el" href="classinf_1_1PairwiseFW_1_1Data.html#a5bc13245545fe67f3c1d6f9de9f34a5e">inf::PairwiseFW::Data</a></li>
+<li>m_x_dot_x&#160;:&#160;<a class="el" href="classinf_1_1PairwiseFW_1_1Data.html#a38b7c9dfc9140b8418e553d318c342b5">inf::PairwiseFW::Data</a></li>
+<li>marg_evaluators&#160;:&#160;<a class="el" href="structinf_1_1TreeOpt_1_1ThreadWorker.html#a71d20fb15d58eac8a9026db8ba5f0c82">inf::TreeOpt::ThreadWorker</a></li>
+<li>marg_perm_index&#160;:&#160;<a class="el" href="structinf_1_1Marginal_1_1Evaluator_1_1UpdateRule.html#a6225cd842c9ce9089d178586fd4fddd4">inf::Marginal::Evaluator::UpdateRule</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Wed Dec 18 2024 17:39:52 for Fast Inflation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

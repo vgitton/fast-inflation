@@ -1,0 +1,722 @@
+<!-- HTML header for doxygen 1.9.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Fast Inflation: inf::TensorWithOrbits Class Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+MathJax.Hub.Config({
+    TeX: {
+        Macros: {
+            dd: ["{\\text{d}#1\\,}",1],
+            nouts: ["{n_{\\text{o}}}"],
+            ints: ["{[\\![#1]\\!]}",1],
+            outset: ["{\\ints{\\nouts}}"],
+            N: ["{\\mathbb{N}}"],
+            R: ["{\\mathbb{R}}"],
+            Z: ["{\\mathbb{Z}}"],
+            infsize: ["{z}"],
+            infparties: ["{\\set{I}}"],
+            infsources: ["{\\set{S}}"],
+            infmarg: ["{\\set{A}}"],
+            infmargg: ["{\\set{B}}"],
+            netparties: ["{\\set{N}}"],
+            infq: ["{q}"],
+            infqs: ["{\\Delta_{\\infparties}}"],
+            constraintlist: ["{\\mathcal{C}}"],
+            injsets: ["{\\text{InjSets}}"],
+            infconstraints: ["{\\text{InfCons}}"],
+            parents: ["{\\text{Par}}"],
+            targetp: ["{p}"],
+            targetps: ["{\\Delta_{\\netparties}}"],
+            set: ["{\\mathbf{#1}}",1],
+            type: ["{t}"],
+            infevent: "{\\omega}",
+            events: ["{\\Omega_{#1}}",1],
+            infevents: ["{\\events{\\infparties}}"],
+            redinfevents: ["{\\tilde{\\Omega}_{\\infparties}}"],
+            netevents: ["{\\events{\\netparties}}"],
+            vecset: ["{V_{#1}}",1],
+            alice: ["{\\text{A}}"],
+            bob: ["{\\text{B}}"],
+            charlie: ["{\\text{C}}"],
+            symgroup: ["{\\text{Sym}(#1)}",1],
+            shortsymgroup: ["{\\text{Sym}_{#1}}",1],
+            act: ["{(#1\\hspace{2pt}{:}\\hspace{2pt}#2)}",2],
+            actt: ["{[#1\\hspace{2pt}{:}\\hspace{2pt}#2]}",2],
+            margperms: ["{\\text{Perm}_{#1}}",1],
+            permutedmargs: ["{\\mathbb{P}_{#1}^{\\targetp}}",1],
+            redpermutedmargs: ["{\\tilde{\\mathbb{P}}_{#1}^{\\constraintname,\\targetp}}",1],
+            extract: ["{\\text{ext}(#1,#2)}",2],
+            partysym: ["{\\tau}"],
+            sourcesym: ["{\\xi}"],
+            outsym: ["{\\sigma}"],
+            fullgroup: ["{\\text{InfGrp}}"],
+            partygroup : ["{\\text{PartyGrp}}"],
+            outgroup: ["{\\text{OutGrp}}"],
+            sourcegroup: ["{\\text{SrcGrp}}"],
+            distrgroup: ["{\\mathbb{G}^\\targetp}"],
+            constraintname: ["{c}"],
+            marggroup: ["{\\mathbb{G}^{\\constraintname,\\targetp}}"],
+            fullsymexpl: ["{(\\sourcesym,\\partysym,\\outsym)}"],
+            inner: ["{\\langle#1,#2\\rangle}", 2],
+            quovec: ["{f}"],
+            totconstraintmap: ["{K^{\\constraintlist,\\targetp}}"],
+            totconstraintmapelem: ["{K^{\\constraintname,\\targetp}}"],
+            quovecspace: ["{\\tilde{V}_{#1}^{\\constraintname,\\targetp}}", 1],
+            totquovecspace: ["{\\text{ConsSpace}(\\constraintlist,\\targetp)}"],
+            detdistr: ["{\\delta^{#1}}", 1],
+            margperm: ["{\\varphi}"],
+            altquovecembed: ["{\\text{G}_{#1}^{\\constraintname,\\targetp}}", 1],
+            vecset: ["{V_{#1}}", 1],
+            repr: ["{\\lfloor#1\\rfloor}", 1],
+            gid: ["{\\text{id}}"],
+            id: ["{1_{#1}}",1],
+            consscale: ["{K}"],
+            scaletot: ["{K_{\\text{tot}}^{\\constraintlist,\\targetp}}"],
+            minnorm: ["{d}"],
+            Bigsetst: ["\\;\\Big|\\;"],
+            activeset: ["\\mathcal{S}"],
+            conv: ["\\text{conv}"],
+            lVert: ["|\\hspace{-1pt}|"],
+            norm: ["\\lVert#1\\lVert", 1],
+            st: [":\ "],
+        }
+    }
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeDarkModeToggle.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeParagraphLink.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Fast Inflation
+   </div>
+   <div id="projectbrief">To certify causal incompatibility</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classinf_1_1TensorWithOrbits.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
+<a href="classinf_1_1TensorWithOrbits-members.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">inf::TensorWithOrbits Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span><div class="ingroups"><a class="el" href="group__event.html">Events</a> &raquo; <a class="el" href="group__symmetry.html">Event symmetry</a> &raquo; <a class="el" href="group__orbits.html">Event orbits</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &quot;<a class="el" href="tensor__with__orbits_8h_source.html">inf/symmetry/tensor_with_orbits.h</a>&quot;</code></p>
+<a name="details" id="details"></a><h2 class="groupheader">Class description</h2>
+<div class="textblock"><p>An <a class="el" href="classinf_1_1EventTensor.html" title="Stores a function from a set of inf::Event of fixed length to Num.">inf::EventTensor</a> that is also an <a class="el" href="classinf_1_1Orbitable.html" title="Something that holds symmetry-induced orbits of events.">inf::Orbitable</a>. </p>
+<p>This class is used to reduce duplication of code between <a class="el" href="classinf_1_1DualVector.html" title="Describes a dual vector  through its embedding .">inf::DualVector</a> and <a class="el" href="classinf_1_1TargetDistr.html" title="A distribution over an inf::Network.">inf::TargetDistr</a>. The idea is that both of these classes are essentially an <a class="el" href="classinf_1_1EventTensor.html" title="Stores a function from a set of inf::Event of fixed length to Num.">inf::EventTensor</a> (they are functions from a set of <a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0" title="A list of inf::Outcome. Conceptually, this plays the role of  for some set .">inf::Event</a> to rational numbers). But both of these classes have a relevant symmetry group acting on the <a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0" title="A list of inf::Outcome. Conceptually, this plays the role of  for some set .">inf::Event</a>, and the orbits of events are relevant. Thus, <a class="el" href="classinf_1_1TensorWithOrbits.html" title="An inf::EventTensor that is also an inf::Orbitable.">inf::TensorWithOrbits</a> provides the methods common to <a class="el" href="classinf_1_1DualVector.html" title="Describes a dual vector  through its embedding .">inf::DualVector</a> and to <a class="el" href="classinf_1_1TargetDistr.html" title="A distribution over an inf::Network.">inf::TargetDistr</a> (these are mostly logging capabilities). </p>
+
+<p class="definition">Definition at line <a class="el" href="tensor__with__orbits_8h_source.html#l00018">18</a> of file <a class="el" href="tensor__with__orbits_8h_source.html">tensor_with_orbits.h</a>.</p>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a5a38b5c5598dc0a7a01770a45cee0d22"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TensorWithOrbits.html#a5a38b5c5598dc0a7a01770a45cee0d22">TensorWithOrbits</a> (<a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> n_parties, <a class="el" href="group__event.html#gadcaa27c4242b65837f0f7a00e96856d4">inf::Outcome</a> base)</td></tr>
+<tr class="memdesc:a5a38b5c5598dc0a7a01770a45cee0d22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor, intializes data to all 0's. The actual <a class="el" href="classinf_1_1EventTensor.html" title="Stores a function from a set of inf::Event of fixed length to Num.">inf::EventTensor</a> can be passed by child classes using <a class="el" href="classinf_1_1TensorWithOrbits.html#a2a5be48925ad57042c14c906553d6573" title="To set all the numerators at once, ignoring orbits.">inf::TensorWithOrbits::init_event_tensor()</a>.  <br /></td></tr>
+<tr class="separator:a5a38b5c5598dc0a7a01770a45cee0d22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7a873f9c37d20248a9f902f69aa27af"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classinf_1_1EventTensor.html">inf::EventTensor</a> const &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TensorWithOrbits.html#ac7a873f9c37d20248a9f902f69aa27af">get_event_tensor</a> () const</td></tr>
+<tr class="memdesc:ac7a873f9c37d20248a9f902f69aa27af"><td class="mdescLeft">&#160;</td><td class="mdescRight">To get access to the underlying data.  <br /></td></tr>
+<tr class="separator:ac7a873f9c37d20248a9f902f69aa27af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac154b6a858b0899210ddf0922ac2fd7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TensorWithOrbits.html#aac154b6a858b0899210ddf0922ac2fd7">log_short</a> () const</td></tr>
+<tr class="memdesc:aac154b6a858b0899210ddf0922ac2fd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extra-short log using <a class="el" href="classinf_1_1TensorWithOrbits.html#ae17b9dc67827bac2467ca77a12091cda" title="Header logged by the various logging functions.">inf::TensorWithOrbits::log_header()</a>, <a class="el" href="classinf_1_1TensorWithOrbits.html#a684c4e242a113339d8f240eaa5688b8e" title="Logs the data of the representatives of orbits.">inf::TensorWithOrbits::log_data_short()</a>  <br /></td></tr>
+<tr class="separator:aac154b6a858b0899210ddf0922ac2fd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ead21bd50b7b7f4d0205cde2e438697"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TensorWithOrbits.html#a4ead21bd50b7b7f4d0205cde2e438697">log</a> () const override</td></tr>
+<tr class="memdesc:a4ead21bd50b7b7f4d0205cde2e438697"><td class="mdescLeft">&#160;</td><td class="mdescRight">Short log using <a class="el" href="classinf_1_1TensorWithOrbits.html#ae17b9dc67827bac2467ca77a12091cda" title="Header logged by the various logging functions.">inf::TensorWithOrbits::log_header()</a>, <a class="el" href="classinf_1_1TensorWithOrbits.html#a684c4e242a113339d8f240eaa5688b8e" title="Logs the data of the representatives of orbits.">inf::TensorWithOrbits::log_data_short()</a>, <a class="el" href="classinf_1_1Orbitable.html#a01b9c37488618495b331c32a7449dd90" title="Logs short one-line info about number of orbits.">inf::Orbitable::log_sym_group()</a>  <br /></td></tr>
+<tr class="separator:a4ead21bd50b7b7f4d0205cde2e438697"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ce37323ac010f1a6103e44962221dc3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TensorWithOrbits.html#a4ce37323ac010f1a6103e44962221dc3">log_long</a> () const</td></tr>
+<tr class="memdesc:a4ce37323ac010f1a6103e44962221dc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detailed log.  <br /></td></tr>
+<tr class="separator:a4ce37323ac010f1a6103e44962221dc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a684c4e242a113339d8f240eaa5688b8e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TensorWithOrbits.html#a684c4e242a113339d8f240eaa5688b8e">log_data_short</a> () const</td></tr>
+<tr class="memdesc:a684c4e242a113339d8f240eaa5688b8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs the data of the representatives of orbits.  <br /></td></tr>
+<tr class="separator:a684c4e242a113339d8f240eaa5688b8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a550a78c21ad9431412e9c078511e61bc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TensorWithOrbits.html#a550a78c21ad9431412e9c078511e61bc">log_data_long</a> () const</td></tr>
+<tr class="memdesc:a550a78c21ad9431412e9c078511e61bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs all data.  <br /></td></tr>
+<tr class="separator:a550a78c21ad9431412e9c078511e61bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09fcfd7f0c8c753a8e63c161b313d772"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="group__event.html#ga1945c0af7bba14437a034808f18dac20">inf::EventRange</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TensorWithOrbits.html#a09fcfd7f0c8c753a8e63c161b313d772">get_event_range</a> () const override</td></tr>
+<tr class="memdesc:a09fcfd7f0c8c753a8e63c161b313d772"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="group__event.html#ga1945c0af7bba14437a034808f18dac20" title="An iterator over inf::Event, conceptually allowing to iterate over  for some set .">inf::EventRange</a> supporting the <a class="el" href="classinf_1_1Orbitable.html" title="Something that holds symmetry-induced orbits of events.">inf::Orbitable</a> and <a class="el" href="classinf_1_1EventTensor.html" title="Stores a function from a set of inf::Event of fixed length to Num.">inf::EventTensor</a>  <br /></td></tr>
+<tr class="separator:a09fcfd7f0c8c753a8e63c161b313d772"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4557f73cfbab33775e70c0e202ca09c8"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TensorWithOrbits.html#a4557f73cfbab33775e70c0e202ca09c8">get_n_events</a> () const override</td></tr>
+<tr class="memdesc:a4557f73cfbab33775e70c0e202ca09c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies the number of events supporting the <a class="el" href="classinf_1_1Orbitable.html" title="Something that holds symmetry-induced orbits of events.">inf::Orbitable</a> and <a class="el" href="classinf_1_1EventTensor.html" title="Stores a function from a set of inf::Event of fixed length to Num.">inf::EventTensor</a>, this matches with <a class="el" href="classinf_1_1TensorWithOrbits.html#a09fcfd7f0c8c753a8e63c161b313d772" title="inf::EventRange supporting the inf::Orbitable and inf::EventTensor">inf::TensorWithOrbits::get_event_range()</a>  <br /></td></tr>
+<tr class="separator:a4557f73cfbab33775e70c0e202ca09c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7304f6f5f10788da5dfa2ce67eadc7c"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TensorWithOrbits.html#ac7304f6f5f10788da5dfa2ce67eadc7c">get_n_parties</a> () const override</td></tr>
+<tr class="memdesc:ac7304f6f5f10788da5dfa2ce67eadc7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies the number of parties (i.e., the length of the events supporting the <a class="el" href="classinf_1_1Orbitable.html" title="Something that holds symmetry-induced orbits of events.">inf::Orbitable</a>), this matches with <a class="el" href="classinf_1_1Orbitable.html#a3df21a21b75c0a11a824eb9cacd0cd38" title="Returns the inf::EventRange over which inf::Orbitable is defined, used in inf::Orbitable::init_orbits...">inf::Orbitable::get_event_range()</a>  <br /></td></tr>
+<tr class="separator:ac7304f6f5f10788da5dfa2ce67eadc7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea20c64fcb0c96004fd5e84b007029ff"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TensorWithOrbits.html#aea20c64fcb0c96004fd5e84b007029ff">get_math_name</a> () const =0</td></tr>
+<tr class="memdesc:aea20c64fcb0c96004fd5e84b007029ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Math name for <a class="el" href="classinf_1_1TensorWithOrbits.html#a684c4e242a113339d8f240eaa5688b8e" title="Logs the data of the representatives of orbits.">inf::TensorWithOrbits::log_data_short()</a> and <a class="el" href="classinf_1_1TensorWithOrbits.html#a550a78c21ad9431412e9c078511e61bc" title="Logs all data.">inf::TensorWithOrbits::log_data_long()</a>  <br /></td></tr>
+<tr class="separator:aea20c64fcb0c96004fd5e84b007029ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae17b9dc67827bac2467ca77a12091cda"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TensorWithOrbits.html#ae17b9dc67827bac2467ca77a12091cda">log_header</a> () const =0</td></tr>
+<tr class="memdesc:ae17b9dc67827bac2467ca77a12091cda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Header logged by the various logging functions.  <br /></td></tr>
+<tr class="separator:ae17b9dc67827bac2467ca77a12091cda"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classinf_1_1Orbitable"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classinf_1_1Orbitable')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classinf_1_1Orbitable.html">inf::Orbitable</a></td></tr>
+<tr class="memitem:a8fe3e6c3cbb7eb0643380eafdd121040 inherit pub_methods_classinf_1_1Orbitable"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Orbitable.html#a8fe3e6c3cbb7eb0643380eafdd121040">Orbitable</a> ()</td></tr>
+<tr class="memdesc:a8fe3e6c3cbb7eb0643380eafdd121040 inherit pub_methods_classinf_1_1Orbitable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor that does not initialize anything, the child class must call <a class="el" href="classinf_1_1Orbitable.html#ac25e7eced2028756090e8e6007316524" title="Child classes have to call this method for initialization of the orbits.">inf::Orbitable::init_orbits()</a>  <br /></td></tr>
+<tr class="separator:a8fe3e6c3cbb7eb0643380eafdd121040 inherit pub_methods_classinf_1_1Orbitable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5ea13afb9a9ff79aef84054ea4c1dd4 inherit pub_methods_classinf_1_1Orbitable"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classinf_1_1Symmetry.html#a901d22b86ef5923b628db86fbdd7ba4f">inf::Symmetry::Group</a> const &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Orbitable.html#aa5ea13afb9a9ff79aef84054ea4c1dd4">get_sym_group</a> () const</td></tr>
+<tr class="memdesc:aa5ea13afb9a9ff79aef84054ea4c1dd4 inherit pub_methods_classinf_1_1Orbitable"><td class="mdescLeft">&#160;</td><td class="mdescRight">This returns the underlying symmetry group.  <br /></td></tr>
+<tr class="separator:aa5ea13afb9a9ff79aef84054ea4c1dd4 inherit pub_methods_classinf_1_1Orbitable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99544b7fb94b81957e20601859c42782 inherit pub_methods_classinf_1_1Orbitable"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Orbitable.html#a99544b7fb94b81957e20601859c42782">get_n_orbits</a> () const</td></tr>
+<tr class="memdesc:a99544b7fb94b81957e20601859c42782 inherit pub_methods_classinf_1_1Orbitable"><td class="mdescLeft">&#160;</td><td class="mdescRight">The number of orbits produced (only sensible after <a class="el" href="classinf_1_1Orbitable.html#ac25e7eced2028756090e8e6007316524" title="Child classes have to call this method for initialization of the orbits.">inf::Orbitable::init_orbits()</a> has been called)  <br /></td></tr>
+<tr class="separator:a99544b7fb94b81957e20601859c42782 inherit pub_methods_classinf_1_1Orbitable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef04cd8a458a13472f5b95105929e6b4 inherit pub_methods_classinf_1_1Orbitable"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classinf_1_1Orbitable.html#aa01c9267c0fb19a1b7d6b38f00dccf58">inf::Orbitable::OrbitMap</a> const &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Orbitable.html#aef04cd8a458a13472f5b95105929e6b4">get_orbits</a> () const</td></tr>
+<tr class="memdesc:aef04cd8a458a13472f5b95105929e6b4 inherit pub_methods_classinf_1_1Orbitable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the underlying <a class="el" href="classinf_1_1Orbitable.html#aa01c9267c0fb19a1b7d6b38f00dccf58" title="Maps each representative (of an orbit) inf::Event to its corresponding inf::Orbitable::Orbit.">inf::Orbitable::OrbitMap</a>.  <br /></td></tr>
+<tr class="separator:aef04cd8a458a13472f5b95105929e6b4 inherit pub_methods_classinf_1_1Orbitable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ad16720debff531d58e8a6ea4392ec3 inherit pub_methods_classinf_1_1Orbitable"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Orbitable.html#a7ad16720debff531d58e8a6ea4392ec3">orbits_initialized</a> () const</td></tr>
+<tr class="memdesc:a7ad16720debff531d58e8a6ea4392ec3 inherit pub_methods_classinf_1_1Orbitable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return <code>true</code> if <code><a class="el" href="classinf_1_1Orbitable.html#ac25e7eced2028756090e8e6007316524" title="Child classes have to call this method for initialization of the orbits.">inf::Orbitable::init_orbits()</a></code> has been called.  <br /></td></tr>
+<tr class="separator:a7ad16720debff531d58e8a6ea4392ec3 inherit pub_methods_classinf_1_1Orbitable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01b9c37488618495b331c32a7449dd90 inherit pub_methods_classinf_1_1Orbitable"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Orbitable.html#a01b9c37488618495b331c32a7449dd90">log_sym_group</a> () const</td></tr>
+<tr class="memdesc:a01b9c37488618495b331c32a7449dd90 inherit pub_methods_classinf_1_1Orbitable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs short one-line info about number of orbits.  <br /></td></tr>
+<tr class="separator:a01b9c37488618495b331c32a7449dd90 inherit pub_methods_classinf_1_1Orbitable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26be8965202f85195ef4becd8223e2e6 inherit pub_methods_classinf_1_1Orbitable"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Orbitable.html#a26be8965202f85195ef4becd8223e2e6">log_orbits</a> (bool shorten) const</td></tr>
+<tr class="memdesc:a26be8965202f85195ef4becd8223e2e6 inherit pub_methods_classinf_1_1Orbitable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs long multi-line info about orbits.  <br /></td></tr>
+<tr class="separator:a26be8965202f85195ef4becd8223e2e6 inherit pub_methods_classinf_1_1Orbitable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18e56b82d76f278e9d0696162e03d322 inherit pub_methods_classinf_1_1Orbitable"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Orbitable.html#a18e56b82d76f278e9d0696162e03d322">log_event</a> (<a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> const &amp;event) const =0</td></tr>
+<tr class="memdesc:a18e56b82d76f278e9d0696162e03d322 inherit pub_methods_classinf_1_1Orbitable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs an event, e.g., <code>(0,0,2)</code>  <br /></td></tr>
+<tr class="separator:a18e56b82d76f278e9d0696162e03d322 inherit pub_methods_classinf_1_1Orbitable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a2a5be48925ad57042c14c906553d6573"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TensorWithOrbits.html#a2a5be48925ad57042c14c906553d6573">init_event_tensor</a> (<a class="el" href="classinf_1_1EventTensor.html">inf::EventTensor</a> const &amp;event_tensor)</td></tr>
+<tr class="memdesc:a2a5be48925ad57042c14c906553d6573"><td class="mdescLeft">&#160;</td><td class="mdescRight">To set all the numerators at once, ignoring orbits.  <br /></td></tr>
+<tr class="separator:a2a5be48925ad57042c14c906553d6573"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_methods_classinf_1_1Orbitable"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classinf_1_1Orbitable')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="classinf_1_1Orbitable.html">inf::Orbitable</a></td></tr>
+<tr class="memitem:ac25e7eced2028756090e8e6007316524 inherit pro_methods_classinf_1_1Orbitable"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Orbitable.html#ac25e7eced2028756090e8e6007316524">init_orbits</a> (<a class="el" href="classinf_1_1Symmetry.html#a901d22b86ef5923b628db86fbdd7ba4f">inf::Symmetry::Group</a> const &amp;sym_group)</td></tr>
+<tr class="memdesc:ac25e7eced2028756090e8e6007316524 inherit pro_methods_classinf_1_1Orbitable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Child classes have to call this method for initialization of the orbits.  <br /></td></tr>
+<tr class="separator:ac25e7eced2028756090e8e6007316524 inherit pro_methods_classinf_1_1Orbitable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:a2a4fb7f187427bb1022659421230ce59"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classinf_1_1EventTensor.html">inf::EventTensor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TensorWithOrbits.html#a2a4fb7f187427bb1022659421230ce59">m_event_tensor</a></td></tr>
+<tr class="memdesc:a2a4fb7f187427bb1022659421230ce59"><td class="mdescLeft">&#160;</td><td class="mdescRight">The underlying data.  <br /></td></tr>
+<tr class="separator:a2a4fb7f187427bb1022659421230ce59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pub_types_classinf_1_1Orbitable"><td colspan="2" onclick="javascript:toggleInherit('pub_types_classinf_1_1Orbitable')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="classinf_1_1Orbitable.html">inf::Orbitable</a></td></tr>
+<tr class="memitem:a4982dcc25e609ae4793de4471f141b97 inherit pub_types_classinf_1_1Orbitable"><td class="memItemLeft" align="right" valign="top">typedef std::set&lt; <a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Orbitable.html#a4982dcc25e609ae4793de4471f141b97">Orbit</a></td></tr>
+<tr class="memdesc:a4982dcc25e609ae4793de4471f141b97 inherit pub_types_classinf_1_1Orbitable"><td class="mdescLeft">&#160;</td><td class="mdescRight">An orbit is a set of events pertaining to a symmetry-induced equivalence class.  <br /></td></tr>
+<tr class="separator:a4982dcc25e609ae4793de4471f141b97 inherit pub_types_classinf_1_1Orbitable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa01c9267c0fb19a1b7d6b38f00dccf58 inherit pub_types_classinf_1_1Orbitable"><td class="memItemLeft" align="right" valign="top">typedef std::map&lt; <a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a>, <a class="el" href="classinf_1_1Orbitable.html#a4982dcc25e609ae4793de4471f141b97">inf::Orbitable::Orbit</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Orbitable.html#aa01c9267c0fb19a1b7d6b38f00dccf58">OrbitMap</a></td></tr>
+<tr class="memdesc:aa01c9267c0fb19a1b7d6b38f00dccf58 inherit pub_types_classinf_1_1Orbitable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maps each representative (of an orbit) <a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0" title="A list of inf::Outcome. Conceptually, this plays the role of  for some set .">inf::Event</a> to its corresponding <a class="el" href="classinf_1_1Orbitable.html#a4982dcc25e609ae4793de4471f141b97" title="An orbit is a set of events pertaining to a symmetry-induced equivalence class.">inf::Orbitable::Orbit</a>.  <br /></td></tr>
+<tr class="separator:aa01c9267c0fb19a1b7d6b38f00dccf58 inherit pub_types_classinf_1_1Orbitable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acbbe4fa5a804ad11b84b4af02663c65b inherit pub_types_classinf_1_1Orbitable"><td class="memItemLeft" align="right" valign="top">typedef std::pair&lt; const <a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a>, <a class="el" href="classinf_1_1Orbitable.html#a4982dcc25e609ae4793de4471f141b97">inf::Orbitable::Orbit</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Orbitable.html#acbbe4fa5a804ad11b84b4af02663c65b">OrbitPair</a></td></tr>
+<tr class="memdesc:acbbe4fa5a804ad11b84b4af02663c65b inherit pub_types_classinf_1_1Orbitable"><td class="mdescLeft">&#160;</td><td class="mdescRight">This type is useful for iteration: the pair is of the form <code>(representative,orbit)</code>.  <br /></td></tr>
+<tr class="separator:acbbe4fa5a804ad11b84b4af02663c65b inherit pub_types_classinf_1_1Orbitable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a5a38b5c5598dc0a7a01770a45cee0d22" name="a5a38b5c5598dc0a7a01770a45cee0d22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a38b5c5598dc0a7a01770a45cee0d22">&#9670;&#160;</a></span>TensorWithOrbits()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">inf::TensorWithOrbits::TensorWithOrbits </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a>&#160;</td>
+          <td class="paramname"><em>n_parties</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__event.html#gadcaa27c4242b65837f0f7a00e96856d4">inf::Outcome</a>&#160;</td>
+          <td class="paramname"><em>base</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructor, intializes data to all 0's. The actual <a class="el" href="classinf_1_1EventTensor.html" title="Stores a function from a set of inf::Event of fixed length to Num.">inf::EventTensor</a> can be passed by child classes using <a class="el" href="classinf_1_1TensorWithOrbits.html#a2a5be48925ad57042c14c906553d6573" title="To set all the numerators at once, ignoring orbits.">inf::TensorWithOrbits::init_event_tensor()</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">n_parties</td><td>The length of each <a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0" title="A list of inf::Outcome. Conceptually, this plays the role of  for some set .">inf::Event</a> on which the underlying <a class="el" href="classinf_1_1EventTensor.html" title="Stores a function from a set of inf::Event of fixed length to Num.">inf::EventTensor</a> is defined </td></tr>
+    <tr><td class="paramname">base</td><td>The number of outcomes per party </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="tensor__with__orbits_8cpp_source.html#l00009">9</a> of file <a class="el" href="tensor__with__orbits_8cpp_source.html">tensor_with_orbits.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="ac7a873f9c37d20248a9f902f69aa27af" name="ac7a873f9c37d20248a9f902f69aa27af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7a873f9c37d20248a9f902f69aa27af">&#9670;&#160;</a></span>get_event_tensor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classinf_1_1EventTensor.html">inf::EventTensor</a> const  &amp; inf::TensorWithOrbits::get_event_tensor </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>To get access to the underlying data. </p>
+
+<p class="definition">Definition at line <a class="el" href="tensor__with__orbits_8cpp_source.html#l00015">15</a> of file <a class="el" href="tensor__with__orbits_8cpp_source.html">tensor_with_orbits.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aac154b6a858b0899210ddf0922ac2fd7" name="aac154b6a858b0899210ddf0922ac2fd7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac154b6a858b0899210ddf0922ac2fd7">&#9670;&#160;</a></span>log_short()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void inf::TensorWithOrbits::log_short </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Extra-short log using <a class="el" href="classinf_1_1TensorWithOrbits.html#ae17b9dc67827bac2467ca77a12091cda" title="Header logged by the various logging functions.">inf::TensorWithOrbits::log_header()</a>, <a class="el" href="classinf_1_1TensorWithOrbits.html#a684c4e242a113339d8f240eaa5688b8e" title="Logs the data of the representatives of orbits.">inf::TensorWithOrbits::log_data_short()</a> </p>
+
+<p class="definition">Definition at line <a class="el" href="tensor__with__orbits_8cpp_source.html#l00029">29</a> of file <a class="el" href="tensor__with__orbits_8cpp_source.html">tensor_with_orbits.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a4ead21bd50b7b7f4d0205cde2e438697" name="a4ead21bd50b7b7f4d0205cde2e438697"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ead21bd50b7b7f4d0205cde2e438697">&#9670;&#160;</a></span>log()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void inf::TensorWithOrbits::log </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Short log using <a class="el" href="classinf_1_1TensorWithOrbits.html#ae17b9dc67827bac2467ca77a12091cda" title="Header logged by the various logging functions.">inf::TensorWithOrbits::log_header()</a>, <a class="el" href="classinf_1_1TensorWithOrbits.html#a684c4e242a113339d8f240eaa5688b8e" title="Logs the data of the representatives of orbits.">inf::TensorWithOrbits::log_data_short()</a>, <a class="el" href="classinf_1_1Orbitable.html#a01b9c37488618495b331c32a7449dd90" title="Logs short one-line info about number of orbits.">inf::Orbitable::log_sym_group()</a> </p>
+
+<p>Implements <a class="el" href="classutil_1_1Loggable.html#a63b97911b9abef8b12af6a3fdeb45750">util::Loggable</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="tensor__with__orbits_8cpp_source.html#l00036">36</a> of file <a class="el" href="tensor__with__orbits_8cpp_source.html">tensor_with_orbits.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a4ce37323ac010f1a6103e44962221dc3" name="a4ce37323ac010f1a6103e44962221dc3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ce37323ac010f1a6103e44962221dc3">&#9670;&#160;</a></span>log_long()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void inf::TensorWithOrbits::log_long </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Detailed log. </p>
+<p>Calls <a class="el" href="classinf_1_1TensorWithOrbits.html#ae17b9dc67827bac2467ca77a12091cda" title="Header logged by the various logging functions.">inf::TensorWithOrbits::log_header()</a>, <a class="el" href="classinf_1_1TensorWithOrbits.html#a550a78c21ad9431412e9c078511e61bc" title="Logs all data.">inf::TensorWithOrbits::log_data_long()</a>, <a class="el" href="classinf_1_1Orbitable.html#a01b9c37488618495b331c32a7449dd90" title="Logs short one-line info about number of orbits.">inf::Orbitable::log_sym_group()</a>, <a class="el" href="classinf_1_1Orbitable.html#a26be8965202f85195ef4becd8223e2e6" title="Logs long multi-line info about orbits.">inf::Orbitable::log_orbits()</a> (with <code>shorten = false</code>) </p>
+
+<p class="definition">Definition at line <a class="el" href="tensor__with__orbits_8cpp_source.html#l00045">45</a> of file <a class="el" href="tensor__with__orbits_8cpp_source.html">tensor_with_orbits.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a684c4e242a113339d8f240eaa5688b8e" name="a684c4e242a113339d8f240eaa5688b8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a684c4e242a113339d8f240eaa5688b8e">&#9670;&#160;</a></span>log_data_short()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void inf::TensorWithOrbits::log_data_short </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Logs the data of the representatives of orbits. </p>
+
+<p class="definition">Definition at line <a class="el" href="tensor__with__orbits_8cpp_source.html#l00055">55</a> of file <a class="el" href="tensor__with__orbits_8cpp_source.html">tensor_with_orbits.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a550a78c21ad9431412e9c078511e61bc" name="a550a78c21ad9431412e9c078511e61bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a550a78c21ad9431412e9c078511e61bc">&#9670;&#160;</a></span>log_data_long()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void inf::TensorWithOrbits::log_data_long </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Logs all data. </p>
+
+<p class="definition">Definition at line <a class="el" href="tensor__with__orbits_8cpp_source.html#l00065">65</a> of file <a class="el" href="tensor__with__orbits_8cpp_source.html">tensor_with_orbits.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a09fcfd7f0c8c753a8e63c161b313d772" name="a09fcfd7f0c8c753a8e63c161b313d772"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09fcfd7f0c8c753a8e63c161b313d772">&#9670;&#160;</a></span>get_event_range()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__event.html#ga1945c0af7bba14437a034808f18dac20">inf::EventRange</a> inf::TensorWithOrbits::get_event_range </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="group__event.html#ga1945c0af7bba14437a034808f18dac20" title="An iterator over inf::Event, conceptually allowing to iterate over  for some set .">inf::EventRange</a> supporting the <a class="el" href="classinf_1_1Orbitable.html" title="Something that holds symmetry-induced orbits of events.">inf::Orbitable</a> and <a class="el" href="classinf_1_1EventTensor.html" title="Stores a function from a set of inf::Event of fixed length to Num.">inf::EventTensor</a> </p>
+
+<p>Implements <a class="el" href="classinf_1_1Orbitable.html#a3df21a21b75c0a11a824eb9cacd0cd38">inf::Orbitable</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="tensor__with__orbits_8cpp_source.html#l00075">75</a> of file <a class="el" href="tensor__with__orbits_8cpp_source.html">tensor_with_orbits.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a4557f73cfbab33775e70c0e202ca09c8" name="a4557f73cfbab33775e70c0e202ca09c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4557f73cfbab33775e70c0e202ca09c8">&#9670;&#160;</a></span>get_n_events()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> inf::TensorWithOrbits::get_n_events </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Specifies the number of events supporting the <a class="el" href="classinf_1_1Orbitable.html" title="Something that holds symmetry-induced orbits of events.">inf::Orbitable</a> and <a class="el" href="classinf_1_1EventTensor.html" title="Stores a function from a set of inf::Event of fixed length to Num.">inf::EventTensor</a>, this matches with <a class="el" href="classinf_1_1TensorWithOrbits.html#a09fcfd7f0c8c753a8e63c161b313d772" title="inf::EventRange supporting the inf::Orbitable and inf::EventTensor">inf::TensorWithOrbits::get_event_range()</a> </p>
+
+<p>Implements <a class="el" href="classinf_1_1Orbitable.html#ae54c89d9d6f38114332f7cdba067cd18">inf::Orbitable</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="tensor__with__orbits_8cpp_source.html#l00079">79</a> of file <a class="el" href="tensor__with__orbits_8cpp_source.html">tensor_with_orbits.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ac7304f6f5f10788da5dfa2ce67eadc7c" name="ac7304f6f5f10788da5dfa2ce67eadc7c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7304f6f5f10788da5dfa2ce67eadc7c">&#9670;&#160;</a></span>get_n_parties()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> inf::TensorWithOrbits::get_n_parties </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Specifies the number of parties (i.e., the length of the events supporting the <a class="el" href="classinf_1_1Orbitable.html" title="Something that holds symmetry-induced orbits of events.">inf::Orbitable</a>), this matches with <a class="el" href="classinf_1_1Orbitable.html#a3df21a21b75c0a11a824eb9cacd0cd38" title="Returns the inf::EventRange over which inf::Orbitable is defined, used in inf::Orbitable::init_orbits...">inf::Orbitable::get_event_range()</a> </p>
+
+<p>Implements <a class="el" href="classinf_1_1Orbitable.html#a5926df85225a37a80a5611222a7103e0">inf::Orbitable</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="tensor__with__orbits_8cpp_source.html#l00083">83</a> of file <a class="el" href="tensor__with__orbits_8cpp_source.html">tensor_with_orbits.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aea20c64fcb0c96004fd5e84b007029ff" name="aea20c64fcb0c96004fd5e84b007029ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea20c64fcb0c96004fd5e84b007029ff">&#9670;&#160;</a></span>get_math_name()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::string inf::TensorWithOrbits::get_math_name </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Math name for <a class="el" href="classinf_1_1TensorWithOrbits.html#a684c4e242a113339d8f240eaa5688b8e" title="Logs the data of the representatives of orbits.">inf::TensorWithOrbits::log_data_short()</a> and <a class="el" href="classinf_1_1TensorWithOrbits.html#a550a78c21ad9431412e9c078511e61bc" title="Logs all data.">inf::TensorWithOrbits::log_data_long()</a> </p>
+
+<p>Implemented in <a class="el" href="classinf_1_1DualVector.html#a81e2913269e41e2c57c0941113178795">inf::DualVector</a>, and <a class="el" href="classinf_1_1TargetDistr.html#af0a89a18f4bcdf1a89357c2f7464c8c2">inf::TargetDistr</a>.</p>
+
+</div>
+</div>
+<a id="ae17b9dc67827bac2467ca77a12091cda" name="ae17b9dc67827bac2467ca77a12091cda"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae17b9dc67827bac2467ca77a12091cda">&#9670;&#160;</a></span>log_header()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void inf::TensorWithOrbits::log_header </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Header logged by the various logging functions. </p>
+
+<p>Implemented in <a class="el" href="classinf_1_1DualVector.html#ad4bbedd7af0dc10736905db790af4237">inf::DualVector</a>, and <a class="el" href="classinf_1_1TargetDistr.html#a085425033028f74e70e169e3fb1129c2">inf::TargetDistr</a>.</p>
+
+</div>
+</div>
+<a id="a2a5be48925ad57042c14c906553d6573" name="a2a5be48925ad57042c14c906553d6573"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a5be48925ad57042c14c906553d6573">&#9670;&#160;</a></span>init_event_tensor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void inf::TensorWithOrbits::init_event_tensor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classinf_1_1EventTensor.html">inf::EventTensor</a> const &amp;&#160;</td>
+          <td class="paramname"><em>event_tensor</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>To set all the numerators at once, ignoring orbits. </p>
+<dl class="section warning"><dt>Warning</dt><dd>This method is symmetry-breaking! It should only be called within the constructor of the child class, and before initalizing the orbits of the underlying <a class="el" href="classinf_1_1Orbitable.html" title="Something that holds symmetry-induced orbits of events.">inf::Orbitable</a> with <a class="el" href="classinf_1_1Orbitable.html#ac25e7eced2028756090e8e6007316524" title="Child classes have to call this method for initialization of the orbits.">inf::Orbitable::init_orbits()</a>. This is soft-asserted. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">event_tensor</td><td>Will be copied </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="tensor__with__orbits_8cpp_source.html#l00019">19</a> of file <a class="el" href="tensor__with__orbits_8cpp_source.html">tensor_with_orbits.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a2a4fb7f187427bb1022659421230ce59" name="a2a4fb7f187427bb1022659421230ce59"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a4fb7f187427bb1022659421230ce59">&#9670;&#160;</a></span>m_event_tensor</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classinf_1_1EventTensor.html">inf::EventTensor</a> inf::TensorWithOrbits::m_event_tensor</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The underlying data. </p>
+<p>Even in the presence of symmetry, a distribution or dual_vector stores all of its coefficients for quick access without an intermediate lookup table. In other words, we choose to avoid un-symmetrized event -&gt; symmetrized event -&gt; coeff and instead go straing for un-symmetrized event -&gt; coeff. This uses a tiny bit more memory, but is potentially quicker. This does make <em>setting</em> the coefficients slower, but that's not the bulk of the algorithm. </p>
+
+<p class="definition">Definition at line <a class="el" href="tensor__with__orbits_8h_source.html#l00081">81</a> of file <a class="el" href="tensor__with__orbits_8h_source.html">tensor_with_orbits.h</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>src/inf/symmetry/<a class="el" href="tensor__with__orbits_8h_source.html">tensor_with_orbits.h</a></li>
+<li>src/inf/symmetry/<a class="el" href="tensor__with__orbits_8cpp_source.html">tensor_with_orbits.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceinf.html">inf</a></li><li class="navelem"><a class="el" href="classinf_1_1TensorWithOrbits.html">TensorWithOrbits</a></li>
+    <li class="footer">Generated on Wed Dec 18 2024 17:39:43 for Fast Inflation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

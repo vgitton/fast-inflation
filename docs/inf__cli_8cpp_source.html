@@ -1,0 +1,327 @@
+<!-- HTML header for doxygen 1.9.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Fast Inflation: src/user/inf_cli.cpp Source File</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+MathJax.Hub.Config({
+    TeX: {
+        Macros: {
+            dd: ["{\\text{d}#1\\,}",1],
+            nouts: ["{n_{\\text{o}}}"],
+            ints: ["{[\\![#1]\\!]}",1],
+            outset: ["{\\ints{\\nouts}}"],
+            N: ["{\\mathbb{N}}"],
+            R: ["{\\mathbb{R}}"],
+            Z: ["{\\mathbb{Z}}"],
+            infsize: ["{z}"],
+            infparties: ["{\\set{I}}"],
+            infsources: ["{\\set{S}}"],
+            infmarg: ["{\\set{A}}"],
+            infmargg: ["{\\set{B}}"],
+            netparties: ["{\\set{N}}"],
+            infq: ["{q}"],
+            infqs: ["{\\Delta_{\\infparties}}"],
+            constraintlist: ["{\\mathcal{C}}"],
+            injsets: ["{\\text{InjSets}}"],
+            infconstraints: ["{\\text{InfCons}}"],
+            parents: ["{\\text{Par}}"],
+            targetp: ["{p}"],
+            targetps: ["{\\Delta_{\\netparties}}"],
+            set: ["{\\mathbf{#1}}",1],
+            type: ["{t}"],
+            infevent: "{\\omega}",
+            events: ["{\\Omega_{#1}}",1],
+            infevents: ["{\\events{\\infparties}}"],
+            redinfevents: ["{\\tilde{\\Omega}_{\\infparties}}"],
+            netevents: ["{\\events{\\netparties}}"],
+            vecset: ["{V_{#1}}",1],
+            alice: ["{\\text{A}}"],
+            bob: ["{\\text{B}}"],
+            charlie: ["{\\text{C}}"],
+            symgroup: ["{\\text{Sym}(#1)}",1],
+            shortsymgroup: ["{\\text{Sym}_{#1}}",1],
+            act: ["{(#1\\hspace{2pt}{:}\\hspace{2pt}#2)}",2],
+            actt: ["{[#1\\hspace{2pt}{:}\\hspace{2pt}#2]}",2],
+            margperms: ["{\\text{Perm}_{#1}}",1],
+            permutedmargs: ["{\\mathbb{P}_{#1}^{\\targetp}}",1],
+            redpermutedmargs: ["{\\tilde{\\mathbb{P}}_{#1}^{\\constraintname,\\targetp}}",1],
+            extract: ["{\\text{ext}(#1,#2)}",2],
+            partysym: ["{\\tau}"],
+            sourcesym: ["{\\xi}"],
+            outsym: ["{\\sigma}"],
+            fullgroup: ["{\\text{InfGrp}}"],
+            partygroup : ["{\\text{PartyGrp}}"],
+            outgroup: ["{\\text{OutGrp}}"],
+            sourcegroup: ["{\\text{SrcGrp}}"],
+            distrgroup: ["{\\mathbb{G}^\\targetp}"],
+            constraintname: ["{c}"],
+            marggroup: ["{\\mathbb{G}^{\\constraintname,\\targetp}}"],
+            fullsymexpl: ["{(\\sourcesym,\\partysym,\\outsym)}"],
+            inner: ["{\\langle#1,#2\\rangle}", 2],
+            quovec: ["{f}"],
+            totconstraintmap: ["{K^{\\constraintlist,\\targetp}}"],
+            totconstraintmapelem: ["{K^{\\constraintname,\\targetp}}"],
+            quovecspace: ["{\\tilde{V}_{#1}^{\\constraintname,\\targetp}}", 1],
+            totquovecspace: ["{\\text{ConsSpace}(\\constraintlist,\\targetp)}"],
+            detdistr: ["{\\delta^{#1}}", 1],
+            margperm: ["{\\varphi}"],
+            altquovecembed: ["{\\text{G}_{#1}^{\\constraintname,\\targetp}}", 1],
+            vecset: ["{V_{#1}}", 1],
+            repr: ["{\\lfloor#1\\rfloor}", 1],
+            gid: ["{\\text{id}}"],
+            id: ["{1_{#1}}",1],
+            consscale: ["{K}"],
+            scaletot: ["{K_{\\text{tot}}^{\\constraintlist,\\targetp}}"],
+            minnorm: ["{d}"],
+            Bigsetst: ["\\;\\Big|\\;"],
+            activeset: ["\\mathcal{S}"],
+            conv: ["\\text{conv}"],
+            lVert: ["|\\hspace{-1pt}|"],
+            norm: ["\\lVert#1\\lVert", 1],
+            st: [":\ "],
+        }
+    }
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeDarkModeToggle.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeParagraphLink.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Fast Inflation
+   </div>
+   <div id="projectbrief">To certify causal incompatibility</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('inf__cli_8cpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">inf_cli.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="inf__cli_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &quot;<a class="code" href="inf__cli_8h.html">inf_cli.h</a>&quot;</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;../util/debug.h&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;../util/logger.h&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;thread&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="classuser_1_1InfCLI.html#a2ae138d7f3e21cdeedef692fec4c6166">    7</a></span><a class="code hl_function" href="classuser_1_1InfCLI.html#a2ae138d7f3e21cdeedef692fec4c6166">user::InfCLI::InfCLI</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> **argv)</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    : m_initialized(false),</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>      m_usage(<span class="stringliteral">&quot;&quot;</span>),</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>      m_base_cli(argc, argv),</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>      <span class="comment">// Don&#39;t place the default values here</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>      m_target_application_name(<span class="stringliteral">&quot;&quot;</span>),</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>      m_log_level(),</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>      m_n_threads(),</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>      m_symtree_io(),</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>      m_visibility_param() {}</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="classuser_1_1InfCLI.html#acd08454698f641838809f5867b6e305b">   18</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classuser_1_1InfCLI.html#acd08454698f641838809f5867b6e305b">user::InfCLI::init</a>() {</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <a class="code hl_define" href="group__debug.html#ga3fabbc72ef82f3dbc7a2420c983e65a8">HARD_ASSERT_TRUE</a>(not m_initialized)</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="comment">// Init the unnamed args</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    m_target_application_name = m_base_cli.extract_str_arg(<span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    m_usage += <span class="stringliteral">&quot;[app] &quot;</span>;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="comment">// Init the named options</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    m_log_level = m_base_cli.extract_uint_option(<span class="stringliteral">&quot;verb&quot;</span>, 4);</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    m_usage += <span class="stringliteral">&quot;[--verb {1,2,...}] &quot;</span>;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    m_n_threads = m_base_cli.extract_uint_option(<span class="stringliteral">&quot;threads&quot;</span>, 1);</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    m_usage += <span class="stringliteral">&quot;[--threads {1,2,...}] &quot;</span>;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    m_symtree_io = m_base_cli.extract_str_option(<span class="stringliteral">&quot;symtree-io&quot;</span>, <span class="stringliteral">&quot;read&quot;</span>);</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    m_usage += <span class="stringliteral">&quot;[--symtree-io {none,read,write}] &quot;</span>;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    m_visibility_param = m_base_cli.extract_uint_option(<span class="stringliteral">&quot;vis&quot;</span>, 0);</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    m_usage += <span class="stringliteral">&quot;[--vis N]&quot;</span>;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    m_base_cli.hard_assert_empty();</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    m_initialized = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>}</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="classuser_1_1InfCLI.html#afb67b5fc518bb3584289d143554d7b53">   43</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classuser_1_1InfCLI.html#afb67b5fc518bb3584289d143554d7b53">user::InfCLI::log</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <a class="code hl_define" href="group__debug.html#ga3fabbc72ef82f3dbc7a2420c983e65a8">HARD_ASSERT_TRUE</a>(m_initialized)</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <a class="code hl_variable" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        &lt;&lt; <a class="code hl_variable" href="group__printing.html#ga7d731f43f6d60e3846cbdbd55eaeed2e">util::begin_comment</a> &lt;&lt; <span class="stringliteral">&quot;app = &quot;</span> &lt;&lt; <a class="code hl_variable" href="group__printing.html#gadf8906b27dc371eaf882b3b3b5639495">util::end_comment</a></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        &lt;&lt; <span class="stringliteral">&quot;\&quot;&quot;</span> &lt;&lt; m_target_application_name &lt;&lt; <span class="stringliteral">&quot;\&quot;&quot;</span> &lt;&lt; <a class="code hl_variable" href="group__printing.html#ga3f8fe48536ee19c54002c9c1db64cabb">util::cr</a></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        &lt;&lt; <a class="code hl_variable" href="group__printing.html#ga7d731f43f6d60e3846cbdbd55eaeed2e">util::begin_comment</a> &lt;&lt; <span class="stringliteral">&quot;--verb = &quot;</span> &lt;&lt; <a class="code hl_variable" href="group__printing.html#gadf8906b27dc371eaf882b3b3b5639495">util::end_comment</a></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        &lt;&lt; m_log_level &lt;&lt; <a class="code hl_variable" href="group__printing.html#ga3f8fe48536ee19c54002c9c1db64cabb">util::cr</a></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        &lt;&lt; <a class="code hl_variable" href="group__printing.html#ga7d731f43f6d60e3846cbdbd55eaeed2e">util::begin_comment</a> &lt;&lt; <span class="stringliteral">&quot;--threads = &quot;</span> &lt;&lt; <a class="code hl_variable" href="group__printing.html#gadf8906b27dc371eaf882b3b3b5639495">util::end_comment</a></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        &lt;&lt; m_n_threads &lt;&lt; <a class="code hl_variable" href="group__printing.html#ga3f8fe48536ee19c54002c9c1db64cabb">util::cr</a></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        &lt;&lt; <a class="code hl_variable" href="group__printing.html#ga7d731f43f6d60e3846cbdbd55eaeed2e">util::begin_comment</a> &lt;&lt; <span class="stringliteral">&quot;--symtree-io = &quot;</span> &lt;&lt; <a class="code hl_variable" href="group__printing.html#gadf8906b27dc371eaf882b3b3b5639495">util::end_comment</a></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        &lt;&lt; m_symtree_io &lt;&lt; <a class="code hl_variable" href="group__printing.html#ga3f8fe48536ee19c54002c9c1db64cabb">util::cr</a></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        &lt;&lt; <a class="code hl_variable" href="group__printing.html#ga7d731f43f6d60e3846cbdbd55eaeed2e">util::begin_comment</a> &lt;&lt; <span class="stringliteral">&quot;--vis = &quot;</span> &lt;&lt; <a class="code hl_variable" href="group__printing.html#gadf8906b27dc371eaf882b3b3b5639495">util::end_comment</a></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        &lt;&lt; m_visibility_param &lt;&lt; <a class="code hl_variable" href="group__printing.html#ga3f8fe48536ee19c54002c9c1db64cabb">util::cr</a>;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>}</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="classuser_1_1InfCLI.html#a3b0fb01c9f2ef878dd559d71c7fb3caa">   59</a></span>std::string <span class="keyword">const</span> &amp;<a class="code hl_function" href="classuser_1_1InfCLI.html#a3b0fb01c9f2ef878dd559d71c7fb3caa">user::InfCLI::get_usage</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keywordflow">return</span> m_usage;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>}</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="classuser_1_1InfCLI.html#a579eb402506a5215d3bdac993d82aeec">   63</a></span>std::string <span class="keyword">const</span> &amp;<a class="code hl_function" href="classuser_1_1InfCLI.html#a579eb402506a5215d3bdac993d82aeec">user::InfCLI::get_target_application_name</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <a class="code hl_define" href="group__debug.html#ga3fabbc72ef82f3dbc7a2420c983e65a8">HARD_ASSERT_TRUE</a>(m_initialized)</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keywordflow">return</span> m_target_application_name;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>}</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="classuser_1_1InfCLI.html#a7dffe0762130578a5dc3908377b01f89">   68</a></span><span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_function" href="classuser_1_1InfCLI.html#a7dffe0762130578a5dc3908377b01f89">user::InfCLI::get_log_level</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <a class="code hl_define" href="group__debug.html#ga3fabbc72ef82f3dbc7a2420c983e65a8">HARD_ASSERT_TRUE</a>(m_initialized)</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keywordflow">return</span> m_log_level;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>}</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="classuser_1_1InfCLI.html#a901e7f05011d0fe8f333c7615cf3825b">   73</a></span><span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_function" href="classuser_1_1InfCLI.html#a901e7f05011d0fe8f333c7615cf3825b">user::InfCLI::get_n_threads</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <a class="code hl_define" href="group__debug.html#ga3fabbc72ef82f3dbc7a2420c983e65a8">HARD_ASSERT_TRUE</a>(m_initialized)</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <a class="code hl_define" href="group__debug.html#gac29875de100792ec8b992d6fecf882f5">HARD_ASSERT_LT</a>(0, m_n_threads)</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <a class="code hl_define" href="group__debug.html#gac29875de100792ec8b992d6fecf882f5">HARD_ASSERT_LT</a>(m_n_threads, std::thread::hardware_concurrency() + 1)</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="keywordflow">return</span> m_n_threads;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>}</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="classuser_1_1InfCLI.html#adf9429573fc60101ecf7c5fbbcc855ee">   80</a></span><a class="code hl_enumeration" href="classinf_1_1EventTree.html#a3fc302d7a899deaf35f6138a7bcbe67c">inf::EventTree::IO</a> <a class="code hl_function" href="classuser_1_1InfCLI.html#adf9429573fc60101ecf7c5fbbcc855ee">user::InfCLI::get_symtree_io</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <a class="code hl_define" href="group__debug.html#ga3fabbc72ef82f3dbc7a2420c983e65a8">HARD_ASSERT_TRUE</a>(m_initialized)</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <span class="keywordflow">if</span> (m_symtree_io == <span class="stringliteral">&quot;read&quot;</span>) {</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="classinf_1_1EventTree.html#a3fc302d7a899deaf35f6138a7bcbe67caecae13117d6f0584c25a9da6c8f8415e">inf::EventTree::IO::read</a>;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (m_symtree_io == <span class="stringliteral">&quot;write&quot;</span>) {</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="classinf_1_1EventTree.html#a3fc302d7a899deaf35f6138a7bcbe67caefb2a684e4afb7d55e6147fbe5a332ee">inf::EventTree::IO::write</a>;</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (m_symtree_io == <span class="stringliteral">&quot;none&quot;</span>) {</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="classinf_1_1EventTree.html#a3fc302d7a899deaf35f6138a7bcbe67ca334c4a4c42fdb79d7ebc3e73b517e6f8">inf::EventTree::IO::none</a>;</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        <a class="code hl_define" href="group__debug.html#ga44d4e64ea98b1a9c055f030e33e24f17">THROW_ERROR</a>(<span class="stringliteral">&quot;Could not parse \&quot;&quot;</span> + m_symtree_io + <span class="stringliteral">&quot;\&quot; to {none,read,write}&quot;</span>)</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    }</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>}</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno"><a class="line" href="classuser_1_1InfCLI.html#a47c9462fb596ef9f8593df7fd35f3c69">   94</a></span><span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_function" href="classuser_1_1InfCLI.html#a47c9462fb596ef9f8593df7fd35f3c69">user::InfCLI::get_visibility_param</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <span class="keywordflow">return</span> m_visibility_param;</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>}</div>
+<div class="ttc" id="aclassinf_1_1EventTree_html_a3fc302d7a899deaf35f6138a7bcbe67c"><div class="ttname"><a href="classinf_1_1EventTree.html#a3fc302d7a899deaf35f6138a7bcbe67c">inf::EventTree::IO</a></div><div class="ttdeci">IO</div><div class="ttdoc">An inf::EventTree can take some time to initialize, and this option is used to control whether an inf...</div><div class="ttdef"><b>Definition</b> <a href="event__tree_8h_source.html#l00111">event_tree.h:111</a></div></div>
+<div class="ttc" id="aclassinf_1_1EventTree_html_a3fc302d7a899deaf35f6138a7bcbe67ca334c4a4c42fdb79d7ebc3e73b517e6f8"><div class="ttname"><a href="classinf_1_1EventTree.html#a3fc302d7a899deaf35f6138a7bcbe67ca334c4a4c42fdb79d7ebc3e73b517e6f8">inf::EventTree::IO::none</a></div><div class="ttdeci">@ none</div><div class="ttdoc">To do neither of the above.</div></div>
+<div class="ttc" id="aclassinf_1_1EventTree_html_a3fc302d7a899deaf35f6138a7bcbe67caecae13117d6f0584c25a9da6c8f8415e"><div class="ttname"><a href="classinf_1_1EventTree.html#a3fc302d7a899deaf35f6138a7bcbe67caecae13117d6f0584c25a9da6c8f8415e">inf::EventTree::IO::read</a></div><div class="ttdeci">@ read</div><div class="ttdoc">To read an inf::EventTree from a file.</div></div>
+<div class="ttc" id="aclassinf_1_1EventTree_html_a3fc302d7a899deaf35f6138a7bcbe67caefb2a684e4afb7d55e6147fbe5a332ee"><div class="ttname"><a href="classinf_1_1EventTree.html#a3fc302d7a899deaf35f6138a7bcbe67caefb2a684e4afb7d55e6147fbe5a332ee">inf::EventTree::IO::write</a></div><div class="ttdeci">@ write</div><div class="ttdoc">To write an inf::EventTree to a file.</div></div>
+<div class="ttc" id="aclassuser_1_1InfCLI_html_a2ae138d7f3e21cdeedef692fec4c6166"><div class="ttname"><a href="classuser_1_1InfCLI.html#a2ae138d7f3e21cdeedef692fec4c6166">user::InfCLI::InfCLI</a></div><div class="ttdeci">InfCLI(int argc, char **argv)</div><div class="ttdoc">This constructor does not do anything, call user::InfCLI::init() to initialize.</div><div class="ttdef"><b>Definition</b> <a href="inf__cli_8cpp_source.html#l00007">inf_cli.cpp:7</a></div></div>
+<div class="ttc" id="aclassuser_1_1InfCLI_html_a3b0fb01c9f2ef878dd559d71c7fb3caa"><div class="ttname"><a href="classuser_1_1InfCLI.html#a3b0fb01c9f2ef878dd559d71c7fb3caa">user::InfCLI::get_usage</a></div><div class="ttdeci">std::string const &amp; get_usage() const</div><div class="ttdoc">The returned string describes the expected command-line parameters.</div><div class="ttdef"><b>Definition</b> <a href="inf__cli_8cpp_source.html#l00059">inf_cli.cpp:59</a></div></div>
+<div class="ttc" id="aclassuser_1_1InfCLI_html_a47c9462fb596ef9f8593df7fd35f3c69"><div class="ttname"><a href="classuser_1_1InfCLI.html#a47c9462fb596ef9f8593df7fd35f3c69">user::InfCLI::get_visibility_param</a></div><div class="ttdeci">unsigned int get_visibility_param() const</div><div class="ttdef"><b>Definition</b> <a href="inf__cli_8cpp_source.html#l00094">inf_cli.cpp:94</a></div></div>
+<div class="ttc" id="aclassuser_1_1InfCLI_html_a579eb402506a5215d3bdac993d82aeec"><div class="ttname"><a href="classuser_1_1InfCLI.html#a579eb402506a5215d3bdac993d82aeec">user::InfCLI::get_target_application_name</a></div><div class="ttdeci">std::string const &amp; get_target_application_name() const</div><div class="ttdef"><b>Definition</b> <a href="inf__cli_8cpp_source.html#l00063">inf_cli.cpp:63</a></div></div>
+<div class="ttc" id="aclassuser_1_1InfCLI_html_a7dffe0762130578a5dc3908377b01f89"><div class="ttname"><a href="classuser_1_1InfCLI.html#a7dffe0762130578a5dc3908377b01f89">user::InfCLI::get_log_level</a></div><div class="ttdeci">unsigned int get_log_level() const</div><div class="ttdef"><b>Definition</b> <a href="inf__cli_8cpp_source.html#l00068">inf_cli.cpp:68</a></div></div>
+<div class="ttc" id="aclassuser_1_1InfCLI_html_a901e7f05011d0fe8f333c7615cf3825b"><div class="ttname"><a href="classuser_1_1InfCLI.html#a901e7f05011d0fe8f333c7615cf3825b">user::InfCLI::get_n_threads</a></div><div class="ttdeci">unsigned int get_n_threads() const</div><div class="ttdef"><b>Definition</b> <a href="inf__cli_8cpp_source.html#l00073">inf_cli.cpp:73</a></div></div>
+<div class="ttc" id="aclassuser_1_1InfCLI_html_acd08454698f641838809f5867b6e305b"><div class="ttname"><a href="classuser_1_1InfCLI.html#acd08454698f641838809f5867b6e305b">user::InfCLI::init</a></div><div class="ttdeci">void init()</div><div class="ttdoc">Need to call this method first before being able to use the getter methods.</div><div class="ttdef"><b>Definition</b> <a href="inf__cli_8cpp_source.html#l00018">inf_cli.cpp:18</a></div></div>
+<div class="ttc" id="aclassuser_1_1InfCLI_html_adf9429573fc60101ecf7c5fbbcc855ee"><div class="ttname"><a href="classuser_1_1InfCLI.html#adf9429573fc60101ecf7c5fbbcc855ee">user::InfCLI::get_symtree_io</a></div><div class="ttdeci">inf::EventTree::IO get_symtree_io() const</div><div class="ttdef"><b>Definition</b> <a href="inf__cli_8cpp_source.html#l00080">inf_cli.cpp:80</a></div></div>
+<div class="ttc" id="aclassuser_1_1InfCLI_html_afb67b5fc518bb3584289d143554d7b53"><div class="ttname"><a href="classuser_1_1InfCLI.html#afb67b5fc518bb3584289d143554d7b53">user::InfCLI::log</a></div><div class="ttdeci">void log() const override</div><div class="ttdoc">This prints the object to the globally accessible util::logger and allows the util::logger &lt;&lt; loggabl...</div><div class="ttdef"><b>Definition</b> <a href="inf__cli_8cpp_source.html#l00043">inf_cli.cpp:43</a></div></div>
+<div class="ttc" id="agroup__debug_html_ga3fabbc72ef82f3dbc7a2420c983e65a8"><div class="ttname"><a href="group__debug.html#ga3fabbc72ef82f3dbc7a2420c983e65a8">HARD_ASSERT_TRUE</a></div><div class="ttdeci">#define HARD_ASSERT_TRUE(X)</div><div class="ttdoc">Hard assertion, tests for X being true (so X should be a bool) and calls THROW_ERROR else.</div><div class="ttdef"><b>Definition</b> <a href="debug_8h_source.html#l00103">debug.h:103</a></div></div>
+<div class="ttc" id="agroup__debug_html_ga44d4e64ea98b1a9c055f030e33e24f17"><div class="ttname"><a href="group__debug.html#ga44d4e64ea98b1a9c055f030e33e24f17">THROW_ERROR</a></div><div class="ttdeci">#define THROW_ERROR(error_message)</div><div class="ttdoc">This macro throws a std::logic_error with an error message indicating the file, line and function whe...</div><div class="ttdef"><b>Definition</b> <a href="debug_8h_source.html#l00090">debug.h:90</a></div></div>
+<div class="ttc" id="agroup__debug_html_gac29875de100792ec8b992d6fecf882f5"><div class="ttname"><a href="group__debug.html#gac29875de100792ec8b992d6fecf882f5">HARD_ASSERT_LT</a></div><div class="ttdeci">#define HARD_ASSERT_LT(X, Y)</div><div class="ttdoc">Hard assertion, tests for X &lt; Y and calls THROW_ERROR else.</div><div class="ttdef"><b>Definition</b> <a href="debug_8h_source.html#l00109">debug.h:109</a></div></div>
+<div class="ttc" id="agroup__printing_html_ga3f8fe48536ee19c54002c9c1db64cabb"><div class="ttname"><a href="group__printing.html#ga3f8fe48536ee19c54002c9c1db64cabb">util::cr</a></div><div class="ttdeci">constexpr util::Logger::Action cr</div><div class="ttdoc">Newline.</div><div class="ttdef"><b>Definition</b> <a href="logger_8h_source.html#l00197">logger.h:197</a></div></div>
+<div class="ttc" id="agroup__printing_html_ga4c77d1dedfe3a5b95abc21d13d7cd678"><div class="ttname"><a href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a></div><div class="ttdeci">util::Logger logger</div><div class="ttdoc">The globally accessible logger replacing std::cout</div></div>
+<div class="ttc" id="agroup__printing_html_ga7d731f43f6d60e3846cbdbd55eaeed2e"><div class="ttname"><a href="group__printing.html#ga7d731f43f6d60e3846cbdbd55eaeed2e">util::begin_comment</a></div><div class="ttdeci">const util::Color begin_comment</div><div class="ttdoc">Dimmed color.</div><div class="ttdef"><b>Definition</b> <a href="logger_8cpp_source.html#l00010">logger.cpp:10</a></div></div>
+<div class="ttc" id="agroup__printing_html_gadf8906b27dc371eaf882b3b3b5639495"><div class="ttname"><a href="group__printing.html#gadf8906b27dc371eaf882b3b3b5639495">util::end_comment</a></div><div class="ttdeci">const util::Color end_comment</div><div class="ttdoc">End dimmed color.</div><div class="ttdef"><b>Definition</b> <a href="logger_8cpp_source.html#l00011">logger.cpp:11</a></div></div>
+<div class="ttc" id="ainf__cli_8h_html"><div class="ttname"><a href="inf__cli_8h.html">inf_cli.h</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_8b0164eb0fb74115683f9812cb2f78f0.html">user</a></li><li class="navelem"><a class="el" href="inf__cli_8cpp.html">inf_cli.cpp</a></li>
+    <li class="footer">Generated on Wed Dec 18 2024 17:39:37 for Fast Inflation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

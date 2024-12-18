@@ -1,0 +1,248 @@
+<!-- HTML header for doxygen 1.9.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Fast Inflation: src/util/base_cli.h Source File</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+MathJax.Hub.Config({
+    TeX: {
+        Macros: {
+            dd: ["{\\text{d}#1\\,}",1],
+            nouts: ["{n_{\\text{o}}}"],
+            ints: ["{[\\![#1]\\!]}",1],
+            outset: ["{\\ints{\\nouts}}"],
+            N: ["{\\mathbb{N}}"],
+            R: ["{\\mathbb{R}}"],
+            Z: ["{\\mathbb{Z}}"],
+            infsize: ["{z}"],
+            infparties: ["{\\set{I}}"],
+            infsources: ["{\\set{S}}"],
+            infmarg: ["{\\set{A}}"],
+            infmargg: ["{\\set{B}}"],
+            netparties: ["{\\set{N}}"],
+            infq: ["{q}"],
+            infqs: ["{\\Delta_{\\infparties}}"],
+            constraintlist: ["{\\mathcal{C}}"],
+            injsets: ["{\\text{InjSets}}"],
+            infconstraints: ["{\\text{InfCons}}"],
+            parents: ["{\\text{Par}}"],
+            targetp: ["{p}"],
+            targetps: ["{\\Delta_{\\netparties}}"],
+            set: ["{\\mathbf{#1}}",1],
+            type: ["{t}"],
+            infevent: "{\\omega}",
+            events: ["{\\Omega_{#1}}",1],
+            infevents: ["{\\events{\\infparties}}"],
+            redinfevents: ["{\\tilde{\\Omega}_{\\infparties}}"],
+            netevents: ["{\\events{\\netparties}}"],
+            vecset: ["{V_{#1}}",1],
+            alice: ["{\\text{A}}"],
+            bob: ["{\\text{B}}"],
+            charlie: ["{\\text{C}}"],
+            symgroup: ["{\\text{Sym}(#1)}",1],
+            shortsymgroup: ["{\\text{Sym}_{#1}}",1],
+            act: ["{(#1\\hspace{2pt}{:}\\hspace{2pt}#2)}",2],
+            actt: ["{[#1\\hspace{2pt}{:}\\hspace{2pt}#2]}",2],
+            margperms: ["{\\text{Perm}_{#1}}",1],
+            permutedmargs: ["{\\mathbb{P}_{#1}^{\\targetp}}",1],
+            redpermutedmargs: ["{\\tilde{\\mathbb{P}}_{#1}^{\\constraintname,\\targetp}}",1],
+            extract: ["{\\text{ext}(#1,#2)}",2],
+            partysym: ["{\\tau}"],
+            sourcesym: ["{\\xi}"],
+            outsym: ["{\\sigma}"],
+            fullgroup: ["{\\text{InfGrp}}"],
+            partygroup : ["{\\text{PartyGrp}}"],
+            outgroup: ["{\\text{OutGrp}}"],
+            sourcegroup: ["{\\text{SrcGrp}}"],
+            distrgroup: ["{\\mathbb{G}^\\targetp}"],
+            constraintname: ["{c}"],
+            marggroup: ["{\\mathbb{G}^{\\constraintname,\\targetp}}"],
+            fullsymexpl: ["{(\\sourcesym,\\partysym,\\outsym)}"],
+            inner: ["{\\langle#1,#2\\rangle}", 2],
+            quovec: ["{f}"],
+            totconstraintmap: ["{K^{\\constraintlist,\\targetp}}"],
+            totconstraintmapelem: ["{K^{\\constraintname,\\targetp}}"],
+            quovecspace: ["{\\tilde{V}_{#1}^{\\constraintname,\\targetp}}", 1],
+            totquovecspace: ["{\\text{ConsSpace}(\\constraintlist,\\targetp)}"],
+            detdistr: ["{\\delta^{#1}}", 1],
+            margperm: ["{\\varphi}"],
+            altquovecembed: ["{\\text{G}_{#1}^{\\constraintname,\\targetp}}", 1],
+            vecset: ["{V_{#1}}", 1],
+            repr: ["{\\lfloor#1\\rfloor}", 1],
+            gid: ["{\\text{id}}"],
+            id: ["{1_{#1}}",1],
+            consscale: ["{K}"],
+            scaletot: ["{K_{\\text{tot}}^{\\constraintlist,\\targetp}}"],
+            minnorm: ["{d}"],
+            Bigsetst: ["\\;\\Big|\\;"],
+            activeset: ["\\mathcal{S}"],
+            conv: ["\\text{conv}"],
+            lVert: ["|\\hspace{-1pt}|"],
+            norm: ["\\lVert#1\\lVert", 1],
+            st: [":\ "],
+        }
+    }
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeDarkModeToggle.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeParagraphLink.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Fast Inflation
+   </div>
+   <div id="projectbrief">To certify causal incompatibility</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('base__cli_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">base_cli.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="base__cli_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;map&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceutil.html">util</a> {</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="classutil_1_1BaseCLI.html">   15</a></span><span class="keyword">class </span><a class="code hl_class" href="classutil_1_1BaseCLI.html">BaseCLI</a> {</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <a class="code hl_class" href="classutil_1_1BaseCLI.html">BaseCLI</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> **argv);</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <a class="code hl_class" href="classutil_1_1BaseCLI.html">BaseCLI</a>(<a class="code hl_class" href="classutil_1_1BaseCLI.html">BaseCLI</a> <span class="keyword">const</span> &amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <a class="code hl_class" href="classutil_1_1BaseCLI.html">BaseCLI</a>(<a class="code hl_class" href="classutil_1_1BaseCLI.html">BaseCLI</a> &amp;&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <a class="code hl_class" href="classutil_1_1BaseCLI.html">BaseCLI</a> &amp;operator=(<a class="code hl_class" href="classutil_1_1BaseCLI.html">BaseCLI</a> <span class="keyword">const</span> &amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <a class="code hl_class" href="classutil_1_1BaseCLI.html">BaseCLI</a> &amp;operator=(<a class="code hl_class" href="classutil_1_1BaseCLI.html">BaseCLI</a> &amp;&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    std::string <a class="code hl_function" href="classutil_1_1BaseCLI.html#a98d2c60a6f21033528470403ad1db38c">extract_str_option</a>(std::string <span class="keyword">const</span> &amp;name, std::string <span class="keyword">const</span> &amp;default_value);</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_function" href="classutil_1_1BaseCLI.html#a6a9375e295252947bb66eb28f1be09f3">extract_uint_option</a>(std::string <span class="keyword">const</span> &amp;name, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> default_value);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    std::string <a class="code hl_function" href="classutil_1_1BaseCLI.html#aef8ca65d94ee8a94c8633ccba913293c">extract_str_arg</a>(std::string <span class="keyword">const</span> &amp;default_value);</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classutil_1_1BaseCLI.html#ae76e7d435644c8872523322b018d9dcf">hard_assert_empty</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>  <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="classutil_1_1BaseCLI.html#a4b16e5e0a700aa8209fcb059911c3181">   53</a></span>    std::vector&lt;std::pair&lt;std::string, std::string&gt;&gt; <a class="code hl_variable" href="classutil_1_1BaseCLI.html#a4b16e5e0a700aa8209fcb059911c3181">m_named_args</a>;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="classutil_1_1BaseCLI.html#a767db891735fd6031d0dded914258a5a">   55</a></span>    std::vector&lt;std::string&gt; <a class="code hl_variable" href="classutil_1_1BaseCLI.html#a767db891735fd6031d0dded914258a5a">m_unnamed_args</a>;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>};</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>} <span class="comment">// namespace util</span></div>
+<div class="ttc" id="aclassutil_1_1BaseCLI_html"><div class="ttname"><a href="classutil_1_1BaseCLI.html">util::BaseCLI</a></div><div class="ttdoc">This class provides support to extract command-line options of the form --option value</div><div class="ttdef"><b>Definition</b> <a href="base__cli_8h_source.html#l00015">base_cli.h:15</a></div></div>
+<div class="ttc" id="aclassutil_1_1BaseCLI_html_a4b16e5e0a700aa8209fcb059911c3181"><div class="ttname"><a href="classutil_1_1BaseCLI.html#a4b16e5e0a700aa8209fcb059911c3181">util::BaseCLI::m_named_args</a></div><div class="ttdeci">std::vector&lt; std::pair&lt; std::string, std::string &gt; &gt; m_named_args</div><div class="ttdoc">The list of named parameters of the form --key value found in the argv passed to the constructor.</div><div class="ttdef"><b>Definition</b> <a href="base__cli_8h_source.html#l00053">base_cli.h:53</a></div></div>
+<div class="ttc" id="aclassutil_1_1BaseCLI_html_a6a9375e295252947bb66eb28f1be09f3"><div class="ttname"><a href="classutil_1_1BaseCLI.html#a6a9375e295252947bb66eb28f1be09f3">util::BaseCLI::extract_uint_option</a></div><div class="ttdeci">unsigned int extract_uint_option(std::string const &amp;name, unsigned int default_value)</div><div class="ttdoc">This method extracts and remove the requested option --name, and tries to obtain an unsigned int from...</div><div class="ttdef"><b>Definition</b> <a href="base__cli_8cpp_source.html#l00055">base_cli.cpp:55</a></div></div>
+<div class="ttc" id="aclassutil_1_1BaseCLI_html_a767db891735fd6031d0dded914258a5a"><div class="ttname"><a href="classutil_1_1BaseCLI.html#a767db891735fd6031d0dded914258a5a">util::BaseCLI::m_unnamed_args</a></div><div class="ttdeci">std::vector&lt; std::string &gt; m_unnamed_args</div><div class="ttdoc">The list of unnamed parameters found in the argv passed to the constructor.</div><div class="ttdef"><b>Definition</b> <a href="base__cli_8h_source.html#l00055">base_cli.h:55</a></div></div>
+<div class="ttc" id="aclassutil_1_1BaseCLI_html_a98d2c60a6f21033528470403ad1db38c"><div class="ttname"><a href="classutil_1_1BaseCLI.html#a98d2c60a6f21033528470403ad1db38c">util::BaseCLI::extract_str_option</a></div><div class="ttdeci">std::string extract_str_option(std::string const &amp;name, std::string const &amp;default_value)</div><div class="ttdoc">Extracts a named optional string parameter.</div><div class="ttdef"><b>Definition</b> <a href="base__cli_8cpp_source.html#l00031">base_cli.cpp:31</a></div></div>
+<div class="ttc" id="aclassutil_1_1BaseCLI_html_ae76e7d435644c8872523322b018d9dcf"><div class="ttname"><a href="classutil_1_1BaseCLI.html#ae76e7d435644c8872523322b018d9dcf">util::BaseCLI::hard_assert_empty</a></div><div class="ttdeci">void hard_assert_empty() const</div><div class="ttdoc">This method does nothing if all options have been extracted by the above methods, otherwise,...</div><div class="ttdef"><b>Definition</b> <a href="base__cli_8cpp_source.html#l00086">base_cli.cpp:86</a></div></div>
+<div class="ttc" id="aclassutil_1_1BaseCLI_html_aef8ca65d94ee8a94c8633ccba913293c"><div class="ttname"><a href="classutil_1_1BaseCLI.html#aef8ca65d94ee8a94c8633ccba913293c">util::BaseCLI::extract_str_arg</a></div><div class="ttdeci">std::string extract_str_arg(std::string const &amp;default_value)</div><div class="ttdoc">This method extracts and remove the first unnamed argument.</div><div class="ttdef"><b>Definition</b> <a href="base__cli_8cpp_source.html#l00076">base_cli.cpp:76</a></div></div>
+<div class="ttc" id="anamespaceutil_html"><div class="ttname"><a href="namespaceutil.html">util</a></div><div class="ttdoc">The namespace for general purpose code, not specifically related to inflation.</div><div class="ttdef"><b>Definition</b> <a href="misc_8cpp_source.html#l00355">misc.cpp:355</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_b7878ad5ecbf2506f4125b9d34c97e45.html">util</a></li><li class="navelem"><a class="el" href="base__cli_8h.html">base_cli.h</a></li>
+    <li class="footer">Generated on Wed Dec 18 2024 17:39:37 for Fast Inflation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

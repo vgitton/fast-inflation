@@ -1,0 +1,263 @@
+<!-- HTML header for doxygen 1.9.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Fast Inflation: src/util/color.h Source File</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+MathJax.Hub.Config({
+    TeX: {
+        Macros: {
+            dd: ["{\\text{d}#1\\,}",1],
+            nouts: ["{n_{\\text{o}}}"],
+            ints: ["{[\\![#1]\\!]}",1],
+            outset: ["{\\ints{\\nouts}}"],
+            N: ["{\\mathbb{N}}"],
+            R: ["{\\mathbb{R}}"],
+            Z: ["{\\mathbb{Z}}"],
+            infsize: ["{z}"],
+            infparties: ["{\\set{I}}"],
+            infsources: ["{\\set{S}}"],
+            infmarg: ["{\\set{A}}"],
+            infmargg: ["{\\set{B}}"],
+            netparties: ["{\\set{N}}"],
+            infq: ["{q}"],
+            infqs: ["{\\Delta_{\\infparties}}"],
+            constraintlist: ["{\\mathcal{C}}"],
+            injsets: ["{\\text{InjSets}}"],
+            infconstraints: ["{\\text{InfCons}}"],
+            parents: ["{\\text{Par}}"],
+            targetp: ["{p}"],
+            targetps: ["{\\Delta_{\\netparties}}"],
+            set: ["{\\mathbf{#1}}",1],
+            type: ["{t}"],
+            infevent: "{\\omega}",
+            events: ["{\\Omega_{#1}}",1],
+            infevents: ["{\\events{\\infparties}}"],
+            redinfevents: ["{\\tilde{\\Omega}_{\\infparties}}"],
+            netevents: ["{\\events{\\netparties}}"],
+            vecset: ["{V_{#1}}",1],
+            alice: ["{\\text{A}}"],
+            bob: ["{\\text{B}}"],
+            charlie: ["{\\text{C}}"],
+            symgroup: ["{\\text{Sym}(#1)}",1],
+            shortsymgroup: ["{\\text{Sym}_{#1}}",1],
+            act: ["{(#1\\hspace{2pt}{:}\\hspace{2pt}#2)}",2],
+            actt: ["{[#1\\hspace{2pt}{:}\\hspace{2pt}#2]}",2],
+            margperms: ["{\\text{Perm}_{#1}}",1],
+            permutedmargs: ["{\\mathbb{P}_{#1}^{\\targetp}}",1],
+            redpermutedmargs: ["{\\tilde{\\mathbb{P}}_{#1}^{\\constraintname,\\targetp}}",1],
+            extract: ["{\\text{ext}(#1,#2)}",2],
+            partysym: ["{\\tau}"],
+            sourcesym: ["{\\xi}"],
+            outsym: ["{\\sigma}"],
+            fullgroup: ["{\\text{InfGrp}}"],
+            partygroup : ["{\\text{PartyGrp}}"],
+            outgroup: ["{\\text{OutGrp}}"],
+            sourcegroup: ["{\\text{SrcGrp}}"],
+            distrgroup: ["{\\mathbb{G}^\\targetp}"],
+            constraintname: ["{c}"],
+            marggroup: ["{\\mathbb{G}^{\\constraintname,\\targetp}}"],
+            fullsymexpl: ["{(\\sourcesym,\\partysym,\\outsym)}"],
+            inner: ["{\\langle#1,#2\\rangle}", 2],
+            quovec: ["{f}"],
+            totconstraintmap: ["{K^{\\constraintlist,\\targetp}}"],
+            totconstraintmapelem: ["{K^{\\constraintname,\\targetp}}"],
+            quovecspace: ["{\\tilde{V}_{#1}^{\\constraintname,\\targetp}}", 1],
+            totquovecspace: ["{\\text{ConsSpace}(\\constraintlist,\\targetp)}"],
+            detdistr: ["{\\delta^{#1}}", 1],
+            margperm: ["{\\varphi}"],
+            altquovecembed: ["{\\text{G}_{#1}^{\\constraintname,\\targetp}}", 1],
+            vecset: ["{V_{#1}}", 1],
+            repr: ["{\\lfloor#1\\rfloor}", 1],
+            gid: ["{\\text{id}}"],
+            id: ["{1_{#1}}",1],
+            consscale: ["{K}"],
+            scaletot: ["{K_{\\text{tot}}^{\\constraintlist,\\targetp}}"],
+            minnorm: ["{d}"],
+            Bigsetst: ["\\;\\Big|\\;"],
+            activeset: ["\\mathcal{S}"],
+            conv: ["\\text{conv}"],
+            lVert: ["|\\hspace{-1pt}|"],
+            norm: ["\\lVert#1\\lVert", 1],
+            st: [":\ "],
+        }
+    }
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeDarkModeToggle.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeParagraphLink.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Fast Inflation
+   </div>
+   <div id="projectbrief">To certify causal incompatibility</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('color_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">color.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="color_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceutil.html">util</a> {</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="group__color.html#ga95747189f62a0ed341c6e2579146beb7">   15</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="group__color.html#ga95747189f62a0ed341c6e2579146beb7">Color</a> {</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <a class="code hl_enumvalue" href="group__color.html#gga95747189f62a0ed341c6e2579146beb7a3d4044d65abdda407a92991f1300ec97">fg</a>, </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="comment">// Normal colors</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <a class="code hl_enumvalue" href="group__color.html#gga95747189f62a0ed341c6e2579146beb7a1ffd9e753c8054cc61456ac7fac1ac89">black</a>,   </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <a class="code hl_enumvalue" href="group__color.html#gga95747189f62a0ed341c6e2579146beb7abda9643ac6601722a28f238714274da4">red</a>,     </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <a class="code hl_enumvalue" href="group__color.html#gga95747189f62a0ed341c6e2579146beb7a9f27410725ab8cc8854a2769c7a516b8">green</a>,   </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <a class="code hl_enumvalue" href="group__color.html#gga95747189f62a0ed341c6e2579146beb7ad487dd0b55dfcacdd920ccbdaeafa351">yellow</a>,  </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <a class="code hl_enumvalue" href="group__color.html#gga95747189f62a0ed341c6e2579146beb7a48d6215903dff56238e52e8891380c8f">blue</a>,    </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <a class="code hl_enumvalue" href="group__color.html#gga95747189f62a0ed341c6e2579146beb7a4c2a4a7078da0ac6733464eacfd00f86">magenta</a>, </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <a class="code hl_enumvalue" href="group__color.html#gga95747189f62a0ed341c6e2579146beb7a6411532ba4971f378391776a9db629d3">cyan</a>,    </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <a class="code hl_enumvalue" href="group__color.html#gga95747189f62a0ed341c6e2579146beb7ad508fe45cecaf653904a0e774084bb5c">white</a>,   </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="comment">// Brighter colors</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <a class="code hl_enumvalue" href="group__color.html#gga95747189f62a0ed341c6e2579146beb7a4b941312e74e20a2bea068c855193141">alt_black</a>,   </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <a class="code hl_enumvalue" href="group__color.html#gga95747189f62a0ed341c6e2579146beb7a149d51a260fd14f179310d953fff777b">alt_red</a>,     </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <a class="code hl_enumvalue" href="group__color.html#gga95747189f62a0ed341c6e2579146beb7a549891cfc059bd98e742bfbc19abd347">alt_green</a>,   </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <a class="code hl_enumvalue" href="group__color.html#gga95747189f62a0ed341c6e2579146beb7a6c7eaf8a5070bfe6625d2d32418e882f">alt_yellow</a>,  </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <a class="code hl_enumvalue" href="group__color.html#gga95747189f62a0ed341c6e2579146beb7ae75d528cfa0aef8636b0f5a57e64a21f">alt_blue</a>,    </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <a class="code hl_enumvalue" href="group__color.html#gga95747189f62a0ed341c6e2579146beb7a83de4ee4cc952b668dee1eff7b86f649">alt_magenta</a>, </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <a class="code hl_enumvalue" href="group__color.html#gga95747189f62a0ed341c6e2579146beb7a317a41e7965526b7aeec8610f6400efd">alt_cyan</a>,    </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <a class="code hl_enumvalue" href="group__color.html#gga95747189f62a0ed341c6e2579146beb7a36ac3da3612899c7dd7cb73c7916d4e1">alt_white</a>    </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>};</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>std::string <a class="code hl_function" href="group__color.html#ga1b5822d8d00e0a75cd0565bd7315c579">get_ansi_escape_code</a>(<a class="code hl_enumeration" href="group__color.html#ga95747189f62a0ed341c6e2579146beb7">util::Color</a> c);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>} <span class="comment">// namespace util</span></div>
+<div class="ttc" id="agroup__color_html_ga1b5822d8d00e0a75cd0565bd7315c579"><div class="ttname"><a href="group__color.html#ga1b5822d8d00e0a75cd0565bd7315c579">util::get_ansi_escape_code</a></div><div class="ttdeci">std::string get_ansi_escape_code(util::Color c)</div><div class="ttdoc">Return the escape code for ANSI coloring.</div><div class="ttdef"><b>Definition</b> <a href="color_8cpp_source.html#l00004">color.cpp:4</a></div></div>
+<div class="ttc" id="agroup__color_html_ga95747189f62a0ed341c6e2579146beb7"><div class="ttname"><a href="group__color.html#ga95747189f62a0ed341c6e2579146beb7">util::Color</a></div><div class="ttdeci">Color</div><div class="ttdoc">The available colors.</div><div class="ttdef"><b>Definition</b> <a href="color_8h_source.html#l00015">color.h:15</a></div></div>
+<div class="ttc" id="agroup__color_html_gga95747189f62a0ed341c6e2579146beb7a149d51a260fd14f179310d953fff777b"><div class="ttname"><a href="group__color.html#gga95747189f62a0ed341c6e2579146beb7a149d51a260fd14f179310d953fff777b">util::Color::alt_red</a></div><div class="ttdeci">@ alt_red</div><div class="ttdoc">brighter red</div></div>
+<div class="ttc" id="agroup__color_html_gga95747189f62a0ed341c6e2579146beb7a1ffd9e753c8054cc61456ac7fac1ac89"><div class="ttname"><a href="group__color.html#gga95747189f62a0ed341c6e2579146beb7a1ffd9e753c8054cc61456ac7fac1ac89">util::Color::black</a></div><div class="ttdeci">@ black</div><div class="ttdoc">black</div></div>
+<div class="ttc" id="agroup__color_html_gga95747189f62a0ed341c6e2579146beb7a317a41e7965526b7aeec8610f6400efd"><div class="ttname"><a href="group__color.html#gga95747189f62a0ed341c6e2579146beb7a317a41e7965526b7aeec8610f6400efd">util::Color::alt_cyan</a></div><div class="ttdeci">@ alt_cyan</div><div class="ttdoc">lighter cyan</div></div>
+<div class="ttc" id="agroup__color_html_gga95747189f62a0ed341c6e2579146beb7a36ac3da3612899c7dd7cb73c7916d4e1"><div class="ttname"><a href="group__color.html#gga95747189f62a0ed341c6e2579146beb7a36ac3da3612899c7dd7cb73c7916d4e1">util::Color::alt_white</a></div><div class="ttdeci">@ alt_white</div><div class="ttdoc">brighter white</div></div>
+<div class="ttc" id="agroup__color_html_gga95747189f62a0ed341c6e2579146beb7a3d4044d65abdda407a92991f1300ec97"><div class="ttname"><a href="group__color.html#gga95747189f62a0ed341c6e2579146beb7a3d4044d65abdda407a92991f1300ec97">util::Color::fg</a></div><div class="ttdeci">@ fg</div><div class="ttdoc">foreground, i.e., resets the color</div></div>
+<div class="ttc" id="agroup__color_html_gga95747189f62a0ed341c6e2579146beb7a48d6215903dff56238e52e8891380c8f"><div class="ttname"><a href="group__color.html#gga95747189f62a0ed341c6e2579146beb7a48d6215903dff56238e52e8891380c8f">util::Color::blue</a></div><div class="ttdeci">@ blue</div><div class="ttdoc">blue</div></div>
+<div class="ttc" id="agroup__color_html_gga95747189f62a0ed341c6e2579146beb7a4b941312e74e20a2bea068c855193141"><div class="ttname"><a href="group__color.html#gga95747189f62a0ed341c6e2579146beb7a4b941312e74e20a2bea068c855193141">util::Color::alt_black</a></div><div class="ttdeci">@ alt_black</div><div class="ttdoc">lighter black</div></div>
+<div class="ttc" id="agroup__color_html_gga95747189f62a0ed341c6e2579146beb7a4c2a4a7078da0ac6733464eacfd00f86"><div class="ttname"><a href="group__color.html#gga95747189f62a0ed341c6e2579146beb7a4c2a4a7078da0ac6733464eacfd00f86">util::Color::magenta</a></div><div class="ttdeci">@ magenta</div><div class="ttdoc">magenta</div></div>
+<div class="ttc" id="agroup__color_html_gga95747189f62a0ed341c6e2579146beb7a549891cfc059bd98e742bfbc19abd347"><div class="ttname"><a href="group__color.html#gga95747189f62a0ed341c6e2579146beb7a549891cfc059bd98e742bfbc19abd347">util::Color::alt_green</a></div><div class="ttdeci">@ alt_green</div><div class="ttdoc">brighter green</div></div>
+<div class="ttc" id="agroup__color_html_gga95747189f62a0ed341c6e2579146beb7a6411532ba4971f378391776a9db629d3"><div class="ttname"><a href="group__color.html#gga95747189f62a0ed341c6e2579146beb7a6411532ba4971f378391776a9db629d3">util::Color::cyan</a></div><div class="ttdeci">@ cyan</div><div class="ttdoc">cyan</div></div>
+<div class="ttc" id="agroup__color_html_gga95747189f62a0ed341c6e2579146beb7a6c7eaf8a5070bfe6625d2d32418e882f"><div class="ttname"><a href="group__color.html#gga95747189f62a0ed341c6e2579146beb7a6c7eaf8a5070bfe6625d2d32418e882f">util::Color::alt_yellow</a></div><div class="ttdeci">@ alt_yellow</div><div class="ttdoc">lighter yellow</div></div>
+<div class="ttc" id="agroup__color_html_gga95747189f62a0ed341c6e2579146beb7a83de4ee4cc952b668dee1eff7b86f649"><div class="ttname"><a href="group__color.html#gga95747189f62a0ed341c6e2579146beb7a83de4ee4cc952b668dee1eff7b86f649">util::Color::alt_magenta</a></div><div class="ttdeci">@ alt_magenta</div><div class="ttdoc">lighter magenta</div></div>
+<div class="ttc" id="agroup__color_html_gga95747189f62a0ed341c6e2579146beb7a9f27410725ab8cc8854a2769c7a516b8"><div class="ttname"><a href="group__color.html#gga95747189f62a0ed341c6e2579146beb7a9f27410725ab8cc8854a2769c7a516b8">util::Color::green</a></div><div class="ttdeci">@ green</div><div class="ttdoc">green</div></div>
+<div class="ttc" id="agroup__color_html_gga95747189f62a0ed341c6e2579146beb7abda9643ac6601722a28f238714274da4"><div class="ttname"><a href="group__color.html#gga95747189f62a0ed341c6e2579146beb7abda9643ac6601722a28f238714274da4">util::Color::red</a></div><div class="ttdeci">@ red</div><div class="ttdoc">red</div></div>
+<div class="ttc" id="agroup__color_html_gga95747189f62a0ed341c6e2579146beb7ad487dd0b55dfcacdd920ccbdaeafa351"><div class="ttname"><a href="group__color.html#gga95747189f62a0ed341c6e2579146beb7ad487dd0b55dfcacdd920ccbdaeafa351">util::Color::yellow</a></div><div class="ttdeci">@ yellow</div><div class="ttdoc">yellow</div></div>
+<div class="ttc" id="agroup__color_html_gga95747189f62a0ed341c6e2579146beb7ad508fe45cecaf653904a0e774084bb5c"><div class="ttname"><a href="group__color.html#gga95747189f62a0ed341c6e2579146beb7ad508fe45cecaf653904a0e774084bb5c">util::Color::white</a></div><div class="ttdeci">@ white</div><div class="ttdoc">white</div></div>
+<div class="ttc" id="agroup__color_html_gga95747189f62a0ed341c6e2579146beb7ae75d528cfa0aef8636b0f5a57e64a21f"><div class="ttname"><a href="group__color.html#gga95747189f62a0ed341c6e2579146beb7ae75d528cfa0aef8636b0f5a57e64a21f">util::Color::alt_blue</a></div><div class="ttdeci">@ alt_blue</div><div class="ttdoc">lighter blue</div></div>
+<div class="ttc" id="anamespaceutil_html"><div class="ttname"><a href="namespaceutil.html">util</a></div><div class="ttdoc">The namespace for general purpose code, not specifically related to inflation.</div><div class="ttdef"><b>Definition</b> <a href="misc_8cpp_source.html#l00355">misc.cpp:355</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_b7878ad5ecbf2506f4125b9d34c97e45.html">util</a></li><li class="navelem"><a class="el" href="color_8h.html">color.h</a></li>
+    <li class="footer">Generated on Wed Dec 18 2024 17:39:38 for Fast Inflation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+\documentclass{standalone}
+
+\usepackage{tree_tikz}
+
+\begin{document}
+\begin{tikzpicture}
+
+    \node[minimum width=1cm] (root) at (1,1) {};
+
+    \begin{scope}[tree node]
+        \node[draw,fill] (00) at (0,0) {$0$};
+        \node[draw,fill] (01) at (2,0) {$1$};
+
+        \node[draw,fill] (10) at (0,-1) {$0$};
+        \node[draw,fill] (11) at (1,-1) {$1$};
+        \node[draw,fill] (13) at (2,-1) {$1$};
+
+        \node[draw,fill] (20) at (0,-2.5) {$0$};
+        \node[draw,fill] (21) at (2,-2.5) {$1$};
+    \end{scope}
+
+    \begin{scope}[tree edge]
+        \draw (root.south west) -- (00);
+        \draw (root.south east) -- (01);
+
+        \draw (00) -- (10);
+        \draw (00) -- (11);
+        \draw (01) -- (10);
+        \draw (01) -- (13);
+
+        \draw (10) -- (20);
+        \draw (10) -- (21);
+        \draw (11) -- (20);
+        \draw (13) -- (21);
+    \end{scope}
+
+\end{tikzpicture}
+\end{document}
+
+

@@ -1,0 +1,624 @@
+<!-- HTML header for doxygen 1.9.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Fast Inflation: src/inf/constraints/marginal.cpp Source File</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+MathJax.Hub.Config({
+    TeX: {
+        Macros: {
+            dd: ["{\\text{d}#1\\,}",1],
+            nouts: ["{n_{\\text{o}}}"],
+            ints: ["{[\\![#1]\\!]}",1],
+            outset: ["{\\ints{\\nouts}}"],
+            N: ["{\\mathbb{N}}"],
+            R: ["{\\mathbb{R}}"],
+            Z: ["{\\mathbb{Z}}"],
+            infsize: ["{z}"],
+            infparties: ["{\\set{I}}"],
+            infsources: ["{\\set{S}}"],
+            infmarg: ["{\\set{A}}"],
+            infmargg: ["{\\set{B}}"],
+            netparties: ["{\\set{N}}"],
+            infq: ["{q}"],
+            infqs: ["{\\Delta_{\\infparties}}"],
+            constraintlist: ["{\\mathcal{C}}"],
+            injsets: ["{\\text{InjSets}}"],
+            infconstraints: ["{\\text{InfCons}}"],
+            parents: ["{\\text{Par}}"],
+            targetp: ["{p}"],
+            targetps: ["{\\Delta_{\\netparties}}"],
+            set: ["{\\mathbf{#1}}",1],
+            type: ["{t}"],
+            infevent: "{\\omega}",
+            events: ["{\\Omega_{#1}}",1],
+            infevents: ["{\\events{\\infparties}}"],
+            redinfevents: ["{\\tilde{\\Omega}_{\\infparties}}"],
+            netevents: ["{\\events{\\netparties}}"],
+            vecset: ["{V_{#1}}",1],
+            alice: ["{\\text{A}}"],
+            bob: ["{\\text{B}}"],
+            charlie: ["{\\text{C}}"],
+            symgroup: ["{\\text{Sym}(#1)}",1],
+            shortsymgroup: ["{\\text{Sym}_{#1}}",1],
+            act: ["{(#1\\hspace{2pt}{:}\\hspace{2pt}#2)}",2],
+            actt: ["{[#1\\hspace{2pt}{:}\\hspace{2pt}#2]}",2],
+            margperms: ["{\\text{Perm}_{#1}}",1],
+            permutedmargs: ["{\\mathbb{P}_{#1}^{\\targetp}}",1],
+            redpermutedmargs: ["{\\tilde{\\mathbb{P}}_{#1}^{\\constraintname,\\targetp}}",1],
+            extract: ["{\\text{ext}(#1,#2)}",2],
+            partysym: ["{\\tau}"],
+            sourcesym: ["{\\xi}"],
+            outsym: ["{\\sigma}"],
+            fullgroup: ["{\\text{InfGrp}}"],
+            partygroup : ["{\\text{PartyGrp}}"],
+            outgroup: ["{\\text{OutGrp}}"],
+            sourcegroup: ["{\\text{SrcGrp}}"],
+            distrgroup: ["{\\mathbb{G}^\\targetp}"],
+            constraintname: ["{c}"],
+            marggroup: ["{\\mathbb{G}^{\\constraintname,\\targetp}}"],
+            fullsymexpl: ["{(\\sourcesym,\\partysym,\\outsym)}"],
+            inner: ["{\\langle#1,#2\\rangle}", 2],
+            quovec: ["{f}"],
+            totconstraintmap: ["{K^{\\constraintlist,\\targetp}}"],
+            totconstraintmapelem: ["{K^{\\constraintname,\\targetp}}"],
+            quovecspace: ["{\\tilde{V}_{#1}^{\\constraintname,\\targetp}}", 1],
+            totquovecspace: ["{\\text{ConsSpace}(\\constraintlist,\\targetp)}"],
+            detdistr: ["{\\delta^{#1}}", 1],
+            margperm: ["{\\varphi}"],
+            altquovecembed: ["{\\text{G}_{#1}^{\\constraintname,\\targetp}}", 1],
+            vecset: ["{V_{#1}}", 1],
+            repr: ["{\\lfloor#1\\rfloor}", 1],
+            gid: ["{\\text{id}}"],
+            id: ["{1_{#1}}",1],
+            consscale: ["{K}"],
+            scaletot: ["{K_{\\text{tot}}^{\\constraintlist,\\targetp}}"],
+            minnorm: ["{d}"],
+            Bigsetst: ["\\;\\Big|\\;"],
+            activeset: ["\\mathcal{S}"],
+            conv: ["\\text{conv}"],
+            lVert: ["|\\hspace{-1pt}|"],
+            norm: ["\\lVert#1\\lVert", 1],
+            st: [":\ "],
+        }
+    }
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeDarkModeToggle.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeParagraphLink.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Fast Inflation
+   </div>
+   <div id="projectbrief">To certify causal incompatibility</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('marginal_8cpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">marginal.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="marginal_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &quot;<a class="code" href="marginal_8h.html">marginal.h</a>&quot;</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;../../util/debug.h&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;../../util/logger.h&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="dual__vector_8h.html">dual_vector.h</a>&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">// inf::Marginal::Permutation</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="structinf_1_1Marginal_1_1Permutation.html#a6cdeb9516539786cc6cb0a9f2e61b77e">    8</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="structinf_1_1Marginal_1_1Permutation.html#a6cdeb9516539786cc6cb0a9f2e61b77e">inf::Marginal::Permutation::operator&lt;</a>(<a class="code hl_struct" href="structinf_1_1Marginal_1_1Permutation.html">inf::Marginal::Permutation</a> <span class="keyword">const</span> &amp;other)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    <a class="code hl_define" href="group__debug.html#ga06663ee630c22628b3fe11700767367f">ASSERT_EQUAL</a>(<a class="code hl_variable" href="structinf_1_1Marginal_1_1Permutation.html#acae46a448523256144dec236a78fe678">outcome_sym</a>.<a class="code hl_function" href="classinf_1_1OutcomeSym.html#aac41fcd951bad0cf0f65966a86779255">get_bare_sym</a>().size(), other.<a class="code hl_variable" href="structinf_1_1Marginal_1_1Permutation.html#acae46a448523256144dec236a78fe678">outcome_sym</a>.<a class="code hl_function" href="classinf_1_1OutcomeSym.html#aac41fcd951bad0cf0f65966a86779255">get_bare_sym</a>().size())</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <a class="code hl_define" href="group__debug.html#ga06663ee630c22628b3fe11700767367f">ASSERT_EQUAL</a>(<a class="code hl_variable" href="structinf_1_1Marginal_1_1Permutation.html#a08cb238302c9d31556451d2f899ad80e">parties</a>.size(), other.<a class="code hl_variable" href="structinf_1_1Marginal_1_1Permutation.html#a08cb238302c9d31556451d2f899ad80e">parties</a>.size())</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="structinf_1_1Marginal_1_1Permutation.html#acae46a448523256144dec236a78fe678">outcome_sym</a> &lt; other.<a class="code hl_variable" href="structinf_1_1Marginal_1_1Permutation.html#acae46a448523256144dec236a78fe678">outcome_sym</a>)</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (other.<a class="code hl_variable" href="structinf_1_1Marginal_1_1Permutation.html#acae46a448523256144dec236a78fe678">outcome_sym</a> &lt; <a class="code hl_variable" href="structinf_1_1Marginal_1_1Permutation.html#acae46a448523256144dec236a78fe678">outcome_sym</a>)</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="structinf_1_1Marginal_1_1Permutation.html#a08cb238302c9d31556451d2f899ad80e">parties</a> &lt; other.<a class="code hl_variable" href="structinf_1_1Marginal_1_1Permutation.html#a08cb238302c9d31556451d2f899ad80e">parties</a>;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>}</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment">// inf::Marginal::Evaluator</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="classinf_1_1Marginal_1_1Evaluator.html#a872ac9712d4e8ef0cf054a73bb25701a">   22</a></span><a class="code hl_function" href="classinf_1_1Marginal_1_1Evaluator.html#a872ac9712d4e8ef0cf054a73bb25701a">inf::Marginal::Evaluator::Evaluator</a>(<a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> n_inflation_parties,</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>                                    <a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> n_marginal_parties,</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>                                    <a class="code hl_typedef" href="group__event.html#gadcaa27c4242b65837f0f7a00e96856d4">inf::Outcome</a> n_outcomes,</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>                                    <a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> n_marg_perms,</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>                                    <a class="code hl_typedef" href="classinf_1_1Marginal_1_1Evaluator.html#abd9c409c318159bb1fa8fa6cb25014d5">inf::Marginal::Evaluator::PartyToUpdateRules</a> <span class="keyword">const</span> &amp;party_to_update_rules)</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    : m_is_scalar_marginal(n_marginal_parties == 0),</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>      m_inflation_event(n_inflation_parties, <a class="code hl_namespace" href="namespaceinf.html">inf</a>::<a class="code hl_typedef" href="group__event.html#gadcaa27c4242b65837f0f7a00e96856d4">Outcome</a>(0)),</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>      m_n_marginal_parties(n_marginal_parties),</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>      m_n_outcomes(n_outcomes),</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>      m_marg_event_hashes(n_marg_perms, <a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a>(0)),</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>      m_party_to_update_rules(party_to_update_rules),</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>      m_dual_vector(nullptr),</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>      m_scale(nullptr) {}</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="classinf_1_1Marginal_1_1Evaluator.html#a18c2e870abf19b100675dbbe7e7e48f2">   36</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1Marginal_1_1Evaluator.html#a18c2e870abf19b100675dbbe7e7e48f2">inf::Marginal::Evaluator::set_dual_vector_reference</a>(<a class="code hl_class" href="classinf_1_1EventTensor.html">inf::EventTensor</a> <span class="keyword">const</span> *dual_vector) {</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <a class="code hl_define" href="group__debug.html#ga142a617ae6f4d3b050faad2aa1e936bf">ASSERT_TRUE</a>(m_dual_vector == <span class="keyword">nullptr</span>)</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <a class="code hl_define" href="group__debug.html#ga142a617ae6f4d3b050faad2aa1e936bf">ASSERT_TRUE</a>(dual_vector != <span class="keyword">nullptr</span>)</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <a class="code hl_define" href="group__debug.html#ga06663ee630c22628b3fe11700767367f">ASSERT_EQUAL</a>(dual_vector-&gt;<a class="code hl_function" href="classinf_1_1EventTensor.html#a083c4e6df59b5b74455e41d4e5435ab9">get_n_parties</a>(), m_n_marginal_parties)</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    m_dual_vector = dual_vector;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>}</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="classinf_1_1Marginal_1_1Evaluator.html#aadea64594c4b0ba818d773d6016b640f">   43</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1Marginal_1_1Evaluator.html#aadea64594c4b0ba818d773d6016b640f">inf::Marginal::Evaluator::set_scale_reference</a>(<a class="code hl_typedef" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a> <span class="keyword">const</span> *scale) {</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <a class="code hl_define" href="group__debug.html#ga142a617ae6f4d3b050faad2aa1e936bf">ASSERT_TRUE</a>(m_scale == <span class="keyword">nullptr</span>)</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <a class="code hl_define" href="group__debug.html#ga142a617ae6f4d3b050faad2aa1e936bf">ASSERT_TRUE</a>(scale != <span class="keyword">nullptr</span>)</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    m_scale = scale;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>}</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="classinf_1_1Marginal_1_1Evaluator.html#a91413cc46f861132ec5fc9255ae935c1">   49</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1Marginal_1_1Evaluator.html#a91413cc46f861132ec5fc9255ae935c1">inf::Marginal::Evaluator::set_outcome</a>(<a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <span class="keyword">const</span> inflation_party, <a class="code hl_typedef" href="group__event.html#gadcaa27c4242b65837f0f7a00e96856d4">inf::Outcome</a> <span class="keyword">const</span> outcome) {</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <a class="code hl_define" href="group__debug.html#ga60f45ee0c4949ef50243feb6fbb8a808">ASSERT_LT</a>(outcome, m_n_outcomes)</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <a class="code hl_define" href="group__debug.html#ga60f45ee0c4949ef50243feb6fbb8a808">ASSERT_LT</a>(inflation_party, m_inflation_event.size())</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="comment">// Don&#39;t do anything if the outcome is already set</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keywordflow">if</span> (m_is_scalar_marginal or outcome == m_inflation_event[inflation_party])</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keywordflow">for</span> (<a class="code hl_struct" href="structinf_1_1Marginal_1_1Evaluator_1_1UpdateRule.html">inf::Marginal::Evaluator::UpdateRule</a> <span class="keyword">const</span> &amp;update_rule : m_party_to_update_rules[inflation_party]) {</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        <a class="code hl_typedef" href="group__event.html#gadcaa27c4242b65837f0f7a00e96856d4">inf::Outcome</a> <span class="keyword">const</span> new_outcome = update_rule.inverse_outcome_sym[outcome];</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        <a class="code hl_typedef" href="group__event.html#gadcaa27c4242b65837f0f7a00e96856d4">inf::Outcome</a> <span class="keyword">const</span> old_outcome = update_rule.inverse_outcome_sym[m_inflation_event[inflation_party]];</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        m_marg_event_hashes[update_rule.marg_perm_index] += (new_outcome - old_outcome) * update_rule.party_weight;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    }</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    m_inflation_event[inflation_party] = outcome;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>}</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="classinf_1_1Marginal_1_1Evaluator.html#a459eca2e2d93334db322821e2e423a2a">   67</a></span><a class="code hl_typedef" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a> <a class="code hl_function" href="classinf_1_1Marginal_1_1Evaluator.html#a459eca2e2d93334db322821e2e423a2a">inf::Marginal::Evaluator::evaluate_dual_vector</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <a class="code hl_define" href="group__debug.html#ga142a617ae6f4d3b050faad2aa1e936bf">ASSERT_TRUE</a>(m_dual_vector != <span class="keyword">nullptr</span>)</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <a class="code hl_define" href="group__debug.html#ga142a617ae6f4d3b050faad2aa1e936bf">ASSERT_TRUE</a>(m_scale != <span class="keyword">nullptr</span>)</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <a class="code hl_typedef" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a> score = 0;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keywordflow">if</span> (m_is_scalar_marginal) {</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        score = m_dual_vector-&gt;get_num(0);</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        <span class="keywordflow">for</span> (<a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <span class="keyword">const</span> marg_event_hash : m_marg_event_hashes)</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>            score += m_dual_vector-&gt;get_num(marg_event_hash);</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    }</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="keywordflow">return</span> (*m_scale) * score;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>}</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="classinf_1_1Marginal_1_1Evaluator.html#a89c45a4d7f5ca9520c01dc27fb4d63a7">   83</a></span><a class="code hl_typedef" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> <span class="keyword">const</span> &amp;<a class="code hl_function" href="classinf_1_1Marginal_1_1Evaluator.html#a89c45a4d7f5ca9520c01dc27fb4d63a7">inf::Marginal::Evaluator::get_inflation_event</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="keywordflow">return</span> m_inflation_event;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>}</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="comment">// inf::Marginal::EvaluatorSet</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="classinf_1_1Marginal_1_1EvaluatorSet.html#a7bdde88908d9a2077ab7e4bf5dc62d45">   89</a></span><a class="code hl_function" href="classinf_1_1Marginal_1_1EvaluatorSet.html#a7bdde88908d9a2077ab7e4bf5dc62d45">inf::Marginal::EvaluatorSet::EvaluatorSet</a>(std::vector&lt;inf::Marginal::Evaluator&gt; <span class="keyword">const</span> &amp;evaluators)</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    : m_evaluators(evaluators) {}</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="classinf_1_1Marginal_1_1EvaluatorSet.html#a06abb5d86cacf69ef9a6c3d4f7ef3d17">   92</a></span><a class="code hl_typedef" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a> <a class="code hl_function" href="classinf_1_1Marginal_1_1EvaluatorSet.html#a06abb5d86cacf69ef9a6c3d4f7ef3d17">inf::Marginal::EvaluatorSet::evaluate_dual_vector</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <a class="code hl_typedef" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a> ret = 0;</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="keywordflow">for</span> (<a class="code hl_class" href="classinf_1_1Marginal_1_1Evaluator.html">inf::Marginal::Evaluator</a> <span class="keyword">const</span> &amp;evaluator : m_evaluators)</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        ret += evaluator.evaluate_dual_vector();</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <span class="keywordflow">return</span> ret;</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>}</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno"><a class="line" href="classinf_1_1Marginal_1_1EvaluatorSet.html#aa0b14f9afe283ed5f6961ac2a9acb4fb">  100</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1Marginal_1_1EvaluatorSet.html#aa0b14f9afe283ed5f6961ac2a9acb4fb">inf::Marginal::EvaluatorSet::set_outcome</a>(<a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <span class="keyword">const</span> inflation_party, <a class="code hl_typedef" href="group__event.html#gadcaa27c4242b65837f0f7a00e96856d4">inf::Outcome</a> <span class="keyword">const</span> outcome) {</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <span class="keywordflow">for</span> (<a class="code hl_class" href="classinf_1_1Marginal_1_1Evaluator.html">inf::Marginal::Evaluator</a> &amp;evaluator : m_evaluators)</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        evaluator.set_outcome(inflation_party, outcome);</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>}</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno"><a class="line" href="classinf_1_1Marginal_1_1EvaluatorSet.html#a689859760b784b00bfb66c931d517a05">  105</a></span><a class="code hl_typedef" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> <span class="keyword">const</span> &amp;<a class="code hl_function" href="classinf_1_1Marginal_1_1EvaluatorSet.html#a689859760b784b00bfb66c931d517a05">inf::Marginal::EvaluatorSet::get_inflation_event</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <span class="keywordflow">return</span> m_evaluators[0].get_inflation_event();</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>}</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="comment">// Marginal</span></div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno"><a class="line" href="classinf_1_1Marginal.html#a345d657d5e7d548a3a86055e41ac6003">  111</a></span><a class="code hl_function" href="classinf_1_1Marginal.html#a345d657d5e7d548a3a86055e41ac6003">inf::Marginal::Marginal</a>(<a class="code hl_typedef" href="classinf_1_1Inflation.html#ac594d5b8d7cbdd7cdfe569baa351f0ba">inf::Inflation::ConstPtr</a> <span class="keyword">const</span> &amp;inflation,</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>                        std::vector&lt;Index&gt; <span class="keyword">const</span> &amp;marginal_parties,</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>                        <a class="code hl_typedef" href="classinf_1_1Symmetry.html#a901d22b86ef5923b628db86fbdd7ba4f">inf::Symmetry::Group</a> <span class="keyword">const</span> &amp;constraint_group,</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>                        <a class="code hl_enumeration" href="classinf_1_1DualVector.html#a615feaafdbd4a08901a07ad60260d398">inf::DualVector::StoreBounds</a> store_bounds)</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    : <a class="code hl_variable" href="classinf_1_1Marginal.html#a0d95d3698445402673809004820ef23e">m_inflation</a>(inflation),</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>      <a class="code hl_variable" href="classinf_1_1Marginal.html#a1f6884af9e581379eb2699c425ed8aac">m_marginal_parties</a>(marginal_parties),</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>      <a class="code hl_variable" href="classinf_1_1Marginal.html#a2b519b731dc5398f0e454d5659194da8">m_store_bounds</a>(store_bounds),</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>      <a class="code hl_variable" href="classinf_1_1Marginal.html#a62d4f0c005020e47f23a959bf5c180a4">m_marginal_permutations</a>{},</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>      <a class="code hl_variable" href="classinf_1_1Marginal.html#ad337b170f4edaabbec648c45395bba5a">m_denom</a>(0), <span class="comment">// will be initialized in init_marginal_permutations()</span></div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>      <a class="code hl_variable" href="classinf_1_1Marginal.html#a622bd374c834ca6a0db5869ded1db45c">m_marginal_symmetries</a>{} {</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    <span class="comment">// The way we implement this class does not allow for repeated parties in the marginal</span></div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    {</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>        std::set&lt;Index&gt; <span class="keyword">const</span> marginal_parties_set(marginal_parties.begin(), marginal_parties.end());</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>        <a class="code hl_define" href="group__debug.html#ga69ff6a82935ddbd218bd4fbac9e5dd20">HARD_ASSERT_EQUAL</a>(marginal_parties_set.size(), marginal_parties.size())</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    }</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    <a class="code hl_function" href="classinf_1_1Marginal.html#a01725152746706b579097316f4459c4f">init_marginal_symmetries</a>(constraint_group);</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    <a class="code hl_function" href="classinf_1_1Marginal.html#ae2f8ed0e2ff4b9283ac8e07702abab11">init_marginal_permutations</a>();</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>}</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno"><a class="line" href="classinf_1_1Marginal.html#a1e3dce9bd2fea6f427eb865ab71781c6">  133</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1Marginal.html#a1e3dce9bd2fea6f427eb865ab71781c6">inf::Marginal::log</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    <a class="code hl_define" href="group__printing.html#ga54d0258a1e07ede5fe0ff00988dfb759">LOG_BEGIN_SECTION</a>(<span class="stringliteral">&quot;inf::Marginal&quot;</span>)</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    <a class="code hl_variable" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a></div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>        &lt;&lt; m_inflation-&gt;get_marginal_name(m_marginal_parties)</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>        &lt;&lt; <span class="stringliteral">&quot; = (&quot;</span> &lt;&lt; <a class="code hl_variable" href="group__printing.html#ga3f8fe48536ee19c54002c9c1db64cabb">util::cr</a>;</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span> </div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>    <span class="keywordtype">bool</span> first = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>    <span class="keywordflow">for</span> (<a class="code hl_struct" href="structinf_1_1Marginal_1_1Permutation.html">inf::Marginal::Permutation</a> <span class="keyword">const</span> &amp;marg_perm : m_marginal_permutations) {</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>        <span class="keywordflow">if</span> (first) {</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>            first = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>            <a class="code hl_variable" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a> &lt;&lt; <span class="stringliteral">&quot;      &quot;</span>;</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>            <a class="code hl_variable" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a> &lt;&lt; <span class="stringliteral">&quot;    + &quot;</span>;</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>        }</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>        <a class="code hl_variable" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a> &lt;&lt; marg_perm.outcome_sym &lt;&lt; <span class="stringliteral">&quot;^{-1} . &quot;</span> &lt;&lt; m_inflation-&gt;get_marginal_name(marg_perm.parties) &lt;&lt; <a class="code hl_variable" href="group__printing.html#ga3f8fe48536ee19c54002c9c1db64cabb">util::cr</a>;</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    }</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    <a class="code hl_variable" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a> &lt;&lt; <span class="stringliteral">&quot;) / &quot;</span> &lt;&lt; get_denom() &lt;&lt; <a class="code hl_variable" href="group__printing.html#ga3f8fe48536ee19c54002c9c1db64cabb">util::cr</a> &lt;&lt; <a class="code hl_variable" href="group__printing.html#ga3f8fe48536ee19c54002c9c1db64cabb">util::cr</a>;</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    <a class="code hl_define" href="group__printing.html#ga54d0258a1e07ede5fe0ff00988dfb759">LOG_BEGIN_SECTION</a>(<span class="stringliteral">&quot;Graphically&quot;</span>)</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    <a class="code hl_variable" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a> &lt;&lt; <a class="code hl_variable" href="group__printing.html#ga3f8fe48536ee19c54002c9c1db64cabb">util::cr</a>;</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    m_inflation-&gt;log_marginal(m_marginal_parties);</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    <a class="code hl_variable" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a> &lt;&lt; <a class="code hl_variable" href="group__printing.html#ga3f8fe48536ee19c54002c9c1db64cabb">util::cr</a> &lt;&lt; <span class="stringliteral">&quot;=&quot;</span> &lt;&lt; <a class="code hl_variable" href="group__printing.html#ga3f8fe48536ee19c54002c9c1db64cabb">util::cr</a> &lt;&lt; <a class="code hl_variable" href="group__printing.html#ga3f8fe48536ee19c54002c9c1db64cabb">util::cr</a>;</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span> </div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    <span class="keywordtype">bool</span> is_first = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    <span class="keywordflow">for</span> (<a class="code hl_struct" href="structinf_1_1Marginal_1_1Permutation.html">inf::Marginal::Permutation</a> <span class="keyword">const</span> &amp;marg_perm : m_marginal_permutations) {</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>        <span class="keywordflow">if</span> (not is_first) {</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>            <a class="code hl_variable" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a> &lt;&lt; <span class="stringliteral">&quot;+&quot;</span> &lt;&lt; <a class="code hl_variable" href="group__printing.html#ga3f8fe48536ee19c54002c9c1db64cabb">util::cr</a> &lt;&lt; <a class="code hl_variable" href="group__printing.html#ga3f8fe48536ee19c54002c9c1db64cabb">util::cr</a>;</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>            is_first = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>        }</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>        <a class="code hl_variable" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a> &lt;&lt; marg_perm.outcome_sym &lt;&lt; <span class="stringliteral">&quot;^{-1} . &quot;</span> &lt;&lt; <a class="code hl_variable" href="group__printing.html#ga3f8fe48536ee19c54002c9c1db64cabb">util::cr</a>;</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>        m_inflation-&gt;log_marginal(marg_perm.parties);</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>        <a class="code hl_variable" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a> &lt;&lt; <a class="code hl_variable" href="group__printing.html#ga3f8fe48536ee19c54002c9c1db64cabb">util::cr</a>;</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>    }</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span> </div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>    <a class="code hl_variable" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a> &lt;&lt; <span class="stringliteral">&quot;/ &quot;</span> &lt;&lt; get_denom() &lt;&lt; <a class="code hl_variable" href="group__printing.html#ga3f8fe48536ee19c54002c9c1db64cabb">util::cr</a>;</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span> </div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    <a class="code hl_define" href="group__printing.html#gaa993b7a93b54137d5d6c09ed1fac8b77">LOG_END_SECTION</a></div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span> </div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    <a class="code hl_define" href="group__printing.html#gaa993b7a93b54137d5d6c09ed1fac8b77">LOG_END_SECTION</a></div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>}</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span> </div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno"><a class="line" href="classinf_1_1Marginal.html#a7782b8d02b34b375829cb8d39011e719">  177</a></span><a class="code hl_typedef" href="classinf_1_1Inflation.html#ac594d5b8d7cbdd7cdfe569baa351f0ba">inf::Inflation::ConstPtr</a> <span class="keyword">const</span> &amp;<a class="code hl_function" href="classinf_1_1Marginal.html#a7782b8d02b34b375829cb8d39011e719">inf::Marginal::get_inflation</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>    <span class="keywordflow">return</span> m_inflation;</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>}</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span> </div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno"><a class="line" href="classinf_1_1Marginal.html#a4fba16c399db946da697b652c3ae0e59">  181</a></span>std::vector&lt;Index&gt; <span class="keyword">const</span> &amp;<a class="code hl_function" href="classinf_1_1Marginal.html#a4fba16c399db946da697b652c3ae0e59">inf::Marginal::get_parties</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>    <span class="keywordflow">return</span> m_marginal_parties;</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>}</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span> </div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno"><a class="line" href="classinf_1_1Marginal.html#a798e0ac6c05612a3812561722b45972a">  185</a></span><a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <a class="code hl_function" href="classinf_1_1Marginal.html#a798e0ac6c05612a3812561722b45972a">inf::Marginal::get_n_parties</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>    <span class="keywordflow">return</span> m_marginal_parties.size();</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>}</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span> </div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno"><a class="line" href="classinf_1_1Marginal.html#a1e66a798bf6d2e61d7f4730e7dbc0b9b">  189</a></span><a class="code hl_typedef" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a> <a class="code hl_function" href="classinf_1_1Marginal.html#a1e66a798bf6d2e61d7f4730e7dbc0b9b">inf::Marginal::get_denom</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>    <span class="keywordflow">return</span> m_denom;</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>}</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span> </div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno"><a class="line" href="classinf_1_1Marginal.html#a8ad525971896ac53bb4528868188dba3">  193</a></span>std::vector&lt;inf::Event&gt; <a class="code hl_function" href="classinf_1_1Marginal.html#a8ad525971896ac53bb4528868188dba3">inf::Marginal::extract_marg_perm_events</a>(<a class="code hl_typedef" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> <span class="keyword">const</span> &amp;inflation_event)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>    std::vector&lt;inf::Event&gt; marg_perm_events(m_marginal_permutations.size(), <a class="code hl_typedef" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a>(m_marginal_parties.size()));</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span> </div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>    <span class="keywordflow">for</span> (<a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <span class="keyword">const</span> i : <a class="code hl_class" href="classutil_1_1Range.html">util::Range</a>(m_marginal_permutations.size()))</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>        extract_marg_perm_event(inflation_event, m_marginal_permutations[i], marg_perm_events[i]);</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span> </div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>    <span class="keywordflow">return</span> marg_perm_events;</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>}</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span> </div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno"><a class="line" href="classinf_1_1Marginal.html#a01725152746706b579097316f4459c4f">  202</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1Marginal.html#a01725152746706b579097316f4459c4f">inf::Marginal::init_marginal_symmetries</a>(<a class="code hl_typedef" href="classinf_1_1Symmetry.html#a901d22b86ef5923b628db86fbdd7ba4f">inf::Symmetry::Group</a> <span class="keyword">const</span> &amp;constraint_group) {</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>    <a class="code hl_define" href="group__debug.html#ga06663ee630c22628b3fe11700767367f">ASSERT_EQUAL</a>(m_marginal_symmetries.size(), 0)</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>    <a class="code hl_define" href="group__debug.html#ga60f45ee0c4949ef50243feb6fbb8a808">ASSERT_LT</a>(0, constraint_group.size())</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span> </div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>    <span class="keywordflow">if</span> (m_marginal_parties.size() == 0)</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span> </div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>    <span class="comment">// These two are used to do the down-conversion</span></div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>    std::map&lt;Index, Index&gt; inf_to_marg_index;</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>    std::map&lt;Index, Index&gt; marg_to_inf_index;</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>    <span class="keywordflow">for</span> (<a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <span class="keyword">const</span> marg_party_index : <a class="code hl_class" href="classutil_1_1Range.html">util::Range</a>(get_n_parties())) {</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>        <a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <span class="keyword">const</span> inf_party_index = m_marginal_parties[marg_party_index];</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span> </div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>        inf_to_marg_index[inf_party_index] = marg_party_index;</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>        marg_to_inf_index[marg_party_index] = inf_party_index;</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>    }</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span> </div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>    <span class="keywordflow">for</span> (<a class="code hl_class" href="classinf_1_1Symmetry.html">inf::Symmetry</a> <span class="keyword">const</span> &amp;inf_sym : constraint_group) {</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span> </div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>        <a class="code hl_typedef" href="classinf_1_1PartySym.html#af091acc82f3033bf2ce9b180fb0e7c36">inf::PartySym::Bare</a> <span class="keyword">const</span> &amp;inf_party_sym = inf_sym.get_party_sym().get_bare_sym();</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>        <a class="code hl_typedef" href="classinf_1_1PartySym.html#af091acc82f3033bf2ce9b180fb0e7c36">inf::PartySym::Bare</a> marg_party_sym(get_n_parties(), 0);</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span> </div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>        <span class="keywordflow">for</span> (<a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <span class="keyword">const</span> marg_party_index : <a class="code hl_class" href="classutil_1_1Range.html">util::Range</a>(get_n_parties())) {</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>            marg_party_sym[marg_party_index] =</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>                <span class="comment">// inf to marg</span></div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>                inf_to_marg_index.at(</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>                    <span class="comment">// inf symmetry</span></div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>                    inf_party_sym[</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>                        <span class="comment">// marg to inf</span></div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>                        marg_to_inf_index.at(marg_party_index)]);</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>        }</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span> </div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>        <span class="comment">// Here expect that some symmetries will already be contained (because we only look at a sub-part of the inflation symmetry)</span></div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>        m_marginal_symmetries.insert(<a class="code hl_class" href="classinf_1_1Symmetry.html">inf::Symmetry</a>(<a class="code hl_class" href="classinf_1_1PartySym.html">inf::PartySym</a>(marg_party_sym), inf_sym.get_outcome_sym()));</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>    }</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>}</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span> </div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno"><a class="line" href="classinf_1_1Marginal.html#ae2f8ed0e2ff4b9283ac8e07702abab11">  239</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1Marginal.html#ae2f8ed0e2ff4b9283ac8e07702abab11">inf::Marginal::init_marginal_permutations</a>() {</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>    <a class="code hl_define" href="group__debug.html#ga06663ee630c22628b3fe11700767367f">ASSERT_EQUAL</a>(m_marginal_permutations.size(), 0)</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span> </div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>    <span class="keywordflow">if</span> (m_marginal_parties.size() == 0) {</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>        m_denom = 1;</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>    }</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span> </div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>    <span class="comment">// We expect some marginal permutations to be duplicate in the below loop (because some inflation symmetries</span></div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>    <span class="comment">// simply leave the marginal invariant), so we use a std::set to remove duplicates on the fly</span></div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>    std::set&lt;inf::Marginal::Permutation&gt; marg_perm_set;</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span> </div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>    <span class="comment">// We first need to find all the transformations (denoted marg_perm in the following)</span></div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>    <span class="comment">// under the inflation symmetries (\mathbb{G}^p) of the identity marginal permutation (id,id_A)</span></div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>    <span class="keywordflow">for</span> (<a class="code hl_class" href="classinf_1_1Symmetry.html">inf::Symmetry</a> <span class="keyword">const</span> &amp;inf_sym : m_inflation-&gt;get_inflation_symmetries()) {</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span> </div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>        std::vector&lt;Index&gt; transformed_marg_parties(get_n_parties(), 0);</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>        inf_sym.get_party_sym().act_entrywise(m_marginal_parties, transformed_marg_parties);</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>        <a class="code hl_struct" href="structinf_1_1Marginal_1_1Permutation.html">inf::Marginal::Permutation</a> <span class="keyword">const</span> marg_perm(inf_sym.get_outcome_sym(), transformed_marg_parties);</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span> </div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>        <span class="comment">// By default, marg_perm is a representative of its orbit under marginal symmetries</span></div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>        <span class="keywordtype">bool</span> is_representative = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span> </div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>        <span class="comment">// We now need to check if marg_perm is indeed a representative of its orbit</span></div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>        <span class="keywordflow">for</span> (<a class="code hl_class" href="classinf_1_1Symmetry.html">inf::Symmetry</a> <span class="keyword">const</span> &amp;marg_sym : m_marginal_symmetries) {</div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span> </div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>            <a class="code hl_class" href="classinf_1_1OutcomeSym.html">inf::OutcomeSym</a> <span class="keyword">const</span> other_outcome_sym = marg_perm.<a class="code hl_variable" href="structinf_1_1Marginal_1_1Permutation.html#acae46a448523256144dec236a78fe678">outcome_sym</a>.<a class="code hl_function" href="classinf_1_1OutcomeSym.html#a99e970dcecca9c7ed5391ffa2b0d3b24">get_composition_after</a>(marg_sym.get_outcome_sym().get_inverse());</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span> </div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>            std::vector&lt;Index&gt; other_marg_parties(get_n_parties(), 0);</div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>            marg_sym.get_party_sym().act_on_list(transformed_marg_parties, other_marg_parties);</div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span> </div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>            <a class="code hl_struct" href="structinf_1_1Marginal_1_1Permutation.html">inf::Marginal::Permutation</a> <span class="keyword">const</span> other_marg_perm(other_outcome_sym, other_marg_parties);</div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span> </div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>            <span class="keywordflow">if</span> (other_marg_perm &lt; marg_perm) {</div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>                is_representative = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>                <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>            }</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>        }</div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span> </div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>        <span class="keywordflow">if</span> (is_representative)</div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>            marg_perm_set.insert(marg_perm);</div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>    }</div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span> </div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>    m_marginal_permutations = std::vector&lt;inf::Marginal::Permutation&gt;(marg_perm_set.begin(), marg_perm_set.end());</div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>    m_denom = m_marginal_permutations.size();</div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>}</div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span> </div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno"><a class="line" href="classinf_1_1Marginal.html#a0a468c2f0f40845f86ab62ae0d5ad2f1">  286</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1Marginal.html#a0a468c2f0f40845f86ab62ae0d5ad2f1">inf::Marginal::extract_marg_perm_event</a>(<a class="code hl_typedef" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> <span class="keyword">const</span> &amp;inflation_event,</div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>                                            <a class="code hl_struct" href="structinf_1_1Marginal_1_1Permutation.html">inf::Marginal::Permutation</a> <span class="keyword">const</span> &amp;marg_perm,</div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>                                            <a class="code hl_typedef" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> &amp;dest)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>    <a class="code hl_define" href="group__debug.html#ga06663ee630c22628b3fe11700767367f">ASSERT_EQUAL</a>(inflation_event.size(), m_inflation-&gt;get_n_parties())</div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>    <a class="code hl_define" href="group__debug.html#ga06663ee630c22628b3fe11700767367f">ASSERT_EQUAL</a>(dest.size(), get_n_parties())</div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>    <a class="code hl_define" href="group__debug.html#ga142a617ae6f4d3b050faad2aa1e936bf">ASSERT_TRUE</a>(&amp;inflation_event != &amp;dest)</div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span> </div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>    <span class="keywordflow">for</span> (<a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> i : <a class="code hl_class" href="classutil_1_1Range.html">util::Range</a>(get_n_parties())) {</div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>        dest[i] = marg_perm.<a class="code hl_variable" href="structinf_1_1Marginal_1_1Permutation.html#acae46a448523256144dec236a78fe678">outcome_sym</a>.<a class="code hl_function" href="classinf_1_1OutcomeSym.html#a451e868cab36cb011beeeae8ef2aff2a">get_inverse_bare_sym</a>()[inflation_event[marg_perm.<a class="code hl_variable" href="structinf_1_1Marginal_1_1Permutation.html#a08cb238302c9d31556451d2f899ad80e">parties</a>[i]]];</div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>    }</div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>}</div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span> </div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno"><a class="line" href="classinf_1_1Marginal.html#a8340ff713c51f78dc89db1b2cbcfb4f0">  298</a></span><a class="code hl_typedef" href="classinf_1_1Symmetry.html#a901d22b86ef5923b628db86fbdd7ba4f">inf::Symmetry::Group</a> <span class="keyword">const</span> &amp;<a class="code hl_function" href="classinf_1_1Marginal.html#a8340ff713c51f78dc89db1b2cbcfb4f0">inf::Marginal::get_marginal_symmetries</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>    <span class="keywordflow">return</span> m_marginal_symmetries;</div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>}</div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span> </div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno"><a class="line" href="classinf_1_1Marginal.html#a6f1417e30dcc0fa984856347e70d7d35">  302</a></span><a class="code hl_enumeration" href="classinf_1_1DualVector.html#a615feaafdbd4a08901a07ad60260d398">inf::DualVector::StoreBounds</a> <a class="code hl_function" href="classinf_1_1Marginal.html#a6f1417e30dcc0fa984856347e70d7d35">inf::Marginal::get_store_bounds</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>    <span class="keywordflow">return</span> m_store_bounds;</div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>}</div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span> </div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno"><a class="line" href="classinf_1_1Marginal.html#a982a4a299187e7fc8590877f2ea58237">  306</a></span><a class="code hl_class" href="classinf_1_1Marginal_1_1Evaluator.html">inf::Marginal::Evaluator</a> <a class="code hl_function" href="classinf_1_1Marginal.html#a982a4a299187e7fc8590877f2ea58237">inf::Marginal::get_evaluator</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>    std::vector&lt;Index&gt; party_weights = <a class="code hl_function" href="classinf_1_1DualVector.html#a626a13e68bcabbf18efae5c8cd6f1567">inf::DualVector::compute_weights</a>(m_marginal_parties.size(),</div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>                                                                        m_inflation-&gt;get_network()-&gt;get_n_outcomes(),</div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>                                                                        m_store_bounds);</div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span> </div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>    <a class="code hl_typedef" href="classinf_1_1Marginal_1_1Evaluator.html#abd9c409c318159bb1fa8fa6cb25014d5">inf::Marginal::Evaluator::PartyToUpdateRules</a> party_to_update_rules{};</div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span> </div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span>    <span class="keywordflow">for</span> (<a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> inflation_party : <a class="code hl_class" href="classutil_1_1Range.html">util::Range</a>(m_inflation-&gt;get_n_parties())) {</div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>        party_to_update_rules.emplace_back();</div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>        <span class="comment">// The update rules of the inflation_party</span></div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>        <a class="code hl_typedef" href="classinf_1_1Marginal_1_1Evaluator.html#a8c28b9bd1083e10068c789fa36373bf0">inf::Marginal::Evaluator::UpdateRules</a> &amp;update_rules = party_to_update_rules.back();</div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span> </div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>        <span class="comment">// For each marginal permutation, we see if changing the outcome of the inflation_party</span></div>
+<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span>        <span class="comment">// would have an impact on the corresponding marginal-permutation-extract marginal event</span></div>
+<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span>        <span class="keywordflow">for</span> (<a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <span class="keyword">const</span> marg_perm_index : <a class="code hl_class" href="classutil_1_1Range.html">util::Range</a>(m_marginal_permutations.size())) {</div>
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span>            <a class="code hl_struct" href="structinf_1_1Marginal_1_1Permutation.html">inf::Marginal::Permutation</a> <span class="keyword">const</span> &amp;marg_perm = m_marginal_permutations[marg_perm_index];</div>
+<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span> </div>
+<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span>            <span class="keywordflow">for</span> (<a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <span class="keyword">const</span> marginal_party : <a class="code hl_class" href="classutil_1_1Range.html">util::Range</a>(get_n_parties())) {</div>
+<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span>                <span class="keywordflow">if</span> (marg_perm.<a class="code hl_variable" href="structinf_1_1Marginal_1_1Permutation.html#a08cb238302c9d31556451d2f899ad80e">parties</a>[marginal_party] == inflation_party) {</div>
+<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span>                    <a class="code hl_typedef" href="classinf_1_1OutcomeSym.html#ab2ea2b492f0abed73c61876c01c02e40">inf::OutcomeSym::Bare</a> outcome_sym = marg_perm.<a class="code hl_variable" href="structinf_1_1Marginal_1_1Permutation.html#acae46a448523256144dec236a78fe678">outcome_sym</a>.<a class="code hl_function" href="classinf_1_1OutcomeSym.html#a451e868cab36cb011beeeae8ef2aff2a">get_inverse_bare_sym</a>();</div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span>                    <span class="comment">// Need to extend the outcome symmetry to account for the unknown outcome,</span></div>
+<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span>                    <span class="comment">// which does not undergo any transformation when we swap outcomes</span></div>
+<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span>                    <span class="keywordflow">if</span> (m_store_bounds == <a class="code hl_enumvalue" href="classinf_1_1DualVector.html#a615feaafdbd4a08901a07ad60260d398aa6105c0a611b41b08f1209506350279e">inf::DualVector::StoreBounds::yes</a>)</div>
+<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span>                        outcome_sym.push_back(<span class="keyword">static_cast&lt;</span><a class="code hl_typedef" href="group__event.html#gadcaa27c4242b65837f0f7a00e96856d4">inf::Outcome</a><span class="keyword">&gt;</span>(outcome_sym.size()));</div>
+<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span> </div>
+<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span>                    <span class="comment">// Changing the outcome of the inflation event at position inflation_party</span></div>
+<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span>                    <span class="comment">// has an impact on the marg_perm-extract marginal event at position marginal_party</span></div>
+<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span>                    update_rules.emplace_back(marg_perm_index, outcome_sym, party_weights[marginal_party]);</div>
+<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span>                    <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span>                }</div>
+<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span>            }</div>
+<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>        }</div>
+<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span>    }</div>
+<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span> </div>
+<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span>    <span class="keywordflow">return</span> <a class="code hl_class" href="classinf_1_1Marginal_1_1Evaluator.html">inf::Marginal::Evaluator</a>(m_inflation-&gt;get_n_parties(),</div>
+<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span>                                    get_n_parties(),</div>
+<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>                                    <a class="code hl_function" href="classinf_1_1DualVector.html#a704636660183462ef8caaa6e10977461">inf::DualVector::get_outcomes_per_party</a>(m_inflation-&gt;get_network()-&gt;get_n_outcomes(), m_store_bounds),</div>
+<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span>                                    m_marginal_permutations.size(),</div>
+<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span>                                    party_to_update_rules);</div>
+<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span>}</div>
+<div class="ttc" id="aclassinf_1_1DualVector_html_a615feaafdbd4a08901a07ad60260d398"><div class="ttname"><a href="classinf_1_1DualVector.html#a615feaafdbd4a08901a07ad60260d398">inf::DualVector::StoreBounds</a></div><div class="ttdeci">StoreBounds</div><div class="ttdoc">This controls whether or not an inf::DualVector will store some bounds.</div><div class="ttdef"><b>Definition</b> <a href="dual__vector_8h_source.html#l00084">dual_vector.h:84</a></div></div>
+<div class="ttc" id="aclassinf_1_1DualVector_html_a615feaafdbd4a08901a07ad60260d398aa6105c0a611b41b08f1209506350279e"><div class="ttname"><a href="classinf_1_1DualVector.html#a615feaafdbd4a08901a07ad60260d398aa6105c0a611b41b08f1209506350279e">inf::DualVector::StoreBounds::yes</a></div><div class="ttdeci">@ yes</div><div class="ttdoc">Do store bounds, implies a slightly increased memory usage.</div></div>
+<div class="ttc" id="aclassinf_1_1DualVector_html_a626a13e68bcabbf18efae5c8cd6f1567"><div class="ttname"><a href="classinf_1_1DualVector.html#a626a13e68bcabbf18efae5c8cd6f1567">inf::DualVector::compute_weights</a></div><div class="ttdeci">static std::vector&lt; Index &gt; compute_weights(Index n_parties, inf::Outcome n_outcomes, inf::DualVector::StoreBounds store_bounds)</div><div class="ttdoc">This method calls inf::EventTensor::get_party_weights(), but increments n_outcomes by 1 if store_boun...</div><div class="ttdef"><b>Definition</b> <a href="dual__vector_8cpp_source.html#l00028">dual_vector.cpp:28</a></div></div>
+<div class="ttc" id="aclassinf_1_1DualVector_html_a704636660183462ef8caaa6e10977461"><div class="ttname"><a href="classinf_1_1DualVector.html#a704636660183462ef8caaa6e10977461">inf::DualVector::get_outcomes_per_party</a></div><div class="ttdeci">static inf::Outcome get_outcomes_per_party(inf::Outcome n_outcomes, inf::DualVector::StoreBounds store_bounds)</div><div class="ttdoc">This method returns n_outcomes+1 if store_bounds == inf::DualVector::StoreBounds::yes and n_outcomes ...</div><div class="ttdef"><b>Definition</b> <a href="dual__vector_8cpp_source.html#l00021">dual_vector.cpp:21</a></div></div>
+<div class="ttc" id="aclassinf_1_1EventTensor_html"><div class="ttname"><a href="classinf_1_1EventTensor.html">inf::EventTensor</a></div><div class="ttdoc">Stores a function from a set of inf::Event of fixed length to Num.</div><div class="ttdef"><b>Definition</b> <a href="event__tensor_8h_source.html#l00045">event_tensor.h:45</a></div></div>
+<div class="ttc" id="aclassinf_1_1EventTensor_html_a083c4e6df59b5b74455e41d4e5435ab9"><div class="ttname"><a href="classinf_1_1EventTensor.html#a083c4e6df59b5b74455e41d4e5435ab9">inf::EventTensor::get_n_parties</a></div><div class="ttdeci">Index get_n_parties() const</div><div class="ttdoc">The length of each inf::Event to which the inf::EventTensor assigns values.</div><div class="ttdef"><b>Definition</b> <a href="event__tensor_8cpp_source.html#l00182">event_tensor.cpp:182</a></div></div>
+<div class="ttc" id="aclassinf_1_1Inflation_html_ac594d5b8d7cbdd7cdfe569baa351f0ba"><div class="ttname"><a href="classinf_1_1Inflation.html#ac594d5b8d7cbdd7cdfe569baa351f0ba">inf::Inflation::ConstPtr</a></div><div class="ttdeci">std::shared_ptr&lt; const inf::Inflation &gt; ConstPtr</div><div class="ttdef"><b>Definition</b> <a href="inflation_8h_source.html#l00072">inflation.h:72</a></div></div>
+<div class="ttc" id="aclassinf_1_1Marginal_1_1EvaluatorSet_html_a06abb5d86cacf69ef9a6c3d4f7ef3d17"><div class="ttname"><a href="classinf_1_1Marginal_1_1EvaluatorSet.html#a06abb5d86cacf69ef9a6c3d4f7ef3d17">inf::Marginal::EvaluatorSet::evaluate_dual_vector</a></div><div class="ttdeci">Num evaluate_dual_vector() const</div><div class="ttdoc">This evaluates each internal inf::Marginal::Evaluator and returns the sum of their results.</div><div class="ttdef"><b>Definition</b> <a href="marginal_8cpp_source.html#l00092">marginal.cpp:92</a></div></div>
+<div class="ttc" id="aclassinf_1_1Marginal_1_1EvaluatorSet_html_a689859760b784b00bfb66c931d517a05"><div class="ttname"><a href="classinf_1_1Marginal_1_1EvaluatorSet.html#a689859760b784b00bfb66c931d517a05">inf::Marginal::EvaluatorSet::get_inflation_event</a></div><div class="ttdeci">inf::Event const &amp; get_inflation_event() const</div><div class="ttdoc">All internal inf::Marginal::Evaluator store the same underlying inflation event  which is returned he...</div><div class="ttdef"><b>Definition</b> <a href="marginal_8cpp_source.html#l00105">marginal.cpp:105</a></div></div>
+<div class="ttc" id="aclassinf_1_1Marginal_1_1EvaluatorSet_html_a7bdde88908d9a2077ab7e4bf5dc62d45"><div class="ttname"><a href="classinf_1_1Marginal_1_1EvaluatorSet.html#a7bdde88908d9a2077ab7e4bf5dc62d45">inf::Marginal::EvaluatorSet::EvaluatorSet</a></div><div class="ttdeci">EvaluatorSet(std::vector&lt; Evaluator &gt; const &amp;evaluators)</div><div class="ttdoc">Initialization with a list of inf::Marginal::Evaluator.</div><div class="ttdef"><b>Definition</b> <a href="marginal_8cpp_source.html#l00089">marginal.cpp:89</a></div></div>
+<div class="ttc" id="aclassinf_1_1Marginal_1_1EvaluatorSet_html_aa0b14f9afe283ed5f6961ac2a9acb4fb"><div class="ttname"><a href="classinf_1_1Marginal_1_1EvaluatorSet.html#aa0b14f9afe283ed5f6961ac2a9acb4fb">inf::Marginal::EvaluatorSet::set_outcome</a></div><div class="ttdeci">void set_outcome(Index const inflation_party, inf::Outcome const outcome)</div><div class="ttdoc">This sets the outcome of the specified inflation party for each internal inf::Marginal::Evaluator.</div><div class="ttdef"><b>Definition</b> <a href="marginal_8cpp_source.html#l00100">marginal.cpp:100</a></div></div>
+<div class="ttc" id="aclassinf_1_1Marginal_1_1Evaluator_html"><div class="ttname"><a href="classinf_1_1Marginal_1_1Evaluator.html">inf::Marginal::Evaluator</a></div><div class="ttdoc">This class contains minimal data allowing to perform the operations described in inf::Marginal.</div><div class="ttdef"><b>Definition</b> <a href="marginal_8h_source.html#l00068">marginal.h:68</a></div></div>
+<div class="ttc" id="aclassinf_1_1Marginal_1_1Evaluator_html_a18c2e870abf19b100675dbbe7e7e48f2"><div class="ttname"><a href="classinf_1_1Marginal_1_1Evaluator.html#a18c2e870abf19b100675dbbe7e7e48f2">inf::Marginal::Evaluator::set_dual_vector_reference</a></div><div class="ttdeci">void set_dual_vector_reference(inf::EventTensor const *dual_vector)</div><div class="ttdoc">This sets the reference  to be evaluated as described in inf::Marginal.</div><div class="ttdef"><b>Definition</b> <a href="marginal_8cpp_source.html#l00036">marginal.cpp:36</a></div></div>
+<div class="ttc" id="aclassinf_1_1Marginal_1_1Evaluator_html_a459eca2e2d93334db322821e2e423a2a"><div class="ttname"><a href="classinf_1_1Marginal_1_1Evaluator.html#a459eca2e2d93334db322821e2e423a2a">inf::Marginal::Evaluator::evaluate_dual_vector</a></div><div class="ttdeci">Num evaluate_dual_vector() const</div><div class="ttdoc">Evaluates the dual vector  (passed to inf::Marginal::Evaluator::set_dual_vector_reference()) as descr...</div><div class="ttdef"><b>Definition</b> <a href="marginal_8cpp_source.html#l00067">marginal.cpp:67</a></div></div>
+<div class="ttc" id="aclassinf_1_1Marginal_1_1Evaluator_html_a872ac9712d4e8ef0cf054a73bb25701a"><div class="ttname"><a href="classinf_1_1Marginal_1_1Evaluator.html#a872ac9712d4e8ef0cf054a73bb25701a">inf::Marginal::Evaluator::Evaluator</a></div><div class="ttdeci">Evaluator(Index n_inflation_parties, Index n_marginal_parties, inf::Outcome n_outcomes, Index n_marg_perms, inf::Marginal::Evaluator::PartyToUpdateRules const &amp;party_to_update_rules)</div><div class="ttdoc">Initializing an inf::Marginal::Evaluator consists mostly of passing it the adequate inf::Marginal::Ev...</div><div class="ttdef"><b>Definition</b> <a href="marginal_8cpp_source.html#l00022">marginal.cpp:22</a></div></div>
+<div class="ttc" id="aclassinf_1_1Marginal_1_1Evaluator_html_a89c45a4d7f5ca9520c01dc27fb4d63a7"><div class="ttname"><a href="classinf_1_1Marginal_1_1Evaluator.html#a89c45a4d7f5ca9520c01dc27fb4d63a7">inf::Marginal::Evaluator::get_inflation_event</a></div><div class="ttdeci">inf::Event const &amp; get_inflation_event() const</div><div class="ttdoc">This allows to retrieve the underlying inflation event , this is useful for retrieving the optimal in...</div><div class="ttdef"><b>Definition</b> <a href="marginal_8cpp_source.html#l00083">marginal.cpp:83</a></div></div>
+<div class="ttc" id="aclassinf_1_1Marginal_1_1Evaluator_html_a8c28b9bd1083e10068c789fa36373bf0"><div class="ttname"><a href="classinf_1_1Marginal_1_1Evaluator.html#a8c28b9bd1083e10068c789fa36373bf0">inf::Marginal::Evaluator::UpdateRules</a></div><div class="ttdeci">std::vector&lt; inf::Marginal::Evaluator::UpdateRule &gt; UpdateRules</div><div class="ttdoc">Changing the outcome of an inflation party typically implies to modify several of the marginal events...</div><div class="ttdef"><b>Definition</b> <a href="marginal_8h_source.html#l00091">marginal.h:91</a></div></div>
+<div class="ttc" id="aclassinf_1_1Marginal_1_1Evaluator_html_a91413cc46f861132ec5fc9255ae935c1"><div class="ttname"><a href="classinf_1_1Marginal_1_1Evaluator.html#a91413cc46f861132ec5fc9255ae935c1">inf::Marginal::Evaluator::set_outcome</a></div><div class="ttdeci">void set_outcome(Index const inflation_party, inf::Outcome const outcome)</div><div class="ttdoc">This modifies one outcome of the underlying inflation event  as described in inf::Marginal::Evaluator...</div><div class="ttdef"><b>Definition</b> <a href="marginal_8cpp_source.html#l00049">marginal.cpp:49</a></div></div>
+<div class="ttc" id="aclassinf_1_1Marginal_1_1Evaluator_html_aadea64594c4b0ba818d773d6016b640f"><div class="ttname"><a href="classinf_1_1Marginal_1_1Evaluator.html#aadea64594c4b0ba818d773d6016b640f">inf::Marginal::Evaluator::set_scale_reference</a></div><div class="ttdeci">void set_scale_reference(Num const *scale)</div><div class="ttdoc">This sets the reference scale  that will be multiplied to the result of the evaluation described in i...</div><div class="ttdef"><b>Definition</b> <a href="marginal_8cpp_source.html#l00043">marginal.cpp:43</a></div></div>
+<div class="ttc" id="aclassinf_1_1Marginal_1_1Evaluator_html_abd9c409c318159bb1fa8fa6cb25014d5"><div class="ttname"><a href="classinf_1_1Marginal_1_1Evaluator.html#abd9c409c318159bb1fa8fa6cb25014d5">inf::Marginal::Evaluator::PartyToUpdateRules</a></div><div class="ttdeci">std::vector&lt; inf::Marginal::Evaluator::UpdateRules &gt; PartyToUpdateRules</div><div class="ttdoc">Each inflation party is associated to its own update rules, see inf::Marginal::Evaluator::UpdateRules...</div><div class="ttdef"><b>Definition</b> <a href="marginal_8h_source.html#l00094">marginal.h:94</a></div></div>
+<div class="ttc" id="aclassinf_1_1Marginal_html_a01725152746706b579097316f4459c4f"><div class="ttname"><a href="classinf_1_1Marginal.html#a01725152746706b579097316f4459c4f">inf::Marginal::init_marginal_symmetries</a></div><div class="ttdeci">void init_marginal_symmetries(inf::Symmetry::Group const &amp;constraint_group)</div><div class="ttdoc">This initializes m_marginal_symmetries</div><div class="ttdef"><b>Definition</b> <a href="marginal_8cpp_source.html#l00202">marginal.cpp:202</a></div></div>
+<div class="ttc" id="aclassinf_1_1Marginal_html_a0a468c2f0f40845f86ab62ae0d5ad2f1"><div class="ttname"><a href="classinf_1_1Marginal.html#a0a468c2f0f40845f86ab62ae0d5ad2f1">inf::Marginal::extract_marg_perm_event</a></div><div class="ttdeci">void extract_marg_perm_event(inf::Event const &amp;inflation_event, inf::Marginal::Permutation const &amp;marg_perm, inf::Event &amp;dest) const</div><div class="ttdoc">Extract the marginal event  from the inflation event  based on the marginal permutation .</div><div class="ttdef"><b>Definition</b> <a href="marginal_8cpp_source.html#l00286">marginal.cpp:286</a></div></div>
+<div class="ttc" id="aclassinf_1_1Marginal_html_a0d95d3698445402673809004820ef23e"><div class="ttname"><a href="classinf_1_1Marginal.html#a0d95d3698445402673809004820ef23e">inf::Marginal::m_inflation</a></div><div class="ttdeci">const inf::Inflation::ConstPtr m_inflation</div><div class="ttdoc">The underlying inflation.</div><div class="ttdef"><b>Definition</b> <a href="marginal_8h_source.html#l00257">marginal.h:257</a></div></div>
+<div class="ttc" id="aclassinf_1_1Marginal_html_a1e3dce9bd2fea6f427eb865ab71781c6"><div class="ttname"><a href="classinf_1_1Marginal.html#a1e3dce9bd2fea6f427eb865ab71781c6">inf::Marginal::log</a></div><div class="ttdeci">void log() const override</div><div class="ttdoc">This prints the object to the globally accessible util::logger and allows the util::logger &lt;&lt; loggabl...</div><div class="ttdef"><b>Definition</b> <a href="marginal_8cpp_source.html#l00133">marginal.cpp:133</a></div></div>
+<div class="ttc" id="aclassinf_1_1Marginal_html_a1e66a798bf6d2e61d7f4730e7dbc0b9b"><div class="ttname"><a href="classinf_1_1Marginal.html#a1e66a798bf6d2e61d7f4730e7dbc0b9b">inf::Marginal::get_denom</a></div><div class="ttdeci">Num get_denom() const</div><div class="ttdoc">This returns the number  of relevant marginal permutations, unless we are dealing with a trivial marg...</div><div class="ttdef"><b>Definition</b> <a href="marginal_8cpp_source.html#l00189">marginal.cpp:189</a></div></div>
+<div class="ttc" id="aclassinf_1_1Marginal_html_a1f6884af9e581379eb2699c425ed8aac"><div class="ttname"><a href="classinf_1_1Marginal.html#a1f6884af9e581379eb2699c425ed8aac">inf::Marginal::m_marginal_parties</a></div><div class="ttdeci">const std::vector&lt; Index &gt; m_marginal_parties</div><div class="ttdoc">Returns the set  as inflation indices (see inf::Inflation::get_party_index())</div><div class="ttdef"><b>Definition</b> <a href="marginal_8h_source.html#l00260">marginal.h:260</a></div></div>
+<div class="ttc" id="aclassinf_1_1Marginal_html_a2b519b731dc5398f0e454d5659194da8"><div class="ttname"><a href="classinf_1_1Marginal.html#a2b519b731dc5398f0e454d5659194da8">inf::Marginal::m_store_bounds</a></div><div class="ttdeci">const inf::DualVector::StoreBounds m_store_bounds</div><div class="ttdoc">This specifies whether or not this inf::Marginal expects to evaluate a dual vector (stored as inf::Ev...</div><div class="ttdef"><b>Definition</b> <a href="marginal_8h_source.html#l00264">marginal.h:264</a></div></div>
+<div class="ttc" id="aclassinf_1_1Marginal_html_a345d657d5e7d548a3a86055e41ac6003"><div class="ttname"><a href="classinf_1_1Marginal.html#a345d657d5e7d548a3a86055e41ac6003">inf::Marginal::Marginal</a></div><div class="ttdeci">Marginal(inf::Inflation::ConstPtr const &amp;inflation, std::vector&lt; Index &gt; const &amp;marginal_parties, inf::Symmetry::Group const &amp;constraint_group, inf::DualVector::StoreBounds store_bounds)</div><div class="ttdoc">Initialize with an inf::Inflation and a set of inflation party  essentially.</div><div class="ttdef"><b>Definition</b> <a href="marginal_8cpp_source.html#l00111">marginal.cpp:111</a></div></div>
+<div class="ttc" id="aclassinf_1_1Marginal_html_a4fba16c399db946da697b652c3ae0e59"><div class="ttname"><a href="classinf_1_1Marginal.html#a4fba16c399db946da697b652c3ae0e59">inf::Marginal::get_parties</a></div><div class="ttdeci">std::vector&lt; Index &gt; const &amp; get_parties() const</div><div class="ttdoc">Returns the set , stored in m_marginal_parties, as inflation indices (see inf::Inflation::get_party_i...</div><div class="ttdef"><b>Definition</b> <a href="marginal_8cpp_source.html#l00181">marginal.cpp:181</a></div></div>
+<div class="ttc" id="aclassinf_1_1Marginal_html_a622bd374c834ca6a0db5869ded1db45c"><div class="ttname"><a href="classinf_1_1Marginal.html#a622bd374c834ca6a0db5869ded1db45c">inf::Marginal::m_marginal_symmetries</a></div><div class="ttdeci">inf::Symmetry::Group m_marginal_symmetries</div><div class="ttdoc">This stores , i.e., the constraint symmetries with inf::PartySym acting on the marginal parties only.</div><div class="ttdef"><b>Definition</b> <a href="marginal_8h_source.html#l00277">marginal.h:277</a></div></div>
+<div class="ttc" id="aclassinf_1_1Marginal_html_a62d4f0c005020e47f23a959bf5c180a4"><div class="ttname"><a href="classinf_1_1Marginal.html#a62d4f0c005020e47f23a959bf5c180a4">inf::Marginal::m_marginal_permutations</a></div><div class="ttdeci">std::vector&lt; inf::Marginal::Permutation &gt; m_marginal_permutations</div><div class="ttdoc">This is the set , the reduced set (relative to the constraint symmetries  stored in m_marginal_symmet...</div><div class="ttdef"><b>Definition</b> <a href="marginal_8h_source.html#l00268">marginal.h:268</a></div></div>
+<div class="ttc" id="aclassinf_1_1Marginal_html_a6f1417e30dcc0fa984856347e70d7d35"><div class="ttname"><a href="classinf_1_1Marginal.html#a6f1417e30dcc0fa984856347e70d7d35">inf::Marginal::get_store_bounds</a></div><div class="ttdeci">inf::DualVector::StoreBounds get_store_bounds() const</div><div class="ttdoc">This specifies whether or not this inf::Marginal expects to evaluate a dual vector (stored as inf::Ev...</div><div class="ttdef"><b>Definition</b> <a href="marginal_8cpp_source.html#l00302">marginal.cpp:302</a></div></div>
+<div class="ttc" id="aclassinf_1_1Marginal_html_a7782b8d02b34b375829cb8d39011e719"><div class="ttname"><a href="classinf_1_1Marginal.html#a7782b8d02b34b375829cb8d39011e719">inf::Marginal::get_inflation</a></div><div class="ttdeci">inf::Inflation::ConstPtr const &amp; get_inflation() const</div><div class="ttdoc">Returns the underlying inflation.</div><div class="ttdef"><b>Definition</b> <a href="marginal_8cpp_source.html#l00177">marginal.cpp:177</a></div></div>
+<div class="ttc" id="aclassinf_1_1Marginal_html_a798e0ac6c05612a3812561722b45972a"><div class="ttname"><a href="classinf_1_1Marginal.html#a798e0ac6c05612a3812561722b45972a">inf::Marginal::get_n_parties</a></div><div class="ttdeci">Index get_n_parties() const</div><div class="ttdoc">Returns the size  of inflation parties, i.e., m_marginal_parties.size()</div><div class="ttdef"><b>Definition</b> <a href="marginal_8cpp_source.html#l00185">marginal.cpp:185</a></div></div>
+<div class="ttc" id="aclassinf_1_1Marginal_html_a8340ff713c51f78dc89db1b2cbcfb4f0"><div class="ttname"><a href="classinf_1_1Marginal.html#a8340ff713c51f78dc89db1b2cbcfb4f0">inf::Marginal::get_marginal_symmetries</a></div><div class="ttdeci">inf::Symmetry::Group const &amp; get_marginal_symmetries() const</div><div class="ttdoc">The symmetries of the marginal, i.e., a representation of the group  passed in the constructor.</div><div class="ttdef"><b>Definition</b> <a href="marginal_8cpp_source.html#l00298">marginal.cpp:298</a></div></div>
+<div class="ttc" id="aclassinf_1_1Marginal_html_a8ad525971896ac53bb4528868188dba3"><div class="ttname"><a href="classinf_1_1Marginal.html#a8ad525971896ac53bb4528868188dba3">inf::Marginal::extract_marg_perm_events</a></div><div class="ttdeci">std::vector&lt; inf::Event &gt; extract_marg_perm_events(inf::Event const &amp;inflation_event) const</div><div class="ttdoc">Extract the set of marginal events  from the inflation event  for all marginal permutations .</div><div class="ttdef"><b>Definition</b> <a href="marginal_8cpp_source.html#l00193">marginal.cpp:193</a></div></div>
+<div class="ttc" id="aclassinf_1_1Marginal_html_a982a4a299187e7fc8590877f2ea58237"><div class="ttname"><a href="classinf_1_1Marginal.html#a982a4a299187e7fc8590877f2ea58237">inf::Marginal::get_evaluator</a></div><div class="ttdeci">inf::Marginal::Evaluator get_evaluator() const</div><div class="ttdoc">This initializes and returns an adequate inf::Marginal::Evaluator.</div><div class="ttdef"><b>Definition</b> <a href="marginal_8cpp_source.html#l00306">marginal.cpp:306</a></div></div>
+<div class="ttc" id="aclassinf_1_1Marginal_html_ad337b170f4edaabbec648c45395bba5a"><div class="ttname"><a href="classinf_1_1Marginal.html#ad337b170f4edaabbec648c45395bba5a">inf::Marginal::m_denom</a></div><div class="ttdeci">Num m_denom</div><div class="ttdoc">The denominator is either m_marginal_permutations.size() or simply 1 if the inf::Marginal is empty/tr...</div><div class="ttdef"><b>Definition</b> <a href="marginal_8h_source.html#l00274">marginal.h:274</a></div></div>
+<div class="ttc" id="aclassinf_1_1Marginal_html_ae2f8ed0e2ff4b9283ac8e07702abab11"><div class="ttname"><a href="classinf_1_1Marginal.html#ae2f8ed0e2ff4b9283ac8e07702abab11">inf::Marginal::init_marginal_permutations</a></div><div class="ttdeci">void init_marginal_permutations()</div><div class="ttdoc">This initializes m_marginal_permutations</div><div class="ttdef"><b>Definition</b> <a href="marginal_8cpp_source.html#l00239">marginal.cpp:239</a></div></div>
+<div class="ttc" id="aclassinf_1_1OutcomeSym_html"><div class="ttname"><a href="classinf_1_1OutcomeSym.html">inf::OutcomeSym</a></div><div class="ttdoc">Outcome symmetry.</div><div class="ttdef"><b>Definition</b> <a href="outcome__sym_8h_source.html#l00021">outcome_sym.h:21</a></div></div>
+<div class="ttc" id="aclassinf_1_1OutcomeSym_html_a451e868cab36cb011beeeae8ef2aff2a"><div class="ttname"><a href="classinf_1_1OutcomeSym.html#a451e868cab36cb011beeeae8ef2aff2a">inf::OutcomeSym::get_inverse_bare_sym</a></div><div class="ttdeci">inf::OutcomeSym::Bare const &amp; get_inverse_bare_sym() const</div><div class="ttdoc">Returns the inverse permutation's image (computed once upon construction), i.e., .</div><div class="ttdef"><b>Definition</b> <a href="outcome__sym_8h_source.html#l00052">outcome_sym.h:52</a></div></div>
+<div class="ttc" id="aclassinf_1_1OutcomeSym_html_a99e970dcecca9c7ed5391ffa2b0d3b24"><div class="ttname"><a href="classinf_1_1OutcomeSym.html#a99e970dcecca9c7ed5391ffa2b0d3b24">inf::OutcomeSym::get_composition_after</a></div><div class="ttdeci">inf::OutcomeSym get_composition_after(inf::OutcomeSym const &amp;other) const</div><div class="ttdoc">The composition .</div><div class="ttdef"><b>Definition</b> <a href="outcome__sym_8cpp_source.html#l00023">outcome_sym.cpp:23</a></div></div>
+<div class="ttc" id="aclassinf_1_1OutcomeSym_html_aac41fcd951bad0cf0f65966a86779255"><div class="ttname"><a href="classinf_1_1OutcomeSym.html#aac41fcd951bad0cf0f65966a86779255">inf::OutcomeSym::get_bare_sym</a></div><div class="ttdeci">inf::OutcomeSym::Bare const &amp; get_bare_sym() const</div><div class="ttdoc">Get access to the underlying raw permutation.</div><div class="ttdef"><b>Definition</b> <a href="outcome__sym_8h_source.html#l00050">outcome_sym.h:50</a></div></div>
+<div class="ttc" id="aclassinf_1_1OutcomeSym_html_ab2ea2b492f0abed73c61876c01c02e40"><div class="ttname"><a href="classinf_1_1OutcomeSym.html#ab2ea2b492f0abed73c61876c01c02e40">inf::OutcomeSym::Bare</a></div><div class="ttdeci">std::vector&lt; inf::Outcome &gt; Bare</div><div class="ttdoc">The image of the symmetry , where  is the number of outcomes.</div><div class="ttdef"><b>Definition</b> <a href="outcome__sym_8h_source.html#l00024">outcome_sym.h:24</a></div></div>
+<div class="ttc" id="aclassinf_1_1PartySym_html"><div class="ttname"><a href="classinf_1_1PartySym.html">inf::PartySym</a></div><div class="ttdoc">Party symmetry.</div><div class="ttdef"><b>Definition</b> <a href="party__sym_8h_source.html#l00017">party_sym.h:17</a></div></div>
+<div class="ttc" id="aclassinf_1_1PartySym_html_af091acc82f3033bf2ce9b180fb0e7c36"><div class="ttname"><a href="classinf_1_1PartySym.html#af091acc82f3033bf2ce9b180fb0e7c36">inf::PartySym::Bare</a></div><div class="ttdeci">std::vector&lt; Index &gt; Bare</div><div class="ttdoc">The image of the permutation, .</div><div class="ttdef"><b>Definition</b> <a href="party__sym_8h_source.html#l00020">party_sym.h:20</a></div></div>
+<div class="ttc" id="aclassinf_1_1Symmetry_html"><div class="ttname"><a href="classinf_1_1Symmetry.html">inf::Symmetry</a></div><div class="ttdoc">A pair of party symmetry and outcome symmetry.</div><div class="ttdef"><b>Definition</b> <a href="symmetry_8h_source.html#l00027">symmetry.h:27</a></div></div>
+<div class="ttc" id="aclassinf_1_1Symmetry_html_a901d22b86ef5923b628db86fbdd7ba4f"><div class="ttname"><a href="classinf_1_1Symmetry.html#a901d22b86ef5923b628db86fbdd7ba4f">inf::Symmetry::Group</a></div><div class="ttdeci">std::set&lt; inf::Symmetry &gt; Group</div><div class="ttdoc">A set of symmetries, typically a group.</div><div class="ttdef"><b>Definition</b> <a href="symmetry_8h_source.html#l00037">symmetry.h:37</a></div></div>
+<div class="ttc" id="aclassutil_1_1Range_html"><div class="ttname"><a href="classutil_1_1Range.html">util::Range</a></div><div class="ttdoc">Iterating over a finite integer range.</div><div class="ttdef"><b>Definition</b> <a href="range_8h_source.html#l00131">range.h:131</a></div></div>
+<div class="ttc" id="adual__vector_8h_html"><div class="ttname"><a href="dual__vector_8h.html">dual_vector.h</a></div></div>
+<div class="ttc" id="agroup__debug_html_ga06663ee630c22628b3fe11700767367f"><div class="ttname"><a href="group__debug.html#ga06663ee630c22628b3fe11700767367f">ASSERT_EQUAL</a></div><div class="ttdeci">#define ASSERT_EQUAL(X, Y)</div><div class="ttdoc">Soft assertion, tests for X == Y</div><div class="ttdef"><b>Definition</b> <a href="debug_8h_source.html#l00137">debug.h:137</a></div></div>
+<div class="ttc" id="agroup__debug_html_ga142a617ae6f4d3b050faad2aa1e936bf"><div class="ttname"><a href="group__debug.html#ga142a617ae6f4d3b050faad2aa1e936bf">ASSERT_TRUE</a></div><div class="ttdeci">#define ASSERT_TRUE(X)</div><div class="ttdoc">Soft assertion, tests for X being true.</div><div class="ttdef"><b>Definition</b> <a href="debug_8h_source.html#l00140">debug.h:140</a></div></div>
+<div class="ttc" id="agroup__debug_html_ga60f45ee0c4949ef50243feb6fbb8a808"><div class="ttname"><a href="group__debug.html#ga60f45ee0c4949ef50243feb6fbb8a808">ASSERT_LT</a></div><div class="ttdeci">#define ASSERT_LT(X, Y)</div><div class="ttdoc">Soft assertion, tests for X &lt; Y</div><div class="ttdef"><b>Definition</b> <a href="debug_8h_source.html#l00143">debug.h:143</a></div></div>
+<div class="ttc" id="agroup__debug_html_ga69ff6a82935ddbd218bd4fbac9e5dd20"><div class="ttname"><a href="group__debug.html#ga69ff6a82935ddbd218bd4fbac9e5dd20">HARD_ASSERT_EQUAL</a></div><div class="ttdeci">#define HARD_ASSERT_EQUAL(X, Y)</div><div class="ttdoc">Hard assertion, tests for X == Y and calls THROW_ERROR else.</div><div class="ttdef"><b>Definition</b> <a href="debug_8h_source.html#l00097">debug.h:97</a></div></div>
+<div class="ttc" id="agroup__event_html_gac60a6fcdfce02dc13eb7364d6a2b56b0"><div class="ttname"><a href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a></div><div class="ttdeci">std::vector&lt; inf::Outcome &gt; Event</div><div class="ttdoc">A list of inf::Outcome. Conceptually, this plays the role of  for some set .</div><div class="ttdef"><b>Definition</b> <a href="event_8h_source.html#l00030">event.h:30</a></div></div>
+<div class="ttc" id="agroup__event_html_gadcaa27c4242b65837f0f7a00e96856d4"><div class="ttname"><a href="group__event.html#gadcaa27c4242b65837f0f7a00e96856d4">inf::Outcome</a></div><div class="ttdeci">uint8_t Outcome</div><div class="ttdoc">An outcome is stored in the smallest format available to save memory.</div><div class="ttdef"><b>Definition</b> <a href="event_8h_source.html#l00026">event.h:26</a></div></div>
+<div class="ttc" id="agroup__printing_html_ga3f8fe48536ee19c54002c9c1db64cabb"><div class="ttname"><a href="group__printing.html#ga3f8fe48536ee19c54002c9c1db64cabb">util::cr</a></div><div class="ttdeci">constexpr util::Logger::Action cr</div><div class="ttdoc">Newline.</div><div class="ttdef"><b>Definition</b> <a href="logger_8h_source.html#l00197">logger.h:197</a></div></div>
+<div class="ttc" id="agroup__printing_html_ga4c77d1dedfe3a5b95abc21d13d7cd678"><div class="ttname"><a href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a></div><div class="ttdeci">util::Logger logger</div><div class="ttdoc">The globally accessible logger replacing std::cout</div></div>
+<div class="ttc" id="agroup__printing_html_ga54d0258a1e07ede5fe0ff00988dfb759"><div class="ttname"><a href="group__printing.html#ga54d0258a1e07ede5fe0ff00988dfb759">LOG_BEGIN_SECTION</a></div><div class="ttdeci">#define LOG_BEGIN_SECTION(X)</div><div class="ttdoc">Shorthand to create a section with header X.</div><div class="ttdef"><b>Definition</b> <a href="logger_8h_source.html#l00277">logger.h:277</a></div></div>
+<div class="ttc" id="agroup__printing_html_gaa993b7a93b54137d5d6c09ed1fac8b77"><div class="ttname"><a href="group__printing.html#gaa993b7a93b54137d5d6c09ed1fac8b77">LOG_END_SECTION</a></div><div class="ttdeci">#define LOG_END_SECTION</div><div class="ttdoc">Shorthand for util::logger &lt;&lt; util::end_section, to match the LOG_BEGIN_SECTION(X) syntax.</div><div class="ttdef"><b>Definition</b> <a href="logger_8h_source.html#l00287">logger.h:287</a></div></div>
+<div class="ttc" id="agroup__util_html_ga77731aedac326062ffbdcf367185a07e"><div class="ttname"><a href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a></div><div class="ttdeci">uint64_t Index</div><div class="ttdoc">Use for anything meant to be used as an index.</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00019">types.h:19</a></div></div>
+<div class="ttc" id="agroup__util_html_gaea24f8b468377784fdb704692e9168f5"><div class="ttname"><a href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a></div><div class="ttdeci">int64_t Num</div><div class="ttdoc">Signed integers.</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00015">types.h:15</a></div></div>
+<div class="ttc" id="amarginal_8h_html"><div class="ttname"><a href="marginal_8h.html">marginal.h</a></div></div>
+<div class="ttc" id="anamespaceinf_html"><div class="ttname"><a href="namespaceinf.html">inf</a></div><div class="ttdoc">The namespace for the inflation code.</div><div class="ttdef"><b>Definition</b> <a href="constraint_8h_source.html#l00006">constraint.h:6</a></div></div>
+<div class="ttc" id="astructinf_1_1Marginal_1_1Evaluator_1_1UpdateRule_html"><div class="ttname"><a href="structinf_1_1Marginal_1_1Evaluator_1_1UpdateRule.html">inf::Marginal::Evaluator::UpdateRule</a></div><div class="ttdoc">An update rule is implicitly associated to an inflation party and specifies what to do when the outco...</div><div class="ttdef"><b>Definition</b> <a href="marginal_8h_source.html#l00080">marginal.h:80</a></div></div>
+<div class="ttc" id="astructinf_1_1Marginal_1_1Permutation_html"><div class="ttname"><a href="structinf_1_1Marginal_1_1Permutation.html">inf::Marginal::Permutation</a></div><div class="ttdoc">This describes a marginal permutation  with  an outcome permutation and .</div><div class="ttdef"><b>Definition</b> <a href="marginal_8h_source.html#l00044">marginal.h:44</a></div></div>
+<div class="ttc" id="astructinf_1_1Marginal_1_1Permutation_html_a08cb238302c9d31556451d2f899ad80e"><div class="ttname"><a href="structinf_1_1Marginal_1_1Permutation.html#a08cb238302c9d31556451d2f899ad80e">inf::Marginal::Permutation::parties</a></div><div class="ttdeci">std::vector&lt; Index &gt; parties</div><div class="ttdoc">The party map .</div><div class="ttdef"><b>Definition</b> <a href="marginal_8h_source.html#l00048">marginal.h:48</a></div></div>
+<div class="ttc" id="astructinf_1_1Marginal_1_1Permutation_html_a6cdeb9516539786cc6cb0a9f2e61b77e"><div class="ttname"><a href="structinf_1_1Marginal_1_1Permutation.html#a6cdeb9516539786cc6cb0a9f2e61b77e">inf::Marginal::Permutation::operator&lt;</a></div><div class="ttdeci">bool operator&lt;(inf::Marginal::Permutation const &amp;other) const</div><div class="ttdoc">This provides the ordering necessary to extract representatives out of orbits of marginal permutation...</div><div class="ttdef"><b>Definition</b> <a href="marginal_8cpp_source.html#l00008">marginal.cpp:8</a></div></div>
+<div class="ttc" id="astructinf_1_1Marginal_1_1Permutation_html_acae46a448523256144dec236a78fe678"><div class="ttname"><a href="structinf_1_1Marginal_1_1Permutation.html#acae46a448523256144dec236a78fe678">inf::Marginal::Permutation::outcome_sym</a></div><div class="ttdeci">inf::OutcomeSym outcome_sym</div><div class="ttdoc">The outcome symmetry .</div><div class="ttdef"><b>Definition</b> <a href="marginal_8h_source.html#l00046">marginal.h:46</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_0f453feda2a303bb77c09f5934c109df.html">inf</a></li><li class="navelem"><a class="el" href="dir_70aecdc092d65e330aa359045744aeda.html">constraints</a></li><li class="navelem"><a class="el" href="marginal_8cpp.html">marginal.cpp</a></li>
+    <li class="footer">Generated on Wed Dec 18 2024 17:39:35 for Fast Inflation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

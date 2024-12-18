@@ -1,0 +1,382 @@
+<!-- HTML header for doxygen 1.9.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Fast Inflation: src/inf/inf_problem/inflation.h Source File</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+MathJax.Hub.Config({
+    TeX: {
+        Macros: {
+            dd: ["{\\text{d}#1\\,}",1],
+            nouts: ["{n_{\\text{o}}}"],
+            ints: ["{[\\![#1]\\!]}",1],
+            outset: ["{\\ints{\\nouts}}"],
+            N: ["{\\mathbb{N}}"],
+            R: ["{\\mathbb{R}}"],
+            Z: ["{\\mathbb{Z}}"],
+            infsize: ["{z}"],
+            infparties: ["{\\set{I}}"],
+            infsources: ["{\\set{S}}"],
+            infmarg: ["{\\set{A}}"],
+            infmargg: ["{\\set{B}}"],
+            netparties: ["{\\set{N}}"],
+            infq: ["{q}"],
+            infqs: ["{\\Delta_{\\infparties}}"],
+            constraintlist: ["{\\mathcal{C}}"],
+            injsets: ["{\\text{InjSets}}"],
+            infconstraints: ["{\\text{InfCons}}"],
+            parents: ["{\\text{Par}}"],
+            targetp: ["{p}"],
+            targetps: ["{\\Delta_{\\netparties}}"],
+            set: ["{\\mathbf{#1}}",1],
+            type: ["{t}"],
+            infevent: "{\\omega}",
+            events: ["{\\Omega_{#1}}",1],
+            infevents: ["{\\events{\\infparties}}"],
+            redinfevents: ["{\\tilde{\\Omega}_{\\infparties}}"],
+            netevents: ["{\\events{\\netparties}}"],
+            vecset: ["{V_{#1}}",1],
+            alice: ["{\\text{A}}"],
+            bob: ["{\\text{B}}"],
+            charlie: ["{\\text{C}}"],
+            symgroup: ["{\\text{Sym}(#1)}",1],
+            shortsymgroup: ["{\\text{Sym}_{#1}}",1],
+            act: ["{(#1\\hspace{2pt}{:}\\hspace{2pt}#2)}",2],
+            actt: ["{[#1\\hspace{2pt}{:}\\hspace{2pt}#2]}",2],
+            margperms: ["{\\text{Perm}_{#1}}",1],
+            permutedmargs: ["{\\mathbb{P}_{#1}^{\\targetp}}",1],
+            redpermutedmargs: ["{\\tilde{\\mathbb{P}}_{#1}^{\\constraintname,\\targetp}}",1],
+            extract: ["{\\text{ext}(#1,#2)}",2],
+            partysym: ["{\\tau}"],
+            sourcesym: ["{\\xi}"],
+            outsym: ["{\\sigma}"],
+            fullgroup: ["{\\text{InfGrp}}"],
+            partygroup : ["{\\text{PartyGrp}}"],
+            outgroup: ["{\\text{OutGrp}}"],
+            sourcegroup: ["{\\text{SrcGrp}}"],
+            distrgroup: ["{\\mathbb{G}^\\targetp}"],
+            constraintname: ["{c}"],
+            marggroup: ["{\\mathbb{G}^{\\constraintname,\\targetp}}"],
+            fullsymexpl: ["{(\\sourcesym,\\partysym,\\outsym)}"],
+            inner: ["{\\langle#1,#2\\rangle}", 2],
+            quovec: ["{f}"],
+            totconstraintmap: ["{K^{\\constraintlist,\\targetp}}"],
+            totconstraintmapelem: ["{K^{\\constraintname,\\targetp}}"],
+            quovecspace: ["{\\tilde{V}_{#1}^{\\constraintname,\\targetp}}", 1],
+            totquovecspace: ["{\\text{ConsSpace}(\\constraintlist,\\targetp)}"],
+            detdistr: ["{\\delta^{#1}}", 1],
+            margperm: ["{\\varphi}"],
+            altquovecembed: ["{\\text{G}_{#1}^{\\constraintname,\\targetp}}", 1],
+            vecset: ["{V_{#1}}", 1],
+            repr: ["{\\lfloor#1\\rfloor}", 1],
+            gid: ["{\\text{id}}"],
+            id: ["{1_{#1}}",1],
+            consscale: ["{K}"],
+            scaletot: ["{K_{\\text{tot}}^{\\constraintlist,\\targetp}}"],
+            minnorm: ["{d}"],
+            Bigsetst: ["\\;\\Big|\\;"],
+            activeset: ["\\mathcal{S}"],
+            conv: ["\\text{conv}"],
+            lVert: ["|\\hspace{-1pt}|"],
+            norm: ["\\lVert#1\\lVert", 1],
+            st: [":\ "],
+        }
+    }
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeDarkModeToggle.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeParagraphLink.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Fast Inflation
+   </div>
+   <div id="projectbrief">To certify causal incompatibility</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('inflation_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">inflation.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="inflation_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;../../util/rand.h&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;../events/event_tree.h&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="target__distr_8h.html">target_distr.h</a>&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceinf.html">inf</a> {</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="classinf_1_1Inflation.html">   51</a></span><span class="keyword">class </span><a class="code hl_class" href="classinf_1_1Inflation.html">Inflation</a> : <span class="keyword">public</span> <a class="code hl_class" href="classutil_1_1Loggable.html">util::Loggable</a> {</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="comment">// Types</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="classinf_1_1Inflation.html#a57ece19f95d615f84f8fdf24af698a52">   56</a></span>    <span class="keyword">typedef</span> std::vector&lt;Index&gt; <a class="code hl_typedef" href="classinf_1_1Inflation.html#a57ece19f95d615f84f8fdf24af698a52">Sources</a>;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="classinf_1_1Inflation.html#ada371f0e56db6c2fa76d01e809805bd6">   58</a></span>    <span class="keyword">typedef</span> std::vector&lt;Index&gt; <a class="code hl_typedef" href="classinf_1_1Inflation.html#ada371f0e56db6c2fa76d01e809805bd6">Size</a>;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="classinf_1_1Inflation.html#a7c8ea56bc938131a6d4d101469a34644">   66</a></span>    <span class="keyword">typedef</span> std::pair&lt;Index, inf::Inflation::Sources&gt; <a class="code hl_typedef" href="classinf_1_1Inflation.html#a7c8ea56bc938131a6d4d101469a34644">Party</a>;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="classinf_1_1Inflation.html#af62dfca96fd10d483e797cde63152c48">   70</a></span>    <span class="keyword">typedef</span> std::pair&lt;Index, Index&gt; <a class="code hl_typedef" href="classinf_1_1Inflation.html#af62dfca96fd10d483e797cde63152c48">Source</a>;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="classinf_1_1Inflation.html#ac594d5b8d7cbdd7cdfe569baa351f0ba">   72</a></span>    <span class="keyword">typedef</span> std::shared_ptr&lt;const inf::Inflation&gt; <a class="code hl_typedef" href="classinf_1_1Inflation.html#ac594d5b8d7cbdd7cdfe569baa351f0ba">ConstPtr</a>;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="classinf_1_1Inflation.html#a50fe835aad42c372d72a1bde3a74df5c">   83</a></span>    <span class="keyword">enum class</span> <a class="code hl_enumeration" href="classinf_1_1Inflation.html#a50fe835aad42c372d72a1bde3a74df5c">UseDistrSymmetries</a> {</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        <a class="code hl_enumvalue" href="classinf_1_1Inflation.html#a50fe835aad42c372d72a1bde3a74df5caa6105c0a611b41b08f1209506350279e">yes</a>, </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        <a class="code hl_enumvalue" href="classinf_1_1Inflation.html#a50fe835aad42c372d72a1bde3a74df5ca7fa3b767c460b54a2be4d49030b349c7">no</a>   </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    };</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1Inflation.html#ab6c93bcc485b54a479b2e2218b6a58fa">log</a>(<a class="code hl_enumeration" href="classinf_1_1Inflation.html#a50fe835aad42c372d72a1bde3a74df5c">inf::Inflation::UseDistrSymmetries</a> use_distr_symmetries);</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <a class="code hl_class" href="classinf_1_1Inflation.html">Inflation</a>(<a class="code hl_typedef" href="classinf_1_1TargetDistr.html#a75d7c59680325e198e85d02d673e4abe">inf::TargetDistr::ConstPtr</a> <span class="keyword">const</span> &amp;target_distr,</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>              <a class="code hl_typedef" href="classinf_1_1Inflation.html#ada371f0e56db6c2fa76d01e809805bd6">inf::Inflation::Size</a> <span class="keyword">const</span> &amp;size,</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>              <a class="code hl_enumeration" href="classinf_1_1Inflation.html#a50fe835aad42c372d72a1bde3a74df5c">inf::Inflation::UseDistrSymmetries</a> use_distr_symmetries = <a class="code hl_enumvalue" href="classinf_1_1Inflation.html#a50fe835aad42c372d72a1bde3a74df5caa6105c0a611b41b08f1209506350279e">inf::Inflation::UseDistrSymmetries::yes</a>);</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <a class="code hl_class" href="classinf_1_1Inflation.html">Inflation</a>(<a class="code hl_class" href="classinf_1_1Inflation.html">inf::Inflation</a> <span class="keyword">const</span> &amp;other) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <a class="code hl_class" href="classinf_1_1Inflation.html">Inflation</a>(<a class="code hl_class" href="classinf_1_1Inflation.html">inf::Inflation</a> &amp;&amp;other) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <a class="code hl_class" href="classinf_1_1Inflation.html">inf::Inflation</a> &amp;operator=(<a class="code hl_class" href="classinf_1_1Inflation.html">inf::Inflation</a> <span class="keyword">const</span> &amp;other) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <a class="code hl_class" href="classinf_1_1Inflation.html">inf::Inflation</a> &amp;operator=(<a class="code hl_class" href="classinf_1_1Inflation.html">inf::Inflation</a> &amp;&amp;other) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <span class="comment">// String stuff</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    std::string <a class="code hl_function" href="classinf_1_1Inflation.html#a480b5232d163f5c922c397e6150b6d7d">get_metadata</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    std::string <a class="code hl_function" href="classinf_1_1Inflation.html#a4378708d36afcc6d7d425a74ef58f3de">get_symtree_filename</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1Inflation.html#ab6c93bcc485b54a479b2e2218b6a58fa">log</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1Inflation.html#ac0b2b985f65c5eca7eaee7e3be5505b1">log_event</a>(<a class="code hl_typedef" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> <span class="keyword">const</span> &amp;event) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    std::string <a class="code hl_function" href="classinf_1_1Inflation.html#aadcbae3cd3db6df435eb7805814b6016">get_marginal_name</a>(std::vector&lt;Index&gt; <span class="keyword">const</span> &amp;marginal) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1Inflation.html#a09016b474fd94b50e989bc429685f44d">log_marginal</a>(std::vector&lt;Index&gt; <span class="keyword">const</span> &amp;marginal) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1Inflation.html#a51266d9e388a9cbc78559968b0577ecc">log_event_strings</a>(std::vector&lt;std::string&gt; <span class="keyword">const</span> &amp;event) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    <span class="comment">// Getters</span></div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno"><a class="line" href="classinf_1_1Inflation.html#ad61b8a72fecf20cc46683e1dda987723">  131</a></span>    <a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <a class="code hl_function" href="classinf_1_1Inflation.html#ad61b8a72fecf20cc46683e1dda987723">get_n_parties</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classinf_1_1Inflation.html#a26eb83295c67419f8095e495ba0272c0">m_n_parties</a>; }</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    <a class="code hl_typedef" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> <a class="code hl_function" href="classinf_1_1Inflation.html#a32432dd6f580704381870c1fe1130414">get_all_zero_event</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    <a class="code hl_typedef" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> <a class="code hl_function" href="classinf_1_1Inflation.html#a06295a6f01f49ed4bc4fae1311fdbfec">get_all_unknown_event</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    <a class="code hl_typedef" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> <a class="code hl_function" href="classinf_1_1Inflation.html#a32061ba93f28896fb44687627d4b1686">get_random_event</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>    <a class="code hl_class" href="classutil_1_1ProductRange.html">inf::EventRange</a> <a class="code hl_function" href="classinf_1_1Inflation.html#a9c9908ad1e0a6558f49a4b249504110e">get_event_range</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    <a class="code hl_class" href="classutil_1_1ProductRange.html">util::ProductRange&lt;Index&gt;</a> <a class="code hl_function" href="classinf_1_1Inflation.html#a4145134df29127ee233a867756d3837b">get_all_source_range</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    std::vector&lt;inf::Inflation::Party&gt; <a class="code hl_function" href="classinf_1_1Inflation.html#a7c079c8da261a25734e6cab9d5fc0c9d">get_parties</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    <a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <a class="code hl_function" href="classinf_1_1Inflation.html#a0d2407cc5082ef3b67f7a42f6874c11a">get_party_index</a>(<a class="code hl_typedef" href="classinf_1_1Inflation.html#a7c8ea56bc938131a6d4d101469a34644">inf::Inflation::Party</a> <span class="keyword">const</span> &amp;party) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    <a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <a class="code hl_function" href="classinf_1_1Inflation.html#a0d2407cc5082ef3b67f7a42f6874c11a">get_party_index</a>(std::string <span class="keyword">const</span> &amp;party) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    std::string <span class="keyword">const</span> &amp;<a class="code hl_function" href="classinf_1_1Inflation.html#a62461fa7b393d783854cd36eff0256dc">get_party_name</a>(<a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> party) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classinf_1_1Inflation.html#ab910ef44df901fad1db88a0b74fe86cc">is_valid_party_name</a>(std::string <span class="keyword">const</span> &amp;party) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>    <a class="code hl_typedef" href="classinf_1_1Inflation.html#ada371f0e56db6c2fa76d01e809805bd6">inf::Inflation::Size</a> <span class="keyword">const</span> &amp;<a class="code hl_function" href="classinf_1_1Inflation.html#ac279522d5aeb62ae47931f50460506df">get_size</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>    <a class="code hl_typedef" href="classinf_1_1Network.html#a4e586db6e1ab9f11335ed74f25ea0aee">inf::Network::ConstPtr</a> <span class="keyword">const</span> &amp;<a class="code hl_function" href="classinf_1_1Inflation.html#a21c23e5d5df7102da0aaa0d61be38252">get_network</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>    <a class="code hl_typedef" href="classinf_1_1Symmetry.html#a901d22b86ef5923b628db86fbdd7ba4f">inf::Symmetry::Group</a> <span class="keyword">const</span> &amp;<a class="code hl_function" href="classinf_1_1Inflation.html#abfa6a2b7897bb9f1d3c406a864e9acdf">get_inflation_symmetries</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classinf_1_1Inflation.html#a3ebc98ce3622aab2af77a57d3304f42d">has_symmetries_compatible_with</a>(<a class="code hl_class" href="classinf_1_1TargetDistr.html">inf::TargetDistr</a> <span class="keyword">const</span> &amp;d) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>    std::vector&lt;inf::PartySym&gt; <span class="keyword">const</span> &amp;<a class="code hl_function" href="classinf_1_1Inflation.html#adafb5bd85ab90b64099716d59c104b2e">get_source_induced_syms</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span> </div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>    <a class="code hl_class" href="classinf_1_1PartySym.html">inf::PartySym</a> <a class="code hl_function" href="classinf_1_1Inflation.html#a80e1780db201f1db2acad489752d4dc3">source_sym_to_party_sym</a>(std::vector&lt;std::vector&lt;Index&gt;&gt; <span class="keyword">const</span> &amp;perm_sources) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>    <a class="code hl_class" href="classinf_1_1PartySym.html">inf::PartySym</a> <a class="code hl_function" href="classinf_1_1Inflation.html#aeedce892606eb0b693e54e2aa970c035">network_party_to_inf_party_sym</a>(<a class="code hl_class" href="classinf_1_1PartySym.html">inf::PartySym</a> <span class="keyword">const</span> &amp;network_party_sym) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span> </div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>    <a class="code hl_class" href="classinf_1_1EventTree.html">inf::EventTree</a> <span class="keyword">const</span> &amp;<a class="code hl_function" href="classinf_1_1Inflation.html#abe439ba40d0dc8c9c2fa3310cdf14461">get_symtree</a>(<a class="code hl_enumeration" href="classinf_1_1EventTree.html#a3fc302d7a899deaf35f6138a7bcbe67c">inf::EventTree::IO</a> io) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span> </div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>    <span class="comment">// For inflation constraints</span></div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span> </div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classinf_1_1Inflation.html#a674f66415d6e861f3860f85cfd205822">are_d_separated</a>(std::vector&lt;Index&gt; <span class="keyword">const</span> &amp;marg_1, std::vector&lt;Index&gt; <span class="keyword">const</span> &amp;marg_2) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span> </div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>    std::set&lt;inf::Inflation::Source&gt; <a class="code hl_function" href="classinf_1_1Inflation.html#a9becf774e1ef740f16345a9a30be336e">get_parents</a>(std::vector&lt;Index&gt; <span class="keyword">const</span> &amp;marg) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span> </div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classinf_1_1Inflation.html#ad283d1cc29f0cd8e4338e1022a0e6b3c">is_injectable_set</a>(std::vector&lt;Index&gt; <span class="keyword">const</span> &amp;marg) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span> </div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>  <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno"><a class="line" href="classinf_1_1Inflation.html#a270394afb79b5d4888232d7ac5425139">  227</a></span>    <a class="code hl_typedef" href="classinf_1_1TargetDistr.html#a75d7c59680325e198e85d02d673e4abe">inf::TargetDistr::ConstPtr</a> <span class="keyword">const</span> <a class="code hl_variable" href="classinf_1_1Inflation.html#a270394afb79b5d4888232d7ac5425139">m_target_distr</a>;</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno"><a class="line" href="classinf_1_1Inflation.html#a146b9539935f13bcfc61f32af0d21cdd">  229</a></span>    <a class="code hl_typedef" href="classinf_1_1Inflation.html#ada371f0e56db6c2fa76d01e809805bd6">inf::Inflation::Size</a> <span class="keyword">const</span> <a class="code hl_variable" href="classinf_1_1Inflation.html#a146b9539935f13bcfc61f32af0d21cdd">m_size</a>;</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno"><a class="line" href="classinf_1_1Inflation.html#a4d7f1820b16101accad4813a01e36d47">  231</a></span>    <a class="code hl_enumeration" href="classinf_1_1Inflation.html#a50fe835aad42c372d72a1bde3a74df5c">inf::Inflation::UseDistrSymmetries</a> <span class="keyword">const</span> <a class="code hl_variable" href="classinf_1_1Inflation.html#a4d7f1820b16101accad4813a01e36d47">m_use_distr_symmetries</a>;</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span> </div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno"><a class="line" href="classinf_1_1Inflation.html#a1d646e2a74f9d46086eeffdc6a0340f0">  234</a></span>    std::vector&lt;inf::Inflation::Party&gt; <a class="code hl_variable" href="classinf_1_1Inflation.html#a1d646e2a74f9d46086eeffdc6a0340f0">m_parties</a>;</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno"><a class="line" href="classinf_1_1Inflation.html#a1da3095bcec5ac25281d08ca25ed346a">  236</a></span>    std::map&lt;inf::Inflation::Party, Index&gt; <a class="code hl_variable" href="classinf_1_1Inflation.html#a1da3095bcec5ac25281d08ca25ed346a">m_party_map</a>;</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno"><a class="line" href="classinf_1_1Inflation.html#a6750c255213ba91ca6a72fa589532084">  238</a></span>    std::map&lt;std::string, Index&gt; <a class="code hl_variable" href="classinf_1_1Inflation.html#a6750c255213ba91ca6a72fa589532084">m_name_map</a>;</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno"><a class="line" href="classinf_1_1Inflation.html#a34c7add257d1d66199860734bb6ca42f">  240</a></span>    std::vector&lt;std::string&gt; <a class="code hl_variable" href="classinf_1_1Inflation.html#a34c7add257d1d66199860734bb6ca42f">m_party_names</a>;</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1Inflation.html#a78404beb483480bcfc13eedca5ac200e">init_parties</a>();</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span> </div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno"><a class="line" href="classinf_1_1Inflation.html#a076e7a062963f0dac7662a6da2ec7c05">  245</a></span>    std::vector&lt;inf::PartySym&gt; <a class="code hl_variable" href="classinf_1_1Inflation.html#a076e7a062963f0dac7662a6da2ec7c05">m_source_induced_syms</a>;</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1Inflation.html#aa881476f7cd18cd6d5281b532804688c">init_source_induced_syms</a>();</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span> </div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno"><a class="line" href="classinf_1_1Inflation.html#acfc4c83503297dd55886c44df1a61296">  251</a></span>    <a class="code hl_typedef" href="classinf_1_1Symmetry.html#a901d22b86ef5923b628db86fbdd7ba4f">inf::Symmetry::Group</a> <a class="code hl_variable" href="classinf_1_1Inflation.html#acfc4c83503297dd55886c44df1a61296">m_inflation_symmetries</a>;</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1Inflation.html#a782464bbfeaa51894fa1b313365f4dc7">init_inflation_symmetries</a>(<a class="code hl_typedef" href="classinf_1_1Symmetry.html#a901d22b86ef5923b628db86fbdd7ba4f">inf::Symmetry::Group</a> <span class="keyword">const</span> &amp;distribution_sym_group);</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>    <span class="keyword">static</span> <a class="code hl_typedef" href="classinf_1_1Symmetry.html#a901d22b86ef5923b628db86fbdd7ba4f">inf::Symmetry::Group</a> <a class="code hl_function" href="classinf_1_1Inflation.html#a218f153524927c095bff199beb02535e">get_applicable_symmetries</a>(<a class="code hl_typedef" href="classinf_1_1Symmetry.html#a901d22b86ef5923b628db86fbdd7ba4f">inf::Symmetry::Group</a> <span class="keyword">const</span> &amp;distribution_sym_group,</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>                                                          <a class="code hl_typedef" href="classinf_1_1Inflation.html#ada371f0e56db6c2fa76d01e809805bd6">inf::Inflation::Size</a> <span class="keyword">const</span> &amp;size);</div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno"><a class="line" href="classinf_1_1Inflation.html#a26eb83295c67419f8095e495ba0272c0">  264</a></span>    <a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <a class="code hl_variable" href="classinf_1_1Inflation.html#a26eb83295c67419f8095e495ba0272c0">m_n_parties</a>;</div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span> </div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno"><a class="line" href="classinf_1_1Inflation.html#ad18a3f973c2ac6748bae88779b9fb9f1">  269</a></span>    <span class="keyword">mutable</span> <a class="code hl_typedef" href="classinf_1_1EventTree.html#a70c8d92a720e28d0a90d72d97f4258a2">inf::EventTree::UniquePtr</a> <a class="code hl_variable" href="classinf_1_1Inflation.html#ad18a3f973c2ac6748bae88779b9fb9f1">m_symtree</a>;</div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span> </div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno"><a class="line" href="classinf_1_1Inflation.html#a87e99e18d46ca656e99e4188b76a49d6">  275</a></span>    <span class="keyword">mutable</span> <a class="code hl_class" href="classutil_1_1RNG.html">util::RNG&lt;inf::Outcome&gt;</a> <a class="code hl_variable" href="classinf_1_1Inflation.html#a87e99e18d46ca656e99e4188b76a49d6">m_rng</a>;</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>};</div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span> </div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>} <span class="comment">// namespace inf</span></div>
+<div class="ttc" id="aclassinf_1_1EventTree_html"><div class="ttname"><a href="classinf_1_1EventTree.html">inf::EventTree</a></div><div class="ttdoc">Storing a set of inf::Event as a tree.</div><div class="ttdef"><b>Definition</b> <a href="event__tree_8h_source.html#l00107">event_tree.h:107</a></div></div>
+<div class="ttc" id="aclassinf_1_1EventTree_html_a3fc302d7a899deaf35f6138a7bcbe67c"><div class="ttname"><a href="classinf_1_1EventTree.html#a3fc302d7a899deaf35f6138a7bcbe67c">inf::EventTree::IO</a></div><div class="ttdeci">IO</div><div class="ttdoc">An inf::EventTree can take some time to initialize, and this option is used to control whether an inf...</div><div class="ttdef"><b>Definition</b> <a href="event__tree_8h_source.html#l00111">event_tree.h:111</a></div></div>
+<div class="ttc" id="aclassinf_1_1EventTree_html_a70c8d92a720e28d0a90d72d97f4258a2"><div class="ttname"><a href="classinf_1_1EventTree.html#a70c8d92a720e28d0a90d72d97f4258a2">inf::EventTree::UniquePtr</a></div><div class="ttdeci">std::unique_ptr&lt; inf::EventTree &gt; UniquePtr</div><div class="ttdef"><b>Definition</b> <a href="event__tree_8h_source.html#l00200">event_tree.h:200</a></div></div>
+<div class="ttc" id="aclassinf_1_1Inflation_html"><div class="ttname"><a href="classinf_1_1Inflation.html">inf::Inflation</a></div><div class="ttdoc">Describes an inflation of a network, currently restricted to canonical inflations of the triangle net...</div><div class="ttdef"><b>Definition</b> <a href="inflation_8h_source.html#l00051">inflation.h:51</a></div></div>
+<div class="ttc" id="aclassinf_1_1Inflation_html_a06295a6f01f49ed4bc4fae1311fdbfec"><div class="ttname"><a href="classinf_1_1Inflation.html#a06295a6f01f49ed4bc4fae1311fdbfec">inf::Inflation::get_all_unknown_event</a></div><div class="ttdeci">inf::Event get_all_unknown_event() const</div><div class="ttdoc">All unknown event over the inflation parties.</div><div class="ttdef"><b>Definition</b> <a href="inflation_8cpp_source.html#l00185">inflation.cpp:185</a></div></div>
+<div class="ttc" id="aclassinf_1_1Inflation_html_a076e7a062963f0dac7662a6da2ec7c05"><div class="ttname"><a href="classinf_1_1Inflation.html#a076e7a062963f0dac7662a6da2ec7c05">inf::Inflation::m_source_induced_syms</a></div><div class="ttdeci">std::vector&lt; inf::PartySym &gt; m_source_induced_syms</div><div class="ttdoc">The inflation party symmetries coming from source relabelings.</div><div class="ttdef"><b>Definition</b> <a href="inflation_8h_source.html#l00245">inflation.h:245</a></div></div>
+<div class="ttc" id="aclassinf_1_1Inflation_html_a09016b474fd94b50e989bc429685f44d"><div class="ttname"><a href="classinf_1_1Inflation.html#a09016b474fd94b50e989bc429685f44d">inf::Inflation::log_marginal</a></div><div class="ttdeci">void log_marginal(std::vector&lt; Index &gt; const &amp;marginal) const</div><div class="ttdoc">To log an inflation marginal to util::logger</div><div class="ttdef"><b>Definition</b> <a href="inflation_8cpp_source.html#l00113">inflation.cpp:113</a></div></div>
+<div class="ttc" id="aclassinf_1_1Inflation_html_a0d2407cc5082ef3b67f7a42f6874c11a"><div class="ttname"><a href="classinf_1_1Inflation.html#a0d2407cc5082ef3b67f7a42f6874c11a">inf::Inflation::get_party_index</a></div><div class="ttdeci">Index get_party_index(inf::Inflation::Party const &amp;party) const</div><div class="ttdoc">Internally, each explicit inf::Inflation::Party is assigned an index in .</div><div class="ttdef"><b>Definition</b> <a href="inflation_8cpp_source.html#l00201">inflation.cpp:201</a></div></div>
+<div class="ttc" id="aclassinf_1_1Inflation_html_a146b9539935f13bcfc61f32af0d21cdd"><div class="ttname"><a href="classinf_1_1Inflation.html#a146b9539935f13bcfc61f32af0d21cdd">inf::Inflation::m_size</a></div><div class="ttdeci">inf::Inflation::Size const m_size</div><div class="ttdoc">The inflation size  specifying the number of copies of each source.</div><div class="ttdef"><b>Definition</b> <a href="inflation_8h_source.html#l00229">inflation.h:229</a></div></div>
+<div class="ttc" id="aclassinf_1_1Inflation_html_a1d646e2a74f9d46086eeffdc6a0340f0"><div class="ttname"><a href="classinf_1_1Inflation.html#a1d646e2a74f9d46086eeffdc6a0340f0">inf::Inflation::m_parties</a></div><div class="ttdeci">std::vector&lt; inf::Inflation::Party &gt; m_parties</div><div class="ttdoc">The list of explicit inf::Inflation::Parties, this is the inverse of m_party_map</div><div class="ttdef"><b>Definition</b> <a href="inflation_8h_source.html#l00234">inflation.h:234</a></div></div>
+<div class="ttc" id="aclassinf_1_1Inflation_html_a1da3095bcec5ac25281d08ca25ed346a"><div class="ttname"><a href="classinf_1_1Inflation.html#a1da3095bcec5ac25281d08ca25ed346a">inf::Inflation::m_party_map</a></div><div class="ttdeci">std::map&lt; inf::Inflation::Party, Index &gt; m_party_map</div><div class="ttdoc">This map is used in inf::Inflation::get_party_index(inf::Inflation::Party const&amp;) const</div><div class="ttdef"><b>Definition</b> <a href="inflation_8h_source.html#l00236">inflation.h:236</a></div></div>
+<div class="ttc" id="aclassinf_1_1Inflation_html_a218f153524927c095bff199beb02535e"><div class="ttname"><a href="classinf_1_1Inflation.html#a218f153524927c095bff199beb02535e">inf::Inflation::get_applicable_symmetries</a></div><div class="ttdeci">static inf::Symmetry::Group get_applicable_symmetries(inf::Symmetry::Group const &amp;distribution_sym_group, inf::Inflation::Size const &amp;size)</div><div class="ttdoc">Extract the symmetries of the distribution that are applicable to the inflation based on its size.</div><div class="ttdef"><b>Definition</b> <a href="inflation_8cpp_source.html#l00502">inflation.cpp:502</a></div></div>
+<div class="ttc" id="aclassinf_1_1Inflation_html_a21c23e5d5df7102da0aaa0d61be38252"><div class="ttname"><a href="classinf_1_1Inflation.html#a21c23e5d5df7102da0aaa0d61be38252">inf::Inflation::get_network</a></div><div class="ttdeci">inf::Network::ConstPtr const &amp; get_network() const</div><div class="ttdoc">Returns the underlying inf::Network.</div><div class="ttdef"><b>Definition</b> <a href="inflation_8cpp_source.html#l00228">inflation.cpp:228</a></div></div>
+<div class="ttc" id="aclassinf_1_1Inflation_html_a26eb83295c67419f8095e495ba0272c0"><div class="ttname"><a href="classinf_1_1Inflation.html#a26eb83295c67419f8095e495ba0272c0">inf::Inflation::m_n_parties</a></div><div class="ttdeci">Index m_n_parties</div><div class="ttdoc">The number  of parties of the inflation.</div><div class="ttdef"><b>Definition</b> <a href="inflation_8h_source.html#l00264">inflation.h:264</a></div></div>
+<div class="ttc" id="aclassinf_1_1Inflation_html_a270394afb79b5d4888232d7ac5425139"><div class="ttname"><a href="classinf_1_1Inflation.html#a270394afb79b5d4888232d7ac5425139">inf::Inflation::m_target_distr</a></div><div class="ttdeci">inf::TargetDistr::ConstPtr const m_target_distr</div><div class="ttdoc">This inf::TargetDistr specifies the underlying inf::Network as well as the distribution symmetries (s...</div><div class="ttdef"><b>Definition</b> <a href="inflation_8h_source.html#l00227">inflation.h:227</a></div></div>
+<div class="ttc" id="aclassinf_1_1Inflation_html_a32061ba93f28896fb44687627d4b1686"><div class="ttname"><a href="classinf_1_1Inflation.html#a32061ba93f28896fb44687627d4b1686">inf::Inflation::get_random_event</a></div><div class="ttdeci">inf::Event get_random_event() const</div><div class="ttdoc">Returns a random event over the inflation parties.</div><div class="ttdef"><b>Definition</b> <a href="inflation_8cpp_source.html#l00177">inflation.cpp:177</a></div></div>
+<div class="ttc" id="aclassinf_1_1Inflation_html_a32432dd6f580704381870c1fe1130414"><div class="ttname"><a href="classinf_1_1Inflation.html#a32432dd6f580704381870c1fe1130414">inf::Inflation::get_all_zero_event</a></div><div class="ttdeci">inf::Event get_all_zero_event() const</div><div class="ttdoc">All zero event over the inflation parties.</div><div class="ttdef"><b>Definition</b> <a href="inflation_8cpp_source.html#l00173">inflation.cpp:173</a></div></div>
+<div class="ttc" id="aclassinf_1_1Inflation_html_a34c7add257d1d66199860734bb6ca42f"><div class="ttname"><a href="classinf_1_1Inflation.html#a34c7add257d1d66199860734bb6ca42f">inf::Inflation::m_party_names</a></div><div class="ttdeci">std::vector&lt; std::string &gt; m_party_names</div><div class="ttdoc">This list is used in inf::Inflation::get_party_name()</div><div class="ttdef"><b>Definition</b> <a href="inflation_8h_source.html#l00240">inflation.h:240</a></div></div>
+<div class="ttc" id="aclassinf_1_1Inflation_html_a3ebc98ce3622aab2af77a57d3304f42d"><div class="ttname"><a href="classinf_1_1Inflation.html#a3ebc98ce3622aab2af77a57d3304f42d">inf::Inflation::has_symmetries_compatible_with</a></div><div class="ttdeci">bool has_symmetries_compatible_with(inf::TargetDistr const &amp;d) const</div><div class="ttdoc">Returns true if the parameter d has the same symmetries as the original inf::TargetDistr that was use...</div><div class="ttdef"><b>Definition</b> <a href="inflation_8cpp_source.html#l00236">inflation.cpp:236</a></div></div>
+<div class="ttc" id="aclassinf_1_1Inflation_html_a4145134df29127ee233a867756d3837b"><div class="ttname"><a href="classinf_1_1Inflation.html#a4145134df29127ee233a867756d3837b">inf::Inflation::get_all_source_range</a></div><div class="ttdeci">util::ProductRange&lt; Index &gt; get_all_source_range() const</div><div class="ttdoc">The range of all copy indices of the form , where , where  denotes the inflations size.</div><div class="ttdef"><b>Definition</b> <a href="inflation_8cpp_source.html#l00193">inflation.cpp:193</a></div></div>
+<div class="ttc" id="aclassinf_1_1Inflation_html_a4378708d36afcc6d7d425a74ef58f3de"><div class="ttname"><a href="classinf_1_1Inflation.html#a4378708d36afcc6d7d425a74ef58f3de">inf::Inflation::get_symtree_filename</a></div><div class="ttdeci">std::string get_symtree_filename() const</div><div class="ttdoc">The filename to which the inf::EventTree is stored, including the inflation size and the short name o...</div><div class="ttdef"><b>Definition</b> <a href="inflation_8cpp_source.html#l00071">inflation.cpp:71</a></div></div>
+<div class="ttc" id="aclassinf_1_1Inflation_html_a480b5232d163f5c922c397e6150b6d7d"><div class="ttname"><a href="classinf_1_1Inflation.html#a480b5232d163f5c922c397e6150b6d7d">inf::Inflation::get_metadata</a></div><div class="ttdeci">std::string get_metadata() const</div><div class="ttdoc">A string that summarizes the main information about the inf::Inflation, its symmetries and whether or...</div><div class="ttdef"><b>Definition</b> <a href="inflation_8cpp_source.html#l00054">inflation.cpp:54</a></div></div>
+<div class="ttc" id="aclassinf_1_1Inflation_html_a4d7f1820b16101accad4813a01e36d47"><div class="ttname"><a href="classinf_1_1Inflation.html#a4d7f1820b16101accad4813a01e36d47">inf::Inflation::m_use_distr_symmetries</a></div><div class="ttdeci">inf::Inflation::UseDistrSymmetries const m_use_distr_symmetries</div><div class="ttdoc">Whether or not the distribution symmetries were incorporated in the inflation symmetry group,...</div><div class="ttdef"><b>Definition</b> <a href="inflation_8h_source.html#l00231">inflation.h:231</a></div></div>
+<div class="ttc" id="aclassinf_1_1Inflation_html_a50fe835aad42c372d72a1bde3a74df5c"><div class="ttname"><a href="classinf_1_1Inflation.html#a50fe835aad42c372d72a1bde3a74df5c">inf::Inflation::UseDistrSymmetries</a></div><div class="ttdeci">UseDistrSymmetries</div><div class="ttdoc">Whether or not the distribution symmetries will be exploited to enlarge the inflation symmetry group.</div><div class="ttdef"><b>Definition</b> <a href="inflation_8h_source.html#l00083">inflation.h:83</a></div></div>
+<div class="ttc" id="aclassinf_1_1Inflation_html_a50fe835aad42c372d72a1bde3a74df5ca7fa3b767c460b54a2be4d49030b349c7"><div class="ttname"><a href="classinf_1_1Inflation.html#a50fe835aad42c372d72a1bde3a74df5ca7fa3b767c460b54a2be4d49030b349c7">inf::Inflation::UseDistrSymmetries::no</a></div><div class="ttdeci">@ no</div><div class="ttdoc">Mostly for testing purposes.</div></div>
+<div class="ttc" id="aclassinf_1_1Inflation_html_a50fe835aad42c372d72a1bde3a74df5caa6105c0a611b41b08f1209506350279e"><div class="ttname"><a href="classinf_1_1Inflation.html#a50fe835aad42c372d72a1bde3a74df5caa6105c0a611b41b08f1209506350279e">inf::Inflation::UseDistrSymmetries::yes</a></div><div class="ttdeci">@ yes</div><div class="ttdoc">Much, much faster when inf::TargetDistr has usable symmetries.</div></div>
+<div class="ttc" id="aclassinf_1_1Inflation_html_a51266d9e388a9cbc78559968b0577ecc"><div class="ttname"><a href="classinf_1_1Inflation.html#a51266d9e388a9cbc78559968b0577ecc">inf::Inflation::log_event_strings</a></div><div class="ttdeci">void log_event_strings(std::vector&lt; std::string &gt; const &amp;event) const</div><div class="ttdoc">Logs an event (whose values are expected to be single-character strings) to the util::logger in a nic...</div><div class="ttdef"><b>Definition</b> <a href="inflation_8cpp_source.html#l00127">inflation.cpp:127</a></div></div>
+<div class="ttc" id="aclassinf_1_1Inflation_html_a57ece19f95d615f84f8fdf24af698a52"><div class="ttname"><a href="classinf_1_1Inflation.html#a57ece19f95d615f84f8fdf24af698a52">inf::Inflation::Sources</a></div><div class="ttdeci">std::vector&lt; Index &gt; Sources</div><div class="ttdoc">Used for a list of source indices such as , represented as (0,1,0)</div><div class="ttdef"><b>Definition</b> <a href="inflation_8h_source.html#l00056">inflation.h:56</a></div></div>
+<div class="ttc" id="aclassinf_1_1Inflation_html_a62461fa7b393d783854cd36eff0256dc"><div class="ttname"><a href="classinf_1_1Inflation.html#a62461fa7b393d783854cd36eff0256dc">inf::Inflation::get_party_name</a></div><div class="ttdeci">std::string const &amp; get_party_name(Index party) const</div><div class="ttdoc">Get e.g. 0 -&gt; &quot;A00&quot;, 1 -&gt; &quot;A01&quot;, etc.</div><div class="ttdef"><b>Definition</b> <a href="inflation_8cpp_source.html#l00214">inflation.cpp:214</a></div></div>
+<div class="ttc" id="aclassinf_1_1Inflation_html_a674f66415d6e861f3860f85cfd205822"><div class="ttname"><a href="classinf_1_1Inflation.html#a674f66415d6e861f3860f85cfd205822">inf::Inflation::are_d_separated</a></div><div class="ttdeci">bool are_d_separated(std::vector&lt; Index &gt; const &amp;marg_1, std::vector&lt; Index &gt; const &amp;marg_2) const</div><div class="ttdoc">Returns true if the two lists of parties are d-separated.</div><div class="ttdef"><b>Definition</b> <a href="inflation_8cpp_source.html#l00331">inflation.cpp:331</a></div></div>
+<div class="ttc" id="aclassinf_1_1Inflation_html_a6750c255213ba91ca6a72fa589532084"><div class="ttname"><a href="classinf_1_1Inflation.html#a6750c255213ba91ca6a72fa589532084">inf::Inflation::m_name_map</a></div><div class="ttdeci">std::map&lt; std::string, Index &gt; m_name_map</div><div class="ttdoc">This map is used in inf::Inflation::get_party_index(std::string const&amp;) const</div><div class="ttdef"><b>Definition</b> <a href="inflation_8h_source.html#l00238">inflation.h:238</a></div></div>
+<div class="ttc" id="aclassinf_1_1Inflation_html_a782464bbfeaa51894fa1b313365f4dc7"><div class="ttname"><a href="classinf_1_1Inflation.html#a782464bbfeaa51894fa1b313365f4dc7">inf::Inflation::init_inflation_symmetries</a></div><div class="ttdeci">void init_inflation_symmetries(inf::Symmetry::Group const &amp;distribution_sym_group)</div><div class="ttdoc">Initializes m_inflation_symmetries, accounting for the target distribution's applicable symmetries an...</div><div class="ttdef"><b>Definition</b> <a href="inflation_8cpp_source.html#l00453">inflation.cpp:453</a></div></div>
+<div class="ttc" id="aclassinf_1_1Inflation_html_a78404beb483480bcfc13eedca5ac200e"><div class="ttname"><a href="classinf_1_1Inflation.html#a78404beb483480bcfc13eedca5ac200e">inf::Inflation::init_parties</a></div><div class="ttdeci">void init_parties()</div><div class="ttdoc">This initializes m_parties, m_party_map, m_name_map, m_party_names</div><div class="ttdef"><b>Definition</b> <a href="inflation_8cpp_source.html#l00388">inflation.cpp:388</a></div></div>
+<div class="ttc" id="aclassinf_1_1Inflation_html_a7c079c8da261a25734e6cab9d5fc0c9d"><div class="ttname"><a href="classinf_1_1Inflation.html#a7c079c8da261a25734e6cab9d5fc0c9d">inf::Inflation::get_parties</a></div><div class="ttdeci">std::vector&lt; inf::Inflation::Party &gt; get_parties() const</div><div class="ttdoc">The list of explicit inf::Inflation::Party.</div><div class="ttdef"><b>Definition</b> <a href="inflation_8cpp_source.html#l00197">inflation.cpp:197</a></div></div>
+<div class="ttc" id="aclassinf_1_1Inflation_html_a7c8ea56bc938131a6d4d101469a34644"><div class="ttname"><a href="classinf_1_1Inflation.html#a7c8ea56bc938131a6d4d101469a34644">inf::Inflation::Party</a></div><div class="ttdeci">std::pair&lt; Index, inf::Inflation::Sources &gt; Party</div><div class="ttdoc">The inflation parties  are denoted with this type, and take the form , where  denotes the type of the...</div><div class="ttdef"><b>Definition</b> <a href="inflation_8h_source.html#l00066">inflation.h:66</a></div></div>
+<div class="ttc" id="aclassinf_1_1Inflation_html_a80e1780db201f1db2acad489752d4dc3"><div class="ttname"><a href="classinf_1_1Inflation.html#a80e1780db201f1db2acad489752d4dc3">inf::Inflation::source_sym_to_party_sym</a></div><div class="ttdeci">inf::PartySym source_sym_to_party_sym(std::vector&lt; std::vector&lt; Index &gt; &gt; const &amp;perm_sources) const</div><div class="ttdoc">This converts a source permutation into the corresponding party permutation.</div><div class="ttdef"><b>Definition</b> <a href="inflation_8cpp_source.html#l00247">inflation.cpp:247</a></div></div>
+<div class="ttc" id="aclassinf_1_1Inflation_html_a87e99e18d46ca656e99e4188b76a49d6"><div class="ttname"><a href="classinf_1_1Inflation.html#a87e99e18d46ca656e99e4188b76a49d6">inf::Inflation::m_rng</a></div><div class="ttdeci">util::RNG&lt; inf::Outcome &gt; m_rng</div><div class="ttdoc">Used for inf::Inflation::get_random_event()</div><div class="ttdef"><b>Definition</b> <a href="inflation_8h_source.html#l00275">inflation.h:275</a></div></div>
+<div class="ttc" id="aclassinf_1_1Inflation_html_a9becf774e1ef740f16345a9a30be336e"><div class="ttname"><a href="classinf_1_1Inflation.html#a9becf774e1ef740f16345a9a30be336e">inf::Inflation::get_parents</a></div><div class="ttdeci">std::set&lt; inf::Inflation::Source &gt; get_parents(std::vector&lt; Index &gt; const &amp;marg) const</div><div class="ttdoc">Returns , the set of parent sources of the inflation marginal .</div><div class="ttdef"><b>Definition</b> <a href="inflation_8cpp_source.html#l00345">inflation.cpp:345</a></div></div>
+<div class="ttc" id="aclassinf_1_1Inflation_html_a9c9908ad1e0a6558f49a4b249504110e"><div class="ttname"><a href="classinf_1_1Inflation.html#a9c9908ad1e0a6558f49a4b249504110e">inf::Inflation::get_event_range</a></div><div class="ttdeci">inf::EventRange get_event_range() const</div><div class="ttdoc">Event range over all inflation parties, to iterate over .</div><div class="ttdef"><b>Definition</b> <a href="inflation_8cpp_source.html#l00189">inflation.cpp:189</a></div></div>
+<div class="ttc" id="aclassinf_1_1Inflation_html_aa881476f7cd18cd6d5281b532804688c"><div class="ttname"><a href="classinf_1_1Inflation.html#aa881476f7cd18cd6d5281b532804688c">inf::Inflation::init_source_induced_syms</a></div><div class="ttdeci">void init_source_induced_syms()</div><div class="ttdoc">Initializes m_source_induced_syms</div><div class="ttdef"><b>Definition</b> <a href="inflation_8cpp_source.html#l00437">inflation.cpp:437</a></div></div>
+<div class="ttc" id="aclassinf_1_1Inflation_html_aadcbae3cd3db6df435eb7805814b6016"><div class="ttname"><a href="classinf_1_1Inflation.html#aadcbae3cd3db6df435eb7805814b6016">inf::Inflation::get_marginal_name</a></div><div class="ttdeci">std::string get_marginal_name(std::vector&lt; Index &gt; const &amp;marginal) const</div><div class="ttdoc">To convert the list-of-indices representation of an inflation marginal to a list of party names.</div><div class="ttdef"><b>Definition</b> <a href="inflation_8cpp_source.html#l00098">inflation.cpp:98</a></div></div>
+<div class="ttc" id="aclassinf_1_1Inflation_html_ab6c93bcc485b54a479b2e2218b6a58fa"><div class="ttname"><a href="classinf_1_1Inflation.html#ab6c93bcc485b54a479b2e2218b6a58fa">inf::Inflation::log</a></div><div class="ttdeci">void log() const override</div><div class="ttdoc">This prints the object to the globally accessible util::logger and allows the util::logger &lt;&lt; loggabl...</div><div class="ttdef"><b>Definition</b> <a href="inflation_8cpp_source.html#l00076">inflation.cpp:76</a></div></div>
+<div class="ttc" id="aclassinf_1_1Inflation_html_ab910ef44df901fad1db88a0b74fe86cc"><div class="ttname"><a href="classinf_1_1Inflation.html#ab910ef44df901fad1db88a0b74fe86cc">inf::Inflation::is_valid_party_name</a></div><div class="ttdeci">bool is_valid_party_name(std::string const &amp;party) const</div><div class="ttdoc">Check that the given party name is of the form Ajk, where A must be obtained from the underlying inf:...</div><div class="ttdef"><b>Definition</b> <a href="inflation_8cpp_source.html#l00220">inflation.cpp:220</a></div></div>
+<div class="ttc" id="aclassinf_1_1Inflation_html_abe439ba40d0dc8c9c2fa3310cdf14461"><div class="ttname"><a href="classinf_1_1Inflation.html#abe439ba40d0dc8c9c2fa3310cdf14461">inf::Inflation::get_symtree</a></div><div class="ttdeci">inf::EventTree const &amp; get_symtree(inf::EventTree::IO io) const</div><div class="ttdoc">An inf::EventTree representation of the symmetrized event representatives, denoted  in the paper.</div><div class="ttdef"><b>Definition</b> <a href="inflation_8cpp_source.html#l00305">inflation.cpp:305</a></div></div>
+<div class="ttc" id="aclassinf_1_1Inflation_html_abfa6a2b7897bb9f1d3c406a864e9acdf"><div class="ttname"><a href="classinf_1_1Inflation.html#abfa6a2b7897bb9f1d3c406a864e9acdf">inf::Inflation::get_inflation_symmetries</a></div><div class="ttdeci">inf::Symmetry::Group const &amp; get_inflation_symmetries() const</div><div class="ttdoc">Returns the symmetries of the inflation, typically including the symmetries of the specified inf::Tar...</div><div class="ttdef"><b>Definition</b> <a href="inflation_8cpp_source.html#l00232">inflation.cpp:232</a></div></div>
+<div class="ttc" id="aclassinf_1_1Inflation_html_ac0b2b985f65c5eca7eaee7e3be5505b1"><div class="ttname"><a href="classinf_1_1Inflation.html#ac0b2b985f65c5eca7eaee7e3be5505b1">inf::Inflation::log_event</a></div><div class="ttdeci">void log_event(inf::Event const &amp;event) const</div><div class="ttdoc">To print inflation events  to util::logger</div><div class="ttdef"><b>Definition</b> <a href="inflation_8cpp_source.html#l00084">inflation.cpp:84</a></div></div>
+<div class="ttc" id="aclassinf_1_1Inflation_html_ac279522d5aeb62ae47931f50460506df"><div class="ttname"><a href="classinf_1_1Inflation.html#ac279522d5aeb62ae47931f50460506df">inf::Inflation::get_size</a></div><div class="ttdeci">inf::Inflation::Size const &amp; get_size() const</div><div class="ttdoc">The inflation size  specifying the number of copies of each source.</div><div class="ttdef"><b>Definition</b> <a href="inflation_8cpp_source.html#l00224">inflation.cpp:224</a></div></div>
+<div class="ttc" id="aclassinf_1_1Inflation_html_ac594d5b8d7cbdd7cdfe569baa351f0ba"><div class="ttname"><a href="classinf_1_1Inflation.html#ac594d5b8d7cbdd7cdfe569baa351f0ba">inf::Inflation::ConstPtr</a></div><div class="ttdeci">std::shared_ptr&lt; const inf::Inflation &gt; ConstPtr</div><div class="ttdef"><b>Definition</b> <a href="inflation_8h_source.html#l00072">inflation.h:72</a></div></div>
+<div class="ttc" id="aclassinf_1_1Inflation_html_acfc4c83503297dd55886c44df1a61296"><div class="ttname"><a href="classinf_1_1Inflation.html#acfc4c83503297dd55886c44df1a61296">inf::Inflation::m_inflation_symmetries</a></div><div class="ttdeci">inf::Symmetry::Group m_inflation_symmetries</div><div class="ttdoc">The inflation symmetries, accounting for the target distribution's applicable symmetries and the sour...</div><div class="ttdef"><b>Definition</b> <a href="inflation_8h_source.html#l00251">inflation.h:251</a></div></div>
+<div class="ttc" id="aclassinf_1_1Inflation_html_ad18a3f973c2ac6748bae88779b9fb9f1"><div class="ttname"><a href="classinf_1_1Inflation.html#ad18a3f973c2ac6748bae88779b9fb9f1">inf::Inflation::m_symtree</a></div><div class="ttdeci">inf::EventTree::UniquePtr m_symtree</div><div class="ttdoc">Stores the symmetrized inflation events as a tree, see inf::Inflation::get_symtree()</div><div class="ttdef"><b>Definition</b> <a href="inflation_8h_source.html#l00269">inflation.h:269</a></div></div>
+<div class="ttc" id="aclassinf_1_1Inflation_html_ad283d1cc29f0cd8e4338e1022a0e6b3c"><div class="ttname"><a href="classinf_1_1Inflation.html#ad283d1cc29f0cd8e4338e1022a0e6b3c">inf::Inflation::is_injectable_set</a></div><div class="ttdeci">bool is_injectable_set(std::vector&lt; Index &gt; const &amp;marg) const</div><div class="ttdoc">Returns true if the list of party is an injectable set, denoted  in the paper.</div><div class="ttdef"><b>Definition</b> <a href="inflation_8cpp_source.html#l00358">inflation.cpp:358</a></div></div>
+<div class="ttc" id="aclassinf_1_1Inflation_html_ad61b8a72fecf20cc46683e1dda987723"><div class="ttname"><a href="classinf_1_1Inflation.html#ad61b8a72fecf20cc46683e1dda987723">inf::Inflation::get_n_parties</a></div><div class="ttdeci">Index get_n_parties() const</div><div class="ttdoc">Number of parties  of the inflation.</div><div class="ttdef"><b>Definition</b> <a href="inflation_8h_source.html#l00131">inflation.h:131</a></div></div>
+<div class="ttc" id="aclassinf_1_1Inflation_html_ada371f0e56db6c2fa76d01e809805bd6"><div class="ttname"><a href="classinf_1_1Inflation.html#ada371f0e56db6c2fa76d01e809805bd6">inf::Inflation::Size</a></div><div class="ttdeci">std::vector&lt; Index &gt; Size</div><div class="ttdoc">The inflation size (number of copies of each source), e.g., .</div><div class="ttdef"><b>Definition</b> <a href="inflation_8h_source.html#l00058">inflation.h:58</a></div></div>
+<div class="ttc" id="aclassinf_1_1Inflation_html_adafb5bd85ab90b64099716d59c104b2e"><div class="ttname"><a href="classinf_1_1Inflation.html#adafb5bd85ab90b64099716d59c104b2e">inf::Inflation::get_source_induced_syms</a></div><div class="ttdeci">std::vector&lt; inf::PartySym &gt; const &amp; get_source_induced_syms() const</div><div class="ttdoc">Returns the group , i.e., all the party symmetries of the inflation that are induced by source permut...</div><div class="ttdef"><b>Definition</b> <a href="inflation_8cpp_source.html#l00243">inflation.cpp:243</a></div></div>
+<div class="ttc" id="aclassinf_1_1Inflation_html_aeedce892606eb0b693e54e2aa970c035"><div class="ttname"><a href="classinf_1_1Inflation.html#aeedce892606eb0b693e54e2aa970c035">inf::Inflation::network_party_to_inf_party_sym</a></div><div class="ttdeci">inf::PartySym network_party_to_inf_party_sym(inf::PartySym const &amp;network_party_sym) const</div><div class="ttdoc">This converts (lifts) a network party permutation to the adequate inflation party permutation.</div><div class="ttdef"><b>Definition</b> <a href="inflation_8cpp_source.html#l00276">inflation.cpp:276</a></div></div>
+<div class="ttc" id="aclassinf_1_1Inflation_html_af62dfca96fd10d483e797cde63152c48"><div class="ttname"><a href="classinf_1_1Inflation.html#af62dfca96fd10d483e797cde63152c48">inf::Inflation::Source</a></div><div class="ttdeci">std::pair&lt; Index, Index &gt; Source</div><div class="ttdoc">The inflation sources  are denoted with this type, and take the form , where  denotes the type of the...</div><div class="ttdef"><b>Definition</b> <a href="inflation_8h_source.html#l00070">inflation.h:70</a></div></div>
+<div class="ttc" id="aclassinf_1_1Network_html_a4e586db6e1ab9f11335ed74f25ea0aee"><div class="ttname"><a href="classinf_1_1Network.html#a4e586db6e1ab9f11335ed74f25ea0aee">inf::Network::ConstPtr</a></div><div class="ttdeci">std::shared_ptr&lt; const inf::Network &gt; ConstPtr</div><div class="ttdef"><b>Definition</b> <a href="network_8h_source.html#l00045">network.h:45</a></div></div>
+<div class="ttc" id="aclassinf_1_1PartySym_html"><div class="ttname"><a href="classinf_1_1PartySym.html">inf::PartySym</a></div><div class="ttdoc">Party symmetry.</div><div class="ttdef"><b>Definition</b> <a href="party__sym_8h_source.html#l00017">party_sym.h:17</a></div></div>
+<div class="ttc" id="aclassinf_1_1Symmetry_html_a901d22b86ef5923b628db86fbdd7ba4f"><div class="ttname"><a href="classinf_1_1Symmetry.html#a901d22b86ef5923b628db86fbdd7ba4f">inf::Symmetry::Group</a></div><div class="ttdeci">std::set&lt; inf::Symmetry &gt; Group</div><div class="ttdoc">A set of symmetries, typically a group.</div><div class="ttdef"><b>Definition</b> <a href="symmetry_8h_source.html#l00037">symmetry.h:37</a></div></div>
+<div class="ttc" id="aclassinf_1_1TargetDistr_html"><div class="ttname"><a href="classinf_1_1TargetDistr.html">inf::TargetDistr</a></div><div class="ttdoc">A distribution over an inf::Network.</div><div class="ttdef"><b>Definition</b> <a href="target__distr_8h_source.html#l00031">target_distr.h:31</a></div></div>
+<div class="ttc" id="aclassinf_1_1TargetDistr_html_a75d7c59680325e198e85d02d673e4abe"><div class="ttname"><a href="classinf_1_1TargetDistr.html#a75d7c59680325e198e85d02d673e4abe">inf::TargetDistr::ConstPtr</a></div><div class="ttdeci">std::shared_ptr&lt; const inf::TargetDistr &gt; ConstPtr</div><div class="ttdef"><b>Definition</b> <a href="target__distr_8h_source.html#l00035">target_distr.h:35</a></div></div>
+<div class="ttc" id="aclassutil_1_1Loggable_html"><div class="ttname"><a href="classutil_1_1Loggable.html">util::Loggable</a></div><div class="ttdoc">Defines printable classes.</div><div class="ttdef"><b>Definition</b> <a href="loggable_8h_source.html#l00009">loggable.h:9</a></div></div>
+<div class="ttc" id="aclassutil_1_1ProductRange_html"><div class="ttname"><a href="classutil_1_1ProductRange.html">util::ProductRange</a></div><div class="ttdoc">This class implements a range over std::vector&lt;T&gt;, akin to Python product ranges.</div><div class="ttdef"><b>Definition</b> <a href="product__range_8h_source.html#l00073">product_range.h:73</a></div></div>
+<div class="ttc" id="aclassutil_1_1RNG_html"><div class="ttname"><a href="classutil_1_1RNG.html">util::RNG</a></div><div class="ttdoc">A uniform random integer generator over a specified range.</div><div class="ttdef"><b>Definition</b> <a href="rand_8h_source.html#l00023">rand.h:23</a></div></div>
+<div class="ttc" id="agroup__event_html_gac60a6fcdfce02dc13eb7364d6a2b56b0"><div class="ttname"><a href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a></div><div class="ttdeci">std::vector&lt; inf::Outcome &gt; Event</div><div class="ttdoc">A list of inf::Outcome. Conceptually, this plays the role of  for some set .</div><div class="ttdef"><b>Definition</b> <a href="event_8h_source.html#l00030">event.h:30</a></div></div>
+<div class="ttc" id="agroup__util_html_ga77731aedac326062ffbdcf367185a07e"><div class="ttname"><a href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a></div><div class="ttdeci">uint64_t Index</div><div class="ttdoc">Use for anything meant to be used as an index.</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00019">types.h:19</a></div></div>
+<div class="ttc" id="anamespaceinf_html"><div class="ttname"><a href="namespaceinf.html">inf</a></div><div class="ttdoc">The namespace for the inflation code.</div><div class="ttdef"><b>Definition</b> <a href="constraint_8h_source.html#l00006">constraint.h:6</a></div></div>
+<div class="ttc" id="atarget__distr_8h_html"><div class="ttname"><a href="target__distr_8h.html">target_distr.h</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_0f453feda2a303bb77c09f5934c109df.html">inf</a></li><li class="navelem"><a class="el" href="dir_ae6d493e4def8cac138ad10998aac37a.html">inf_problem</a></li><li class="navelem"><a class="el" href="inflation_8h.html">inflation.h</a></li>
+    <li class="footer">Generated on Wed Dec 18 2024 17:39:36 for Fast Inflation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,294 @@
+<!-- HTML header for doxygen 1.9.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Fast Inflation: Readme</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+MathJax.Hub.Config({
+    TeX: {
+        Macros: {
+            dd: ["{\\text{d}#1\\,}",1],
+            nouts: ["{n_{\\text{o}}}"],
+            ints: ["{[\\![#1]\\!]}",1],
+            outset: ["{\\ints{\\nouts}}"],
+            N: ["{\\mathbb{N}}"],
+            R: ["{\\mathbb{R}}"],
+            Z: ["{\\mathbb{Z}}"],
+            infsize: ["{z}"],
+            infparties: ["{\\set{I}}"],
+            infsources: ["{\\set{S}}"],
+            infmarg: ["{\\set{A}}"],
+            infmargg: ["{\\set{B}}"],
+            netparties: ["{\\set{N}}"],
+            infq: ["{q}"],
+            infqs: ["{\\Delta_{\\infparties}}"],
+            constraintlist: ["{\\mathcal{C}}"],
+            injsets: ["{\\text{InjSets}}"],
+            infconstraints: ["{\\text{InfCons}}"],
+            parents: ["{\\text{Par}}"],
+            targetp: ["{p}"],
+            targetps: ["{\\Delta_{\\netparties}}"],
+            set: ["{\\mathbf{#1}}",1],
+            type: ["{t}"],
+            infevent: "{\\omega}",
+            events: ["{\\Omega_{#1}}",1],
+            infevents: ["{\\events{\\infparties}}"],
+            redinfevents: ["{\\tilde{\\Omega}_{\\infparties}}"],
+            netevents: ["{\\events{\\netparties}}"],
+            vecset: ["{V_{#1}}",1],
+            alice: ["{\\text{A}}"],
+            bob: ["{\\text{B}}"],
+            charlie: ["{\\text{C}}"],
+            symgroup: ["{\\text{Sym}(#1)}",1],
+            shortsymgroup: ["{\\text{Sym}_{#1}}",1],
+            act: ["{(#1\\hspace{2pt}{:}\\hspace{2pt}#2)}",2],
+            actt: ["{[#1\\hspace{2pt}{:}\\hspace{2pt}#2]}",2],
+            margperms: ["{\\text{Perm}_{#1}}",1],
+            permutedmargs: ["{\\mathbb{P}_{#1}^{\\targetp}}",1],
+            redpermutedmargs: ["{\\tilde{\\mathbb{P}}_{#1}^{\\constraintname,\\targetp}}",1],
+            extract: ["{\\text{ext}(#1,#2)}",2],
+            partysym: ["{\\tau}"],
+            sourcesym: ["{\\xi}"],
+            outsym: ["{\\sigma}"],
+            fullgroup: ["{\\text{InfGrp}}"],
+            partygroup : ["{\\text{PartyGrp}}"],
+            outgroup: ["{\\text{OutGrp}}"],
+            sourcegroup: ["{\\text{SrcGrp}}"],
+            distrgroup: ["{\\mathbb{G}^\\targetp}"],
+            constraintname: ["{c}"],
+            marggroup: ["{\\mathbb{G}^{\\constraintname,\\targetp}}"],
+            fullsymexpl: ["{(\\sourcesym,\\partysym,\\outsym)}"],
+            inner: ["{\\langle#1,#2\\rangle}", 2],
+            quovec: ["{f}"],
+            totconstraintmap: ["{K^{\\constraintlist,\\targetp}}"],
+            totconstraintmapelem: ["{K^{\\constraintname,\\targetp}}"],
+            quovecspace: ["{\\tilde{V}_{#1}^{\\constraintname,\\targetp}}", 1],
+            totquovecspace: ["{\\text{ConsSpace}(\\constraintlist,\\targetp)}"],
+            detdistr: ["{\\delta^{#1}}", 1],
+            margperm: ["{\\varphi}"],
+            altquovecembed: ["{\\text{G}_{#1}^{\\constraintname,\\targetp}}", 1],
+            vecset: ["{V_{#1}}", 1],
+            repr: ["{\\lfloor#1\\rfloor}", 1],
+            gid: ["{\\text{id}}"],
+            id: ["{1_{#1}}",1],
+            consscale: ["{K}"],
+            scaletot: ["{K_{\\text{tot}}^{\\constraintlist,\\targetp}}"],
+            minnorm: ["{d}"],
+            Bigsetst: ["\\;\\Big|\\;"],
+            activeset: ["\\mathcal{S}"],
+            conv: ["\\text{conv}"],
+            lVert: ["|\\hspace{-1pt}|"],
+            norm: ["\\lVert#1\\lVert", 1],
+            st: [":\ "],
+        }
+    }
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeDarkModeToggle.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeParagraphLink.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Fast Inflation
+   </div>
+   <div id="projectbrief">To certify causal incompatibility</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('index.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div><div class="header">
+  <div class="headertitle"><div class="title">Readme </div></div>
+</div><!--header-->
+<div class="contents">
+<div class="toc"><h3>Table of Contents</h3>
+<ul><li class="level1"><a href="#autotoc_md1">Background: triangle nonlocality</a><ul><li class="level2"><a href="#autotoc_md2">Inflation</a></li>
+</ul>
+</li>
+<li class="level1"><a href="#autotoc_md3">Code features</a><ul><li class="level2"><a href="#autotoc_md4">Exact arithmetic</a></li>
+<li class="level2"><a href="#autotoc_md5">Future directions</a></li>
+</ul>
+</li>
+<li class="level1"><a href="#autotoc_md6">Documentation</a></li>
+<li class="level1"><a href="#autotoc_md7">Related repositories</a></li>
+<li class="level1"><a href="#autotoc_md8">Contact</a></li>
+<li class="level1"><a href="#autotoc_md9">Acknowledgments</a></li>
+</ul>
+</div>
+<div class="textblock"><p><a class="anchor" id="md_doxygen_2readme"></a></p>
+<p>This repository provides the code associated to the paper <em>Title todo</em>, Victor Gitton, Renato Renner, <em>arXiv link todo</em>.</p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>Add link to article</dd></dl>
+<h1><a class="anchor" id="autotoc_md1"></a>
+Background: triangle nonlocality</h1>
+<p>The triangle network is a network of three parties, Alice, Bob and Charlie, sharing three bipartite sources, denoted \(\alpha\), \(\beta\) and \(\gamma\). We depict the triangle network as follows:</p>
+<div class="image">
+<img src="triangle_graph.png" alt="" width="200px"/>
+</div>
+<p>A distribution \(p(a,b,c)\) is said to be classically compatible with the triangle network, or compatible with the classical triangle network, or simply (triangle) <b>local</b> for short, if there exist (nonnegative, normalized) response functions \(p_A,p_B,p_C\) such that</p>
+<p class="formulaDsp">
+\[
+    p(a,b,c) = \int \text{d}\alpha\hspace{1pt}\text{d}\beta\hspace{1pt}\text{d}\gamma\hspace{1pt} p_A(a|\beta,\gamma)p_B(b|\gamma,\alpha)p_C(c|\alpha,\beta). 
+\]
+</p>
+<p>(The integral over \(\alpha,\beta,\gamma\) simply represents the average over the source values, which we can take to be uniformly distributed over the \([0,1]\) interval, for instance.) Otherwise, the distribution \(p(a,b,c)\) is classically incompatible with the triangle network, or simply (triangle) <b>nonlocal</b> for short. For a general review on network nonlocality, see "Bell nonlocality in networks", by Armin Tavakoli, Alejandro Pozas-Kerstjens, Ming-Xing Luo and Marc-Olivier Renou published in Rep. Prog. Phys. 85, 056001 (2022). See <a href="https://arxiv.org/abs/2104.10700">https://arxiv.org/abs/2104.10700</a>.</p>
+<h2><a class="anchor" id="autotoc_md2"></a>
+Inflation</h2>
+<p>To prove nonlocality in the triangle network, we use the technique of inflation, which is a general technique for generating relaxations of causal compatibility problems in classical, quantum or post-quantum theories. See in particular "The inflation technique for causal inference with latent variables" by Elie Wolfe, Robert W. Spekkens and Tobias Fritz published in J. Causal Inference 7(2), 2019 (<a href="https://arxiv.org/abs/1609.00672">https://arxiv.org/abs/1609.00672</a>).</p>
+<p>In our case, starting from the classical triangle network, consider the following inflation graph, obtained by taking two copies of each source and four copies of each party in the triangle network:</p>
+<div class="image">
+<img src="inf_graph_222.png" alt="" width="350px"/>
+</div>
+<p>The idea of the inflation problems that we consider is the following. Suppose that a distribution \(p\) is local in the triangle network, with associated local model (triplet of response functions) \(p_A,p_B,p_C\). Then, define a distribution \(q\) over the outcomes of the parties of the above inflation graph as follows:</p><ul>
+<li>let all the Alices of the inflation graph use the response function \(p_A\),</li>
+<li>let all the Bobs of the inflation graph use the response function \(p_B\),</li>
+<li>let all the Charlies of the inflation graph use the response function \(p_C\),</li>
+<li>let all the sources be distributed as in the original local model, i.e., uniformly over the \([0,1]\) interval.</li>
+</ul>
+<p>This distribution \(q\) then satisfies a number of <em>linear</em> equations:</p><ul>
+<li>Symmetry: \(q\) is symmetric under exchanges of the inflation parties that can be "cancelled" by a corresponding exchange of the inflation sources.</li>
+<li>Marginals: some of the marginals of \(q\) correspond to the distribution \(p\). At the level of the inflation graphs, these correspond to subsets of parties that are connected by sources in a triangle-network way, e.g., \(A_{11},B_{12},C_{21}\).</li>
+</ul>
+<p>Thus, if we can prove that a triangle distribution \(p\) does not admit a corresponding inflation distribution \(q\) satisfying the appropriate linear constraints, this proves that \(p\) is nonlocal. This is, on the one hand, easy, because whether or not an appropriate distribution \(q\) exists is a linear program, a particularly simple class of optimization problems. On the other hand, the number of variables of the linear program scales, roughly, like \(n_{\text{o}}^N\), where \(N\) denotes the number of inflation parties, and \(n_{\text{o}}\) denotes the number of outcomes per party. Thus, considering large inflation graphs is difficult, but these are exactly the inflation graphs that better characterize the local set: they provide a tighter outer approximation of the triangle local set, and can thus prove the nonlocality of more distributions. This is the essence of the convergence result of "The inflation technique completely solves the causal compatibility problem" by Miguel Navascues and Elie Wolfe published in J. Causal Inference 8(1), 2019. See <a href="https://arxiv.org/abs/1707.06476">https://arxiv.org/abs/1707.06476</a>.</p>
+<h1><a class="anchor" id="autotoc_md3"></a>
+Code features</h1>
+<p>The code allows to certify the nonlocality of a distribution \(p(a,b,c)\) in the triangle network by proving the incompatibility of \(p\) with some inflation problem. From the user perspective, using the code requires to choose:</p><ul>
+<li>A number of outcome per party, i.e., a number \(n_{\text{o}}\) such that Alice, Bob and Charlie have \(n_{\text{o}}\) outcomes each.</li>
+<li>An inflation size \(z = (z_0,z_1,z_2) \in \mathbb{N}^3\), where \(z_0,z_1,z_2\) denote the number of copies of the \(\alpha,\beta,\gamma\) sources, respectively. In the above inflation graph, the size is \(z = (2,2,2)\).</li>
+<li>A set of inflation constraints \(\mathcal{C} \subset \text{InfCons}\).</li>
+<li>A target distribution \(p(a,b,c)\), specified with rational components.</li>
+</ul>
+<p>Then, the code detects the symmetries of the distribution \(p\), and using these to speed up the execution time and memory usage without modifying the underlying mathematical problem, returns whether or not the distribution \(p\) is compatible or not with the specified inflation problem (inflation size and inflation constraints). This involves a Frank-Wolfe algorithm for solving the corresponding linear linear program (which is, in this case, a polytope membership problem). If the distribution \(p\) is incompatible with the inflation problem, this proves that \(p\) is nonlocal.</p>
+<p>At the time of writing, this code is the most computationally efficient tool for certifying triangle nonlocality.</p>
+<h2><a class="anchor" id="autotoc_md4"></a>
+Exact arithmetic</h2>
+<p>Importantly, if the code states that the distribution \(p\) is nonlocal, this means that a nonlocality certificate was checked in rational arithmetic, so that the assessment of nonlocality is <b>exact</b> and does not suffer from numerical imprecision. We can thus call this a computer-assisted proof of nonlocality. More precisely, the nonlocality certificate is simply a separating hyperplane in the polytope membership problem that describes the linear program of inflation compatibility. The polytope membership problem features points that have rational coordinates, and checking the certificate in exact arithmetic just means that we verify in exact (in this case, rational) arithmetic that the certificate indeed separates the point from the polytope.</p>
+<p>On the other hand, if the code states that the distribution \(p\) is compatible with an inflation problem (which does not imply anything for whether or not \(p\) is local), then this means that the distribution \(p\) admits a floating-point inflation distribution \(q\) that satisfies <em>up to numerical precision</em> the specified inflation constraints. Mathematically speaking, this means that \(p\) may or may not be compatible with the inflation problem.</p>
+<h2><a class="anchor" id="autotoc_md5"></a>
+Future directions</h2>
+<p>To provide a more extensive computational tool, it would be desirable to extend the codebase to cover the following features:</p><ul>
+<li>Exploit impossible events (zeros in the target distribution) to reduce the set of inflation events and scalar constraints.</li>
+<li>Allow to go beyong the triangle network: for instance, it would be useful to be able to handle the bilocal scenario.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md6"></a>
+Documentation</h1>
+<p>To use and extend the codebase, please refer to the documentation available at <a href="https://vgitton.github.io/fast-inflation/index.html">vgitton.github.io/fast-inflation</a>. The HTML documentation can be built locally by running <code>make doc</code> (prerequisite : <a href="https://www.doxygen.nl/manual/index.html"><code>doxygen</code></a>).</p>
+<h1><a class="anchor" id="autotoc_md7"></a>
+Related repositories</h1>
+<ul>
+<li>The <a href="https://github.com/ecboghiu/inflation">inflation</a> Python package handles general network graphs with classical, quantum or post-quantum sources. Its level of generality and user-friendly interface can only be praised.</li>
+<li>The <a href="https://github.com/apozas/minimal-triangle-nonlocality">minimal-triangle-nonlocality</a> repository contains Matlab scripts that define and solve inflation problems quantum and classical inflation problems. We used these results to validate the correctness of our approach.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md8"></a>
+Contact</h1>
+<p>Please contact Victor Gitton at <a href="#" onclick="location.href='mai'+'lto:'+'vgi'+'tt'+'on@'+'ph'+'ys.'+'et'+'hz.'+'ch'; return false;">vgitton@phys.ethz.ch</a> for any question/suggestion or regarding help to install, compile, run or extend the codebase.</p>
+<h1><a class="anchor" id="autotoc_md9"></a>
+Acknowledgments</h1>
+<p>The automatic C++ makefile is based on <a href="https://gist.github.com/maxtruxa/4b3929e118914ccef057f8a05c614b0f">this one</a>. The documentation theme we use is <a href="https://github.com/jothepro/doxygen-awesome-css">doxygen-awesome-css</a>.</p>
+<p>Special thanks to Cristian Emmanuel Boghiu (<a href="https://github.com/ecboghiu">ecboghiu</a>), Alejandro Pozas-Kerstjens (<a href="https://github.com/apozas">apozas</a>), and Elie Wolfe (<a href="https://github.com/eliewolfe">eliewolfe</a>) for their support towards this project. </p>
+</div></div><!-- PageDoc -->
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Wed Dec 18 2024 17:39:47 for Fast Inflation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

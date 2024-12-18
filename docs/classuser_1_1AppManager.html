@@ -1,0 +1,575 @@
+<!-- HTML header for doxygen 1.9.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Fast Inflation: user::AppManager Class Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+MathJax.Hub.Config({
+    TeX: {
+        Macros: {
+            dd: ["{\\text{d}#1\\,}",1],
+            nouts: ["{n_{\\text{o}}}"],
+            ints: ["{[\\![#1]\\!]}",1],
+            outset: ["{\\ints{\\nouts}}"],
+            N: ["{\\mathbb{N}}"],
+            R: ["{\\mathbb{R}}"],
+            Z: ["{\\mathbb{Z}}"],
+            infsize: ["{z}"],
+            infparties: ["{\\set{I}}"],
+            infsources: ["{\\set{S}}"],
+            infmarg: ["{\\set{A}}"],
+            infmargg: ["{\\set{B}}"],
+            netparties: ["{\\set{N}}"],
+            infq: ["{q}"],
+            infqs: ["{\\Delta_{\\infparties}}"],
+            constraintlist: ["{\\mathcal{C}}"],
+            injsets: ["{\\text{InjSets}}"],
+            infconstraints: ["{\\text{InfCons}}"],
+            parents: ["{\\text{Par}}"],
+            targetp: ["{p}"],
+            targetps: ["{\\Delta_{\\netparties}}"],
+            set: ["{\\mathbf{#1}}",1],
+            type: ["{t}"],
+            infevent: "{\\omega}",
+            events: ["{\\Omega_{#1}}",1],
+            infevents: ["{\\events{\\infparties}}"],
+            redinfevents: ["{\\tilde{\\Omega}_{\\infparties}}"],
+            netevents: ["{\\events{\\netparties}}"],
+            vecset: ["{V_{#1}}",1],
+            alice: ["{\\text{A}}"],
+            bob: ["{\\text{B}}"],
+            charlie: ["{\\text{C}}"],
+            symgroup: ["{\\text{Sym}(#1)}",1],
+            shortsymgroup: ["{\\text{Sym}_{#1}}",1],
+            act: ["{(#1\\hspace{2pt}{:}\\hspace{2pt}#2)}",2],
+            actt: ["{[#1\\hspace{2pt}{:}\\hspace{2pt}#2]}",2],
+            margperms: ["{\\text{Perm}_{#1}}",1],
+            permutedmargs: ["{\\mathbb{P}_{#1}^{\\targetp}}",1],
+            redpermutedmargs: ["{\\tilde{\\mathbb{P}}_{#1}^{\\constraintname,\\targetp}}",1],
+            extract: ["{\\text{ext}(#1,#2)}",2],
+            partysym: ["{\\tau}"],
+            sourcesym: ["{\\xi}"],
+            outsym: ["{\\sigma}"],
+            fullgroup: ["{\\text{InfGrp}}"],
+            partygroup : ["{\\text{PartyGrp}}"],
+            outgroup: ["{\\text{OutGrp}}"],
+            sourcegroup: ["{\\text{SrcGrp}}"],
+            distrgroup: ["{\\mathbb{G}^\\targetp}"],
+            constraintname: ["{c}"],
+            marggroup: ["{\\mathbb{G}^{\\constraintname,\\targetp}}"],
+            fullsymexpl: ["{(\\sourcesym,\\partysym,\\outsym)}"],
+            inner: ["{\\langle#1,#2\\rangle}", 2],
+            quovec: ["{f}"],
+            totconstraintmap: ["{K^{\\constraintlist,\\targetp}}"],
+            totconstraintmapelem: ["{K^{\\constraintname,\\targetp}}"],
+            quovecspace: ["{\\tilde{V}_{#1}^{\\constraintname,\\targetp}}", 1],
+            totquovecspace: ["{\\text{ConsSpace}(\\constraintlist,\\targetp)}"],
+            detdistr: ["{\\delta^{#1}}", 1],
+            margperm: ["{\\varphi}"],
+            altquovecembed: ["{\\text{G}_{#1}^{\\constraintname,\\targetp}}", 1],
+            vecset: ["{V_{#1}}", 1],
+            repr: ["{\\lfloor#1\\rfloor}", 1],
+            gid: ["{\\text{id}}"],
+            id: ["{1_{#1}}",1],
+            consscale: ["{K}"],
+            scaletot: ["{K_{\\text{tot}}^{\\constraintlist,\\targetp}}"],
+            minnorm: ["{d}"],
+            Bigsetst: ["\\;\\Big|\\;"],
+            activeset: ["\\mathcal{S}"],
+            conv: ["\\text{conv}"],
+            lVert: ["|\\hspace{-1pt}|"],
+            norm: ["\\lVert#1\\lVert", 1],
+            st: [":\ "],
+        }
+    }
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeDarkModeToggle.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeParagraphLink.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Fast Inflation
+   </div>
+   <div id="projectbrief">To certify causal incompatibility</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classuser_1_1AppManager.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-static-methods">Static Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="classuser_1_1AppManager-members.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">user::AppManager Class Reference<div class="ingroups"><a class="el" href="group__applications.html">Applications</a> &raquo; <a class="el" href="group__user.html">Application interface</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &quot;<a class="el" href="app__manager_8h_source.html">user/app_manager.h</a>&quot;</code></p>
+<a name="details" id="details"></a><h2 class="groupheader">Class description</h2>
+<div class="textblock"><p>This class parses the command-line arguments to try to run an application listed in <a class="el" href="group__user.html#gac8692e8f531289da15d184fef94841aa" title="Specifies the existing applications/examples.">user::get_application_list()</a> </p>
+<p>The main point of this class is to parse the command-line arguments, display adequate error messages and usage guides, and run applications when applicable. This enables the syntax <code>./{debug|release}_inf example_to_run [optional parameters]</code>, see the <a class="el" href="md_doxygen_2running__applications.html#CLIparams">command-line parameters section</a>. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="group__user.html#gac8692e8f531289da15d184fef94841aa" title="Specifies the existing applications/examples.">user::get_application_list()</a> to register additional examples </dd>
+<dd>
+The <a class="el" href="group__user.html#ga3c04138a5bfe5d72780bb7e82a18e627" title="Creates a user::AppManager with the command-line arguments argc, argv">main()</a> entrypoint of the program </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="app__manager_8h_source.html#l00037">37</a> of file <a class="el" href="app__manager_8h_source.html">app_manager.h</a>.</p>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a9e65d6a6c16d78509cebdf820877c004"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1AppManager.html#a9e65d6a6c16d78509cebdf820877c004">AppManager</a> (int argc, char **argv)</td></tr>
+<tr class="memdesc:a9e65d6a6c16d78509cebdf820877c004"><td class="mdescLeft">&#160;</td><td class="mdescRight">The constructor receives the command-line arguments.  <br /></td></tr>
+<tr class="separator:a9e65d6a6c16d78509cebdf820877c004"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:aa2f6a81f5564ad31b5470900f108651e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1AppManager.html#aa2f6a81f5564ad31b5470900f108651e">parse_argv</a> ()</td></tr>
+<tr class="memdesc:aa2f6a81f5564ad31b5470900f108651e"><td class="mdescLeft">&#160;</td><td class="mdescRight">To parse the command-line arguments.  <br /></td></tr>
+<tr class="separator:aa2f6a81f5564ad31b5470900f108651e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6cd156ae0a4eeba01b62f943d722fa3b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1AppManager.html#a6cd156ae0a4eeba01b62f943d722fa3b">run_all_tests</a> () const</td></tr>
+<tr class="memdesc:a6cd156ae0a4eeba01b62f943d722fa3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">This runs all test, hiding their output but showing their execution time &amp; success/failure status.  <br /></td></tr>
+<tr class="separator:a6cd156ae0a4eeba01b62f943d722fa3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09ec8f782529147867ea62490c04241c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1AppManager.html#a09ec8f782529147867ea62490c04241c">run_application</a> (<a class="el" href="classuser_1_1Application.html#ab7af308c39fbb1fccda6855c102423e2">user::Application::Ptr</a> const &amp;ptr) const</td></tr>
+<tr class="memdesc:a09ec8f782529147867ea62490c04241c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs a specific application.  <br /></td></tr>
+<tr class="separator:a09ec8f782529147867ea62490c04241c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a561073a160cc0ce7398ecfbd74860953"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1AppManager.html#a561073a160cc0ce7398ecfbd74860953">display_available_applications</a> () const</td></tr>
+<tr class="memdesc:a561073a160cc0ce7398ecfbd74860953"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display a welcome message with usage guide and available applications.  <br /></td></tr>
+<tr class="separator:a561073a160cc0ce7398ecfbd74860953"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09abf8af9ebad4d4b0c8a43646122ca8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1AppManager.html#a09abf8af9ebad4d4b0c8a43646122ca8">get_max_application_name_width</a> (bool only_look_at_tests) const</td></tr>
+<tr class="memdesc:a09abf8af9ebad4d4b0c8a43646122ca8"><td class="mdescLeft">&#160;</td><td class="mdescRight">For internal use.  <br /></td></tr>
+<tr class="separator:a09abf8af9ebad4d4b0c8a43646122ca8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-static-methods" name="pri-static-methods"></a>
+Static Private Member Functions</h2></td></tr>
+<tr class="memitem:a26a8e39ad8288750aa43b26cb4e27233"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1AppManager.html#a26a8e39ad8288750aa43b26cb4e27233">log_status_str</a> (bool success)</td></tr>
+<tr class="memdesc:a26a8e39ad8288750aa43b26cb4e27233"><td class="mdescLeft">&#160;</td><td class="mdescRight">For internal use, pretty-prints <code>bool</code>s.  <br /></td></tr>
+<tr class="separator:a26a8e39ad8288750aa43b26cb4e27233"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:af6eda6259d1c10faee00e0412fce1b1a"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classuser_1_1Application.html#ab7af308c39fbb1fccda6855c102423e2">user::Application::Ptr</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1AppManager.html#af6eda6259d1c10faee00e0412fce1b1a">m_application_list</a></td></tr>
+<tr class="memdesc:af6eda6259d1c10faee00e0412fce1b1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The application list fetched from <a class="el" href="group__user.html#gac8692e8f531289da15d184fef94841aa" title="Specifies the existing applications/examples.">user::get_application_list()</a>  <br /></td></tr>
+<tr class="separator:af6eda6259d1c10faee00e0412fce1b1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc00962cab3c96508a472497abeb7e54"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1AppManager.html#adc00962cab3c96508a472497abeb7e54">m_compile_mode</a></td></tr>
+<tr class="memdesc:adc00962cab3c96508a472497abeb7e54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Debug or release.  <br /></td></tr>
+<tr class="separator:adc00962cab3c96508a472497abeb7e54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a609434e6ed957178d8afc32ccfc43767"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classuser_1_1InfCLI.html#ae24ebc44c5aa5589cce4482eedc470df">user::InfCLI::Ptr</a> const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1AppManager.html#a609434e6ed957178d8afc32ccfc43767">m_inf_cli</a></td></tr>
+<tr class="memdesc:a609434e6ed957178d8afc32ccfc43767"><td class="mdescLeft">&#160;</td><td class="mdescRight">This stores the parsed command-line parameters.  <br /></td></tr>
+<tr class="separator:a609434e6ed957178d8afc32ccfc43767"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a9e65d6a6c16d78509cebdf820877c004" name="a9e65d6a6c16d78509cebdf820877c004"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e65d6a6c16d78509cebdf820877c004">&#9670;&#160;</a></span>AppManager()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">user::AppManager::AppManager </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>argc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>argv</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The constructor receives the command-line arguments. </p>
+
+<p class="definition">Definition at line <a class="el" href="app__manager_8cpp_source.html#l00012">12</a> of file <a class="el" href="app__manager_8cpp_source.html">app_manager.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="aa2f6a81f5564ad31b5470900f108651e" name="aa2f6a81f5564ad31b5470900f108651e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2f6a81f5564ad31b5470900f108651e">&#9670;&#160;</a></span>parse_argv()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void user::AppManager::parse_argv </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>To parse the command-line arguments. </p>
+
+<p class="definition">Definition at line <a class="el" href="app__manager_8cpp_source.html#l00027">27</a> of file <a class="el" href="app__manager_8cpp_source.html">app_manager.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a6cd156ae0a4eeba01b62f943d722fa3b" name="a6cd156ae0a4eeba01b62f943d722fa3b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6cd156ae0a4eeba01b62f943d722fa3b">&#9670;&#160;</a></span>run_all_tests()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void user::AppManager::run_all_tests </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This runs all test, hiding their output but showing their execution time &amp; success/failure status. </p>
+
+<p class="definition">Definition at line <a class="el" href="app__manager_8cpp_source.html#l00079">79</a> of file <a class="el" href="app__manager_8cpp_source.html">app_manager.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a09ec8f782529147867ea62490c04241c" name="a09ec8f782529147867ea62490c04241c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09ec8f782529147867ea62490c04241c">&#9670;&#160;</a></span>run_application()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void user::AppManager::run_application </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classuser_1_1Application.html#ab7af308c39fbb1fccda6855c102423e2">user::Application::Ptr</a> const &amp;&#160;</td>
+          <td class="paramname"><em>ptr</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Runs a specific application. </p>
+
+<p class="definition">Definition at line <a class="el" href="app__manager_8cpp_source.html#l00115">115</a> of file <a class="el" href="app__manager_8cpp_source.html">app_manager.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a561073a160cc0ce7398ecfbd74860953" name="a561073a160cc0ce7398ecfbd74860953"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a561073a160cc0ce7398ecfbd74860953">&#9670;&#160;</a></span>display_available_applications()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void user::AppManager::display_available_applications </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Display a welcome message with usage guide and available applications. </p>
+
+<p class="definition">Definition at line <a class="el" href="app__manager_8cpp_source.html#l00141">141</a> of file <a class="el" href="app__manager_8cpp_source.html">app_manager.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a26a8e39ad8288750aa43b26cb4e27233" name="a26a8e39ad8288750aa43b26cb4e27233"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26a8e39ad8288750aa43b26cb4e27233">&#9670;&#160;</a></span>log_status_str()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void user::AppManager::log_status_str </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>success</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>For internal use, pretty-prints <code>bool</code>s. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">success</td><td><code>true</code> logs as <code>OK</code>, <code>false</code> as <code>FAIL</code> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="app__manager_8cpp_source.html#l00180">180</a> of file <a class="el" href="app__manager_8cpp_source.html">app_manager.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a09abf8af9ebad4d4b0c8a43646122ca8" name="a09abf8af9ebad4d4b0c8a43646122ca8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09abf8af9ebad4d4b0c8a43646122ca8">&#9670;&#160;</a></span>get_max_application_name_width()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int user::AppManager::get_max_application_name_width </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>only_look_at_tests</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>For internal use. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">only_look_at_tests</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Max application name width </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="app__manager_8cpp_source.html#l00189">189</a> of file <a class="el" href="app__manager_8cpp_source.html">app_manager.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="af6eda6259d1c10faee00e0412fce1b1a" name="af6eda6259d1c10faee00e0412fce1b1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af6eda6259d1c10faee00e0412fce1b1a">&#9670;&#160;</a></span>m_application_list</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="classuser_1_1Application.html#ab7af308c39fbb1fccda6855c102423e2">user::Application::Ptr</a>&gt; user::AppManager::m_application_list</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The application list fetched from <a class="el" href="group__user.html#gac8692e8f531289da15d184fef94841aa" title="Specifies the existing applications/examples.">user::get_application_list()</a> </p>
+
+<p class="definition">Definition at line <a class="el" href="app__manager_8h_source.html#l00070">70</a> of file <a class="el" href="app__manager_8h_source.html">app_manager.h</a>.</p>
+
+</div>
+</div>
+<a id="adc00962cab3c96508a472497abeb7e54" name="adc00962cab3c96508a472497abeb7e54"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc00962cab3c96508a472497abeb7e54">&#9670;&#160;</a></span>m_compile_mode</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string user::AppManager::m_compile_mode</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Debug or release. </p>
+
+<p class="definition">Definition at line <a class="el" href="app__manager_8h_source.html#l00072">72</a> of file <a class="el" href="app__manager_8h_source.html">app_manager.h</a>.</p>
+
+</div>
+</div>
+<a id="a609434e6ed957178d8afc32ccfc43767" name="a609434e6ed957178d8afc32ccfc43767"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a609434e6ed957178d8afc32ccfc43767">&#9670;&#160;</a></span>m_inf_cli</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classuser_1_1InfCLI.html#ae24ebc44c5aa5589cce4482eedc470df">user::InfCLI::Ptr</a> const user::AppManager::m_inf_cli</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This stores the parsed command-line parameters. </p>
+
+<p class="definition">Definition at line <a class="el" href="app__manager_8h_source.html#l00075">75</a> of file <a class="el" href="app__manager_8h_source.html">app_manager.h</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>src/user/<a class="el" href="app__manager_8h_source.html">app_manager.h</a></li>
+<li>src/user/<a class="el" href="app__manager_8cpp_source.html">app_manager.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceuser.html">user</a></li><li class="navelem"><a class="el" href="classuser_1_1AppManager.html">AppManager</a></li>
+    <li class="footer">Generated on Wed Dec 18 2024 17:39:43 for Fast Inflation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

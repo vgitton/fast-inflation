@@ -1,0 +1,412 @@
+<!-- HTML header for doxygen 1.9.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Fast Inflation: user Namespace Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+MathJax.Hub.Config({
+    TeX: {
+        Macros: {
+            dd: ["{\\text{d}#1\\,}",1],
+            nouts: ["{n_{\\text{o}}}"],
+            ints: ["{[\\![#1]\\!]}",1],
+            outset: ["{\\ints{\\nouts}}"],
+            N: ["{\\mathbb{N}}"],
+            R: ["{\\mathbb{R}}"],
+            Z: ["{\\mathbb{Z}}"],
+            infsize: ["{z}"],
+            infparties: ["{\\set{I}}"],
+            infsources: ["{\\set{S}}"],
+            infmarg: ["{\\set{A}}"],
+            infmargg: ["{\\set{B}}"],
+            netparties: ["{\\set{N}}"],
+            infq: ["{q}"],
+            infqs: ["{\\Delta_{\\infparties}}"],
+            constraintlist: ["{\\mathcal{C}}"],
+            injsets: ["{\\text{InjSets}}"],
+            infconstraints: ["{\\text{InfCons}}"],
+            parents: ["{\\text{Par}}"],
+            targetp: ["{p}"],
+            targetps: ["{\\Delta_{\\netparties}}"],
+            set: ["{\\mathbf{#1}}",1],
+            type: ["{t}"],
+            infevent: "{\\omega}",
+            events: ["{\\Omega_{#1}}",1],
+            infevents: ["{\\events{\\infparties}}"],
+            redinfevents: ["{\\tilde{\\Omega}_{\\infparties}}"],
+            netevents: ["{\\events{\\netparties}}"],
+            vecset: ["{V_{#1}}",1],
+            alice: ["{\\text{A}}"],
+            bob: ["{\\text{B}}"],
+            charlie: ["{\\text{C}}"],
+            symgroup: ["{\\text{Sym}(#1)}",1],
+            shortsymgroup: ["{\\text{Sym}_{#1}}",1],
+            act: ["{(#1\\hspace{2pt}{:}\\hspace{2pt}#2)}",2],
+            actt: ["{[#1\\hspace{2pt}{:}\\hspace{2pt}#2]}",2],
+            margperms: ["{\\text{Perm}_{#1}}",1],
+            permutedmargs: ["{\\mathbb{P}_{#1}^{\\targetp}}",1],
+            redpermutedmargs: ["{\\tilde{\\mathbb{P}}_{#1}^{\\constraintname,\\targetp}}",1],
+            extract: ["{\\text{ext}(#1,#2)}",2],
+            partysym: ["{\\tau}"],
+            sourcesym: ["{\\xi}"],
+            outsym: ["{\\sigma}"],
+            fullgroup: ["{\\text{InfGrp}}"],
+            partygroup : ["{\\text{PartyGrp}}"],
+            outgroup: ["{\\text{OutGrp}}"],
+            sourcegroup: ["{\\text{SrcGrp}}"],
+            distrgroup: ["{\\mathbb{G}^\\targetp}"],
+            constraintname: ["{c}"],
+            marggroup: ["{\\mathbb{G}^{\\constraintname,\\targetp}}"],
+            fullsymexpl: ["{(\\sourcesym,\\partysym,\\outsym)}"],
+            inner: ["{\\langle#1,#2\\rangle}", 2],
+            quovec: ["{f}"],
+            totconstraintmap: ["{K^{\\constraintlist,\\targetp}}"],
+            totconstraintmapelem: ["{K^{\\constraintname,\\targetp}}"],
+            quovecspace: ["{\\tilde{V}_{#1}^{\\constraintname,\\targetp}}", 1],
+            totquovecspace: ["{\\text{ConsSpace}(\\constraintlist,\\targetp)}"],
+            detdistr: ["{\\delta^{#1}}", 1],
+            margperm: ["{\\varphi}"],
+            altquovecembed: ["{\\text{G}_{#1}^{\\constraintname,\\targetp}}", 1],
+            vecset: ["{V_{#1}}", 1],
+            repr: ["{\\lfloor#1\\rfloor}", 1],
+            gid: ["{\\text{id}}"],
+            id: ["{1_{#1}}",1],
+            consscale: ["{K}"],
+            scaletot: ["{K_{\\text{tot}}^{\\constraintlist,\\targetp}}"],
+            minnorm: ["{d}"],
+            Bigsetst: ["\\;\\Big|\\;"],
+            activeset: ["\\mathcal{S}"],
+            conv: ["\\text{conv}"],
+            lVert: ["|\\hspace{-1pt}|"],
+            norm: ["\\lVert#1\\lVert", 1],
+            st: [":\ "],
+        }
+    }
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeDarkModeToggle.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeParagraphLink.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Fast Inflation
+   </div>
+   <div id="projectbrief">To certify causal incompatibility</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('namespaceuser.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#func-members">Functions</a>  </div>
+  <div class="headertitle"><div class="title">user Namespace Reference</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>The namespace for application code.  
+<a href="namespaceuser.html#details">More...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1Application.html">Application</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parent class of user applications.  <a href="classuser_1_1Application.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1AppManager.html">AppManager</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class parses the command-line arguments to try to run an application listed in <a class="el" href="group__user.html#gac8692e8f531289da15d184fef94841aa" title="Specifies the existing applications/examples.">user::get_application_list()</a>  <a href="classuser_1_1AppManager.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1distribution__marginal.html">distribution_marginal</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tests marginals of a triangle distribution.  <a href="classuser_1_1distribution__marginal.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1dual__vector__bounds.html">dual_vector_bounds</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tests the mechanism that stores the bounds of an <a class="el" href="classinf_1_1DualVector.html" title="Describes a dual vector  through its embedding .">inf::DualVector</a>.  <a href="classuser_1_1dual__vector__bounds.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1dual__vector__io.html">dual_vector_io</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tests the mechanism that reads/writes an <a class="el" href="classinf_1_1DualVector.html" title="Describes a dual vector  through its embedding .">inf::DualVector</a> to disk.  <a href="classuser_1_1dual__vector__io.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1ejm.html">ejm</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Placeholder for EJM inflation compatibility problems.  <a href="classuser_1_1ejm.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1ejm__check__nl__certificate.html">ejm_check_nl_certificate</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the nonlocality certificate for the EJM from disk and checks that it indeed rules out a local model for the EJM.  <a href="classuser_1_1ejm__check__nl__certificate.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1ejm__eval.html">ejm_eval</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">See <a class="el" href="group__misc__tests.html#ga9790d6560cfcd9f65b2400a308f42244" title="This function tests the evaluation of inner products, see inf::DualVector and inf::Marginal.">user::test_dual_vector_eval()</a>  <a href="classuser_1_1ejm__eval.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1ejm__find__nl__certificate.html">ejm_find_nl_certificate</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds a nonlocality certificate for the EJM and writes it to disk.  <a href="classuser_1_1ejm__find__nl__certificate.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1ejm__scan__222.html">ejm_scan_222</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tests the compatibility of the symmetric distributions with the \(2\times2\times2\) inflation.  <a href="classuser_1_1ejm__scan__222.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1ejm__sym.html">ejm_sym</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This shows info about the symmetries of the EJM for various inflation sizes.  <a href="classuser_1_1ejm__sym.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1ejm__symtree.html">ejm_symtree</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Displays information about the EJM symtree, see <a class="el" href="classinf_1_1EventTree.html" title="Storing a set of inf::Event as a tree.">inf::EventTree</a> and <a class="el" href="classinf_1_1TreeFiller.html" title="This class takes care of filling an inf::EventTree that stores the symmetrized inflation events .">inf::TreeFiller</a>.  <a href="classuser_1_1ejm__symtree.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1ejm__vis__222__strong.html">ejm_vis_222_strong</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Visibility of EJM under \(2\times2\times2\) inflation, using all constraints.  <a href="classuser_1_1ejm__vis__222__strong.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1ejm__vis__222__weak.html">ejm_vis_222_weak</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Visibility of EJM under \(2\times2\times2\) inflation, using only the order-2 diagonal constraint.  <a href="classuser_1_1ejm__vis__222__weak.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1ejm__vis__223__strong.html">ejm_vis_223_strong</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Visibility of EJM under \(2\times2\times3\) inflation, using all constraints.  <a href="classuser_1_1ejm__vis__223__strong.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1ejm__vis__223__weak.html">ejm_vis_223_weak</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Visibility of EJM under \(2\times2\times3\) inflation, using only the main constraint.  <a href="classuser_1_1ejm__vis__223__weak.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1ejm__vis__224__inter__v1.html">ejm_vis_224_inter_v1</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Visibility of EJM under \(2\times2\times4\) inflation, using only main constraint.  <a href="classuser_1_1ejm__vis__224__inter__v1.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1ejm__vis__224__inter__v2__diag__A.html">ejm_vis_224_inter_v2_diag_A</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Visibility of EJM under \(2\times2\times4\) inflation using main constraint and an A-type constraint.  <a href="classuser_1_1ejm__vis__224__inter__v2__diag__A.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1ejm__vis__224__inter__v2__diag__C.html">ejm_vis_224_inter_v2_diag_C</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Visibility of EJM under \(2\times2\times4\) inflation using main constraint and a C-type constraint.  <a href="classuser_1_1ejm__vis__224__inter__v2__diag__C.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1ejm__vis__224__weak.html">ejm_vis_224_weak</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Visibility of EJM under \(2\times2\times4\) inflation, using all constraints of \(2\times2\times3\) inflation.  <a href="classuser_1_1ejm__vis__224__weak.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1ejm__vis__224__weak__bis.html">ejm_vis_224_weak_bis</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Visibility of EJM under \(2\times2\times4\) inflation, using the good \(A\) type constraint.  <a href="classuser_1_1ejm__vis__224__weak__bis.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1event__sym.html">event_sym</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to test and display the effect of symmetry transformations on inflation events.  <a href="classuser_1_1event__sym.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1event__tensor.html">event_tensor</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tests <a class="el" href="classinf_1_1EventTensor.html" title="Stores a function from a set of inf::Event of fixed length to Num.">inf::EventTensor</a>.  <a href="classuser_1_1event__tensor.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1event__tree.html">event_tree</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tests <a class="el" href="classinf_1_1EventTree.html" title="Storing a set of inf::Event as a tree.">inf::EventTree</a>, including IO mecanism.  <a href="classuser_1_1event__tree.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1file__stream.html">file_stream</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tests the <a class="el" href="classutil_1_1FileStream.html" title="This abstract class provides a common interface to util::InputFileStream and util::OutputFileStream t...">util::FileStream</a> serialization mechanism in both binary and text form for a dummy class.  <a href="classuser_1_1file__stream.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1frac.html">frac</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tests <a class="el" href="classutil_1_1Frac.html" title="A class to represent rational numbers.">util::Frac</a>.  <a href="classuser_1_1frac.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1fully__corrective__fw.html">fully_corrective_fw</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tests <a class="el" href="classinf_1_1FullyCorrectiveFW.html" title="The fully-corrective algorithm.">inf::FullyCorrectiveFW</a>.  <a href="classuser_1_1fully__corrective__fw.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1inf__tree__filler.html">inf_tree_filler</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tests <a class="el" href="classinf_1_1TreeFiller.html" title="This class takes care of filling an inf::EventTree that stores the symmetrized inflation events .">inf::TreeFiller</a>.  <a href="classuser_1_1inf__tree__filler.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1inf__tree__splitting.html">inf_tree_splitting</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tests the tree splitting of inflation event trees.  <a href="classuser_1_1inf__tree__splitting.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1InfCLI.html">InfCLI</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class defines the command-line parameters that are expected.  <a href="classuser_1_1InfCLI.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1inflation__marginal.html">inflation_marginal</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tests <a class="el" href="classinf_1_1Marginal.html" title="This class represents an inflation marginal  for some set of inflation parties  and allows to efficie...">inf::Marginal</a>.  <a href="classuser_1_1inflation__marginal.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1opt__bounds.html">opt_bounds</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tests the mechanism that uses the bounds of an <a class="el" href="classinf_1_1DualVector.html" title="Describes a dual vector  through its embedding .">inf::DualVector</a> to speed up the optimizations of inner products.  <a href="classuser_1_1opt__bounds.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1opt__time.html">opt_time</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">To test the time that an <a class="el" href="classinf_1_1Optimizer.html" title="This class defines the interface for inf::BruteForceOpt and inf::TreeOpt.">inf::Optimizer</a> takes for various options. This one takes more time to execute.  <a href="classuser_1_1opt__time.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1pairwise__fw.html">pairwise_fw</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A detailed test to investigate the behavior of <a class="el" href="classinf_1_1PairwiseFW.html" title="A pairwise Frank-Wolfe algorithm.">inf::PairwiseFW</a>.  <a href="classuser_1_1pairwise__fw.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1pjm.html">pjm</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trying to prove the nonlocality of the PJM distribution of Nicolas Gisin.  <a href="classuser_1_1pjm.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1srb.html">srb</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Placeholder for Shared Random Bit feasibility problems.  <a href="classuser_1_1srb.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1srb__dual__vector__io.html">srb_dual_vector_io</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes a nonlocality certificate for the SRB and then reads it back to test its validity.  <a href="classuser_1_1srb__dual__vector__io.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1srb__eval.html">srb_eval</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">See <a class="el" href="group__misc__tests.html#ga9790d6560cfcd9f65b2400a308f42244" title="This function tests the evaluation of inner products, see inf::DualVector and inf::Marginal.">user::test_dual_vector_eval()</a>  <a href="classuser_1_1srb__eval.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1srb__sym.html">srb_sym</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classuser_1_1Application.html" title="Parent class of user applications.">user::Application</a> that shows info about the problem and its symmetries for various inflation sizes  <a href="classuser_1_1srb__sym.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1srb__vis__222__strong.html">srb_vis_222_strong</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Visibility of SRB under \(2\times2\times2\) inflation, with all constraints.  <a href="classuser_1_1srb__vis__222__strong.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1srb__vis__222__weak.html">srb_vis_222_weak</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Visibility of SRB under \(2\times2\times2\) inflation, using only the order-2 diagonal constraint.  <a href="classuser_1_1srb__vis__222__weak.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1srb__vis__223__strong.html">srb_vis_223_strong</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Visibility of SRB under \(2\times2\times3\) inflation, with all constraints.  <a href="classuser_1_1srb__vis__223__strong.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1srb__vis__223__weak.html">srb_vis_223_weak</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Visibility of SRB under \(2\times2\times3\) inflation, using only the order-2 diagonal constraint.  <a href="classuser_1_1srb__vis__223__weak.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1srb__vis__233__inter.html">srb_vis_233_inter</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Visibility of SRB under \(2\times3\times3\) inflation, using only the full diagonal constraint.  <a href="classuser_1_1srb__vis__233__inter.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1srb__vis__233__strong.html">srb_vis_233_strong</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Visibility of SRB under \(2\times3\times3\) inflation, with all constraints.  <a href="classuser_1_1srb__vis__233__strong.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1srb__vis__233__weak.html">srb_vis_233_weak</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Visibility of SRB under \(2\times3\times3\) inflation, using only the order-2 diagonal constraint.  <a href="classuser_1_1srb__vis__233__weak.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1srb__vis__333.html">srb_vis_333</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Visibility of SRB under \(3\times3\times3\) inflation, using only main constraint.  <a href="classuser_1_1srb__vis__333.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1srb__vis__334.html">srb_vis_334</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Visibility of SRB under \(3\times3\times4\) inflation, using only main constraint of \(3\times3\times3\) inflation.  <a href="classuser_1_1srb__vis__334.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1srb__vis__detailed__test.html">srb_vis_detailed_test</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Visibility of SRB under a variety of inflation sizes and solver options.  <a href="classuser_1_1srb__vis__detailed__test.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1tree__splitter.html">tree_splitter</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tests the tree splitting mechanism on a simple case as described in <a class="el" href="classinf_1_1TreeSplitter.html" title="This class allows the user to partition an inf::EventTree into a group of subtrees that each have rou...">inf::TreeSplitter</a>.  <a href="classuser_1_1tree__splitter.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1y__basis.html">y_basis</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trying to prove the nonlocality of the \(Y\)-basis distribution of Nicolas Gisin.  <a href="classuser_1_1y__basis.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuser_1_1y__basis__sym.html">y_basis_sym</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tests the symmetrization of inflation problems for the \(Y\)-basis distribution of Nicolas Gisin.  <a href="classuser_1_1y__basis__sym.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:gac8692e8f531289da15d184fef94841aa"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classuser_1_1Application.html#ab7af308c39fbb1fccda6855c102423e2">user::Application::Ptr</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__user.html#gac8692e8f531289da15d184fef94841aa">get_application_list</a> ()</td></tr>
+<tr class="memdesc:gac8692e8f531289da15d184fef94841aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies the existing applications/examples.  <br /></td></tr>
+<tr class="separator:gac8692e8f531289da15d184fef94841aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga49467df4943d7409ddfbb245df1cf6a1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classinf_1_1Network.html#a4e586db6e1ab9f11335ed74f25ea0aee">inf::Network::ConstPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ejm.html#ga49467df4943d7409ddfbb245df1cf6a1">get_ejm_network</a> ()</td></tr>
+<tr class="memdesc:ga49467df4943d7409ddfbb245df1cf6a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Triangle network with four outcomes per party.  <br /></td></tr>
+<tr class="separator:ga49467df4943d7409ddfbb245df1cf6a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad1188130cb8babf49081a37d49d40000"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classinf_1_1TargetDistr.html#a75d7c59680325e198e85d02d673e4abe">inf::TargetDistr::ConstPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ejm.html#gad1188130cb8babf49081a37d49d40000">get_symmetric_distribution</a> (<a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> s111, <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> s112, <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> s123, <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> s_denom)</td></tr>
+<tr class="memdesc:gad1188130cb8babf49081a37d49d40000"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a distribution symmetric under party exchange and global outcome relablings characterized by \(p(0,0,0)\), \(p(0,0,1)\) and \(p(0,1,2)\).  <br /></td></tr>
+<tr class="separator:gad1188130cb8babf49081a37d49d40000"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3fbc36cb73cdd624199ea4d977b0fc78"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classinf_1_1TargetDistr.html#a75d7c59680325e198e85d02d673e4abe">inf::TargetDistr::ConstPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ejm.html#ga3fbc36cb73cdd624199ea4d977b0fc78">get_noisy_pureejm</a> (<a class="el" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a> vis, <a class="el" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a> vis_denom)</td></tr>
+<tr class="memdesc:ga3fbc36cb73cdd624199ea4d977b0fc78"><td class="mdescLeft">&#160;</td><td class="mdescRight">This returns the distribution \(p_v\) described in <a class="el" href="group__ejm.html">the EJM module</a>.  <br /></td></tr>
+<tr class="separator:ga3fbc36cb73cdd624199ea4d977b0fc78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga09e6c224533227bbccb9e1e709672b88"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classinf_1_1TargetDistr.html#a75d7c59680325e198e85d02d673e4abe">inf::TargetDistr::ConstPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ejm.html#ga09e6c224533227bbccb9e1e709672b88">get_ejm_distribution</a> ()</td></tr>
+<tr class="memdesc:ga09e6c224533227bbccb9e1e709672b88"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Elegant Joint Measurement distribution.  <br /></td></tr>
+<tr class="separator:ga09e6c224533227bbccb9e1e709672b88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2c39af770587c975094b114a857eceb6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ejm.html#ga2c39af770587c975094b114a857eceb6">scan_symmetric_distributions</a> (<a class="el" href="classinf_1_1FeasOptions.html#a47cd0d666aa21be8252f703a0fbc654f">inf::FeasOptions::Ptr</a> const &amp;feas_options, <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> const s_denom, <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> const run_index, <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> const n_runs)</td></tr>
+<tr class="memdesc:ga2c39af770587c975094b114a857eceb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tests the compatibility of symmetric distributions with the inflation problem described in <code>feas_options</code>.  <br /></td></tr>
+<tr class="separator:ga2c39af770587c975094b114a857eceb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9790d6560cfcd9f65b2400a308f42244"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__misc__tests.html#ga9790d6560cfcd9f65b2400a308f42244">test_dual_vector_eval</a> (<a class="el" href="classinf_1_1TargetDistr.html#a75d7c59680325e198e85d02d673e4abe">inf::TargetDistr::ConstPtr</a> const &amp;d)</td></tr>
+<tr class="memdesc:ga9790d6560cfcd9f65b2400a308f42244"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function tests the evaluation of inner products, see <a class="el" href="classinf_1_1DualVector.html" title="Describes a dual vector  through its embedding .">inf::DualVector</a> and <a class="el" href="classinf_1_1Marginal.html" title="This class represents an inflation marginal  for some set of inflation parties  and allows to efficie...">inf::Marginal</a>.  <br /></td></tr>
+<tr class="separator:ga9790d6560cfcd9f65b2400a308f42244"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae23782ae4a4bea2002d0b783b4c40592"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__misc__tests.html#gae23782ae4a4bea2002d0b783b4c40592">print_event_latex_format</a> (<a class="el" href="classinf_1_1Inflation.html">inf::Inflation</a> const &amp;inflation, <a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> const &amp;event)</td></tr>
+<tr class="memdesc:gae23782ae4a4bea2002d0b783b4c40592"><td class="mdescLeft">&#160;</td><td class="mdescRight">We use this to conveniently print events in our latex source code format.  <br /></td></tr>
+<tr class="separator:gae23782ae4a4bea2002d0b783b4c40592"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0b04694a2979c8e54c3fdbfbd9c4b805"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classinf_1_1Network.html#a4e586db6e1ab9f11335ed74f25ea0aee">inf::Network::ConstPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__SRB.html#ga0b04694a2979c8e54c3fdbfbd9c4b805">get_srb_network</a> ()</td></tr>
+<tr class="memdesc:ga0b04694a2979c8e54c3fdbfbd9c4b805"><td class="mdescLeft">&#160;</td><td class="mdescRight">Triangle network with 2 outcomes.  <br /></td></tr>
+<tr class="separator:ga0b04694a2979c8e54c3fdbfbd9c4b805"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0db3b911ca8a13dec8909b8de1510da6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classinf_1_1TargetDistr.html#a75d7c59680325e198e85d02d673e4abe">inf::TargetDistr::ConstPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__SRB.html#ga0db3b911ca8a13dec8909b8de1510da6">get_noisy_srb</a> (<a class="el" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a> visibility, <a class="el" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a> visibility_denom)</td></tr>
+<tr class="memdesc:ga0db3b911ca8a13dec8909b8de1510da6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Noisy shared random bit distribution.  <br /></td></tr>
+<tr class="separator:ga0db3b911ca8a13dec8909b8de1510da6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>The namespace for application code. </p>
+<p>The namespace for Shared Random Bit visibility related tasks. </p>
+</div></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceuser.html">user</a></li>
+    <li class="footer">Generated on Wed Dec 18 2024 17:39:43 for Fast Inflation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

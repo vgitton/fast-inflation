@@ -1,0 +1,449 @@
+<!-- HTML header for doxygen 1.9.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Fast Inflation: src/user/app_manager.cpp Source File</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+MathJax.Hub.Config({
+    TeX: {
+        Macros: {
+            dd: ["{\\text{d}#1\\,}",1],
+            nouts: ["{n_{\\text{o}}}"],
+            ints: ["{[\\![#1]\\!]}",1],
+            outset: ["{\\ints{\\nouts}}"],
+            N: ["{\\mathbb{N}}"],
+            R: ["{\\mathbb{R}}"],
+            Z: ["{\\mathbb{Z}}"],
+            infsize: ["{z}"],
+            infparties: ["{\\set{I}}"],
+            infsources: ["{\\set{S}}"],
+            infmarg: ["{\\set{A}}"],
+            infmargg: ["{\\set{B}}"],
+            netparties: ["{\\set{N}}"],
+            infq: ["{q}"],
+            infqs: ["{\\Delta_{\\infparties}}"],
+            constraintlist: ["{\\mathcal{C}}"],
+            injsets: ["{\\text{InjSets}}"],
+            infconstraints: ["{\\text{InfCons}}"],
+            parents: ["{\\text{Par}}"],
+            targetp: ["{p}"],
+            targetps: ["{\\Delta_{\\netparties}}"],
+            set: ["{\\mathbf{#1}}",1],
+            type: ["{t}"],
+            infevent: "{\\omega}",
+            events: ["{\\Omega_{#1}}",1],
+            infevents: ["{\\events{\\infparties}}"],
+            redinfevents: ["{\\tilde{\\Omega}_{\\infparties}}"],
+            netevents: ["{\\events{\\netparties}}"],
+            vecset: ["{V_{#1}}",1],
+            alice: ["{\\text{A}}"],
+            bob: ["{\\text{B}}"],
+            charlie: ["{\\text{C}}"],
+            symgroup: ["{\\text{Sym}(#1)}",1],
+            shortsymgroup: ["{\\text{Sym}_{#1}}",1],
+            act: ["{(#1\\hspace{2pt}{:}\\hspace{2pt}#2)}",2],
+            actt: ["{[#1\\hspace{2pt}{:}\\hspace{2pt}#2]}",2],
+            margperms: ["{\\text{Perm}_{#1}}",1],
+            permutedmargs: ["{\\mathbb{P}_{#1}^{\\targetp}}",1],
+            redpermutedmargs: ["{\\tilde{\\mathbb{P}}_{#1}^{\\constraintname,\\targetp}}",1],
+            extract: ["{\\text{ext}(#1,#2)}",2],
+            partysym: ["{\\tau}"],
+            sourcesym: ["{\\xi}"],
+            outsym: ["{\\sigma}"],
+            fullgroup: ["{\\text{InfGrp}}"],
+            partygroup : ["{\\text{PartyGrp}}"],
+            outgroup: ["{\\text{OutGrp}}"],
+            sourcegroup: ["{\\text{SrcGrp}}"],
+            distrgroup: ["{\\mathbb{G}^\\targetp}"],
+            constraintname: ["{c}"],
+            marggroup: ["{\\mathbb{G}^{\\constraintname,\\targetp}}"],
+            fullsymexpl: ["{(\\sourcesym,\\partysym,\\outsym)}"],
+            inner: ["{\\langle#1,#2\\rangle}", 2],
+            quovec: ["{f}"],
+            totconstraintmap: ["{K^{\\constraintlist,\\targetp}}"],
+            totconstraintmapelem: ["{K^{\\constraintname,\\targetp}}"],
+            quovecspace: ["{\\tilde{V}_{#1}^{\\constraintname,\\targetp}}", 1],
+            totquovecspace: ["{\\text{ConsSpace}(\\constraintlist,\\targetp)}"],
+            detdistr: ["{\\delta^{#1}}", 1],
+            margperm: ["{\\varphi}"],
+            altquovecembed: ["{\\text{G}_{#1}^{\\constraintname,\\targetp}}", 1],
+            vecset: ["{V_{#1}}", 1],
+            repr: ["{\\lfloor#1\\rfloor}", 1],
+            gid: ["{\\text{id}}"],
+            id: ["{1_{#1}}",1],
+            consscale: ["{K}"],
+            scaletot: ["{K_{\\text{tot}}^{\\constraintlist,\\targetp}}"],
+            minnorm: ["{d}"],
+            Bigsetst: ["\\;\\Big|\\;"],
+            activeset: ["\\mathcal{S}"],
+            conv: ["\\text{conv}"],
+            lVert: ["|\\hspace{-1pt}|"],
+            norm: ["\\lVert#1\\lVert", 1],
+            st: [":\ "],
+        }
+    }
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeDarkModeToggle.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeParagraphLink.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Fast Inflation
+   </div>
+   <div id="projectbrief">To certify causal incompatibility</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('app__manager_8cpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">app_manager.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="app__manager_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &quot;<a class="code" href="app__manager_8h.html">app_manager.h</a>&quot;</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;../inf/inf_problem/feas_options.h&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;../util/debug.h&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;../util/logger.h&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="application__list_8h.html">application_list.h</a>&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">// For the current time</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;chrono&gt;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;iomanip&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;sstream&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="classuser_1_1AppManager.html#a9e65d6a6c16d78509cebdf820877c004">   12</a></span><a class="code hl_function" href="classuser_1_1AppManager.html#a9e65d6a6c16d78509cebdf820877c004">user::AppManager::AppManager</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> **argv)</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    : m_application_list(<a class="code hl_namespace" href="namespaceuser.html">user</a>::<a class="code hl_function" href="group__user.html#gac8692e8f531289da15d184fef94841aa">get_application_list</a>()),</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>      m_compile_mode(<span class="stringliteral">&quot;&quot;</span>),</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>      m_inf_cli(std::make_shared&lt;<a class="code hl_namespace" href="namespaceuser.html">user</a>::<a class="code hl_class" href="classuser_1_1InfCLI.html">InfCLI</a>&gt;(argc, argv)) {</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="comment">// Init debug vs release mode marker</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#ifdef NDEBUG</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <a class="code hl_variable" href="classuser_1_1AppManager.html#adc00962cab3c96508a472497abeb7e54">m_compile_mode</a> = <a class="code hl_variable" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a>.<a class="code hl_function" href="classutil_1_1Logger.html#ac7840a2529ef40d0e881b621d789b51c">get_color_code</a>(<a class="code hl_enumvalue" href="group__color.html#gga95747189f62a0ed341c6e2579146beb7a6c7eaf8a5070bfe6625d2d32418e882f">util::Color::alt_yellow</a>) + <span class="stringliteral">&quot;[RELEASE]&quot;</span> + <a class="code hl_variable" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a>.<a class="code hl_function" href="classutil_1_1Logger.html#ac7840a2529ef40d0e881b621d789b51c">get_color_code</a>(<a class="code hl_enumvalue" href="group__color.html#gga95747189f62a0ed341c6e2579146beb7a3d4044d65abdda407a92991f1300ec97">util::Color::fg</a>);</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#else</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <a class="code hl_variable" href="classuser_1_1AppManager.html#adc00962cab3c96508a472497abeb7e54">m_compile_mode</a> = <span class="stringliteral">&quot;[DEBUG]&quot;</span>;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <a class="code hl_function" href="classuser_1_1AppManager.html#aa2f6a81f5564ad31b5470900f108651e">parse_argv</a>();</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>}</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="classuser_1_1AppManager.html#aa2f6a81f5564ad31b5470900f108651e">   27</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classuser_1_1AppManager.html#aa2f6a81f5564ad31b5470900f108651e">user::AppManager::parse_argv</a>() {</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keywordtype">bool</span> display_apps = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keywordflow">try</span> {</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        m_inf_cli-&gt;init();</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        <a class="code hl_variable" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a> &lt;&lt; <span class="stringliteral">&quot;Command-line arguments:&quot;</span> &lt;&lt; <a class="code hl_variable" href="group__printing.html#ga3f8fe48536ee19c54002c9c1db64cabb">util::cr</a></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>                     &lt;&lt; *m_inf_cli;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        <span class="keywordflow">for</span> (<a class="code hl_typedef" href="classuser_1_1Application.html#ab7af308c39fbb1fccda6855c102423e2">user::Application::Ptr</a> <span class="keyword">const</span> &amp;application : m_application_list) {</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>            <span class="comment">// Initialize the feas_options for each application independently so that</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>            <span class="comment">// when running all tests, the modifications of the feas options of one application</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>            <span class="comment">// do not carry over to the next application</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>            <a class="code hl_typedef" href="classinf_1_1FeasOptions.html#a47cd0d666aa21be8252f703a0fbc654f">inf::FeasOptions::Ptr</a> feas_options = std::make_shared&lt;inf::FeasOptions&gt;();</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>            feas_options-&gt;set_n_threads(m_inf_cli-&gt;get_n_threads());</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>            feas_options-&gt;set(m_inf_cli-&gt;get_symtree_io());</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>            application-&gt;set_inf_cli(m_inf_cli);</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>            application-&gt;set_feas_options(feas_options);</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        }</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        std::string <span class="keyword">const</span> &amp;target_app_name = m_inf_cli-&gt;get_target_application_name();</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        <span class="keywordflow">if</span> (target_app_name == std::string(<span class="stringliteral">&quot;&quot;</span>)) {</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>            display_apps = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (target_app_name == std::string(<span class="stringliteral">&quot;test&quot;</span>)) {</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>            run_all_tests();</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>            <a class="code hl_typedef" href="classuser_1_1Application.html#ab7af308c39fbb1fccda6855c102423e2">user::Application::Ptr</a> target_application(<span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>            <span class="keywordflow">for</span> (<a class="code hl_typedef" href="classuser_1_1Application.html#ab7af308c39fbb1fccda6855c102423e2">user::Application::Ptr</a> <span class="keyword">const</span> &amp;application : m_application_list) {</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>                <span class="keywordflow">if</span> (application-&gt;name_equals(target_app_name)) {</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>                    target_application = application;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>                    <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>                }</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>            }</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>            <span class="keywordflow">if</span> (target_application == <span class="keyword">nullptr</span>) {</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>                display_apps = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>                <a class="code hl_define" href="group__debug.html#ga44d4e64ea98b1a9c055f030e33e24f17">THROW_ERROR</a>(<span class="stringliteral">&quot;Could not find the target application &quot;</span> + target_app_name);</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>            }</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>            run_application(target_application);</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        }</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    } <span class="keywordflow">catch</span> (std::exception <span class="keyword">const</span> &amp;e) {</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        <a class="code hl_variable" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a>.<a class="code hl_function" href="classutil_1_1Logger.html#a037348a66bc990631e75bf65deabf421">echo_error</a>(e.what());</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    }</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="keywordflow">if</span> (display_apps) {</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        display_available_applications();</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    }</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>}</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="classuser_1_1AppManager.html#a6cd156ae0a4eeba01b62f943d722fa3b">   79</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classuser_1_1AppManager.html#a6cd156ae0a4eeba01b62f943d722fa3b">user::AppManager::run_all_tests</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <a class="code hl_variable" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a>.<a class="code hl_function" href="classutil_1_1Logger.html#af818aa6efdb1281e42fc779f2e0bb3cd">set_log_level</a>(1);</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <a class="code hl_variable" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a>.<a class="code hl_function" href="classutil_1_1Logger.html#a375f261904b727f2043caa5bbe52dc31">disable_dots_for_hidden_sections</a>();</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <a class="code hl_variable" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a>.<a class="code hl_function" href="classutil_1_1Logger.html#ab668d49ead6192cb23159f5cda0740ce">echo_title</a>(<span class="stringliteral">&quot;Running all tests &quot;</span> + m_compile_mode);</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="keywordtype">int</span> max_width = get_max_application_name_width(<span class="keyword">true</span>);</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <span class="keywordflow">for</span> (<a class="code hl_typedef" href="classuser_1_1Application.html#ab7af308c39fbb1fccda6855c102423e2">user::Application::Ptr</a> <span class="keyword">const</span> &amp;application : m_application_list) {</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        <span class="keywordflow">if</span> (application-&gt;is_test()) {</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>            <a class="code hl_variable" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a> &lt;&lt; <span class="stringliteral">&quot;Running &quot;</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>                         &lt;&lt; <a class="code hl_variable" href="group__printing.html#ga7a41ac278da6dce6a9c081977d573a51">util::left</a> &lt;&lt; <a class="code hl_function" href="group__printing.html#ga90e9eed047f3bebb56929d5b1a5518b2">util::setw</a>(max_width + 3 + 1) &lt;&lt; application-&gt;get_name() + std::string(<span class="stringliteral">&quot;...&quot;</span>)</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>                         &lt;&lt; <a class="code hl_variable" href="group__printing.html#ga658d6b62f7620918ba2edb42f287efb3">util::flush</a>;</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>            <a class="code hl_variable" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a> &lt;&lt; <a class="code hl_variable" href="group__printing.html#ga91047ddaf85b4652a50b89c5c9755317">util::begin_section</a>;</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>            <span class="keywordtype">bool</span> success = application-&gt;time_and_run();</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>            <span class="keywordflow">if</span> (success) {</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>                <span class="comment">// If not success, the time_and_run() function will already have</span></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>                <span class="comment">// reset the indentation.</span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>                <span class="comment">// util::logger &lt;&lt; util::end_section;</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>                <a class="code hl_variable" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a> &lt;&lt; <a class="code hl_variable" href="group__printing.html#ga3ec724aee4926e314039a1715f3844c9">util::reset_indent</a>;</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>            } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>                <a class="code hl_variable" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a> &lt;&lt; <a class="code hl_function" href="group__printing.html#ga90e9eed047f3bebb56929d5b1a5518b2">util::setw</a>(8 + max_width + 3 + 1) &lt;&lt; <span class="stringliteral">&quot; &quot;</span>;</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>            }</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>            log_status_str(success);</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>            <a class="code hl_variable" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a> &lt;&lt; <span class="stringliteral">&quot;, &quot;</span>;</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>            application-&gt;log_execution_time();</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>            <a class="code hl_variable" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a> &lt;&lt; <a class="code hl_variable" href="group__printing.html#gad044940d41835be0baff2d20415c1536">util::endl</a>;</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        }</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    }</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <a class="code hl_variable" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a> &lt;&lt; <a class="code hl_variable" href="group__printing.html#gae4f7a470686ffa2352173b5c0b486623">util::end_section</a>;</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>}</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno"><a class="line" href="classuser_1_1AppManager.html#a09ec8f782529147867ea62490c04241c">  115</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classuser_1_1AppManager.html#a09ec8f782529147867ea62490c04241c">user::AppManager::run_application</a>(<a class="code hl_typedef" href="classuser_1_1Application.html#ab7af308c39fbb1fccda6855c102423e2">user::Application::Ptr</a> <span class="keyword">const</span> &amp;target_application)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    <a class="code hl_variable" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a>.<a class="code hl_function" href="classutil_1_1Logger.html#af818aa6efdb1281e42fc779f2e0bb3cd">set_log_level</a>(m_inf_cli-&gt;get_log_level());</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    std::string the_time;</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    {</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>        std::time_t now = std::chrono::system_clock::to_time_t(</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>            std::chrono::system_clock::now());</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>        std::ostringstream oss;</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>        <span class="comment">// Format: &quot;12h23, Friday  8 October 2023&quot;</span></div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>        std::string format = <span class="stringliteral">&quot;%Hh%M, %A %e %B %Y&quot;</span>;</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>        oss &lt;&lt; std::put_time(std::localtime(&amp;now), format.c_str());</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>        the_time = oss.str();</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    }</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    <a class="code hl_variable" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a>.<a class="code hl_function" href="classutil_1_1Logger.html#ab668d49ead6192cb23159f5cda0740ce">echo_title</a>(the_time + <span class="stringliteral">&quot; - Running &quot;</span> + target_application-&gt;get_name() + <span class="stringliteral">&quot; &quot;</span> + m_compile_mode);</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    <a class="code hl_variable" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a> &lt;&lt; <a class="code hl_variable" href="group__printing.html#ga3f8fe48536ee19c54002c9c1db64cabb">util::cr</a>;</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    <span class="keywordtype">bool</span> success = target_application-&gt;time_and_run();</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    log_status_str(success);</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    <a class="code hl_variable" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a> &lt;&lt; <a class="code hl_enumvalue" href="group__color.html#gga95747189f62a0ed341c6e2579146beb7a549891cfc059bd98e742bfbc19abd347">util::Color::alt_green</a> &lt;&lt; <span class="stringliteral">&quot;, &quot;</span>;</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    target_application-&gt;log_execution_time();</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    <a class="code hl_variable" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a> &lt;&lt; <a class="code hl_enumvalue" href="group__color.html#gga95747189f62a0ed341c6e2579146beb7a3d4044d65abdda407a92991f1300ec97">util::Color::fg</a> &lt;&lt; <a class="code hl_variable" href="group__printing.html#ga3f8fe48536ee19c54002c9c1db64cabb">util::cr</a> &lt;&lt; <a class="code hl_variable" href="group__printing.html#gae4f7a470686ffa2352173b5c0b486623">util::end_section</a>;</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>}</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span> </div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno"><a class="line" href="classuser_1_1AppManager.html#a561073a160cc0ce7398ecfbd74860953">  141</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classuser_1_1AppManager.html#a561073a160cc0ce7398ecfbd74860953">user::AppManager::display_available_applications</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>    <a class="code hl_variable" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a>.<a class="code hl_function" href="classutil_1_1Logger.html#ab668d49ead6192cb23159f5cda0740ce">echo_title</a>(<span class="stringliteral">&quot;Welcome!&quot;</span>);</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span> </div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    <a class="code hl_variable" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a></div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>        &lt;&lt; <span class="stringliteral">&quot;Run as:&quot;</span> &lt;&lt; <a class="code hl_variable" href="group__printing.html#ga3f8fe48536ee19c54002c9c1db64cabb">util::cr</a></div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>        &lt;&lt; <span class="stringliteral">&quot;$ &quot;</span> &lt;&lt; <a class="code hl_enumvalue" href="group__color.html#gga95747189f62a0ed341c6e2579146beb7a6c7eaf8a5070bfe6625d2d32418e882f">util::Color::alt_yellow</a> &lt;&lt; <span class="stringliteral">&quot;./{debug|release}_inf &quot;</span> &lt;&lt; m_inf_cli-&gt;get_usage() &lt;&lt; <a class="code hl_enumvalue" href="group__color.html#gga95747189f62a0ed341c6e2579146beb7a3d4044d65abdda407a92991f1300ec97">util::Color::fg</a> &lt;&lt; <a class="code hl_variable" href="group__printing.html#ga3f8fe48536ee19c54002c9c1db64cabb">util::cr</a></div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>        &lt;&lt; <span class="stringliteral">&quot;e.g.,&quot;</span> &lt;&lt; <a class="code hl_variable" href="group__printing.html#ga3f8fe48536ee19c54002c9c1db64cabb">util::cr</a></div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>        &lt;&lt; <span class="stringliteral">&quot;$ &quot;</span> &lt;&lt; <a class="code hl_enumvalue" href="group__color.html#gga95747189f62a0ed341c6e2579146beb7a6c7eaf8a5070bfe6625d2d32418e882f">util::Color::alt_yellow</a> &lt;&lt; <span class="stringliteral">&quot;./debug_inf ejm --verb 2&quot;</span> &lt;&lt; <a class="code hl_enumvalue" href="group__color.html#gga95747189f62a0ed341c6e2579146beb7a3d4044d65abdda407a92991f1300ec97">util::Color::fg</a> &lt;&lt; <a class="code hl_variable" href="group__printing.html#ga3f8fe48536ee19c54002c9c1db64cabb">util::cr</a></div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>        &lt;&lt; <span class="stringliteral">&quot;The &quot;</span> &lt;&lt; <a class="code hl_enumvalue" href="group__color.html#gga95747189f62a0ed341c6e2579146beb7a6c7eaf8a5070bfe6625d2d32418e882f">util::Color::alt_yellow</a> &lt;&lt; <span class="stringliteral">&quot;app&quot;</span> &lt;&lt; <a class="code hl_enumvalue" href="group__color.html#gga95747189f62a0ed341c6e2579146beb7a3d4044d65abdda407a92991f1300ec97">util::Color::fg</a> &lt;&lt; <span class="stringliteral">&quot; can be any of the following:&quot;</span> &lt;&lt; <a class="code hl_variable" href="group__printing.html#ga3f8fe48536ee19c54002c9c1db64cabb">util::cr</a>;</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span> </div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    <span class="keywordtype">int</span> max_width = get_max_application_name_width(<span class="keyword">false</span>);</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    std::string test_qualifier = <span class="stringliteral">&quot;(test)&quot;</span>;</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    <a class="code hl_variable" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a> &lt;&lt; <a class="code hl_variable" href="group__printing.html#ga7a41ac278da6dce6a9c081977d573a51">util::left</a>;</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    <a class="code hl_variable" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a> &lt;&lt; <a class="code hl_function" href="group__printing.html#ga90e9eed047f3bebb56929d5b1a5518b2">util::setw</a>(max_width) &lt;&lt; <span class="stringliteral">&quot;test&quot;</span></div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>                 &lt;&lt; <a class="code hl_function" href="group__printing.html#ga90e9eed047f3bebb56929d5b1a5518b2">util::setw</a>(8) &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; <a class="code hl_function" href="group__printing.html#ga87f996f8102e604181f04025d1e98c32">util::phantom</a>(test_qualifier)</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>                 &lt;&lt; <a class="code hl_variable" href="group__printing.html#ga7d731f43f6d60e3846cbdbd55eaeed2e">util::begin_comment</a> &lt;&lt; <span class="stringliteral">&quot;Run all tests&quot;</span></div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>                 &lt;&lt; <a class="code hl_variable" href="group__printing.html#gadf8906b27dc371eaf882b3b3b5639495">util::end_comment</a> &lt;&lt; <a class="code hl_variable" href="group__printing.html#ga3f8fe48536ee19c54002c9c1db64cabb">util::cr</a>;</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span> </div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    <span class="keywordflow">for</span> (<a class="code hl_typedef" href="classuser_1_1Application.html#ab7af308c39fbb1fccda6855c102423e2">user::Application::Ptr</a> <span class="keyword">const</span> &amp;t : m_application_list) {</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>        <a class="code hl_variable" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a> &lt;&lt; <a class="code hl_function" href="group__printing.html#ga90e9eed047f3bebb56929d5b1a5518b2">util::setw</a>(max_width) &lt;&lt; t-&gt;get_name();</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>        <a class="code hl_variable" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a> &lt;&lt; <a class="code hl_function" href="group__printing.html#ga90e9eed047f3bebb56929d5b1a5518b2">util::setw</a>(4) &lt;&lt; <span class="stringliteral">&quot; &quot;</span>;</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>        <span class="keywordflow">if</span> (t-&gt;is_test()) {</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>            <a class="code hl_variable" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a> &lt;&lt; <a class="code hl_variable" href="group__printing.html#ga7d731f43f6d60e3846cbdbd55eaeed2e">util::begin_comment</a> &lt;&lt; test_qualifier &lt;&lt; <a class="code hl_variable" href="group__printing.html#gadf8906b27dc371eaf882b3b3b5639495">util::end_comment</a>;</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>            <a class="code hl_variable" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a> &lt;&lt; <a class="code hl_function" href="group__printing.html#ga87f996f8102e604181f04025d1e98c32">util::phantom</a>(test_qualifier);</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>        }</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>        std::string <span class="keyword">const</span> &amp;description = t-&gt;get_description();</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>        <span class="keywordflow">if</span> (description.size() &gt; 0) {</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>            <a class="code hl_variable" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a> &lt;&lt; <a class="code hl_function" href="group__printing.html#ga90e9eed047f3bebb56929d5b1a5518b2">util::setw</a>(4) &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; <a class="code hl_variable" href="group__printing.html#ga7d731f43f6d60e3846cbdbd55eaeed2e">util::begin_comment</a></div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>                         &lt;&lt; description &lt;&lt; <a class="code hl_variable" href="group__printing.html#gadf8906b27dc371eaf882b3b3b5639495">util::end_comment</a>;</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>        }</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>        <a class="code hl_variable" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a> &lt;&lt; <a class="code hl_variable" href="group__printing.html#ga3f8fe48536ee19c54002c9c1db64cabb">util::cr</a>;</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    }</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span> </div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>    <a class="code hl_variable" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a> &lt;&lt; <a class="code hl_variable" href="group__printing.html#gae4f7a470686ffa2352173b5c0b486623">util::end_section</a>;</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>}</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span> </div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno"><a class="line" href="classuser_1_1AppManager.html#a26a8e39ad8288750aa43b26cb4e27233">  180</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classuser_1_1AppManager.html#a26a8e39ad8288750aa43b26cb4e27233">user::AppManager::log_status_str</a>(<span class="keywordtype">bool</span> success) {</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>    <span class="keywordflow">if</span> (success)</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>        <a class="code hl_variable" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a> &lt;&lt; <a class="code hl_enumvalue" href="group__color.html#gga95747189f62a0ed341c6e2579146beb7a549891cfc059bd98e742bfbc19abd347">util::Color::alt_green</a> &lt;&lt; <span class="stringliteral">&quot;OK&quot;</span>;</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>    <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>        <a class="code hl_variable" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a> &lt;&lt; <a class="code hl_enumvalue" href="group__color.html#gga95747189f62a0ed341c6e2579146beb7a149d51a260fd14f179310d953fff777b">util::Color::alt_red</a> &lt;&lt; <span class="stringliteral">&quot;FAIL&quot;</span>;</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span> </div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>    <a class="code hl_variable" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a> &lt;&lt; <a class="code hl_enumvalue" href="group__color.html#gga95747189f62a0ed341c6e2579146beb7a3d4044d65abdda407a92991f1300ec97">util::Color::fg</a>;</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>}</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span> </div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno"><a class="line" href="classuser_1_1AppManager.html#a09abf8af9ebad4d4b0c8a43646122ca8">  189</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="classuser_1_1AppManager.html#a09abf8af9ebad4d4b0c8a43646122ca8">user::AppManager::get_max_application_name_width</a>(<span class="keywordtype">bool</span> only_look_at_tests)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>    <span class="comment">// Because may want to run &quot;test&quot;, too</span></div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>    <span class="keywordtype">size_t</span> max_width = 4;</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span> &amp;t : m_application_list) {</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>        <span class="keywordflow">if</span> (only_look_at_tests and not t-&gt;is_test())</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>            <span class="keywordflow">continue</span>;</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span> </div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>        <span class="keywordtype">size_t</span> current_width = t-&gt;get_name().size();</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>        <span class="keywordflow">if</span> (current_width &gt; max_width)</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>            max_width = current_width;</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>    }</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span> </div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>    <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(max_width);</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>}</div>
+<div class="ttc" id="aapp__manager_8h_html"><div class="ttname"><a href="app__manager_8h.html">app_manager.h</a></div></div>
+<div class="ttc" id="aapplication__list_8h_html"><div class="ttname"><a href="application__list_8h.html">application_list.h</a></div></div>
+<div class="ttc" id="aclassinf_1_1FeasOptions_html_a47cd0d666aa21be8252f703a0fbc654f"><div class="ttname"><a href="classinf_1_1FeasOptions.html#a47cd0d666aa21be8252f703a0fbc654f">inf::FeasOptions::Ptr</a></div><div class="ttdeci">std::shared_ptr&lt; inf::FeasOptions &gt; Ptr</div><div class="ttdef"><b>Definition</b> <a href="feas__options_8h_source.html#l00030">feas_options.h:30</a></div></div>
+<div class="ttc" id="aclassuser_1_1AppManager_html_a09abf8af9ebad4d4b0c8a43646122ca8"><div class="ttname"><a href="classuser_1_1AppManager.html#a09abf8af9ebad4d4b0c8a43646122ca8">user::AppManager::get_max_application_name_width</a></div><div class="ttdeci">int get_max_application_name_width(bool only_look_at_tests) const</div><div class="ttdoc">For internal use.</div><div class="ttdef"><b>Definition</b> <a href="app__manager_8cpp_source.html#l00189">app_manager.cpp:189</a></div></div>
+<div class="ttc" id="aclassuser_1_1AppManager_html_a09ec8f782529147867ea62490c04241c"><div class="ttname"><a href="classuser_1_1AppManager.html#a09ec8f782529147867ea62490c04241c">user::AppManager::run_application</a></div><div class="ttdeci">void run_application(user::Application::Ptr const &amp;ptr) const</div><div class="ttdoc">Runs a specific application.</div><div class="ttdef"><b>Definition</b> <a href="app__manager_8cpp_source.html#l00115">app_manager.cpp:115</a></div></div>
+<div class="ttc" id="aclassuser_1_1AppManager_html_a26a8e39ad8288750aa43b26cb4e27233"><div class="ttname"><a href="classuser_1_1AppManager.html#a26a8e39ad8288750aa43b26cb4e27233">user::AppManager::log_status_str</a></div><div class="ttdeci">static void log_status_str(bool success)</div><div class="ttdoc">For internal use, pretty-prints bools.</div><div class="ttdef"><b>Definition</b> <a href="app__manager_8cpp_source.html#l00180">app_manager.cpp:180</a></div></div>
+<div class="ttc" id="aclassuser_1_1AppManager_html_a561073a160cc0ce7398ecfbd74860953"><div class="ttname"><a href="classuser_1_1AppManager.html#a561073a160cc0ce7398ecfbd74860953">user::AppManager::display_available_applications</a></div><div class="ttdeci">void display_available_applications() const</div><div class="ttdoc">Display a welcome message with usage guide and available applications.</div><div class="ttdef"><b>Definition</b> <a href="app__manager_8cpp_source.html#l00141">app_manager.cpp:141</a></div></div>
+<div class="ttc" id="aclassuser_1_1AppManager_html_a6cd156ae0a4eeba01b62f943d722fa3b"><div class="ttname"><a href="classuser_1_1AppManager.html#a6cd156ae0a4eeba01b62f943d722fa3b">user::AppManager::run_all_tests</a></div><div class="ttdeci">void run_all_tests() const</div><div class="ttdoc">This runs all test, hiding their output but showing their execution time &amp; success/failure status.</div><div class="ttdef"><b>Definition</b> <a href="app__manager_8cpp_source.html#l00079">app_manager.cpp:79</a></div></div>
+<div class="ttc" id="aclassuser_1_1AppManager_html_a9e65d6a6c16d78509cebdf820877c004"><div class="ttname"><a href="classuser_1_1AppManager.html#a9e65d6a6c16d78509cebdf820877c004">user::AppManager::AppManager</a></div><div class="ttdeci">AppManager(int argc, char **argv)</div><div class="ttdoc">The constructor receives the command-line arguments.</div><div class="ttdef"><b>Definition</b> <a href="app__manager_8cpp_source.html#l00012">app_manager.cpp:12</a></div></div>
+<div class="ttc" id="aclassuser_1_1AppManager_html_aa2f6a81f5564ad31b5470900f108651e"><div class="ttname"><a href="classuser_1_1AppManager.html#aa2f6a81f5564ad31b5470900f108651e">user::AppManager::parse_argv</a></div><div class="ttdeci">void parse_argv()</div><div class="ttdoc">To parse the command-line arguments.</div><div class="ttdef"><b>Definition</b> <a href="app__manager_8cpp_source.html#l00027">app_manager.cpp:27</a></div></div>
+<div class="ttc" id="aclassuser_1_1AppManager_html_adc00962cab3c96508a472497abeb7e54"><div class="ttname"><a href="classuser_1_1AppManager.html#adc00962cab3c96508a472497abeb7e54">user::AppManager::m_compile_mode</a></div><div class="ttdeci">std::string m_compile_mode</div><div class="ttdoc">Debug or release.</div><div class="ttdef"><b>Definition</b> <a href="app__manager_8h_source.html#l00072">app_manager.h:72</a></div></div>
+<div class="ttc" id="aclassuser_1_1Application_html_ab7af308c39fbb1fccda6855c102423e2"><div class="ttname"><a href="classuser_1_1Application.html#ab7af308c39fbb1fccda6855c102423e2">user::Application::Ptr</a></div><div class="ttdeci">std::shared_ptr&lt; user::Application &gt; Ptr</div><div class="ttdef"><b>Definition</b> <a href="application_8h_source.html#l00024">application.h:24</a></div></div>
+<div class="ttc" id="aclassuser_1_1InfCLI_html"><div class="ttname"><a href="classuser_1_1InfCLI.html">user::InfCLI</a></div><div class="ttdoc">This class defines the command-line parameters that are expected.</div><div class="ttdef"><b>Definition</b> <a href="inf__cli_8h_source.html#l00016">inf_cli.h:16</a></div></div>
+<div class="ttc" id="aclassutil_1_1Logger_html_a037348a66bc990631e75bf65deabf421"><div class="ttname"><a href="classutil_1_1Logger.html#a037348a66bc990631e75bf65deabf421">util::Logger::echo_error</a></div><div class="ttdeci">void echo_error(std::string const &amp;what)</div><div class="ttdoc">To prepend an error message by a red Error:</div><div class="ttdef"><b>Definition</b> <a href="logger_8cpp_source.html#l00169">logger.cpp:169</a></div></div>
+<div class="ttc" id="aclassutil_1_1Logger_html_a375f261904b727f2043caa5bbe52dc31"><div class="ttname"><a href="classutil_1_1Logger.html#a375f261904b727f2043caa5bbe52dc31">util::Logger::disable_dots_for_hidden_sections</a></div><div class="ttdeci">void disable_dots_for_hidden_sections()</div><div class="ttdoc">By default, hidden sections above the max log level get printed as &quot;...&quot;, but this method disables th...</div><div class="ttdef"><b>Definition</b> <a href="logger_8cpp_source.html#l00034">logger.cpp:34</a></div></div>
+<div class="ttc" id="aclassutil_1_1Logger_html_ab668d49ead6192cb23159f5cda0740ce"><div class="ttname"><a href="classutil_1_1Logger.html#ab668d49ead6192cb23159f5cda0740ce">util::Logger::echo_title</a></div><div class="ttdeci">void echo_title(std::string const &amp;name)</div><div class="ttdoc">Format for main title (green)</div><div class="ttdef"><b>Definition</b> <a href="logger_8cpp_source.html#l00126">logger.cpp:126</a></div></div>
+<div class="ttc" id="aclassutil_1_1Logger_html_ac7840a2529ef40d0e881b621d789b51c"><div class="ttname"><a href="classutil_1_1Logger.html#ac7840a2529ef40d0e881b621d789b51c">util::Logger::get_color_code</a></div><div class="ttdeci">std::string get_color_code(util::Color c) const</div><div class="ttdoc">Returns either an ANSI color code or an empty string, depending on the util::Logger::ColorMode.</div><div class="ttdef"><b>Definition</b> <a href="logger_8cpp_source.html#l00134">logger.cpp:134</a></div></div>
+<div class="ttc" id="aclassutil_1_1Logger_html_af818aa6efdb1281e42fc779f2e0bb3cd"><div class="ttname"><a href="classutil_1_1Logger.html#af818aa6efdb1281e42fc779f2e0bb3cd">util::Logger::set_log_level</a></div><div class="ttdeci">void set_log_level(unsigned int log_level)</div><div class="ttdoc">To control the max level of indentation to be displayed (the rest is truncated from the output)</div><div class="ttdef"><b>Definition</b> <a href="logger_8cpp_source.html#l00025">logger.cpp:25</a></div></div>
+<div class="ttc" id="agroup__color_html_gga95747189f62a0ed341c6e2579146beb7a149d51a260fd14f179310d953fff777b"><div class="ttname"><a href="group__color.html#gga95747189f62a0ed341c6e2579146beb7a149d51a260fd14f179310d953fff777b">util::Color::alt_red</a></div><div class="ttdeci">@ alt_red</div><div class="ttdoc">brighter red</div></div>
+<div class="ttc" id="agroup__color_html_gga95747189f62a0ed341c6e2579146beb7a3d4044d65abdda407a92991f1300ec97"><div class="ttname"><a href="group__color.html#gga95747189f62a0ed341c6e2579146beb7a3d4044d65abdda407a92991f1300ec97">util::Color::fg</a></div><div class="ttdeci">@ fg</div><div class="ttdoc">foreground, i.e., resets the color</div></div>
+<div class="ttc" id="agroup__color_html_gga95747189f62a0ed341c6e2579146beb7a549891cfc059bd98e742bfbc19abd347"><div class="ttname"><a href="group__color.html#gga95747189f62a0ed341c6e2579146beb7a549891cfc059bd98e742bfbc19abd347">util::Color::alt_green</a></div><div class="ttdeci">@ alt_green</div><div class="ttdoc">brighter green</div></div>
+<div class="ttc" id="agroup__color_html_gga95747189f62a0ed341c6e2579146beb7a6c7eaf8a5070bfe6625d2d32418e882f"><div class="ttname"><a href="group__color.html#gga95747189f62a0ed341c6e2579146beb7a6c7eaf8a5070bfe6625d2d32418e882f">util::Color::alt_yellow</a></div><div class="ttdeci">@ alt_yellow</div><div class="ttdoc">lighter yellow</div></div>
+<div class="ttc" id="agroup__debug_html_ga44d4e64ea98b1a9c055f030e33e24f17"><div class="ttname"><a href="group__debug.html#ga44d4e64ea98b1a9c055f030e33e24f17">THROW_ERROR</a></div><div class="ttdeci">#define THROW_ERROR(error_message)</div><div class="ttdoc">This macro throws a std::logic_error with an error message indicating the file, line and function whe...</div><div class="ttdef"><b>Definition</b> <a href="debug_8h_source.html#l00090">debug.h:90</a></div></div>
+<div class="ttc" id="agroup__printing_html_ga3ec724aee4926e314039a1715f3844c9"><div class="ttname"><a href="group__printing.html#ga3ec724aee4926e314039a1715f3844c9">util::reset_indent</a></div><div class="ttdeci">constexpr util::Logger::Action reset_indent</div><div class="ttdoc">Reset indentation to zero.</div><div class="ttdef"><b>Definition</b> <a href="logger_8h_source.html#l00212">logger.h:212</a></div></div>
+<div class="ttc" id="agroup__printing_html_ga3f8fe48536ee19c54002c9c1db64cabb"><div class="ttname"><a href="group__printing.html#ga3f8fe48536ee19c54002c9c1db64cabb">util::cr</a></div><div class="ttdeci">constexpr util::Logger::Action cr</div><div class="ttdoc">Newline.</div><div class="ttdef"><b>Definition</b> <a href="logger_8h_source.html#l00197">logger.h:197</a></div></div>
+<div class="ttc" id="agroup__printing_html_ga4c77d1dedfe3a5b95abc21d13d7cd678"><div class="ttname"><a href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a></div><div class="ttdeci">util::Logger logger</div><div class="ttdoc">The globally accessible logger replacing std::cout</div></div>
+<div class="ttc" id="agroup__printing_html_ga658d6b62f7620918ba2edb42f287efb3"><div class="ttname"><a href="group__printing.html#ga658d6b62f7620918ba2edb42f287efb3">util::flush</a></div><div class="ttdeci">constexpr util::Logger::Action flush</div><div class="ttdoc">Flush.</div><div class="ttdef"><b>Definition</b> <a href="logger_8h_source.html#l00191">logger.h:191</a></div></div>
+<div class="ttc" id="agroup__printing_html_ga7a41ac278da6dce6a9c081977d573a51"><div class="ttname"><a href="group__printing.html#ga7a41ac278da6dce6a9c081977d573a51">util::left</a></div><div class="ttdeci">constexpr util::Logger::Action left</div><div class="ttdoc">Align the next call to util::setw() to the left.</div><div class="ttdef"><b>Definition</b> <a href="logger_8h_source.html#l00206">logger.h:206</a></div></div>
+<div class="ttc" id="agroup__printing_html_ga7d731f43f6d60e3846cbdbd55eaeed2e"><div class="ttname"><a href="group__printing.html#ga7d731f43f6d60e3846cbdbd55eaeed2e">util::begin_comment</a></div><div class="ttdeci">const util::Color begin_comment</div><div class="ttdoc">Dimmed color.</div><div class="ttdef"><b>Definition</b> <a href="logger_8cpp_source.html#l00010">logger.cpp:10</a></div></div>
+<div class="ttc" id="agroup__printing_html_ga87f996f8102e604181f04025d1e98c32"><div class="ttname"><a href="group__printing.html#ga87f996f8102e604181f04025d1e98c32">util::phantom</a></div><div class="ttdeci">std::string phantom(std::string const &amp;str)</div><div class="ttdoc">Used as util::logger &lt;&lt; util::phantom(&quot;bonjour&quot;) to print 7 spaces.</div><div class="ttdef"><b>Definition</b> <a href="logger_8cpp_source.html#l00265">logger.cpp:265</a></div></div>
+<div class="ttc" id="agroup__printing_html_ga90e9eed047f3bebb56929d5b1a5518b2"><div class="ttname"><a href="group__printing.html#ga90e9eed047f3bebb56929d5b1a5518b2">util::setw</a></div><div class="ttdeci">util::Logger::WidthManip setw(int width)</div><div class="ttdoc">Used as util::logger &lt;&lt; util::setw(5) &lt;&lt; &quot;a&quot; to print &quot;____a&quot; (four spaces before &quot;a&quot;)</div><div class="ttdef"><b>Definition</b> <a href="logger_8cpp_source.html#l00261">logger.cpp:261</a></div></div>
+<div class="ttc" id="agroup__printing_html_ga91047ddaf85b4652a50b89c5c9755317"><div class="ttname"><a href="group__printing.html#ga91047ddaf85b4652a50b89c5c9755317">util::begin_section</a></div><div class="ttdeci">constexpr util::Logger::Action begin_section</div><div class="ttdoc">Increase indentation.</div><div class="ttdef"><b>Definition</b> <a href="logger_8h_source.html#l00200">logger.h:200</a></div></div>
+<div class="ttc" id="agroup__printing_html_gad044940d41835be0baff2d20415c1536"><div class="ttname"><a href="group__printing.html#gad044940d41835be0baff2d20415c1536">util::endl</a></div><div class="ttdeci">constexpr util::Logger::Action endl</div><div class="ttdoc">Flush and newline.</div><div class="ttdef"><b>Definition</b> <a href="logger_8h_source.html#l00194">logger.h:194</a></div></div>
+<div class="ttc" id="agroup__printing_html_gadf8906b27dc371eaf882b3b3b5639495"><div class="ttname"><a href="group__printing.html#gadf8906b27dc371eaf882b3b3b5639495">util::end_comment</a></div><div class="ttdeci">const util::Color end_comment</div><div class="ttdoc">End dimmed color.</div><div class="ttdef"><b>Definition</b> <a href="logger_8cpp_source.html#l00011">logger.cpp:11</a></div></div>
+<div class="ttc" id="agroup__printing_html_gae4f7a470686ffa2352173b5c0b486623"><div class="ttname"><a href="group__printing.html#gae4f7a470686ffa2352173b5c0b486623">util::end_section</a></div><div class="ttdeci">constexpr util::Logger::Action end_section</div><div class="ttdoc">Decrease indentation.</div><div class="ttdef"><b>Definition</b> <a href="logger_8h_source.html#l00203">logger.h:203</a></div></div>
+<div class="ttc" id="agroup__user_html_gac8692e8f531289da15d184fef94841aa"><div class="ttname"><a href="group__user.html#gac8692e8f531289da15d184fef94841aa">user::get_application_list</a></div><div class="ttdeci">std::vector&lt; user::Application::Ptr &gt; get_application_list()</div><div class="ttdoc">Specifies the existing applications/examples.</div><div class="ttdef"><b>Definition</b> <a href="application__list_8cpp_source.html#l00009">application_list.cpp:9</a></div></div>
+<div class="ttc" id="anamespaceuser_html"><div class="ttname"><a href="namespaceuser.html">user</a></div><div class="ttdoc">The namespace for application code.</div><div class="ttdef"><b>Definition</b> <a href="app__manager_8h_source.html#l00029">app_manager.h:29</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_8b0164eb0fb74115683f9812cb2f78f0.html">user</a></li><li class="navelem"><a class="el" href="app__manager_8cpp.html">app_manager.cpp</a></li>
+    <li class="footer">Generated on Wed Dec 18 2024 17:39:37 for Fast Inflation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

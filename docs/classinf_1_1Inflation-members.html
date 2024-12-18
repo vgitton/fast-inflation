@@ -1,0 +1,265 @@
+<!-- HTML header for doxygen 1.9.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Fast Inflation: Member List</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+MathJax.Hub.Config({
+    TeX: {
+        Macros: {
+            dd: ["{\\text{d}#1\\,}",1],
+            nouts: ["{n_{\\text{o}}}"],
+            ints: ["{[\\![#1]\\!]}",1],
+            outset: ["{\\ints{\\nouts}}"],
+            N: ["{\\mathbb{N}}"],
+            R: ["{\\mathbb{R}}"],
+            Z: ["{\\mathbb{Z}}"],
+            infsize: ["{z}"],
+            infparties: ["{\\set{I}}"],
+            infsources: ["{\\set{S}}"],
+            infmarg: ["{\\set{A}}"],
+            infmargg: ["{\\set{B}}"],
+            netparties: ["{\\set{N}}"],
+            infq: ["{q}"],
+            infqs: ["{\\Delta_{\\infparties}}"],
+            constraintlist: ["{\\mathcal{C}}"],
+            injsets: ["{\\text{InjSets}}"],
+            infconstraints: ["{\\text{InfCons}}"],
+            parents: ["{\\text{Par}}"],
+            targetp: ["{p}"],
+            targetps: ["{\\Delta_{\\netparties}}"],
+            set: ["{\\mathbf{#1}}",1],
+            type: ["{t}"],
+            infevent: "{\\omega}",
+            events: ["{\\Omega_{#1}}",1],
+            infevents: ["{\\events{\\infparties}}"],
+            redinfevents: ["{\\tilde{\\Omega}_{\\infparties}}"],
+            netevents: ["{\\events{\\netparties}}"],
+            vecset: ["{V_{#1}}",1],
+            alice: ["{\\text{A}}"],
+            bob: ["{\\text{B}}"],
+            charlie: ["{\\text{C}}"],
+            symgroup: ["{\\text{Sym}(#1)}",1],
+            shortsymgroup: ["{\\text{Sym}_{#1}}",1],
+            act: ["{(#1\\hspace{2pt}{:}\\hspace{2pt}#2)}",2],
+            actt: ["{[#1\\hspace{2pt}{:}\\hspace{2pt}#2]}",2],
+            margperms: ["{\\text{Perm}_{#1}}",1],
+            permutedmargs: ["{\\mathbb{P}_{#1}^{\\targetp}}",1],
+            redpermutedmargs: ["{\\tilde{\\mathbb{P}}_{#1}^{\\constraintname,\\targetp}}",1],
+            extract: ["{\\text{ext}(#1,#2)}",2],
+            partysym: ["{\\tau}"],
+            sourcesym: ["{\\xi}"],
+            outsym: ["{\\sigma}"],
+            fullgroup: ["{\\text{InfGrp}}"],
+            partygroup : ["{\\text{PartyGrp}}"],
+            outgroup: ["{\\text{OutGrp}}"],
+            sourcegroup: ["{\\text{SrcGrp}}"],
+            distrgroup: ["{\\mathbb{G}^\\targetp}"],
+            constraintname: ["{c}"],
+            marggroup: ["{\\mathbb{G}^{\\constraintname,\\targetp}}"],
+            fullsymexpl: ["{(\\sourcesym,\\partysym,\\outsym)}"],
+            inner: ["{\\langle#1,#2\\rangle}", 2],
+            quovec: ["{f}"],
+            totconstraintmap: ["{K^{\\constraintlist,\\targetp}}"],
+            totconstraintmapelem: ["{K^{\\constraintname,\\targetp}}"],
+            quovecspace: ["{\\tilde{V}_{#1}^{\\constraintname,\\targetp}}", 1],
+            totquovecspace: ["{\\text{ConsSpace}(\\constraintlist,\\targetp)}"],
+            detdistr: ["{\\delta^{#1}}", 1],
+            margperm: ["{\\varphi}"],
+            altquovecembed: ["{\\text{G}_{#1}^{\\constraintname,\\targetp}}", 1],
+            vecset: ["{V_{#1}}", 1],
+            repr: ["{\\lfloor#1\\rfloor}", 1],
+            gid: ["{\\text{id}}"],
+            id: ["{1_{#1}}",1],
+            consscale: ["{K}"],
+            scaletot: ["{K_{\\text{tot}}^{\\constraintlist,\\targetp}}"],
+            minnorm: ["{d}"],
+            Bigsetst: ["\\;\\Big|\\;"],
+            activeset: ["\\mathcal{S}"],
+            conv: ["\\text{conv}"],
+            lVert: ["|\\hspace{-1pt}|"],
+            norm: ["\\lVert#1\\lVert", 1],
+            st: [":\ "],
+        }
+    }
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeDarkModeToggle.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeParagraphLink.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Fast Inflation
+   </div>
+   <div id="projectbrief">To certify causal incompatibility</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classinf_1_1Inflation.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">inf::Inflation Member List</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>This is the complete list of members for <a class="el" href="classinf_1_1Inflation.html">inf::Inflation</a>, including all inherited members.</p>
+<table class="directory">
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1Inflation.html#a674f66415d6e861f3860f85cfd205822">are_d_separated</a>(std::vector&lt; Index &gt; const &amp;marg_1, std::vector&lt; Index &gt; const &amp;marg_2) const</td><td class="entry"><a class="el" href="classinf_1_1Inflation.html">inf::Inflation</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1Inflation.html#ac594d5b8d7cbdd7cdfe569baa351f0ba">ConstPtr</a> typedef</td><td class="entry"><a class="el" href="classinf_1_1Inflation.html">inf::Inflation</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1Inflation.html#a4145134df29127ee233a867756d3837b">get_all_source_range</a>() const</td><td class="entry"><a class="el" href="classinf_1_1Inflation.html">inf::Inflation</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1Inflation.html#a06295a6f01f49ed4bc4fae1311fdbfec">get_all_unknown_event</a>() const</td><td class="entry"><a class="el" href="classinf_1_1Inflation.html">inf::Inflation</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1Inflation.html#a32432dd6f580704381870c1fe1130414">get_all_zero_event</a>() const</td><td class="entry"><a class="el" href="classinf_1_1Inflation.html">inf::Inflation</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1Inflation.html#a218f153524927c095bff199beb02535e">get_applicable_symmetries</a>(inf::Symmetry::Group const &amp;distribution_sym_group, inf::Inflation::Size const &amp;size)</td><td class="entry"><a class="el" href="classinf_1_1Inflation.html">inf::Inflation</a></td><td class="entry"><span class="mlabel">private</span><span class="mlabel">static</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1Inflation.html#a9c9908ad1e0a6558f49a4b249504110e">get_event_range</a>() const</td><td class="entry"><a class="el" href="classinf_1_1Inflation.html">inf::Inflation</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1Inflation.html#abfa6a2b7897bb9f1d3c406a864e9acdf">get_inflation_symmetries</a>() const</td><td class="entry"><a class="el" href="classinf_1_1Inflation.html">inf::Inflation</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1Inflation.html#aadcbae3cd3db6df435eb7805814b6016">get_marginal_name</a>(std::vector&lt; Index &gt; const &amp;marginal) const</td><td class="entry"><a class="el" href="classinf_1_1Inflation.html">inf::Inflation</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1Inflation.html#a480b5232d163f5c922c397e6150b6d7d">get_metadata</a>() const</td><td class="entry"><a class="el" href="classinf_1_1Inflation.html">inf::Inflation</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1Inflation.html#ad61b8a72fecf20cc46683e1dda987723">get_n_parties</a>() const</td><td class="entry"><a class="el" href="classinf_1_1Inflation.html">inf::Inflation</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1Inflation.html#a21c23e5d5df7102da0aaa0d61be38252">get_network</a>() const</td><td class="entry"><a class="el" href="classinf_1_1Inflation.html">inf::Inflation</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1Inflation.html#a9becf774e1ef740f16345a9a30be336e">get_parents</a>(std::vector&lt; Index &gt; const &amp;marg) const</td><td class="entry"><a class="el" href="classinf_1_1Inflation.html">inf::Inflation</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1Inflation.html#a7c079c8da261a25734e6cab9d5fc0c9d">get_parties</a>() const</td><td class="entry"><a class="el" href="classinf_1_1Inflation.html">inf::Inflation</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1Inflation.html#a0d2407cc5082ef3b67f7a42f6874c11a">get_party_index</a>(inf::Inflation::Party const &amp;party) const</td><td class="entry"><a class="el" href="classinf_1_1Inflation.html">inf::Inflation</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1Inflation.html#a491ea3cdc6ac7b530b41ed6607590924">get_party_index</a>(std::string const &amp;party) const</td><td class="entry"><a class="el" href="classinf_1_1Inflation.html">inf::Inflation</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1Inflation.html#a62461fa7b393d783854cd36eff0256dc">get_party_name</a>(Index party) const</td><td class="entry"><a class="el" href="classinf_1_1Inflation.html">inf::Inflation</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1Inflation.html#a32061ba93f28896fb44687627d4b1686">get_random_event</a>() const</td><td class="entry"><a class="el" href="classinf_1_1Inflation.html">inf::Inflation</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1Inflation.html#ac279522d5aeb62ae47931f50460506df">get_size</a>() const</td><td class="entry"><a class="el" href="classinf_1_1Inflation.html">inf::Inflation</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1Inflation.html#adafb5bd85ab90b64099716d59c104b2e">get_source_induced_syms</a>() const</td><td class="entry"><a class="el" href="classinf_1_1Inflation.html">inf::Inflation</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1Inflation.html#abe439ba40d0dc8c9c2fa3310cdf14461">get_symtree</a>(inf::EventTree::IO io) const</td><td class="entry"><a class="el" href="classinf_1_1Inflation.html">inf::Inflation</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1Inflation.html#a4378708d36afcc6d7d425a74ef58f3de">get_symtree_filename</a>() const</td><td class="entry"><a class="el" href="classinf_1_1Inflation.html">inf::Inflation</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1Inflation.html#a3ebc98ce3622aab2af77a57d3304f42d">has_symmetries_compatible_with</a>(inf::TargetDistr const &amp;d) const</td><td class="entry"><a class="el" href="classinf_1_1Inflation.html">inf::Inflation</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1Inflation.html#a564fbe437105a89db05571aa067d4f20">Inflation</a>(inf::TargetDistr::ConstPtr const &amp;target_distr, inf::Inflation::Size const &amp;size, inf::Inflation::UseDistrSymmetries use_distr_symmetries=inf::Inflation::UseDistrSymmetries::yes)</td><td class="entry"><a class="el" href="classinf_1_1Inflation.html">inf::Inflation</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1Inflation.html#a782464bbfeaa51894fa1b313365f4dc7">init_inflation_symmetries</a>(inf::Symmetry::Group const &amp;distribution_sym_group)</td><td class="entry"><a class="el" href="classinf_1_1Inflation.html">inf::Inflation</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1Inflation.html#a78404beb483480bcfc13eedca5ac200e">init_parties</a>()</td><td class="entry"><a class="el" href="classinf_1_1Inflation.html">inf::Inflation</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1Inflation.html#aa881476f7cd18cd6d5281b532804688c">init_source_induced_syms</a>()</td><td class="entry"><a class="el" href="classinf_1_1Inflation.html">inf::Inflation</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1Inflation.html#ad283d1cc29f0cd8e4338e1022a0e6b3c">is_injectable_set</a>(std::vector&lt; Index &gt; const &amp;marg) const</td><td class="entry"><a class="el" href="classinf_1_1Inflation.html">inf::Inflation</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1Inflation.html#ab910ef44df901fad1db88a0b74fe86cc">is_valid_party_name</a>(std::string const &amp;party) const</td><td class="entry"><a class="el" href="classinf_1_1Inflation.html">inf::Inflation</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1Inflation.html#a2cb50c352d42ac96c9746c6e4706be41">log</a>(inf::Inflation::UseDistrSymmetries use_distr_symmetries)</td><td class="entry"><a class="el" href="classinf_1_1Inflation.html">inf::Inflation</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1Inflation.html#ab6c93bcc485b54a479b2e2218b6a58fa">log</a>() const override</td><td class="entry"><a class="el" href="classinf_1_1Inflation.html">inf::Inflation</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1Inflation.html#ac0b2b985f65c5eca7eaee7e3be5505b1">log_event</a>(inf::Event const &amp;event) const</td><td class="entry"><a class="el" href="classinf_1_1Inflation.html">inf::Inflation</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1Inflation.html#a51266d9e388a9cbc78559968b0577ecc">log_event_strings</a>(std::vector&lt; std::string &gt; const &amp;event) const</td><td class="entry"><a class="el" href="classinf_1_1Inflation.html">inf::Inflation</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1Inflation.html#a09016b474fd94b50e989bc429685f44d">log_marginal</a>(std::vector&lt; Index &gt; const &amp;marginal) const</td><td class="entry"><a class="el" href="classinf_1_1Inflation.html">inf::Inflation</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1Inflation.html#acfc4c83503297dd55886c44df1a61296">m_inflation_symmetries</a></td><td class="entry"><a class="el" href="classinf_1_1Inflation.html">inf::Inflation</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1Inflation.html#a26eb83295c67419f8095e495ba0272c0">m_n_parties</a></td><td class="entry"><a class="el" href="classinf_1_1Inflation.html">inf::Inflation</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1Inflation.html#a6750c255213ba91ca6a72fa589532084">m_name_map</a></td><td class="entry"><a class="el" href="classinf_1_1Inflation.html">inf::Inflation</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1Inflation.html#a1d646e2a74f9d46086eeffdc6a0340f0">m_parties</a></td><td class="entry"><a class="el" href="classinf_1_1Inflation.html">inf::Inflation</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1Inflation.html#a1da3095bcec5ac25281d08ca25ed346a">m_party_map</a></td><td class="entry"><a class="el" href="classinf_1_1Inflation.html">inf::Inflation</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1Inflation.html#a34c7add257d1d66199860734bb6ca42f">m_party_names</a></td><td class="entry"><a class="el" href="classinf_1_1Inflation.html">inf::Inflation</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1Inflation.html#a87e99e18d46ca656e99e4188b76a49d6">m_rng</a></td><td class="entry"><a class="el" href="classinf_1_1Inflation.html">inf::Inflation</a></td><td class="entry"><span class="mlabel">mutable</span><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1Inflation.html#a146b9539935f13bcfc61f32af0d21cdd">m_size</a></td><td class="entry"><a class="el" href="classinf_1_1Inflation.html">inf::Inflation</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1Inflation.html#a076e7a062963f0dac7662a6da2ec7c05">m_source_induced_syms</a></td><td class="entry"><a class="el" href="classinf_1_1Inflation.html">inf::Inflation</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1Inflation.html#ad18a3f973c2ac6748bae88779b9fb9f1">m_symtree</a></td><td class="entry"><a class="el" href="classinf_1_1Inflation.html">inf::Inflation</a></td><td class="entry"><span class="mlabel">mutable</span><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1Inflation.html#a270394afb79b5d4888232d7ac5425139">m_target_distr</a></td><td class="entry"><a class="el" href="classinf_1_1Inflation.html">inf::Inflation</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1Inflation.html#a4d7f1820b16101accad4813a01e36d47">m_use_distr_symmetries</a></td><td class="entry"><a class="el" href="classinf_1_1Inflation.html">inf::Inflation</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1Inflation.html#aeedce892606eb0b693e54e2aa970c035">network_party_to_inf_party_sym</a>(inf::PartySym const &amp;network_party_sym) const</td><td class="entry"><a class="el" href="classinf_1_1Inflation.html">inf::Inflation</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1Inflation.html#a7c8ea56bc938131a6d4d101469a34644">Party</a> typedef</td><td class="entry"><a class="el" href="classinf_1_1Inflation.html">inf::Inflation</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1Inflation.html#ada371f0e56db6c2fa76d01e809805bd6">Size</a> typedef</td><td class="entry"><a class="el" href="classinf_1_1Inflation.html">inf::Inflation</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1Inflation.html#af62dfca96fd10d483e797cde63152c48">Source</a> typedef</td><td class="entry"><a class="el" href="classinf_1_1Inflation.html">inf::Inflation</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1Inflation.html#a80e1780db201f1db2acad489752d4dc3">source_sym_to_party_sym</a>(std::vector&lt; std::vector&lt; Index &gt; &gt; const &amp;perm_sources) const</td><td class="entry"><a class="el" href="classinf_1_1Inflation.html">inf::Inflation</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1Inflation.html#a57ece19f95d615f84f8fdf24af698a52">Sources</a> typedef</td><td class="entry"><a class="el" href="classinf_1_1Inflation.html">inf::Inflation</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1Inflation.html#a50fe835aad42c372d72a1bde3a74df5c">UseDistrSymmetries</a> enum name</td><td class="entry"><a class="el" href="classinf_1_1Inflation.html">inf::Inflation</a></td><td class="entry"></td></tr>
+</table></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Wed Dec 18 2024 17:39:42 for Fast Inflation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

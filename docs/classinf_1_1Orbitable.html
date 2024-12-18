@@ -1,0 +1,775 @@
+<!-- HTML header for doxygen 1.9.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Fast Inflation: inf::Orbitable Class Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+MathJax.Hub.Config({
+    TeX: {
+        Macros: {
+            dd: ["{\\text{d}#1\\,}",1],
+            nouts: ["{n_{\\text{o}}}"],
+            ints: ["{[\\![#1]\\!]}",1],
+            outset: ["{\\ints{\\nouts}}"],
+            N: ["{\\mathbb{N}}"],
+            R: ["{\\mathbb{R}}"],
+            Z: ["{\\mathbb{Z}}"],
+            infsize: ["{z}"],
+            infparties: ["{\\set{I}}"],
+            infsources: ["{\\set{S}}"],
+            infmarg: ["{\\set{A}}"],
+            infmargg: ["{\\set{B}}"],
+            netparties: ["{\\set{N}}"],
+            infq: ["{q}"],
+            infqs: ["{\\Delta_{\\infparties}}"],
+            constraintlist: ["{\\mathcal{C}}"],
+            injsets: ["{\\text{InjSets}}"],
+            infconstraints: ["{\\text{InfCons}}"],
+            parents: ["{\\text{Par}}"],
+            targetp: ["{p}"],
+            targetps: ["{\\Delta_{\\netparties}}"],
+            set: ["{\\mathbf{#1}}",1],
+            type: ["{t}"],
+            infevent: "{\\omega}",
+            events: ["{\\Omega_{#1}}",1],
+            infevents: ["{\\events{\\infparties}}"],
+            redinfevents: ["{\\tilde{\\Omega}_{\\infparties}}"],
+            netevents: ["{\\events{\\netparties}}"],
+            vecset: ["{V_{#1}}",1],
+            alice: ["{\\text{A}}"],
+            bob: ["{\\text{B}}"],
+            charlie: ["{\\text{C}}"],
+            symgroup: ["{\\text{Sym}(#1)}",1],
+            shortsymgroup: ["{\\text{Sym}_{#1}}",1],
+            act: ["{(#1\\hspace{2pt}{:}\\hspace{2pt}#2)}",2],
+            actt: ["{[#1\\hspace{2pt}{:}\\hspace{2pt}#2]}",2],
+            margperms: ["{\\text{Perm}_{#1}}",1],
+            permutedmargs: ["{\\mathbb{P}_{#1}^{\\targetp}}",1],
+            redpermutedmargs: ["{\\tilde{\\mathbb{P}}_{#1}^{\\constraintname,\\targetp}}",1],
+            extract: ["{\\text{ext}(#1,#2)}",2],
+            partysym: ["{\\tau}"],
+            sourcesym: ["{\\xi}"],
+            outsym: ["{\\sigma}"],
+            fullgroup: ["{\\text{InfGrp}}"],
+            partygroup : ["{\\text{PartyGrp}}"],
+            outgroup: ["{\\text{OutGrp}}"],
+            sourcegroup: ["{\\text{SrcGrp}}"],
+            distrgroup: ["{\\mathbb{G}^\\targetp}"],
+            constraintname: ["{c}"],
+            marggroup: ["{\\mathbb{G}^{\\constraintname,\\targetp}}"],
+            fullsymexpl: ["{(\\sourcesym,\\partysym,\\outsym)}"],
+            inner: ["{\\langle#1,#2\\rangle}", 2],
+            quovec: ["{f}"],
+            totconstraintmap: ["{K^{\\constraintlist,\\targetp}}"],
+            totconstraintmapelem: ["{K^{\\constraintname,\\targetp}}"],
+            quovecspace: ["{\\tilde{V}_{#1}^{\\constraintname,\\targetp}}", 1],
+            totquovecspace: ["{\\text{ConsSpace}(\\constraintlist,\\targetp)}"],
+            detdistr: ["{\\delta^{#1}}", 1],
+            margperm: ["{\\varphi}"],
+            altquovecembed: ["{\\text{G}_{#1}^{\\constraintname,\\targetp}}", 1],
+            vecset: ["{V_{#1}}", 1],
+            repr: ["{\\lfloor#1\\rfloor}", 1],
+            gid: ["{\\text{id}}"],
+            id: ["{1_{#1}}",1],
+            consscale: ["{K}"],
+            scaletot: ["{K_{\\text{tot}}^{\\constraintlist,\\targetp}}"],
+            minnorm: ["{d}"],
+            Bigsetst: ["\\;\\Big|\\;"],
+            activeset: ["\\mathcal{S}"],
+            conv: ["\\text{conv}"],
+            lVert: ["|\\hspace{-1pt}|"],
+            norm: ["\\lVert#1\\lVert", 1],
+            st: [":\ "],
+        }
+    }
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeDarkModeToggle.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeParagraphLink.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Fast Inflation
+   </div>
+   <div id="projectbrief">To certify causal incompatibility</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classinf_1_1Orbitable.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="classinf_1_1Orbitable-members.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">inf::Orbitable Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span><div class="ingroups"><a class="el" href="group__event.html">Events</a> &raquo; <a class="el" href="group__symmetry.html">Event symmetry</a> &raquo; <a class="el" href="group__orbits.html">Event orbits</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &quot;<a class="el" href="orbitable_8h_source.html">inf/symmetry/orbitable.h</a>&quot;</code></p>
+<a name="details" id="details"></a><h2 class="groupheader">Class description</h2>
+<div class="textblock"><p>Something that holds symmetry-induced orbits of events. </p>
+<p>In other words, something that has a symmetry group acting on events and for which the orbits are relevant, such as an <a class="el" href="classinf_1_1TargetDistr.html" title="A distribution over an inf::Network.">inf::TargetDistr</a> or an <a class="el" href="classinf_1_1DualVector.html" title="Describes a dual vector  through its embedding .">inf::DualVector</a>. </p><dl class="section note"><dt>Note</dt><dd>It would be possible to merge <a class="el" href="classinf_1_1Orbitable.html" title="Something that holds symmetry-induced orbits of events.">inf::Orbitable</a> with <a class="el" href="classinf_1_1TensorWithOrbits.html" title="An inf::EventTensor that is also an inf::Orbitable.">inf::TensorWithOrbits</a>. Somehow, dividing the two classes like this feels a bit more natural and easier to read, but this is arguably subjective. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="orbitable_8h_source.html#l00032">32</a> of file <a class="el" href="orbitable_8h_source.html">orbitable.h</a>.</p>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a4982dcc25e609ae4793de4471f141b97"><td class="memItemLeft" align="right" valign="top">typedef std::set&lt; <a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Orbitable.html#a4982dcc25e609ae4793de4471f141b97">Orbit</a></td></tr>
+<tr class="memdesc:a4982dcc25e609ae4793de4471f141b97"><td class="mdescLeft">&#160;</td><td class="mdescRight">An orbit is a set of events pertaining to a symmetry-induced equivalence class.  <br /></td></tr>
+<tr class="separator:a4982dcc25e609ae4793de4471f141b97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa01c9267c0fb19a1b7d6b38f00dccf58"><td class="memItemLeft" align="right" valign="top">typedef std::map&lt; <a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a>, <a class="el" href="classinf_1_1Orbitable.html#a4982dcc25e609ae4793de4471f141b97">inf::Orbitable::Orbit</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Orbitable.html#aa01c9267c0fb19a1b7d6b38f00dccf58">OrbitMap</a></td></tr>
+<tr class="memdesc:aa01c9267c0fb19a1b7d6b38f00dccf58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maps each representative (of an orbit) <a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0" title="A list of inf::Outcome. Conceptually, this plays the role of  for some set .">inf::Event</a> to its corresponding <a class="el" href="classinf_1_1Orbitable.html#a4982dcc25e609ae4793de4471f141b97" title="An orbit is a set of events pertaining to a symmetry-induced equivalence class.">inf::Orbitable::Orbit</a>.  <br /></td></tr>
+<tr class="separator:aa01c9267c0fb19a1b7d6b38f00dccf58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acbbe4fa5a804ad11b84b4af02663c65b"><td class="memItemLeft" align="right" valign="top">typedef std::pair&lt; const <a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a>, <a class="el" href="classinf_1_1Orbitable.html#a4982dcc25e609ae4793de4471f141b97">inf::Orbitable::Orbit</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Orbitable.html#acbbe4fa5a804ad11b84b4af02663c65b">OrbitPair</a></td></tr>
+<tr class="memdesc:acbbe4fa5a804ad11b84b4af02663c65b"><td class="mdescLeft">&#160;</td><td class="mdescRight">This type is useful for iteration: the pair is of the form <code>(representative,orbit)</code>.  <br /></td></tr>
+<tr class="separator:acbbe4fa5a804ad11b84b4af02663c65b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a8fe3e6c3cbb7eb0643380eafdd121040"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Orbitable.html#a8fe3e6c3cbb7eb0643380eafdd121040">Orbitable</a> ()</td></tr>
+<tr class="memdesc:a8fe3e6c3cbb7eb0643380eafdd121040"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor that does not initialize anything, the child class must call <a class="el" href="classinf_1_1Orbitable.html#ac25e7eced2028756090e8e6007316524" title="Child classes have to call this method for initialization of the orbits.">inf::Orbitable::init_orbits()</a>  <br /></td></tr>
+<tr class="separator:a8fe3e6c3cbb7eb0643380eafdd121040"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5ea13afb9a9ff79aef84054ea4c1dd4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classinf_1_1Symmetry.html#a901d22b86ef5923b628db86fbdd7ba4f">inf::Symmetry::Group</a> const &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Orbitable.html#aa5ea13afb9a9ff79aef84054ea4c1dd4">get_sym_group</a> () const</td></tr>
+<tr class="memdesc:aa5ea13afb9a9ff79aef84054ea4c1dd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">This returns the underlying symmetry group.  <br /></td></tr>
+<tr class="separator:aa5ea13afb9a9ff79aef84054ea4c1dd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99544b7fb94b81957e20601859c42782"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Orbitable.html#a99544b7fb94b81957e20601859c42782">get_n_orbits</a> () const</td></tr>
+<tr class="memdesc:a99544b7fb94b81957e20601859c42782"><td class="mdescLeft">&#160;</td><td class="mdescRight">The number of orbits produced (only sensible after <a class="el" href="classinf_1_1Orbitable.html#ac25e7eced2028756090e8e6007316524" title="Child classes have to call this method for initialization of the orbits.">inf::Orbitable::init_orbits()</a> has been called)  <br /></td></tr>
+<tr class="separator:a99544b7fb94b81957e20601859c42782"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef04cd8a458a13472f5b95105929e6b4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classinf_1_1Orbitable.html#aa01c9267c0fb19a1b7d6b38f00dccf58">inf::Orbitable::OrbitMap</a> const &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Orbitable.html#aef04cd8a458a13472f5b95105929e6b4">get_orbits</a> () const</td></tr>
+<tr class="memdesc:aef04cd8a458a13472f5b95105929e6b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the underlying <a class="el" href="classinf_1_1Orbitable.html#aa01c9267c0fb19a1b7d6b38f00dccf58" title="Maps each representative (of an orbit) inf::Event to its corresponding inf::Orbitable::Orbit.">inf::Orbitable::OrbitMap</a>.  <br /></td></tr>
+<tr class="separator:aef04cd8a458a13472f5b95105929e6b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ad16720debff531d58e8a6ea4392ec3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Orbitable.html#a7ad16720debff531d58e8a6ea4392ec3">orbits_initialized</a> () const</td></tr>
+<tr class="memdesc:a7ad16720debff531d58e8a6ea4392ec3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return <code>true</code> if <code><a class="el" href="classinf_1_1Orbitable.html#ac25e7eced2028756090e8e6007316524" title="Child classes have to call this method for initialization of the orbits.">inf::Orbitable::init_orbits()</a></code> has been called.  <br /></td></tr>
+<tr class="separator:a7ad16720debff531d58e8a6ea4392ec3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01b9c37488618495b331c32a7449dd90"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Orbitable.html#a01b9c37488618495b331c32a7449dd90">log_sym_group</a> () const</td></tr>
+<tr class="memdesc:a01b9c37488618495b331c32a7449dd90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs short one-line info about number of orbits.  <br /></td></tr>
+<tr class="separator:a01b9c37488618495b331c32a7449dd90"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26be8965202f85195ef4becd8223e2e6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Orbitable.html#a26be8965202f85195ef4becd8223e2e6">log_orbits</a> (bool shorten) const</td></tr>
+<tr class="memdesc:a26be8965202f85195ef4becd8223e2e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs long multi-line info about orbits.  <br /></td></tr>
+<tr class="separator:a26be8965202f85195ef4becd8223e2e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18e56b82d76f278e9d0696162e03d322"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Orbitable.html#a18e56b82d76f278e9d0696162e03d322">log_event</a> (<a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> const &amp;event) const =0</td></tr>
+<tr class="memdesc:a18e56b82d76f278e9d0696162e03d322"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs an event, e.g., <code>(0,0,2)</code>  <br /></td></tr>
+<tr class="separator:a18e56b82d76f278e9d0696162e03d322"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3df21a21b75c0a11a824eb9cacd0cd38"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="group__event.html#ga1945c0af7bba14437a034808f18dac20">inf::EventRange</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Orbitable.html#a3df21a21b75c0a11a824eb9cacd0cd38">get_event_range</a> () const =0</td></tr>
+<tr class="memdesc:a3df21a21b75c0a11a824eb9cacd0cd38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the <a class="el" href="group__event.html#ga1945c0af7bba14437a034808f18dac20" title="An iterator over inf::Event, conceptually allowing to iterate over  for some set .">inf::EventRange</a> over which <a class="el" href="classinf_1_1Orbitable.html" title="Something that holds symmetry-induced orbits of events.">inf::Orbitable</a> is defined, used in <a class="el" href="classinf_1_1Orbitable.html#ac25e7eced2028756090e8e6007316524" title="Child classes have to call this method for initialization of the orbits.">inf::Orbitable::init_orbits()</a>  <br /></td></tr>
+<tr class="separator:a3df21a21b75c0a11a824eb9cacd0cd38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae54c89d9d6f38114332f7cdba067cd18"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Orbitable.html#ae54c89d9d6f38114332f7cdba067cd18">get_n_events</a> () const =0</td></tr>
+<tr class="memdesc:ae54c89d9d6f38114332f7cdba067cd18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies the number of events supporting the <a class="el" href="classinf_1_1Orbitable.html" title="Something that holds symmetry-induced orbits of events.">inf::Orbitable</a>.  <br /></td></tr>
+<tr class="separator:ae54c89d9d6f38114332f7cdba067cd18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5926df85225a37a80a5611222a7103e0"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Orbitable.html#a5926df85225a37a80a5611222a7103e0">get_n_parties</a> () const =0</td></tr>
+<tr class="memdesc:a5926df85225a37a80a5611222a7103e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies the number of parties (i.e., the length of the events supporting the <a class="el" href="classinf_1_1Orbitable.html" title="Something that holds symmetry-induced orbits of events.">inf::Orbitable</a>)  <br /></td></tr>
+<tr class="separator:a5926df85225a37a80a5611222a7103e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:ac25e7eced2028756090e8e6007316524"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Orbitable.html#ac25e7eced2028756090e8e6007316524">init_orbits</a> (<a class="el" href="classinf_1_1Symmetry.html#a901d22b86ef5923b628db86fbdd7ba4f">inf::Symmetry::Group</a> const &amp;sym_group)</td></tr>
+<tr class="memdesc:ac25e7eced2028756090e8e6007316524"><td class="mdescLeft">&#160;</td><td class="mdescRight">Child classes have to call this method for initialization of the orbits.  <br /></td></tr>
+<tr class="separator:ac25e7eced2028756090e8e6007316524"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:af0b5df58c28e730a3bd9f9f0f0102a77"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classinf_1_1Orbitable.html#aa01c9267c0fb19a1b7d6b38f00dccf58">inf::Orbitable::OrbitMap</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Orbitable.html#af0b5df58c28e730a3bd9f9f0f0102a77">m_orbits</a></td></tr>
+<tr class="memdesc:af0b5df58c28e730a3bd9f9f0f0102a77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maps each representative (of an orbit) <a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0" title="A list of inf::Outcome. Conceptually, this plays the role of  for some set .">inf::Event</a> to its corresponding <a class="el" href="classinf_1_1Orbitable.html#a4982dcc25e609ae4793de4471f141b97" title="An orbit is a set of events pertaining to a symmetry-induced equivalence class.">inf::Orbitable::Orbit</a>.  <br /></td></tr>
+<tr class="separator:af0b5df58c28e730a3bd9f9f0f0102a77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a469eff31a9f610b8b2d6977fd245aaea"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Orbitable.html#a469eff31a9f610b8b2d6977fd245aaea">m_orbits_initialized</a></td></tr>
+<tr class="memdesc:a469eff31a9f610b8b2d6977fd245aaea"><td class="mdescLeft">&#160;</td><td class="mdescRight"><code>true</code> if <a class="el" href="classinf_1_1Orbitable.html#ac25e7eced2028756090e8e6007316524" title="Child classes have to call this method for initialization of the orbits.">inf::Orbitable::init_orbits()</a> has been called  <br /></td></tr>
+<tr class="separator:a469eff31a9f610b8b2d6977fd245aaea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeab7eb37046e998275f4e4ca0e0b58b6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classinf_1_1Symmetry.html#a901d22b86ef5923b628db86fbdd7ba4f">inf::Symmetry::Group</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Orbitable.html#aeab7eb37046e998275f4e4ca0e0b58b6">m_sym_group</a></td></tr>
+<tr class="memdesc:aeab7eb37046e998275f4e4ca0e0b58b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">The list of symmetries (typically a group) that generates the orbits.  <br /></td></tr>
+<tr class="separator:aeab7eb37046e998275f4e4ca0e0b58b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a4982dcc25e609ae4793de4471f141b97" name="a4982dcc25e609ae4793de4471f141b97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4982dcc25e609ae4793de4471f141b97">&#9670;&#160;</a></span>Orbit</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::set&lt;<a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a>&gt; <a class="el" href="classinf_1_1Orbitable.html#a4982dcc25e609ae4793de4471f141b97">inf::Orbitable::Orbit</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>An orbit is a set of events pertaining to a symmetry-induced equivalence class. </p>
+
+<p class="definition">Definition at line <a class="el" href="orbitable_8h_source.html#l00037">37</a> of file <a class="el" href="orbitable_8h_source.html">orbitable.h</a>.</p>
+
+</div>
+</div>
+<a id="aa01c9267c0fb19a1b7d6b38f00dccf58" name="aa01c9267c0fb19a1b7d6b38f00dccf58"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa01c9267c0fb19a1b7d6b38f00dccf58">&#9670;&#160;</a></span>OrbitMap</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::map&lt;<a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a>, <a class="el" href="classinf_1_1Orbitable.html#a4982dcc25e609ae4793de4471f141b97">inf::Orbitable::Orbit</a>&gt; <a class="el" href="classinf_1_1Orbitable.html#aa01c9267c0fb19a1b7d6b38f00dccf58">inf::Orbitable::OrbitMap</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Maps each representative (of an orbit) <a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0" title="A list of inf::Outcome. Conceptually, this plays the role of  for some set .">inf::Event</a> to its corresponding <a class="el" href="classinf_1_1Orbitable.html#a4982dcc25e609ae4793de4471f141b97" title="An orbit is a set of events pertaining to a symmetry-induced equivalence class.">inf::Orbitable::Orbit</a>. </p>
+<p>For instance, </p><div class="fragment"><div class="line"><a class="code hl_typedef" href="classinf_1_1Orbitable.html#aa01c9267c0fb19a1b7d6b38f00dccf58">inf::Orbitable::OrbitMap</a> orbit_map;</div>
+<div class="line"><span class="comment">// The event {0,0,0} is the representative of the orbit {n,n,n} for n in 0,1,2,3:</span></div>
+<div class="line">orbit_map[{0,0,0}] = <a class="code hl_typedef" href="classinf_1_1Orbitable.html#a4982dcc25e609ae4793de4471f141b97">inf::Orbitable::Orbit</a>({{0,0,0},{1,1,1},{2,2,2},{3,3,3}});</div>
+<div class="line"><span class="comment">// etc...</span></div>
+<div class="ttc" id="aclassinf_1_1Orbitable_html_a4982dcc25e609ae4793de4471f141b97"><div class="ttname"><a href="classinf_1_1Orbitable.html#a4982dcc25e609ae4793de4471f141b97">inf::Orbitable::Orbit</a></div><div class="ttdeci">std::set&lt; inf::Event &gt; Orbit</div><div class="ttdoc">An orbit is a set of events pertaining to a symmetry-induced equivalence class.</div><div class="ttdef"><b>Definition</b> <a href="orbitable_8h_source.html#l00037">orbitable.h:37</a></div></div>
+<div class="ttc" id="aclassinf_1_1Orbitable_html_aa01c9267c0fb19a1b7d6b38f00dccf58"><div class="ttname"><a href="classinf_1_1Orbitable.html#aa01c9267c0fb19a1b7d6b38f00dccf58">inf::Orbitable::OrbitMap</a></div><div class="ttdeci">std::map&lt; inf::Event, inf::Orbitable::Orbit &gt; OrbitMap</div><div class="ttdoc">Maps each representative (of an orbit) inf::Event to its corresponding inf::Orbitable::Orbit.</div><div class="ttdef"><b>Definition</b> <a href="orbitable_8h_source.html#l00046">orbitable.h:46</a></div></div>
+</div><!-- fragment --> 
+<p class="definition">Definition at line <a class="el" href="orbitable_8h_source.html#l00046">46</a> of file <a class="el" href="orbitable_8h_source.html">orbitable.h</a>.</p>
+
+</div>
+</div>
+<a id="acbbe4fa5a804ad11b84b4af02663c65b" name="acbbe4fa5a804ad11b84b4af02663c65b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acbbe4fa5a804ad11b84b4af02663c65b">&#9670;&#160;</a></span>OrbitPair</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::pair&lt;const <a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a>, <a class="el" href="classinf_1_1Orbitable.html#a4982dcc25e609ae4793de4471f141b97">inf::Orbitable::Orbit</a>&gt; <a class="el" href="classinf_1_1Orbitable.html#acbbe4fa5a804ad11b84b4af02663c65b">inf::Orbitable::OrbitPair</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This type is useful for iteration: the pair is of the form <code>(representative,orbit)</code>. </p>
+<p>For instance, </p><div class="fragment"><div class="line"><a class="code hl_typedef" href="classinf_1_1Orbitable.html#aa01c9267c0fb19a1b7d6b38f00dccf58">inf::Orbitable::OrbitMap</a> orbit_map = ...; <span class="comment">// Here set up orbit_map</span></div>
+<div class="line"><span class="keywordflow">for</span>(<a class="code hl_typedef" href="classinf_1_1Orbitable.html#acbbe4fa5a804ad11b84b4af02663c65b">inf::Orbitable::OrbitPair</a> <span class="keyword">const</span>&amp; orbit_pair : orbit_map)</div>
+<div class="line">{</div>
+<div class="line">    <span class="comment">// orbit_pair.first is the representative event</span></div>
+<div class="line">    <span class="comment">// orbit_pair.second is the set of events of the equivalence class (which includes orbit_pair.first)</span></div>
+<div class="line">}</div>
+<div class="ttc" id="aclassinf_1_1Orbitable_html_acbbe4fa5a804ad11b84b4af02663c65b"><div class="ttname"><a href="classinf_1_1Orbitable.html#acbbe4fa5a804ad11b84b4af02663c65b">inf::Orbitable::OrbitPair</a></div><div class="ttdeci">std::pair&lt; const inf::Event, inf::Orbitable::Orbit &gt; OrbitPair</div><div class="ttdoc">This type is useful for iteration: the pair is of the form (representative,orbit).</div><div class="ttdef"><b>Definition</b> <a href="orbitable_8h_source.html#l00057">orbitable.h:57</a></div></div>
+</div><!-- fragment --> 
+<p class="definition">Definition at line <a class="el" href="orbitable_8h_source.html#l00057">57</a> of file <a class="el" href="orbitable_8h_source.html">orbitable.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a8fe3e6c3cbb7eb0643380eafdd121040" name="a8fe3e6c3cbb7eb0643380eafdd121040"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8fe3e6c3cbb7eb0643380eafdd121040">&#9670;&#160;</a></span>Orbitable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">inf::Orbitable::Orbitable </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Default constructor that does not initialize anything, the child class must call <a class="el" href="classinf_1_1Orbitable.html#ac25e7eced2028756090e8e6007316524" title="Child classes have to call this method for initialization of the orbits.">inf::Orbitable::init_orbits()</a> </p>
+
+<p class="definition">Definition at line <a class="el" href="orbitable_8cpp_source.html#l00006">6</a> of file <a class="el" href="orbitable_8cpp_source.html">orbitable.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="aa5ea13afb9a9ff79aef84054ea4c1dd4" name="aa5ea13afb9a9ff79aef84054ea4c1dd4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5ea13afb9a9ff79aef84054ea4c1dd4">&#9670;&#160;</a></span>get_sym_group()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classinf_1_1Symmetry.html#a901d22b86ef5923b628db86fbdd7ba4f">inf::Symmetry::Group</a> const  &amp; inf::Orbitable::get_sym_group </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This returns the underlying symmetry group. </p>
+
+<p class="definition">Definition at line <a class="el" href="orbitable_8cpp_source.html#l00011">11</a> of file <a class="el" href="orbitable_8cpp_source.html">orbitable.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a99544b7fb94b81957e20601859c42782" name="a99544b7fb94b81957e20601859c42782"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99544b7fb94b81957e20601859c42782">&#9670;&#160;</a></span>get_n_orbits()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> inf::Orbitable::get_n_orbits </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The number of orbits produced (only sensible after <a class="el" href="classinf_1_1Orbitable.html#ac25e7eced2028756090e8e6007316524" title="Child classes have to call this method for initialization of the orbits.">inf::Orbitable::init_orbits()</a> has been called) </p>
+
+<p class="definition">Definition at line <a class="el" href="orbitable_8cpp_source.html#l00016">16</a> of file <a class="el" href="orbitable_8cpp_source.html">orbitable.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aef04cd8a458a13472f5b95105929e6b4" name="aef04cd8a458a13472f5b95105929e6b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef04cd8a458a13472f5b95105929e6b4">&#9670;&#160;</a></span>get_orbits()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classinf_1_1Orbitable.html#aa01c9267c0fb19a1b7d6b38f00dccf58">inf::Orbitable::OrbitMap</a> const  &amp; inf::Orbitable::get_orbits </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the underlying <a class="el" href="classinf_1_1Orbitable.html#aa01c9267c0fb19a1b7d6b38f00dccf58" title="Maps each representative (of an orbit) inf::Event to its corresponding inf::Orbitable::Orbit.">inf::Orbitable::OrbitMap</a>. </p>
+
+<p class="definition">Definition at line <a class="el" href="orbitable_8cpp_source.html#l00022">22</a> of file <a class="el" href="orbitable_8cpp_source.html">orbitable.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a7ad16720debff531d58e8a6ea4392ec3" name="a7ad16720debff531d58e8a6ea4392ec3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ad16720debff531d58e8a6ea4392ec3">&#9670;&#160;</a></span>orbits_initialized()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool inf::Orbitable::orbits_initialized </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return <code>true</code> if <code><a class="el" href="classinf_1_1Orbitable.html#ac25e7eced2028756090e8e6007316524" title="Child classes have to call this method for initialization of the orbits.">inf::Orbitable::init_orbits()</a></code> has been called. </p>
+
+<p class="definition">Definition at line <a class="el" href="orbitable_8h_source.html#l00079">79</a> of file <a class="el" href="orbitable_8h_source.html">orbitable.h</a>.</p>
+
+</div>
+</div>
+<a id="a01b9c37488618495b331c32a7449dd90" name="a01b9c37488618495b331c32a7449dd90"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01b9c37488618495b331c32a7449dd90">&#9670;&#160;</a></span>log_sym_group()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void inf::Orbitable::log_sym_group </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Logs short one-line info about number of orbits. </p>
+
+<p class="definition">Definition at line <a class="el" href="orbitable_8cpp_source.html#l00028">28</a> of file <a class="el" href="orbitable_8cpp_source.html">orbitable.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a26be8965202f85195ef4becd8223e2e6" name="a26be8965202f85195ef4becd8223e2e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26be8965202f85195ef4becd8223e2e6">&#9670;&#160;</a></span>log_orbits()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void inf::Orbitable::log_orbits </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>shorten</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Logs long multi-line info about orbits. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">shorten</td><td>If <code>false</code>, then the full orbits are printed out, otherwise only the first few elements are </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="orbitable_8cpp_source.html#l00037">37</a> of file <a class="el" href="orbitable_8cpp_source.html">orbitable.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a18e56b82d76f278e9d0696162e03d322" name="a18e56b82d76f278e9d0696162e03d322"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18e56b82d76f278e9d0696162e03d322">&#9670;&#160;</a></span>log_event()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void inf::Orbitable::log_event </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> const &amp;&#160;</td>
+          <td class="paramname"><em>event</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Logs an event, e.g., <code>(0,0,2)</code> </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">event</td><td>Event to be logged </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="classinf_1_1DualVector.html#ae036c425e933fe336eb779eb635e7c02">inf::DualVector</a>, and <a class="el" href="classinf_1_1TargetDistr.html#a79b622136725ff7554b73229135c9a5f">inf::TargetDistr</a>.</p>
+
+</div>
+</div>
+<a id="a3df21a21b75c0a11a824eb9cacd0cd38" name="a3df21a21b75c0a11a824eb9cacd0cd38"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3df21a21b75c0a11a824eb9cacd0cd38">&#9670;&#160;</a></span>get_event_range()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="group__event.html#ga1945c0af7bba14437a034808f18dac20">inf::EventRange</a> inf::Orbitable::get_event_range </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the <a class="el" href="group__event.html#ga1945c0af7bba14437a034808f18dac20" title="An iterator over inf::Event, conceptually allowing to iterate over  for some set .">inf::EventRange</a> over which <a class="el" href="classinf_1_1Orbitable.html" title="Something that holds symmetry-induced orbits of events.">inf::Orbitable</a> is defined, used in <a class="el" href="classinf_1_1Orbitable.html#ac25e7eced2028756090e8e6007316524" title="Child classes have to call this method for initialization of the orbits.">inf::Orbitable::init_orbits()</a> </p>
+
+<p>Implemented in <a class="el" href="classinf_1_1TensorWithOrbits.html#a09fcfd7f0c8c753a8e63c161b313d772">inf::TensorWithOrbits</a>.</p>
+
+</div>
+</div>
+<a id="ae54c89d9d6f38114332f7cdba067cd18" name="ae54c89d9d6f38114332f7cdba067cd18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae54c89d9d6f38114332f7cdba067cd18">&#9670;&#160;</a></span>get_n_events()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> inf::Orbitable::get_n_events </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Specifies the number of events supporting the <a class="el" href="classinf_1_1Orbitable.html" title="Something that holds symmetry-induced orbits of events.">inf::Orbitable</a>. </p>
+<p>This matches the size of <a class="el" href="classinf_1_1Orbitable.html#a3df21a21b75c0a11a824eb9cacd0cd38" title="Returns the inf::EventRange over which inf::Orbitable is defined, used in inf::Orbitable::init_orbits...">inf::Orbitable::get_event_range()</a> </p>
+
+<p>Implemented in <a class="el" href="classinf_1_1TensorWithOrbits.html#a4557f73cfbab33775e70c0e202ca09c8">inf::TensorWithOrbits</a>.</p>
+
+</div>
+</div>
+<a id="a5926df85225a37a80a5611222a7103e0" name="a5926df85225a37a80a5611222a7103e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5926df85225a37a80a5611222a7103e0">&#9670;&#160;</a></span>get_n_parties()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> inf::Orbitable::get_n_parties </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Specifies the number of parties (i.e., the length of the events supporting the <a class="el" href="classinf_1_1Orbitable.html" title="Something that holds symmetry-induced orbits of events.">inf::Orbitable</a>) </p>
+<p>This matches with the size of each <a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0" title="A list of inf::Outcome. Conceptually, this plays the role of  for some set .">inf::Event</a> contained in <a class="el" href="classinf_1_1Orbitable.html#a3df21a21b75c0a11a824eb9cacd0cd38" title="Returns the inf::EventRange over which inf::Orbitable is defined, used in inf::Orbitable::init_orbits...">inf::Orbitable::get_event_range()</a> </p>
+
+<p>Implemented in <a class="el" href="classinf_1_1TensorWithOrbits.html#ac7304f6f5f10788da5dfa2ce67eadc7c">inf::TensorWithOrbits</a>.</p>
+
+</div>
+</div>
+<a id="ac25e7eced2028756090e8e6007316524" name="ac25e7eced2028756090e8e6007316524"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac25e7eced2028756090e8e6007316524">&#9670;&#160;</a></span>init_orbits()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void inf::Orbitable::init_orbits </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classinf_1_1Symmetry.html#a901d22b86ef5923b628db86fbdd7ba4f">inf::Symmetry::Group</a> const &amp;&#160;</td>
+          <td class="paramname"><em>sym_group</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Child classes have to call this method for initialization of the orbits. </p>
+<p>The class contains soft assertions to check that this method was indeed called. </p><dl class="section note"><dt>Note</dt><dd>This method is not in the constructor to allow the child class to do non-trivial computations before choosing the symmetry group. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sym_group</td><td>Technically, this is not required to be a group, but in all applications this will be a group. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="orbitable_8cpp_source.html#l00081">81</a> of file <a class="el" href="orbitable_8cpp_source.html">orbitable.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="af0b5df58c28e730a3bd9f9f0f0102a77" name="af0b5df58c28e730a3bd9f9f0f0102a77"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0b5df58c28e730a3bd9f9f0f0102a77">&#9670;&#160;</a></span>m_orbits</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classinf_1_1Orbitable.html#aa01c9267c0fb19a1b7d6b38f00dccf58">inf::Orbitable::OrbitMap</a> inf::Orbitable::m_orbits</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Maps each representative (of an orbit) <a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0" title="A list of inf::Outcome. Conceptually, this plays the role of  for some set .">inf::Event</a> to its corresponding <a class="el" href="classinf_1_1Orbitable.html#a4982dcc25e609ae4793de4471f141b97" title="An orbit is a set of events pertaining to a symmetry-induced equivalence class.">inf::Orbitable::Orbit</a>. </p>
+
+<p class="definition">Definition at line <a class="el" href="orbitable_8h_source.html#l00106">106</a> of file <a class="el" href="orbitable_8h_source.html">orbitable.h</a>.</p>
+
+</div>
+</div>
+<a id="a469eff31a9f610b8b2d6977fd245aaea" name="a469eff31a9f610b8b2d6977fd245aaea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a469eff31a9f610b8b2d6977fd245aaea">&#9670;&#160;</a></span>m_orbits_initialized</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool inf::Orbitable::m_orbits_initialized</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><code>true</code> if <a class="el" href="classinf_1_1Orbitable.html#ac25e7eced2028756090e8e6007316524" title="Child classes have to call this method for initialization of the orbits.">inf::Orbitable::init_orbits()</a> has been called </p>
+
+<p class="definition">Definition at line <a class="el" href="orbitable_8h_source.html#l00119">119</a> of file <a class="el" href="orbitable_8h_source.html">orbitable.h</a>.</p>
+
+</div>
+</div>
+<a id="aeab7eb37046e998275f4e4ca0e0b58b6" name="aeab7eb37046e998275f4e4ca0e0b58b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeab7eb37046e998275f4e4ca0e0b58b6">&#9670;&#160;</a></span>m_sym_group</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classinf_1_1Symmetry.html#a901d22b86ef5923b628db86fbdd7ba4f">inf::Symmetry::Group</a> inf::Orbitable::m_sym_group</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The list of symmetries (typically a group) that generates the orbits. </p>
+
+<p class="definition">Definition at line <a class="el" href="orbitable_8h_source.html#l00121">121</a> of file <a class="el" href="orbitable_8h_source.html">orbitable.h</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>src/inf/symmetry/<a class="el" href="orbitable_8h_source.html">orbitable.h</a></li>
+<li>src/inf/symmetry/<a class="el" href="orbitable_8cpp_source.html">orbitable.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceinf.html">inf</a></li><li class="navelem"><a class="el" href="classinf_1_1Orbitable.html">Orbitable</a></li>
+    <li class="footer">Generated on Wed Dec 18 2024 17:39:43 for Fast Inflation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

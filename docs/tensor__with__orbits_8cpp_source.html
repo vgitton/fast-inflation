@@ -1,0 +1,323 @@
+<!-- HTML header for doxygen 1.9.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Fast Inflation: src/inf/symmetry/tensor_with_orbits.cpp Source File</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+MathJax.Hub.Config({
+    TeX: {
+        Macros: {
+            dd: ["{\\text{d}#1\\,}",1],
+            nouts: ["{n_{\\text{o}}}"],
+            ints: ["{[\\![#1]\\!]}",1],
+            outset: ["{\\ints{\\nouts}}"],
+            N: ["{\\mathbb{N}}"],
+            R: ["{\\mathbb{R}}"],
+            Z: ["{\\mathbb{Z}}"],
+            infsize: ["{z}"],
+            infparties: ["{\\set{I}}"],
+            infsources: ["{\\set{S}}"],
+            infmarg: ["{\\set{A}}"],
+            infmargg: ["{\\set{B}}"],
+            netparties: ["{\\set{N}}"],
+            infq: ["{q}"],
+            infqs: ["{\\Delta_{\\infparties}}"],
+            constraintlist: ["{\\mathcal{C}}"],
+            injsets: ["{\\text{InjSets}}"],
+            infconstraints: ["{\\text{InfCons}}"],
+            parents: ["{\\text{Par}}"],
+            targetp: ["{p}"],
+            targetps: ["{\\Delta_{\\netparties}}"],
+            set: ["{\\mathbf{#1}}",1],
+            type: ["{t}"],
+            infevent: "{\\omega}",
+            events: ["{\\Omega_{#1}}",1],
+            infevents: ["{\\events{\\infparties}}"],
+            redinfevents: ["{\\tilde{\\Omega}_{\\infparties}}"],
+            netevents: ["{\\events{\\netparties}}"],
+            vecset: ["{V_{#1}}",1],
+            alice: ["{\\text{A}}"],
+            bob: ["{\\text{B}}"],
+            charlie: ["{\\text{C}}"],
+            symgroup: ["{\\text{Sym}(#1)}",1],
+            shortsymgroup: ["{\\text{Sym}_{#1}}",1],
+            act: ["{(#1\\hspace{2pt}{:}\\hspace{2pt}#2)}",2],
+            actt: ["{[#1\\hspace{2pt}{:}\\hspace{2pt}#2]}",2],
+            margperms: ["{\\text{Perm}_{#1}}",1],
+            permutedmargs: ["{\\mathbb{P}_{#1}^{\\targetp}}",1],
+            redpermutedmargs: ["{\\tilde{\\mathbb{P}}_{#1}^{\\constraintname,\\targetp}}",1],
+            extract: ["{\\text{ext}(#1,#2)}",2],
+            partysym: ["{\\tau}"],
+            sourcesym: ["{\\xi}"],
+            outsym: ["{\\sigma}"],
+            fullgroup: ["{\\text{InfGrp}}"],
+            partygroup : ["{\\text{PartyGrp}}"],
+            outgroup: ["{\\text{OutGrp}}"],
+            sourcegroup: ["{\\text{SrcGrp}}"],
+            distrgroup: ["{\\mathbb{G}^\\targetp}"],
+            constraintname: ["{c}"],
+            marggroup: ["{\\mathbb{G}^{\\constraintname,\\targetp}}"],
+            fullsymexpl: ["{(\\sourcesym,\\partysym,\\outsym)}"],
+            inner: ["{\\langle#1,#2\\rangle}", 2],
+            quovec: ["{f}"],
+            totconstraintmap: ["{K^{\\constraintlist,\\targetp}}"],
+            totconstraintmapelem: ["{K^{\\constraintname,\\targetp}}"],
+            quovecspace: ["{\\tilde{V}_{#1}^{\\constraintname,\\targetp}}", 1],
+            totquovecspace: ["{\\text{ConsSpace}(\\constraintlist,\\targetp)}"],
+            detdistr: ["{\\delta^{#1}}", 1],
+            margperm: ["{\\varphi}"],
+            altquovecembed: ["{\\text{G}_{#1}^{\\constraintname,\\targetp}}", 1],
+            vecset: ["{V_{#1}}", 1],
+            repr: ["{\\lfloor#1\\rfloor}", 1],
+            gid: ["{\\text{id}}"],
+            id: ["{1_{#1}}",1],
+            consscale: ["{K}"],
+            scaletot: ["{K_{\\text{tot}}^{\\constraintlist,\\targetp}}"],
+            minnorm: ["{d}"],
+            Bigsetst: ["\\;\\Big|\\;"],
+            activeset: ["\\mathcal{S}"],
+            conv: ["\\text{conv}"],
+            lVert: ["|\\hspace{-1pt}|"],
+            norm: ["\\lVert#1\\lVert", 1],
+            st: [":\ "],
+        }
+    }
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeDarkModeToggle.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeParagraphLink.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Fast Inflation
+   </div>
+   <div id="projectbrief">To certify causal incompatibility</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('tensor__with__orbits_8cpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">tensor_with_orbits.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="tensor__with__orbits_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &quot;<a class="code" href="tensor__with__orbits_8h.html">tensor_with_orbits.h</a>&quot;</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;../../util/debug.h&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;../../util/frac.h&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;../../util/logger.h&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;../../util/math.h&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">// Constructor</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="classinf_1_1TensorWithOrbits.html#a5a38b5c5598dc0a7a01770a45cee0d22">    9</a></span><a class="code hl_function" href="classinf_1_1TensorWithOrbits.html#a5a38b5c5598dc0a7a01770a45cee0d22">inf::TensorWithOrbits::TensorWithOrbits</a>(</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> n_parties,</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <a class="code hl_typedef" href="group__event.html#gadcaa27c4242b65837f0f7a00e96856d4">inf::Outcome</a> base)</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    : <a class="code hl_namespace" href="namespaceinf.html">inf</a>::<a class="code hl_class" href="classinf_1_1Orbitable.html">Orbitable</a>(),</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>      m_event_tensor(n_parties, base) {}</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="classinf_1_1TensorWithOrbits.html#ac7a873f9c37d20248a9f902f69aa27af">   15</a></span><a class="code hl_class" href="classinf_1_1EventTensor.html">inf::EventTensor</a> <span class="keyword">const</span> &amp;<a class="code hl_function" href="classinf_1_1TensorWithOrbits.html#ac7a873f9c37d20248a9f902f69aa27af">inf::TensorWithOrbits::get_event_tensor</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keywordflow">return</span> m_event_tensor;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>}</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="classinf_1_1TensorWithOrbits.html#a2a5be48925ad57042c14c906553d6573">   19</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1TensorWithOrbits.html#a2a5be48925ad57042c14c906553d6573">inf::TensorWithOrbits::init_event_tensor</a>(<a class="code hl_class" href="classinf_1_1EventTensor.html">inf::EventTensor</a> <span class="keyword">const</span> &amp;event_tensor) {</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <a class="code hl_define" href="group__debug.html#ga3fabbc72ef82f3dbc7a2420c983e65a8">HARD_ASSERT_TRUE</a>(not orbits_initialized())</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <a class="code hl_define" href="group__debug.html#ga3fabbc72ef82f3dbc7a2420c983e65a8">HARD_ASSERT_TRUE</a>(m_event_tensor.has_same_shape_as(event_tensor))</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    m_event_tensor = event_tensor;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    m_event_tensor.<a class="code hl_function" href="classinf_1_1EventTensor.html#ab473b9fad92e1ef35d98a1addc0296dc">simplify</a>();</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>}</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment">// Strings</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="classinf_1_1TensorWithOrbits.html#aac154b6a858b0899210ddf0922ac2fd7">   29</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1TensorWithOrbits.html#aac154b6a858b0899210ddf0922ac2fd7">inf::TensorWithOrbits::log_short</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    this-&gt;log_header();</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <a class="code hl_function" href="classinf_1_1TensorWithOrbits.html#a684c4e242a113339d8f240eaa5688b8e">inf::TensorWithOrbits::log_data_short</a>();</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="comment">// The LOG_BEGIN_SECTION should be in this-&gt;log_header()</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <a class="code hl_define" href="group__printing.html#gaa993b7a93b54137d5d6c09ed1fac8b77">LOG_END_SECTION</a></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>}</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="classinf_1_1TensorWithOrbits.html#a4ead21bd50b7b7f4d0205cde2e438697">   36</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1TensorWithOrbits.html#a4ead21bd50b7b7f4d0205cde2e438697">inf::TensorWithOrbits::log</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    this-&gt;log_header();</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <a class="code hl_function" href="classinf_1_1TensorWithOrbits.html#a684c4e242a113339d8f240eaa5688b8e">inf::TensorWithOrbits::log_data_short</a>();</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <a class="code hl_function" href="classinf_1_1Orbitable.html#a01b9c37488618495b331c32a7449dd90">inf::Orbitable::log_sym_group</a>();</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="comment">// The LOG_BEGIN_SECTION should be in this-&gt;log_header()</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <a class="code hl_define" href="group__printing.html#gaa993b7a93b54137d5d6c09ed1fac8b77">LOG_END_SECTION</a></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>}</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="classinf_1_1TensorWithOrbits.html#a4ce37323ac010f1a6103e44962221dc3">   45</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1TensorWithOrbits.html#a4ce37323ac010f1a6103e44962221dc3">inf::TensorWithOrbits::log_long</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    this-&gt;log_header();</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <a class="code hl_function" href="classinf_1_1TensorWithOrbits.html#a684c4e242a113339d8f240eaa5688b8e">inf::TensorWithOrbits::log_data_short</a>();</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <a class="code hl_function" href="classinf_1_1Orbitable.html#a01b9c37488618495b331c32a7449dd90">inf::Orbitable::log_sym_group</a>();</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <a class="code hl_function" href="classinf_1_1Orbitable.html#a26be8965202f85195ef4becd8223e2e6">inf::Orbitable::log_orbits</a>(<span class="keyword">false</span>);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="comment">// The LOG_BEGIN_SECTION should be in this-&gt;log_header()</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <a class="code hl_define" href="group__printing.html#gaa993b7a93b54137d5d6c09ed1fac8b77">LOG_END_SECTION</a></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>}</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="classinf_1_1TensorWithOrbits.html#a684c4e242a113339d8f240eaa5688b8e">   55</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1TensorWithOrbits.html#a684c4e242a113339d8f240eaa5688b8e">inf::TensorWithOrbits::log_data_short</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> count = 0;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keywordtype">bool</span> first_element = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keywordflow">for</span> (<a class="code hl_typedef" href="classinf_1_1Orbitable.html#acbbe4fa5a804ad11b84b4af02663c65b">inf::Orbitable::OrbitPair</a> <span class="keyword">const</span> &amp;orbit_pair : get_orbits()) {</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        m_event_tensor.log_single_event(this-&gt;get_math_name(), first_element, count, 4, orbit_pair.first);</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    }</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <a class="code hl_variable" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a> &lt;&lt; <a class="code hl_variable" href="group__printing.html#ga3f8fe48536ee19c54002c9c1db64cabb">util::cr</a>;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>}</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="classinf_1_1TensorWithOrbits.html#a550a78c21ad9431412e9c078511e61bc">   65</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1TensorWithOrbits.html#a550a78c21ad9431412e9c078511e61bc">inf::TensorWithOrbits::log_data_long</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <a class="code hl_define" href="group__printing.html#gafca79483713e011c576202e2d0e63684">LOG_BEGIN_SECTION_FUNC</a></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    m_event_tensor.log(this-&gt;get_math_name());</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <a class="code hl_define" href="group__printing.html#gaa993b7a93b54137d5d6c09ed1fac8b77">LOG_END_SECTION</a></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>}</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="comment">// Overrides from inf::Orbitable</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="classinf_1_1TensorWithOrbits.html#a09fcfd7f0c8c753a8e63c161b313d772">   75</a></span><a class="code hl_class" href="classutil_1_1ProductRange.html">inf::EventRange</a> <a class="code hl_function" href="classinf_1_1TensorWithOrbits.html#a09fcfd7f0c8c753a8e63c161b313d772">inf::TensorWithOrbits::get_event_range</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keywordflow">return</span> m_event_tensor.get_event_range();</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>}</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="classinf_1_1TensorWithOrbits.html#a4557f73cfbab33775e70c0e202ca09c8">   79</a></span><a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <a class="code hl_function" href="classinf_1_1TensorWithOrbits.html#a4557f73cfbab33775e70c0e202ca09c8">inf::TensorWithOrbits::get_n_events</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="group__maths.html#ga860effafb2a36ac348511a4b5a8b3635">util::pow</a>(<span class="keyword">static_cast&lt;</span><a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a><span class="keyword">&gt;</span>(m_event_tensor.get_base()), this-&gt;get_n_parties());</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>}</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="classinf_1_1TensorWithOrbits.html#ac7304f6f5f10788da5dfa2ce67eadc7c">   83</a></span><a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <a class="code hl_function" href="classinf_1_1TensorWithOrbits.html#ac7304f6f5f10788da5dfa2ce67eadc7c">inf::TensorWithOrbits::get_n_parties</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="keywordflow">return</span> m_event_tensor.get_n_parties();</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>}</div>
+<div class="ttc" id="aclassinf_1_1EventTensor_html"><div class="ttname"><a href="classinf_1_1EventTensor.html">inf::EventTensor</a></div><div class="ttdoc">Stores a function from a set of inf::Event of fixed length to Num.</div><div class="ttdef"><b>Definition</b> <a href="event__tensor_8h_source.html#l00045">event_tensor.h:45</a></div></div>
+<div class="ttc" id="aclassinf_1_1EventTensor_html_ab473b9fad92e1ef35d98a1addc0296dc"><div class="ttname"><a href="classinf_1_1EventTensor.html#ab473b9fad92e1ef35d98a1addc0296dc">inf::EventTensor::simplify</a></div><div class="ttdeci">void simplify()</div><div class="ttdoc">Divides the common denominator and all of the numerators by the GCD of them all.</div><div class="ttdef"><b>Definition</b> <a href="event__tensor_8cpp_source.html#l00151">event_tensor.cpp:151</a></div></div>
+<div class="ttc" id="aclassinf_1_1Orbitable_html"><div class="ttname"><a href="classinf_1_1Orbitable.html">inf::Orbitable</a></div><div class="ttdoc">Something that holds symmetry-induced orbits of events.</div><div class="ttdef"><b>Definition</b> <a href="orbitable_8h_source.html#l00032">orbitable.h:32</a></div></div>
+<div class="ttc" id="aclassinf_1_1Orbitable_html_a01b9c37488618495b331c32a7449dd90"><div class="ttname"><a href="classinf_1_1Orbitable.html#a01b9c37488618495b331c32a7449dd90">inf::Orbitable::log_sym_group</a></div><div class="ttdeci">void log_sym_group() const</div><div class="ttdoc">Logs short one-line info about number of orbits.</div><div class="ttdef"><b>Definition</b> <a href="orbitable_8cpp_source.html#l00028">orbitable.cpp:28</a></div></div>
+<div class="ttc" id="aclassinf_1_1Orbitable_html_a26be8965202f85195ef4becd8223e2e6"><div class="ttname"><a href="classinf_1_1Orbitable.html#a26be8965202f85195ef4becd8223e2e6">inf::Orbitable::log_orbits</a></div><div class="ttdeci">void log_orbits(bool shorten) const</div><div class="ttdoc">Logs long multi-line info about orbits.</div><div class="ttdef"><b>Definition</b> <a href="orbitable_8cpp_source.html#l00037">orbitable.cpp:37</a></div></div>
+<div class="ttc" id="aclassinf_1_1Orbitable_html_acbbe4fa5a804ad11b84b4af02663c65b"><div class="ttname"><a href="classinf_1_1Orbitable.html#acbbe4fa5a804ad11b84b4af02663c65b">inf::Orbitable::OrbitPair</a></div><div class="ttdeci">std::pair&lt; const inf::Event, inf::Orbitable::Orbit &gt; OrbitPair</div><div class="ttdoc">This type is useful for iteration: the pair is of the form (representative,orbit).</div><div class="ttdef"><b>Definition</b> <a href="orbitable_8h_source.html#l00057">orbitable.h:57</a></div></div>
+<div class="ttc" id="aclassinf_1_1TensorWithOrbits_html_a09fcfd7f0c8c753a8e63c161b313d772"><div class="ttname"><a href="classinf_1_1TensorWithOrbits.html#a09fcfd7f0c8c753a8e63c161b313d772">inf::TensorWithOrbits::get_event_range</a></div><div class="ttdeci">virtual inf::EventRange get_event_range() const override</div><div class="ttdoc">inf::EventRange supporting the inf::Orbitable and inf::EventTensor</div><div class="ttdef"><b>Definition</b> <a href="tensor__with__orbits_8cpp_source.html#l00075">tensor_with_orbits.cpp:75</a></div></div>
+<div class="ttc" id="aclassinf_1_1TensorWithOrbits_html_a2a5be48925ad57042c14c906553d6573"><div class="ttname"><a href="classinf_1_1TensorWithOrbits.html#a2a5be48925ad57042c14c906553d6573">inf::TensorWithOrbits::init_event_tensor</a></div><div class="ttdeci">void init_event_tensor(inf::EventTensor const &amp;event_tensor)</div><div class="ttdoc">To set all the numerators at once, ignoring orbits.</div><div class="ttdef"><b>Definition</b> <a href="tensor__with__orbits_8cpp_source.html#l00019">tensor_with_orbits.cpp:19</a></div></div>
+<div class="ttc" id="aclassinf_1_1TensorWithOrbits_html_a4557f73cfbab33775e70c0e202ca09c8"><div class="ttname"><a href="classinf_1_1TensorWithOrbits.html#a4557f73cfbab33775e70c0e202ca09c8">inf::TensorWithOrbits::get_n_events</a></div><div class="ttdeci">virtual Index get_n_events() const override</div><div class="ttdoc">Specifies the number of events supporting the inf::Orbitable and inf::EventTensor,...</div><div class="ttdef"><b>Definition</b> <a href="tensor__with__orbits_8cpp_source.html#l00079">tensor_with_orbits.cpp:79</a></div></div>
+<div class="ttc" id="aclassinf_1_1TensorWithOrbits_html_a4ce37323ac010f1a6103e44962221dc3"><div class="ttname"><a href="classinf_1_1TensorWithOrbits.html#a4ce37323ac010f1a6103e44962221dc3">inf::TensorWithOrbits::log_long</a></div><div class="ttdeci">void log_long() const</div><div class="ttdoc">Detailed log.</div><div class="ttdef"><b>Definition</b> <a href="tensor__with__orbits_8cpp_source.html#l00045">tensor_with_orbits.cpp:45</a></div></div>
+<div class="ttc" id="aclassinf_1_1TensorWithOrbits_html_a4ead21bd50b7b7f4d0205cde2e438697"><div class="ttname"><a href="classinf_1_1TensorWithOrbits.html#a4ead21bd50b7b7f4d0205cde2e438697">inf::TensorWithOrbits::log</a></div><div class="ttdeci">void log() const override</div><div class="ttdoc">Short log using inf::TensorWithOrbits::log_header(), inf::TensorWithOrbits::log_data_short(),...</div><div class="ttdef"><b>Definition</b> <a href="tensor__with__orbits_8cpp_source.html#l00036">tensor_with_orbits.cpp:36</a></div></div>
+<div class="ttc" id="aclassinf_1_1TensorWithOrbits_html_a550a78c21ad9431412e9c078511e61bc"><div class="ttname"><a href="classinf_1_1TensorWithOrbits.html#a550a78c21ad9431412e9c078511e61bc">inf::TensorWithOrbits::log_data_long</a></div><div class="ttdeci">void log_data_long() const</div><div class="ttdoc">Logs all data.</div><div class="ttdef"><b>Definition</b> <a href="tensor__with__orbits_8cpp_source.html#l00065">tensor_with_orbits.cpp:65</a></div></div>
+<div class="ttc" id="aclassinf_1_1TensorWithOrbits_html_a5a38b5c5598dc0a7a01770a45cee0d22"><div class="ttname"><a href="classinf_1_1TensorWithOrbits.html#a5a38b5c5598dc0a7a01770a45cee0d22">inf::TensorWithOrbits::TensorWithOrbits</a></div><div class="ttdeci">TensorWithOrbits(Index n_parties, inf::Outcome base)</div><div class="ttdoc">Constructor, intializes data to all 0's. The actual inf::EventTensor can be passed by child classes u...</div><div class="ttdef"><b>Definition</b> <a href="tensor__with__orbits_8cpp_source.html#l00009">tensor_with_orbits.cpp:9</a></div></div>
+<div class="ttc" id="aclassinf_1_1TensorWithOrbits_html_a684c4e242a113339d8f240eaa5688b8e"><div class="ttname"><a href="classinf_1_1TensorWithOrbits.html#a684c4e242a113339d8f240eaa5688b8e">inf::TensorWithOrbits::log_data_short</a></div><div class="ttdeci">void log_data_short() const</div><div class="ttdoc">Logs the data of the representatives of orbits.</div><div class="ttdef"><b>Definition</b> <a href="tensor__with__orbits_8cpp_source.html#l00055">tensor_with_orbits.cpp:55</a></div></div>
+<div class="ttc" id="aclassinf_1_1TensorWithOrbits_html_aac154b6a858b0899210ddf0922ac2fd7"><div class="ttname"><a href="classinf_1_1TensorWithOrbits.html#aac154b6a858b0899210ddf0922ac2fd7">inf::TensorWithOrbits::log_short</a></div><div class="ttdeci">void log_short() const</div><div class="ttdoc">Extra-short log using inf::TensorWithOrbits::log_header(), inf::TensorWithOrbits::log_data_short()</div><div class="ttdef"><b>Definition</b> <a href="tensor__with__orbits_8cpp_source.html#l00029">tensor_with_orbits.cpp:29</a></div></div>
+<div class="ttc" id="aclassinf_1_1TensorWithOrbits_html_ac7304f6f5f10788da5dfa2ce67eadc7c"><div class="ttname"><a href="classinf_1_1TensorWithOrbits.html#ac7304f6f5f10788da5dfa2ce67eadc7c">inf::TensorWithOrbits::get_n_parties</a></div><div class="ttdeci">virtual Index get_n_parties() const override</div><div class="ttdoc">Specifies the number of parties (i.e., the length of the events supporting the inf::Orbitable),...</div><div class="ttdef"><b>Definition</b> <a href="tensor__with__orbits_8cpp_source.html#l00083">tensor_with_orbits.cpp:83</a></div></div>
+<div class="ttc" id="aclassinf_1_1TensorWithOrbits_html_ac7a873f9c37d20248a9f902f69aa27af"><div class="ttname"><a href="classinf_1_1TensorWithOrbits.html#ac7a873f9c37d20248a9f902f69aa27af">inf::TensorWithOrbits::get_event_tensor</a></div><div class="ttdeci">inf::EventTensor const &amp; get_event_tensor() const</div><div class="ttdoc">To get access to the underlying data.</div><div class="ttdef"><b>Definition</b> <a href="tensor__with__orbits_8cpp_source.html#l00015">tensor_with_orbits.cpp:15</a></div></div>
+<div class="ttc" id="aclassutil_1_1ProductRange_html"><div class="ttname"><a href="classutil_1_1ProductRange.html">util::ProductRange</a></div><div class="ttdoc">This class implements a range over std::vector&lt;T&gt;, akin to Python product ranges.</div><div class="ttdef"><b>Definition</b> <a href="product__range_8h_source.html#l00073">product_range.h:73</a></div></div>
+<div class="ttc" id="agroup__debug_html_ga3fabbc72ef82f3dbc7a2420c983e65a8"><div class="ttname"><a href="group__debug.html#ga3fabbc72ef82f3dbc7a2420c983e65a8">HARD_ASSERT_TRUE</a></div><div class="ttdeci">#define HARD_ASSERT_TRUE(X)</div><div class="ttdoc">Hard assertion, tests for X being true (so X should be a bool) and calls THROW_ERROR else.</div><div class="ttdef"><b>Definition</b> <a href="debug_8h_source.html#l00103">debug.h:103</a></div></div>
+<div class="ttc" id="agroup__event_html_gadcaa27c4242b65837f0f7a00e96856d4"><div class="ttname"><a href="group__event.html#gadcaa27c4242b65837f0f7a00e96856d4">inf::Outcome</a></div><div class="ttdeci">uint8_t Outcome</div><div class="ttdoc">An outcome is stored in the smallest format available to save memory.</div><div class="ttdef"><b>Definition</b> <a href="event_8h_source.html#l00026">event.h:26</a></div></div>
+<div class="ttc" id="agroup__maths_html_ga860effafb2a36ac348511a4b5a8b3635"><div class="ttname"><a href="group__maths.html#ga860effafb2a36ac348511a4b5a8b3635">util::pow</a></div><div class="ttdeci">T pow(T x, T n)</div><div class="ttdoc">Integer powers of arithmetic types.</div><div class="ttdef"><b>Definition</b> <a href="math_8h_source.html#l00049">math.h:49</a></div></div>
+<div class="ttc" id="agroup__printing_html_ga3f8fe48536ee19c54002c9c1db64cabb"><div class="ttname"><a href="group__printing.html#ga3f8fe48536ee19c54002c9c1db64cabb">util::cr</a></div><div class="ttdeci">constexpr util::Logger::Action cr</div><div class="ttdoc">Newline.</div><div class="ttdef"><b>Definition</b> <a href="logger_8h_source.html#l00197">logger.h:197</a></div></div>
+<div class="ttc" id="agroup__printing_html_ga4c77d1dedfe3a5b95abc21d13d7cd678"><div class="ttname"><a href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a></div><div class="ttdeci">util::Logger logger</div><div class="ttdoc">The globally accessible logger replacing std::cout</div></div>
+<div class="ttc" id="agroup__printing_html_gaa993b7a93b54137d5d6c09ed1fac8b77"><div class="ttname"><a href="group__printing.html#gaa993b7a93b54137d5d6c09ed1fac8b77">LOG_END_SECTION</a></div><div class="ttdeci">#define LOG_END_SECTION</div><div class="ttdoc">Shorthand for util::logger &lt;&lt; util::end_section, to match the LOG_BEGIN_SECTION(X) syntax.</div><div class="ttdef"><b>Definition</b> <a href="logger_8h_source.html#l00287">logger.h:287</a></div></div>
+<div class="ttc" id="agroup__printing_html_gafca79483713e011c576202e2d0e63684"><div class="ttname"><a href="group__printing.html#gafca79483713e011c576202e2d0e63684">LOG_BEGIN_SECTION_FUNC</a></div><div class="ttdeci">#define LOG_BEGIN_SECTION_FUNC</div><div class="ttdoc">Shorthand to create a section with the current function name as header.</div><div class="ttdef"><b>Definition</b> <a href="logger_8h_source.html#l00282">logger.h:282</a></div></div>
+<div class="ttc" id="agroup__util_html_ga77731aedac326062ffbdcf367185a07e"><div class="ttname"><a href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a></div><div class="ttdeci">uint64_t Index</div><div class="ttdoc">Use for anything meant to be used as an index.</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00019">types.h:19</a></div></div>
+<div class="ttc" id="anamespaceinf_html"><div class="ttname"><a href="namespaceinf.html">inf</a></div><div class="ttdoc">The namespace for the inflation code.</div><div class="ttdef"><b>Definition</b> <a href="constraint_8h_source.html#l00006">constraint.h:6</a></div></div>
+<div class="ttc" id="atensor__with__orbits_8h_html"><div class="ttname"><a href="tensor__with__orbits_8h.html">tensor_with_orbits.h</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_0f453feda2a303bb77c09f5934c109df.html">inf</a></li><li class="navelem"><a class="el" href="dir_bd8c5751801b9c05b9ce9b17f63146be.html">symmetry</a></li><li class="navelem"><a class="el" href="tensor__with__orbits_8cpp.html">tensor_with_orbits.cpp</a></li>
+    <li class="footer">Generated on Wed Dec 18 2024 17:39:37 for Fast Inflation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

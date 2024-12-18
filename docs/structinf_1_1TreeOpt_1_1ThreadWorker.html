@@ -1,0 +1,387 @@
+<!-- HTML header for doxygen 1.9.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Fast Inflation: inf::TreeOpt::ThreadWorker Struct Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+MathJax.Hub.Config({
+    TeX: {
+        Macros: {
+            dd: ["{\\text{d}#1\\,}",1],
+            nouts: ["{n_{\\text{o}}}"],
+            ints: ["{[\\![#1]\\!]}",1],
+            outset: ["{\\ints{\\nouts}}"],
+            N: ["{\\mathbb{N}}"],
+            R: ["{\\mathbb{R}}"],
+            Z: ["{\\mathbb{Z}}"],
+            infsize: ["{z}"],
+            infparties: ["{\\set{I}}"],
+            infsources: ["{\\set{S}}"],
+            infmarg: ["{\\set{A}}"],
+            infmargg: ["{\\set{B}}"],
+            netparties: ["{\\set{N}}"],
+            infq: ["{q}"],
+            infqs: ["{\\Delta_{\\infparties}}"],
+            constraintlist: ["{\\mathcal{C}}"],
+            injsets: ["{\\text{InjSets}}"],
+            infconstraints: ["{\\text{InfCons}}"],
+            parents: ["{\\text{Par}}"],
+            targetp: ["{p}"],
+            targetps: ["{\\Delta_{\\netparties}}"],
+            set: ["{\\mathbf{#1}}",1],
+            type: ["{t}"],
+            infevent: "{\\omega}",
+            events: ["{\\Omega_{#1}}",1],
+            infevents: ["{\\events{\\infparties}}"],
+            redinfevents: ["{\\tilde{\\Omega}_{\\infparties}}"],
+            netevents: ["{\\events{\\netparties}}"],
+            vecset: ["{V_{#1}}",1],
+            alice: ["{\\text{A}}"],
+            bob: ["{\\text{B}}"],
+            charlie: ["{\\text{C}}"],
+            symgroup: ["{\\text{Sym}(#1)}",1],
+            shortsymgroup: ["{\\text{Sym}_{#1}}",1],
+            act: ["{(#1\\hspace{2pt}{:}\\hspace{2pt}#2)}",2],
+            actt: ["{[#1\\hspace{2pt}{:}\\hspace{2pt}#2]}",2],
+            margperms: ["{\\text{Perm}_{#1}}",1],
+            permutedmargs: ["{\\mathbb{P}_{#1}^{\\targetp}}",1],
+            redpermutedmargs: ["{\\tilde{\\mathbb{P}}_{#1}^{\\constraintname,\\targetp}}",1],
+            extract: ["{\\text{ext}(#1,#2)}",2],
+            partysym: ["{\\tau}"],
+            sourcesym: ["{\\xi}"],
+            outsym: ["{\\sigma}"],
+            fullgroup: ["{\\text{InfGrp}}"],
+            partygroup : ["{\\text{PartyGrp}}"],
+            outgroup: ["{\\text{OutGrp}}"],
+            sourcegroup: ["{\\text{SrcGrp}}"],
+            distrgroup: ["{\\mathbb{G}^\\targetp}"],
+            constraintname: ["{c}"],
+            marggroup: ["{\\mathbb{G}^{\\constraintname,\\targetp}}"],
+            fullsymexpl: ["{(\\sourcesym,\\partysym,\\outsym)}"],
+            inner: ["{\\langle#1,#2\\rangle}", 2],
+            quovec: ["{f}"],
+            totconstraintmap: ["{K^{\\constraintlist,\\targetp}}"],
+            totconstraintmapelem: ["{K^{\\constraintname,\\targetp}}"],
+            quovecspace: ["{\\tilde{V}_{#1}^{\\constraintname,\\targetp}}", 1],
+            totquovecspace: ["{\\text{ConsSpace}(\\constraintlist,\\targetp)}"],
+            detdistr: ["{\\delta^{#1}}", 1],
+            margperm: ["{\\varphi}"],
+            altquovecembed: ["{\\text{G}_{#1}^{\\constraintname,\\targetp}}", 1],
+            vecset: ["{V_{#1}}", 1],
+            repr: ["{\\lfloor#1\\rfloor}", 1],
+            gid: ["{\\text{id}}"],
+            id: ["{1_{#1}}",1],
+            consscale: ["{K}"],
+            scaletot: ["{K_{\\text{tot}}^{\\constraintlist,\\targetp}}"],
+            minnorm: ["{d}"],
+            Bigsetst: ["\\;\\Big|\\;"],
+            activeset: ["\\mathcal{S}"],
+            conv: ["\\text{conv}"],
+            lVert: ["|\\hspace{-1pt}|"],
+            norm: ["\\lVert#1\\lVert", 1],
+            st: [":\ "],
+        }
+    }
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeDarkModeToggle.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeParagraphLink.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Fast Inflation
+   </div>
+   <div id="projectbrief">To certify causal incompatibility</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('structinf_1_1TreeOpt_1_1ThreadWorker.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="structinf_1_1TreeOpt_1_1ThreadWorker-members.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">inf::TreeOpt::ThreadWorker Struct Reference</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &quot;<a class="el" href="tree__opt_8h_source.html">inf/optimization/tree_opt.h</a>&quot;</code></p>
+<a name="details" id="details"></a><h2 class="groupheader">Class description</h2>
+<div class="textblock"><p>This struct encapsulates the data that each thread works with. </p>
+<p>This allows in particular to conveniently initialize the storage of each thread is a single struct instantiation. </p>
+
+<p class="definition">Definition at line <a class="el" href="tree__opt_8h_source.html#l00060">60</a> of file <a class="el" href="tree__opt_8h_source.html">tree_opt.h</a>.</p>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a41590684ee2e673e74e9cdd5f0588adf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structinf_1_1TreeOpt_1_1ThreadWorker.html#a41590684ee2e673e74e9cdd5f0588adf">ThreadWorker</a> (<a class="el" href="classinf_1_1Marginal_1_1EvaluatorSet.html">inf::Marginal::EvaluatorSet</a> const &amp;<a class="el" href="structinf_1_1TreeOpt_1_1ThreadWorker.html#a71d20fb15d58eac8a9026db8ba5f0c82">marg_evaluators</a>)</td></tr>
+<tr class="memdesc:a41590684ee2e673e74e9cdd5f0588adf"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <code>marg_evaluators</code> allow the <a class="el" href="structinf_1_1TreeOpt_1_1ThreadWorker.html" title="This struct encapsulates the data that each thread works with.">inf::TreeOpt::ThreadWorker</a> to evaluate the underlying <a class="el" href="classinf_1_1DualVector.html" title="Describes a dual vector  through its embedding .">inf::DualVector</a>, i.e., to evaluate the underlying inner products \(\inner{\quovec}{\totconstraintmap(\detdistr\infevent)}_{\constraintlist}\).  <br /></td></tr>
+<tr class="separator:a41590684ee2e673e74e9cdd5f0588adf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:a71d20fb15d58eac8a9026db8ba5f0c82"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classinf_1_1Marginal_1_1EvaluatorSet.html">inf::Marginal::EvaluatorSet</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structinf_1_1TreeOpt_1_1ThreadWorker.html#a71d20fb15d58eac8a9026db8ba5f0c82">marg_evaluators</a></td></tr>
+<tr class="memdesc:a71d20fb15d58eac8a9026db8ba5f0c82"><td class="mdescLeft">&#160;</td><td class="mdescRight">To allow the <a class="el" href="structinf_1_1TreeOpt_1_1ThreadWorker.html" title="This struct encapsulates the data that each thread works with.">inf::TreeOpt::ThreadWorker</a> to evaluate the underlying <a class="el" href="classinf_1_1DualVector.html" title="Describes a dual vector  through its embedding .">inf::DualVector</a>, i.e., to evaluate the underlying inner products \(\inner{\quovec}{\totconstraintmap(\detdistr\infevent)}_{\constraintlist}\).  <br /></td></tr>
+<tr class="separator:a71d20fb15d58eac8a9026db8ba5f0c82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8eefdd2793b2fdec60b37619c09a6587"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structinf_1_1TreeOpt_1_1ThreadWorker.html#a8eefdd2793b2fdec60b37619c09a6587">current_minimum</a></td></tr>
+<tr class="memdesc:a8eefdd2793b2fdec60b37619c09a6587"><td class="mdescLeft">&#160;</td><td class="mdescRight">The current best (i.e., minimum) score found by the thread.  <br /></td></tr>
+<tr class="separator:a8eefdd2793b2fdec60b37619c09a6587"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a648e6427c5799b8e5e6c66341b7e18c9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structinf_1_1TreeOpt_1_1ThreadWorker.html#a648e6427c5799b8e5e6c66341b7e18c9">current_best_event</a></td></tr>
+<tr class="memdesc:a648e6427c5799b8e5e6c66341b7e18c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inflation event corresponding to the score of <code>inf::TreeOpt::CurrentMinimum::current_minimum</code>  <br /></td></tr>
+<tr class="separator:a648e6427c5799b8e5e6c66341b7e18c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d281252ea08ee494b995c96f510ed97"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structinf_1_1TreeOpt_1_1ThreadWorker.html#a8d281252ea08ee494b995c96f510ed97">last_depth_processed</a></td></tr>
+<tr class="memdesc:a8d281252ea08ee494b995c96f510ed97"><td class="mdescLeft">&#160;</td><td class="mdescRight">This stores the last depth of the tree that was processed, allowing to reset the outcomes stored in <code>inf::TreeOpt::CurrentMinimum::marg_evaluators</code> to the unknown outcome.  <br /></td></tr>
+<tr class="separator:a8d281252ea08ee494b995c96f510ed97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f8ef2fa28c2e6f4e5f27daff7923c46"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classinf_1_1EventTree_1_1NodePos.html#a84fc1d9dd559195e123c096ee1188fdd">inf::EventTree::NodePos::Queue</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structinf_1_1TreeOpt_1_1ThreadWorker.html#a4f8ef2fa28c2e6f4e5f27daff7923c46">queue</a></td></tr>
+<tr class="memdesc:a4f8ef2fa28c2e6f4e5f27daff7923c46"><td class="mdescLeft">&#160;</td><td class="mdescRight">The stack of fill requests to be processed in <a class="el" href="classinf_1_1TreeOpt.html#acefacfbba6063059143c3fffab8f663d" title="This function investigates a single node of inf::TreeOpt::m_event_tree.">inf::TreeOpt::go_down_from()</a>  <br /></td></tr>
+<tr class="separator:a4f8ef2fa28c2e6f4e5f27daff7923c46"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22be910a6d3fb4e153a6ae88a364a7d8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structinf_1_1TreeOpt_1_1ThreadWorker.html#a22be910a6d3fb4e153a6ae88a364a7d8">n_leaves_effective</a></td></tr>
+<tr class="memdesc:a22be910a6d3fb4e153a6ae88a364a7d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">The number of leaves perceived thanks to the branch-and-bound approach.  <br /></td></tr>
+<tr class="separator:a22be910a6d3fb4e153a6ae88a364a7d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a41590684ee2e673e74e9cdd5f0588adf" name="a41590684ee2e673e74e9cdd5f0588adf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41590684ee2e673e74e9cdd5f0588adf">&#9670;&#160;</a></span>ThreadWorker()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">inf::TreeOpt::ThreadWorker::ThreadWorker </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classinf_1_1Marginal_1_1EvaluatorSet.html">inf::Marginal::EvaluatorSet</a> const &amp;&#160;</td>
+          <td class="paramname"><em>marg_evaluators</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The <code>marg_evaluators</code> allow the <a class="el" href="structinf_1_1TreeOpt_1_1ThreadWorker.html" title="This struct encapsulates the data that each thread works with.">inf::TreeOpt::ThreadWorker</a> to evaluate the underlying <a class="el" href="classinf_1_1DualVector.html" title="Describes a dual vector  through its embedding .">inf::DualVector</a>, i.e., to evaluate the underlying inner products \(\inner{\quovec}{\totconstraintmap(\detdistr\infevent)}_{\constraintlist}\). </p>
+
+<p class="definition">Definition at line <a class="el" href="tree__opt_8cpp_source.html#l00031">31</a> of file <a class="el" href="tree__opt_8cpp_source.html">tree_opt.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a71d20fb15d58eac8a9026db8ba5f0c82" name="a71d20fb15d58eac8a9026db8ba5f0c82"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71d20fb15d58eac8a9026db8ba5f0c82">&#9670;&#160;</a></span>marg_evaluators</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classinf_1_1Marginal_1_1EvaluatorSet.html">inf::Marginal::EvaluatorSet</a> inf::TreeOpt::ThreadWorker::marg_evaluators</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>To allow the <a class="el" href="structinf_1_1TreeOpt_1_1ThreadWorker.html" title="This struct encapsulates the data that each thread works with.">inf::TreeOpt::ThreadWorker</a> to evaluate the underlying <a class="el" href="classinf_1_1DualVector.html" title="Describes a dual vector  through its embedding .">inf::DualVector</a>, i.e., to evaluate the underlying inner products \(\inner{\quovec}{\totconstraintmap(\detdistr\infevent)}_{\constraintlist}\). </p>
+
+<p class="definition">Definition at line <a class="el" href="tree__opt_8h_source.html#l00067">67</a> of file <a class="el" href="tree__opt_8h_source.html">tree_opt.h</a>.</p>
+
+</div>
+</div>
+<a id="a8eefdd2793b2fdec60b37619c09a6587" name="a8eefdd2793b2fdec60b37619c09a6587"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8eefdd2793b2fdec60b37619c09a6587">&#9670;&#160;</a></span>current_minimum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a> inf::TreeOpt::ThreadWorker::current_minimum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The current best (i.e., minimum) score found by the thread. </p>
+<p>The idea is that each thread stores the current minimum it discovered itself, together with the corresponding best event. It should be true at the end of the optimization that the best current minimum of all threads equals the global minimum, which is asserted </p>
+
+<p class="definition">Definition at line <a class="el" href="tree__opt_8h_source.html#l00072">72</a> of file <a class="el" href="tree__opt_8h_source.html">tree_opt.h</a>.</p>
+
+</div>
+</div>
+<a id="a648e6427c5799b8e5e6c66341b7e18c9" name="a648e6427c5799b8e5e6c66341b7e18c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a648e6427c5799b8e5e6c66341b7e18c9">&#9670;&#160;</a></span>current_best_event</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> inf::TreeOpt::ThreadWorker::current_best_event</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inflation event corresponding to the score of <code>inf::TreeOpt::CurrentMinimum::current_minimum</code> </p>
+
+<p class="definition">Definition at line <a class="el" href="tree__opt_8h_source.html#l00074">74</a> of file <a class="el" href="tree__opt_8h_source.html">tree_opt.h</a>.</p>
+
+</div>
+</div>
+<a id="a8d281252ea08ee494b995c96f510ed97" name="a8d281252ea08ee494b995c96f510ed97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d281252ea08ee494b995c96f510ed97">&#9670;&#160;</a></span>last_depth_processed</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> inf::TreeOpt::ThreadWorker::last_depth_processed</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This stores the last depth of the tree that was processed, allowing to reset the outcomes stored in <code>inf::TreeOpt::CurrentMinimum::marg_evaluators</code> to the unknown outcome. </p>
+
+<p class="definition">Definition at line <a class="el" href="tree__opt_8h_source.html#l00077">77</a> of file <a class="el" href="tree__opt_8h_source.html">tree_opt.h</a>.</p>
+
+</div>
+</div>
+<a id="a4f8ef2fa28c2e6f4e5f27daff7923c46" name="a4f8ef2fa28c2e6f4e5f27daff7923c46"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f8ef2fa28c2e6f4e5f27daff7923c46">&#9670;&#160;</a></span>queue</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classinf_1_1EventTree_1_1NodePos.html#a84fc1d9dd559195e123c096ee1188fdd">inf::EventTree::NodePos::Queue</a> inf::TreeOpt::ThreadWorker::queue</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The stack of fill requests to be processed in <a class="el" href="classinf_1_1TreeOpt.html#acefacfbba6063059143c3fffab8f663d" title="This function investigates a single node of inf::TreeOpt::m_event_tree.">inf::TreeOpt::go_down_from()</a> </p>
+
+<p class="definition">Definition at line <a class="el" href="tree__opt_8h_source.html#l00079">79</a> of file <a class="el" href="tree__opt_8h_source.html">tree_opt.h</a>.</p>
+
+</div>
+</div>
+<a id="a22be910a6d3fb4e153a6ae88a364a7d8" name="a22be910a6d3fb4e153a6ae88a364a7d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22be910a6d3fb4e153a6ae88a364a7d8">&#9670;&#160;</a></span>n_leaves_effective</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> inf::TreeOpt::ThreadWorker::n_leaves_effective</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The number of leaves perceived thanks to the branch-and-bound approach. </p>
+<p>If the <code>constraints</code> passed to <a class="el" href="classinf_1_1TreeOpt.html#a5cfec8d06252f3353730772425a67ff1" title="Initialize with the relevant set of inf::Constraint, whether or not to read/write the inf::EventTree ...">inf::TreeOpt::TreeOpt()</a> have <code>constraints.get_store_bounds == <a class="el" href="classinf_1_1DualVector.html#a615feaafdbd4a08901a07ad60260d398a7fa3b767c460b54a2be4d49030b349c7" title="Do not store bounds.">inf::DualVector::StoreBounds::no</a></code>, then <code>n_leaves_effective</code> will just be the number of leaves of the subtree that the <a class="el" href="structinf_1_1TreeOpt_1_1ThreadWorker.html" title="This struct encapsulates the data that each thread works with.">inf::TreeOpt::ThreadWorker</a> considers. If instead <code>constraints.get_store_bounds == <a class="el" href="classinf_1_1DualVector.html#a615feaafdbd4a08901a07ad60260d398aa6105c0a611b41b08f1209506350279e" title="Do store bounds, implies a slightly increased memory usage.">inf::DualVector::StoreBounds::yes</a></code>, meaning that the branch-and-bound approach is used, this is the number of effective leaves perceived, i.e., when a branch containing, say, 10 leaves is discarded from a non-terminal depth, this counts as one effective leave. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classinf_1_1ConstraintSet.html#a539c4e10b165747b7c66ba2b26c5a35b" title="Whether or not each underlying inf::DualVector members store upper/lower bounds.">inf::ConstraintSet::get_store_bounds()</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="tree__opt_8h_source.html#l00087">87</a> of file <a class="el" href="tree__opt_8h_source.html">tree_opt.h</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following files:<ul>
+<li>src/inf/optimization/<a class="el" href="tree__opt_8h_source.html">tree_opt.h</a></li>
+<li>src/inf/optimization/<a class="el" href="tree__opt_8cpp_source.html">tree_opt.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceinf.html">inf</a></li><li class="navelem"><a class="el" href="classinf_1_1TreeOpt.html">TreeOpt</a></li><li class="navelem"><a class="el" href="structinf_1_1TreeOpt_1_1ThreadWorker.html">ThreadWorker</a></li>
+    <li class="footer">Generated on Wed Dec 18 2024 17:39:43 for Fast Inflation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

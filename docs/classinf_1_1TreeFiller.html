@@ -1,0 +1,750 @@
+<!-- HTML header for doxygen 1.9.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Fast Inflation: inf::TreeFiller Class Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+MathJax.Hub.Config({
+    TeX: {
+        Macros: {
+            dd: ["{\\text{d}#1\\,}",1],
+            nouts: ["{n_{\\text{o}}}"],
+            ints: ["{[\\![#1]\\!]}",1],
+            outset: ["{\\ints{\\nouts}}"],
+            N: ["{\\mathbb{N}}"],
+            R: ["{\\mathbb{R}}"],
+            Z: ["{\\mathbb{Z}}"],
+            infsize: ["{z}"],
+            infparties: ["{\\set{I}}"],
+            infsources: ["{\\set{S}}"],
+            infmarg: ["{\\set{A}}"],
+            infmargg: ["{\\set{B}}"],
+            netparties: ["{\\set{N}}"],
+            infq: ["{q}"],
+            infqs: ["{\\Delta_{\\infparties}}"],
+            constraintlist: ["{\\mathcal{C}}"],
+            injsets: ["{\\text{InjSets}}"],
+            infconstraints: ["{\\text{InfCons}}"],
+            parents: ["{\\text{Par}}"],
+            targetp: ["{p}"],
+            targetps: ["{\\Delta_{\\netparties}}"],
+            set: ["{\\mathbf{#1}}",1],
+            type: ["{t}"],
+            infevent: "{\\omega}",
+            events: ["{\\Omega_{#1}}",1],
+            infevents: ["{\\events{\\infparties}}"],
+            redinfevents: ["{\\tilde{\\Omega}_{\\infparties}}"],
+            netevents: ["{\\events{\\netparties}}"],
+            vecset: ["{V_{#1}}",1],
+            alice: ["{\\text{A}}"],
+            bob: ["{\\text{B}}"],
+            charlie: ["{\\text{C}}"],
+            symgroup: ["{\\text{Sym}(#1)}",1],
+            shortsymgroup: ["{\\text{Sym}_{#1}}",1],
+            act: ["{(#1\\hspace{2pt}{:}\\hspace{2pt}#2)}",2],
+            actt: ["{[#1\\hspace{2pt}{:}\\hspace{2pt}#2]}",2],
+            margperms: ["{\\text{Perm}_{#1}}",1],
+            permutedmargs: ["{\\mathbb{P}_{#1}^{\\targetp}}",1],
+            redpermutedmargs: ["{\\tilde{\\mathbb{P}}_{#1}^{\\constraintname,\\targetp}}",1],
+            extract: ["{\\text{ext}(#1,#2)}",2],
+            partysym: ["{\\tau}"],
+            sourcesym: ["{\\xi}"],
+            outsym: ["{\\sigma}"],
+            fullgroup: ["{\\text{InfGrp}}"],
+            partygroup : ["{\\text{PartyGrp}}"],
+            outgroup: ["{\\text{OutGrp}}"],
+            sourcegroup: ["{\\text{SrcGrp}}"],
+            distrgroup: ["{\\mathbb{G}^\\targetp}"],
+            constraintname: ["{c}"],
+            marggroup: ["{\\mathbb{G}^{\\constraintname,\\targetp}}"],
+            fullsymexpl: ["{(\\sourcesym,\\partysym,\\outsym)}"],
+            inner: ["{\\langle#1,#2\\rangle}", 2],
+            quovec: ["{f}"],
+            totconstraintmap: ["{K^{\\constraintlist,\\targetp}}"],
+            totconstraintmapelem: ["{K^{\\constraintname,\\targetp}}"],
+            quovecspace: ["{\\tilde{V}_{#1}^{\\constraintname,\\targetp}}", 1],
+            totquovecspace: ["{\\text{ConsSpace}(\\constraintlist,\\targetp)}"],
+            detdistr: ["{\\delta^{#1}}", 1],
+            margperm: ["{\\varphi}"],
+            altquovecembed: ["{\\text{G}_{#1}^{\\constraintname,\\targetp}}", 1],
+            vecset: ["{V_{#1}}", 1],
+            repr: ["{\\lfloor#1\\rfloor}", 1],
+            gid: ["{\\text{id}}"],
+            id: ["{1_{#1}}",1],
+            consscale: ["{K}"],
+            scaletot: ["{K_{\\text{tot}}^{\\constraintlist,\\targetp}}"],
+            minnorm: ["{d}"],
+            Bigsetst: ["\\;\\Big|\\;"],
+            activeset: ["\\mathcal{S}"],
+            conv: ["\\text{conv}"],
+            lVert: ["|\\hspace{-1pt}|"],
+            norm: ["\\lVert#1\\lVert", 1],
+            st: [":\ "],
+        }
+    }
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeDarkModeToggle.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeParagraphLink.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Fast Inflation
+   </div>
+   <div id="projectbrief">To certify causal incompatibility</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classinf_1_1TreeFiller.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="classinf_1_1TreeFiller-members.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">inf::TreeFiller Class Reference<div class="ingroups"><a class="el" href="group__inflation.html">Inflation</a> &raquo; <a class="el" href="group__infback.html">Inflation backend</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &quot;<a class="el" href="tree__filler_8h_source.html">inf/inf_problem/tree_filler.h</a>&quot;</code></p>
+<a name="details" id="details"></a><h2 class="groupheader">Class description</h2>
+<div class="textblock"><p>This class takes care of filling an <a class="el" href="classinf_1_1EventTree.html" title="Storing a set of inf::Event as a tree.">inf::EventTree</a> that stores the symmetrized inflation events \(\redinfevents\). </p>
+<p>Let \(G\) be the symmetry group of the inflation, obtained with <a class="el" href="classinf_1_1Inflation.html#abfa6a2b7897bb9f1d3c406a864e9acdf" title="Returns the symmetries of the inflation, typically including the symmetries of the specified inf::Tar...">inf::Inflation::get_inflation_symmetries()</a>. Recall that \(G\) is either just \(\sourcegroup\) or the full \(\distrgroup \subset \sourcegroup \times \partygroup \times \outgroup\) (as described in <a class="el" href="classinf_1_1Inflation.html#a50fe835aad42c372d72a1bde3a74df5c" title="Whether or not the distribution symmetries will be exploited to enlarge the inflation symmetry group.">inf::Inflation::UseDistrSymmetries</a>) depending on how the <a class="el" href="classinf_1_1Inflation.html" title="Describes an inflation of a network, currently restricted to canonical inflations of the triangle net...">inf::Inflation</a> was initalized. As described in the paper, the group \(G\) acts on the inflation events \(\infevents\). We can thus construct the orbits of the inflation events, \(\infevents \setminus G\), and the representative events according to the lexicographic ordering of \(\infevents\) are denoted \(\redinfevents\). The idea of the lexicographic ordering is that an event, described in the paper as a function \(\infevent \in \infevents\), i.e., \(\infevent : \infparties \to \outset\), has an image of the form \(\infevent(\alice_{00}) = a_{00}\), \(\infevent(\alice_{01}) = a_{01}\), etc. The class <a class="el" href="classinf_1_1Inflation.html" title="Describes an inflation of a network, currently restricted to canonical inflations of the triangle net...">inf::Inflation</a> chooses a canonical ordering of the inflation events, which we take here to be \(\alice_{00},\alice_{01},\dots\) for simplicity (this is not the actual ordering, but the actual ordering is irrelevant). The event \(\infevent\) is then stored as the list \((a_{00},a_{01},\dots)\). The ordering between events is then obtained by thinking of \(a_{00}a_{01}\cdots\) as a base- \(\nouts\) (the number of outcomes per party) number.</p>
+<p>Then, we store the events in \(\redinfevents\) as a tree. For simplicity, suppose that \(\redinfevents = \{(00),(01)\}\). We would then store this as the tree </p><div class="fragment"><div class="line">  0</div>
+<div class="line"> / \</div>
+<div class="line">0   1</div>
+</div><!-- fragment --><p>Naively, to obtain this tree, one would first store the full set of events \(\infevents\), extract the representatives \(\redinfevents\), and then attempt to store them as a tree. However, this would be too costly when the inflation has many parties (and hence many, many events). Instead, we use an algorithm that works as follows. Suppose that the set of events is simply \(\{0,1\}^{\times 3}\), and the symmetry group \(G\) only consists of all party exchanges, i.e., of a \(\shortsymgroup3\) party symmetry group. The set of symmetrized events would then be \(\{(0,0,0), (0,0,1), (0,1,1), (1,1,1)\}\). Here is the algorithm (in pseudo-C++) that we use to obtain this set of symmetric events based on the tree approach. </p><div class="fragment"><div class="line"><span class="comment">// We start with an &quot;all-unknown&quot; event</span></div>
+<div class="line">working_event = (?,?,?);</div>
+<div class="line">symmetrized_events = {};</div>
+<div class="line"><span class="comment">// Fill in first_outcome = 0</span></div>
+<div class="line">working_event = (0,?,?);</div>
+<div class="line"><span class="comment">// This looks symmetrized, we continue</span></div>
+<div class="line">{</div>
+<div class="line">    <span class="comment">// Fill in second_outcome = 0</span></div>
+<div class="line">    working_event = (0,0,?);</div>
+<div class="line">    <span class="comment">// This looks symmetrized, we continue</span></div>
+<div class="line">    {</div>
+<div class="line">        <span class="comment">// Fill in third_outcome = 0</span></div>
+<div class="line">        working_event = (0,0,0);</div>
+<div class="line">        <span class="comment">// This is symmetrized, we add it to the set of symmetrized events</span></div>
+<div class="line">        symmetrized_events.push_back(working_event);</div>
+<div class="line"> </div>
+<div class="line">        <span class="comment">// Fill in third_outcome = 1</span></div>
+<div class="line">        working_event = (0,0,1);</div>
+<div class="line">        <span class="comment">// This is symmetrized, we add it to the set of symmetrized events</span></div>
+<div class="line">        symmetrized_events.push_back(working_event);</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Fill in second_outcome = 1</span></div>
+<div class="line">    working_event = (0,1,?)</div>
+<div class="line">    <span class="comment">// This looks symmetrized, we continue</span></div>
+<div class="line">    {</div>
+<div class="line">        <span class="comment">// Fill in third_outcome = 0</span></div>
+<div class="line">        working_event = (0,1,0);</div>
+<div class="line">        <span class="comment">// This is not symmetrized, the exchange of parties 1 and 2 lead to</span></div>
+<div class="line">        <span class="comment">// working_event = (0,0,1) which is lower in the lexicographic ordering,</span></div>
+<div class="line">        <span class="comment">// so we do not add it to the set of symmetrized events</span></div>
+<div class="line"> </div>
+<div class="line">        <span class="comment">// Fill in third_outcome = 1</span></div>
+<div class="line">        working_event = (0,1,1);</div>
+<div class="line">        <span class="comment">// This is symmetrized, we add it to the set of symmetrized events</span></div>
+<div class="line">        symmetrized_events.push_back(working_event);</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Fill in first_outcome = 1</span></div>
+<div class="line">working_event = (1,?,?)</div>
+<div class="line"><span class="comment">// This looks symmetrized, we continue</span></div>
+<div class="line">{</div>
+<div class="line">    <span class="comment">// Fill in second_outcome = 0</span></div>
+<div class="line">    working_event = (1,0,?);</div>
+<div class="line">    <span class="comment">// -&gt; We can already tell that this is not symmetrized!</span></div>
+<div class="line">    <span class="comment">// Indeed, exchanging parties 0 and 1 lead to working_event = (0,1,?),</span></div>
+<div class="line">    <span class="comment">// which is lower in the lexicographic ordering (we treat the symbol &quot;?&quot; as</span></div>
+<div class="line">    <span class="comment">// after the last outcome, i.e., ? = 2 in this case with two outcomes).</span></div>
+<div class="line">    <span class="comment">// In other words, no matter how we continue to fill in working_event,</span></div>
+<div class="line">    <span class="comment">// we will find events that are not symmetrized. Thus, we dismiss this branch</span></div>
+<div class="line">    <span class="comment">// entirely, which for large trees lead to a big speedup.</span></div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Fill in second_outcome = 1</span></div>
+<div class="line">    working_event = (1,1,?)</div>
+<div class="line">    <span class="comment">// This looks symmetrized, we continue</span></div>
+<div class="line">    {</div>
+<div class="line">        <span class="comment">// Fill in third_outcome = 0</span></div>
+<div class="line">        working_event = (1,1,0);</div>
+<div class="line">        <span class="comment">// This is not symmetrized, the exchange of parties 0 and 2 lead to</span></div>
+<div class="line">        <span class="comment">// working_event = (0,1,1) which is lower in the lexicographic ordering,</span></div>
+<div class="line">        <span class="comment">// so we do not add it to the set of symmetrized events</span></div>
+<div class="line"> </div>
+<div class="line">        <span class="comment">// Fill in third_outcome = 1</span></div>
+<div class="line">        working_event = (1,1,1);</div>
+<div class="line">        <span class="comment">// This is symmetrized, we add it to the set of symmetrized events</span></div>
+<div class="line">        symmetrized_events.push_back(working_event);</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+</div><!-- fragment --><p> This example describes how this algorithm would be used to obtain a list representation of \(\redinfevents\), but it is easy to adapt it to obtain a tree representation instead, which is what the class <a class="el" href="classinf_1_1TreeFiller.html" title="This class takes care of filling an inf::EventTree that stores the symmetrized inflation events .">inf::TreeFiller</a> does.</p>
+<p>This class is tested in the application <a class="el" href="classuser_1_1inf__tree__filler.html" title="Tests inf::TreeFiller.">user::inf_tree_filler</a>. </p>
+
+<p class="definition">Definition at line <a class="el" href="tree__filler_8h_source.html#l00119">119</a> of file <a class="el" href="tree__filler_8h_source.html">tree_filler.h</a>.</p>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a275c9844799469e721215cdb8562d8b7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TreeFiller.html#a275c9844799469e721215cdb8562d8b7">TreeFiller</a> (<a class="el" href="classinf_1_1EventTree.html">inf::EventTree</a> &amp;tree, <a class="el" href="classinf_1_1Inflation.html">inf::Inflation</a> const &amp;inflation)</td></tr>
+<tr class="memdesc:a275c9844799469e721215cdb8562d8b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">To store the symmetrized events \(\redinfevents\) of the <code>inflation</code> in the <code>tree</code>.  <br /></td></tr>
+<tr class="separator:a275c9844799469e721215cdb8562d8b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:ad1bb04281a3c07e7fe3152968d65b7a4"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TreeFiller.html#ad1bb04281a3c07e7fe3152968d65b7a4">fill_tree</a> (<a class="el" href="classinf_1_1EventTree.html">inf::EventTree</a> &amp;tree, <a class="el" href="classinf_1_1Inflation.html">inf::Inflation</a> const &amp;inflation)</td></tr>
+<tr class="memdesc:ad1bb04281a3c07e7fe3152968d65b7a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">To store the symmetrized events \(\redinfevents\) of the <code>inflation</code> in the <code>tree</code>.  <br /></td></tr>
+<tr class="separator:ad1bb04281a3c07e7fe3152968d65b7a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:ae91a9a275a1470d11966c1430303a755"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TreeFiller.html#ae91a9a275a1470d11966c1430303a755">find_children</a> (<a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> depth)</td></tr>
+<tr class="memdesc:ae91a9a275a1470d11966c1430303a755"><td class="mdescLeft">&#160;</td><td class="mdescRight">This recursive function implements the tree-filling algorithm presented above.  <br /></td></tr>
+<tr class="separator:ae91a9a275a1470d11966c1430303a755"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a37d6034366ecfbc798b2d186135fc2f5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classutil_1_1Chrono.html">util::Chrono</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TreeFiller.html#a37d6034366ecfbc798b2d186135fc2f5">m_sym_chrono</a></td></tr>
+<tr class="memdesc:a37d6034366ecfbc798b2d186135fc2f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">This <a class="el" href="classutil_1_1Chrono.html" title="A simple stopwatch class.">util::Chrono</a> tracks the time spent checking whether or not events are symmetrized.  <br /></td></tr>
+<tr class="separator:a37d6034366ecfbc798b2d186135fc2f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8362162598bafa2628a13b3b4d781e24"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classutil_1_1Chrono.html">util::Chrono</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TreeFiller.html#a8362162598bafa2628a13b3b4d781e24">m_node_chrono</a></td></tr>
+<tr class="memdesc:a8362162598bafa2628a13b3b4d781e24"><td class="mdescLeft">&#160;</td><td class="mdescRight">This <a class="el" href="classutil_1_1Chrono.html" title="A simple stopwatch class.">util::Chrono</a> tracks the time spent inserting nodes in the underlying <a class="el" href="classinf_1_1EventTree.html" title="Storing a set of inf::Event as a tree.">inf::EventTree</a>.  <br /></td></tr>
+<tr class="separator:a8362162598bafa2628a13b3b4d781e24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2a5cf6810cb295207e12d78bbc95ddb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classinf_1_1EventTree.html">inf::EventTree</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TreeFiller.html#ab2a5cf6810cb295207e12d78bbc95ddb">m_tree</a></td></tr>
+<tr class="memdesc:ab2a5cf6810cb295207e12d78bbc95ddb"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="classinf_1_1EventTree.html" title="Storing a set of inf::Event as a tree.">inf::EventTree</a> to fill.  <br /></td></tr>
+<tr class="separator:ab2a5cf6810cb295207e12d78bbc95ddb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c2dbe562a748a908a94a5878e09b748"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classinf_1_1Inflation.html">inf::Inflation</a> const  &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TreeFiller.html#a8c2dbe562a748a908a94a5878e09b748">m_inflation</a></td></tr>
+<tr class="memdesc:a8c2dbe562a748a908a94a5878e09b748"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="classinf_1_1Inflation.html" title="Describes an inflation of a network, currently restricted to canonical inflations of the triangle net...">inf::Inflation</a> whose symmetrized event set \(\redinfevents\) will be stored in the <a class="el" href="classinf_1_1EventTree.html" title="Storing a set of inf::Event as a tree.">inf::EventTree</a>.  <br /></td></tr>
+<tr class="separator:a8c2dbe562a748a908a94a5878e09b748"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a865fe5233bacaf2acada796fcdb4a045"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classinf_1_1PartySym.html#af091acc82f3033bf2ce9b180fb0e7c36">inf::PartySym::Bare</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TreeFiller.html#a865fe5233bacaf2acada796fcdb4a045">m_inflation_inverse_party_symmetries</a></td></tr>
+<tr class="memdesc:a865fe5233bacaf2acada796fcdb4a045"><td class="mdescLeft">&#160;</td><td class="mdescRight">We store the image of the inflation inverse party symmetries for faster execution.  <br /></td></tr>
+<tr class="separator:a865fe5233bacaf2acada796fcdb4a045"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad417b8f14459a2b8ba9b5bdf6a6bf2f0"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classinf_1_1OutcomeSym.html#ab2ea2b492f0abed73c61876c01c02e40">inf::OutcomeSym::Bare</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TreeFiller.html#ad417b8f14459a2b8ba9b5bdf6a6bf2f0">m_inflation_outcome_symmetries</a></td></tr>
+<tr class="memdesc:ad417b8f14459a2b8ba9b5bdf6a6bf2f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">We store the image of the inflation outcome symmetries for faster execution.  <br /></td></tr>
+<tr class="separator:ad417b8f14459a2b8ba9b5bdf6a6bf2f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62b8399d9371ce27420dfcfd139e8b1d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TreeFiller.html#a62b8399d9371ce27420dfcfd139e8b1d">m_inflation_n_parties</a></td></tr>
+<tr class="memdesc:a62b8399d9371ce27420dfcfd139e8b1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The number of inflation parties.  <br /></td></tr>
+<tr class="separator:a62b8399d9371ce27420dfcfd139e8b1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a482c57e7c57f0877b8305e6487dfa186"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__event.html#gadcaa27c4242b65837f0f7a00e96856d4">inf::Outcome</a> const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TreeFiller.html#a482c57e7c57f0877b8305e6487dfa186">m_unknown_outcome</a></td></tr>
+<tr class="memdesc:a482c57e7c57f0877b8305e6487dfa186"><td class="mdescLeft">&#160;</td><td class="mdescRight">The unknown outcome.  <br /></td></tr>
+<tr class="separator:a482c57e7c57f0877b8305e6487dfa186"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04b3f21b007bc36a1f74fb77d2c87ab7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__event.html#gadcaa27c4242b65837f0f7a00e96856d4">inf::Outcome</a> const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TreeFiller.html#a04b3f21b007bc36a1f74fb77d2c87ab7">m_n_outcomes</a></td></tr>
+<tr class="memdesc:a04b3f21b007bc36a1f74fb77d2c87ab7"><td class="mdescLeft">&#160;</td><td class="mdescRight">The number of outcomes, which is equal to <code>m_unknown_outcome</code>  <br /></td></tr>
+<tr class="separator:a04b3f21b007bc36a1f74fb77d2c87ab7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd357941d7909e0f89b7da4c16523a03"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TreeFiller.html#abd357941d7909e0f89b7da4c16523a03">m_working_event</a></td></tr>
+<tr class="memdesc:abd357941d7909e0f89b7da4c16523a03"><td class="mdescLeft">&#160;</td><td class="mdescRight">The event that is used (modified and read) by the recursive function <a class="el" href="classinf_1_1TreeFiller.html#ae91a9a275a1470d11966c1430303a755" title="This recursive function implements the tree-filling algorithm presented above.">inf::TreeFiller::find_children()</a>  <br /></td></tr>
+<tr class="separator:abd357941d7909e0f89b7da4c16523a03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7aa6bf50926aa17eb9f939099c76c745"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::vector&lt; <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TreeFiller.html#a7aa6bf50926aa17eb9f939099c76c745">m_current_syms</a></td></tr>
+<tr class="memdesc:a7aa6bf50926aa17eb9f939099c76c745"><td class="mdescLeft">&#160;</td><td class="mdescRight">The list (for each depth) of lists of relevant symmetries that is used (modified and read) by the recursive function <a class="el" href="classinf_1_1TreeFiller.html#ae91a9a275a1470d11966c1430303a755" title="This recursive function implements the tree-filling algorithm presented above.">inf::TreeFiller::find_children()</a>  <br /></td></tr>
+<tr class="separator:a7aa6bf50926aa17eb9f939099c76c745"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a275c9844799469e721215cdb8562d8b7" name="a275c9844799469e721215cdb8562d8b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a275c9844799469e721215cdb8562d8b7">&#9670;&#160;</a></span>TreeFiller()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">inf::TreeFiller::TreeFiller </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classinf_1_1EventTree.html">inf::EventTree</a> &amp;&#160;</td>
+          <td class="paramname"><em>tree</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classinf_1_1Inflation.html">inf::Inflation</a> const &amp;&#160;</td>
+          <td class="paramname"><em>inflation</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>To store the symmetrized events \(\redinfevents\) of the <code>inflation</code> in the <code>tree</code>. </p>
+
+<p class="definition">Definition at line <a class="el" href="tree__filler_8cpp_source.html#l00009">9</a> of file <a class="el" href="tree__filler_8cpp_source.html">tree_filler.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="ad1bb04281a3c07e7fe3152968d65b7a4" name="ad1bb04281a3c07e7fe3152968d65b7a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1bb04281a3c07e7fe3152968d65b7a4">&#9670;&#160;</a></span>fill_tree()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void inf::TreeFiller::fill_tree </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classinf_1_1EventTree.html">inf::EventTree</a> &amp;&#160;</td>
+          <td class="paramname"><em>tree</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classinf_1_1Inflation.html">inf::Inflation</a> const &amp;&#160;</td>
+          <td class="paramname"><em>inflation</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>To store the symmetrized events \(\redinfevents\) of the <code>inflation</code> in the <code>tree</code>. </p>
+<p>This convenience static method avoids the use of declaring an otherwise-unused instance of inf::InfTreeSplitter. </p>
+
+<p class="definition">Definition at line <a class="el" href="tree__filler_8cpp_source.html#l00005">5</a> of file <a class="el" href="tree__filler_8cpp_source.html">tree_filler.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ae91a9a275a1470d11966c1430303a755" name="ae91a9a275a1470d11966c1430303a755"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae91a9a275a1470d11966c1430303a755">&#9670;&#160;</a></span>find_children()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> &gt; inf::TreeFiller::find_children </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a>&#160;</td>
+          <td class="paramname"><em>depth</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This recursive function implements the tree-filling algorithm presented above. </p>
+<p>A call to <code>find_children(depth)</code> assumes that <code>m_working_event</code> is set to something like <code>(0,1,0,2,?,?,?)</code>, where the first "?" is at position <code>depth</code>. Then, <code>find_children(depth)</code> fills the outcome at position <code>depth</code> with the different possible outcomes, checks whether the event is clearly non-symmetrized (in which case the attempted outcome at position <code>depth</code> is dismissed), but if not, goes on to call <code>find_children(depth+1)</code>. If the call to <code>find_children(depth+1)</code> returns a non-empty set of children, a new node is inserted in <code>m_tree</code> at position <code>depth</code> with the outcome tried at position <code>depth</code>. Eventually, when all outcomes at position <code>depth</code> have been tried, the resulting indices of the nodes inserted in <code>m_tree</code> (obtained with <a class="el" href="classinf_1_1EventTree.html#a626c8c7eb6e48e674647287179c61032" title="To populate the tree using the compression algorithm detailed above.">inf::EventTree::insert_node()</a>) are returned. </p>
+
+<p class="definition">Definition at line <a class="el" href="tree__filler_8cpp_source.html#l00064">64</a> of file <a class="el" href="tree__filler_8cpp_source.html">tree_filler.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a37d6034366ecfbc798b2d186135fc2f5" name="a37d6034366ecfbc798b2d186135fc2f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37d6034366ecfbc798b2d186135fc2f5">&#9670;&#160;</a></span>m_sym_chrono</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classutil_1_1Chrono.html">util::Chrono</a> inf::TreeFiller::m_sym_chrono</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This <a class="el" href="classutil_1_1Chrono.html" title="A simple stopwatch class.">util::Chrono</a> tracks the time spent checking whether or not events are symmetrized. </p>
+
+<p class="definition">Definition at line <a class="el" href="tree__filler_8h_source.html#l00131">131</a> of file <a class="el" href="tree__filler_8h_source.html">tree_filler.h</a>.</p>
+
+</div>
+</div>
+<a id="a8362162598bafa2628a13b3b4d781e24" name="a8362162598bafa2628a13b3b4d781e24"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8362162598bafa2628a13b3b4d781e24">&#9670;&#160;</a></span>m_node_chrono</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classutil_1_1Chrono.html">util::Chrono</a> inf::TreeFiller::m_node_chrono</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This <a class="el" href="classutil_1_1Chrono.html" title="A simple stopwatch class.">util::Chrono</a> tracks the time spent inserting nodes in the underlying <a class="el" href="classinf_1_1EventTree.html" title="Storing a set of inf::Event as a tree.">inf::EventTree</a>. </p>
+
+<p class="definition">Definition at line <a class="el" href="tree__filler_8h_source.html#l00133">133</a> of file <a class="el" href="tree__filler_8h_source.html">tree_filler.h</a>.</p>
+
+</div>
+</div>
+<a id="ab2a5cf6810cb295207e12d78bbc95ddb" name="ab2a5cf6810cb295207e12d78bbc95ddb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2a5cf6810cb295207e12d78bbc95ddb">&#9670;&#160;</a></span>m_tree</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classinf_1_1EventTree.html">inf::EventTree</a>&amp; inf::TreeFiller::m_tree</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The <a class="el" href="classinf_1_1EventTree.html" title="Storing a set of inf::Event as a tree.">inf::EventTree</a> to fill. </p>
+
+<p class="definition">Definition at line <a class="el" href="tree__filler_8h_source.html#l00136">136</a> of file <a class="el" href="tree__filler_8h_source.html">tree_filler.h</a>.</p>
+
+</div>
+</div>
+<a id="a8c2dbe562a748a908a94a5878e09b748" name="a8c2dbe562a748a908a94a5878e09b748"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c2dbe562a748a908a94a5878e09b748">&#9670;&#160;</a></span>m_inflation</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classinf_1_1Inflation.html">inf::Inflation</a> const&amp; inf::TreeFiller::m_inflation</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The <a class="el" href="classinf_1_1Inflation.html" title="Describes an inflation of a network, currently restricted to canonical inflations of the triangle net...">inf::Inflation</a> whose symmetrized event set \(\redinfevents\) will be stored in the <a class="el" href="classinf_1_1EventTree.html" title="Storing a set of inf::Event as a tree.">inf::EventTree</a>. </p>
+
+<p class="definition">Definition at line <a class="el" href="tree__filler_8h_source.html#l00138">138</a> of file <a class="el" href="tree__filler_8h_source.html">tree_filler.h</a>.</p>
+
+</div>
+</div>
+<a id="a865fe5233bacaf2acada796fcdb4a045" name="a865fe5233bacaf2acada796fcdb4a045"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a865fe5233bacaf2acada796fcdb4a045">&#9670;&#160;</a></span>m_inflation_inverse_party_symmetries</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="classinf_1_1PartySym.html#af091acc82f3033bf2ce9b180fb0e7c36">inf::PartySym::Bare</a>&gt; inf::TreeFiller::m_inflation_inverse_party_symmetries</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>We store the image of the inflation inverse party symmetries for faster execution. </p>
+
+<p class="definition">Definition at line <a class="el" href="tree__filler_8h_source.html#l00141">141</a> of file <a class="el" href="tree__filler_8h_source.html">tree_filler.h</a>.</p>
+
+</div>
+</div>
+<a id="ad417b8f14459a2b8ba9b5bdf6a6bf2f0" name="ad417b8f14459a2b8ba9b5bdf6a6bf2f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad417b8f14459a2b8ba9b5bdf6a6bf2f0">&#9670;&#160;</a></span>m_inflation_outcome_symmetries</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="classinf_1_1OutcomeSym.html#ab2ea2b492f0abed73c61876c01c02e40">inf::OutcomeSym::Bare</a>&gt; inf::TreeFiller::m_inflation_outcome_symmetries</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>We store the image of the inflation outcome symmetries for faster execution. </p>
+
+<p class="definition">Definition at line <a class="el" href="tree__filler_8h_source.html#l00143">143</a> of file <a class="el" href="tree__filler_8h_source.html">tree_filler.h</a>.</p>
+
+</div>
+</div>
+<a id="a62b8399d9371ce27420dfcfd139e8b1d" name="a62b8399d9371ce27420dfcfd139e8b1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62b8399d9371ce27420dfcfd139e8b1d">&#9670;&#160;</a></span>m_inflation_n_parties</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> const inf::TreeFiller::m_inflation_n_parties</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The number of inflation parties. </p>
+
+<p class="definition">Definition at line <a class="el" href="tree__filler_8h_source.html#l00145">145</a> of file <a class="el" href="tree__filler_8h_source.html">tree_filler.h</a>.</p>
+
+</div>
+</div>
+<a id="a482c57e7c57f0877b8305e6487dfa186" name="a482c57e7c57f0877b8305e6487dfa186"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a482c57e7c57f0877b8305e6487dfa186">&#9670;&#160;</a></span>m_unknown_outcome</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__event.html#gadcaa27c4242b65837f0f7a00e96856d4">inf::Outcome</a> const inf::TreeFiller::m_unknown_outcome</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The unknown outcome. </p>
+
+<p class="definition">Definition at line <a class="el" href="tree__filler_8h_source.html#l00147">147</a> of file <a class="el" href="tree__filler_8h_source.html">tree_filler.h</a>.</p>
+
+</div>
+</div>
+<a id="a04b3f21b007bc36a1f74fb77d2c87ab7" name="a04b3f21b007bc36a1f74fb77d2c87ab7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04b3f21b007bc36a1f74fb77d2c87ab7">&#9670;&#160;</a></span>m_n_outcomes</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__event.html#gadcaa27c4242b65837f0f7a00e96856d4">inf::Outcome</a> const inf::TreeFiller::m_n_outcomes</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The number of outcomes, which is equal to <code>m_unknown_outcome</code> </p>
+
+<p class="definition">Definition at line <a class="el" href="tree__filler_8h_source.html#l00149">149</a> of file <a class="el" href="tree__filler_8h_source.html">tree_filler.h</a>.</p>
+
+</div>
+</div>
+<a id="abd357941d7909e0f89b7da4c16523a03" name="abd357941d7909e0f89b7da4c16523a03"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd357941d7909e0f89b7da4c16523a03">&#9670;&#160;</a></span>m_working_event</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> inf::TreeFiller::m_working_event</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The event that is used (modified and read) by the recursive function <a class="el" href="classinf_1_1TreeFiller.html#ae91a9a275a1470d11966c1430303a755" title="This recursive function implements the tree-filling algorithm presented above.">inf::TreeFiller::find_children()</a> </p>
+
+<p class="definition">Definition at line <a class="el" href="tree__filler_8h_source.html#l00164">164</a> of file <a class="el" href="tree__filler_8h_source.html">tree_filler.h</a>.</p>
+
+</div>
+</div>
+<a id="a7aa6bf50926aa17eb9f939099c76c745" name="a7aa6bf50926aa17eb9f939099c76c745"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7aa6bf50926aa17eb9f939099c76c745">&#9670;&#160;</a></span>m_current_syms</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::vector&lt;<a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a>&gt; &gt; inf::TreeFiller::m_current_syms</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The list (for each depth) of lists of relevant symmetries that is used (modified and read) by the recursive function <a class="el" href="classinf_1_1TreeFiller.html#ae91a9a275a1470d11966c1430303a755" title="This recursive function implements the tree-filling algorithm presented above.">inf::TreeFiller::find_children()</a> </p>
+<p>The outer list corresponds to depth in the tree, the inner list consists of the indices of symmetries (relative to both <code>m_inflation_inverse_party_symmetries</code> and <code>m_inflation_outcome_symmetries</code>) that are relevant at the specified depth. The idea is that a call of <code>find_children[depth]</code> will use only the symmetries specified in <code>m_current_syms[depth]</code>, because the symmetries not specified in <code>m_current_syms[depth]</code> had a reason to be discarded. Then, in <code>find_children[depth]</code>, it may be that upon setting <code>m_working_event[depth]</code> to a specific outcome, it is clear that a symmetry will be irrelevant when trying to symmetrize <code>m_working_event</code> for all further fillings. In this case, and only in this case, this symmetry is ommitted from <code>m_current_syms[depth+1]</code>. </p>
+
+<p class="definition">Definition at line <a class="el" href="tree__filler_8h_source.html#l00175">175</a> of file <a class="el" href="tree__filler_8h_source.html">tree_filler.h</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>src/inf/inf_problem/<a class="el" href="tree__filler_8h_source.html">tree_filler.h</a></li>
+<li>src/inf/inf_problem/<a class="el" href="tree__filler_8cpp_source.html">tree_filler.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceinf.html">inf</a></li><li class="navelem"><a class="el" href="classinf_1_1TreeFiller.html">TreeFiller</a></li>
+    <li class="footer">Generated on Wed Dec 18 2024 17:39:43 for Fast Inflation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,863 @@
+<!-- HTML header for doxygen 1.9.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Fast Inflation: util::FileStream Class Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+MathJax.Hub.Config({
+    TeX: {
+        Macros: {
+            dd: ["{\\text{d}#1\\,}",1],
+            nouts: ["{n_{\\text{o}}}"],
+            ints: ["{[\\![#1]\\!]}",1],
+            outset: ["{\\ints{\\nouts}}"],
+            N: ["{\\mathbb{N}}"],
+            R: ["{\\mathbb{R}}"],
+            Z: ["{\\mathbb{Z}}"],
+            infsize: ["{z}"],
+            infparties: ["{\\set{I}}"],
+            infsources: ["{\\set{S}}"],
+            infmarg: ["{\\set{A}}"],
+            infmargg: ["{\\set{B}}"],
+            netparties: ["{\\set{N}}"],
+            infq: ["{q}"],
+            infqs: ["{\\Delta_{\\infparties}}"],
+            constraintlist: ["{\\mathcal{C}}"],
+            injsets: ["{\\text{InjSets}}"],
+            infconstraints: ["{\\text{InfCons}}"],
+            parents: ["{\\text{Par}}"],
+            targetp: ["{p}"],
+            targetps: ["{\\Delta_{\\netparties}}"],
+            set: ["{\\mathbf{#1}}",1],
+            type: ["{t}"],
+            infevent: "{\\omega}",
+            events: ["{\\Omega_{#1}}",1],
+            infevents: ["{\\events{\\infparties}}"],
+            redinfevents: ["{\\tilde{\\Omega}_{\\infparties}}"],
+            netevents: ["{\\events{\\netparties}}"],
+            vecset: ["{V_{#1}}",1],
+            alice: ["{\\text{A}}"],
+            bob: ["{\\text{B}}"],
+            charlie: ["{\\text{C}}"],
+            symgroup: ["{\\text{Sym}(#1)}",1],
+            shortsymgroup: ["{\\text{Sym}_{#1}}",1],
+            act: ["{(#1\\hspace{2pt}{:}\\hspace{2pt}#2)}",2],
+            actt: ["{[#1\\hspace{2pt}{:}\\hspace{2pt}#2]}",2],
+            margperms: ["{\\text{Perm}_{#1}}",1],
+            permutedmargs: ["{\\mathbb{P}_{#1}^{\\targetp}}",1],
+            redpermutedmargs: ["{\\tilde{\\mathbb{P}}_{#1}^{\\constraintname,\\targetp}}",1],
+            extract: ["{\\text{ext}(#1,#2)}",2],
+            partysym: ["{\\tau}"],
+            sourcesym: ["{\\xi}"],
+            outsym: ["{\\sigma}"],
+            fullgroup: ["{\\text{InfGrp}}"],
+            partygroup : ["{\\text{PartyGrp}}"],
+            outgroup: ["{\\text{OutGrp}}"],
+            sourcegroup: ["{\\text{SrcGrp}}"],
+            distrgroup: ["{\\mathbb{G}^\\targetp}"],
+            constraintname: ["{c}"],
+            marggroup: ["{\\mathbb{G}^{\\constraintname,\\targetp}}"],
+            fullsymexpl: ["{(\\sourcesym,\\partysym,\\outsym)}"],
+            inner: ["{\\langle#1,#2\\rangle}", 2],
+            quovec: ["{f}"],
+            totconstraintmap: ["{K^{\\constraintlist,\\targetp}}"],
+            totconstraintmapelem: ["{K^{\\constraintname,\\targetp}}"],
+            quovecspace: ["{\\tilde{V}_{#1}^{\\constraintname,\\targetp}}", 1],
+            totquovecspace: ["{\\text{ConsSpace}(\\constraintlist,\\targetp)}"],
+            detdistr: ["{\\delta^{#1}}", 1],
+            margperm: ["{\\varphi}"],
+            altquovecembed: ["{\\text{G}_{#1}^{\\constraintname,\\targetp}}", 1],
+            vecset: ["{V_{#1}}", 1],
+            repr: ["{\\lfloor#1\\rfloor}", 1],
+            gid: ["{\\text{id}}"],
+            id: ["{1_{#1}}",1],
+            consscale: ["{K}"],
+            scaletot: ["{K_{\\text{tot}}^{\\constraintlist,\\targetp}}"],
+            minnorm: ["{d}"],
+            Bigsetst: ["\\;\\Big|\\;"],
+            activeset: ["\\mathcal{S}"],
+            conv: ["\\text{conv}"],
+            lVert: ["|\\hspace{-1pt}|"],
+            norm: ["\\lVert#1\\lVert", 1],
+            st: [":\ "],
+        }
+    }
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeDarkModeToggle.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeParagraphLink.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Fast Inflation
+   </div>
+   <div id="projectbrief">To certify causal incompatibility</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classutil_1_1FileStream.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="classutil_1_1FileStream-members.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">util::FileStream Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span><div class="ingroups"><a class="el" href="group__util.html">Utilities</a> &raquo; <a class="el" href="group__serialization.html">Serialization</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &quot;<a class="el" href="file__stream_8h_source.html">util/file_stream.h</a>&quot;</code></p>
+<a name="details" id="details"></a><h2 class="groupheader">Class description</h2>
+<div class="textblock"><p>This abstract class provides a common interface to <a class="el" href="classutil_1_1InputFileStream.html" title="The specialization of util::FileStream to write to a file.">util::InputFileStream</a> and <a class="el" href="classutil_1_1OutputFileStream.html" title="The specialization of util::FileStream to write to a file.">util::OutputFileStream</a> to unify the read/write mechanism into a single mechanism. </p>
+
+<p class="definition">Definition at line <a class="el" href="file__stream_8h_source.html#l00098">98</a> of file <a class="el" href="file__stream_8h_source.html">file_stream.h</a>.</p>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a5cb21435ca0ee444b065ab1eb6f323e0"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1FileStream.html#a5cb21435ca0ee444b065ab1eb6f323e0">Format</a> { <a class="el" href="classutil_1_1FileStream.html#a5cb21435ca0ee444b065ab1eb6f323e0a9d7183f16acce70658f686ae7f1a4d20">binary</a>
+, <a class="el" href="classutil_1_1FileStream.html#a5cb21435ca0ee444b065ab1eb6f323e0a1cb251ec0d568de6a929b520c4aed8d1">text</a>
+ }</td></tr>
+<tr class="memdesc:a5cb21435ca0ee444b065ab1eb6f323e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether the <a class="el" href="classutil_1_1FileStream.html" title="This abstract class provides a common interface to util::InputFileStream and util::OutputFileStream t...">util::FileStream</a> should read/write in binary or text format.  <a href="classutil_1_1FileStream.html#a5cb21435ca0ee444b065ab1eb6f323e0">More...</a><br /></td></tr>
+<tr class="separator:a5cb21435ca0ee444b065ab1eb6f323e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:ad6ca20e6cc3ab763feed0e9560ae1f32"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1FileStream.html#ad6ca20e6cc3ab763feed0e9560ae1f32">FileStream</a> (bool reading, <a class="el" href="classutil_1_1FileStream.html#a5cb21435ca0ee444b065ab1eb6f323e0">util::FileStream::Format</a> format)</td></tr>
+<tr class="memdesc:ad6ca20e6cc3ab763feed0e9560ae1f32"><td class="mdescLeft">&#160;</td><td class="mdescRight">A stream is either reading or writing, and is either in binary or text format.  <br /></td></tr>
+<tr class="separator:ad6ca20e6cc3ab763feed0e9560ae1f32"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe97f0125ae8fd1eb93199693fd5cd8a"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1FileStream.html#abe97f0125ae8fd1eb93199693fd5cd8a">~FileStream</a> ()</td></tr>
+<tr class="separator:abe97f0125ae8fd1eb93199693fd5cd8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d1376a5adb9289e6cc4ecda973e64ac"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1FileStream.html#a3d1376a5adb9289e6cc4ecda973e64ac">is_reading</a> () const</td></tr>
+<tr class="memdesc:a3d1376a5adb9289e6cc4ecda973e64ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method can be queried by the <a class="el" href="classutil_1_1Serializable.html" title="Abstract class that defines the interface of a class that is serializable.">util::Serializable</a> classes to implement sanity checks upon reading data.  <br /></td></tr>
+<tr class="separator:a3d1376a5adb9289e6cc4ecda973e64ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b911d979dae3e32979fd45f9a3750b7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1FileStream.html#a7b911d979dae3e32979fd45f9a3750b7">io</a> (std::string &amp;s)</td></tr>
+<tr class="memdesc:a7b911d979dae3e32979fd45f9a3750b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read or write a string.  <br /></td></tr>
+<tr class="separator:a7b911d979dae3e32979fd45f9a3750b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26e2e6de007fb229f02d1b574791c562"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a26e2e6de007fb229f02d1b574791c562"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if&lt; std::is_arithmetic&lt; T &gt;::value, void &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classutil_1_1FileStream.html#a26e2e6de007fb229f02d1b574791c562">io</a> (T &amp;var)</td></tr>
+<tr class="memdesc:a26e2e6de007fb229f02d1b574791c562"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read or write an arithmetic type.  <br /></td></tr>
+<tr class="separator:a26e2e6de007fb229f02d1b574791c562"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc9b55728f6466f9432c37244d423209"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:adc9b55728f6466f9432c37244d423209"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if&lt;!std::is_arithmetic&lt; T &gt;::value, void &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classutil_1_1FileStream.html#adc9b55728f6466f9432c37244d423209">io</a> (T &amp;obj)</td></tr>
+<tr class="memdesc:adc9b55728f6466f9432c37244d423209"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read of write a <a class="el" href="classutil_1_1Serializable.html" title="Abstract class that defines the interface of a class that is serializable.">util::Serializable</a> object.  <br /></td></tr>
+<tr class="separator:adc9b55728f6466f9432c37244d423209"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a220e28f0807ea80fb4f43c5686768637"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a220e28f0807ea80fb4f43c5686768637"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classutil_1_1FileStream.html#a220e28f0807ea80fb4f43c5686768637">io</a> (std::vector&lt; T &gt; &amp;vec)</td></tr>
+<tr class="memdesc:a220e28f0807ea80fb4f43c5686768637"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read or write a <code>std::vector</code>  <br /></td></tr>
+<tr class="separator:a220e28f0807ea80fb4f43c5686768637"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf07f182518ebc3f4cd0dc9040960581"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:abf07f182518ebc3f4cd0dc9040960581"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classutil_1_1FileStream.html#abf07f182518ebc3f4cd0dc9040960581">write_or_read_and_hard_assert</a> (T const &amp;value)</td></tr>
+<tr class="memdesc:abf07f182518ebc3f4cd0dc9040960581"><td class="mdescLeft">&#160;</td><td class="mdescRight">This writes the specified <code>value</code> to the stream if the stream is writing, and otherwise reads a value of type <code>T</code> from the stream and hard-asserts equality with <code>value</code>.  <br /></td></tr>
+<tr class="separator:abf07f182518ebc3f4cd0dc9040960581"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30e410e804608d21ec439f43ccc7ff98"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1FileStream.html#a30e410e804608d21ec439f43ccc7ff98">write_or_read_and_hard_assert</a> (char const *value)</td></tr>
+<tr class="memdesc:a30e410e804608d21ec439f43ccc7ff98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specialization to support literal strings.  <br /></td></tr>
+<tr class="separator:a30e410e804608d21ec439f43ccc7ff98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:a38cc8e2c1b60cdd45f687ed742cfe465"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1FileStream.html#a38cc8e2c1b60cdd45f687ed742cfe465">version</a> = 5</td></tr>
+<tr class="memdesc:a38cc8e2c1b60cdd45f687ed742cfe465"><td class="mdescLeft">&#160;</td><td class="mdescRight">This version number should be changed if the class is modified: it is checked when reading data to verify that we have not changed the read/write format without knowing.  <br /></td></tr>
+<tr class="separator:a38cc8e2c1b60cdd45f687ed742cfe465"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a8fdfbf599fb437d65d424c255b400658"><td class="memItemLeft" align="right" valign="top">std::string const &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1FileStream.html#a8fdfbf599fb437d65d424c255b400658">get_extension</a> () const</td></tr>
+<tr class="memdesc:a8fdfbf599fb437d65d424c255b400658"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns <code>m_extension</code>  <br /></td></tr>
+<tr class="separator:a8fdfbf599fb437d65d424c255b400658"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abdaf1b1da74a3c9873b147b4d06b2fed"><td class="memItemLeft" align="right" valign="top">std::ios_base::openmode&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1FileStream.html#abdaf1b1da74a3c9873b147b4d06b2fed">get_std_openmode</a> () const</td></tr>
+<tr class="memdesc:abdaf1b1da74a3c9873b147b4d06b2fed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the read/write format in std format, based on <code>m_format</code>  <br /></td></tr>
+<tr class="separator:abdaf1b1da74a3c9873b147b4d06b2fed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ffbe355a825ba71629237f2b3b580db"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classutil_1_1FileStream.html#a5cb21435ca0ee444b065ab1eb6f323e0">util::FileStream::Format</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1FileStream.html#a5ffbe355a825ba71629237f2b3b580db">get_format</a> () const</td></tr>
+<tr class="memdesc:a5ffbe355a825ba71629237f2b3b580db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns <code>m_format</code>  <br /></td></tr>
+<tr class="separator:a5ffbe355a825ba71629237f2b3b580db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:ab3824ad087de7d030915e5fc5b41c245"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1FileStream.html#ab3824ad087de7d030915e5fc5b41c245">io_bytes</a> (char *p, <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> n)=0</td></tr>
+<tr class="memdesc:ab3824ad087de7d030915e5fc5b41c245"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual method that will be overridden depending on input or output.  <br /></td></tr>
+<tr class="separator:ab3824ad087de7d030915e5fc5b41c245"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a236924208940a9ac24ef42ed6bb1e7b5"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1FileStream.html#a236924208940a9ac24ef42ed6bb1e7b5">io_str</a> (std::string &amp;s)=0</td></tr>
+<tr class="memdesc:a236924208940a9ac24ef42ed6bb1e7b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual method that will be overridden depending on input or output.  <br /></td></tr>
+<tr class="separator:a236924208940a9ac24ef42ed6bb1e7b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a370c5b81844b4962c6b05673f72b70e2"><td class="memItemLeft" align="right" valign="top">bool const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1FileStream.html#a370c5b81844b4962c6b05673f72b70e2">m_is_reading</a></td></tr>
+<tr class="memdesc:a370c5b81844b4962c6b05673f72b70e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates whether the stream is in reading mode.  <br /></td></tr>
+<tr class="separator:a370c5b81844b4962c6b05673f72b70e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e10ca809c9a5e1c020859643d01b605"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1FileStream.html#a6e10ca809c9a5e1c020859643d01b605">m_extension</a></td></tr>
+<tr class="memdesc:a6e10ca809c9a5e1c020859643d01b605"><td class="mdescLeft">&#160;</td><td class="mdescRight">The filename extension, currently <code>.binary</code> or <code>.txt</code> depending on <code>m_format</code>  <br /></td></tr>
+<tr class="separator:a6e10ca809c9a5e1c020859643d01b605"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78665e0b6f9c6d2dd5618a77b82ff8f7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classutil_1_1FileStream.html#a5cb21435ca0ee444b065ab1eb6f323e0">util::FileStream::Format</a> const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1FileStream.html#a78665e0b6f9c6d2dd5618a77b82ff8f7">m_format</a></td></tr>
+<tr class="memdesc:a78665e0b6f9c6d2dd5618a77b82ff8f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates whether the stream is in binary or text mode.  <br /></td></tr>
+<tr class="separator:a78665e0b6f9c6d2dd5618a77b82ff8f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="a5cb21435ca0ee444b065ab1eb6f323e0" name="a5cb21435ca0ee444b065ab1eb6f323e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5cb21435ca0ee444b065ab1eb6f323e0">&#9670;&#160;</a></span>Format</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="classutil_1_1FileStream.html#a5cb21435ca0ee444b065ab1eb6f323e0">util::FileStream::Format</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Whether the <a class="el" href="classutil_1_1FileStream.html" title="This abstract class provides a common interface to util::InputFileStream and util::OutputFileStream t...">util::FileStream</a> should read/write in binary or text format. </p>
+<p>Initially, it seemed that the binary formay would be more efficient, but actually, for the <a class="el" href="group__event.html#gadcaa27c4242b65837f0f7a00e96856d4" title="An outcome is stored in the smallest format available to save memory.">inf::Outcome</a> type, text of binary format takes up the same space. On the other hand, for the <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e" title="Use for anything meant to be used as an index.">Index</a> type, the text format is typically more efficient, because it will store small <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e" title="Use for anything meant to be used as an index.">Index</a> variables on only a few bytes. Thus, text is overall very nice, and we made this the preferred format for our files. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a5cb21435ca0ee444b065ab1eb6f323e0a9d7183f16acce70658f686ae7f1a4d20" name="a5cb21435ca0ee444b065ab1eb6f323e0a9d7183f16acce70658f686ae7f1a4d20"></a>binary&#160;</td><td class="fielddoc"><p>Read/write data in binary format. The resulting files depend on the endianness to be interpreted correctly, so essentially, they cannot really be shared across different architectures. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a5cb21435ca0ee444b065ab1eb6f323e0a1cb251ec0d568de6a929b520c4aed8d1" name="a5cb21435ca0ee444b065ab1eb6f323e0a1cb251ec0d568de6a929b520c4aed8d1"></a>text&#160;</td><td class="fielddoc"><p>Read/write data in text format. This allows to inspect the files and to share them easily without formatting problems. </p>
+</td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="file__stream_8h_source.html#l00106">106</a> of file <a class="el" href="file__stream_8h_source.html">file_stream.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ad6ca20e6cc3ab763feed0e9560ae1f32" name="ad6ca20e6cc3ab763feed0e9560ae1f32"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6ca20e6cc3ab763feed0e9560ae1f32">&#9670;&#160;</a></span>FileStream()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">util::FileStream::FileStream </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>reading</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classutil_1_1FileStream.html#a5cb21435ca0ee444b065ab1eb6f323e0">util::FileStream::Format</a>&#160;</td>
+          <td class="paramname"><em>format</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A stream is either reading or writing, and is either in binary or text format. </p>
+
+<p class="definition">Definition at line <a class="el" href="file__stream_8cpp_source.html#l00042">42</a> of file <a class="el" href="file__stream_8cpp_source.html">file_stream.cpp</a>.</p>
+
+</div>
+</div>
+<a id="abe97f0125ae8fd1eb93199693fd5cd8a" name="abe97f0125ae8fd1eb93199693fd5cd8a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe97f0125ae8fd1eb93199693fd5cd8a">&#9670;&#160;</a></span>~FileStream()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual util::FileStream::~FileStream </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="file__stream_8h_source.html#l00120">120</a> of file <a class="el" href="file__stream_8h_source.html">file_stream.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a3d1376a5adb9289e6cc4ecda973e64ac" name="a3d1376a5adb9289e6cc4ecda973e64ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d1376a5adb9289e6cc4ecda973e64ac">&#9670;&#160;</a></span>is_reading()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool util::FileStream::is_reading </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This method can be queried by the <a class="el" href="classutil_1_1Serializable.html" title="Abstract class that defines the interface of a class that is serializable.">util::Serializable</a> classes to implement sanity checks upon reading data. </p>
+
+<p class="definition">Definition at line <a class="el" href="file__stream_8cpp_source.html#l00059">59</a> of file <a class="el" href="file__stream_8cpp_source.html">file_stream.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a7b911d979dae3e32979fd45f9a3750b7" name="a7b911d979dae3e32979fd45f9a3750b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b911d979dae3e32979fd45f9a3750b7">&#9670;&#160;</a></span>io() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void util::FileStream::io </td>
+          <td>(</td>
+          <td class="paramtype">std::string &amp;&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Read or write a string. </p>
+
+<p class="definition">Definition at line <a class="el" href="file__stream_8cpp_source.html#l00063">63</a> of file <a class="el" href="file__stream_8cpp_source.html">file_stream.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a26e2e6de007fb229f02d1b574791c562" name="a26e2e6de007fb229f02d1b574791c562"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26e2e6de007fb229f02d1b574791c562">&#9670;&#160;</a></span>io() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::enable_if&lt; std::is_arithmetic&lt; T &gt;::value, void &gt;::type util::FileStream::io </td>
+          <td>(</td>
+          <td class="paramtype">T &amp;&#160;</td>
+          <td class="paramname"><em>var</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Read or write an arithmetic type. </p>
+
+<p class="definition">Definition at line <a class="el" href="file__stream_8h_source.html#l00132">132</a> of file <a class="el" href="file__stream_8h_source.html">file_stream.h</a>.</p>
+
+</div>
+</div>
+<a id="adc9b55728f6466f9432c37244d423209" name="adc9b55728f6466f9432c37244d423209"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc9b55728f6466f9432c37244d423209">&#9670;&#160;</a></span>io() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::enable_if&lt;!std::is_arithmetic&lt; T &gt;::value, void &gt;::type util::FileStream::io </td>
+          <td>(</td>
+          <td class="paramtype">T &amp;&#160;</td>
+          <td class="paramname"><em>obj</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Read of write a <a class="el" href="classutil_1_1Serializable.html" title="Abstract class that defines the interface of a class that is serializable.">util::Serializable</a> object. </p>
+
+<p class="definition">Definition at line <a class="el" href="file__stream_8h_source.html#l00161">161</a> of file <a class="el" href="file__stream_8h_source.html">file_stream.h</a>.</p>
+
+</div>
+</div>
+<a id="a220e28f0807ea80fb4f43c5686768637" name="a220e28f0807ea80fb4f43c5686768637"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a220e28f0807ea80fb4f43c5686768637">&#9670;&#160;</a></span>io() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void util::FileStream::io </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>vec</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Read or write a <code>std::vector</code> </p>
+
+<p class="definition">Definition at line <a class="el" href="file__stream_8h_source.html#l00167">167</a> of file <a class="el" href="file__stream_8h_source.html">file_stream.h</a>.</p>
+
+</div>
+</div>
+<a id="abf07f182518ebc3f4cd0dc9040960581" name="abf07f182518ebc3f4cd0dc9040960581"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf07f182518ebc3f4cd0dc9040960581">&#9670;&#160;</a></span>write_or_read_and_hard_assert() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void util::FileStream::write_or_read_and_hard_assert </td>
+          <td>(</td>
+          <td class="paramtype">T const &amp;&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This writes the specified <code>value</code> to the stream if the stream is writing, and otherwise reads a value of type <code>T</code> from the stream and hard-asserts equality with <code>value</code>. </p>
+
+<p class="definition">Definition at line <a class="el" href="file__stream_8h_source.html#l00181">181</a> of file <a class="el" href="file__stream_8h_source.html">file_stream.h</a>.</p>
+
+</div>
+</div>
+<a id="a30e410e804608d21ec439f43ccc7ff98" name="a30e410e804608d21ec439f43ccc7ff98"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30e410e804608d21ec439f43ccc7ff98">&#9670;&#160;</a></span>write_or_read_and_hard_assert() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void util::FileStream::write_or_read_and_hard_assert </td>
+          <td>(</td>
+          <td class="paramtype">char const *&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Specialization to support literal strings. </p>
+
+<p class="definition">Definition at line <a class="el" href="file__stream_8cpp_source.html#l00067">67</a> of file <a class="el" href="file__stream_8cpp_source.html">file_stream.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a8fdfbf599fb437d65d424c255b400658" name="a8fdfbf599fb437d65d424c255b400658"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8fdfbf599fb437d65d424c255b400658">&#9670;&#160;</a></span>get_extension()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string const  &amp; util::FileStream::get_extension </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns <code>m_extension</code> </p>
+<p>This protected method and private <code>m_extension</code> ensures that child classes cannot modify the extension. </p>
+
+<p class="definition">Definition at line <a class="el" href="file__stream_8cpp_source.html#l00071">71</a> of file <a class="el" href="file__stream_8cpp_source.html">file_stream.cpp</a>.</p>
+
+</div>
+</div>
+<a id="abdaf1b1da74a3c9873b147b4d06b2fed" name="abdaf1b1da74a3c9873b147b4d06b2fed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abdaf1b1da74a3c9873b147b4d06b2fed">&#9670;&#160;</a></span>get_std_openmode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ios_base::openmode util::FileStream::get_std_openmode </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the read/write format in std format, based on <code>m_format</code> </p>
+
+<p class="definition">Definition at line <a class="el" href="file__stream_8cpp_source.html#l00075">75</a> of file <a class="el" href="file__stream_8cpp_source.html">file_stream.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a5ffbe355a825ba71629237f2b3b580db" name="a5ffbe355a825ba71629237f2b3b580db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ffbe355a825ba71629237f2b3b580db">&#9670;&#160;</a></span>get_format()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classutil_1_1FileStream.html#a5cb21435ca0ee444b065ab1eb6f323e0">util::FileStream::Format</a> util::FileStream::get_format </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns <code>m_format</code> </p>
+<p>Since <code>m_format</code> is const, we could just make it protected, but this way is a bit more consistent with the above protected getters </p>
+
+<p class="definition">Definition at line <a class="el" href="file__stream_8cpp_source.html#l00089">89</a> of file <a class="el" href="file__stream_8cpp_source.html">file_stream.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ab3824ad087de7d030915e5fc5b41c245" name="ab3824ad087de7d030915e5fc5b41c245"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3824ad087de7d030915e5fc5b41c245">&#9670;&#160;</a></span>io_bytes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void util::FileStream::io_bytes </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a>&#160;</td>
+          <td class="paramname"><em>n</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Virtual method that will be overridden depending on input or output. </p>
+<p>This method allows to read or write a count <code>n</code> of bytes starting at adress <code>p</code>. </p>
+
+<p>Implemented in <a class="el" href="classutil_1_1OutputFileStream.html#ae42b244fd611552284605a5cee266bc7">util::OutputFileStream</a>, and <a class="el" href="classutil_1_1InputFileStream.html#a5fced96460079fc7008ed3ffd406c83a">util::InputFileStream</a>.</p>
+
+</div>
+</div>
+<a id="a236924208940a9ac24ef42ed6bb1e7b5" name="a236924208940a9ac24ef42ed6bb1e7b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a236924208940a9ac24ef42ed6bb1e7b5">&#9670;&#160;</a></span>io_str()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void util::FileStream::io_str </td>
+          <td>(</td>
+          <td class="paramtype">std::string &amp;&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Virtual method that will be overridden depending on input or output. </p>
+<p>This method allows to read or write a <code>std::string</code>. </p>
+
+<p>Implemented in <a class="el" href="classutil_1_1OutputFileStream.html#a8ab53e70ed4604a6a56d02f7bb8156af">util::OutputFileStream</a>, and <a class="el" href="classutil_1_1InputFileStream.html#af0a10417fb96aab5d3cea89807cff9ed">util::InputFileStream</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a38cc8e2c1b60cdd45f687ed742cfe465" name="a38cc8e2c1b60cdd45f687ed742cfe465"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38cc8e2c1b60cdd45f687ed742cfe465">&#9670;&#160;</a></span>version</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> const util::FileStream::version = 5</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This version number should be changed if the class is modified: it is checked when reading data to verify that we have not changed the read/write format without knowing. </p>
+
+<p class="definition">Definition at line <a class="el" href="file__stream_8h_source.html#l00116">116</a> of file <a class="el" href="file__stream_8h_source.html">file_stream.h</a>.</p>
+
+</div>
+</div>
+<a id="a370c5b81844b4962c6b05673f72b70e2" name="a370c5b81844b4962c6b05673f72b70e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a370c5b81844b4962c6b05673f72b70e2">&#9670;&#160;</a></span>m_is_reading</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool const util::FileStream::m_is_reading</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Indicates whether the stream is in reading mode. </p>
+
+<p class="definition">Definition at line <a class="el" href="file__stream_8h_source.html#l00207">207</a> of file <a class="el" href="file__stream_8h_source.html">file_stream.h</a>.</p>
+
+</div>
+</div>
+<a id="a6e10ca809c9a5e1c020859643d01b605" name="a6e10ca809c9a5e1c020859643d01b605"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e10ca809c9a5e1c020859643d01b605">&#9670;&#160;</a></span>m_extension</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string util::FileStream::m_extension</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The filename extension, currently <code>.binary</code> or <code>.txt</code> depending on <code>m_format</code> </p>
+
+<p class="definition">Definition at line <a class="el" href="file__stream_8h_source.html#l00209">209</a> of file <a class="el" href="file__stream_8h_source.html">file_stream.h</a>.</p>
+
+</div>
+</div>
+<a id="a78665e0b6f9c6d2dd5618a77b82ff8f7" name="a78665e0b6f9c6d2dd5618a77b82ff8f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a78665e0b6f9c6d2dd5618a77b82ff8f7">&#9670;&#160;</a></span>m_format</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classutil_1_1FileStream.html#a5cb21435ca0ee444b065ab1eb6f323e0">util::FileStream::Format</a> const util::FileStream::m_format</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Indicates whether the stream is in binary or text mode. </p>
+
+<p class="definition">Definition at line <a class="el" href="file__stream_8h_source.html#l00211">211</a> of file <a class="el" href="file__stream_8h_source.html">file_stream.h</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>src/util/<a class="el" href="file__stream_8h_source.html">file_stream.h</a></li>
+<li>src/util/<a class="el" href="file__stream_8cpp_source.html">file_stream.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceutil.html">util</a></li><li class="navelem"><a class="el" href="classutil_1_1FileStream.html">FileStream</a></li>
+    <li class="footer">Generated on Wed Dec 18 2024 17:39:46 for Fast Inflation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

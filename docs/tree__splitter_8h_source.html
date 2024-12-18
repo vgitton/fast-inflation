@@ -1,0 +1,280 @@
+<!-- HTML header for doxygen 1.9.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Fast Inflation: src/inf/events/tree_splitter.h Source File</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+MathJax.Hub.Config({
+    TeX: {
+        Macros: {
+            dd: ["{\\text{d}#1\\,}",1],
+            nouts: ["{n_{\\text{o}}}"],
+            ints: ["{[\\![#1]\\!]}",1],
+            outset: ["{\\ints{\\nouts}}"],
+            N: ["{\\mathbb{N}}"],
+            R: ["{\\mathbb{R}}"],
+            Z: ["{\\mathbb{Z}}"],
+            infsize: ["{z}"],
+            infparties: ["{\\set{I}}"],
+            infsources: ["{\\set{S}}"],
+            infmarg: ["{\\set{A}}"],
+            infmargg: ["{\\set{B}}"],
+            netparties: ["{\\set{N}}"],
+            infq: ["{q}"],
+            infqs: ["{\\Delta_{\\infparties}}"],
+            constraintlist: ["{\\mathcal{C}}"],
+            injsets: ["{\\text{InjSets}}"],
+            infconstraints: ["{\\text{InfCons}}"],
+            parents: ["{\\text{Par}}"],
+            targetp: ["{p}"],
+            targetps: ["{\\Delta_{\\netparties}}"],
+            set: ["{\\mathbf{#1}}",1],
+            type: ["{t}"],
+            infevent: "{\\omega}",
+            events: ["{\\Omega_{#1}}",1],
+            infevents: ["{\\events{\\infparties}}"],
+            redinfevents: ["{\\tilde{\\Omega}_{\\infparties}}"],
+            netevents: ["{\\events{\\netparties}}"],
+            vecset: ["{V_{#1}}",1],
+            alice: ["{\\text{A}}"],
+            bob: ["{\\text{B}}"],
+            charlie: ["{\\text{C}}"],
+            symgroup: ["{\\text{Sym}(#1)}",1],
+            shortsymgroup: ["{\\text{Sym}_{#1}}",1],
+            act: ["{(#1\\hspace{2pt}{:}\\hspace{2pt}#2)}",2],
+            actt: ["{[#1\\hspace{2pt}{:}\\hspace{2pt}#2]}",2],
+            margperms: ["{\\text{Perm}_{#1}}",1],
+            permutedmargs: ["{\\mathbb{P}_{#1}^{\\targetp}}",1],
+            redpermutedmargs: ["{\\tilde{\\mathbb{P}}_{#1}^{\\constraintname,\\targetp}}",1],
+            extract: ["{\\text{ext}(#1,#2)}",2],
+            partysym: ["{\\tau}"],
+            sourcesym: ["{\\xi}"],
+            outsym: ["{\\sigma}"],
+            fullgroup: ["{\\text{InfGrp}}"],
+            partygroup : ["{\\text{PartyGrp}}"],
+            outgroup: ["{\\text{OutGrp}}"],
+            sourcegroup: ["{\\text{SrcGrp}}"],
+            distrgroup: ["{\\mathbb{G}^\\targetp}"],
+            constraintname: ["{c}"],
+            marggroup: ["{\\mathbb{G}^{\\constraintname,\\targetp}}"],
+            fullsymexpl: ["{(\\sourcesym,\\partysym,\\outsym)}"],
+            inner: ["{\\langle#1,#2\\rangle}", 2],
+            quovec: ["{f}"],
+            totconstraintmap: ["{K^{\\constraintlist,\\targetp}}"],
+            totconstraintmapelem: ["{K^{\\constraintname,\\targetp}}"],
+            quovecspace: ["{\\tilde{V}_{#1}^{\\constraintname,\\targetp}}", 1],
+            totquovecspace: ["{\\text{ConsSpace}(\\constraintlist,\\targetp)}"],
+            detdistr: ["{\\delta^{#1}}", 1],
+            margperm: ["{\\varphi}"],
+            altquovecembed: ["{\\text{G}_{#1}^{\\constraintname,\\targetp}}", 1],
+            vecset: ["{V_{#1}}", 1],
+            repr: ["{\\lfloor#1\\rfloor}", 1],
+            gid: ["{\\text{id}}"],
+            id: ["{1_{#1}}",1],
+            consscale: ["{K}"],
+            scaletot: ["{K_{\\text{tot}}^{\\constraintlist,\\targetp}}"],
+            minnorm: ["{d}"],
+            Bigsetst: ["\\;\\Big|\\;"],
+            activeset: ["\\mathcal{S}"],
+            conv: ["\\text{conv}"],
+            lVert: ["|\\hspace{-1pt}|"],
+            norm: ["\\lVert#1\\lVert", 1],
+            st: [":\ "],
+        }
+    }
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeDarkModeToggle.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeParagraphLink.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Fast Inflation
+   </div>
+   <div id="projectbrief">To certify causal incompatibility</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('tree__splitter_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">tree_splitter.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="tree__splitter_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="event__tree_8h.html">event_tree.h</a>&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceinf.html">inf</a> {</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="classinf_1_1TreeSplitter.html">   52</a></span><span class="keyword">class </span><a class="code hl_class" href="classinf_1_1TreeSplitter.html">TreeSplitter</a> {</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="classinf_1_1TreeSplitter.html#a5fb0385e00760c8fd014cd44d0806764">   55</a></span>    <span class="keyword">typedef</span> std::vector&lt;Index&gt; <a class="code hl_typedef" href="classinf_1_1TreeSplitter.html#a5fb0385e00760c8fd014cd44d0806764">Path</a>;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="structinf_1_1TreeSplitter_1_1PathAndLeaves.html">   59</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structinf_1_1TreeSplitter_1_1PathAndLeaves.html">PathAndLeaves</a> {</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="structinf_1_1TreeSplitter_1_1PathAndLeaves.html#ae5cef849738c43692435cd934c40926c">   60</a></span>        <a class="code hl_typedef" href="classinf_1_1TreeSplitter.html#a5fb0385e00760c8fd014cd44d0806764">Path</a> <a class="code hl_variable" href="structinf_1_1TreeSplitter_1_1PathAndLeaves.html#ae5cef849738c43692435cd934c40926c">path</a>;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="structinf_1_1TreeSplitter_1_1PathAndLeaves.html#a7b7692f896629d83f53d7a9943d839ec">   61</a></span>        <a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <a class="code hl_variable" href="structinf_1_1TreeSplitter_1_1PathAndLeaves.html#a7b7692f896629d83f53d7a9943d839ec">n_leaves</a>;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    };</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="classinf_1_1TreeSplitter.html#abf26e3c85871c94ee6970d573e2cd0a3">   65</a></span>    <span class="keyword">typedef</span> std::vector&lt;std::vector&lt;Path&gt;&gt; <a class="code hl_typedef" href="classinf_1_1TreeSplitter.html#abf26e3c85871c94ee6970d573e2cd0a3">PathPartition</a>;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="classinf_1_1TreeSplitter.html#a23926ffb73ad28b8b232de30e5600698">   66</a></span>    <span class="keyword">typedef</span> std::shared_ptr&lt;PathPartition&gt; <a class="code hl_typedef" href="classinf_1_1TreeSplitter.html#a23926ffb73ad28b8b232de30e5600698">PathPartitionPtr</a>;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="classinf_1_1TreeSplitter.html#ae0ba7ca1dc677a7edf501f12f12dd0dd">   67</a></span>    <span class="keyword">typedef</span> std::shared_ptr&lt;const PathPartition&gt; <a class="code hl_typedef" href="classinf_1_1TreeSplitter.html#ae0ba7ca1dc677a7edf501f12f12dd0dd">PathPartitionConstPtr</a>;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="classinf_1_1TreeSplitter.html#a31d039cb9148d382156d269f8c9bb80f">   71</a></span>    <span class="keyword">static</span> <span class="keywordtype">double</span> <span class="keyword">const</span> <a class="code hl_variable" href="classinf_1_1TreeSplitter.html#a31d039cb9148d382156d269f8c9bb80f">target_quality_factor</a>;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keyword">static</span> <a class="code hl_typedef" href="classinf_1_1TreeSplitter.html#ae0ba7ca1dc677a7edf501f12f12dd0dd">PathPartitionConstPtr</a> <a class="code hl_function" href="classinf_1_1TreeSplitter.html#a061f4f38814a6acc823e28fef393c81c">get_path_partition</a>(<a class="code hl_class" href="classinf_1_1EventTree.html">inf::EventTree</a> <span class="keyword">const</span> &amp;event_tree, <a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <span class="keyword">const</span> n_splits);</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>  <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <a class="code hl_class" href="classinf_1_1TreeSplitter.html">TreeSplitter</a>(<a class="code hl_class" href="classinf_1_1EventTree.html">inf::EventTree</a> <span class="keyword">const</span> &amp;event_tree, <a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <span class="keyword">const</span> n_splits);</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="classinf_1_1TreeSplitter.html#a061f4f38814a6acc823e28fef393c81c">   84</a></span>    <a class="code hl_typedef" href="classinf_1_1TreeSplitter.html#ae0ba7ca1dc677a7edf501f12f12dd0dd">PathPartitionConstPtr</a> <a class="code hl_function" href="classinf_1_1TreeSplitter.html#a061f4f38814a6acc823e28fef393c81c">get_path_partition</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="classinf_1_1TreeSplitter.html#af009fb3e525a3002f02cac6914eeeed9">m_path_partition</a>;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    }</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classinf_1_1TreeSplitter.html#a3e087b58aec02b07998d35e5a14952d7">try_to_split_at_depth</a>(<a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <span class="keyword">const</span> depth);</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    std::vector&lt;inf::TreeSplitter::PathAndLeaves&gt; <a class="code hl_function" href="classinf_1_1TreeSplitter.html#a03cd23f476e034a73d73b73be05b5b73">get_paths_and_leaves</a>(<a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <span class="keyword">const</span> depth,</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>                                                                       <a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <span class="keyword">const</span> breadth) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classinf_1_1TreeSplitter.html#acb451a56e9e430ed313a5c9fcffb03f1">find_splits</a>(std::vector&lt;Index&gt; &amp;splits,</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>                     std::vector&lt;PathAndLeaves&gt; <span class="keyword">const</span> &amp;paths_and_leaves) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="comment">// Data</span></div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno"><a class="line" href="classinf_1_1TreeSplitter.html#a0156d864ba5f4f9288b72aef3eed1d24">  113</a></span>    <a class="code hl_class" href="classinf_1_1EventTree.html">inf::EventTree</a> <span class="keyword">const</span> &amp;<a class="code hl_variable" href="classinf_1_1TreeSplitter.html#a0156d864ba5f4f9288b72aef3eed1d24">m_event_tree</a>;</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno"><a class="line" href="classinf_1_1TreeSplitter.html#a5dd6ba21ce908f82c0e8452a4e9ae785">  115</a></span>    <a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <span class="keyword">const</span> <a class="code hl_variable" href="classinf_1_1TreeSplitter.html#a5dd6ba21ce908f82c0e8452a4e9ae785">m_n_splits</a>;</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno"><a class="line" href="classinf_1_1TreeSplitter.html#aed7afa3a973bfd755c57ab48ecaa0ac7">  117</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="classinf_1_1TreeSplitter.html#aed7afa3a973bfd755c57ab48ecaa0ac7">m_quality_factor</a>;</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno"><a class="line" href="classinf_1_1TreeSplitter.html#af009fb3e525a3002f02cac6914eeeed9">  120</a></span>    <a class="code hl_typedef" href="classinf_1_1TreeSplitter.html#a23926ffb73ad28b8b232de30e5600698">PathPartitionPtr</a> <a class="code hl_variable" href="classinf_1_1TreeSplitter.html#af009fb3e525a3002f02cac6914eeeed9">m_path_partition</a>;</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno"><a class="line" href="classinf_1_1TreeSplitter.html#acbd3fff17b0029083b181998c1c1f5d4">  123</a></span>    std::vector&lt;Index&gt; <a class="code hl_variable" href="classinf_1_1TreeSplitter.html#acbd3fff17b0029083b181998c1c1f5d4">m_leave_thresholds</a>;</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>};</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>} <span class="comment">// namespace inf</span></div>
+<div class="ttc" id="aclassinf_1_1EventTree_html"><div class="ttname"><a href="classinf_1_1EventTree.html">inf::EventTree</a></div><div class="ttdoc">Storing a set of inf::Event as a tree.</div><div class="ttdef"><b>Definition</b> <a href="event__tree_8h_source.html#l00107">event_tree.h:107</a></div></div>
+<div class="ttc" id="aclassinf_1_1TreeSplitter_html"><div class="ttname"><a href="classinf_1_1TreeSplitter.html">inf::TreeSplitter</a></div><div class="ttdoc">This class allows the user to partition an inf::EventTree into a group of subtrees that each have rou...</div><div class="ttdef"><b>Definition</b> <a href="tree__splitter_8h_source.html#l00052">tree_splitter.h:52</a></div></div>
+<div class="ttc" id="aclassinf_1_1TreeSplitter_html_a0156d864ba5f4f9288b72aef3eed1d24"><div class="ttname"><a href="classinf_1_1TreeSplitter.html#a0156d864ba5f4f9288b72aef3eed1d24">inf::TreeSplitter::m_event_tree</a></div><div class="ttdeci">inf::EventTree const  &amp; m_event_tree</div><div class="ttdoc">The inf::EventTree to split.</div><div class="ttdef"><b>Definition</b> <a href="tree__splitter_8h_source.html#l00113">tree_splitter.h:113</a></div></div>
+<div class="ttc" id="aclassinf_1_1TreeSplitter_html_a03cd23f476e034a73d73b73be05b5b73"><div class="ttname"><a href="classinf_1_1TreeSplitter.html#a03cd23f476e034a73d73b73be05b5b73">inf::TreeSplitter::get_paths_and_leaves</a></div><div class="ttdeci">std::vector&lt; inf::TreeSplitter::PathAndLeaves &gt; get_paths_and_leaves(Index const depth, Index const breadth) const</div><div class="ttdoc">This method returns all the paths at the given depth, ordered according to the number of leaves they ...</div><div class="ttdef"><b>Definition</b> <a href="tree__splitter_8cpp_source.html#l00141">tree_splitter.cpp:141</a></div></div>
+<div class="ttc" id="aclassinf_1_1TreeSplitter_html_a061f4f38814a6acc823e28fef393c81c"><div class="ttname"><a href="classinf_1_1TreeSplitter.html#a061f4f38814a6acc823e28fef393c81c">inf::TreeSplitter::get_path_partition</a></div><div class="ttdeci">PathPartitionConstPtr get_path_partition() const</div><div class="ttdoc">To obtain the path partition after computing it.</div><div class="ttdef"><b>Definition</b> <a href="tree__splitter_8h_source.html#l00084">tree_splitter.h:84</a></div></div>
+<div class="ttc" id="aclassinf_1_1TreeSplitter_html_a23926ffb73ad28b8b232de30e5600698"><div class="ttname"><a href="classinf_1_1TreeSplitter.html#a23926ffb73ad28b8b232de30e5600698">inf::TreeSplitter::PathPartitionPtr</a></div><div class="ttdeci">std::shared_ptr&lt; PathPartition &gt; PathPartitionPtr</div><div class="ttdef"><b>Definition</b> <a href="tree__splitter_8h_source.html#l00066">tree_splitter.h:66</a></div></div>
+<div class="ttc" id="aclassinf_1_1TreeSplitter_html_a31d039cb9148d382156d269f8c9bb80f"><div class="ttname"><a href="classinf_1_1TreeSplitter.html#a31d039cb9148d382156d269f8c9bb80f">inf::TreeSplitter::target_quality_factor</a></div><div class="ttdeci">static double const target_quality_factor</div><div class="ttdoc">This is an upper bound on the ratio , where  ( ) is the number of leaves of the subtree with the most...</div><div class="ttdef"><b>Definition</b> <a href="tree__splitter_8h_source.html#l00071">tree_splitter.h:71</a></div></div>
+<div class="ttc" id="aclassinf_1_1TreeSplitter_html_a3e087b58aec02b07998d35e5a14952d7"><div class="ttname"><a href="classinf_1_1TreeSplitter.html#a3e087b58aec02b07998d35e5a14952d7">inf::TreeSplitter::try_to_split_at_depth</a></div><div class="ttdeci">bool try_to_split_at_depth(Index const depth)</div><div class="ttdoc">This method returns true if the split was successful, in which case m_path_partition is appropriately...</div><div class="ttdef"><b>Definition</b> <a href="tree__splitter_8cpp_source.html#l00074">tree_splitter.cpp:74</a></div></div>
+<div class="ttc" id="aclassinf_1_1TreeSplitter_html_a5dd6ba21ce908f82c0e8452a4e9ae785"><div class="ttname"><a href="classinf_1_1TreeSplitter.html#a5dd6ba21ce908f82c0e8452a4e9ae785">inf::TreeSplitter::m_n_splits</a></div><div class="ttdeci">Index const m_n_splits</div><div class="ttdoc">The size of the desired partition of the inf::EventTree. Typically, this corresponds to the number of...</div><div class="ttdef"><b>Definition</b> <a href="tree__splitter_8h_source.html#l00115">tree_splitter.h:115</a></div></div>
+<div class="ttc" id="aclassinf_1_1TreeSplitter_html_a5fb0385e00760c8fd014cd44d0806764"><div class="ttname"><a href="classinf_1_1TreeSplitter.html#a5fb0385e00760c8fd014cd44d0806764">inf::TreeSplitter::Path</a></div><div class="ttdeci">std::vector&lt; Index &gt; Path</div><div class="ttdoc">A path from the root to a (typically non-terminal) node of an inf::EventTree.</div><div class="ttdef"><b>Definition</b> <a href="tree__splitter_8h_source.html#l00055">tree_splitter.h:55</a></div></div>
+<div class="ttc" id="aclassinf_1_1TreeSplitter_html_abf26e3c85871c94ee6970d573e2cd0a3"><div class="ttname"><a href="classinf_1_1TreeSplitter.html#abf26e3c85871c94ee6970d573e2cd0a3">inf::TreeSplitter::PathPartition</a></div><div class="ttdeci">std::vector&lt; std::vector&lt; Path &gt; &gt; PathPartition</div><div class="ttdoc">A path partition is a list of subtrees, where a subtree is represented a list of inf::TreeSplitter::P...</div><div class="ttdef"><b>Definition</b> <a href="tree__splitter_8h_source.html#l00065">tree_splitter.h:65</a></div></div>
+<div class="ttc" id="aclassinf_1_1TreeSplitter_html_acb451a56e9e430ed313a5c9fcffb03f1"><div class="ttname"><a href="classinf_1_1TreeSplitter.html#acb451a56e9e430ed313a5c9fcffb03f1">inf::TreeSplitter::find_splits</a></div><div class="ttdeci">bool find_splits(std::vector&lt; Index &gt; &amp;splits, std::vector&lt; PathAndLeaves &gt; const &amp;paths_and_leaves) const</div><div class="ttdoc">Attemps to divide the paths_and_leaves vector into almost-equal (in terms of number of leaves) consec...</div><div class="ttdef"><b>Definition</b> <a href="tree__splitter_8cpp_source.html#l00187">tree_splitter.cpp:187</a></div></div>
+<div class="ttc" id="aclassinf_1_1TreeSplitter_html_acbd3fff17b0029083b181998c1c1f5d4"><div class="ttname"><a href="classinf_1_1TreeSplitter.html#acbd3fff17b0029083b181998c1c1f5d4">inf::TreeSplitter::m_leave_thresholds</a></div><div class="ttdeci">std::vector&lt; Index &gt; m_leave_thresholds</div><div class="ttdoc">This list takes the form {0, n, 2n, ...} where n is the hoped-for number of leaves per subtree....</div><div class="ttdef"><b>Definition</b> <a href="tree__splitter_8h_source.html#l00123">tree_splitter.h:123</a></div></div>
+<div class="ttc" id="aclassinf_1_1TreeSplitter_html_ae0ba7ca1dc677a7edf501f12f12dd0dd"><div class="ttname"><a href="classinf_1_1TreeSplitter.html#ae0ba7ca1dc677a7edf501f12f12dd0dd">inf::TreeSplitter::PathPartitionConstPtr</a></div><div class="ttdeci">std::shared_ptr&lt; const PathPartition &gt; PathPartitionConstPtr</div><div class="ttdef"><b>Definition</b> <a href="tree__splitter_8h_source.html#l00067">tree_splitter.h:67</a></div></div>
+<div class="ttc" id="aclassinf_1_1TreeSplitter_html_aed7afa3a973bfd755c57ab48ecaa0ac7"><div class="ttname"><a href="classinf_1_1TreeSplitter.html#aed7afa3a973bfd755c57ab48ecaa0ac7">inf::TreeSplitter::m_quality_factor</a></div><div class="ttdeci">double m_quality_factor</div><div class="ttdoc">The ratio between the max and min number of leaves per subtree of the partition. Should be close to 1...</div><div class="ttdef"><b>Definition</b> <a href="tree__splitter_8h_source.html#l00117">tree_splitter.h:117</a></div></div>
+<div class="ttc" id="aclassinf_1_1TreeSplitter_html_af009fb3e525a3002f02cac6914eeeed9"><div class="ttname"><a href="classinf_1_1TreeSplitter.html#af009fb3e525a3002f02cac6914eeeed9">inf::TreeSplitter::m_path_partition</a></div><div class="ttdeci">PathPartitionPtr m_path_partition</div><div class="ttdoc">A list of size m_n_splits, each of which is a list of Path describing a subtree.</div><div class="ttdef"><b>Definition</b> <a href="tree__splitter_8h_source.html#l00120">tree_splitter.h:120</a></div></div>
+<div class="ttc" id="aevent__tree_8h_html"><div class="ttname"><a href="event__tree_8h.html">event_tree.h</a></div></div>
+<div class="ttc" id="agroup__util_html_ga77731aedac326062ffbdcf367185a07e"><div class="ttname"><a href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a></div><div class="ttdeci">uint64_t Index</div><div class="ttdoc">Use for anything meant to be used as an index.</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00019">types.h:19</a></div></div>
+<div class="ttc" id="anamespaceinf_html"><div class="ttname"><a href="namespaceinf.html">inf</a></div><div class="ttdoc">The namespace for the inflation code.</div><div class="ttdef"><b>Definition</b> <a href="constraint_8h_source.html#l00006">constraint.h:6</a></div></div>
+<div class="ttc" id="astructinf_1_1TreeSplitter_1_1PathAndLeaves_html"><div class="ttname"><a href="structinf_1_1TreeSplitter_1_1PathAndLeaves.html">inf::TreeSplitter::PathAndLeaves</a></div><div class="ttdoc">We will look at the set of paths that finish at a certain depth, and we need to know the number of (n...</div><div class="ttdef"><b>Definition</b> <a href="tree__splitter_8h_source.html#l00059">tree_splitter.h:59</a></div></div>
+<div class="ttc" id="astructinf_1_1TreeSplitter_1_1PathAndLeaves_html_a7b7692f896629d83f53d7a9943d839ec"><div class="ttname"><a href="structinf_1_1TreeSplitter_1_1PathAndLeaves.html#a7b7692f896629d83f53d7a9943d839ec">inf::TreeSplitter::PathAndLeaves::n_leaves</a></div><div class="ttdeci">Index n_leaves</div><div class="ttdef"><b>Definition</b> <a href="tree__splitter_8h_source.html#l00061">tree_splitter.h:61</a></div></div>
+<div class="ttc" id="astructinf_1_1TreeSplitter_1_1PathAndLeaves_html_ae5cef849738c43692435cd934c40926c"><div class="ttname"><a href="structinf_1_1TreeSplitter_1_1PathAndLeaves.html#ae5cef849738c43692435cd934c40926c">inf::TreeSplitter::PathAndLeaves::path</a></div><div class="ttdeci">Path path</div><div class="ttdef"><b>Definition</b> <a href="tree__splitter_8h_source.html#l00060">tree_splitter.h:60</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_0f453feda2a303bb77c09f5934c109df.html">inf</a></li><li class="navelem"><a class="el" href="dir_1243aa0eff7b525c411128cc646aae72.html">events</a></li><li class="navelem"><a class="el" href="tree__splitter_8h.html">tree_splitter.h</a></li>
+    <li class="footer">Generated on Wed Dec 18 2024 17:39:36 for Fast Inflation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

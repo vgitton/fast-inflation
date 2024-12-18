@@ -1,0 +1,269 @@
+<!-- HTML header for doxygen 1.9.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Fast Inflation: Member List</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+MathJax.Hub.Config({
+    TeX: {
+        Macros: {
+            dd: ["{\\text{d}#1\\,}",1],
+            nouts: ["{n_{\\text{o}}}"],
+            ints: ["{[\\![#1]\\!]}",1],
+            outset: ["{\\ints{\\nouts}}"],
+            N: ["{\\mathbb{N}}"],
+            R: ["{\\mathbb{R}}"],
+            Z: ["{\\mathbb{Z}}"],
+            infsize: ["{z}"],
+            infparties: ["{\\set{I}}"],
+            infsources: ["{\\set{S}}"],
+            infmarg: ["{\\set{A}}"],
+            infmargg: ["{\\set{B}}"],
+            netparties: ["{\\set{N}}"],
+            infq: ["{q}"],
+            infqs: ["{\\Delta_{\\infparties}}"],
+            constraintlist: ["{\\mathcal{C}}"],
+            injsets: ["{\\text{InjSets}}"],
+            infconstraints: ["{\\text{InfCons}}"],
+            parents: ["{\\text{Par}}"],
+            targetp: ["{p}"],
+            targetps: ["{\\Delta_{\\netparties}}"],
+            set: ["{\\mathbf{#1}}",1],
+            type: ["{t}"],
+            infevent: "{\\omega}",
+            events: ["{\\Omega_{#1}}",1],
+            infevents: ["{\\events{\\infparties}}"],
+            redinfevents: ["{\\tilde{\\Omega}_{\\infparties}}"],
+            netevents: ["{\\events{\\netparties}}"],
+            vecset: ["{V_{#1}}",1],
+            alice: ["{\\text{A}}"],
+            bob: ["{\\text{B}}"],
+            charlie: ["{\\text{C}}"],
+            symgroup: ["{\\text{Sym}(#1)}",1],
+            shortsymgroup: ["{\\text{Sym}_{#1}}",1],
+            act: ["{(#1\\hspace{2pt}{:}\\hspace{2pt}#2)}",2],
+            actt: ["{[#1\\hspace{2pt}{:}\\hspace{2pt}#2]}",2],
+            margperms: ["{\\text{Perm}_{#1}}",1],
+            permutedmargs: ["{\\mathbb{P}_{#1}^{\\targetp}}",1],
+            redpermutedmargs: ["{\\tilde{\\mathbb{P}}_{#1}^{\\constraintname,\\targetp}}",1],
+            extract: ["{\\text{ext}(#1,#2)}",2],
+            partysym: ["{\\tau}"],
+            sourcesym: ["{\\xi}"],
+            outsym: ["{\\sigma}"],
+            fullgroup: ["{\\text{InfGrp}}"],
+            partygroup : ["{\\text{PartyGrp}}"],
+            outgroup: ["{\\text{OutGrp}}"],
+            sourcegroup: ["{\\text{SrcGrp}}"],
+            distrgroup: ["{\\mathbb{G}^\\targetp}"],
+            constraintname: ["{c}"],
+            marggroup: ["{\\mathbb{G}^{\\constraintname,\\targetp}}"],
+            fullsymexpl: ["{(\\sourcesym,\\partysym,\\outsym)}"],
+            inner: ["{\\langle#1,#2\\rangle}", 2],
+            quovec: ["{f}"],
+            totconstraintmap: ["{K^{\\constraintlist,\\targetp}}"],
+            totconstraintmapelem: ["{K^{\\constraintname,\\targetp}}"],
+            quovecspace: ["{\\tilde{V}_{#1}^{\\constraintname,\\targetp}}", 1],
+            totquovecspace: ["{\\text{ConsSpace}(\\constraintlist,\\targetp)}"],
+            detdistr: ["{\\delta^{#1}}", 1],
+            margperm: ["{\\varphi}"],
+            altquovecembed: ["{\\text{G}_{#1}^{\\constraintname,\\targetp}}", 1],
+            vecset: ["{V_{#1}}", 1],
+            repr: ["{\\lfloor#1\\rfloor}", 1],
+            gid: ["{\\text{id}}"],
+            id: ["{1_{#1}}",1],
+            consscale: ["{K}"],
+            scaletot: ["{K_{\\text{tot}}^{\\constraintlist,\\targetp}}"],
+            minnorm: ["{d}"],
+            Bigsetst: ["\\;\\Big|\\;"],
+            activeset: ["\\mathcal{S}"],
+            conv: ["\\text{conv}"],
+            lVert: ["|\\hspace{-1pt}|"],
+            norm: ["\\lVert#1\\lVert", 1],
+            st: [":\ "],
+        }
+    }
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeDarkModeToggle.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeParagraphLink.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Fast Inflation
+   </div>
+   <div id="projectbrief">To certify causal incompatibility</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classinf_1_1DualVector.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">inf::DualVector Member List</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>This is the complete list of members for <a class="el" href="classinf_1_1DualVector.html">inf::DualVector</a>, including all inherited members.</p>
+<table class="directory">
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1DualVector.html#ac8512fb844f08801480e9df967ea8769">BoundRule</a> typedef</td><td class="entry"><a class="el" href="classinf_1_1DualVector.html">inf::DualVector</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1DualVector.html#a3ac0be707f8f14bf1e429fcb6b17f9a0">BoundType</a> enum name</td><td class="entry"><a class="el" href="classinf_1_1DualVector.html">inf::DualVector</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1DualVector.html#a626a13e68bcabbf18efae5c8cd6f1567">compute_weights</a>(Index n_parties, inf::Outcome n_outcomes, inf::DualVector::StoreBounds store_bounds)</td><td class="entry"><a class="el" href="classinf_1_1DualVector.html">inf::DualVector</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1DualVector.html#a5ddbea2143c42f2bbbcf361c39bd7a45">DualVector</a>(inf::Marginal const &amp;marginal, inf::DualVector::BoundType bound_type)</td><td class="entry"><a class="el" href="classinf_1_1DualVector.html">inf::DualVector</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1TensorWithOrbits.html#a09fcfd7f0c8c753a8e63c161b313d772">get_event_range</a>() const override</td><td class="entry"><a class="el" href="classinf_1_1TensorWithOrbits.html">inf::TensorWithOrbits</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1TensorWithOrbits.html#ac7a873f9c37d20248a9f902f69aa27af">get_event_tensor</a>() const</td><td class="entry"><a class="el" href="classinf_1_1TensorWithOrbits.html">inf::TensorWithOrbits</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1DualVector.html#ac5245461094db93bca9b1485f5322db4">get_event_to_quovec_index</a>() const</td><td class="entry"><a class="el" href="classinf_1_1DualVector.html">inf::DualVector</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1DualVector.html#ab6af4757eeabf48b07392f34df2bbc2f">get_inflation</a>() const</td><td class="entry"><a class="el" href="classinf_1_1DualVector.html">inf::DualVector</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1DualVector.html#a81e2913269e41e2c57c0941113178795">get_math_name</a>() const override</td><td class="entry"><a class="el" href="classinf_1_1DualVector.html">inf::DualVector</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1TensorWithOrbits.html#a4557f73cfbab33775e70c0e202ca09c8">get_n_events</a>() const override</td><td class="entry"><a class="el" href="classinf_1_1TensorWithOrbits.html">inf::TensorWithOrbits</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1Orbitable.html#a99544b7fb94b81957e20601859c42782">get_n_orbits</a>() const</td><td class="entry"><a class="el" href="classinf_1_1Orbitable.html">inf::Orbitable</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1DualVector.html#a2bb62dee0c86469348cc49ed3b001b8f">get_n_orbits_no_unknown</a>() const</td><td class="entry"><a class="el" href="classinf_1_1DualVector.html">inf::DualVector</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1DualVector.html#a2195ab6ae1897eff28abee9629eda675">get_n_orbits_with_unknown</a>() const</td><td class="entry"><a class="el" href="classinf_1_1DualVector.html">inf::DualVector</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1TensorWithOrbits.html#ac7304f6f5f10788da5dfa2ce67eadc7c">get_n_parties</a>() const override</td><td class="entry"><a class="el" href="classinf_1_1TensorWithOrbits.html">inf::TensorWithOrbits</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1DualVector.html#a460ae9be024af38dc2d2dad80bb6c8a2">get_orbit_repr_no_unknown</a>() const</td><td class="entry"><a class="el" href="classinf_1_1DualVector.html">inf::DualVector</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1Orbitable.html#aef04cd8a458a13472f5b95105929e6b4">get_orbits</a>() const</td><td class="entry"><a class="el" href="classinf_1_1Orbitable.html">inf::Orbitable</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1DualVector.html#a704636660183462ef8caaa6e10977461">get_outcomes_per_party</a>(inf::Outcome n_outcomes, inf::DualVector::StoreBounds store_bounds)</td><td class="entry"><a class="el" href="classinf_1_1DualVector.html">inf::DualVector</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1Orbitable.html#aa5ea13afb9a9ff79aef84054ea4c1dd4">get_sym_group</a>() const</td><td class="entry"><a class="el" href="classinf_1_1Orbitable.html">inf::Orbitable</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1DualVector.html#aca99682fc244d48099098978dfceb70b">hard_assert_within_bound</a>(Num const bound) const</td><td class="entry"><a class="el" href="classinf_1_1DualVector.html">inf::DualVector</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1DualVector.html#aeff5addd3fb125cb58f81e9bdd46784c">init_bound_rules</a>()</td><td class="entry"><a class="el" href="classinf_1_1DualVector.html">inf::DualVector</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1TensorWithOrbits.html#a2a5be48925ad57042c14c906553d6573">init_event_tensor</a>(inf::EventTensor const &amp;event_tensor)</td><td class="entry"><a class="el" href="classinf_1_1TensorWithOrbits.html">inf::TensorWithOrbits</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1DualVector.html#a4a0a54b98384ba4062c053d2b2ce024a">init_orbits</a>(inf::Symmetry::Group const &amp;marginal_symmetries)</td><td class="entry"><a class="el" href="classinf_1_1DualVector.html">inf::DualVector</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1DualVector.html#af6b54ca3e5bc46dd8437e9c278d54aac">init_quovec_index_maps</a>()</td><td class="entry"><a class="el" href="classinf_1_1DualVector.html">inf::DualVector</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1DualVector.html#a5748f067eaba001eaf1ab03fc0732f60">io</a>(util::FileStream &amp;stream) override</td><td class="entry"><a class="el" href="classinf_1_1DualVector.html">inf::DualVector</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1DualVector.html#a086bb3a10b5cb6caa769a0681dfc7f6c">log</a>(inf::DualVector::StoreBounds store_bounds)</td><td class="entry"><a class="el" href="classinf_1_1DualVector.html">inf::DualVector</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1TensorWithOrbits.html#a4ead21bd50b7b7f4d0205cde2e438697">inf::TensorWithOrbits::log</a>() const override</td><td class="entry"><a class="el" href="classinf_1_1TensorWithOrbits.html">inf::TensorWithOrbits</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1TensorWithOrbits.html#a550a78c21ad9431412e9c078511e61bc">log_data_long</a>() const</td><td class="entry"><a class="el" href="classinf_1_1TensorWithOrbits.html">inf::TensorWithOrbits</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1TensorWithOrbits.html#a684c4e242a113339d8f240eaa5688b8e">log_data_short</a>() const</td><td class="entry"><a class="el" href="classinf_1_1TensorWithOrbits.html">inf::TensorWithOrbits</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1DualVector.html#ae036c425e933fe336eb779eb635e7c02">log_event</a>(inf::Event const &amp;event) const override</td><td class="entry"><a class="el" href="classinf_1_1DualVector.html">inf::DualVector</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1DualVector.html#ad4bbedd7af0dc10736905db790af4237">log_header</a>() const override</td><td class="entry"><a class="el" href="classinf_1_1DualVector.html">inf::DualVector</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1TensorWithOrbits.html#a4ce37323ac010f1a6103e44962221dc3">log_long</a>() const</td><td class="entry"><a class="el" href="classinf_1_1TensorWithOrbits.html">inf::TensorWithOrbits</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1Orbitable.html#a26be8965202f85195ef4becd8223e2e6">log_orbits</a>(bool shorten) const</td><td class="entry"><a class="el" href="classinf_1_1Orbitable.html">inf::Orbitable</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1TensorWithOrbits.html#aac154b6a858b0899210ddf0922ac2fd7">log_short</a>() const</td><td class="entry"><a class="el" href="classinf_1_1TensorWithOrbits.html">inf::TensorWithOrbits</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1Orbitable.html#a01b9c37488618495b331c32a7449dd90">log_sym_group</a>() const</td><td class="entry"><a class="el" href="classinf_1_1Orbitable.html">inf::Orbitable</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1DualVector.html#aa0d7a32f8203f83b0274306091db1e18">m_bound_rules</a></td><td class="entry"><a class="el" href="classinf_1_1DualVector.html">inf::DualVector</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1DualVector.html#ad5d592d1d0aff51481f95e06a63c4e23">m_bound_type</a></td><td class="entry"><a class="el" href="classinf_1_1DualVector.html">inf::DualVector</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1TensorWithOrbits.html#a2a4fb7f187427bb1022659421230ce59">m_event_tensor</a></td><td class="entry"><a class="el" href="classinf_1_1TensorWithOrbits.html">inf::TensorWithOrbits</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1DualVector.html#ab1412817958efad10ac222be11507523">m_event_to_quovec_index</a></td><td class="entry"><a class="el" href="classinf_1_1DualVector.html">inf::DualVector</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1DualVector.html#ae7fd350bc544d55295f14f096c159a33">m_inflation</a></td><td class="entry"><a class="el" href="classinf_1_1DualVector.html">inf::DualVector</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1DualVector.html#a0df7cf085fd3d780cb830269619837cc">m_n_orbits_no_unknown</a></td><td class="entry"><a class="el" href="classinf_1_1DualVector.html">inf::DualVector</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1DualVector.html#ae60705ba714e3860785dbb6c00b31e01">m_orbit_repr_no_unknown</a></td><td class="entry"><a class="el" href="classinf_1_1DualVector.html">inf::DualVector</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1Orbitable.html#af0b5df58c28e730a3bd9f9f0f0102a77">m_orbits</a></td><td class="entry"><a class="el" href="classinf_1_1Orbitable.html">inf::Orbitable</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1Orbitable.html#a469eff31a9f610b8b2d6977fd245aaea">m_orbits_initialized</a></td><td class="entry"><a class="el" href="classinf_1_1Orbitable.html">inf::Orbitable</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1DualVector.html#a910c50c1d26b0a425132af0ff7964031">m_quovec_index_to_orbit</a></td><td class="entry"><a class="el" href="classinf_1_1DualVector.html">inf::DualVector</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1DualVector.html#a0e2c9d3a7678940f18312d85d2a93aa6">m_store_bounds</a></td><td class="entry"><a class="el" href="classinf_1_1DualVector.html">inf::DualVector</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1Orbitable.html#aeab7eb37046e998275f4e4ca0e0b58b6">m_sym_group</a></td><td class="entry"><a class="el" href="classinf_1_1Orbitable.html">inf::Orbitable</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1DualVector.html#a365def0ad68d68231ec4e98819f67fda">min_or_max</a>(Num const a, Num const b) const</td><td class="entry"><a class="el" href="classinf_1_1DualVector.html">inf::DualVector</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1Orbitable.html#a4982dcc25e609ae4793de4471f141b97">Orbit</a> typedef</td><td class="entry"><a class="el" href="classinf_1_1Orbitable.html">inf::Orbitable</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1Orbitable.html#a8fe3e6c3cbb7eb0643380eafdd121040">Orbitable</a>()</td><td class="entry"><a class="el" href="classinf_1_1Orbitable.html">inf::Orbitable</a></td><td class="entry"><span class="mlabel">explicit</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1Orbitable.html#aa01c9267c0fb19a1b7d6b38f00dccf58">OrbitMap</a> typedef</td><td class="entry"><a class="el" href="classinf_1_1Orbitable.html">inf::Orbitable</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1Orbitable.html#acbbe4fa5a804ad11b84b4af02663c65b">OrbitPair</a> typedef</td><td class="entry"><a class="el" href="classinf_1_1Orbitable.html">inf::Orbitable</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1Orbitable.html#a7ad16720debff531d58e8a6ea4392ec3">orbits_initialized</a>() const</td><td class="entry"><a class="el" href="classinf_1_1Orbitable.html">inf::Orbitable</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1DualVector.html#a0f118cadbce3a9b4d087aed2bfe3bbc5">set_from_quovec</a>(inf::Quovec const &amp;quovec, inf::QuovecIndex start_pos)</td><td class="entry"><a class="el" href="classinf_1_1DualVector.html">inf::DualVector</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1DualVector.html#a1eab1c59d704da54ecfdada3f30e6942">set_orbit_coeff</a>(inf::QuovecIndex quovec_index, Num coeff)</td><td class="entry"><a class="el" href="classinf_1_1DualVector.html">inf::DualVector</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1DualVector.html#a615feaafdbd4a08901a07ad60260d398">StoreBounds</a> enum name</td><td class="entry"><a class="el" href="classinf_1_1DualVector.html">inf::DualVector</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classinf_1_1TensorWithOrbits.html#a5a38b5c5598dc0a7a01770a45cee0d22">TensorWithOrbits</a>(Index n_parties, inf::Outcome base)</td><td class="entry"><a class="el" href="classinf_1_1TensorWithOrbits.html">inf::TensorWithOrbits</a></td><td class="entry"><span class="mlabel">explicit</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classinf_1_1DualVector.html#ae75d4d2e2f9bf637558789adc6ae94b3">UniquePtr</a> typedef</td><td class="entry"><a class="el" href="classinf_1_1DualVector.html">inf::DualVector</a></td><td class="entry"></td></tr>
+</table></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Wed Dec 18 2024 17:39:41 for Fast Inflation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

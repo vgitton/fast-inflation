@@ -1,0 +1,321 @@
+<!-- HTML header for doxygen 1.9.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Fast Inflation: src/inf/constraints/constraint_set.h Source File</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+MathJax.Hub.Config({
+    TeX: {
+        Macros: {
+            dd: ["{\\text{d}#1\\,}",1],
+            nouts: ["{n_{\\text{o}}}"],
+            ints: ["{[\\![#1]\\!]}",1],
+            outset: ["{\\ints{\\nouts}}"],
+            N: ["{\\mathbb{N}}"],
+            R: ["{\\mathbb{R}}"],
+            Z: ["{\\mathbb{Z}}"],
+            infsize: ["{z}"],
+            infparties: ["{\\set{I}}"],
+            infsources: ["{\\set{S}}"],
+            infmarg: ["{\\set{A}}"],
+            infmargg: ["{\\set{B}}"],
+            netparties: ["{\\set{N}}"],
+            infq: ["{q}"],
+            infqs: ["{\\Delta_{\\infparties}}"],
+            constraintlist: ["{\\mathcal{C}}"],
+            injsets: ["{\\text{InjSets}}"],
+            infconstraints: ["{\\text{InfCons}}"],
+            parents: ["{\\text{Par}}"],
+            targetp: ["{p}"],
+            targetps: ["{\\Delta_{\\netparties}}"],
+            set: ["{\\mathbf{#1}}",1],
+            type: ["{t}"],
+            infevent: "{\\omega}",
+            events: ["{\\Omega_{#1}}",1],
+            infevents: ["{\\events{\\infparties}}"],
+            redinfevents: ["{\\tilde{\\Omega}_{\\infparties}}"],
+            netevents: ["{\\events{\\netparties}}"],
+            vecset: ["{V_{#1}}",1],
+            alice: ["{\\text{A}}"],
+            bob: ["{\\text{B}}"],
+            charlie: ["{\\text{C}}"],
+            symgroup: ["{\\text{Sym}(#1)}",1],
+            shortsymgroup: ["{\\text{Sym}_{#1}}",1],
+            act: ["{(#1\\hspace{2pt}{:}\\hspace{2pt}#2)}",2],
+            actt: ["{[#1\\hspace{2pt}{:}\\hspace{2pt}#2]}",2],
+            margperms: ["{\\text{Perm}_{#1}}",1],
+            permutedmargs: ["{\\mathbb{P}_{#1}^{\\targetp}}",1],
+            redpermutedmargs: ["{\\tilde{\\mathbb{P}}_{#1}^{\\constraintname,\\targetp}}",1],
+            extract: ["{\\text{ext}(#1,#2)}",2],
+            partysym: ["{\\tau}"],
+            sourcesym: ["{\\xi}"],
+            outsym: ["{\\sigma}"],
+            fullgroup: ["{\\text{InfGrp}}"],
+            partygroup : ["{\\text{PartyGrp}}"],
+            outgroup: ["{\\text{OutGrp}}"],
+            sourcegroup: ["{\\text{SrcGrp}}"],
+            distrgroup: ["{\\mathbb{G}^\\targetp}"],
+            constraintname: ["{c}"],
+            marggroup: ["{\\mathbb{G}^{\\constraintname,\\targetp}}"],
+            fullsymexpl: ["{(\\sourcesym,\\partysym,\\outsym)}"],
+            inner: ["{\\langle#1,#2\\rangle}", 2],
+            quovec: ["{f}"],
+            totconstraintmap: ["{K^{\\constraintlist,\\targetp}}"],
+            totconstraintmapelem: ["{K^{\\constraintname,\\targetp}}"],
+            quovecspace: ["{\\tilde{V}_{#1}^{\\constraintname,\\targetp}}", 1],
+            totquovecspace: ["{\\text{ConsSpace}(\\constraintlist,\\targetp)}"],
+            detdistr: ["{\\delta^{#1}}", 1],
+            margperm: ["{\\varphi}"],
+            altquovecembed: ["{\\text{G}_{#1}^{\\constraintname,\\targetp}}", 1],
+            vecset: ["{V_{#1}}", 1],
+            repr: ["{\\lfloor#1\\rfloor}", 1],
+            gid: ["{\\text{id}}"],
+            id: ["{1_{#1}}",1],
+            consscale: ["{K}"],
+            scaletot: ["{K_{\\text{tot}}^{\\constraintlist,\\targetp}}"],
+            minnorm: ["{d}"],
+            Bigsetst: ["\\;\\Big|\\;"],
+            activeset: ["\\mathcal{S}"],
+            conv: ["\\text{conv}"],
+            lVert: ["|\\hspace{-1pt}|"],
+            norm: ["\\lVert#1\\lVert", 1],
+            st: [":\ "],
+        }
+    }
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeDarkModeToggle.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeParagraphLink.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Fast Inflation
+   </div>
+   <div id="projectbrief">To certify causal incompatibility</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('constraint__set_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">constraint_set.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="constraint__set_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="constraint_8h.html">constraint.h</a>&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceinf.html">inf</a> {</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="classinf_1_1ConstraintSet.html">   29</a></span><span class="keyword">class </span><a class="code hl_class" href="classinf_1_1ConstraintSet.html">ConstraintSet</a> : <span class="keyword">public</span> <a class="code hl_class" href="classutil_1_1Loggable.html">util::Loggable</a> {</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="classinf_1_1ConstraintSet.html#ae1ca6aedd9bb271719b185fd0ef0f194">   31</a></span>    <span class="keyword">typedef</span> std::shared_ptr&lt;inf::ConstraintSet&gt; <a class="code hl_typedef" href="classinf_1_1ConstraintSet.html#ae1ca6aedd9bb271719b185fd0ef0f194">Ptr</a>;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="classinf_1_1ConstraintSet.html#a03de00b33554963f8743b469ae41126f">   32</a></span>    <span class="keyword">typedef</span> std::shared_ptr&lt;const inf::ConstraintSet&gt; <a class="code hl_typedef" href="classinf_1_1ConstraintSet.html#a03de00b33554963f8743b469ae41126f">ConstPtr</a>;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="classinf_1_1ConstraintSet.html#a08a03fd03aea0d150a2174064cc3fa37">   37</a></span>    <span class="keyword">typedef</span> std::vector&lt;inf::Constraint::Description&gt; <a class="code hl_typedef" href="classinf_1_1ConstraintSet.html#a08a03fd03aea0d150a2174064cc3fa37">Description</a>;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <a class="code hl_class" href="classinf_1_1ConstraintSet.html">ConstraintSet</a>(<a class="code hl_typedef" href="classinf_1_1Inflation.html#ac594d5b8d7cbdd7cdfe569baa351f0ba">inf::Inflation::ConstPtr</a> <span class="keyword">const</span> &amp;inflation,</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>                  <a class="code hl_typedef" href="classinf_1_1ConstraintSet.html#a08a03fd03aea0d150a2174064cc3fa37">inf::ConstraintSet::Description</a> <span class="keyword">const</span> &amp;constraints,</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>                  <a class="code hl_enumeration" href="classinf_1_1DualVector.html#a615feaafdbd4a08901a07ad60260d398">inf::DualVector::StoreBounds</a> store_bounds);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <a class="code hl_class" href="classinf_1_1ConstraintSet.html">ConstraintSet</a>(<a class="code hl_class" href="classinf_1_1ConstraintSet.html">ConstraintSet</a> <span class="keyword">const</span> &amp;other) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <a class="code hl_class" href="classinf_1_1ConstraintSet.html">ConstraintSet</a>(<a class="code hl_class" href="classinf_1_1ConstraintSet.html">ConstraintSet</a> &amp;&amp;other) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <a class="code hl_class" href="classinf_1_1ConstraintSet.html">ConstraintSet</a> &amp;operator=(<a class="code hl_class" href="classinf_1_1ConstraintSet.html">ConstraintSet</a> <span class="keyword">const</span> &amp;other) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <a class="code hl_class" href="classinf_1_1ConstraintSet.html">ConstraintSet</a> &amp;operator=(<a class="code hl_class" href="classinf_1_1ConstraintSet.html">ConstraintSet</a> &amp;&amp;other) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="comment">// Logging</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1ConstraintSet.html#a904f169ffc7d83d1a89e6ddf172e971d">log</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1ConstraintSet.html#a013370a0bcd418f8afdf18a3ac7cdbe8">log_dual_vectors</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="comment">// Getters</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <a class="code hl_typedef" href="classinf_1_1Inflation.html#ac594d5b8d7cbdd7cdfe569baa351f0ba">inf::Inflation::ConstPtr</a> <span class="keyword">const</span> &amp;<a class="code hl_function" href="classinf_1_1ConstraintSet.html#aac18a3e9eec538bef886a434b2113c71">get_inflation</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <a class="code hl_enumeration" href="classinf_1_1DualVector.html#a615feaafdbd4a08901a07ad60260d398">inf::DualVector::StoreBounds</a> <a class="code hl_function" href="classinf_1_1ConstraintSet.html#a539c4e10b165747b7c66ba2b26c5a35b">get_store_bounds</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <a class="code hl_function" href="classinf_1_1ConstraintSet.html#a2f647aaecc2a8ce00873fcacaf6f827a">get_quovec_size</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <a class="code hl_typedef" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a> <a class="code hl_function" href="classinf_1_1ConstraintSet.html#aff102c56d819813d913a738360f8d8f9">get_max_dual_vector_component</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <a class="code hl_class" href="classinf_1_1Marginal_1_1EvaluatorSet.html">inf::Marginal::EvaluatorSet</a> <a class="code hl_function" href="classinf_1_1ConstraintSet.html#ad6f595cb0067c61653228294592db040">get_marg_evaluators</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="comment">// Setters</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1ConstraintSet.html#aab71db55e40fa6543ebe7f2b013fc150">set_target_distribution</a>(<a class="code hl_class" href="classinf_1_1TargetDistr.html">inf::TargetDistr</a> <span class="keyword">const</span> &amp;d);</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1ConstraintSet.html#a9ffcaa2938719ef1be1b4853909525b1">set_dual_vector_from_quovec</a>(<a class="code hl_typedef" href="group__infcons.html#ga8fa19943a83fd41acae30b7bcc935295">inf::Quovec</a> <span class="keyword">const</span> &amp;coeffs);</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="comment">// Evaluation</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <a class="code hl_typedef" href="group__infcons.html#ga8fa19943a83fd41acae30b7bcc935295">inf::Quovec</a> <a class="code hl_function" href="classinf_1_1ConstraintSet.html#af3978bd76651b03e0c721c0cebbd7559">get_inflation_event_quovec</a>(<a class="code hl_typedef" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> <span class="keyword">const</span> &amp;inflation_event) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classinf_1_1ConstraintSet.html#a87041af2b9fb04dee4c238eddcd93de0">get_quovec_denom</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    <span class="comment">// Serialization</span></div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1ConstraintSet.html#a67b94bc21f590851d38d08482364d49d">write_dual_vector_to_file</a>(std::string <span class="keyword">const</span> &amp;filename, std::string <span class="keyword">const</span> &amp;metadata);</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1ConstraintSet.html#aedcbf7151dc048bb246f189a54c361f2">read_dual_vector_from_file</a>(std::string <span class="keyword">const</span> &amp;filename, std::string <span class="keyword">const</span> &amp;metadata);</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>  <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1ConstraintSet.html#a46f36f2a44b43ed2806aeb803d6ecdcb">io_dual_vector</a>(<a class="code hl_class" href="classutil_1_1FileStream.html">util::FileStream</a> &amp;stream);</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span> </div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno"><a class="line" href="classinf_1_1ConstraintSet.html#ac1571360431b69672cb5bbb262ff8fc8">  141</a></span>    <span class="keyword">const</span> <a class="code hl_typedef" href="classinf_1_1Inflation.html#ac594d5b8d7cbdd7cdfe569baa351f0ba">inf::Inflation::ConstPtr</a> <a class="code hl_variable" href="classinf_1_1ConstraintSet.html#ac1571360431b69672cb5bbb262ff8fc8">m_inflation</a>;</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span> </div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno"><a class="line" href="classinf_1_1ConstraintSet.html#a02633b7ef12937280d4a961dfa98b567">  145</a></span>    std::vector&lt;inf::Constraint::UniquePtr&gt; <a class="code hl_variable" href="classinf_1_1ConstraintSet.html#a02633b7ef12937280d4a961dfa98b567">m_constraints</a>;</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno"><a class="line" href="classinf_1_1ConstraintSet.html#a1ca10d587f2fb568b9d0a499bf4865f9">  148</a></span>    <a class="code hl_enumeration" href="classinf_1_1DualVector.html#a615feaafdbd4a08901a07ad60260d398">inf::DualVector::StoreBounds</a> <a class="code hl_variable" href="classinf_1_1ConstraintSet.html#a1ca10d587f2fb568b9d0a499bf4865f9">m_store_bounds</a>;</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span> </div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno"><a class="line" href="classinf_1_1ConstraintSet.html#a6e4ccad11678862a57d33dce76e3fff8">  151</a></span>    <a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <a class="code hl_variable" href="classinf_1_1ConstraintSet.html#a6e4ccad11678862a57d33dce76e3fff8">m_quovec_size</a>;</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1ConstraintSet.html#a323259a21078259dcb43e3cea751ed0d">init_quovec_size</a>();</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    <span class="comment">// Arithmetic</span></div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span> </div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno"><a class="line" href="classinf_1_1ConstraintSet.html#a0da496dd5d4e0aec556f48173e1b53cb">  158</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="classinf_1_1ConstraintSet.html#a0da496dd5d4e0aec556f48173e1b53cb">m_quovec_denom</a>;</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno"><a class="line" href="classinf_1_1ConstraintSet.html#a39585524a28d2fe77be9a83f06c0ec82">  160</a></span>    <a class="code hl_typedef" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a> <a class="code hl_variable" href="classinf_1_1ConstraintSet.html#a39585524a28d2fe77be9a83f06c0ec82">m_max_dual_vector_component</a>;</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1ConstraintSet.html#af649f8cfbbc0aed6c141d7ae25956554">update_constraint_scale_factors</a>();</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1ConstraintSet.html#aeb5f3096d09640af3fa608ccf3ab1e45">hard_assert_quovecs_within_bound</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>};</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span> </div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>} <span class="comment">// namespace inf</span></div>
+<div class="ttc" id="aclassinf_1_1ConstraintSet_html"><div class="ttname"><a href="classinf_1_1ConstraintSet.html">inf::ConstraintSet</a></div><div class="ttdoc">A set of inf::Constraint that, together with the inflation size, determines the inflation problem at ...</div><div class="ttdef"><b>Definition</b> <a href="constraint__set_8h_source.html#l00029">constraint_set.h:29</a></div></div>
+<div class="ttc" id="aclassinf_1_1ConstraintSet_html_a013370a0bcd418f8afdf18a3ac7cdbe8"><div class="ttname"><a href="classinf_1_1ConstraintSet.html#a013370a0bcd418f8afdf18a3ac7cdbe8">inf::ConstraintSet::log_dual_vectors</a></div><div class="ttdeci">void log_dual_vectors() const</div><div class="ttdoc">Logs the current values held in each internal inf::DualVector.</div><div class="ttdef"><b>Definition</b> <a href="constraint__set_8cpp_source.html#l00052">constraint_set.cpp:52</a></div></div>
+<div class="ttc" id="aclassinf_1_1ConstraintSet_html_a02633b7ef12937280d4a961dfa98b567"><div class="ttname"><a href="classinf_1_1ConstraintSet.html#a02633b7ef12937280d4a961dfa98b567">inf::ConstraintSet::m_constraints</a></div><div class="ttdeci">std::vector&lt; inf::Constraint::UniquePtr &gt; m_constraints</div><div class="ttdoc">The list of inf::Constraint.</div><div class="ttdef"><b>Definition</b> <a href="constraint__set_8h_source.html#l00145">constraint_set.h:145</a></div></div>
+<div class="ttc" id="aclassinf_1_1ConstraintSet_html_a03de00b33554963f8743b469ae41126f"><div class="ttname"><a href="classinf_1_1ConstraintSet.html#a03de00b33554963f8743b469ae41126f">inf::ConstraintSet::ConstPtr</a></div><div class="ttdeci">std::shared_ptr&lt; const inf::ConstraintSet &gt; ConstPtr</div><div class="ttdef"><b>Definition</b> <a href="constraint__set_8h_source.html#l00032">constraint_set.h:32</a></div></div>
+<div class="ttc" id="aclassinf_1_1ConstraintSet_html_a08a03fd03aea0d150a2174064cc3fa37"><div class="ttname"><a href="classinf_1_1ConstraintSet.html#a08a03fd03aea0d150a2174064cc3fa37">inf::ConstraintSet::Description</a></div><div class="ttdeci">std::vector&lt; inf::Constraint::Description &gt; Description</div><div class="ttdoc">A text description of the set of constraints, see inf::ConstraintParser for the format of each inf::C...</div><div class="ttdef"><b>Definition</b> <a href="constraint__set_8h_source.html#l00037">constraint_set.h:37</a></div></div>
+<div class="ttc" id="aclassinf_1_1ConstraintSet_html_a0da496dd5d4e0aec556f48173e1b53cb"><div class="ttname"><a href="classinf_1_1ConstraintSet.html#a0da496dd5d4e0aec556f48173e1b53cb">inf::ConstraintSet::m_quovec_denom</a></div><div class="ttdeci">double m_quovec_denom</div><div class="ttdoc">This is used to be able to bring back the quovecs into a normalized floating point form,...</div><div class="ttdef"><b>Definition</b> <a href="constraint__set_8h_source.html#l00158">constraint_set.h:158</a></div></div>
+<div class="ttc" id="aclassinf_1_1ConstraintSet_html_a1ca10d587f2fb568b9d0a499bf4865f9"><div class="ttname"><a href="classinf_1_1ConstraintSet.html#a1ca10d587f2fb568b9d0a499bf4865f9">inf::ConstraintSet::m_store_bounds</a></div><div class="ttdeci">inf::DualVector::StoreBounds m_store_bounds</div><div class="ttdoc">This is stored to be retrievable by the inf::Optimizer.</div><div class="ttdef"><b>Definition</b> <a href="constraint__set_8h_source.html#l00148">constraint_set.h:148</a></div></div>
+<div class="ttc" id="aclassinf_1_1ConstraintSet_html_a2f647aaecc2a8ce00873fcacaf6f827a"><div class="ttname"><a href="classinf_1_1ConstraintSet.html#a2f647aaecc2a8ce00873fcacaf6f827a">inf::ConstraintSet::get_quovec_size</a></div><div class="ttdeci">Index get_quovec_size() const</div><div class="ttdoc">The size of the list representation of a quovec .</div><div class="ttdef"><b>Definition</b> <a href="constraint__set_8cpp_source.html#l00072">constraint_set.cpp:72</a></div></div>
+<div class="ttc" id="aclassinf_1_1ConstraintSet_html_a323259a21078259dcb43e3cea751ed0d"><div class="ttname"><a href="classinf_1_1ConstraintSet.html#a323259a21078259dcb43e3cea751ed0d">inf::ConstraintSet::init_quovec_size</a></div><div class="ttdeci">void init_quovec_size()</div><div class="ttdoc">Initializes m_quovec_size</div><div class="ttdef"><b>Definition</b> <a href="constraint__set_8cpp_source.html#l00160">constraint_set.cpp:160</a></div></div>
+<div class="ttc" id="aclassinf_1_1ConstraintSet_html_a39585524a28d2fe77be9a83f06c0ec82"><div class="ttname"><a href="classinf_1_1ConstraintSet.html#a39585524a28d2fe77be9a83f06c0ec82">inf::ConstraintSet::m_max_dual_vector_component</a></div><div class="ttdeci">Num m_max_dual_vector_component</div><div class="ttdoc">This is the maximal value a dual vector entry can take to be guaranteed to never overflow,...</div><div class="ttdef"><b>Definition</b> <a href="constraint__set_8h_source.html#l00160">constraint_set.h:160</a></div></div>
+<div class="ttc" id="aclassinf_1_1ConstraintSet_html_a46f36f2a44b43ed2806aeb803d6ecdcb"><div class="ttname"><a href="classinf_1_1ConstraintSet.html#a46f36f2a44b43ed2806aeb803d6ecdcb">inf::ConstraintSet::io_dual_vector</a></div><div class="ttdeci">void io_dual_vector(util::FileStream &amp;stream)</div><div class="ttdoc">This is used by write_dual_vector_to_file() and read_dual_vector_from_file()</div><div class="ttdef"><b>Definition</b> <a href="constraint__set_8cpp_source.html#l00148">constraint_set.cpp:148</a></div></div>
+<div class="ttc" id="aclassinf_1_1ConstraintSet_html_a539c4e10b165747b7c66ba2b26c5a35b"><div class="ttname"><a href="classinf_1_1ConstraintSet.html#a539c4e10b165747b7c66ba2b26c5a35b">inf::ConstraintSet::get_store_bounds</a></div><div class="ttdeci">inf::DualVector::StoreBounds get_store_bounds() const</div><div class="ttdoc">Whether or not each underlying inf::DualVector members store upper/lower bounds.</div><div class="ttdef"><b>Definition</b> <a href="constraint__set_8cpp_source.html#l00068">constraint_set.cpp:68</a></div></div>
+<div class="ttc" id="aclassinf_1_1ConstraintSet_html_a67b94bc21f590851d38d08482364d49d"><div class="ttname"><a href="classinf_1_1ConstraintSet.html#a67b94bc21f590851d38d08482364d49d">inf::ConstraintSet::write_dual_vector_to_file</a></div><div class="ttdeci">void write_dual_vector_to_file(std::string const &amp;filename, std::string const &amp;metadata)</div><div class="ttdoc">This saves the current dual vector held by inf::ConstraintSet to a text file.</div><div class="ttdef"><b>Definition</b> <a href="constraint__set_8cpp_source.html#l00134">constraint_set.cpp:134</a></div></div>
+<div class="ttc" id="aclassinf_1_1ConstraintSet_html_a6e4ccad11678862a57d33dce76e3fff8"><div class="ttname"><a href="classinf_1_1ConstraintSet.html#a6e4ccad11678862a57d33dce76e3fff8">inf::ConstraintSet::m_quovec_size</a></div><div class="ttdeci">Index m_quovec_size</div><div class="ttdoc">The sum of each constraint's quovec size, see inf::ConstraintSet::get_quovec_size()</div><div class="ttdef"><b>Definition</b> <a href="constraint__set_8h_source.html#l00151">constraint_set.h:151</a></div></div>
+<div class="ttc" id="aclassinf_1_1ConstraintSet_html_a87041af2b9fb04dee4c238eddcd93de0"><div class="ttname"><a href="classinf_1_1ConstraintSet.html#a87041af2b9fb04dee4c238eddcd93de0">inf::ConstraintSet::get_quovec_denom</a></div><div class="ttdeci">double get_quovec_denom() const</div><div class="ttdoc">This is the total scale factor  that appears in both inner product evaluation and quovec calculations...</div><div class="ttdef"><b>Definition</b> <a href="constraint__set_8cpp_source.html#l00128">constraint_set.cpp:128</a></div></div>
+<div class="ttc" id="aclassinf_1_1ConstraintSet_html_a904f169ffc7d83d1a89e6ddf172e971d"><div class="ttname"><a href="classinf_1_1ConstraintSet.html#a904f169ffc7d83d1a89e6ddf172e971d">inf::ConstraintSet::log</a></div><div class="ttdeci">void log() const override</div><div class="ttdoc">This prints the object to the globally accessible util::logger and allows the util::logger &lt;&lt; loggabl...</div><div class="ttdef"><b>Definition</b> <a href="constraint__set_8cpp_source.html#l00029">constraint_set.cpp:29</a></div></div>
+<div class="ttc" id="aclassinf_1_1ConstraintSet_html_a9ffcaa2938719ef1be1b4853909525b1"><div class="ttname"><a href="classinf_1_1ConstraintSet.html#a9ffcaa2938719ef1be1b4853909525b1">inf::ConstraintSet::set_dual_vector_from_quovec</a></div><div class="ttdeci">void set_dual_vector_from_quovec(inf::Quovec const &amp;coeffs)</div><div class="ttdoc">This updates every internal inf::DualVector.</div><div class="ttdef"><b>Definition</b> <a href="constraint__set_8cpp_source.html#l00102">constraint_set.cpp:102</a></div></div>
+<div class="ttc" id="aclassinf_1_1ConstraintSet_html_aab71db55e40fa6543ebe7f2b013fc150"><div class="ttname"><a href="classinf_1_1ConstraintSet.html#aab71db55e40fa6543ebe7f2b013fc150">inf::ConstraintSet::set_target_distribution</a></div><div class="ttdeci">void set_target_distribution(inf::TargetDistr const &amp;d)</div><div class="ttdoc">This updates every internal inf::Constraint with this target distribution.</div><div class="ttdef"><b>Definition</b> <a href="constraint__set_8cpp_source.html#l00094">constraint_set.cpp:94</a></div></div>
+<div class="ttc" id="aclassinf_1_1ConstraintSet_html_aac18a3e9eec538bef886a434b2113c71"><div class="ttname"><a href="classinf_1_1ConstraintSet.html#aac18a3e9eec538bef886a434b2113c71">inf::ConstraintSet::get_inflation</a></div><div class="ttdeci">inf::Inflation::ConstPtr const &amp; get_inflation() const</div><div class="ttdoc">Returns the underlying inflation.</div><div class="ttdef"><b>Definition</b> <a href="constraint__set_8cpp_source.html#l00064">constraint_set.cpp:64</a></div></div>
+<div class="ttc" id="aclassinf_1_1ConstraintSet_html_ac1571360431b69672cb5bbb262ff8fc8"><div class="ttname"><a href="classinf_1_1ConstraintSet.html#ac1571360431b69672cb5bbb262ff8fc8">inf::ConstraintSet::m_inflation</a></div><div class="ttdeci">const inf::Inflation::ConstPtr m_inflation</div><div class="ttdoc">The underlying inflation.</div><div class="ttdef"><b>Definition</b> <a href="constraint__set_8h_source.html#l00141">constraint_set.h:141</a></div></div>
+<div class="ttc" id="aclassinf_1_1ConstraintSet_html_ad6f595cb0067c61653228294592db040"><div class="ttname"><a href="classinf_1_1ConstraintSet.html#ad6f595cb0067c61653228294592db040">inf::ConstraintSet::get_marg_evaluators</a></div><div class="ttdeci">inf::Marginal::EvaluatorSet get_marg_evaluators() const</div><div class="ttdoc">The set of inf::Marginal::Evaluator, allowing to efficiently evaluate inner products.</div><div class="ttdef"><b>Definition</b> <a href="constraint__set_8cpp_source.html#l00080">constraint_set.cpp:80</a></div></div>
+<div class="ttc" id="aclassinf_1_1ConstraintSet_html_ae1ca6aedd9bb271719b185fd0ef0f194"><div class="ttname"><a href="classinf_1_1ConstraintSet.html#ae1ca6aedd9bb271719b185fd0ef0f194">inf::ConstraintSet::Ptr</a></div><div class="ttdeci">std::shared_ptr&lt; inf::ConstraintSet &gt; Ptr</div><div class="ttdef"><b>Definition</b> <a href="constraint__set_8h_source.html#l00031">constraint_set.h:31</a></div></div>
+<div class="ttc" id="aclassinf_1_1ConstraintSet_html_aeb5f3096d09640af3fa608ccf3ab1e45"><div class="ttname"><a href="classinf_1_1ConstraintSet.html#aeb5f3096d09640af3fa608ccf3ab1e45">inf::ConstraintSet::hard_assert_quovecs_within_bound</a></div><div class="ttdeci">void hard_assert_quovecs_within_bound() const</div><div class="ttdoc">This method checks that the internal inf::DualVector held by each inf::Constraint has components no b...</div><div class="ttdef"><b>Definition</b> <a href="constraint__set_8cpp_source.html#l00283">constraint_set.cpp:283</a></div></div>
+<div class="ttc" id="aclassinf_1_1ConstraintSet_html_aedcbf7151dc048bb246f189a54c361f2"><div class="ttname"><a href="classinf_1_1ConstraintSet.html#aedcbf7151dc048bb246f189a54c361f2">inf::ConstraintSet::read_dual_vector_from_file</a></div><div class="ttdeci">void read_dual_vector_from_file(std::string const &amp;filename, std::string const &amp;metadata)</div><div class="ttdoc">This reads the current dual vector held by inf::ConstraintSet from a text file.</div><div class="ttdef"><b>Definition</b> <a href="constraint__set_8cpp_source.html#l00139">constraint_set.cpp:139</a></div></div>
+<div class="ttc" id="aclassinf_1_1ConstraintSet_html_af3978bd76651b03e0c721c0cebbd7559"><div class="ttname"><a href="classinf_1_1ConstraintSet.html#af3978bd76651b03e0c721c0cebbd7559">inf::ConstraintSet::get_inflation_event_quovec</a></div><div class="ttdeci">inf::Quovec get_inflation_event_quovec(inf::Event const &amp;inflation_event) const</div><div class="ttdoc">This returns .</div><div class="ttdef"><b>Definition</b> <a href="constraint__set_8cpp_source.html#l00115">constraint_set.cpp:115</a></div></div>
+<div class="ttc" id="aclassinf_1_1ConstraintSet_html_af649f8cfbbc0aed6c141d7ae25956554"><div class="ttname"><a href="classinf_1_1ConstraintSet.html#af649f8cfbbc0aed6c141d7ae25956554">inf::ConstraintSet::update_constraint_scale_factors</a></div><div class="ttdeci">void update_constraint_scale_factors()</div><div class="ttdoc">This arithmetic method looks at the denominators of the LHS and RHS of each constraint,...</div><div class="ttdef"><b>Definition</b> <a href="constraint__set_8cpp_source.html#l00211">constraint_set.cpp:211</a></div></div>
+<div class="ttc" id="aclassinf_1_1ConstraintSet_html_aff102c56d819813d913a738360f8d8f9"><div class="ttname"><a href="classinf_1_1ConstraintSet.html#aff102c56d819813d913a738360f8d8f9">inf::ConstraintSet::get_max_dual_vector_component</a></div><div class="ttdeci">Num get_max_dual_vector_component() const</div><div class="ttdoc">The max overflow-safe value that can be held by a dual vector.</div><div class="ttdef"><b>Definition</b> <a href="constraint__set_8cpp_source.html#l00076">constraint_set.cpp:76</a></div></div>
+<div class="ttc" id="aclassinf_1_1DualVector_html_a615feaafdbd4a08901a07ad60260d398"><div class="ttname"><a href="classinf_1_1DualVector.html#a615feaafdbd4a08901a07ad60260d398">inf::DualVector::StoreBounds</a></div><div class="ttdeci">StoreBounds</div><div class="ttdoc">This controls whether or not an inf::DualVector will store some bounds.</div><div class="ttdef"><b>Definition</b> <a href="dual__vector_8h_source.html#l00084">dual_vector.h:84</a></div></div>
+<div class="ttc" id="aclassinf_1_1Inflation_html_ac594d5b8d7cbdd7cdfe569baa351f0ba"><div class="ttname"><a href="classinf_1_1Inflation.html#ac594d5b8d7cbdd7cdfe569baa351f0ba">inf::Inflation::ConstPtr</a></div><div class="ttdeci">std::shared_ptr&lt; const inf::Inflation &gt; ConstPtr</div><div class="ttdef"><b>Definition</b> <a href="inflation_8h_source.html#l00072">inflation.h:72</a></div></div>
+<div class="ttc" id="aclassinf_1_1Marginal_1_1EvaluatorSet_html"><div class="ttname"><a href="classinf_1_1Marginal_1_1EvaluatorSet.html">inf::Marginal::EvaluatorSet</a></div><div class="ttdoc">This class is a convenience for storing multiple inf::Marginal::Evaluator and adding up their results...</div><div class="ttdef"><b>Definition</b> <a href="marginal_8h_source.html#l00173">marginal.h:173</a></div></div>
+<div class="ttc" id="aclassinf_1_1TargetDistr_html"><div class="ttname"><a href="classinf_1_1TargetDistr.html">inf::TargetDistr</a></div><div class="ttdoc">A distribution over an inf::Network.</div><div class="ttdef"><b>Definition</b> <a href="target__distr_8h_source.html#l00031">target_distr.h:31</a></div></div>
+<div class="ttc" id="aclassutil_1_1FileStream_html"><div class="ttname"><a href="classutil_1_1FileStream.html">util::FileStream</a></div><div class="ttdoc">This abstract class provides a common interface to util::InputFileStream and util::OutputFileStream t...</div><div class="ttdef"><b>Definition</b> <a href="file__stream_8h_source.html#l00098">file_stream.h:98</a></div></div>
+<div class="ttc" id="aclassutil_1_1Loggable_html"><div class="ttname"><a href="classutil_1_1Loggable.html">util::Loggable</a></div><div class="ttdoc">Defines printable classes.</div><div class="ttdef"><b>Definition</b> <a href="loggable_8h_source.html#l00009">loggable.h:9</a></div></div>
+<div class="ttc" id="aconstraint_8h_html"><div class="ttname"><a href="constraint_8h.html">constraint.h</a></div></div>
+<div class="ttc" id="agroup__event_html_gac60a6fcdfce02dc13eb7364d6a2b56b0"><div class="ttname"><a href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a></div><div class="ttdeci">std::vector&lt; inf::Outcome &gt; Event</div><div class="ttdoc">A list of inf::Outcome. Conceptually, this plays the role of  for some set .</div><div class="ttdef"><b>Definition</b> <a href="event_8h_source.html#l00030">event.h:30</a></div></div>
+<div class="ttc" id="agroup__infcons_html_ga8fa19943a83fd41acae30b7bcc935295"><div class="ttname"><a href="group__infcons.html#ga8fa19943a83fd41acae30b7bcc935295">inf::Quovec</a></div><div class="ttdeci">std::vector&lt; Num &gt; Quovec</div><div class="ttdoc">A &quot;quotiented vector&quot; denotes an element of some  for some .</div><div class="ttdef"><b>Definition</b> <a href="dual__vector_8h_source.html#l00029">dual_vector.h:29</a></div></div>
+<div class="ttc" id="agroup__util_html_ga77731aedac326062ffbdcf367185a07e"><div class="ttname"><a href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a></div><div class="ttdeci">uint64_t Index</div><div class="ttdoc">Use for anything meant to be used as an index.</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00019">types.h:19</a></div></div>
+<div class="ttc" id="agroup__util_html_gaea24f8b468377784fdb704692e9168f5"><div class="ttname"><a href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a></div><div class="ttdeci">int64_t Num</div><div class="ttdoc">Signed integers.</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00015">types.h:15</a></div></div>
+<div class="ttc" id="anamespaceinf_html"><div class="ttname"><a href="namespaceinf.html">inf</a></div><div class="ttdoc">The namespace for the inflation code.</div><div class="ttdef"><b>Definition</b> <a href="constraint_8h_source.html#l00006">constraint.h:6</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_0f453feda2a303bb77c09f5934c109df.html">inf</a></li><li class="navelem"><a class="el" href="dir_70aecdc092d65e330aa359045744aeda.html">constraints</a></li><li class="navelem"><a class="el" href="constraint__set_8h.html">constraint_set.h</a></li>
+    <li class="footer">Generated on Wed Dec 18 2024 17:39:35 for Fast Inflation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

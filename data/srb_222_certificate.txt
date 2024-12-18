@@ -1,0 +1,34 @@
+5
+A nonlocality certificate for the Shared Random Bit with visibility 41422/100000 = 41.422% obtained with inflation size 2x2x2 and all LPI constraints
+METADATA
+Network name: Triangle network; Outcomes per party: 2; Inflation size: 2x2x2; Using the 12 symmetries of the distribution SRB; The inflation has 96 symmetries
+CONSTRAINT SET
+q(A00,B00,C00 , A11,B11,C11) = p(A00,B00,C00) * p(A11,B11,C11)
+q(A00 , A11,B10,B11,C01,C11) = p(A00) * q(A11,B10,B11,C01,C11)
+DUAL VECTOR
+q(A00,B00,C00 , A11,B11,C11) = p(A00,B00,C00) * p(A11,B11,C11)
+8
+-51984
++aee3
++10a48
+-6f6ab
++12542
++3d520
++4c8b8
++93e8
+q(A00 , A11,B10,B11,C01,C11) = p(A00) * q(A11,B10,B11,C01,C11)
+e
++43cee
+-5272
+-4e1d3
+-6597e
++57531
+-91da
++3be1d
+-3be1d
++91da
++4e1d3
++6597e
+-57531
++5272
+-43cee

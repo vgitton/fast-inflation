@@ -1,0 +1,485 @@
+<!-- HTML header for doxygen 1.9.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Fast Inflation: util::ProductIterator&lt; T &gt; Class Template Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+MathJax.Hub.Config({
+    TeX: {
+        Macros: {
+            dd: ["{\\text{d}#1\\,}",1],
+            nouts: ["{n_{\\text{o}}}"],
+            ints: ["{[\\![#1]\\!]}",1],
+            outset: ["{\\ints{\\nouts}}"],
+            N: ["{\\mathbb{N}}"],
+            R: ["{\\mathbb{R}}"],
+            Z: ["{\\mathbb{Z}}"],
+            infsize: ["{z}"],
+            infparties: ["{\\set{I}}"],
+            infsources: ["{\\set{S}}"],
+            infmarg: ["{\\set{A}}"],
+            infmargg: ["{\\set{B}}"],
+            netparties: ["{\\set{N}}"],
+            infq: ["{q}"],
+            infqs: ["{\\Delta_{\\infparties}}"],
+            constraintlist: ["{\\mathcal{C}}"],
+            injsets: ["{\\text{InjSets}}"],
+            infconstraints: ["{\\text{InfCons}}"],
+            parents: ["{\\text{Par}}"],
+            targetp: ["{p}"],
+            targetps: ["{\\Delta_{\\netparties}}"],
+            set: ["{\\mathbf{#1}}",1],
+            type: ["{t}"],
+            infevent: "{\\omega}",
+            events: ["{\\Omega_{#1}}",1],
+            infevents: ["{\\events{\\infparties}}"],
+            redinfevents: ["{\\tilde{\\Omega}_{\\infparties}}"],
+            netevents: ["{\\events{\\netparties}}"],
+            vecset: ["{V_{#1}}",1],
+            alice: ["{\\text{A}}"],
+            bob: ["{\\text{B}}"],
+            charlie: ["{\\text{C}}"],
+            symgroup: ["{\\text{Sym}(#1)}",1],
+            shortsymgroup: ["{\\text{Sym}_{#1}}",1],
+            act: ["{(#1\\hspace{2pt}{:}\\hspace{2pt}#2)}",2],
+            actt: ["{[#1\\hspace{2pt}{:}\\hspace{2pt}#2]}",2],
+            margperms: ["{\\text{Perm}_{#1}}",1],
+            permutedmargs: ["{\\mathbb{P}_{#1}^{\\targetp}}",1],
+            redpermutedmargs: ["{\\tilde{\\mathbb{P}}_{#1}^{\\constraintname,\\targetp}}",1],
+            extract: ["{\\text{ext}(#1,#2)}",2],
+            partysym: ["{\\tau}"],
+            sourcesym: ["{\\xi}"],
+            outsym: ["{\\sigma}"],
+            fullgroup: ["{\\text{InfGrp}}"],
+            partygroup : ["{\\text{PartyGrp}}"],
+            outgroup: ["{\\text{OutGrp}}"],
+            sourcegroup: ["{\\text{SrcGrp}}"],
+            distrgroup: ["{\\mathbb{G}^\\targetp}"],
+            constraintname: ["{c}"],
+            marggroup: ["{\\mathbb{G}^{\\constraintname,\\targetp}}"],
+            fullsymexpl: ["{(\\sourcesym,\\partysym,\\outsym)}"],
+            inner: ["{\\langle#1,#2\\rangle}", 2],
+            quovec: ["{f}"],
+            totconstraintmap: ["{K^{\\constraintlist,\\targetp}}"],
+            totconstraintmapelem: ["{K^{\\constraintname,\\targetp}}"],
+            quovecspace: ["{\\tilde{V}_{#1}^{\\constraintname,\\targetp}}", 1],
+            totquovecspace: ["{\\text{ConsSpace}(\\constraintlist,\\targetp)}"],
+            detdistr: ["{\\delta^{#1}}", 1],
+            margperm: ["{\\varphi}"],
+            altquovecembed: ["{\\text{G}_{#1}^{\\constraintname,\\targetp}}", 1],
+            vecset: ["{V_{#1}}", 1],
+            repr: ["{\\lfloor#1\\rfloor}", 1],
+            gid: ["{\\text{id}}"],
+            id: ["{1_{#1}}",1],
+            consscale: ["{K}"],
+            scaletot: ["{K_{\\text{tot}}^{\\constraintlist,\\targetp}}"],
+            minnorm: ["{d}"],
+            Bigsetst: ["\\;\\Big|\\;"],
+            activeset: ["\\mathcal{S}"],
+            conv: ["\\text{conv}"],
+            lVert: ["|\\hspace{-1pt}|"],
+            norm: ["\\lVert#1\\lVert", 1],
+            st: [":\ "],
+        }
+    }
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeDarkModeToggle.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeParagraphLink.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Fast Inflation
+   </div>
+   <div id="projectbrief">To certify causal incompatibility</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classutil_1_1ProductIterator.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="#related">Related Symbols</a> &#124;
+<a href="classutil_1_1ProductIterator-members.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">util::ProductIterator&lt; T &gt; Class Template Reference<div class="ingroups"><a class="el" href="group__util.html">Utilities</a> &raquo; <a class="el" href="group__ranges.html">Ranges</a> &raquo; <a class="el" href="group__iteratorranges.html">Iterators</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &quot;<a class="el" href="product__range_8h_source.html">util/product_range.h</a>&quot;</code></p>
+<a name="details" id="details"></a><h2 class="groupheader">Class description</h2>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename T&gt;<br />
+class util::ProductIterator&lt; T &gt;</div><p>Iterator over <code>std::vector&lt;T&gt;</code>, see <a class="el" href="classutil_1_1ProductRange.html" title="This class implements a range over std::vector&lt;T&gt;, akin to Python product ranges.">util::ProductRange</a> </p>
+<p>This class should not be used directly, use <a class="el" href="classutil_1_1ProductRange.html" title="This class implements a range over std::vector&lt;T&gt;, akin to Python product ranges.">util::ProductRange</a> and range-based for loops instead </p>
+
+<p class="definition">Definition at line <a class="el" href="product__range_8h_source.html#l00015">15</a> of file <a class="el" href="product__range_8h_source.html">product_range.h</a>.</p>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:aa60ff85d95c929cc9bcbcfd869fb402a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1ProductIterator.html#aa60ff85d95c929cc9bcbcfd869fb402a">ProductIterator</a> (std::vector&lt; T &gt; const &amp;bases)</td></tr>
+<tr class="memdesc:aa60ff85d95c929cc9bcbcfd869fb402a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the internal vector to all zeros.  <br /></td></tr>
+<tr class="separator:aa60ff85d95c929cc9bcbcfd869fb402a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4379f598f5b308d0a5b22084866b8ef"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classutil_1_1ProductIterator.html">util::ProductIterator</a>&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1ProductIterator.html#ad4379f598f5b308d0a5b22084866b8ef">operator++</a> ()</td></tr>
+<tr class="memdesc:ad4379f598f5b308d0a5b22084866b8ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Increments the internal <code>std::vector&lt;T&gt;</code>.  <br /></td></tr>
+<tr class="separator:ad4379f598f5b308d0a5b22084866b8ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6807733d5403e6c5c8cc43fcd3d0372"><td class="memItemLeft" align="right" valign="top">std::vector&lt; T &gt; const &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1ProductIterator.html#ab6807733d5403e6c5c8cc43fcd3d0372">operator*</a> () const</td></tr>
+<tr class="memdesc:ab6807733d5403e6c5c8cc43fcd3d0372"><td class="mdescLeft">&#160;</td><td class="mdescRight">To get the internal <code>std::vector&lt;T&gt;</code>.  <br /></td></tr>
+<tr class="separator:ab6807733d5403e6c5c8cc43fcd3d0372"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d331df9ab92846c436bc69d3a854e00"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1ProductIterator.html#a2d331df9ab92846c436bc69d3a854e00">is_not_done</a> () const</td></tr>
+<tr class="memdesc:a2d331df9ab92846c436bc69d3a854e00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns <code>true</code> is more iterations are available.  <br /></td></tr>
+<tr class="separator:a2d331df9ab92846c436bc69d3a854e00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a899748b03fce72c19c27b1ac03f06ebb"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1ProductIterator.html#a899748b03fce72c19c27b1ac03f06ebb">m_last_party</a></td></tr>
+<tr class="memdesc:a899748b03fce72c19c27b1ac03f06ebb"><td class="mdescLeft">&#160;</td><td class="mdescRight">It is convenient to store the index of the last party, i.e., <code>bases.size()-1</code>, where <code>bases</code> was passed to the constructor.  <br /></td></tr>
+<tr class="separator:a899748b03fce72c19c27b1ac03f06ebb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d3248f471a9c760dc73c330cb9a782b"><td class="memItemLeft" align="right" valign="top">std::vector&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1ProductIterator.html#a1d3248f471a9c760dc73c330cb9a782b">m_event</a></td></tr>
+<tr class="memdesc:a1d3248f471a9c760dc73c330cb9a782b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The current list of numbers.  <br /></td></tr>
+<tr class="separator:a1d3248f471a9c760dc73c330cb9a782b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac62bb5fce3e0f787bd607b5e74d58609"><td class="memItemLeft" align="right" valign="top">std::vector&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1ProductIterator.html#ac62bb5fce3e0f787bd607b5e74d58609">m_last_outcomes</a></td></tr>
+<tr class="memdesc:ac62bb5fce3e0f787bd607b5e74d58609"><td class="mdescLeft">&#160;</td><td class="mdescRight">We want to allow for different number of outcomes for each party.  <br /></td></tr>
+<tr class="separator:ac62bb5fce3e0f787bd607b5e74d58609"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53e5baf6b1db4eb88c7d6c81adaec0f5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1ProductIterator.html#a53e5baf6b1db4eb88c7d6c81adaec0f5">m_is_not_done</a></td></tr>
+<tr class="memdesc:a53e5baf6b1db4eb88c7d6c81adaec0f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to signal that the iteration is over (i.e., has reached back to <code>(0,0,...0)</code>)  <br /></td></tr>
+<tr class="separator:a53e5baf6b1db4eb88c7d6c81adaec0f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="related" name="related"></a>
+Related Symbols</h2></td></tr>
+<tr><td class="ititle" colspan="2"><p>(Note that these are not member symbols.) </p>
+</td></tr>
+<tr class="memitem:gab7aa311ec846d13ec47ad47a1ed65b11"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:gab7aa311ec846d13ec47ad47a1ed65b11"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__iteratorranges.html#gab7aa311ec846d13ec47ad47a1ed65b11">operator!=</a> (<a class="el" href="classutil_1_1ProductIterator.html">util::ProductIterator</a>&lt; T &gt; const &amp;it, bool unused)</td></tr>
+<tr class="memdesc:gab7aa311ec846d13ec47ad47a1ed65b11"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns <code>true</code> if the iteration should continue.  <br /></td></tr>
+<tr class="separator:gab7aa311ec846d13ec47ad47a1ed65b11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="aa60ff85d95c929cc9bcbcfd869fb402a" name="aa60ff85d95c929cc9bcbcfd869fb402a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa60ff85d95c929cc9bcbcfd869fb402a">&#9670;&#160;</a></span>ProductIterator()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classutil_1_1ProductIterator.html">util::ProductIterator</a>&lt; T &gt;::ProductIterator </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; T &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>bases</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initializes the internal vector to all zeros. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bases</td><td>The idea is that each vector entry counts up in a separate base. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="product__range_8cpp_source.html#l00004">4</a> of file <a class="el" href="product__range_8cpp_source.html">product_range.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="ad4379f598f5b308d0a5b22084866b8ef" name="ad4379f598f5b308d0a5b22084866b8ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4379f598f5b308d0a5b22084866b8ef">&#9670;&#160;</a></span>operator++()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classutil_1_1ProductIterator.html">util::ProductIterator</a>&lt; T &gt; &amp; <a class="el" href="classutil_1_1ProductIterator.html">util::ProductIterator</a>&lt; T &gt;::operator++</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Increments the internal <code>std::vector&lt;T&gt;</code>. </p>
+<dl class="section return"><dt>Returns</dt><dd><code>*this</code> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="product__range_8cpp_source.html#l00016">16</a> of file <a class="el" href="product__range_8cpp_source.html">product_range.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ab6807733d5403e6c5c8cc43fcd3d0372" name="ab6807733d5403e6c5c8cc43fcd3d0372"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab6807733d5403e6c5c8cc43fcd3d0372">&#9670;&#160;</a></span>operator*()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; T &gt; const  &amp; <a class="el" href="classutil_1_1ProductIterator.html">util::ProductIterator</a>&lt; T &gt;::operator*</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>To get the internal <code>std::vector&lt;T&gt;</code>. </p>
+
+<p class="definition">Definition at line <a class="el" href="product__range_8cpp_source.html#l00036">36</a> of file <a class="el" href="product__range_8cpp_source.html">product_range.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a2d331df9ab92846c436bc69d3a854e00" name="a2d331df9ab92846c436bc69d3a854e00"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d331df9ab92846c436bc69d3a854e00">&#9670;&#160;</a></span>is_not_done()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classutil_1_1ProductIterator.html">util::ProductIterator</a>&lt; T &gt;::is_not_done </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns <code>true</code> is more iterations are available. </p>
+
+<p class="definition">Definition at line <a class="el" href="product__range_8h_source.html#l00033">33</a> of file <a class="el" href="product__range_8h_source.html">product_range.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a899748b03fce72c19c27b1ac03f06ebb" name="a899748b03fce72c19c27b1ac03f06ebb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a899748b03fce72c19c27b1ac03f06ebb">&#9670;&#160;</a></span>m_last_party</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t <a class="el" href="classutil_1_1ProductIterator.html">util::ProductIterator</a>&lt; T &gt;::m_last_party</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>It is convenient to store the index of the last party, i.e., <code>bases.size()-1</code>, where <code>bases</code> was passed to the constructor. </p>
+
+<p class="definition">Definition at line <a class="el" href="product__range_8h_source.html#l00037">37</a> of file <a class="el" href="product__range_8h_source.html">product_range.h</a>.</p>
+
+</div>
+</div>
+<a id="a1d3248f471a9c760dc73c330cb9a782b" name="a1d3248f471a9c760dc73c330cb9a782b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d3248f471a9c760dc73c330cb9a782b">&#9670;&#160;</a></span>m_event</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;T&gt; <a class="el" href="classutil_1_1ProductIterator.html">util::ProductIterator</a>&lt; T &gt;::m_event</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The current list of numbers. </p>
+
+<p class="definition">Definition at line <a class="el" href="product__range_8h_source.html#l00039">39</a> of file <a class="el" href="product__range_8h_source.html">product_range.h</a>.</p>
+
+</div>
+</div>
+<a id="ac62bb5fce3e0f787bd607b5e74d58609" name="ac62bb5fce3e0f787bd607b5e74d58609"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac62bb5fce3e0f787bd607b5e74d58609">&#9670;&#160;</a></span>m_last_outcomes</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;T&gt; <a class="el" href="classutil_1_1ProductIterator.html">util::ProductIterator</a>&lt; T &gt;::m_last_outcomes</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>We want to allow for different number of outcomes for each party. </p>
+<p>This is the same as the <code>bases</code> parameter of the constructor, but with each entry being one less than in <code>bases</code>. </p>
+
+<p class="definition">Definition at line <a class="el" href="product__range_8h_source.html#l00043">43</a> of file <a class="el" href="product__range_8h_source.html">product_range.h</a>.</p>
+
+</div>
+</div>
+<a id="a53e5baf6b1db4eb88c7d6c81adaec0f5" name="a53e5baf6b1db4eb88c7d6c81adaec0f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53e5baf6b1db4eb88c7d6c81adaec0f5">&#9670;&#160;</a></span>m_is_not_done</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classutil_1_1ProductIterator.html">util::ProductIterator</a>&lt; T &gt;::m_is_not_done</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Used to signal that the iteration is over (i.e., has reached back to <code>(0,0,...0)</code>) </p>
+
+<p class="definition">Definition at line <a class="el" href="product__range_8h_source.html#l00045">45</a> of file <a class="el" href="product__range_8h_source.html">product_range.h</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>src/util/<a class="el" href="product__range_8h_source.html">product_range.h</a></li>
+<li>src/util/<a class="el" href="product__range_8cpp_source.html">product_range.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceutil.html">util</a></li><li class="navelem"><a class="el" href="classutil_1_1ProductIterator.html">ProductIterator</a></li>
+    <li class="footer">Generated on Wed Dec 18 2024 17:39:47 for Fast Inflation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

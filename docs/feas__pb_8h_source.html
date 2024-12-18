@@ -1,0 +1,318 @@
+<!-- HTML header for doxygen 1.9.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Fast Inflation: src/inf/inf_problem/feas_pb.h Source File</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+MathJax.Hub.Config({
+    TeX: {
+        Macros: {
+            dd: ["{\\text{d}#1\\,}",1],
+            nouts: ["{n_{\\text{o}}}"],
+            ints: ["{[\\![#1]\\!]}",1],
+            outset: ["{\\ints{\\nouts}}"],
+            N: ["{\\mathbb{N}}"],
+            R: ["{\\mathbb{R}}"],
+            Z: ["{\\mathbb{Z}}"],
+            infsize: ["{z}"],
+            infparties: ["{\\set{I}}"],
+            infsources: ["{\\set{S}}"],
+            infmarg: ["{\\set{A}}"],
+            infmargg: ["{\\set{B}}"],
+            netparties: ["{\\set{N}}"],
+            infq: ["{q}"],
+            infqs: ["{\\Delta_{\\infparties}}"],
+            constraintlist: ["{\\mathcal{C}}"],
+            injsets: ["{\\text{InjSets}}"],
+            infconstraints: ["{\\text{InfCons}}"],
+            parents: ["{\\text{Par}}"],
+            targetp: ["{p}"],
+            targetps: ["{\\Delta_{\\netparties}}"],
+            set: ["{\\mathbf{#1}}",1],
+            type: ["{t}"],
+            infevent: "{\\omega}",
+            events: ["{\\Omega_{#1}}",1],
+            infevents: ["{\\events{\\infparties}}"],
+            redinfevents: ["{\\tilde{\\Omega}_{\\infparties}}"],
+            netevents: ["{\\events{\\netparties}}"],
+            vecset: ["{V_{#1}}",1],
+            alice: ["{\\text{A}}"],
+            bob: ["{\\text{B}}"],
+            charlie: ["{\\text{C}}"],
+            symgroup: ["{\\text{Sym}(#1)}",1],
+            shortsymgroup: ["{\\text{Sym}_{#1}}",1],
+            act: ["{(#1\\hspace{2pt}{:}\\hspace{2pt}#2)}",2],
+            actt: ["{[#1\\hspace{2pt}{:}\\hspace{2pt}#2]}",2],
+            margperms: ["{\\text{Perm}_{#1}}",1],
+            permutedmargs: ["{\\mathbb{P}_{#1}^{\\targetp}}",1],
+            redpermutedmargs: ["{\\tilde{\\mathbb{P}}_{#1}^{\\constraintname,\\targetp}}",1],
+            extract: ["{\\text{ext}(#1,#2)}",2],
+            partysym: ["{\\tau}"],
+            sourcesym: ["{\\xi}"],
+            outsym: ["{\\sigma}"],
+            fullgroup: ["{\\text{InfGrp}}"],
+            partygroup : ["{\\text{PartyGrp}}"],
+            outgroup: ["{\\text{OutGrp}}"],
+            sourcegroup: ["{\\text{SrcGrp}}"],
+            distrgroup: ["{\\mathbb{G}^\\targetp}"],
+            constraintname: ["{c}"],
+            marggroup: ["{\\mathbb{G}^{\\constraintname,\\targetp}}"],
+            fullsymexpl: ["{(\\sourcesym,\\partysym,\\outsym)}"],
+            inner: ["{\\langle#1,#2\\rangle}", 2],
+            quovec: ["{f}"],
+            totconstraintmap: ["{K^{\\constraintlist,\\targetp}}"],
+            totconstraintmapelem: ["{K^{\\constraintname,\\targetp}}"],
+            quovecspace: ["{\\tilde{V}_{#1}^{\\constraintname,\\targetp}}", 1],
+            totquovecspace: ["{\\text{ConsSpace}(\\constraintlist,\\targetp)}"],
+            detdistr: ["{\\delta^{#1}}", 1],
+            margperm: ["{\\varphi}"],
+            altquovecembed: ["{\\text{G}_{#1}^{\\constraintname,\\targetp}}", 1],
+            vecset: ["{V_{#1}}", 1],
+            repr: ["{\\lfloor#1\\rfloor}", 1],
+            gid: ["{\\text{id}}"],
+            id: ["{1_{#1}}",1],
+            consscale: ["{K}"],
+            scaletot: ["{K_{\\text{tot}}^{\\constraintlist,\\targetp}}"],
+            minnorm: ["{d}"],
+            Bigsetst: ["\\;\\Big|\\;"],
+            activeset: ["\\mathcal{S}"],
+            conv: ["\\text{conv}"],
+            lVert: ["|\\hspace{-1pt}|"],
+            norm: ["\\lVert#1\\lVert", 1],
+            st: [":\ "],
+        }
+    }
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeDarkModeToggle.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeParagraphLink.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Fast Inflation
+   </div>
+   <div id="projectbrief">To certify causal incompatibility</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('feas__pb_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">feas_pb.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="feas__pb_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;../constraints/marginal.h&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;../frank_wolfe/frank_wolfe.h&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;../inf_problem/inflation.h&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;../inf_problem/target_distr.h&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;../optimization/optimizer.h&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="feas__options_8h.html">feas_options.h</a>&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceinf.html">inf</a> {</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="classinf_1_1FeasProblem.html">   23</a></span><span class="keyword">class </span><a class="code hl_class" href="classinf_1_1FeasProblem.html">FeasProblem</a> {</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="classinf_1_1FeasProblem.html#a3547122bd7fd64463ec427c03aa2115d">   25</a></span>    <span class="keyword">typedef</span> std::unique_ptr&lt;inf::FeasProblem&gt; <a class="code hl_typedef" href="classinf_1_1FeasProblem.html#a3547122bd7fd64463ec427c03aa2115d">UniquePtr</a>;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="classinf_1_1FeasProblem.html#a1b0fd3d30b08ebc034f9ca6a02b461d1">   28</a></span>    <span class="keyword">enum class</span> <a class="code hl_enumeration" href="classinf_1_1FeasProblem.html#a1b0fd3d30b08ebc034f9ca6a02b461d1">Status</a> {</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        <a class="code hl_enumvalue" href="classinf_1_1FeasProblem.html#a1b0fd3d30b08ebc034f9ca6a02b461d1ac07cf6ea759ad578dc776f55a797498b">nonlocal</a>,    </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        <a class="code hl_enumvalue" href="classinf_1_1FeasProblem.html#a1b0fd3d30b08ebc034f9ca6a02b461d1ae63e7ff6b263d88b232fceccb671ca7d">inconclusive</a> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    };</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="classinf_1_1FeasProblem.html#a648f1b146995d89f9e982a976024328e">   43</a></span>    <span class="keyword">enum class</span> <a class="code hl_enumeration" href="classinf_1_1FeasProblem.html#a648f1b146995d89f9e982a976024328e">RetainEvents</a> {</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <a class="code hl_enumvalue" href="classinf_1_1FeasProblem.html#a648f1b146995d89f9e982a976024328eaa6105c0a611b41b08f1209506350279e">yes</a>, </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <a class="code hl_enumvalue" href="classinf_1_1FeasProblem.html#a648f1b146995d89f9e982a976024328ea7fa3b767c460b54a2be4d49030b349c7">no</a>   </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    };</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1FeasProblem.html#ab298ebb9b99440ad0056c84660b890c0">log</a>(<a class="code hl_enumeration" href="classinf_1_1FeasProblem.html#a648f1b146995d89f9e982a976024328e">RetainEvents</a> retain_events);</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <a class="code hl_class" href="classinf_1_1FeasProblem.html">FeasProblem</a>(<a class="code hl_typedef" href="classinf_1_1TargetDistr.html#a75d7c59680325e198e85d02d673e4abe">inf::TargetDistr::ConstPtr</a> <span class="keyword">const</span> &amp;distribution,</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>                <a class="code hl_typedef" href="classinf_1_1FeasOptions.html#a5c80e86fc8f02148817086143c455da3">inf::FeasOptions::ConstPtr</a> <span class="keyword">const</span> &amp;options);</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <a class="code hl_class" href="classinf_1_1FeasProblem.html">FeasProblem</a>(<a class="code hl_class" href="classinf_1_1FeasProblem.html">inf::FeasProblem</a> <span class="keyword">const</span> &amp;other) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <a class="code hl_class" href="classinf_1_1FeasProblem.html">FeasProblem</a>(<a class="code hl_class" href="classinf_1_1FeasProblem.html">inf::FeasProblem</a> &amp;&amp;other) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <a class="code hl_class" href="classinf_1_1FeasProblem.html">inf::FeasProblem</a> &amp;operator=(<a class="code hl_class" href="classinf_1_1FeasProblem.html">inf::FeasProblem</a> <span class="keyword">const</span> &amp;other) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <a class="code hl_class" href="classinf_1_1FeasProblem.html">inf::FeasProblem</a> &amp;operator=(<a class="code hl_class" href="classinf_1_1FeasProblem.html">inf::FeasProblem</a> &amp;&amp;other) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1FeasProblem.html#af0426d06b55f04e7e2d0bc46380bd6d2">log_status_bar</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <a class="code hl_enumeration" href="classinf_1_1FeasProblem.html#a1b0fd3d30b08ebc034f9ca6a02b461d1">inf::FeasProblem::Status</a> <a class="code hl_function" href="classinf_1_1FeasProblem.html#a2b39812f7569a37bb16271c861341a4f">get_feasibility</a>();</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1FeasProblem.html#a36a91d6ac0d6638cb3ae5bd2d3d52abc">update_target_distribution</a>(<a class="code hl_typedef" href="classinf_1_1TargetDistr.html#a75d7c59680325e198e85d02d673e4abe">inf::TargetDistr::ConstPtr</a> <span class="keyword">const</span> &amp;d,</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>                                    <a class="code hl_enumeration" href="classinf_1_1FeasProblem.html#a648f1b146995d89f9e982a976024328e">inf::FeasProblem::RetainEvents</a> retain_events);</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1FeasProblem.html#ae26514985a584695c9011a3022f72a24">write_dual_vector_to_file</a>(std::string <span class="keyword">const</span> &amp;filename, std::string <span class="keyword">const</span> &amp;metadata);</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1FeasProblem.html#a9b9828fbc58c0c6fba7cc5363cb332d8">read_dual_vector_from_file</a>(std::string <span class="keyword">const</span> &amp;filename, std::string <span class="keyword">const</span> &amp;metadata);</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <a class="code hl_class" href="classinf_1_1Optimizer_1_1Solution.html">inf::Optimizer::Solution</a> <a class="code hl_function" href="classinf_1_1FeasProblem.html#abd44e05c7a4aee94a6895a0c0d1bcb2d">minimize_dual_vector</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <a class="code hl_enumeration" href="classinf_1_1FeasProblem.html#a1b0fd3d30b08ebc034f9ca6a02b461d1">inf::FeasProblem::Status</a> <a class="code hl_function" href="classinf_1_1FeasProblem.html#a967d13f93f96a6479427eed84af80a13">read_and_check_dual_vector</a>(std::string <span class="keyword">const</span> &amp;filename, std::string <span class="keyword">const</span> &amp;metadata);</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>  <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno"><a class="line" href="classinf_1_1FeasProblem.html#ad8cc7ccd58b530895363308f5bfb6be4">  116</a></span>    <a class="code hl_typedef" href="classinf_1_1TargetDistr.html#a75d7c59680325e198e85d02d673e4abe">inf::TargetDistr::ConstPtr</a> <a class="code hl_variable" href="classinf_1_1FeasProblem.html#ad8cc7ccd58b530895363308f5bfb6be4">m_distribution</a>;</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno"><a class="line" href="classinf_1_1FeasProblem.html#a244abb6873ea5a7b5f42ab70665aa4f1">  118</a></span>    <a class="code hl_typedef" href="classinf_1_1FeasOptions.html#a5c80e86fc8f02148817086143c455da3">inf::FeasOptions::ConstPtr</a> <a class="code hl_variable" href="classinf_1_1FeasProblem.html#a244abb6873ea5a7b5f42ab70665aa4f1">m_options</a>;</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno"><a class="line" href="classinf_1_1FeasProblem.html#ad4d6039a091b7d8356cd46aaf5388eac">  120</a></span>    <a class="code hl_typedef" href="classinf_1_1ConstraintSet.html#ae1ca6aedd9bb271719b185fd0ef0f194">inf::ConstraintSet::Ptr</a> <a class="code hl_variable" href="classinf_1_1FeasProblem.html#ad4d6039a091b7d8356cd46aaf5388eac">m_constraint_set</a>;</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno"><a class="line" href="classinf_1_1FeasProblem.html#a614db8a0a2d2a09f6d1c0bd13dccdf0e">  123</a></span>    <a class="code hl_typedef" href="classinf_1_1FrankWolfe.html#ad9035fcec8b485d937507a4629c26e3c">inf::FrankWolfe::UniquePtr</a> <a class="code hl_variable" href="classinf_1_1FeasProblem.html#a614db8a0a2d2a09f6d1c0bd13dccdf0e">m_frank_wolfe</a>;</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno"><a class="line" href="classinf_1_1FeasProblem.html#a7551388b4546ed9e573c489899486286">  126</a></span>    <a class="code hl_typedef" href="classinf_1_1Optimizer.html#a2effe8a2722649c349143bcdeaa59752">inf::Optimizer::Ptr</a> <a class="code hl_variable" href="classinf_1_1FeasProblem.html#a7551388b4546ed9e573c489899486286">m_optimizer</a>;</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno"><a class="line" href="classinf_1_1FeasProblem.html#a49679aa34011f5328a1b23a03c10ca0f">  128</a></span>    <a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <a class="code hl_variable" href="classinf_1_1FeasProblem.html#a49679aa34011f5328a1b23a03c10ca0f">m_n_iterations</a>;</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1FeasProblem.html#af87cffeb96c0c3226bcfc6f1427422c5">log_info_and_init_optimizer</a>();</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1FeasProblem.html#a19e395354a53f1346ce939acb44b421d">log_feasibility</a>(<a class="code hl_enumeration" href="classinf_1_1FeasProblem.html#a1b0fd3d30b08ebc034f9ca6a02b461d1">inf::FeasProblem::Status</a> feas_status) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span> </div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1FeasProblem.html#a3cfd643bada05bca629b33d02339379d">memorize_event</a>(<a class="code hl_typedef" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> <span class="keyword">const</span> &amp;event);</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span> </div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1FeasProblem.html#a14281b7e33ec140ba8c5fccfdcb851d9">init_frank_wolfe</a>();</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    <a class="code hl_typedef" href="group__infcons.html#ga8fa19943a83fd41acae30b7bcc935295">inf::Quovec</a> <a class="code hl_function" href="classinf_1_1FeasProblem.html#a214bc08460029dad21510eaad96c6eaf">round_dual_vector</a>(std::vector&lt;double&gt; <span class="keyword">const</span> &amp;dual_vector_double) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>};</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span> </div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>} <span class="comment">// namespace inf</span></div>
+<div class="ttc" id="aclassinf_1_1ConstraintSet_html_ae1ca6aedd9bb271719b185fd0ef0f194"><div class="ttname"><a href="classinf_1_1ConstraintSet.html#ae1ca6aedd9bb271719b185fd0ef0f194">inf::ConstraintSet::Ptr</a></div><div class="ttdeci">std::shared_ptr&lt; inf::ConstraintSet &gt; Ptr</div><div class="ttdef"><b>Definition</b> <a href="constraint__set_8h_source.html#l00031">constraint_set.h:31</a></div></div>
+<div class="ttc" id="aclassinf_1_1FeasOptions_html_a5c80e86fc8f02148817086143c455da3"><div class="ttname"><a href="classinf_1_1FeasOptions.html#a5c80e86fc8f02148817086143c455da3">inf::FeasOptions::ConstPtr</a></div><div class="ttdeci">std::shared_ptr&lt; const inf::FeasOptions &gt; ConstPtr</div><div class="ttdef"><b>Definition</b> <a href="feas__options_8h_source.html#l00029">feas_options.h:29</a></div></div>
+<div class="ttc" id="aclassinf_1_1FeasProblem_html"><div class="ttname"><a href="classinf_1_1FeasProblem.html">inf::FeasProblem</a></div><div class="ttdoc">This class defines inflation problems, i.e., problems of the form: given a target distribution ,...</div><div class="ttdef"><b>Definition</b> <a href="feas__pb_8h_source.html#l00023">feas_pb.h:23</a></div></div>
+<div class="ttc" id="aclassinf_1_1FeasProblem_html_a14281b7e33ec140ba8c5fccfdcb851d9"><div class="ttname"><a href="classinf_1_1FeasProblem.html#a14281b7e33ec140ba8c5fccfdcb851d9">inf::FeasProblem::init_frank_wolfe</a></div><div class="ttdeci">void init_frank_wolfe()</div><div class="ttdoc">This calls inf::FeasProblem::memorize_event() with the all-zero inflation event.</div><div class="ttdef"><b>Definition</b> <a href="feas__pb_8cpp_source.html#l00266">feas_pb.cpp:266</a></div></div>
+<div class="ttc" id="aclassinf_1_1FeasProblem_html_a19e395354a53f1346ce939acb44b421d"><div class="ttname"><a href="classinf_1_1FeasProblem.html#a19e395354a53f1346ce939acb44b421d">inf::FeasProblem::log_feasibility</a></div><div class="ttdeci">void log_feasibility(inf::FeasProblem::Status feas_status) const</div><div class="ttdoc">To log information about the feasibility status and the inflation problem that it corresponds to.</div><div class="ttdef"><b>Definition</b> <a href="feas__pb_8cpp_source.html#l00246">feas_pb.cpp:246</a></div></div>
+<div class="ttc" id="aclassinf_1_1FeasProblem_html_a1b0fd3d30b08ebc034f9ca6a02b461d1"><div class="ttname"><a href="classinf_1_1FeasProblem.html#a1b0fd3d30b08ebc034f9ca6a02b461d1">inf::FeasProblem::Status</a></div><div class="ttdeci">Status</div><div class="ttdoc">The return status of a feasibility problem.</div><div class="ttdef"><b>Definition</b> <a href="feas__pb_8h_source.html#l00028">feas_pb.h:28</a></div></div>
+<div class="ttc" id="aclassinf_1_1FeasProblem_html_a1b0fd3d30b08ebc034f9ca6a02b461d1ac07cf6ea759ad578dc776f55a797498b"><div class="ttname"><a href="classinf_1_1FeasProblem.html#a1b0fd3d30b08ebc034f9ca6a02b461d1ac07cf6ea759ad578dc776f55a797498b">inf::FeasProblem::Status::nonlocal</a></div><div class="ttdeci">@ nonlocal</div></div>
+<div class="ttc" id="aclassinf_1_1FeasProblem_html_a1b0fd3d30b08ebc034f9ca6a02b461d1ae63e7ff6b263d88b232fceccb671ca7d"><div class="ttname"><a href="classinf_1_1FeasProblem.html#a1b0fd3d30b08ebc034f9ca6a02b461d1ae63e7ff6b263d88b232fceccb671ca7d">inf::FeasProblem::Status::inconclusive</a></div><div class="ttdeci">@ inconclusive</div></div>
+<div class="ttc" id="aclassinf_1_1FeasProblem_html_a214bc08460029dad21510eaad96c6eaf"><div class="ttname"><a href="classinf_1_1FeasProblem.html#a214bc08460029dad21510eaad96c6eaf">inf::FeasProblem::round_dual_vector</a></div><div class="ttdeci">inf::Quovec round_dual_vector(std::vector&lt; double &gt; const &amp;dual_vector_double) const</div><div class="ttdoc">This takes as input a floating-point representation of a quovec  and returns a scaled-up integer quov...</div><div class="ttdef"><b>Definition</b> <a href="feas__pb_8cpp_source.html#l00270">feas_pb.cpp:270</a></div></div>
+<div class="ttc" id="aclassinf_1_1FeasProblem_html_a244abb6873ea5a7b5f42ab70665aa4f1"><div class="ttname"><a href="classinf_1_1FeasProblem.html#a244abb6873ea5a7b5f42ab70665aa4f1">inf::FeasProblem::m_options</a></div><div class="ttdeci">inf::FeasOptions::ConstPtr m_options</div><div class="ttdoc">The structure holding all the inflation parameters, see inf::FeasOptions.</div><div class="ttdef"><b>Definition</b> <a href="feas__pb_8h_source.html#l00118">feas_pb.h:118</a></div></div>
+<div class="ttc" id="aclassinf_1_1FeasProblem_html_a2b39812f7569a37bb16271c861341a4f"><div class="ttname"><a href="classinf_1_1FeasProblem.html#a2b39812f7569a37bb16271c861341a4f">inf::FeasProblem::get_feasibility</a></div><div class="ttdeci">inf::FeasProblem::Status get_feasibility()</div><div class="ttdoc">This is the heavy function that checks feasibility of a target distribution.</div><div class="ttdef"><b>Definition</b> <a href="feas__pb_8cpp_source.html#l00077">feas_pb.cpp:77</a></div></div>
+<div class="ttc" id="aclassinf_1_1FeasProblem_html_a3547122bd7fd64463ec427c03aa2115d"><div class="ttname"><a href="classinf_1_1FeasProblem.html#a3547122bd7fd64463ec427c03aa2115d">inf::FeasProblem::UniquePtr</a></div><div class="ttdeci">std::unique_ptr&lt; inf::FeasProblem &gt; UniquePtr</div><div class="ttdef"><b>Definition</b> <a href="feas__pb_8h_source.html#l00025">feas_pb.h:25</a></div></div>
+<div class="ttc" id="aclassinf_1_1FeasProblem_html_a36a91d6ac0d6638cb3ae5bd2d3d52abc"><div class="ttname"><a href="classinf_1_1FeasProblem.html#a36a91d6ac0d6638cb3ae5bd2d3d52abc">inf::FeasProblem::update_target_distribution</a></div><div class="ttdeci">void update_target_distribution(inf::TargetDistr::ConstPtr const &amp;d, inf::FeasProblem::RetainEvents retain_events)</div><div class="ttdoc">This allows to change the target distribution  without recreating an inf::FeasProblem from nothing.</div><div class="ttdef"><b>Definition</b> <a href="feas__pb_8cpp_source.html#l00185">feas_pb.cpp:185</a></div></div>
+<div class="ttc" id="aclassinf_1_1FeasProblem_html_a3cfd643bada05bca629b33d02339379d"><div class="ttname"><a href="classinf_1_1FeasProblem.html#a3cfd643bada05bca629b33d02339379d">inf::FeasProblem::memorize_event</a></div><div class="ttdeci">void memorize_event(inf::Event const &amp;event)</div><div class="ttdoc">This forwards both the inflation event event (some ) as well as the associated quovec  to the inf::Fr...</div><div class="ttdef"><b>Definition</b> <a href="feas__pb_8cpp_source.html#l00261">feas_pb.cpp:261</a></div></div>
+<div class="ttc" id="aclassinf_1_1FeasProblem_html_a49679aa34011f5328a1b23a03c10ca0f"><div class="ttname"><a href="classinf_1_1FeasProblem.html#a49679aa34011f5328a1b23a03c10ca0f">inf::FeasProblem::m_n_iterations</a></div><div class="ttdeci">Index m_n_iterations</div><div class="ttdoc">This indicates the number of optimizations (calls to inf::Optimizer::optimize(), or equivalently,...</div><div class="ttdef"><b>Definition</b> <a href="feas__pb_8h_source.html#l00128">feas_pb.h:128</a></div></div>
+<div class="ttc" id="aclassinf_1_1FeasProblem_html_a614db8a0a2d2a09f6d1c0bd13dccdf0e"><div class="ttname"><a href="classinf_1_1FeasProblem.html#a614db8a0a2d2a09f6d1c0bd13dccdf0e">inf::FeasProblem::m_frank_wolfe</a></div><div class="ttdeci">inf::FrankWolfe::UniquePtr m_frank_wolfe</div><div class="ttdoc">The inf::FrankWolfe algorithm that is in charge of finding an inf::DualVector that certifies nonlocal...</div><div class="ttdef"><b>Definition</b> <a href="feas__pb_8h_source.html#l00123">feas_pb.h:123</a></div></div>
+<div class="ttc" id="aclassinf_1_1FeasProblem_html_a648f1b146995d89f9e982a976024328e"><div class="ttname"><a href="classinf_1_1FeasProblem.html#a648f1b146995d89f9e982a976024328e">inf::FeasProblem::RetainEvents</a></div><div class="ttdeci">RetainEvents</div><div class="ttdoc">One option of the inf::FeasProblem is whether or not to retain previously encountered event when upda...</div><div class="ttdef"><b>Definition</b> <a href="feas__pb_8h_source.html#l00043">feas_pb.h:43</a></div></div>
+<div class="ttc" id="aclassinf_1_1FeasProblem_html_a648f1b146995d89f9e982a976024328ea7fa3b767c460b54a2be4d49030b349c7"><div class="ttname"><a href="classinf_1_1FeasProblem.html#a648f1b146995d89f9e982a976024328ea7fa3b767c460b54a2be4d49030b349c7">inf::FeasProblem::RetainEvents::no</a></div><div class="ttdeci">@ no</div><div class="ttdoc">Do not keep the previously encountered events when restarting the inf::FrankWolfe algorithm.</div></div>
+<div class="ttc" id="aclassinf_1_1FeasProblem_html_a648f1b146995d89f9e982a976024328eaa6105c0a611b41b08f1209506350279e"><div class="ttname"><a href="classinf_1_1FeasProblem.html#a648f1b146995d89f9e982a976024328eaa6105c0a611b41b08f1209506350279e">inf::FeasProblem::RetainEvents::yes</a></div><div class="ttdeci">@ yes</div></div>
+<div class="ttc" id="aclassinf_1_1FeasProblem_html_a7551388b4546ed9e573c489899486286"><div class="ttname"><a href="classinf_1_1FeasProblem.html#a7551388b4546ed9e573c489899486286">inf::FeasProblem::m_optimizer</a></div><div class="ttdeci">inf::Optimizer::Ptr m_optimizer</div><div class="ttdoc">The inf::Optimizer in charge of minimizing the inner product of an inf::DualVector proposed by m_fran...</div><div class="ttdef"><b>Definition</b> <a href="feas__pb_8h_source.html#l00126">feas_pb.h:126</a></div></div>
+<div class="ttc" id="aclassinf_1_1FeasProblem_html_a967d13f93f96a6479427eed84af80a13"><div class="ttname"><a href="classinf_1_1FeasProblem.html#a967d13f93f96a6479427eed84af80a13">inf::FeasProblem::read_and_check_dual_vector</a></div><div class="ttdeci">inf::FeasProblem::Status read_and_check_dual_vector(std::string const &amp;filename, std::string const &amp;metadata)</div><div class="ttdoc">This call inf::FeasProblem::read_dual_vector_from_file(), then inf::FeasProblem::minimize_dual_vector...</div><div class="ttdef"><b>Definition</b> <a href="feas__pb_8cpp_source.html#l00227">feas_pb.cpp:227</a></div></div>
+<div class="ttc" id="aclassinf_1_1FeasProblem_html_a9b9828fbc58c0c6fba7cc5363cb332d8"><div class="ttname"><a href="classinf_1_1FeasProblem.html#a9b9828fbc58c0c6fba7cc5363cb332d8">inf::FeasProblem::read_dual_vector_from_file</a></div><div class="ttdeci">void read_dual_vector_from_file(std::string const &amp;filename, std::string const &amp;metadata)</div><div class="ttdoc">This reads the current dual vector held by inf::ConstraintSet from a text file.</div><div class="ttdef"><b>Definition</b> <a href="feas__pb_8cpp_source.html#l00219">feas_pb.cpp:219</a></div></div>
+<div class="ttc" id="aclassinf_1_1FeasProblem_html_ab298ebb9b99440ad0056c84660b890c0"><div class="ttname"><a href="classinf_1_1FeasProblem.html#ab298ebb9b99440ad0056c84660b890c0">inf::FeasProblem::log</a></div><div class="ttdeci">static void log(RetainEvents retain_events)</div><div class="ttdef"><b>Definition</b> <a href="feas__pb_8cpp_source.html#l00004">feas_pb.cpp:4</a></div></div>
+<div class="ttc" id="aclassinf_1_1FeasProblem_html_abd44e05c7a4aee94a6895a0c0d1bcb2d"><div class="ttname"><a href="classinf_1_1FeasProblem.html#abd44e05c7a4aee94a6895a0c0d1bcb2d">inf::FeasProblem::minimize_dual_vector</a></div><div class="ttdeci">inf::Optimizer::Solution minimize_dual_vector() const</div><div class="ttdoc">This minimizes the inner product between the current dual vector stored in m_constraint_set,...</div><div class="ttdef"><b>Definition</b> <a href="feas__pb_8cpp_source.html#l00223">feas_pb.cpp:223</a></div></div>
+<div class="ttc" id="aclassinf_1_1FeasProblem_html_ad4d6039a091b7d8356cd46aaf5388eac"><div class="ttname"><a href="classinf_1_1FeasProblem.html#ad4d6039a091b7d8356cd46aaf5388eac">inf::FeasProblem::m_constraint_set</a></div><div class="ttdeci">inf::ConstraintSet::Ptr m_constraint_set</div><div class="ttdoc">The set  of inflation constraints.</div><div class="ttdef"><b>Definition</b> <a href="feas__pb_8h_source.html#l00120">feas_pb.h:120</a></div></div>
+<div class="ttc" id="aclassinf_1_1FeasProblem_html_ad8cc7ccd58b530895363308f5bfb6be4"><div class="ttname"><a href="classinf_1_1FeasProblem.html#ad8cc7ccd58b530895363308f5bfb6be4">inf::FeasProblem::m_distribution</a></div><div class="ttdeci">inf::TargetDistr::ConstPtr m_distribution</div><div class="ttdoc">The target distribution .</div><div class="ttdef"><b>Definition</b> <a href="feas__pb_8h_source.html#l00116">feas_pb.h:116</a></div></div>
+<div class="ttc" id="aclassinf_1_1FeasProblem_html_ae26514985a584695c9011a3022f72a24"><div class="ttname"><a href="classinf_1_1FeasProblem.html#ae26514985a584695c9011a3022f72a24">inf::FeasProblem::write_dual_vector_to_file</a></div><div class="ttdeci">void write_dual_vector_to_file(std::string const &amp;filename, std::string const &amp;metadata)</div><div class="ttdoc">This saves the current dual vector held by inf::ConstraintSet to a text file.</div><div class="ttdef"><b>Definition</b> <a href="feas__pb_8cpp_source.html#l00215">feas_pb.cpp:215</a></div></div>
+<div class="ttc" id="aclassinf_1_1FeasProblem_html_af0426d06b55f04e7e2d0bc46380bd6d2"><div class="ttname"><a href="classinf_1_1FeasProblem.html#af0426d06b55f04e7e2d0bc46380bd6d2">inf::FeasProblem::log_status_bar</a></div><div class="ttdeci">void log_status_bar() const</div><div class="ttdoc">This logs information about the time spent on the inflation problem and the number of events stored.</div><div class="ttdef"><b>Definition</b> <a href="feas__pb_8cpp_source.html#l00067">feas_pb.cpp:67</a></div></div>
+<div class="ttc" id="aclassinf_1_1FeasProblem_html_af87cffeb96c0c3226bcfc6f1427422c5"><div class="ttname"><a href="classinf_1_1FeasProblem.html#af87cffeb96c0c3226bcfc6f1427422c5">inf::FeasProblem::log_info_and_init_optimizer</a></div><div class="ttdeci">void log_info_and_init_optimizer()</div><div class="ttdoc">This logs info about the options, pretty prints the constraints, and initializes the inf::Optimizer.</div><div class="ttdef"><b>Definition</b> <a href="feas__pb_8cpp_source.html#l00048">feas_pb.cpp:48</a></div></div>
+<div class="ttc" id="aclassinf_1_1FrankWolfe_html_ad9035fcec8b485d937507a4629c26e3c"><div class="ttname"><a href="classinf_1_1FrankWolfe.html#ad9035fcec8b485d937507a4629c26e3c">inf::FrankWolfe::UniquePtr</a></div><div class="ttdeci">std::unique_ptr&lt; inf::FrankWolfe &gt; UniquePtr</div><div class="ttdef"><b>Definition</b> <a href="frank__wolfe_8h_source.html#l00044">frank_wolfe.h:44</a></div></div>
+<div class="ttc" id="aclassinf_1_1Optimizer_1_1Solution_html"><div class="ttname"><a href="classinf_1_1Optimizer_1_1Solution.html">inf::Optimizer::Solution</a></div><div class="ttdoc">To store an inf::Optimizer::PreSolution along with additional context.</div><div class="ttdef"><b>Definition</b> <a href="optimizer_8h_source.html#l00067">optimizer.h:67</a></div></div>
+<div class="ttc" id="aclassinf_1_1Optimizer_html_a2effe8a2722649c349143bcdeaa59752"><div class="ttname"><a href="classinf_1_1Optimizer.html#a2effe8a2722649c349143bcdeaa59752">inf::Optimizer::Ptr</a></div><div class="ttdeci">std::shared_ptr&lt; inf::Optimizer &gt; Ptr</div><div class="ttdef"><b>Definition</b> <a href="optimizer_8h_source.html#l00039">optimizer.h:39</a></div></div>
+<div class="ttc" id="aclassinf_1_1TargetDistr_html_a75d7c59680325e198e85d02d673e4abe"><div class="ttname"><a href="classinf_1_1TargetDistr.html#a75d7c59680325e198e85d02d673e4abe">inf::TargetDistr::ConstPtr</a></div><div class="ttdeci">std::shared_ptr&lt; const inf::TargetDistr &gt; ConstPtr</div><div class="ttdef"><b>Definition</b> <a href="target__distr_8h_source.html#l00035">target_distr.h:35</a></div></div>
+<div class="ttc" id="afeas__options_8h_html"><div class="ttname"><a href="feas__options_8h.html">feas_options.h</a></div></div>
+<div class="ttc" id="agroup__event_html_gac60a6fcdfce02dc13eb7364d6a2b56b0"><div class="ttname"><a href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a></div><div class="ttdeci">std::vector&lt; inf::Outcome &gt; Event</div><div class="ttdoc">A list of inf::Outcome. Conceptually, this plays the role of  for some set .</div><div class="ttdef"><b>Definition</b> <a href="event_8h_source.html#l00030">event.h:30</a></div></div>
+<div class="ttc" id="agroup__infcons_html_ga8fa19943a83fd41acae30b7bcc935295"><div class="ttname"><a href="group__infcons.html#ga8fa19943a83fd41acae30b7bcc935295">inf::Quovec</a></div><div class="ttdeci">std::vector&lt; Num &gt; Quovec</div><div class="ttdoc">A &quot;quotiented vector&quot; denotes an element of some  for some .</div><div class="ttdef"><b>Definition</b> <a href="dual__vector_8h_source.html#l00029">dual_vector.h:29</a></div></div>
+<div class="ttc" id="agroup__util_html_ga77731aedac326062ffbdcf367185a07e"><div class="ttname"><a href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a></div><div class="ttdeci">uint64_t Index</div><div class="ttdoc">Use for anything meant to be used as an index.</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00019">types.h:19</a></div></div>
+<div class="ttc" id="anamespaceinf_html"><div class="ttname"><a href="namespaceinf.html">inf</a></div><div class="ttdoc">The namespace for the inflation code.</div><div class="ttdef"><b>Definition</b> <a href="constraint_8h_source.html#l00006">constraint.h:6</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_0f453feda2a303bb77c09f5934c109df.html">inf</a></li><li class="navelem"><a class="el" href="dir_ae6d493e4def8cac138ad10998aac37a.html">inf_problem</a></li><li class="navelem"><a class="el" href="feas__pb_8h.html">feas_pb.h</a></li>
+    <li class="footer">Generated on Wed Dec 18 2024 17:39:36 for Fast Inflation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,383 @@
+<!-- HTML header for doxygen 1.9.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Fast Inflation: inf::BruteForceOpt Class Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+MathJax.Hub.Config({
+    TeX: {
+        Macros: {
+            dd: ["{\\text{d}#1\\,}",1],
+            nouts: ["{n_{\\text{o}}}"],
+            ints: ["{[\\![#1]\\!]}",1],
+            outset: ["{\\ints{\\nouts}}"],
+            N: ["{\\mathbb{N}}"],
+            R: ["{\\mathbb{R}}"],
+            Z: ["{\\mathbb{Z}}"],
+            infsize: ["{z}"],
+            infparties: ["{\\set{I}}"],
+            infsources: ["{\\set{S}}"],
+            infmarg: ["{\\set{A}}"],
+            infmargg: ["{\\set{B}}"],
+            netparties: ["{\\set{N}}"],
+            infq: ["{q}"],
+            infqs: ["{\\Delta_{\\infparties}}"],
+            constraintlist: ["{\\mathcal{C}}"],
+            injsets: ["{\\text{InjSets}}"],
+            infconstraints: ["{\\text{InfCons}}"],
+            parents: ["{\\text{Par}}"],
+            targetp: ["{p}"],
+            targetps: ["{\\Delta_{\\netparties}}"],
+            set: ["{\\mathbf{#1}}",1],
+            type: ["{t}"],
+            infevent: "{\\omega}",
+            events: ["{\\Omega_{#1}}",1],
+            infevents: ["{\\events{\\infparties}}"],
+            redinfevents: ["{\\tilde{\\Omega}_{\\infparties}}"],
+            netevents: ["{\\events{\\netparties}}"],
+            vecset: ["{V_{#1}}",1],
+            alice: ["{\\text{A}}"],
+            bob: ["{\\text{B}}"],
+            charlie: ["{\\text{C}}"],
+            symgroup: ["{\\text{Sym}(#1)}",1],
+            shortsymgroup: ["{\\text{Sym}_{#1}}",1],
+            act: ["{(#1\\hspace{2pt}{:}\\hspace{2pt}#2)}",2],
+            actt: ["{[#1\\hspace{2pt}{:}\\hspace{2pt}#2]}",2],
+            margperms: ["{\\text{Perm}_{#1}}",1],
+            permutedmargs: ["{\\mathbb{P}_{#1}^{\\targetp}}",1],
+            redpermutedmargs: ["{\\tilde{\\mathbb{P}}_{#1}^{\\constraintname,\\targetp}}",1],
+            extract: ["{\\text{ext}(#1,#2)}",2],
+            partysym: ["{\\tau}"],
+            sourcesym: ["{\\xi}"],
+            outsym: ["{\\sigma}"],
+            fullgroup: ["{\\text{InfGrp}}"],
+            partygroup : ["{\\text{PartyGrp}}"],
+            outgroup: ["{\\text{OutGrp}}"],
+            sourcegroup: ["{\\text{SrcGrp}}"],
+            distrgroup: ["{\\mathbb{G}^\\targetp}"],
+            constraintname: ["{c}"],
+            marggroup: ["{\\mathbb{G}^{\\constraintname,\\targetp}}"],
+            fullsymexpl: ["{(\\sourcesym,\\partysym,\\outsym)}"],
+            inner: ["{\\langle#1,#2\\rangle}", 2],
+            quovec: ["{f}"],
+            totconstraintmap: ["{K^{\\constraintlist,\\targetp}}"],
+            totconstraintmapelem: ["{K^{\\constraintname,\\targetp}}"],
+            quovecspace: ["{\\tilde{V}_{#1}^{\\constraintname,\\targetp}}", 1],
+            totquovecspace: ["{\\text{ConsSpace}(\\constraintlist,\\targetp)}"],
+            detdistr: ["{\\delta^{#1}}", 1],
+            margperm: ["{\\varphi}"],
+            altquovecembed: ["{\\text{G}_{#1}^{\\constraintname,\\targetp}}", 1],
+            vecset: ["{V_{#1}}", 1],
+            repr: ["{\\lfloor#1\\rfloor}", 1],
+            gid: ["{\\text{id}}"],
+            id: ["{1_{#1}}",1],
+            consscale: ["{K}"],
+            scaletot: ["{K_{\\text{tot}}^{\\constraintlist,\\targetp}}"],
+            minnorm: ["{d}"],
+            Bigsetst: ["\\;\\Big|\\;"],
+            activeset: ["\\mathcal{S}"],
+            conv: ["\\text{conv}"],
+            lVert: ["|\\hspace{-1pt}|"],
+            norm: ["\\lVert#1\\lVert", 1],
+            st: [":\ "],
+        }
+    }
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeDarkModeToggle.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeParagraphLink.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Fast Inflation
+   </div>
+   <div id="projectbrief">To certify causal incompatibility</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classinf_1_1BruteForceOpt.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="classinf_1_1BruteForceOpt-members.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">inf::BruteForceOpt Class Reference<div class="ingroups"><a class="el" href="group__inflation.html">Inflation</a> &raquo; <a class="el" href="group__infback.html">Inflation backend</a> &raquo; <a class="el" href="group__opt.html">Linear minimization oracles</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &quot;<a class="el" href="bf__opt_8h_source.html">inf/optimization/bf_opt.h</a>&quot;</code></p>
+<a name="details" id="details"></a><h2 class="groupheader">Class description</h2>
+<div class="textblock"><p>This <a class="el" href="classinf_1_1Optimizer.html" title="This class defines the interface for inf::BruteForceOpt and inf::TreeOpt.">inf::Optimizer</a> simply enumerate all inflation events to perform the minimization. </p>
+<p>This class minimizes an <a class="el" href="classinf_1_1DualVector.html" title="Describes a dual vector  through its embedding .">inf::DualVector</a>, representing some \(\quovec = \{\quovec_\constraintname\}_{\constraintname\in\constraintlist}\in\totquovecspace\), on the events of some <a class="el" href="classinf_1_1Inflation.html" title="Describes an inflation of a network, currently restricted to canonical inflations of the triangle net...">inf::Inflation</a>, i.e., solving the minimization problem  </p><p class="formulaDsp">
+\[
+    \min_{\infevent\in\infevents} \inner{\quovec}{\totconstraintmap(\detdistr\infevent)}_{\constraintlist},
+\]
+</p>
+<p> where \(\constraintlist \subset \infconstraints\) describes the constraints of an inflation problem (see <a class="el" href="classinf_1_1ConstraintSet.html" title="A set of inf::Constraint that, together with the inflation size, determines the inflation problem at ...">inf::ConstraintSet</a>).</p>
+<p>The minimization is simply performed by enumerating all \(\infevent\in\infevents\), in particular, ignoring the reduced set of events \(\redinfevents\) that uses symmetry. </p>
+
+<p class="definition">Definition at line <a class="el" href="bf__opt_8h_source.html#l00019">19</a> of file <a class="el" href="bf__opt_8h_source.html">bf_opt.h</a>.</p>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a0238fcfe2388979ba51a52fef442b42b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1BruteForceOpt.html#a0238fcfe2388979ba51a52fef442b42b">BruteForceOpt</a> (<a class="el" href="classinf_1_1ConstraintSet.html#ae1ca6aedd9bb271719b185fd0ef0f194">inf::ConstraintSet::Ptr</a> const &amp;constraints)</td></tr>
+<tr class="memdesc:a0238fcfe2388979ba51a52fef442b42b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes an <a class="el" href="classinf_1_1BruteForceOpt.html" title="This inf::Optimizer simply enumerate all inflation events to perform the minimization.">inf::BruteForceOpt</a> with the relevant <code>constraints</code>.  <br /></td></tr>
+<tr class="separator:a0238fcfe2388979ba51a52fef442b42b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae34d29d094d630ac77e8e1b9705bedd3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classinf_1_1Optimizer_1_1PreSolution.html">inf::Optimizer::PreSolution</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1BruteForceOpt.html#ae34d29d094d630ac77e8e1b9705bedd3">get_pre_solution</a> () override</td></tr>
+<tr class="memdesc:ae34d29d094d630ac77e8e1b9705bedd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method is in charge of producing the optimizer (depending on <code>m_stop_mode</code>, see <a class="el" href="classinf_1_1Optimizer.html#a8fdb83608f80ece0dae112166b62c95b" title="This describes how the inf::Optimizer should stop: should it really minimize an inf::DualVector,...">inf::Optimizer::StopMode</a>) and its score.  <br /></td></tr>
+<tr class="separator:ae34d29d094d630ac77e8e1b9705bedd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classinf_1_1Optimizer"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classinf_1_1Optimizer')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classinf_1_1Optimizer.html">inf::Optimizer</a></td></tr>
+<tr class="memitem:a1b38505d4bc4f8979c0324c978e57e5f inherit pub_methods_classinf_1_1Optimizer"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Optimizer.html#a1b38505d4bc4f8979c0324c978e57e5f">Optimizer</a> (<a class="el" href="classinf_1_1ConstraintSet.html#ae1ca6aedd9bb271719b185fd0ef0f194">inf::ConstraintSet::Ptr</a> const &amp;constraints)</td></tr>
+<tr class="memdesc:a1b38505d4bc4f8979c0324c978e57e5f inherit pub_methods_classinf_1_1Optimizer"><td class="mdescLeft">&#160;</td><td class="mdescRight">This general constructor simply initializes the member <code>m_constraints</code>  <br /></td></tr>
+<tr class="separator:a1b38505d4bc4f8979c0324c978e57e5f inherit pub_methods_classinf_1_1Optimizer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aafcf8142d41d456b21de038da220ef96 inherit pub_methods_classinf_1_1Optimizer"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classinf_1_1Optimizer_1_1Solution.html">inf::Optimizer::Solution</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Optimizer.html#aafcf8142d41d456b21de038da220ef96">optimize</a> (<a class="el" href="classinf_1_1Optimizer.html#a8fdb83608f80ece0dae112166b62c95b">inf::Optimizer::StopMode</a> stop_mode)</td></tr>
+<tr class="memdesc:aafcf8142d41d456b21de038da220ef96 inherit pub_methods_classinf_1_1Optimizer"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method invokes <a class="el" href="classinf_1_1Optimizer.html#a12b1e5b979187fd52ae421a9945311c1" title="This method is in charge of producing the optimizer (depending on m_stop_mode, see inf::Optimizer::St...">inf::Optimizer::get_pre_solution()</a> and dresses up the solution.  <br /></td></tr>
+<tr class="separator:aafcf8142d41d456b21de038da220ef96 inherit pub_methods_classinf_1_1Optimizer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1be46d39079740ba5e94abcdfa4c23eb inherit pub_methods_classinf_1_1Optimizer"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Optimizer.html#a1be46d39079740ba5e94abcdfa4c23eb">log_info</a> () const</td></tr>
+<tr class="memdesc:a1be46d39079740ba5e94abcdfa4c23eb inherit pub_methods_classinf_1_1Optimizer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs information about the <a class="el" href="classinf_1_1Optimizer.html" title="This class defines the interface for inf::BruteForceOpt and inf::TreeOpt.">inf::Optimizer</a> to <code><a class="el" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678" title="The globally accessible logger replacing std::cout">util::logger</a></code>, this is meant to be called on initializing an <a class="el" href="classinf_1_1FeasProblem.html" title="This class defines inflation problems, i.e., problems of the form: given a target distribution ,...">inf::FeasProblem</a>.  <br /></td></tr>
+<tr class="separator:a1be46d39079740ba5e94abcdfa4c23eb inherit pub_methods_classinf_1_1Optimizer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05da254f10d1c2e4a9e8c41554e80f3e inherit pub_methods_classinf_1_1Optimizer"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Optimizer.html#a05da254f10d1c2e4a9e8c41554e80f3e">log_status</a> () const</td></tr>
+<tr class="memdesc:a05da254f10d1c2e4a9e8c41554e80f3e inherit pub_methods_classinf_1_1Optimizer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs information about the optimization status, this is meant to be called regularly within the <a class="el" href="classinf_1_1FeasProblem.html" title="This class defines inflation problems, i.e., problems of the form: given a target distribution ,...">inf::FeasProblem</a>.  <br /></td></tr>
+<tr class="separator:a05da254f10d1c2e4a9e8c41554e80f3e inherit pub_methods_classinf_1_1Optimizer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:ac9db6331a56b0cacdb5377581f0e5b3b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classinf_1_1Marginal_1_1EvaluatorSet.html">inf::Marginal::EvaluatorSet</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1BruteForceOpt.html#ac9db6331a56b0cacdb5377581f0e5b3b">m_evaluators</a></td></tr>
+<tr class="memdesc:ac9db6331a56b0cacdb5377581f0e5b3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">These <a class="el" href="classinf_1_1Marginal_1_1Evaluator.html" title="This class contains minimal data allowing to perform the operations described in inf::Marginal.">inf::Marginal::Evaluator</a> are obtained with <a class="el" href="classinf_1_1ConstraintSet.html#ad6f595cb0067c61653228294592db040" title="The set of inf::Marginal::Evaluator, allowing to efficiently evaluate inner products.">inf::ConstraintSet::get_marg_evaluators()</a>  <br /></td></tr>
+<tr class="separator:ac9db6331a56b0cacdb5377581f0e5b3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pub_types_classinf_1_1Optimizer"><td colspan="2" onclick="javascript:toggleInherit('pub_types_classinf_1_1Optimizer')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="classinf_1_1Optimizer.html">inf::Optimizer</a></td></tr>
+<tr class="memitem:a8fdb83608f80ece0dae112166b62c95b inherit pub_types_classinf_1_1Optimizer"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Optimizer.html#a8fdb83608f80ece0dae112166b62c95b">StopMode</a> { <a class="el" href="classinf_1_1Optimizer.html#a8fdb83608f80ece0dae112166b62c95ba53e8254b3222a33f42b5a6b3d156056c">sat</a>
+, <a class="el" href="classinf_1_1Optimizer.html#a8fdb83608f80ece0dae112166b62c95ba4d29ea5f748c4cfda37434ce76a5e788">opt</a>
+ }</td></tr>
+<tr class="memdesc:a8fdb83608f80ece0dae112166b62c95b"><td class="mdescLeft">&#160;</td><td class="mdescRight">This describes how the <a class="el" href="classinf_1_1Optimizer.html" title="This class defines the interface for inf::BruteForceOpt and inf::TreeOpt.">inf::Optimizer</a> should stop: should it really minimize an <a class="el" href="classinf_1_1DualVector.html" title="Describes a dual vector  through its embedding .">inf::DualVector</a>, or merely check that a negative or zero score can be achieved?  <a href="classinf_1_1Optimizer.html#a8fdb83608f80ece0dae112166b62c95b">More...</a><br /></td></tr>
+<tr class="separator:a8fdb83608f80ece0dae112166b62c95b inherit pub_types_classinf_1_1Optimizer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0dce5e153a8fb320fa11f450246e08a6 inherit pub_types_classinf_1_1Optimizer"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Optimizer.html#a0dce5e153a8fb320fa11f450246e08a6">SearchMode</a> { <a class="el" href="classinf_1_1Optimizer.html#a0dce5e153a8fb320fa11f450246e08a6a14eb8fb55e00336d36cb281764c88aa5">brute_force</a>
+, <a class="el" href="classinf_1_1Optimizer.html#a0dce5e153a8fb320fa11f450246e08a6a7c6e43382ef676ec2d182773a1dddd4a">tree_search</a>
+ }</td></tr>
+<tr class="memdesc:a0dce5e153a8fb320fa11f450246e08a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Describes the search strategy: how should one tackle the problem of enumerating all relevant inflation events?  <a href="classinf_1_1Optimizer.html#a0dce5e153a8fb320fa11f450246e08a6">More...</a><br /></td></tr>
+<tr class="separator:a0dce5e153a8fb320fa11f450246e08a6 inherit pub_types_classinf_1_1Optimizer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2effe8a2722649c349143bcdeaa59752 inherit pub_types_classinf_1_1Optimizer"><td class="memItemLeft" align="right" valign="top">typedef std::shared_ptr&lt; <a class="el" href="classinf_1_1Optimizer.html">inf::Optimizer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Optimizer.html#a2effe8a2722649c349143bcdeaa59752">Ptr</a></td></tr>
+<tr class="separator:a2effe8a2722649c349143bcdeaa59752 inherit pub_types_classinf_1_1Optimizer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_static_methods_classinf_1_1Optimizer"><td colspan="2" onclick="javascript:toggleInherit('pub_static_methods_classinf_1_1Optimizer')"><img src="closed.png" alt="-"/>&#160;Static Public Member Functions inherited from <a class="el" href="classinf_1_1Optimizer.html">inf::Optimizer</a></td></tr>
+<tr class="memitem:a184f06d7d4f8d70d01f8850bdbcd26eb inherit pub_static_methods_classinf_1_1Optimizer"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Optimizer.html#a184f06d7d4f8d70d01f8850bdbcd26eb">log</a> (<a class="el" href="classinf_1_1Optimizer.html#a8fdb83608f80ece0dae112166b62c95b">inf::Optimizer::StopMode</a> stop_mode)</td></tr>
+<tr class="separator:a184f06d7d4f8d70d01f8850bdbcd26eb inherit pub_static_methods_classinf_1_1Optimizer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf4d9a348c84cb84b669a49f67a3b079 inherit pub_static_methods_classinf_1_1Optimizer"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Optimizer.html#adf4d9a348c84cb84b669a49f67a3b079">log</a> (<a class="el" href="classinf_1_1Optimizer.html#a0dce5e153a8fb320fa11f450246e08a6">inf::Optimizer::SearchMode</a> search_mode)</td></tr>
+<tr class="separator:adf4d9a348c84cb84b669a49f67a3b079 inherit pub_static_methods_classinf_1_1Optimizer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54e566bfb4c18ea8287808bff9b4f499 inherit pub_static_methods_classinf_1_1Optimizer"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classinf_1_1Optimizer.html#a2effe8a2722649c349143bcdeaa59752">inf::Optimizer::Ptr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Optimizer.html#a54e566bfb4c18ea8287808bff9b4f499">get_optimizer</a> (<a class="el" href="classinf_1_1Optimizer.html#a0dce5e153a8fb320fa11f450246e08a6">inf::Optimizer::SearchMode</a> search_mode, <a class="el" href="classinf_1_1ConstraintSet.html#ae1ca6aedd9bb271719b185fd0ef0f194">inf::ConstraintSet::Ptr</a> const &amp;constraints, <a class="el" href="classinf_1_1EventTree.html#a3fc302d7a899deaf35f6138a7bcbe67c">inf::EventTree::IO</a> symtree_io, <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> n_threads)</td></tr>
+<tr class="memdesc:a54e566bfb4c18ea8287808bff9b4f499 inherit pub_static_methods_classinf_1_1Optimizer"><td class="mdescLeft">&#160;</td><td class="mdescRight">To conveniently instantiate a subclass of <a class="el" href="classinf_1_1Optimizer.html" title="This class defines the interface for inf::BruteForceOpt and inf::TreeOpt.">inf::Optimizer</a>.  <br /></td></tr>
+<tr class="separator:a54e566bfb4c18ea8287808bff9b4f499 inherit pub_static_methods_classinf_1_1Optimizer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_static_attribs_classinf_1_1Optimizer"><td colspan="2" onclick="javascript:toggleInherit('pub_static_attribs_classinf_1_1Optimizer')"><img src="closed.png" alt="-"/>&#160;Static Public Attributes inherited from <a class="el" href="classinf_1_1Optimizer.html">inf::Optimizer</a></td></tr>
+<tr class="memitem:a66df2661347928818e0a2a1ee763b5b0 inherit pub_static_attribs_classinf_1_1Optimizer"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classutil_1_1Chrono.html">util::Chrono</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Optimizer.html#a66df2661347928818e0a2a1ee763b5b0">total_optimization_chrono</a></td></tr>
+<tr class="memdesc:a66df2661347928818e0a2a1ee763b5b0 inherit pub_static_attribs_classinf_1_1Optimizer"><td class="mdescLeft">&#160;</td><td class="mdescRight">The total time spent in <a class="el" href="classinf_1_1Optimizer.html#aafcf8142d41d456b21de038da220ef96" title="This method invokes inf::Optimizer::get_pre_solution() and dresses up the solution.">inf::Optimizer::optimize()</a>  <br /></td></tr>
+<tr class="separator:a66df2661347928818e0a2a1ee763b5b0 inherit pub_static_attribs_classinf_1_1Optimizer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_attribs_classinf_1_1Optimizer"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classinf_1_1Optimizer')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classinf_1_1Optimizer.html">inf::Optimizer</a></td></tr>
+<tr class="memitem:a140c5d9590193dcdf8196b8f216936ea inherit pro_attribs_classinf_1_1Optimizer"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classinf_1_1ConstraintSet.html#ae1ca6aedd9bb271719b185fd0ef0f194">inf::ConstraintSet::Ptr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Optimizer.html#a140c5d9590193dcdf8196b8f216936ea">m_constraints</a></td></tr>
+<tr class="memdesc:a140c5d9590193dcdf8196b8f216936ea inherit pro_attribs_classinf_1_1Optimizer"><td class="mdescLeft">&#160;</td><td class="mdescRight">This parameter allows to forward the <a class="el" href="classinf_1_1Inflation.html" title="Describes an inflation of a network, currently restricted to canonical inflations of the triangle net...">inf::Inflation</a> at hand, but also the current value of the <a class="el" href="classinf_1_1DualVector.html" title="Describes a dual vector  through its embedding .">inf::DualVector</a> to optimize through <a class="el" href="classinf_1_1ConstraintSet.html#ad6f595cb0067c61653228294592db040" title="The set of inf::Marginal::Evaluator, allowing to efficiently evaluate inner products.">inf::ConstraintSet::get_marg_evaluators()</a>.  <br /></td></tr>
+<tr class="separator:a140c5d9590193dcdf8196b8f216936ea inherit pro_attribs_classinf_1_1Optimizer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5895fe01de040cf08e71f332e94a5ef1 inherit pro_attribs_classinf_1_1Optimizer"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classinf_1_1Optimizer.html#a8fdb83608f80ece0dae112166b62c95b">inf::Optimizer::StopMode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Optimizer.html#a5895fe01de040cf08e71f332e94a5ef1">m_stop_mode</a></td></tr>
+<tr class="memdesc:a5895fe01de040cf08e71f332e94a5ef1 inherit pro_attribs_classinf_1_1Optimizer"><td class="mdescLeft">&#160;</td><td class="mdescRight">See <a class="el" href="classinf_1_1Optimizer.html#a8fdb83608f80ece0dae112166b62c95b" title="This describes how the inf::Optimizer should stop: should it really minimize an inf::DualVector,...">inf::Optimizer::StopMode</a>. This attribute is set by <a class="el" href="classinf_1_1Optimizer.html#aafcf8142d41d456b21de038da220ef96" title="This method invokes inf::Optimizer::get_pre_solution() and dresses up the solution.">inf::Optimizer::optimize()</a>, so that it can be accessed within <a class="el" href="classinf_1_1Optimizer.html#a12b1e5b979187fd52ae421a9945311c1" title="This method is in charge of producing the optimizer (depending on m_stop_mode, see inf::Optimizer::St...">inf::Optimizer::get_pre_solution()</a> overrides.  <br /></td></tr>
+<tr class="separator:a5895fe01de040cf08e71f332e94a5ef1 inherit pro_attribs_classinf_1_1Optimizer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a0238fcfe2388979ba51a52fef442b42b" name="a0238fcfe2388979ba51a52fef442b42b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0238fcfe2388979ba51a52fef442b42b">&#9670;&#160;</a></span>BruteForceOpt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">inf::BruteForceOpt::BruteForceOpt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classinf_1_1ConstraintSet.html#ae1ca6aedd9bb271719b185fd0ef0f194">inf::ConstraintSet::Ptr</a> const &amp;&#160;</td>
+          <td class="paramname"><em>constraints</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initializes an <a class="el" href="classinf_1_1BruteForceOpt.html" title="This inf::Optimizer simply enumerate all inflation events to perform the minimization.">inf::BruteForceOpt</a> with the relevant <code>constraints</code>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">constraints</td><td>An optimizer gets access to an <a class="el" href="classinf_1_1ConstraintSet.html" title="A set of inf::Constraint that, together with the inflation size, determines the inflation problem at ...">inf::ConstraintSet</a>, which is typically used outside of the optimizer. This parameter allows to forward the <a class="el" href="classinf_1_1Inflation.html" title="Describes an inflation of a network, currently restricted to canonical inflations of the triangle net...">inf::Inflation</a> at hand, but also the current value of the <a class="el" href="classinf_1_1DualVector.html" title="Describes a dual vector  through its embedding .">inf::DualVector</a> to optimize through <a class="el" href="classinf_1_1ConstraintSet.html#ad6f595cb0067c61653228294592db040" title="The set of inf::Marginal::Evaluator, allowing to efficiently evaluate inner products.">inf::ConstraintSet::get_marg_evaluators()</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="bf__opt_8cpp_source.html#l00004">4</a> of file <a class="el" href="bf__opt_8cpp_source.html">bf_opt.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="ae34d29d094d630ac77e8e1b9705bedd3" name="ae34d29d094d630ac77e8e1b9705bedd3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae34d29d094d630ac77e8e1b9705bedd3">&#9670;&#160;</a></span>get_pre_solution()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classinf_1_1Optimizer_1_1PreSolution.html">inf::Optimizer::PreSolution</a> inf::BruteForceOpt::get_pre_solution </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This method is in charge of producing the optimizer (depending on <code>m_stop_mode</code>, see <a class="el" href="classinf_1_1Optimizer.html#a8fdb83608f80ece0dae112166b62c95b" title="This describes how the inf::Optimizer should stop: should it really minimize an inf::DualVector,...">inf::Optimizer::StopMode</a>) and its score. </p>
+
+<p>Implements <a class="el" href="classinf_1_1Optimizer.html#a12b1e5b979187fd52ae421a9945311c1">inf::Optimizer</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="bf__opt_8cpp_source.html#l00008">8</a> of file <a class="el" href="bf__opt_8cpp_source.html">bf_opt.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="ac9db6331a56b0cacdb5377581f0e5b3b" name="ac9db6331a56b0cacdb5377581f0e5b3b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9db6331a56b0cacdb5377581f0e5b3b">&#9670;&#160;</a></span>m_evaluators</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classinf_1_1Marginal_1_1EvaluatorSet.html">inf::Marginal::EvaluatorSet</a> inf::BruteForceOpt::m_evaluators</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>These <a class="el" href="classinf_1_1Marginal_1_1Evaluator.html" title="This class contains minimal data allowing to perform the operations described in inf::Marginal.">inf::Marginal::Evaluator</a> are obtained with <a class="el" href="classinf_1_1ConstraintSet.html#ad6f595cb0067c61653228294592db040" title="The set of inf::Marginal::Evaluator, allowing to efficiently evaluate inner products.">inf::ConstraintSet::get_marg_evaluators()</a> </p>
+
+<p class="definition">Definition at line <a class="el" href="bf__opt_8h_source.html#l00031">31</a> of file <a class="el" href="bf__opt_8h_source.html">bf_opt.h</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>src/inf/optimization/<a class="el" href="bf__opt_8h_source.html">bf_opt.h</a></li>
+<li>src/inf/optimization/<a class="el" href="bf__opt_8cpp_source.html">bf_opt.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceinf.html">inf</a></li><li class="navelem"><a class="el" href="classinf_1_1BruteForceOpt.html">BruteForceOpt</a></li>
+    <li class="footer">Generated on Wed Dec 18 2024 17:39:41 for Fast Inflation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

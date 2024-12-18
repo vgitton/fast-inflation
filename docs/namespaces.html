@@ -1,0 +1,327 @@
+<!-- HTML header for doxygen 1.9.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Fast Inflation: Namespace List</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+MathJax.Hub.Config({
+    TeX: {
+        Macros: {
+            dd: ["{\\text{d}#1\\,}",1],
+            nouts: ["{n_{\\text{o}}}"],
+            ints: ["{[\\![#1]\\!]}",1],
+            outset: ["{\\ints{\\nouts}}"],
+            N: ["{\\mathbb{N}}"],
+            R: ["{\\mathbb{R}}"],
+            Z: ["{\\mathbb{Z}}"],
+            infsize: ["{z}"],
+            infparties: ["{\\set{I}}"],
+            infsources: ["{\\set{S}}"],
+            infmarg: ["{\\set{A}}"],
+            infmargg: ["{\\set{B}}"],
+            netparties: ["{\\set{N}}"],
+            infq: ["{q}"],
+            infqs: ["{\\Delta_{\\infparties}}"],
+            constraintlist: ["{\\mathcal{C}}"],
+            injsets: ["{\\text{InjSets}}"],
+            infconstraints: ["{\\text{InfCons}}"],
+            parents: ["{\\text{Par}}"],
+            targetp: ["{p}"],
+            targetps: ["{\\Delta_{\\netparties}}"],
+            set: ["{\\mathbf{#1}}",1],
+            type: ["{t}"],
+            infevent: "{\\omega}",
+            events: ["{\\Omega_{#1}}",1],
+            infevents: ["{\\events{\\infparties}}"],
+            redinfevents: ["{\\tilde{\\Omega}_{\\infparties}}"],
+            netevents: ["{\\events{\\netparties}}"],
+            vecset: ["{V_{#1}}",1],
+            alice: ["{\\text{A}}"],
+            bob: ["{\\text{B}}"],
+            charlie: ["{\\text{C}}"],
+            symgroup: ["{\\text{Sym}(#1)}",1],
+            shortsymgroup: ["{\\text{Sym}_{#1}}",1],
+            act: ["{(#1\\hspace{2pt}{:}\\hspace{2pt}#2)}",2],
+            actt: ["{[#1\\hspace{2pt}{:}\\hspace{2pt}#2]}",2],
+            margperms: ["{\\text{Perm}_{#1}}",1],
+            permutedmargs: ["{\\mathbb{P}_{#1}^{\\targetp}}",1],
+            redpermutedmargs: ["{\\tilde{\\mathbb{P}}_{#1}^{\\constraintname,\\targetp}}",1],
+            extract: ["{\\text{ext}(#1,#2)}",2],
+            partysym: ["{\\tau}"],
+            sourcesym: ["{\\xi}"],
+            outsym: ["{\\sigma}"],
+            fullgroup: ["{\\text{InfGrp}}"],
+            partygroup : ["{\\text{PartyGrp}}"],
+            outgroup: ["{\\text{OutGrp}}"],
+            sourcegroup: ["{\\text{SrcGrp}}"],
+            distrgroup: ["{\\mathbb{G}^\\targetp}"],
+            constraintname: ["{c}"],
+            marggroup: ["{\\mathbb{G}^{\\constraintname,\\targetp}}"],
+            fullsymexpl: ["{(\\sourcesym,\\partysym,\\outsym)}"],
+            inner: ["{\\langle#1,#2\\rangle}", 2],
+            quovec: ["{f}"],
+            totconstraintmap: ["{K^{\\constraintlist,\\targetp}}"],
+            totconstraintmapelem: ["{K^{\\constraintname,\\targetp}}"],
+            quovecspace: ["{\\tilde{V}_{#1}^{\\constraintname,\\targetp}}", 1],
+            totquovecspace: ["{\\text{ConsSpace}(\\constraintlist,\\targetp)}"],
+            detdistr: ["{\\delta^{#1}}", 1],
+            margperm: ["{\\varphi}"],
+            altquovecembed: ["{\\text{G}_{#1}^{\\constraintname,\\targetp}}", 1],
+            vecset: ["{V_{#1}}", 1],
+            repr: ["{\\lfloor#1\\rfloor}", 1],
+            gid: ["{\\text{id}}"],
+            id: ["{1_{#1}}",1],
+            consscale: ["{K}"],
+            scaletot: ["{K_{\\text{tot}}^{\\constraintlist,\\targetp}}"],
+            minnorm: ["{d}"],
+            Bigsetst: ["\\;\\Big|\\;"],
+            activeset: ["\\mathcal{S}"],
+            conv: ["\\text{conv}"],
+            lVert: ["|\\hspace{-1pt}|"],
+            norm: ["\\lVert#1\\lVert", 1],
+            st: [":\ "],
+        }
+    }
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeDarkModeToggle.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeParagraphLink.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Fast Inflation
+   </div>
+   <div id="projectbrief">To certify causal incompatibility</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('namespaces.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Namespace List</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock">Here is a list of all namespaces with brief descriptions:</div><div class="directory">
+<div class="levels">[detail level <span onclick="javascript:toggleLevel(1);">1</span><span onclick="javascript:toggleLevel(2);">2</span><span onclick="javascript:toggleLevel(3);">3</span><span onclick="javascript:toggleLevel(4);">4</span>]</div><table class="directory">
+<tr id="row_0_" class="even"><td class="entry"><span style="width:0px;display:inline-block;">&#160;</span><span id="arr_0_" class="arrow" onclick="toggleFolder('0_')">&#9658;</span><span class="icona"><span class="icon">N</span></span><a class="el" href="namespaceinf.html" target="_self">inf</a></td><td class="desc">The namespace for the inflation code </td></tr>
+<tr id="row_0_0_" class="odd" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classinf_1_1BruteForceOpt.html" target="_self">BruteForceOpt</a></td><td class="desc">This <a class="el" href="classinf_1_1Optimizer.html" title="This class defines the interface for inf::BruteForceOpt and inf::TreeOpt.">inf::Optimizer</a> simply enumerate all inflation events to perform the minimization </td></tr>
+<tr id="row_0_1_" class="odd" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classinf_1_1Constraint.html" target="_self">Constraint</a></td><td class="desc">Describes a single constraint of the form \(\infq_{\infmarg_{0}\cdots\infmarg_{k-1}\infmargg} = \targetp_{\infmarg_{0}} \cdots \targetp_{\infmarg_{k-1}}\cdot \infq_{\infmargg}\) </td></tr>
+<tr id="row_0_2_" class="odd" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classinf_1_1ConstraintParser.html" target="_self">ConstraintParser</a></td><td class="desc">To convert a human-readable formulation of inflation constraints into the necessary internal format </td></tr>
+<tr id="row_0_3_" class="odd" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classinf_1_1ConstraintSet.html" target="_self">ConstraintSet</a></td><td class="desc">A set of <a class="el" href="classinf_1_1Constraint.html" title="Describes a single constraint of the form .">inf::Constraint</a> that, together with the inflation size, determines the inflation problem at hand </td></tr>
+<tr id="row_0_4_" class="odd" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classinf_1_1DualVector.html" target="_self">DualVector</a></td><td class="desc">Describes a dual vector \(\quovec\in\quovecspace{\infmarg}\) through its embedding \(\altquovecembed\infmarg(\quovec) \in \vecset\infmarg\) </td></tr>
+<tr id="row_0_5_" class="odd" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classinf_1_1EventTensor.html" target="_self">EventTensor</a></td><td class="desc">Stores a function from a set of <a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0" title="A list of inf::Outcome. Conceptually, this plays the role of  for some set .">inf::Event</a> of fixed length to <a class="el" href="group__util.html#gaea24f8b468377784fdb704692e9168f5" title="Signed integers.">Num</a> </td></tr>
+<tr id="row_0_6_" class="odd" style="display:none;"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span id="arr_0_6_" class="arrow" onclick="toggleFolder('0_6_')">&#9658;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classinf_1_1EventTree.html" target="_self">EventTree</a></td><td class="desc">Storing a set of <a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0" title="A list of inf::Outcome. Conceptually, this plays the role of  for some set .">inf::Event</a> as a tree </td></tr>
+<tr id="row_0_6_0_" class="odd" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classinf_1_1EventTree_1_1Node.html" target="_self">Node</a></td><td class="desc">A node of the <a class="el" href="classinf_1_1EventTree.html" title="Storing a set of inf::Event as a tree.">inf::EventTree</a>, storing an outcome and some other inf::EventTreee::Node as children </td></tr>
+<tr id="row_0_6_1_" class="odd" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classinf_1_1EventTree_1_1NodePos.html" target="_self">NodePos</a></td><td class="desc">This lightweight data structure uniquely identifies a node in some <a class="el" href="classinf_1_1EventTree.html" title="Storing a set of inf::Event as a tree.">inf::EventTree</a> </td></tr>
+<tr id="row_0_7_" class="odd" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classinf_1_1FeasOptions.html" target="_self">FeasOptions</a></td><td class="desc">To conviently manipulate the parameters of an <a class="el" href="classinf_1_1FeasProblem.html" title="This class defines inflation problems, i.e., problems of the form: given a target distribution ,...">inf::FeasProblem</a> </td></tr>
+<tr id="row_0_8_" class="odd" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classinf_1_1FeasProblem.html" target="_self">FeasProblem</a></td><td class="desc">This class defines inflation problems, i.e., problems of the form: given a target distribution \(\targetp\in\targetps\), is there an inflation distribution \(\infq\in\infqs\) satisfying appropriate symmetry and marginal constraints? </td></tr>
+<tr id="row_0_9_" class="odd" style="display:none;"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span id="arr_0_9_" class="arrow" onclick="toggleFolder('0_9_')">&#9658;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classinf_1_1FrankWolfe.html" target="_self">FrankWolfe</a></td><td class="desc">The interface to the different Frank-Wolfe algorithms that we implement </td></tr>
+<tr id="row_0_9_0_" class="odd" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classinf_1_1FrankWolfe_1_1Solution.html" target="_self">Solution</a></td><td class="desc">This describes the solution that <a class="el" href="classinf_1_1FrankWolfe.html" title="The interface to the different Frank-Wolfe algorithms that we implement.">inf::FrankWolfe</a> returns </td></tr>
+<tr id="row_0_10_" class="odd" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classinf_1_1FullyCorrectiveFW.html" target="_self">FullyCorrectiveFW</a></td><td class="desc">The fully-corrective algorithm </td></tr>
+<tr id="row_0_11_" class="odd" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classinf_1_1Inflation.html" target="_self">Inflation</a></td><td class="desc">Describes an inflation of a network, currently restricted to canonical inflations of the triangle network </td></tr>
+<tr id="row_0_12_" class="odd" style="display:none;"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span id="arr_0_12_" class="arrow" onclick="toggleFolder('0_12_')">&#9658;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classinf_1_1Marginal.html" target="_self">Marginal</a></td><td class="desc">This class represents an inflation marginal \(\infq_\infmarg\) for some set of inflation parties \(\infmarg \subset \infparties\) and allows to efficiently evaluate inner products </td></tr>
+<tr id="row_0_12_0_" class="odd" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span id="arr_0_12_0_" class="arrow" onclick="toggleFolder('0_12_0_')">&#9658;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classinf_1_1Marginal_1_1Evaluator.html" target="_self">Evaluator</a></td><td class="desc">This class contains minimal data allowing to perform the operations described in <a class="el" href="classinf_1_1Marginal.html" title="This class represents an inflation marginal  for some set of inflation parties  and allows to efficie...">inf::Marginal</a> </td></tr>
+<tr id="row_0_12_0_0_" class="odd" style="display:none;"><td class="entry"><span style="width:64px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="structinf_1_1Marginal_1_1Evaluator_1_1UpdateRule.html" target="_self">UpdateRule</a></td><td class="desc">An update rule is implicitly associated to an inflation party and specifies what to do when the outcome of an inflation party changes </td></tr>
+<tr id="row_0_12_1_" class="odd" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classinf_1_1Marginal_1_1EvaluatorSet.html" target="_self">EvaluatorSet</a></td><td class="desc">This class is a convenience for storing multiple <a class="el" href="classinf_1_1Marginal_1_1Evaluator.html" title="This class contains minimal data allowing to perform the operations described in inf::Marginal.">inf::Marginal::Evaluator</a> and adding up their results </td></tr>
+<tr id="row_0_12_2_" class="odd" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="structinf_1_1Marginal_1_1Permutation.html" target="_self">Permutation</a></td><td class="desc">This describes a marginal permutation \((\sigma,\pi) \in \margperms\infmarg\) with \(\sigma\) an outcome permutation and \(\pi : \infmarg \to \infparties\) </td></tr>
+<tr id="row_0_13_" class="odd" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classinf_1_1Network.html" target="_self">Network</a></td><td class="desc">The network with which the classical causal compatibility of a target distribution is to be tested </td></tr>
+<tr id="row_0_14_" class="odd" style="display:none;"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span id="arr_0_14_" class="arrow" onclick="toggleFolder('0_14_')">&#9658;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classinf_1_1Optimizer.html" target="_self">Optimizer</a></td><td class="desc">This class defines the interface for <a class="el" href="classinf_1_1BruteForceOpt.html" title="This inf::Optimizer simply enumerate all inflation events to perform the minimization.">inf::BruteForceOpt</a> and <a class="el" href="classinf_1_1TreeOpt.html" title="This inf::Optimizer is the most efficient one we used, it uses multi-threading and a branch-and-bound...">inf::TreeOpt</a> </td></tr>
+<tr id="row_0_14_0_" class="odd" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classinf_1_1Optimizer_1_1PreSolution.html" target="_self">PreSolution</a></td><td class="desc">This is the base of the inf::Solution returned by an <a class="el" href="classinf_1_1Optimizer.html" title="This class defines the interface for inf::BruteForceOpt and inf::TreeOpt.">inf::Optimizer</a>, containing the optimizer (an inflation event) and its score </td></tr>
+<tr id="row_0_14_1_" class="odd" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classinf_1_1Optimizer_1_1Solution.html" target="_self">Solution</a></td><td class="desc">To store an <a class="el" href="classinf_1_1Optimizer_1_1PreSolution.html" title="This is the base of the inf::Solution returned by an inf::Optimizer, containing the optimizer (an inf...">inf::Optimizer::PreSolution</a> along with additional context </td></tr>
+<tr id="row_0_15_" class="odd" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classinf_1_1Orbitable.html" target="_self">Orbitable</a></td><td class="desc">Something that holds symmetry-induced orbits of events </td></tr>
+<tr id="row_0_16_" class="odd" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classinf_1_1OutcomeSym.html" target="_self">OutcomeSym</a></td><td class="desc">Outcome symmetry </td></tr>
+<tr id="row_0_17_" class="odd" style="display:none;"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span id="arr_0_17_" class="arrow" onclick="toggleFolder('0_17_')">&#9658;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classinf_1_1PairwiseFW.html" target="_self">PairwiseFW</a></td><td class="desc">A pairwise Frank-Wolfe algorithm </td></tr>
+<tr id="row_0_17_0_" class="odd" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classinf_1_1PairwiseFW_1_1Data.html" target="_self">Data</a></td><td class="desc">The data held by the <a class="el" href="classinf_1_1PairwiseFW.html" title="A pairwise Frank-Wolfe algorithm.">inf::PairwiseFW</a> algorithm </td></tr>
+<tr id="row_0_18_" class="odd" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classinf_1_1PartySym.html" target="_self">PartySym</a></td><td class="desc">Party symmetry </td></tr>
+<tr id="row_0_19_" class="odd" style="display:none;"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span id="arr_0_19_" class="arrow" onclick="toggleFolder('0_19_')">&#9658;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classinf_1_1Symmetry.html" target="_self">Symmetry</a></td><td class="desc">A pair of party symmetry and outcome symmetry </td></tr>
+<tr id="row_0_19_0_" class="odd" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classinf_1_1Symmetry_1_1SymmetriesHaveChanged.html" target="_self">SymmetriesHaveChanged</a></td><td class="desc">Used to indicate that a symmetry group has changed </td></tr>
+<tr id="row_0_20_" class="odd" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classinf_1_1TargetDistr.html" target="_self">TargetDistr</a></td><td class="desc">A distribution over an <a class="el" href="classinf_1_1Network.html" title="The network with which the classical causal compatibility of a target distribution is to be tested.">inf::Network</a> </td></tr>
+<tr id="row_0_21_" class="odd" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classinf_1_1TensorWithOrbits.html" target="_self">TensorWithOrbits</a></td><td class="desc">An <a class="el" href="classinf_1_1EventTensor.html" title="Stores a function from a set of inf::Event of fixed length to Num.">inf::EventTensor</a> that is also an <a class="el" href="classinf_1_1Orbitable.html" title="Something that holds symmetry-induced orbits of events.">inf::Orbitable</a> </td></tr>
+<tr id="row_0_22_" class="odd" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classinf_1_1TreeFiller.html" target="_self">TreeFiller</a></td><td class="desc">This class takes care of filling an <a class="el" href="classinf_1_1EventTree.html" title="Storing a set of inf::Event as a tree.">inf::EventTree</a> that stores the symmetrized inflation events \(\redinfevents\) </td></tr>
+<tr id="row_0_23_" class="odd" style="display:none;"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span id="arr_0_23_" class="arrow" onclick="toggleFolder('0_23_')">&#9658;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classinf_1_1TreeOpt.html" target="_self">TreeOpt</a></td><td class="desc">This <a class="el" href="classinf_1_1Optimizer.html" title="This class defines the interface for inf::BruteForceOpt and inf::TreeOpt.">inf::Optimizer</a> is the most efficient one we used, it uses multi-threading and a branch-and-bound tree search to minimize inner products </td></tr>
+<tr id="row_0_23_0_" class="odd" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classinf_1_1TreeOpt_1_1GlobalMinimum.html" target="_self">GlobalMinimum</a></td><td class="desc">This is the shared data between threads, storing the global smallest value found so far, and providing a thread-safe interface </td></tr>
+<tr id="row_0_23_1_" class="odd" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="structinf_1_1TreeOpt_1_1ThreadReturn.html" target="_self">ThreadReturn</a></td><td class="desc">This is what each thread returns, essentially an <a class="el" href="classinf_1_1Optimizer_1_1PreSolution.html" title="This is the base of the inf::Solution returned by an inf::Optimizer, containing the optimizer (an inf...">inf::Optimizer::PreSolution</a> </td></tr>
+<tr id="row_0_23_2_" class="odd" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="structinf_1_1TreeOpt_1_1ThreadWorker.html" target="_self">ThreadWorker</a></td><td class="desc">This struct encapsulates the data that each thread works with </td></tr>
+<tr id="row_0_24_" class="odd" style="display:none;"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span id="arr_0_24_" class="arrow" onclick="toggleFolder('0_24_')">&#9658;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classinf_1_1TreeSplitter.html" target="_self">TreeSplitter</a></td><td class="desc">This class allows the user to partition an <a class="el" href="classinf_1_1EventTree.html" title="Storing a set of inf::Event as a tree.">inf::EventTree</a> into a group of subtrees that each have roughly the same number of leaves </td></tr>
+<tr id="row_0_24_0_" class="odd" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="structinf_1_1TreeSplitter_1_1PathAndLeaves.html" target="_self">PathAndLeaves</a></td><td class="desc">We will look at the set of paths that finish at a certain depth, and we need to know the number of (non-unique) leaves that each path contains </td></tr>
+<tr id="row_0_25_" class="odd" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classinf_1_1VisProblem.html" target="_self">VisProblem</a></td><td class="desc">A simple dichotomic search for finding the minimum infeasible visibility of a distribution </td></tr>
+<tr id="row_1_" class="odd"><td class="entry"><span style="width:0px;display:inline-block;">&#160;</span><span id="arr_1_" class="arrow" onclick="toggleFolder('1_')">&#9658;</span><span class="icona"><span class="icon">N</span></span><a class="el" href="namespaceuser.html" target="_self">user</a></td><td class="desc">The namespace for application code </td></tr>
+<tr id="row_1_0_" class="even" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classuser_1_1Application.html" target="_self">Application</a></td><td class="desc">Parent class of user applications </td></tr>
+<tr id="row_1_1_" class="even" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classuser_1_1AppManager.html" target="_self">AppManager</a></td><td class="desc">This class parses the command-line arguments to try to run an application listed in <a class="el" href="group__user.html#gac8692e8f531289da15d184fef94841aa" title="Specifies the existing applications/examples.">user::get_application_list()</a> </td></tr>
+<tr id="row_1_2_" class="even" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classuser_1_1distribution__marginal.html" target="_self">distribution_marginal</a></td><td class="desc">Tests marginals of a triangle distribution </td></tr>
+<tr id="row_1_3_" class="even" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classuser_1_1dual__vector__bounds.html" target="_self">dual_vector_bounds</a></td><td class="desc">Tests the mechanism that stores the bounds of an <a class="el" href="classinf_1_1DualVector.html" title="Describes a dual vector  through its embedding .">inf::DualVector</a> </td></tr>
+<tr id="row_1_4_" class="even" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classuser_1_1dual__vector__io.html" target="_self">dual_vector_io</a></td><td class="desc">Tests the mechanism that reads/writes an <a class="el" href="classinf_1_1DualVector.html" title="Describes a dual vector  through its embedding .">inf::DualVector</a> to disk </td></tr>
+<tr id="row_1_5_" class="even" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classuser_1_1ejm.html" target="_self">ejm</a></td><td class="desc">Placeholder for EJM inflation compatibility problems </td></tr>
+<tr id="row_1_6_" class="even" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classuser_1_1ejm__check__nl__certificate.html" target="_self">ejm_check_nl_certificate</a></td><td class="desc">Reads the nonlocality certificate for the EJM from disk and checks that it indeed rules out a local model for the EJM </td></tr>
+<tr id="row_1_7_" class="even" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classuser_1_1ejm__eval.html" target="_self">ejm_eval</a></td><td class="desc">See <a class="el" href="group__misc__tests.html#ga9790d6560cfcd9f65b2400a308f42244" title="This function tests the evaluation of inner products, see inf::DualVector and inf::Marginal.">user::test_dual_vector_eval()</a> </td></tr>
+<tr id="row_1_8_" class="even" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classuser_1_1ejm__find__nl__certificate.html" target="_self">ejm_find_nl_certificate</a></td><td class="desc">Finds a nonlocality certificate for the EJM and writes it to disk </td></tr>
+<tr id="row_1_9_" class="even" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classuser_1_1ejm__scan__222.html" target="_self">ejm_scan_222</a></td><td class="desc">Tests the compatibility of the symmetric distributions with the \(2\times2\times2\) inflation </td></tr>
+<tr id="row_1_10_" class="even" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classuser_1_1ejm__sym.html" target="_self">ejm_sym</a></td><td class="desc">This shows info about the symmetries of the EJM for various inflation sizes </td></tr>
+<tr id="row_1_11_" class="even" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classuser_1_1ejm__symtree.html" target="_self">ejm_symtree</a></td><td class="desc">Displays information about the EJM symtree, see <a class="el" href="classinf_1_1EventTree.html" title="Storing a set of inf::Event as a tree.">inf::EventTree</a> and <a class="el" href="classinf_1_1TreeFiller.html" title="This class takes care of filling an inf::EventTree that stores the symmetrized inflation events .">inf::TreeFiller</a> </td></tr>
+<tr id="row_1_12_" class="even" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classuser_1_1ejm__vis__222__strong.html" target="_self">ejm_vis_222_strong</a></td><td class="desc">Visibility of EJM under \(2\times2\times2\) inflation, using all constraints </td></tr>
+<tr id="row_1_13_" class="even" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classuser_1_1ejm__vis__222__weak.html" target="_self">ejm_vis_222_weak</a></td><td class="desc">Visibility of EJM under \(2\times2\times2\) inflation, using only the order-2 diagonal constraint </td></tr>
+<tr id="row_1_14_" class="even" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classuser_1_1ejm__vis__223__strong.html" target="_self">ejm_vis_223_strong</a></td><td class="desc">Visibility of EJM under \(2\times2\times3\) inflation, using all constraints </td></tr>
+<tr id="row_1_15_" class="even" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classuser_1_1ejm__vis__223__weak.html" target="_self">ejm_vis_223_weak</a></td><td class="desc">Visibility of EJM under \(2\times2\times3\) inflation, using only the main constraint </td></tr>
+<tr id="row_1_16_" class="even" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classuser_1_1ejm__vis__224__inter__v1.html" target="_self">ejm_vis_224_inter_v1</a></td><td class="desc">Visibility of EJM under \(2\times2\times4\) inflation, using only main constraint </td></tr>
+<tr id="row_1_17_" class="even" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classuser_1_1ejm__vis__224__inter__v2__diag__A.html" target="_self">ejm_vis_224_inter_v2_diag_A</a></td><td class="desc">Visibility of EJM under \(2\times2\times4\) inflation using main constraint and an A-type constraint </td></tr>
+<tr id="row_1_18_" class="even" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classuser_1_1ejm__vis__224__inter__v2__diag__C.html" target="_self">ejm_vis_224_inter_v2_diag_C</a></td><td class="desc">Visibility of EJM under \(2\times2\times4\) inflation using main constraint and a C-type constraint </td></tr>
+<tr id="row_1_19_" class="even" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classuser_1_1ejm__vis__224__weak.html" target="_self">ejm_vis_224_weak</a></td><td class="desc">Visibility of EJM under \(2\times2\times4\) inflation, using all constraints of \(2\times2\times3\) inflation </td></tr>
+<tr id="row_1_20_" class="even" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classuser_1_1ejm__vis__224__weak__bis.html" target="_self">ejm_vis_224_weak_bis</a></td><td class="desc">Visibility of EJM under \(2\times2\times4\) inflation, using the good \(A\) type constraint </td></tr>
+<tr id="row_1_21_" class="even" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classuser_1_1event__sym.html" target="_self">event_sym</a></td><td class="desc">Used to test and display the effect of symmetry transformations on inflation events </td></tr>
+<tr id="row_1_22_" class="even" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classuser_1_1event__tensor.html" target="_self">event_tensor</a></td><td class="desc">Tests <a class="el" href="classinf_1_1EventTensor.html" title="Stores a function from a set of inf::Event of fixed length to Num.">inf::EventTensor</a> </td></tr>
+<tr id="row_1_23_" class="even" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classuser_1_1event__tree.html" target="_self">event_tree</a></td><td class="desc">Tests <a class="el" href="classinf_1_1EventTree.html" title="Storing a set of inf::Event as a tree.">inf::EventTree</a>, including IO mecanism </td></tr>
+<tr id="row_1_24_" class="even" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classuser_1_1file__stream.html" target="_self">file_stream</a></td><td class="desc">Tests the <a class="el" href="classutil_1_1FileStream.html" title="This abstract class provides a common interface to util::InputFileStream and util::OutputFileStream t...">util::FileStream</a> serialization mechanism in both binary and text form for a dummy class </td></tr>
+<tr id="row_1_25_" class="even" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classuser_1_1frac.html" target="_self">frac</a></td><td class="desc">Tests <a class="el" href="classutil_1_1Frac.html" title="A class to represent rational numbers.">util::Frac</a> </td></tr>
+<tr id="row_1_26_" class="even" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classuser_1_1fully__corrective__fw.html" target="_self">fully_corrective_fw</a></td><td class="desc">Tests <a class="el" href="classinf_1_1FullyCorrectiveFW.html" title="The fully-corrective algorithm.">inf::FullyCorrectiveFW</a> </td></tr>
+<tr id="row_1_27_" class="even" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classuser_1_1inf__tree__filler.html" target="_self">inf_tree_filler</a></td><td class="desc">Tests <a class="el" href="classinf_1_1TreeFiller.html" title="This class takes care of filling an inf::EventTree that stores the symmetrized inflation events .">inf::TreeFiller</a> </td></tr>
+<tr id="row_1_28_" class="even" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classuser_1_1inf__tree__splitting.html" target="_self">inf_tree_splitting</a></td><td class="desc">Tests the tree splitting of inflation event trees </td></tr>
+<tr id="row_1_29_" class="even" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classuser_1_1InfCLI.html" target="_self">InfCLI</a></td><td class="desc">This class defines the command-line parameters that are expected </td></tr>
+<tr id="row_1_30_" class="even" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classuser_1_1inflation__marginal.html" target="_self">inflation_marginal</a></td><td class="desc">Tests <a class="el" href="classinf_1_1Marginal.html" title="This class represents an inflation marginal  for some set of inflation parties  and allows to efficie...">inf::Marginal</a> </td></tr>
+<tr id="row_1_31_" class="even" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classuser_1_1opt__bounds.html" target="_self">opt_bounds</a></td><td class="desc">Tests the mechanism that uses the bounds of an <a class="el" href="classinf_1_1DualVector.html" title="Describes a dual vector  through its embedding .">inf::DualVector</a> to speed up the optimizations of inner products </td></tr>
+<tr id="row_1_32_" class="even" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classuser_1_1opt__time.html" target="_self">opt_time</a></td><td class="desc">To test the time that an <a class="el" href="classinf_1_1Optimizer.html" title="This class defines the interface for inf::BruteForceOpt and inf::TreeOpt.">inf::Optimizer</a> takes for various options. This one takes more time to execute </td></tr>
+<tr id="row_1_33_" class="even" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classuser_1_1pairwise__fw.html" target="_self">pairwise_fw</a></td><td class="desc">A detailed test to investigate the behavior of <a class="el" href="classinf_1_1PairwiseFW.html" title="A pairwise Frank-Wolfe algorithm.">inf::PairwiseFW</a> </td></tr>
+<tr id="row_1_34_" class="even" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classuser_1_1pjm.html" target="_self">pjm</a></td><td class="desc">Trying to prove the nonlocality of the PJM distribution of Nicolas Gisin </td></tr>
+<tr id="row_1_35_" class="even" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classuser_1_1srb.html" target="_self">srb</a></td><td class="desc">Placeholder for Shared Random Bit feasibility problems </td></tr>
+<tr id="row_1_36_" class="even" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classuser_1_1srb__dual__vector__io.html" target="_self">srb_dual_vector_io</a></td><td class="desc">Writes a nonlocality certificate for the SRB and then reads it back to test its validity </td></tr>
+<tr id="row_1_37_" class="even" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classuser_1_1srb__eval.html" target="_self">srb_eval</a></td><td class="desc">See <a class="el" href="group__misc__tests.html#ga9790d6560cfcd9f65b2400a308f42244" title="This function tests the evaluation of inner products, see inf::DualVector and inf::Marginal.">user::test_dual_vector_eval()</a> </td></tr>
+<tr id="row_1_38_" class="even" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classuser_1_1srb__sym.html" target="_self">srb_sym</a></td><td class="desc">User::Application that shows info about the problem and its symmetries for various inflation sizes </td></tr>
+<tr id="row_1_39_" class="even" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classuser_1_1srb__vis__222__strong.html" target="_self">srb_vis_222_strong</a></td><td class="desc">Visibility of SRB under \(2\times2\times2\) inflation, with all constraints </td></tr>
+<tr id="row_1_40_" class="even" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classuser_1_1srb__vis__222__weak.html" target="_self">srb_vis_222_weak</a></td><td class="desc">Visibility of SRB under \(2\times2\times2\) inflation, using only the order-2 diagonal constraint </td></tr>
+<tr id="row_1_41_" class="even" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classuser_1_1srb__vis__223__strong.html" target="_self">srb_vis_223_strong</a></td><td class="desc">Visibility of SRB under \(2\times2\times3\) inflation, with all constraints </td></tr>
+<tr id="row_1_42_" class="even" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classuser_1_1srb__vis__223__weak.html" target="_self">srb_vis_223_weak</a></td><td class="desc">Visibility of SRB under \(2\times2\times3\) inflation, using only the order-2 diagonal constraint </td></tr>
+<tr id="row_1_43_" class="even" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classuser_1_1srb__vis__233__inter.html" target="_self">srb_vis_233_inter</a></td><td class="desc">Visibility of SRB under \(2\times3\times3\) inflation, using only the full diagonal constraint </td></tr>
+<tr id="row_1_44_" class="even" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classuser_1_1srb__vis__233__strong.html" target="_self">srb_vis_233_strong</a></td><td class="desc">Visibility of SRB under \(2\times3\times3\) inflation, with all constraints </td></tr>
+<tr id="row_1_45_" class="even" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classuser_1_1srb__vis__233__weak.html" target="_self">srb_vis_233_weak</a></td><td class="desc">Visibility of SRB under \(2\times3\times3\) inflation, using only the order-2 diagonal constraint </td></tr>
+<tr id="row_1_46_" class="even" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classuser_1_1srb__vis__333.html" target="_self">srb_vis_333</a></td><td class="desc">Visibility of SRB under \(3\times3\times3\) inflation, using only main constraint </td></tr>
+<tr id="row_1_47_" class="even" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classuser_1_1srb__vis__334.html" target="_self">srb_vis_334</a></td><td class="desc">Visibility of SRB under \(3\times3\times4\) inflation, using only main constraint of \(3\times3\times3\) inflation </td></tr>
+<tr id="row_1_48_" class="even" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classuser_1_1srb__vis__detailed__test.html" target="_self">srb_vis_detailed_test</a></td><td class="desc">Visibility of SRB under a variety of inflation sizes and solver options </td></tr>
+<tr id="row_1_49_" class="even" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classuser_1_1tree__splitter.html" target="_self">tree_splitter</a></td><td class="desc">Tests the tree splitting mechanism on a simple case as described in <a class="el" href="classinf_1_1TreeSplitter.html" title="This class allows the user to partition an inf::EventTree into a group of subtrees that each have rou...">inf::TreeSplitter</a> </td></tr>
+<tr id="row_1_50_" class="even" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classuser_1_1y__basis.html" target="_self">y_basis</a></td><td class="desc">Trying to prove the nonlocality of the \(Y\)-basis distribution of Nicolas Gisin </td></tr>
+<tr id="row_1_51_" class="even" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classuser_1_1y__basis__sym.html" target="_self">y_basis_sym</a></td><td class="desc">Tests the symmetrization of inflation problems for the \(Y\)-basis distribution of Nicolas Gisin </td></tr>
+<tr id="row_2_" class="even"><td class="entry"><span style="width:0px;display:inline-block;">&#160;</span><span id="arr_2_" class="arrow" onclick="toggleFolder('2_')">&#9658;</span><span class="icona"><span class="icon">N</span></span><a class="el" href="namespaceutil.html" target="_self">util</a></td><td class="desc">The namespace for general purpose code, not specifically related to inflation </td></tr>
+<tr id="row_2_0_" class="odd" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classutil_1_1BaseCLI.html" target="_self">BaseCLI</a></td><td class="desc">This class provides support to extract command-line options of the form <code>--option value</code> </td></tr>
+<tr id="row_2_1_" class="odd" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classutil_1_1Chrono.html" target="_self">Chrono</a></td><td class="desc">A simple stopwatch class </td></tr>
+<tr id="row_2_2_" class="odd" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classutil_1_1FileStream.html" target="_self">FileStream</a></td><td class="desc">This abstract class provides a common interface to <a class="el" href="classutil_1_1InputFileStream.html" title="The specialization of util::FileStream to write to a file.">util::InputFileStream</a> and <a class="el" href="classutil_1_1OutputFileStream.html" title="The specialization of util::FileStream to write to a file.">util::OutputFileStream</a> to unify the read/write mechanism into a single mechanism </td></tr>
+<tr id="row_2_3_" class="odd" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classutil_1_1Frac.html" target="_self">Frac</a></td><td class="desc">A class to represent rational numbers </td></tr>
+<tr id="row_2_4_" class="odd" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classutil_1_1InputFileStream.html" target="_self">InputFileStream</a></td><td class="desc">The specialization of <a class="el" href="classutil_1_1FileStream.html" title="This abstract class provides a common interface to util::InputFileStream and util::OutputFileStream t...">util::FileStream</a> to write to a file </td></tr>
+<tr id="row_2_5_" class="odd" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classutil_1_1Iterator.html" target="_self">Iterator</a></td><td class="desc">Iterator over incrementable type <code>T</code>, see <a class="el" href="classutil_1_1Range.html" title="Iterating over a finite integer range.">util::Range</a> </td></tr>
+<tr id="row_2_6_" class="odd" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classutil_1_1Loggable.html" target="_self">Loggable</a></td><td class="desc">Defines printable classes </td></tr>
+<tr id="row_2_7_" class="odd" style="display:none;"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span id="arr_2_7_" class="arrow" onclick="toggleFolder('2_7_')">&#9658;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classutil_1_1Logger.html" target="_self">Logger</a></td><td class="desc">This custom logger providing additional functionalities over <code>std::cout</code> </td></tr>
+<tr id="row_2_7_0_" class="odd" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classutil_1_1Logger_1_1WidthManip.html" target="_self">WidthManip</a></td><td class="desc">Internal class, use <a class="el" href="group__printing.html#ga90e9eed047f3bebb56929d5b1a5518b2" title="Used as util::logger &lt;&lt; util::setw(5) &lt;&lt; &quot;a&quot; to print &quot;____a&quot; (four spaces before &quot;a&quot;)">util::setw()</a> instead </td></tr>
+<tr id="row_2_8_" class="odd" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classutil_1_1OutputFileStream.html" target="_self">OutputFileStream</a></td><td class="desc">The specialization of <a class="el" href="classutil_1_1FileStream.html" title="This abstract class provides a common interface to util::InputFileStream and util::OutputFileStream t...">util::FileStream</a> to write to a file </td></tr>
+<tr id="row_2_9_" class="odd" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classutil_1_1PermIterator.html" target="_self">PermIterator</a></td><td class="desc">To iterate over permutations, see <a class="el" href="classutil_1_1Permutations.html" title="To iterate over permutations.">util::Permutations</a> </td></tr>
+<tr id="row_2_10_" class="odd" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classutil_1_1Permutations.html" target="_self">Permutations</a></td><td class="desc">To iterate over permutations </td></tr>
+<tr id="row_2_11_" class="odd" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classutil_1_1ProductIterator.html" target="_self">ProductIterator</a></td><td class="desc">Iterator over <code>std::vector&lt;T&gt;</code>, see <a class="el" href="classutil_1_1ProductRange.html" title="This class implements a range over std::vector&lt;T&gt;, akin to Python product ranges.">util::ProductRange</a> </td></tr>
+<tr id="row_2_12_" class="odd" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classutil_1_1ProductRange.html" target="_self">ProductRange</a></td><td class="desc">This class implements a range over <code>std::vector&lt;T&gt;</code>, akin to Python product ranges </td></tr>
+<tr id="row_2_13_" class="odd" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classutil_1_1Range.html" target="_self">Range</a></td><td class="desc">Iterating over a finite integer range </td></tr>
+<tr id="row_2_14_" class="odd" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classutil_1_1RNG.html" target="_self">RNG</a></td><td class="desc">A uniform random integer generator over a specified range </td></tr>
+<tr id="row_2_15_" class="odd" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classutil_1_1Serializable.html" target="_self">Serializable</a></td><td class="desc">Abstract class that defines the interface of a class that is serializable </td></tr>
+<tr id="row_2_16_" class="odd" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classutil_1_1TestWritableClass.html" target="_self">TestWritableClass</a></td><td class="desc"></td></tr>
+</table>
+</div><!-- directory -->
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Wed Dec 18 2024 17:39:47 for Fast Inflation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

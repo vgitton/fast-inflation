@@ -1,0 +1,326 @@
+<!-- HTML header for doxygen 1.9.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Fast Inflation: src/inf/optimization/optimizer.h Source File</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+MathJax.Hub.Config({
+    TeX: {
+        Macros: {
+            dd: ["{\\text{d}#1\\,}",1],
+            nouts: ["{n_{\\text{o}}}"],
+            ints: ["{[\\![#1]\\!]}",1],
+            outset: ["{\\ints{\\nouts}}"],
+            N: ["{\\mathbb{N}}"],
+            R: ["{\\mathbb{R}}"],
+            Z: ["{\\mathbb{Z}}"],
+            infsize: ["{z}"],
+            infparties: ["{\\set{I}}"],
+            infsources: ["{\\set{S}}"],
+            infmarg: ["{\\set{A}}"],
+            infmargg: ["{\\set{B}}"],
+            netparties: ["{\\set{N}}"],
+            infq: ["{q}"],
+            infqs: ["{\\Delta_{\\infparties}}"],
+            constraintlist: ["{\\mathcal{C}}"],
+            injsets: ["{\\text{InjSets}}"],
+            infconstraints: ["{\\text{InfCons}}"],
+            parents: ["{\\text{Par}}"],
+            targetp: ["{p}"],
+            targetps: ["{\\Delta_{\\netparties}}"],
+            set: ["{\\mathbf{#1}}",1],
+            type: ["{t}"],
+            infevent: "{\\omega}",
+            events: ["{\\Omega_{#1}}",1],
+            infevents: ["{\\events{\\infparties}}"],
+            redinfevents: ["{\\tilde{\\Omega}_{\\infparties}}"],
+            netevents: ["{\\events{\\netparties}}"],
+            vecset: ["{V_{#1}}",1],
+            alice: ["{\\text{A}}"],
+            bob: ["{\\text{B}}"],
+            charlie: ["{\\text{C}}"],
+            symgroup: ["{\\text{Sym}(#1)}",1],
+            shortsymgroup: ["{\\text{Sym}_{#1}}",1],
+            act: ["{(#1\\hspace{2pt}{:}\\hspace{2pt}#2)}",2],
+            actt: ["{[#1\\hspace{2pt}{:}\\hspace{2pt}#2]}",2],
+            margperms: ["{\\text{Perm}_{#1}}",1],
+            permutedmargs: ["{\\mathbb{P}_{#1}^{\\targetp}}",1],
+            redpermutedmargs: ["{\\tilde{\\mathbb{P}}_{#1}^{\\constraintname,\\targetp}}",1],
+            extract: ["{\\text{ext}(#1,#2)}",2],
+            partysym: ["{\\tau}"],
+            sourcesym: ["{\\xi}"],
+            outsym: ["{\\sigma}"],
+            fullgroup: ["{\\text{InfGrp}}"],
+            partygroup : ["{\\text{PartyGrp}}"],
+            outgroup: ["{\\text{OutGrp}}"],
+            sourcegroup: ["{\\text{SrcGrp}}"],
+            distrgroup: ["{\\mathbb{G}^\\targetp}"],
+            constraintname: ["{c}"],
+            marggroup: ["{\\mathbb{G}^{\\constraintname,\\targetp}}"],
+            fullsymexpl: ["{(\\sourcesym,\\partysym,\\outsym)}"],
+            inner: ["{\\langle#1,#2\\rangle}", 2],
+            quovec: ["{f}"],
+            totconstraintmap: ["{K^{\\constraintlist,\\targetp}}"],
+            totconstraintmapelem: ["{K^{\\constraintname,\\targetp}}"],
+            quovecspace: ["{\\tilde{V}_{#1}^{\\constraintname,\\targetp}}", 1],
+            totquovecspace: ["{\\text{ConsSpace}(\\constraintlist,\\targetp)}"],
+            detdistr: ["{\\delta^{#1}}", 1],
+            margperm: ["{\\varphi}"],
+            altquovecembed: ["{\\text{G}_{#1}^{\\constraintname,\\targetp}}", 1],
+            vecset: ["{V_{#1}}", 1],
+            repr: ["{\\lfloor#1\\rfloor}", 1],
+            gid: ["{\\text{id}}"],
+            id: ["{1_{#1}}",1],
+            consscale: ["{K}"],
+            scaletot: ["{K_{\\text{tot}}^{\\constraintlist,\\targetp}}"],
+            minnorm: ["{d}"],
+            Bigsetst: ["\\;\\Big|\\;"],
+            activeset: ["\\mathcal{S}"],
+            conv: ["\\text{conv}"],
+            lVert: ["|\\hspace{-1pt}|"],
+            norm: ["\\lVert#1\\lVert", 1],
+            st: [":\ "],
+        }
+    }
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeDarkModeToggle.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeParagraphLink.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Fast Inflation
+   </div>
+   <div id="projectbrief">To certify causal incompatibility</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('optimizer_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">optimizer.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="optimizer_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;../../util/frac.h&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;../constraints/constraint_set.h&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;../inf_problem/target_distr.h&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceinf.html">inf</a> {</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="classinf_1_1Optimizer.html">   33</a></span><span class="keyword">class </span><a class="code hl_class" href="classinf_1_1Optimizer.html">Optimizer</a> {</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="classinf_1_1Optimizer.html#a66df2661347928818e0a2a1ee763b5b0">   37</a></span>    <span class="keyword">static</span> <a class="code hl_class" href="classutil_1_1Chrono.html">util::Chrono</a> <a class="code hl_variable" href="classinf_1_1Optimizer.html#a66df2661347928818e0a2a1ee763b5b0">total_optimization_chrono</a>;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="classinf_1_1Optimizer.html#a2effe8a2722649c349143bcdeaa59752">   39</a></span>    <span class="keyword">typedef</span> std::shared_ptr&lt;inf::Optimizer&gt; <a class="code hl_typedef" href="classinf_1_1Optimizer.html#a2effe8a2722649c349143bcdeaa59752">Ptr</a>;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="classinf_1_1Optimizer.html#a8fdb83608f80ece0dae112166b62c95b">   42</a></span>    <span class="keyword">enum class</span> <a class="code hl_enumeration" href="classinf_1_1Optimizer.html#a8fdb83608f80ece0dae112166b62c95b">StopMode</a> {</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        <a class="code hl_enumvalue" href="classinf_1_1Optimizer.html#a8fdb83608f80ece0dae112166b62c95ba53e8254b3222a33f42b5a6b3d156056c">sat</a>, </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <a class="code hl_enumvalue" href="classinf_1_1Optimizer.html#a8fdb83608f80ece0dae112166b62c95ba4d29ea5f748c4cfda37434ce76a5e788">opt</a>  </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    };</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1Optimizer.html#a184f06d7d4f8d70d01f8850bdbcd26eb">log</a>(<a class="code hl_enumeration" href="classinf_1_1Optimizer.html#a8fdb83608f80ece0dae112166b62c95b">inf::Optimizer::StopMode</a> stop_mode);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="classinf_1_1Optimizer_1_1PreSolution.html">   50</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classinf_1_1Optimizer_1_1PreSolution.html">PreSolution</a> {</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>      <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <a class="code hl_class" href="classinf_1_1Optimizer_1_1PreSolution.html">PreSolution</a>(<a class="code hl_typedef" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a> <a class="code hl_variable" href="classinf_1_1Optimizer_1_1PreSolution.html#a7778ae37ae02cb531ffdd0a26fced9fb">inflation_event_score</a>,</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>                    <a class="code hl_typedef" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> <span class="keyword">const</span> &amp;<a class="code hl_variable" href="classinf_1_1Optimizer_1_1PreSolution.html#a306f82273ac76cde77095b5b557e6970">inflation_event</a>);</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="classinf_1_1Optimizer_1_1PreSolution.html#a7778ae37ae02cb531ffdd0a26fced9fb">   61</a></span>        <span class="keyword">const</span> <a class="code hl_typedef" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a> <a class="code hl_variable" href="classinf_1_1Optimizer_1_1PreSolution.html#a7778ae37ae02cb531ffdd0a26fced9fb">inflation_event_score</a>;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="classinf_1_1Optimizer_1_1PreSolution.html#a306f82273ac76cde77095b5b557e6970">   63</a></span>        <span class="keyword">const</span> <a class="code hl_typedef" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> <a class="code hl_variable" href="classinf_1_1Optimizer_1_1PreSolution.html#a306f82273ac76cde77095b5b557e6970">inflation_event</a>;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    };</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="classinf_1_1Optimizer_1_1Solution.html">   67</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classinf_1_1Optimizer_1_1Solution.html">Solution</a> : <span class="keyword">public</span> <a class="code hl_class" href="classutil_1_1Loggable.html">util::Loggable</a> {</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>      <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        <a class="code hl_class" href="classinf_1_1Optimizer_1_1Solution.html">Solution</a>(<a class="code hl_class" href="classinf_1_1Optimizer_1_1PreSolution.html">inf::Optimizer::PreSolution</a> <span class="keyword">const</span> &amp;pre_sol,</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>                 <a class="code hl_typedef" href="classinf_1_1Inflation.html#ac594d5b8d7cbdd7cdfe569baa351f0ba">inf::Inflation::ConstPtr</a> <span class="keyword">const</span> &amp;inflation,</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>                 <a class="code hl_enumeration" href="classinf_1_1Optimizer.html#a8fdb83608f80ece0dae112166b62c95b">inf::Optimizer::StopMode</a> stop_mode);</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1Optimizer_1_1Solution.html#abbe4a63084e3ef59e460e57505fd8b52">log</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        <a class="code hl_typedef" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a> <a class="code hl_function" href="classinf_1_1Optimizer_1_1Solution.html#a59fd16ed04e9cf2bf79656eab1ed7c32">get_inflation_event_score</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        <a class="code hl_typedef" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> <span class="keyword">const</span> &amp;<a class="code hl_function" href="classinf_1_1Optimizer_1_1Solution.html#a2943a5b810c96462dd7f25e410ab9c54">get_inflation_event</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>      <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="classinf_1_1Optimizer_1_1Solution.html#acfa08d950a632746d357d7c4bc99f9f6">   86</a></span>        <span class="keyword">const</span> <a class="code hl_class" href="classinf_1_1Optimizer_1_1PreSolution.html">inf::Optimizer::PreSolution</a> <a class="code hl_variable" href="classinf_1_1Optimizer_1_1Solution.html#acfa08d950a632746d357d7c4bc99f9f6">m_pre_sol</a>;</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="classinf_1_1Optimizer_1_1Solution.html#aa504c6ac47e46b05cac807a37daf24e0">   88</a></span>        <span class="keyword">const</span> <a class="code hl_typedef" href="classinf_1_1Inflation.html#ac594d5b8d7cbdd7cdfe569baa351f0ba">inf::Inflation::ConstPtr</a> <a class="code hl_variable" href="classinf_1_1Optimizer_1_1Solution.html#aa504c6ac47e46b05cac807a37daf24e0">m_inflation</a>;</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="classinf_1_1Optimizer_1_1Solution.html#a279d4aeeb4253ed81b0344efc0bc5904">   90</a></span>        <span class="keyword">const</span> <a class="code hl_enumeration" href="classinf_1_1Optimizer.html#a8fdb83608f80ece0dae112166b62c95b">inf::Optimizer::StopMode</a> <a class="code hl_variable" href="classinf_1_1Optimizer_1_1Solution.html#a279d4aeeb4253ed81b0344efc0bc5904">m_stop_mode</a>;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    };</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="classinf_1_1Optimizer.html#a0dce5e153a8fb320fa11f450246e08a6">   96</a></span>    <span class="keyword">enum class</span> <a class="code hl_enumeration" href="classinf_1_1Optimizer.html#a0dce5e153a8fb320fa11f450246e08a6">SearchMode</a> {</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        <a class="code hl_enumvalue" href="classinf_1_1Optimizer.html#a0dce5e153a8fb320fa11f450246e08a6a14eb8fb55e00336d36cb281764c88aa5">brute_force</a>, </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        <a class="code hl_enumvalue" href="classinf_1_1Optimizer.html#a0dce5e153a8fb320fa11f450246e08a6a7c6e43382ef676ec2d182773a1dddd4a">tree_search</a>, </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    };</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1Optimizer.html#a184f06d7d4f8d70d01f8850bdbcd26eb">log</a>(<a class="code hl_enumeration" href="classinf_1_1Optimizer.html#a0dce5e153a8fb320fa11f450246e08a6">inf::Optimizer::SearchMode</a> search_mode);</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <span class="keyword">static</span> <a class="code hl_typedef" href="classinf_1_1Optimizer.html#a2effe8a2722649c349143bcdeaa59752">inf::Optimizer::Ptr</a> <a class="code hl_function" href="classinf_1_1Optimizer.html#a54e566bfb4c18ea8287808bff9b4f499">get_optimizer</a>(<a class="code hl_enumeration" href="classinf_1_1Optimizer.html#a0dce5e153a8fb320fa11f450246e08a6">inf::Optimizer::SearchMode</a> search_mode,</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>                                             <a class="code hl_typedef" href="classinf_1_1ConstraintSet.html#ae1ca6aedd9bb271719b185fd0ef0f194">inf::ConstraintSet::Ptr</a> <span class="keyword">const</span> &amp;constraints,</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>                                             <a class="code hl_enumeration" href="classinf_1_1EventTree.html#a3fc302d7a899deaf35f6138a7bcbe67c">inf::EventTree::IO</a> symtree_io,</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>                                             <a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> n_threads);</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    <a class="code hl_class" href="classinf_1_1Optimizer.html">Optimizer</a>(<a class="code hl_typedef" href="classinf_1_1ConstraintSet.html#ae1ca6aedd9bb271719b185fd0ef0f194">inf::ConstraintSet::Ptr</a> <span class="keyword">const</span> &amp;constraints);</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    <a class="code hl_class" href="classinf_1_1Optimizer.html">Optimizer</a>(<a class="code hl_class" href="classinf_1_1Optimizer.html">inf::Optimizer</a> <span class="keyword">const</span> &amp;other) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <a class="code hl_class" href="classinf_1_1Optimizer.html">Optimizer</a>(<a class="code hl_class" href="classinf_1_1Optimizer.html">inf::Optimizer</a> &amp;&amp;other) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    <a class="code hl_class" href="classinf_1_1Optimizer.html">Optimizer</a> &amp;operator=(<a class="code hl_class" href="classinf_1_1Optimizer.html">inf::Optimizer</a> <span class="keyword">const</span> &amp;other) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    <a class="code hl_class" href="classinf_1_1Optimizer.html">Optimizer</a> &amp;operator=(<a class="code hl_class" href="classinf_1_1Optimizer.html">inf::Optimizer</a> &amp;&amp;other) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno"><a class="line" href="classinf_1_1Optimizer.html#a12b1e5b979187fd52ae421a9945311c1">  129</a></span>    <span class="keyword">virtual</span> <a class="code hl_class" href="classinf_1_1Optimizer_1_1PreSolution.html">inf::Optimizer::PreSolution</a> <a class="code hl_function" href="classinf_1_1Optimizer.html#a12b1e5b979187fd52ae421a9945311c1">get_pre_solution</a>() = 0;</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    <a class="code hl_class" href="classinf_1_1Optimizer_1_1Solution.html">inf::Optimizer::Solution</a> <a class="code hl_function" href="classinf_1_1Optimizer.html#aafcf8142d41d456b21de038da220ef96">optimize</a>(<a class="code hl_enumeration" href="classinf_1_1Optimizer.html#a8fdb83608f80ece0dae112166b62c95b">inf::Optimizer::StopMode</a> stop_mode);</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno"><a class="line" href="classinf_1_1Optimizer.html#a1be46d39079740ba5e94abcdfa4c23eb">  137</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1Optimizer.html#a1be46d39079740ba5e94abcdfa4c23eb">log_info</a>()<span class="keyword"> const </span>{}</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span> </div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno"><a class="line" href="classinf_1_1Optimizer.html#a05da254f10d1c2e4a9e8c41554e80f3e">  140</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1Optimizer.html#a05da254f10d1c2e4a9e8c41554e80f3e">log_status</a>()<span class="keyword"> const </span>{}</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span> </div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>  <span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno"><a class="line" href="classinf_1_1Optimizer.html#a140c5d9590193dcdf8196b8f216936ea">  145</a></span>    <a class="code hl_typedef" href="classinf_1_1ConstraintSet.html#ae1ca6aedd9bb271719b185fd0ef0f194">inf::ConstraintSet::Ptr</a> <a class="code hl_variable" href="classinf_1_1Optimizer.html#a140c5d9590193dcdf8196b8f216936ea">m_constraints</a>;</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno"><a class="line" href="classinf_1_1Optimizer.html#a5895fe01de040cf08e71f332e94a5ef1">  150</a></span>    <a class="code hl_enumeration" href="classinf_1_1Optimizer.html#a8fdb83608f80ece0dae112166b62c95b">inf::Optimizer::StopMode</a> <a class="code hl_variable" href="classinf_1_1Optimizer.html#a5895fe01de040cf08e71f332e94a5ef1">m_stop_mode</a>;</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>};</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>} <span class="comment">// namespace inf</span></div>
+<div class="ttc" id="aclassinf_1_1ConstraintSet_html_ae1ca6aedd9bb271719b185fd0ef0f194"><div class="ttname"><a href="classinf_1_1ConstraintSet.html#ae1ca6aedd9bb271719b185fd0ef0f194">inf::ConstraintSet::Ptr</a></div><div class="ttdeci">std::shared_ptr&lt; inf::ConstraintSet &gt; Ptr</div><div class="ttdef"><b>Definition</b> <a href="constraint__set_8h_source.html#l00031">constraint_set.h:31</a></div></div>
+<div class="ttc" id="aclassinf_1_1EventTree_html_a3fc302d7a899deaf35f6138a7bcbe67c"><div class="ttname"><a href="classinf_1_1EventTree.html#a3fc302d7a899deaf35f6138a7bcbe67c">inf::EventTree::IO</a></div><div class="ttdeci">IO</div><div class="ttdoc">An inf::EventTree can take some time to initialize, and this option is used to control whether an inf...</div><div class="ttdef"><b>Definition</b> <a href="event__tree_8h_source.html#l00111">event_tree.h:111</a></div></div>
+<div class="ttc" id="aclassinf_1_1Inflation_html_ac594d5b8d7cbdd7cdfe569baa351f0ba"><div class="ttname"><a href="classinf_1_1Inflation.html#ac594d5b8d7cbdd7cdfe569baa351f0ba">inf::Inflation::ConstPtr</a></div><div class="ttdeci">std::shared_ptr&lt; const inf::Inflation &gt; ConstPtr</div><div class="ttdef"><b>Definition</b> <a href="inflation_8h_source.html#l00072">inflation.h:72</a></div></div>
+<div class="ttc" id="aclassinf_1_1Optimizer_1_1PreSolution_html"><div class="ttname"><a href="classinf_1_1Optimizer_1_1PreSolution.html">inf::Optimizer::PreSolution</a></div><div class="ttdoc">This is the base of the inf::Solution returned by an inf::Optimizer, containing the optimizer (an inf...</div><div class="ttdef"><b>Definition</b> <a href="optimizer_8h_source.html#l00050">optimizer.h:50</a></div></div>
+<div class="ttc" id="aclassinf_1_1Optimizer_1_1PreSolution_html_a306f82273ac76cde77095b5b557e6970"><div class="ttname"><a href="classinf_1_1Optimizer_1_1PreSolution.html#a306f82273ac76cde77095b5b557e6970">inf::Optimizer::PreSolution::inflation_event</a></div><div class="ttdeci">const inf::Event inflation_event</div><div class="ttdoc">The event  that scores inflation_event_score.</div><div class="ttdef"><b>Definition</b> <a href="optimizer_8h_source.html#l00063">optimizer.h:63</a></div></div>
+<div class="ttc" id="aclassinf_1_1Optimizer_1_1PreSolution_html_a7778ae37ae02cb531ffdd0a26fced9fb"><div class="ttname"><a href="classinf_1_1Optimizer_1_1PreSolution.html#a7778ae37ae02cb531ffdd0a26fced9fb">inf::Optimizer::PreSolution::inflation_event_score</a></div><div class="ttdeci">const Num inflation_event_score</div><div class="ttdoc">The score of inflation_event, i.e.,  for the relevant quovec .</div><div class="ttdef"><b>Definition</b> <a href="optimizer_8h_source.html#l00061">optimizer.h:61</a></div></div>
+<div class="ttc" id="aclassinf_1_1Optimizer_1_1Solution_html"><div class="ttname"><a href="classinf_1_1Optimizer_1_1Solution.html">inf::Optimizer::Solution</a></div><div class="ttdoc">To store an inf::Optimizer::PreSolution along with additional context.</div><div class="ttdef"><b>Definition</b> <a href="optimizer_8h_source.html#l00067">optimizer.h:67</a></div></div>
+<div class="ttc" id="aclassinf_1_1Optimizer_1_1Solution_html_a279d4aeeb4253ed81b0344efc0bc5904"><div class="ttname"><a href="classinf_1_1Optimizer_1_1Solution.html#a279d4aeeb4253ed81b0344efc0bc5904">inf::Optimizer::Solution::m_stop_mode</a></div><div class="ttdeci">const inf::Optimizer::StopMode m_stop_mode</div><div class="ttdoc">Describes whether we had a satisfiability or optimization problem.</div><div class="ttdef"><b>Definition</b> <a href="optimizer_8h_source.html#l00090">optimizer.h:90</a></div></div>
+<div class="ttc" id="aclassinf_1_1Optimizer_1_1Solution_html_a2943a5b810c96462dd7f25e410ab9c54"><div class="ttname"><a href="classinf_1_1Optimizer_1_1Solution.html#a2943a5b810c96462dd7f25e410ab9c54">inf::Optimizer::Solution::get_inflation_event</a></div><div class="ttdeci">inf::Event const &amp; get_inflation_event() const</div><div class="ttdoc">Get the optimizer inflation event.</div><div class="ttdef"><b>Definition</b> <a href="optimizer_8cpp_source.html#l00042">optimizer.cpp:42</a></div></div>
+<div class="ttc" id="aclassinf_1_1Optimizer_1_1Solution_html_a59fd16ed04e9cf2bf79656eab1ed7c32"><div class="ttname"><a href="classinf_1_1Optimizer_1_1Solution.html#a59fd16ed04e9cf2bf79656eab1ed7c32">inf::Optimizer::Solution::get_inflation_event_score</a></div><div class="ttdeci">Num get_inflation_event_score() const</div><div class="ttdoc">Get the score of the optimizer inflation event.</div><div class="ttdef"><b>Definition</b> <a href="optimizer_8cpp_source.html#l00038">optimizer.cpp:38</a></div></div>
+<div class="ttc" id="aclassinf_1_1Optimizer_1_1Solution_html_aa504c6ac47e46b05cac807a37daf24e0"><div class="ttname"><a href="classinf_1_1Optimizer_1_1Solution.html#aa504c6ac47e46b05cac807a37daf24e0">inf::Optimizer::Solution::m_inflation</a></div><div class="ttdeci">const inf::Inflation::ConstPtr m_inflation</div><div class="ttdoc">The inflation on which the optimizer event lives.</div><div class="ttdef"><b>Definition</b> <a href="optimizer_8h_source.html#l00088">optimizer.h:88</a></div></div>
+<div class="ttc" id="aclassinf_1_1Optimizer_1_1Solution_html_abbe4a63084e3ef59e460e57505fd8b52"><div class="ttname"><a href="classinf_1_1Optimizer_1_1Solution.html#abbe4a63084e3ef59e460e57505fd8b52">inf::Optimizer::Solution::log</a></div><div class="ttdeci">void log() const override</div><div class="ttdoc">This prints the object to the globally accessible util::logger and allows the util::logger &lt;&lt; loggabl...</div><div class="ttdef"><b>Definition</b> <a href="optimizer_8cpp_source.html#l00046">optimizer.cpp:46</a></div></div>
+<div class="ttc" id="aclassinf_1_1Optimizer_1_1Solution_html_acfa08d950a632746d357d7c4bc99f9f6"><div class="ttname"><a href="classinf_1_1Optimizer_1_1Solution.html#acfa08d950a632746d357d7c4bc99f9f6">inf::Optimizer::Solution::m_pre_sol</a></div><div class="ttdeci">const inf::Optimizer::PreSolution m_pre_sol</div><div class="ttdoc">The optimizer and its score.</div><div class="ttdef"><b>Definition</b> <a href="optimizer_8h_source.html#l00086">optimizer.h:86</a></div></div>
+<div class="ttc" id="aclassinf_1_1Optimizer_html"><div class="ttname"><a href="classinf_1_1Optimizer.html">inf::Optimizer</a></div><div class="ttdoc">This class defines the interface for inf::BruteForceOpt and inf::TreeOpt.</div><div class="ttdef"><b>Definition</b> <a href="optimizer_8h_source.html#l00033">optimizer.h:33</a></div></div>
+<div class="ttc" id="aclassinf_1_1Optimizer_html_a05da254f10d1c2e4a9e8c41554e80f3e"><div class="ttname"><a href="classinf_1_1Optimizer.html#a05da254f10d1c2e4a9e8c41554e80f3e">inf::Optimizer::log_status</a></div><div class="ttdeci">virtual void log_status() const</div><div class="ttdoc">Logs information about the optimization status, this is meant to be called regularly within the inf::...</div><div class="ttdef"><b>Definition</b> <a href="optimizer_8h_source.html#l00140">optimizer.h:140</a></div></div>
+<div class="ttc" id="aclassinf_1_1Optimizer_html_a0dce5e153a8fb320fa11f450246e08a6"><div class="ttname"><a href="classinf_1_1Optimizer.html#a0dce5e153a8fb320fa11f450246e08a6">inf::Optimizer::SearchMode</a></div><div class="ttdeci">SearchMode</div><div class="ttdoc">Describes the search strategy: how should one tackle the problem of enumerating all relevant inflatio...</div><div class="ttdef"><b>Definition</b> <a href="optimizer_8h_source.html#l00096">optimizer.h:96</a></div></div>
+<div class="ttc" id="aclassinf_1_1Optimizer_html_a0dce5e153a8fb320fa11f450246e08a6a14eb8fb55e00336d36cb281764c88aa5"><div class="ttname"><a href="classinf_1_1Optimizer.html#a0dce5e153a8fb320fa11f450246e08a6a14eb8fb55e00336d36cb281764c88aa5">inf::Optimizer::SearchMode::brute_force</a></div><div class="ttdeci">@ brute_force</div><div class="ttdoc">Simply loop over all events. Suitable for small inflations. See inf::BruteForceOpt.</div></div>
+<div class="ttc" id="aclassinf_1_1Optimizer_html_a0dce5e153a8fb320fa11f450246e08a6a7c6e43382ef676ec2d182773a1dddd4a"><div class="ttname"><a href="classinf_1_1Optimizer.html#a0dce5e153a8fb320fa11f450246e08a6a7c6e43382ef676ec2d182773a1dddd4a">inf::Optimizer::SearchMode::tree_search</a></div><div class="ttdeci">@ tree_search</div><div class="ttdoc">The symmetrized events are stored as a tree and a tree search is performed to solve the minimization....</div></div>
+<div class="ttc" id="aclassinf_1_1Optimizer_html_a12b1e5b979187fd52ae421a9945311c1"><div class="ttname"><a href="classinf_1_1Optimizer.html#a12b1e5b979187fd52ae421a9945311c1">inf::Optimizer::get_pre_solution</a></div><div class="ttdeci">virtual inf::Optimizer::PreSolution get_pre_solution()=0</div><div class="ttdoc">This method is in charge of producing the optimizer (depending on m_stop_mode, see inf::Optimizer::St...</div></div>
+<div class="ttc" id="aclassinf_1_1Optimizer_html_a140c5d9590193dcdf8196b8f216936ea"><div class="ttname"><a href="classinf_1_1Optimizer.html#a140c5d9590193dcdf8196b8f216936ea">inf::Optimizer::m_constraints</a></div><div class="ttdeci">inf::ConstraintSet::Ptr m_constraints</div><div class="ttdoc">This parameter allows to forward the inf::Inflation at hand, but also the current value of the inf::D...</div><div class="ttdef"><b>Definition</b> <a href="optimizer_8h_source.html#l00145">optimizer.h:145</a></div></div>
+<div class="ttc" id="aclassinf_1_1Optimizer_html_a184f06d7d4f8d70d01f8850bdbcd26eb"><div class="ttname"><a href="classinf_1_1Optimizer.html#a184f06d7d4f8d70d01f8850bdbcd26eb">inf::Optimizer::log</a></div><div class="ttdeci">static void log(inf::Optimizer::StopMode stop_mode)</div><div class="ttdef"><b>Definition</b> <a href="optimizer_8cpp_source.html#l00011">optimizer.cpp:11</a></div></div>
+<div class="ttc" id="aclassinf_1_1Optimizer_html_a1be46d39079740ba5e94abcdfa4c23eb"><div class="ttname"><a href="classinf_1_1Optimizer.html#a1be46d39079740ba5e94abcdfa4c23eb">inf::Optimizer::log_info</a></div><div class="ttdeci">virtual void log_info() const</div><div class="ttdoc">Logs information about the inf::Optimizer to util::logger, this is meant to be called on initializing...</div><div class="ttdef"><b>Definition</b> <a href="optimizer_8h_source.html#l00137">optimizer.h:137</a></div></div>
+<div class="ttc" id="aclassinf_1_1Optimizer_html_a2effe8a2722649c349143bcdeaa59752"><div class="ttname"><a href="classinf_1_1Optimizer.html#a2effe8a2722649c349143bcdeaa59752">inf::Optimizer::Ptr</a></div><div class="ttdeci">std::shared_ptr&lt; inf::Optimizer &gt; Ptr</div><div class="ttdef"><b>Definition</b> <a href="optimizer_8h_source.html#l00039">optimizer.h:39</a></div></div>
+<div class="ttc" id="aclassinf_1_1Optimizer_html_a54e566bfb4c18ea8287808bff9b4f499"><div class="ttname"><a href="classinf_1_1Optimizer.html#a54e566bfb4c18ea8287808bff9b4f499">inf::Optimizer::get_optimizer</a></div><div class="ttdeci">static inf::Optimizer::Ptr get_optimizer(inf::Optimizer::SearchMode search_mode, inf::ConstraintSet::Ptr const &amp;constraints, inf::EventTree::IO symtree_io, Index n_threads)</div><div class="ttdoc">To conveniently instantiate a subclass of inf::Optimizer.</div><div class="ttdef"><b>Definition</b> <a href="optimizer_8cpp_source.html#l00073">optimizer.cpp:73</a></div></div>
+<div class="ttc" id="aclassinf_1_1Optimizer_html_a5895fe01de040cf08e71f332e94a5ef1"><div class="ttname"><a href="classinf_1_1Optimizer.html#a5895fe01de040cf08e71f332e94a5ef1">inf::Optimizer::m_stop_mode</a></div><div class="ttdeci">inf::Optimizer::StopMode m_stop_mode</div><div class="ttdoc">See inf::Optimizer::StopMode. This attribute is set by inf::Optimizer::optimize(),...</div><div class="ttdef"><b>Definition</b> <a href="optimizer_8h_source.html#l00150">optimizer.h:150</a></div></div>
+<div class="ttc" id="aclassinf_1_1Optimizer_html_a66df2661347928818e0a2a1ee763b5b0"><div class="ttname"><a href="classinf_1_1Optimizer.html#a66df2661347928818e0a2a1ee763b5b0">inf::Optimizer::total_optimization_chrono</a></div><div class="ttdeci">static util::Chrono total_optimization_chrono</div><div class="ttdoc">The total time spent in inf::Optimizer::optimize()</div><div class="ttdef"><b>Definition</b> <a href="optimizer_8h_source.html#l00037">optimizer.h:37</a></div></div>
+<div class="ttc" id="aclassinf_1_1Optimizer_html_a8fdb83608f80ece0dae112166b62c95b"><div class="ttname"><a href="classinf_1_1Optimizer.html#a8fdb83608f80ece0dae112166b62c95b">inf::Optimizer::StopMode</a></div><div class="ttdeci">StopMode</div><div class="ttdoc">This describes how the inf::Optimizer should stop: should it really minimize an inf::DualVector,...</div><div class="ttdef"><b>Definition</b> <a href="optimizer_8h_source.html#l00042">optimizer.h:42</a></div></div>
+<div class="ttc" id="aclassinf_1_1Optimizer_html_a8fdb83608f80ece0dae112166b62c95ba4d29ea5f748c4cfda37434ce76a5e788"><div class="ttname"><a href="classinf_1_1Optimizer.html#a8fdb83608f80ece0dae112166b62c95ba4d29ea5f748c4cfda37434ce76a5e788">inf::Optimizer::StopMode::opt</a></div><div class="ttdeci">@ opt</div><div class="ttdoc">This means that the optimization stops when the minimal value is obtained.</div></div>
+<div class="ttc" id="aclassinf_1_1Optimizer_html_a8fdb83608f80ece0dae112166b62c95ba53e8254b3222a33f42b5a6b3d156056c"><div class="ttname"><a href="classinf_1_1Optimizer.html#a8fdb83608f80ece0dae112166b62c95ba53e8254b3222a33f42b5a6b3d156056c">inf::Optimizer::StopMode::sat</a></div><div class="ttdeci">@ sat</div><div class="ttdoc">This means that the optimization stops when a value smaller or equal to zero is obtained.</div></div>
+<div class="ttc" id="aclassinf_1_1Optimizer_html_aafcf8142d41d456b21de038da220ef96"><div class="ttname"><a href="classinf_1_1Optimizer.html#aafcf8142d41d456b21de038da220ef96">inf::Optimizer::optimize</a></div><div class="ttdeci">inf::Optimizer::Solution optimize(inf::Optimizer::StopMode stop_mode)</div><div class="ttdoc">This method invokes inf::Optimizer::get_pre_solution() and dresses up the solution.</div><div class="ttdef"><b>Definition</b> <a href="optimizer_8cpp_source.html#l00094">optimizer.cpp:94</a></div></div>
+<div class="ttc" id="aclassutil_1_1Chrono_html"><div class="ttname"><a href="classutil_1_1Chrono.html">util::Chrono</a></div><div class="ttdoc">A simple stopwatch class.</div><div class="ttdef"><b>Definition</b> <a href="chrono_8h_source.html#l00044">chrono.h:44</a></div></div>
+<div class="ttc" id="aclassutil_1_1Loggable_html"><div class="ttname"><a href="classutil_1_1Loggable.html">util::Loggable</a></div><div class="ttdoc">Defines printable classes.</div><div class="ttdef"><b>Definition</b> <a href="loggable_8h_source.html#l00009">loggable.h:9</a></div></div>
+<div class="ttc" id="agroup__event_html_gac60a6fcdfce02dc13eb7364d6a2b56b0"><div class="ttname"><a href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a></div><div class="ttdeci">std::vector&lt; inf::Outcome &gt; Event</div><div class="ttdoc">A list of inf::Outcome. Conceptually, this plays the role of  for some set .</div><div class="ttdef"><b>Definition</b> <a href="event_8h_source.html#l00030">event.h:30</a></div></div>
+<div class="ttc" id="agroup__util_html_ga77731aedac326062ffbdcf367185a07e"><div class="ttname"><a href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a></div><div class="ttdeci">uint64_t Index</div><div class="ttdoc">Use for anything meant to be used as an index.</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00019">types.h:19</a></div></div>
+<div class="ttc" id="agroup__util_html_gaea24f8b468377784fdb704692e9168f5"><div class="ttname"><a href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a></div><div class="ttdeci">int64_t Num</div><div class="ttdoc">Signed integers.</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00015">types.h:15</a></div></div>
+<div class="ttc" id="anamespaceinf_html"><div class="ttname"><a href="namespaceinf.html">inf</a></div><div class="ttdoc">The namespace for the inflation code.</div><div class="ttdef"><b>Definition</b> <a href="constraint_8h_source.html#l00006">constraint.h:6</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_0f453feda2a303bb77c09f5934c109df.html">inf</a></li><li class="navelem"><a class="el" href="dir_b002022c0861f82d74f29c498083ffdf.html">optimization</a></li><li class="navelem"><a class="el" href="optimizer_8h.html">optimizer.h</a></li>
+    <li class="footer">Generated on Wed Dec 18 2024 17:39:36 for Fast Inflation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

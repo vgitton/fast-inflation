@@ -1,0 +1,900 @@
+<!-- HTML header for doxygen 1.9.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Fast Inflation: inf::TargetDistr Class Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+MathJax.Hub.Config({
+    TeX: {
+        Macros: {
+            dd: ["{\\text{d}#1\\,}",1],
+            nouts: ["{n_{\\text{o}}}"],
+            ints: ["{[\\![#1]\\!]}",1],
+            outset: ["{\\ints{\\nouts}}"],
+            N: ["{\\mathbb{N}}"],
+            R: ["{\\mathbb{R}}"],
+            Z: ["{\\mathbb{Z}}"],
+            infsize: ["{z}"],
+            infparties: ["{\\set{I}}"],
+            infsources: ["{\\set{S}}"],
+            infmarg: ["{\\set{A}}"],
+            infmargg: ["{\\set{B}}"],
+            netparties: ["{\\set{N}}"],
+            infq: ["{q}"],
+            infqs: ["{\\Delta_{\\infparties}}"],
+            constraintlist: ["{\\mathcal{C}}"],
+            injsets: ["{\\text{InjSets}}"],
+            infconstraints: ["{\\text{InfCons}}"],
+            parents: ["{\\text{Par}}"],
+            targetp: ["{p}"],
+            targetps: ["{\\Delta_{\\netparties}}"],
+            set: ["{\\mathbf{#1}}",1],
+            type: ["{t}"],
+            infevent: "{\\omega}",
+            events: ["{\\Omega_{#1}}",1],
+            infevents: ["{\\events{\\infparties}}"],
+            redinfevents: ["{\\tilde{\\Omega}_{\\infparties}}"],
+            netevents: ["{\\events{\\netparties}}"],
+            vecset: ["{V_{#1}}",1],
+            alice: ["{\\text{A}}"],
+            bob: ["{\\text{B}}"],
+            charlie: ["{\\text{C}}"],
+            symgroup: ["{\\text{Sym}(#1)}",1],
+            shortsymgroup: ["{\\text{Sym}_{#1}}",1],
+            act: ["{(#1\\hspace{2pt}{:}\\hspace{2pt}#2)}",2],
+            actt: ["{[#1\\hspace{2pt}{:}\\hspace{2pt}#2]}",2],
+            margperms: ["{\\text{Perm}_{#1}}",1],
+            permutedmargs: ["{\\mathbb{P}_{#1}^{\\targetp}}",1],
+            redpermutedmargs: ["{\\tilde{\\mathbb{P}}_{#1}^{\\constraintname,\\targetp}}",1],
+            extract: ["{\\text{ext}(#1,#2)}",2],
+            partysym: ["{\\tau}"],
+            sourcesym: ["{\\xi}"],
+            outsym: ["{\\sigma}"],
+            fullgroup: ["{\\text{InfGrp}}"],
+            partygroup : ["{\\text{PartyGrp}}"],
+            outgroup: ["{\\text{OutGrp}}"],
+            sourcegroup: ["{\\text{SrcGrp}}"],
+            distrgroup: ["{\\mathbb{G}^\\targetp}"],
+            constraintname: ["{c}"],
+            marggroup: ["{\\mathbb{G}^{\\constraintname,\\targetp}}"],
+            fullsymexpl: ["{(\\sourcesym,\\partysym,\\outsym)}"],
+            inner: ["{\\langle#1,#2\\rangle}", 2],
+            quovec: ["{f}"],
+            totconstraintmap: ["{K^{\\constraintlist,\\targetp}}"],
+            totconstraintmapelem: ["{K^{\\constraintname,\\targetp}}"],
+            quovecspace: ["{\\tilde{V}_{#1}^{\\constraintname,\\targetp}}", 1],
+            totquovecspace: ["{\\text{ConsSpace}(\\constraintlist,\\targetp)}"],
+            detdistr: ["{\\delta^{#1}}", 1],
+            margperm: ["{\\varphi}"],
+            altquovecembed: ["{\\text{G}_{#1}^{\\constraintname,\\targetp}}", 1],
+            vecset: ["{V_{#1}}", 1],
+            repr: ["{\\lfloor#1\\rfloor}", 1],
+            gid: ["{\\text{id}}"],
+            id: ["{1_{#1}}",1],
+            consscale: ["{K}"],
+            scaletot: ["{K_{\\text{tot}}^{\\constraintlist,\\targetp}}"],
+            minnorm: ["{d}"],
+            Bigsetst: ["\\;\\Big|\\;"],
+            activeset: ["\\mathcal{S}"],
+            conv: ["\\text{conv}"],
+            lVert: ["|\\hspace{-1pt}|"],
+            norm: ["\\lVert#1\\lVert", 1],
+            st: [":\ "],
+        }
+    }
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeDarkModeToggle.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeParagraphLink.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Fast Inflation
+   </div>
+   <div id="projectbrief">To certify causal incompatibility</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classinf_1_1TargetDistr.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="classinf_1_1TargetDistr-members.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">inf::TargetDistr Class Reference<div class="ingroups"><a class="el" href="group__inflation.html">Inflation</a> &raquo; <a class="el" href="group__infpb.html">Inflation problem specification</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &quot;<a class="el" href="target__distr_8h_source.html">inf/inf_problem/target_distr.h</a>&quot;</code></p>
+<a name="details" id="details"></a><h2 class="groupheader">Class description</h2>
+<div class="textblock"><p>A distribution over an <a class="el" href="classinf_1_1Network.html" title="The network with which the classical causal compatibility of a target distribution is to be tested.">inf::Network</a>. </p>
+<p>In the notation of the paper, class instances represent a distribution \(\targetp \in \targetps\). This class allows the user to specify a target distribution over the triangle network, i.e., a distribution with support on a triangle network (represented as an <a class="el" href="classinf_1_1Network.html" title="The network with which the classical causal compatibility of a target distribution is to be tested.">inf::Network</a>). It is then possible to test whether or not the distribution is causally compatible with the classical triangle network using an <a class="el" href="classinf_1_1FeasProblem.html" title="This class defines inflation problems, i.e., problems of the form: given a target distribution ,...">inf::FeasProblem</a> instance.</p>
+<h3><a class="anchor" id="autotoc_md30"></a>
+A note on exact arithmetic</h3>
+<p>This class uses exact arithmetic for the probabilities. This requires the user to first choose a distribution with rational components, i.e., such that \(\targetp(\infevent) \in \mathbb{Q}\) for all \(\infevent\in\netevents\). and then to find an adequate common denominator for all probabilities. It is thus not possible to test exactly the nonlocality of a distribution that has irrational components with the present code. (In principle, this could be achieved, but would require fancier symbolic arithmetic capabilities.) </p>
+
+<p class="definition">Definition at line <a class="el" href="target__distr_8h_source.html#l00031">31</a> of file <a class="el" href="target__distr_8h_source.html">target_distr.h</a>.</p>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a6b386ba726f8a8125d1f7d46075dafeb"><td class="memItemLeft" align="right" valign="top">typedef std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TargetDistr.html#a6b386ba726f8a8125d1f7d46075dafeb">MarginalName</a></td></tr>
+<tr class="memdesc:a6b386ba726f8a8125d1f7d46075dafeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">A marginal name is a list of the form <code>{"A", "B"}</code>  <br /></td></tr>
+<tr class="separator:a6b386ba726f8a8125d1f7d46075dafeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75d7c59680325e198e85d02d673e4abe"><td class="memItemLeft" align="right" valign="top">typedef std::shared_ptr&lt; const <a class="el" href="classinf_1_1TargetDistr.html">inf::TargetDistr</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TargetDistr.html#a75d7c59680325e198e85d02d673e4abe">ConstPtr</a></td></tr>
+<tr class="separator:a75d7c59680325e198e85d02d673e4abe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_types_classinf_1_1Orbitable"><td colspan="2" onclick="javascript:toggleInherit('pub_types_classinf_1_1Orbitable')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="classinf_1_1Orbitable.html">inf::Orbitable</a></td></tr>
+<tr class="memitem:a4982dcc25e609ae4793de4471f141b97 inherit pub_types_classinf_1_1Orbitable"><td class="memItemLeft" align="right" valign="top">typedef std::set&lt; <a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Orbitable.html#a4982dcc25e609ae4793de4471f141b97">Orbit</a></td></tr>
+<tr class="memdesc:a4982dcc25e609ae4793de4471f141b97 inherit pub_types_classinf_1_1Orbitable"><td class="mdescLeft">&#160;</td><td class="mdescRight">An orbit is a set of events pertaining to a symmetry-induced equivalence class.  <br /></td></tr>
+<tr class="separator:a4982dcc25e609ae4793de4471f141b97 inherit pub_types_classinf_1_1Orbitable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa01c9267c0fb19a1b7d6b38f00dccf58 inherit pub_types_classinf_1_1Orbitable"><td class="memItemLeft" align="right" valign="top">typedef std::map&lt; <a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a>, <a class="el" href="classinf_1_1Orbitable.html#a4982dcc25e609ae4793de4471f141b97">inf::Orbitable::Orbit</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Orbitable.html#aa01c9267c0fb19a1b7d6b38f00dccf58">OrbitMap</a></td></tr>
+<tr class="memdesc:aa01c9267c0fb19a1b7d6b38f00dccf58 inherit pub_types_classinf_1_1Orbitable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maps each representative (of an orbit) <a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0" title="A list of inf::Outcome. Conceptually, this plays the role of  for some set .">inf::Event</a> to its corresponding <a class="el" href="classinf_1_1Orbitable.html#a4982dcc25e609ae4793de4471f141b97" title="An orbit is a set of events pertaining to a symmetry-induced equivalence class.">inf::Orbitable::Orbit</a>.  <br /></td></tr>
+<tr class="separator:aa01c9267c0fb19a1b7d6b38f00dccf58 inherit pub_types_classinf_1_1Orbitable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acbbe4fa5a804ad11b84b4af02663c65b inherit pub_types_classinf_1_1Orbitable"><td class="memItemLeft" align="right" valign="top">typedef std::pair&lt; const <a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a>, <a class="el" href="classinf_1_1Orbitable.html#a4982dcc25e609ae4793de4471f141b97">inf::Orbitable::Orbit</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Orbitable.html#acbbe4fa5a804ad11b84b4af02663c65b">OrbitPair</a></td></tr>
+<tr class="memdesc:acbbe4fa5a804ad11b84b4af02663c65b inherit pub_types_classinf_1_1Orbitable"><td class="mdescLeft">&#160;</td><td class="mdescRight">This type is useful for iteration: the pair is of the form <code>(representative,orbit)</code>.  <br /></td></tr>
+<tr class="separator:acbbe4fa5a804ad11b84b4af02663c65b inherit pub_types_classinf_1_1Orbitable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a1cd8838250d60796ae2f574e5f352f26"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TargetDistr.html#a1cd8838250d60796ae2f574e5f352f26">TargetDistr</a> (std::string const &amp;name, std::string const &amp;short_name, <a class="el" href="classinf_1_1Network.html#a4e586db6e1ab9f11335ed74f25ea0aee">inf::Network::ConstPtr</a> const &amp;net, <a class="el" href="classinf_1_1EventTensor.html">inf::EventTensor</a> const &amp;data)</td></tr>
+<tr class="memdesc:a1cd8838250d60796ae2f574e5f352f26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a distribution over an <a class="el" href="classinf_1_1Network.html" title="The network with which the classical causal compatibility of a target distribution is to be tested.">inf::Network</a>, specifying its name and its components.  <br /></td></tr>
+<tr class="separator:a1cd8838250d60796ae2f574e5f352f26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef09b1acd119dfa11c4cc4e038ea4885"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classinf_1_1Network.html#a4e586db6e1ab9f11335ed74f25ea0aee">inf::Network::ConstPtr</a> const &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TargetDistr.html#aef09b1acd119dfa11c4cc4e038ea4885">get_network</a> () const</td></tr>
+<tr class="memdesc:aef09b1acd119dfa11c4cc4e038ea4885"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the underlying <a class="el" href="classinf_1_1Network.html" title="The network with which the classical causal compatibility of a target distribution is to be tested.">inf::Network</a>.  <br /></td></tr>
+<tr class="separator:aef09b1acd119dfa11c4cc4e038ea4885"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3eff345d3cd86b648ba62044a387934"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classinf_1_1EventTensor.html">inf::EventTensor</a> const &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TargetDistr.html#ab3eff345d3cd86b648ba62044a387934">get_marginal</a> (<a class="el" href="classinf_1_1TargetDistr.html#a6b386ba726f8a8125d1f7d46075dafeb">inf::TargetDistr::MarginalName</a> const &amp;name) const</td></tr>
+<tr class="memdesc:ab3eff345d3cd86b648ba62044a387934"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the marginal distribution corresponding to the parties specified in the <code>name</code>.  <br /></td></tr>
+<tr class="separator:ab3eff345d3cd86b648ba62044a387934"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b1af91b8e74bc23b887a73b4d2652b7"><td class="memItemLeft" align="right" valign="top">std::string const &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TargetDistr.html#a9b1af91b8e74bc23b887a73b4d2652b7">get_name</a> () const</td></tr>
+<tr class="memdesc:a9b1af91b8e74bc23b887a73b4d2652b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">The name of the distribution.  <br /></td></tr>
+<tr class="separator:a9b1af91b8e74bc23b887a73b4d2652b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a533b84b46263792ad50a6df4f00c15ba"><td class="memItemLeft" align="right" valign="top">std::string const &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TargetDistr.html#a533b84b46263792ad50a6df4f00c15ba">get_short_name</a> () const</td></tr>
+<tr class="memdesc:a533b84b46263792ad50a6df4f00c15ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">The short name of the distribution.  <br /></td></tr>
+<tr class="separator:a533b84b46263792ad50a6df4f00c15ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0a89a18f4bcdf1a89357c2f7464c8c2"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TargetDistr.html#af0a89a18f4bcdf1a89357c2f7464c8c2">get_math_name</a> () const override</td></tr>
+<tr class="memdesc:af0a89a18f4bcdf1a89357c2f7464c8c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Math name for <a class="el" href="classinf_1_1TensorWithOrbits.html#a684c4e242a113339d8f240eaa5688b8e" title="Logs the data of the representatives of orbits.">inf::TensorWithOrbits::log_data_short()</a> and <a class="el" href="classinf_1_1TensorWithOrbits.html#a550a78c21ad9431412e9c078511e61bc" title="Logs all data.">inf::TensorWithOrbits::log_data_long()</a>  <br /></td></tr>
+<tr class="separator:af0a89a18f4bcdf1a89357c2f7464c8c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a085425033028f74e70e169e3fb1129c2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TargetDistr.html#a085425033028f74e70e169e3fb1129c2">log_header</a> () const override</td></tr>
+<tr class="memdesc:a085425033028f74e70e169e3fb1129c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Header logged by the various logging functions.  <br /></td></tr>
+<tr class="separator:a085425033028f74e70e169e3fb1129c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79b622136725ff7554b73229135c9a5f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TargetDistr.html#a79b622136725ff7554b73229135c9a5f">log_event</a> (<a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> const &amp;event) const override</td></tr>
+<tr class="memdesc:a79b622136725ff7554b73229135c9a5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs an event, e.g., <code>(0,0,2)</code>  <br /></td></tr>
+<tr class="separator:a79b622136725ff7554b73229135c9a5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classinf_1_1TensorWithOrbits"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classinf_1_1TensorWithOrbits')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classinf_1_1TensorWithOrbits.html">inf::TensorWithOrbits</a></td></tr>
+<tr class="memitem:a5a38b5c5598dc0a7a01770a45cee0d22 inherit pub_methods_classinf_1_1TensorWithOrbits"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TensorWithOrbits.html#a5a38b5c5598dc0a7a01770a45cee0d22">TensorWithOrbits</a> (<a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> n_parties, <a class="el" href="group__event.html#gadcaa27c4242b65837f0f7a00e96856d4">inf::Outcome</a> base)</td></tr>
+<tr class="memdesc:a5a38b5c5598dc0a7a01770a45cee0d22 inherit pub_methods_classinf_1_1TensorWithOrbits"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor, intializes data to all 0's. The actual <a class="el" href="classinf_1_1EventTensor.html" title="Stores a function from a set of inf::Event of fixed length to Num.">inf::EventTensor</a> can be passed by child classes using <a class="el" href="classinf_1_1TensorWithOrbits.html#a2a5be48925ad57042c14c906553d6573" title="To set all the numerators at once, ignoring orbits.">inf::TensorWithOrbits::init_event_tensor()</a>.  <br /></td></tr>
+<tr class="separator:a5a38b5c5598dc0a7a01770a45cee0d22 inherit pub_methods_classinf_1_1TensorWithOrbits"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7a873f9c37d20248a9f902f69aa27af inherit pub_methods_classinf_1_1TensorWithOrbits"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classinf_1_1EventTensor.html">inf::EventTensor</a> const &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TensorWithOrbits.html#ac7a873f9c37d20248a9f902f69aa27af">get_event_tensor</a> () const</td></tr>
+<tr class="memdesc:ac7a873f9c37d20248a9f902f69aa27af inherit pub_methods_classinf_1_1TensorWithOrbits"><td class="mdescLeft">&#160;</td><td class="mdescRight">To get access to the underlying data.  <br /></td></tr>
+<tr class="separator:ac7a873f9c37d20248a9f902f69aa27af inherit pub_methods_classinf_1_1TensorWithOrbits"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac154b6a858b0899210ddf0922ac2fd7 inherit pub_methods_classinf_1_1TensorWithOrbits"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TensorWithOrbits.html#aac154b6a858b0899210ddf0922ac2fd7">log_short</a> () const</td></tr>
+<tr class="memdesc:aac154b6a858b0899210ddf0922ac2fd7 inherit pub_methods_classinf_1_1TensorWithOrbits"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extra-short log using <a class="el" href="classinf_1_1TensorWithOrbits.html#ae17b9dc67827bac2467ca77a12091cda" title="Header logged by the various logging functions.">inf::TensorWithOrbits::log_header()</a>, <a class="el" href="classinf_1_1TensorWithOrbits.html#a684c4e242a113339d8f240eaa5688b8e" title="Logs the data of the representatives of orbits.">inf::TensorWithOrbits::log_data_short()</a>  <br /></td></tr>
+<tr class="separator:aac154b6a858b0899210ddf0922ac2fd7 inherit pub_methods_classinf_1_1TensorWithOrbits"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ead21bd50b7b7f4d0205cde2e438697 inherit pub_methods_classinf_1_1TensorWithOrbits"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TensorWithOrbits.html#a4ead21bd50b7b7f4d0205cde2e438697">log</a> () const override</td></tr>
+<tr class="memdesc:a4ead21bd50b7b7f4d0205cde2e438697 inherit pub_methods_classinf_1_1TensorWithOrbits"><td class="mdescLeft">&#160;</td><td class="mdescRight">Short log using <a class="el" href="classinf_1_1TensorWithOrbits.html#ae17b9dc67827bac2467ca77a12091cda" title="Header logged by the various logging functions.">inf::TensorWithOrbits::log_header()</a>, <a class="el" href="classinf_1_1TensorWithOrbits.html#a684c4e242a113339d8f240eaa5688b8e" title="Logs the data of the representatives of orbits.">inf::TensorWithOrbits::log_data_short()</a>, <a class="el" href="classinf_1_1Orbitable.html#a01b9c37488618495b331c32a7449dd90" title="Logs short one-line info about number of orbits.">inf::Orbitable::log_sym_group()</a>  <br /></td></tr>
+<tr class="separator:a4ead21bd50b7b7f4d0205cde2e438697 inherit pub_methods_classinf_1_1TensorWithOrbits"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ce37323ac010f1a6103e44962221dc3 inherit pub_methods_classinf_1_1TensorWithOrbits"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TensorWithOrbits.html#a4ce37323ac010f1a6103e44962221dc3">log_long</a> () const</td></tr>
+<tr class="memdesc:a4ce37323ac010f1a6103e44962221dc3 inherit pub_methods_classinf_1_1TensorWithOrbits"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detailed log.  <br /></td></tr>
+<tr class="separator:a4ce37323ac010f1a6103e44962221dc3 inherit pub_methods_classinf_1_1TensorWithOrbits"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a684c4e242a113339d8f240eaa5688b8e inherit pub_methods_classinf_1_1TensorWithOrbits"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TensorWithOrbits.html#a684c4e242a113339d8f240eaa5688b8e">log_data_short</a> () const</td></tr>
+<tr class="memdesc:a684c4e242a113339d8f240eaa5688b8e inherit pub_methods_classinf_1_1TensorWithOrbits"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs the data of the representatives of orbits.  <br /></td></tr>
+<tr class="separator:a684c4e242a113339d8f240eaa5688b8e inherit pub_methods_classinf_1_1TensorWithOrbits"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a550a78c21ad9431412e9c078511e61bc inherit pub_methods_classinf_1_1TensorWithOrbits"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TensorWithOrbits.html#a550a78c21ad9431412e9c078511e61bc">log_data_long</a> () const</td></tr>
+<tr class="memdesc:a550a78c21ad9431412e9c078511e61bc inherit pub_methods_classinf_1_1TensorWithOrbits"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs all data.  <br /></td></tr>
+<tr class="separator:a550a78c21ad9431412e9c078511e61bc inherit pub_methods_classinf_1_1TensorWithOrbits"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09fcfd7f0c8c753a8e63c161b313d772 inherit pub_methods_classinf_1_1TensorWithOrbits"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="group__event.html#ga1945c0af7bba14437a034808f18dac20">inf::EventRange</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TensorWithOrbits.html#a09fcfd7f0c8c753a8e63c161b313d772">get_event_range</a> () const override</td></tr>
+<tr class="memdesc:a09fcfd7f0c8c753a8e63c161b313d772 inherit pub_methods_classinf_1_1TensorWithOrbits"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="group__event.html#ga1945c0af7bba14437a034808f18dac20" title="An iterator over inf::Event, conceptually allowing to iterate over  for some set .">inf::EventRange</a> supporting the <a class="el" href="classinf_1_1Orbitable.html" title="Something that holds symmetry-induced orbits of events.">inf::Orbitable</a> and <a class="el" href="classinf_1_1EventTensor.html" title="Stores a function from a set of inf::Event of fixed length to Num.">inf::EventTensor</a>  <br /></td></tr>
+<tr class="separator:a09fcfd7f0c8c753a8e63c161b313d772 inherit pub_methods_classinf_1_1TensorWithOrbits"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4557f73cfbab33775e70c0e202ca09c8 inherit pub_methods_classinf_1_1TensorWithOrbits"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TensorWithOrbits.html#a4557f73cfbab33775e70c0e202ca09c8">get_n_events</a> () const override</td></tr>
+<tr class="memdesc:a4557f73cfbab33775e70c0e202ca09c8 inherit pub_methods_classinf_1_1TensorWithOrbits"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies the number of events supporting the <a class="el" href="classinf_1_1Orbitable.html" title="Something that holds symmetry-induced orbits of events.">inf::Orbitable</a> and <a class="el" href="classinf_1_1EventTensor.html" title="Stores a function from a set of inf::Event of fixed length to Num.">inf::EventTensor</a>, this matches with <a class="el" href="classinf_1_1TensorWithOrbits.html#a09fcfd7f0c8c753a8e63c161b313d772" title="inf::EventRange supporting the inf::Orbitable and inf::EventTensor">inf::TensorWithOrbits::get_event_range()</a>  <br /></td></tr>
+<tr class="separator:a4557f73cfbab33775e70c0e202ca09c8 inherit pub_methods_classinf_1_1TensorWithOrbits"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7304f6f5f10788da5dfa2ce67eadc7c inherit pub_methods_classinf_1_1TensorWithOrbits"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TensorWithOrbits.html#ac7304f6f5f10788da5dfa2ce67eadc7c">get_n_parties</a> () const override</td></tr>
+<tr class="memdesc:ac7304f6f5f10788da5dfa2ce67eadc7c inherit pub_methods_classinf_1_1TensorWithOrbits"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies the number of parties (i.e., the length of the events supporting the <a class="el" href="classinf_1_1Orbitable.html" title="Something that holds symmetry-induced orbits of events.">inf::Orbitable</a>), this matches with <a class="el" href="classinf_1_1Orbitable.html#a3df21a21b75c0a11a824eb9cacd0cd38" title="Returns the inf::EventRange over which inf::Orbitable is defined, used in inf::Orbitable::init_orbits...">inf::Orbitable::get_event_range()</a>  <br /></td></tr>
+<tr class="separator:ac7304f6f5f10788da5dfa2ce67eadc7c inherit pub_methods_classinf_1_1TensorWithOrbits"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classinf_1_1Orbitable"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classinf_1_1Orbitable')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classinf_1_1Orbitable.html">inf::Orbitable</a></td></tr>
+<tr class="memitem:a8fe3e6c3cbb7eb0643380eafdd121040 inherit pub_methods_classinf_1_1Orbitable"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Orbitable.html#a8fe3e6c3cbb7eb0643380eafdd121040">Orbitable</a> ()</td></tr>
+<tr class="memdesc:a8fe3e6c3cbb7eb0643380eafdd121040 inherit pub_methods_classinf_1_1Orbitable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor that does not initialize anything, the child class must call <a class="el" href="classinf_1_1Orbitable.html#ac25e7eced2028756090e8e6007316524" title="Child classes have to call this method for initialization of the orbits.">inf::Orbitable::init_orbits()</a>  <br /></td></tr>
+<tr class="separator:a8fe3e6c3cbb7eb0643380eafdd121040 inherit pub_methods_classinf_1_1Orbitable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5ea13afb9a9ff79aef84054ea4c1dd4 inherit pub_methods_classinf_1_1Orbitable"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classinf_1_1Symmetry.html#a901d22b86ef5923b628db86fbdd7ba4f">inf::Symmetry::Group</a> const &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Orbitable.html#aa5ea13afb9a9ff79aef84054ea4c1dd4">get_sym_group</a> () const</td></tr>
+<tr class="memdesc:aa5ea13afb9a9ff79aef84054ea4c1dd4 inherit pub_methods_classinf_1_1Orbitable"><td class="mdescLeft">&#160;</td><td class="mdescRight">This returns the underlying symmetry group.  <br /></td></tr>
+<tr class="separator:aa5ea13afb9a9ff79aef84054ea4c1dd4 inherit pub_methods_classinf_1_1Orbitable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99544b7fb94b81957e20601859c42782 inherit pub_methods_classinf_1_1Orbitable"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Orbitable.html#a99544b7fb94b81957e20601859c42782">get_n_orbits</a> () const</td></tr>
+<tr class="memdesc:a99544b7fb94b81957e20601859c42782 inherit pub_methods_classinf_1_1Orbitable"><td class="mdescLeft">&#160;</td><td class="mdescRight">The number of orbits produced (only sensible after <a class="el" href="classinf_1_1Orbitable.html#ac25e7eced2028756090e8e6007316524" title="Child classes have to call this method for initialization of the orbits.">inf::Orbitable::init_orbits()</a> has been called)  <br /></td></tr>
+<tr class="separator:a99544b7fb94b81957e20601859c42782 inherit pub_methods_classinf_1_1Orbitable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef04cd8a458a13472f5b95105929e6b4 inherit pub_methods_classinf_1_1Orbitable"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classinf_1_1Orbitable.html#aa01c9267c0fb19a1b7d6b38f00dccf58">inf::Orbitable::OrbitMap</a> const &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Orbitable.html#aef04cd8a458a13472f5b95105929e6b4">get_orbits</a> () const</td></tr>
+<tr class="memdesc:aef04cd8a458a13472f5b95105929e6b4 inherit pub_methods_classinf_1_1Orbitable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the underlying <a class="el" href="classinf_1_1Orbitable.html#aa01c9267c0fb19a1b7d6b38f00dccf58" title="Maps each representative (of an orbit) inf::Event to its corresponding inf::Orbitable::Orbit.">inf::Orbitable::OrbitMap</a>.  <br /></td></tr>
+<tr class="separator:aef04cd8a458a13472f5b95105929e6b4 inherit pub_methods_classinf_1_1Orbitable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ad16720debff531d58e8a6ea4392ec3 inherit pub_methods_classinf_1_1Orbitable"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Orbitable.html#a7ad16720debff531d58e8a6ea4392ec3">orbits_initialized</a> () const</td></tr>
+<tr class="memdesc:a7ad16720debff531d58e8a6ea4392ec3 inherit pub_methods_classinf_1_1Orbitable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return <code>true</code> if <code><a class="el" href="classinf_1_1Orbitable.html#ac25e7eced2028756090e8e6007316524" title="Child classes have to call this method for initialization of the orbits.">inf::Orbitable::init_orbits()</a></code> has been called.  <br /></td></tr>
+<tr class="separator:a7ad16720debff531d58e8a6ea4392ec3 inherit pub_methods_classinf_1_1Orbitable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01b9c37488618495b331c32a7449dd90 inherit pub_methods_classinf_1_1Orbitable"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Orbitable.html#a01b9c37488618495b331c32a7449dd90">log_sym_group</a> () const</td></tr>
+<tr class="memdesc:a01b9c37488618495b331c32a7449dd90 inherit pub_methods_classinf_1_1Orbitable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs short one-line info about number of orbits.  <br /></td></tr>
+<tr class="separator:a01b9c37488618495b331c32a7449dd90 inherit pub_methods_classinf_1_1Orbitable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26be8965202f85195ef4becd8223e2e6 inherit pub_methods_classinf_1_1Orbitable"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Orbitable.html#a26be8965202f85195ef4becd8223e2e6">log_orbits</a> (bool shorten) const</td></tr>
+<tr class="memdesc:a26be8965202f85195ef4becd8223e2e6 inherit pub_methods_classinf_1_1Orbitable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs long multi-line info about orbits.  <br /></td></tr>
+<tr class="separator:a26be8965202f85195ef4becd8223e2e6 inherit pub_methods_classinf_1_1Orbitable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a7b0b63fbeefde1a27d1384b2be65d3cb"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TargetDistr.html#a7b0b63fbeefde1a27d1384b2be65d3cb">is_probability_distribution</a> (<a class="el" href="classinf_1_1EventTensor.html">inf::EventTensor</a> const &amp;event_tensor)</td></tr>
+<tr class="memdesc:a7b0b63fbeefde1a27d1384b2be65d3cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks nonnegativity and normalization of the tensor as if it was meant to be a probability distribution.  <br /></td></tr>
+<tr class="separator:a7b0b63fbeefde1a27d1384b2be65d3cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:aa1d0f340295ff459487b89d3b5fff43b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TargetDistr.html#aa1d0f340295ff459487b89d3b5fff43b">is_symmetrized_by</a> (<a class="el" href="classinf_1_1Symmetry.html">inf::Symmetry</a> const &amp;network_sym) const</td></tr>
+<tr class="memdesc:aa1d0f340295ff459487b89d3b5fff43b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether a network symmetry is a distribution symmetry.  <br /></td></tr>
+<tr class="separator:aa1d0f340295ff459487b89d3b5fff43b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5909e014a9e0b662225db4cc7f85870f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TargetDistr.html#a5909e014a9e0b662225db4cc7f85870f">init_symmetries</a> ()</td></tr>
+<tr class="memdesc:a5909e014a9e0b662225db4cc7f85870f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the underlying symmetry group, and calls <a class="el" href="classinf_1_1Orbitable.html#ac25e7eced2028756090e8e6007316524" title="Child classes have to call this method for initialization of the orbits.">inf::Orbitable::init_orbits()</a>  <br /></td></tr>
+<tr class="separator:a5909e014a9e0b662225db4cc7f85870f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58da0e0d42ee4ea1c20375cb83d25669"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classinf_1_1EventTensor.html#a5fff0983df974482f7d2dcdde1e4ac92">inf::EventTensor::UniqueConstPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TargetDistr.html#a58da0e0d42ee4ea1c20375cb83d25669">compute_marginal</a> (<a class="el" href="classinf_1_1TargetDistr.html#a6b386ba726f8a8125d1f7d46075dafeb">inf::TargetDistr::MarginalName</a> const &amp;name) const</td></tr>
+<tr class="memdesc:a58da0e0d42ee4ea1c20375cb83d25669"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function computes the marginals and returns them, without looking at the cache <code>m_marginals</code>.  <br /></td></tr>
+<tr class="separator:a58da0e0d42ee4ea1c20375cb83d25669"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a847dec9e48a2584a9f316930695c4aec"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TargetDistr.html#a847dec9e48a2584a9f316930695c4aec">m_name</a></td></tr>
+<tr class="memdesc:a847dec9e48a2584a9f316930695c4aec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Name of the distribution, for logging purposes.  <br /></td></tr>
+<tr class="separator:a847dec9e48a2584a9f316930695c4aec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9f49cc94640070f3e425e8e78d8830a"><td class="memItemLeft" align="right" valign="top">std::string const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TargetDistr.html#ad9f49cc94640070f3e425e8e78d8830a">m_short_name</a></td></tr>
+<tr class="memdesc:ad9f49cc94640070f3e425e8e78d8830a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Short name of the distribution, for logging purposes.  <br /></td></tr>
+<tr class="separator:ad9f49cc94640070f3e425e8e78d8830a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2cc50ee58cc301d6b6ddb583bd8ee91"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classinf_1_1Network.html#a4e586db6e1ab9f11335ed74f25ea0aee">inf::Network::ConstPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TargetDistr.html#aa2cc50ee58cc301d6b6ddb583bd8ee91">m_network</a></td></tr>
+<tr class="memdesc:aa2cc50ee58cc301d6b6ddb583bd8ee91"><td class="mdescLeft">&#160;</td><td class="mdescRight">Underlying <a class="el" href="classinf_1_1Network.html" title="The network with which the classical causal compatibility of a target distribution is to be tested.">inf::Network</a>.  <br /></td></tr>
+<tr class="separator:aa2cc50ee58cc301d6b6ddb583bd8ee91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48a152deadac20795624f32d052589de"><td class="memItemLeft" align="right" valign="top">std::map&lt; <a class="el" href="classinf_1_1TargetDistr.html#a6b386ba726f8a8125d1f7d46075dafeb">inf::TargetDistr::MarginalName</a>, <a class="el" href="classinf_1_1EventTensor.html#a5fff0983df974482f7d2dcdde1e4ac92">inf::EventTensor::UniqueConstPtr</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TargetDistr.html#a48a152deadac20795624f32d052589de">m_marginals</a></td></tr>
+<tr class="memdesc:a48a152deadac20795624f32d052589de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores the marginals. Dictionary is initially empty.  <br /></td></tr>
+<tr class="separator:a48a152deadac20795624f32d052589de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pro_methods_classinf_1_1TensorWithOrbits"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classinf_1_1TensorWithOrbits')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="classinf_1_1TensorWithOrbits.html">inf::TensorWithOrbits</a></td></tr>
+<tr class="memitem:a2a5be48925ad57042c14c906553d6573 inherit pro_methods_classinf_1_1TensorWithOrbits"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TensorWithOrbits.html#a2a5be48925ad57042c14c906553d6573">init_event_tensor</a> (<a class="el" href="classinf_1_1EventTensor.html">inf::EventTensor</a> const &amp;event_tensor)</td></tr>
+<tr class="memdesc:a2a5be48925ad57042c14c906553d6573 inherit pro_methods_classinf_1_1TensorWithOrbits"><td class="mdescLeft">&#160;</td><td class="mdescRight">To set all the numerators at once, ignoring orbits.  <br /></td></tr>
+<tr class="separator:a2a5be48925ad57042c14c906553d6573 inherit pro_methods_classinf_1_1TensorWithOrbits"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_methods_classinf_1_1Orbitable"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classinf_1_1Orbitable')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="classinf_1_1Orbitable.html">inf::Orbitable</a></td></tr>
+<tr class="memitem:ac25e7eced2028756090e8e6007316524 inherit pro_methods_classinf_1_1Orbitable"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Orbitable.html#ac25e7eced2028756090e8e6007316524">init_orbits</a> (<a class="el" href="classinf_1_1Symmetry.html#a901d22b86ef5923b628db86fbdd7ba4f">inf::Symmetry::Group</a> const &amp;sym_group)</td></tr>
+<tr class="memdesc:ac25e7eced2028756090e8e6007316524 inherit pro_methods_classinf_1_1Orbitable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Child classes have to call this method for initialization of the orbits.  <br /></td></tr>
+<tr class="separator:ac25e7eced2028756090e8e6007316524 inherit pro_methods_classinf_1_1Orbitable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_attribs_classinf_1_1TensorWithOrbits"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classinf_1_1TensorWithOrbits')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classinf_1_1TensorWithOrbits.html">inf::TensorWithOrbits</a></td></tr>
+<tr class="memitem:a2a4fb7f187427bb1022659421230ce59 inherit pro_attribs_classinf_1_1TensorWithOrbits"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classinf_1_1EventTensor.html">inf::EventTensor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TensorWithOrbits.html#a2a4fb7f187427bb1022659421230ce59">m_event_tensor</a></td></tr>
+<tr class="memdesc:a2a4fb7f187427bb1022659421230ce59 inherit pro_attribs_classinf_1_1TensorWithOrbits"><td class="mdescLeft">&#160;</td><td class="mdescRight">The underlying data.  <br /></td></tr>
+<tr class="separator:a2a4fb7f187427bb1022659421230ce59 inherit pro_attribs_classinf_1_1TensorWithOrbits"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a6b386ba726f8a8125d1f7d46075dafeb" name="a6b386ba726f8a8125d1f7d46075dafeb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b386ba726f8a8125d1f7d46075dafeb">&#9670;&#160;</a></span>MarginalName</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::vector&lt;std::string&gt; <a class="el" href="classinf_1_1TargetDistr.html#a6b386ba726f8a8125d1f7d46075dafeb">inf::TargetDistr::MarginalName</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A marginal name is a list of the form <code>{"A", "B"}</code> </p>
+
+<p class="definition">Definition at line <a class="el" href="target__distr_8h_source.html#l00034">34</a> of file <a class="el" href="target__distr_8h_source.html">target_distr.h</a>.</p>
+
+</div>
+</div>
+<a id="a75d7c59680325e198e85d02d673e4abe" name="a75d7c59680325e198e85d02d673e4abe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75d7c59680325e198e85d02d673e4abe">&#9670;&#160;</a></span>ConstPtr</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::shared_ptr&lt;const <a class="el" href="classinf_1_1TargetDistr.html">inf::TargetDistr</a>&gt; <a class="el" href="classinf_1_1TargetDistr.html#a75d7c59680325e198e85d02d673e4abe">inf::TargetDistr::ConstPtr</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="target__distr_8h_source.html#l00035">35</a> of file <a class="el" href="target__distr_8h_source.html">target_distr.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a1cd8838250d60796ae2f574e5f352f26" name="a1cd8838250d60796ae2f574e5f352f26"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1cd8838250d60796ae2f574e5f352f26">&#9670;&#160;</a></span>TargetDistr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">inf::TargetDistr::TargetDistr </td>
+          <td>(</td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
+          <td class="paramname"><em>short_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classinf_1_1Network.html#a4e586db6e1ab9f11335ed74f25ea0aee">inf::Network::ConstPtr</a> const &amp;&#160;</td>
+          <td class="paramname"><em>net</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classinf_1_1EventTensor.html">inf::EventTensor</a> const &amp;&#160;</td>
+          <td class="paramname"><em>data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Construct a distribution over an <a class="el" href="classinf_1_1Network.html" title="The network with which the classical causal compatibility of a target distribution is to be tested.">inf::Network</a>, specifying its name and its components. </p>
+<p>This constructor requires fixing the denominator in advance, and specifying the numerators of the various probabilities. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>Used for display purposes, e.g., "Elegant Joint Measurement". </td></tr>
+    <tr><td class="paramname">short_name</td><td>Use for display purposes. It is recommended to keep this a few characters long only, e.g., "EJM" </td></tr>
+    <tr><td class="paramname">net</td><td>The underlying <a class="el" href="classinf_1_1Network.html" title="The network with which the classical causal compatibility of a target distribution is to be tested.">inf::Network</a>, which currently mostly specifies the number of outcomes per party. </td></tr>
+    <tr><td class="paramname">data</td><td>This <a class="el" href="classinf_1_1EventTensor.html" title="Stores a function from a set of inf::Event of fixed length to Num.">inf::EventTensor</a> specifies the probabilities as rational numbers with a common denominator. The number of outcomes and number of parties of <code>net</code> and <code>data</code> are asserted to match. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="target__distr_8cpp_source.html#l00008">8</a> of file <a class="el" href="target__distr_8cpp_source.html">target_distr.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a7b0b63fbeefde1a27d1384b2be65d3cb" name="a7b0b63fbeefde1a27d1384b2be65d3cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b0b63fbeefde1a27d1384b2be65d3cb">&#9670;&#160;</a></span>is_probability_distribution()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool inf::TargetDistr::is_probability_distribution </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classinf_1_1EventTensor.html">inf::EventTensor</a> const &amp;&#160;</td>
+          <td class="paramname"><em>event_tensor</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks nonnegativity and normalization of the tensor as if it was meant to be a probability distribution. </p>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if the event tensor's numerators num up to its denominator and all components are nonnegative </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="target__distr_8cpp_source.html#l00074">74</a> of file <a class="el" href="target__distr_8cpp_source.html">target_distr.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aef09b1acd119dfa11c4cc4e038ea4885" name="aef09b1acd119dfa11c4cc4e038ea4885"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef09b1acd119dfa11c4cc4e038ea4885">&#9670;&#160;</a></span>get_network()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classinf_1_1Network.html#a4e586db6e1ab9f11335ed74f25ea0aee">inf::Network::ConstPtr</a> const  &amp; inf::TargetDistr::get_network </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the underlying <a class="el" href="classinf_1_1Network.html" title="The network with which the classical causal compatibility of a target distribution is to be tested.">inf::Network</a>. </p>
+
+<p class="definition">Definition at line <a class="el" href="target__distr_8cpp_source.html#l00028">28</a> of file <a class="el" href="target__distr_8cpp_source.html">target_distr.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ab3eff345d3cd86b648ba62044a387934" name="ab3eff345d3cd86b648ba62044a387934"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3eff345d3cd86b648ba62044a387934">&#9670;&#160;</a></span>get_marginal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classinf_1_1EventTensor.html">inf::EventTensor</a> const  &amp; inf::TargetDistr::get_marginal </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classinf_1_1TargetDistr.html#a6b386ba726f8a8125d1f7d46075dafeb">inf::TargetDistr::MarginalName</a> const &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the marginal distribution corresponding to the parties specified in the <code>name</code>. </p>
+<p>The marginals are computed the first time they're required, then cached.</p>
+<p>This functionality is tested in the application <a class="el" href="classuser_1_1distribution__marginal.html" title="Tests marginals of a triangle distribution.">user::distribution_marginal</a>. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>This needs to be a subset of the network party names, ordered in the same way that the network party names are ordered. E.g., if the network names are <code>{"A","B","C"}</code>, a valid marginal name is <code>{"A","C"}</code> but not <code>{"C","A"}</code>. This is asserted. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to an <a class="el" href="classinf_1_1EventTensor.html" title="Stores a function from a set of inf::Event of fixed length to Num.">inf::EventTensor</a> &mdash; the reference is valid until the <a class="el" href="classinf_1_1TargetDistr.html" title="A distribution over an inf::Network.">inf::TargetDistr</a> is. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="target__distr_8cpp_source.html#l00032">32</a> of file <a class="el" href="target__distr_8cpp_source.html">target_distr.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a9b1af91b8e74bc23b887a73b4d2652b7" name="a9b1af91b8e74bc23b887a73b4d2652b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b1af91b8e74bc23b887a73b4d2652b7">&#9670;&#160;</a></span>get_name()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string const  &amp; inf::TargetDistr::get_name </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The name of the distribution. </p>
+
+<p class="definition">Definition at line <a class="el" href="target__distr_8cpp_source.html#l00044">44</a> of file <a class="el" href="target__distr_8cpp_source.html">target_distr.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a533b84b46263792ad50a6df4f00c15ba" name="a533b84b46263792ad50a6df4f00c15ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a533b84b46263792ad50a6df4f00c15ba">&#9670;&#160;</a></span>get_short_name()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string const  &amp; inf::TargetDistr::get_short_name </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The short name of the distribution. </p>
+
+<p class="definition">Definition at line <a class="el" href="target__distr_8cpp_source.html#l00048">48</a> of file <a class="el" href="target__distr_8cpp_source.html">target_distr.cpp</a>.</p>
+
+</div>
+</div>
+<a id="af0a89a18f4bcdf1a89357c2f7464c8c2" name="af0a89a18f4bcdf1a89357c2f7464c8c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0a89a18f4bcdf1a89357c2f7464c8c2">&#9670;&#160;</a></span>get_math_name()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string inf::TargetDistr::get_math_name </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Math name for <a class="el" href="classinf_1_1TensorWithOrbits.html#a684c4e242a113339d8f240eaa5688b8e" title="Logs the data of the representatives of orbits.">inf::TensorWithOrbits::log_data_short()</a> and <a class="el" href="classinf_1_1TensorWithOrbits.html#a550a78c21ad9431412e9c078511e61bc" title="Logs all data.">inf::TensorWithOrbits::log_data_long()</a> </p>
+
+<p>Implements <a class="el" href="classinf_1_1TensorWithOrbits.html#aea20c64fcb0c96004fd5e84b007029ff">inf::TensorWithOrbits</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="target__distr_8cpp_source.html#l00054">54</a> of file <a class="el" href="target__distr_8cpp_source.html">target_distr.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a085425033028f74e70e169e3fb1129c2" name="a085425033028f74e70e169e3fb1129c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a085425033028f74e70e169e3fb1129c2">&#9670;&#160;</a></span>log_header()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void inf::TargetDistr::log_header </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Header logged by the various logging functions. </p>
+
+<p>Implements <a class="el" href="classinf_1_1TensorWithOrbits.html#ae17b9dc67827bac2467ca77a12091cda">inf::TensorWithOrbits</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="target__distr_8cpp_source.html#l00058">58</a> of file <a class="el" href="target__distr_8cpp_source.html">target_distr.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a79b622136725ff7554b73229135c9a5f" name="a79b622136725ff7554b73229135c9a5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79b622136725ff7554b73229135c9a5f">&#9670;&#160;</a></span>log_event()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void inf::TargetDistr::log_event </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> const &amp;&#160;</td>
+          <td class="paramname"><em>event</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Logs an event, e.g., <code>(0,0,2)</code> </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">event</td><td>Event to be logged </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="classinf_1_1Orbitable.html#a18e56b82d76f278e9d0696162e03d322">inf::Orbitable</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="target__distr_8cpp_source.html#l00066">66</a> of file <a class="el" href="target__distr_8cpp_source.html">target_distr.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aa1d0f340295ff459487b89d3b5fff43b" name="aa1d0f340295ff459487b89d3b5fff43b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1d0f340295ff459487b89d3b5fff43b">&#9670;&#160;</a></span>is_symmetrized_by()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool inf::TargetDistr::is_symmetrized_by </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classinf_1_1Symmetry.html">inf::Symmetry</a> const &amp;&#160;</td>
+          <td class="paramname"><em>network_sym</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Check whether a network symmetry is a distribution symmetry. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">network_sym</td><td>A symmetry that ought to be compatible with the network topology, but may or may not be a symmetry of the <a class="el" href="classinf_1_1TargetDistr.html" title="A distribution over an inf::Network.">inf::TargetDistr</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if <code>network_sym</code> is an actual symmetry of the <a class="el" href="classinf_1_1TargetDistr.html" title="A distribution over an inf::Network.">inf::TargetDistr</a>, i.e., if applying the symmetry on the distribution leaves it invariant </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="target__distr_8cpp_source.html#l00089">89</a> of file <a class="el" href="target__distr_8cpp_source.html">target_distr.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a5909e014a9e0b662225db4cc7f85870f" name="a5909e014a9e0b662225db4cc7f85870f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5909e014a9e0b662225db4cc7f85870f">&#9670;&#160;</a></span>init_symmetries()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void inf::TargetDistr::init_symmetries </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Initialize the underlying symmetry group, and calls <a class="el" href="classinf_1_1Orbitable.html#ac25e7eced2028756090e8e6007316524" title="Child classes have to call this method for initialization of the orbits.">inf::Orbitable::init_orbits()</a> </p>
+
+<p class="definition">Definition at line <a class="el" href="target__distr_8cpp_source.html#l00103">103</a> of file <a class="el" href="target__distr_8cpp_source.html">target_distr.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a58da0e0d42ee4ea1c20375cb83d25669" name="a58da0e0d42ee4ea1c20375cb83d25669"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58da0e0d42ee4ea1c20375cb83d25669">&#9670;&#160;</a></span>compute_marginal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classinf_1_1EventTensor.html#a5fff0983df974482f7d2dcdde1e4ac92">inf::EventTensor::UniqueConstPtr</a> inf::TargetDistr::compute_marginal </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classinf_1_1TargetDistr.html#a6b386ba726f8a8125d1f7d46075dafeb">inf::TargetDistr::MarginalName</a> const &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This function computes the marginals and returns them, without looking at the cache <code>m_marginals</code>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>This identifies the marginal </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="target__distr_8cpp_source.html#l00117">117</a> of file <a class="el" href="target__distr_8cpp_source.html">target_distr.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a847dec9e48a2584a9f316930695c4aec" name="a847dec9e48a2584a9f316930695c4aec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a847dec9e48a2584a9f316930695c4aec">&#9670;&#160;</a></span>m_name</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string inf::TargetDistr::m_name</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Name of the distribution, for logging purposes. </p>
+
+<p class="definition">Definition at line <a class="el" href="target__distr_8h_source.html#l00090">90</a> of file <a class="el" href="target__distr_8h_source.html">target_distr.h</a>.</p>
+
+</div>
+</div>
+<a id="ad9f49cc94640070f3e425e8e78d8830a" name="ad9f49cc94640070f3e425e8e78d8830a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9f49cc94640070f3e425e8e78d8830a">&#9670;&#160;</a></span>m_short_name</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string const inf::TargetDistr::m_short_name</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Short name of the distribution, for logging purposes. </p>
+
+<p class="definition">Definition at line <a class="el" href="target__distr_8h_source.html#l00092">92</a> of file <a class="el" href="target__distr_8h_source.html">target_distr.h</a>.</p>
+
+</div>
+</div>
+<a id="aa2cc50ee58cc301d6b6ddb583bd8ee91" name="aa2cc50ee58cc301d6b6ddb583bd8ee91"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2cc50ee58cc301d6b6ddb583bd8ee91">&#9670;&#160;</a></span>m_network</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classinf_1_1Network.html#a4e586db6e1ab9f11335ed74f25ea0aee">inf::Network::ConstPtr</a> inf::TargetDistr::m_network</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Underlying <a class="el" href="classinf_1_1Network.html" title="The network with which the classical causal compatibility of a target distribution is to be tested.">inf::Network</a>. </p>
+
+<p class="definition">Definition at line <a class="el" href="target__distr_8h_source.html#l00094">94</a> of file <a class="el" href="target__distr_8h_source.html">target_distr.h</a>.</p>
+
+</div>
+</div>
+<a id="a48a152deadac20795624f32d052589de" name="a48a152deadac20795624f32d052589de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48a152deadac20795624f32d052589de">&#9670;&#160;</a></span>m_marginals</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt;<a class="el" href="classinf_1_1TargetDistr.html#a6b386ba726f8a8125d1f7d46075dafeb">inf::TargetDistr::MarginalName</a>, <a class="el" href="classinf_1_1EventTensor.html#a5fff0983df974482f7d2dcdde1e4ac92">inf::EventTensor::UniqueConstPtr</a>&gt; inf::TargetDistr::m_marginals</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">mutable</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Stores the marginals. Dictionary is initially empty. </p>
+<p>This is the cache used by <a class="el" href="classinf_1_1TargetDistr.html#ab3eff345d3cd86b648ba62044a387934" title="Get the marginal distribution corresponding to the parties specified in the name.">inf::TargetDistr::get_marginal()</a>. It is <code>mutable</code> because computing a marginal of a distribution does not modify the distribution </p>
+
+<p class="definition">Definition at line <a class="el" href="target__distr_8h_source.html#l00111">111</a> of file <a class="el" href="target__distr_8h_source.html">target_distr.h</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>src/inf/inf_problem/<a class="el" href="target__distr_8h_source.html">target_distr.h</a></li>
+<li>src/inf/inf_problem/<a class="el" href="target__distr_8cpp_source.html">target_distr.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceinf.html">inf</a></li><li class="navelem"><a class="el" href="classinf_1_1TargetDistr.html">TargetDistr</a></li>
+    <li class="footer">Generated on Wed Dec 18 2024 17:39:43 for Fast Inflation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

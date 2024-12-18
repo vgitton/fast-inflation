@@ -1,0 +1,251 @@
+<!-- HTML header for doxygen 1.9.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Fast Inflation: Installation and compilation</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+MathJax.Hub.Config({
+    TeX: {
+        Macros: {
+            dd: ["{\\text{d}#1\\,}",1],
+            nouts: ["{n_{\\text{o}}}"],
+            ints: ["{[\\![#1]\\!]}",1],
+            outset: ["{\\ints{\\nouts}}"],
+            N: ["{\\mathbb{N}}"],
+            R: ["{\\mathbb{R}}"],
+            Z: ["{\\mathbb{Z}}"],
+            infsize: ["{z}"],
+            infparties: ["{\\set{I}}"],
+            infsources: ["{\\set{S}}"],
+            infmarg: ["{\\set{A}}"],
+            infmargg: ["{\\set{B}}"],
+            netparties: ["{\\set{N}}"],
+            infq: ["{q}"],
+            infqs: ["{\\Delta_{\\infparties}}"],
+            constraintlist: ["{\\mathcal{C}}"],
+            injsets: ["{\\text{InjSets}}"],
+            infconstraints: ["{\\text{InfCons}}"],
+            parents: ["{\\text{Par}}"],
+            targetp: ["{p}"],
+            targetps: ["{\\Delta_{\\netparties}}"],
+            set: ["{\\mathbf{#1}}",1],
+            type: ["{t}"],
+            infevent: "{\\omega}",
+            events: ["{\\Omega_{#1}}",1],
+            infevents: ["{\\events{\\infparties}}"],
+            redinfevents: ["{\\tilde{\\Omega}_{\\infparties}}"],
+            netevents: ["{\\events{\\netparties}}"],
+            vecset: ["{V_{#1}}",1],
+            alice: ["{\\text{A}}"],
+            bob: ["{\\text{B}}"],
+            charlie: ["{\\text{C}}"],
+            symgroup: ["{\\text{Sym}(#1)}",1],
+            shortsymgroup: ["{\\text{Sym}_{#1}}",1],
+            act: ["{(#1\\hspace{2pt}{:}\\hspace{2pt}#2)}",2],
+            actt: ["{[#1\\hspace{2pt}{:}\\hspace{2pt}#2]}",2],
+            margperms: ["{\\text{Perm}_{#1}}",1],
+            permutedmargs: ["{\\mathbb{P}_{#1}^{\\targetp}}",1],
+            redpermutedmargs: ["{\\tilde{\\mathbb{P}}_{#1}^{\\constraintname,\\targetp}}",1],
+            extract: ["{\\text{ext}(#1,#2)}",2],
+            partysym: ["{\\tau}"],
+            sourcesym: ["{\\xi}"],
+            outsym: ["{\\sigma}"],
+            fullgroup: ["{\\text{InfGrp}}"],
+            partygroup : ["{\\text{PartyGrp}}"],
+            outgroup: ["{\\text{OutGrp}}"],
+            sourcegroup: ["{\\text{SrcGrp}}"],
+            distrgroup: ["{\\mathbb{G}^\\targetp}"],
+            constraintname: ["{c}"],
+            marggroup: ["{\\mathbb{G}^{\\constraintname,\\targetp}}"],
+            fullsymexpl: ["{(\\sourcesym,\\partysym,\\outsym)}"],
+            inner: ["{\\langle#1,#2\\rangle}", 2],
+            quovec: ["{f}"],
+            totconstraintmap: ["{K^{\\constraintlist,\\targetp}}"],
+            totconstraintmapelem: ["{K^{\\constraintname,\\targetp}}"],
+            quovecspace: ["{\\tilde{V}_{#1}^{\\constraintname,\\targetp}}", 1],
+            totquovecspace: ["{\\text{ConsSpace}(\\constraintlist,\\targetp)}"],
+            detdistr: ["{\\delta^{#1}}", 1],
+            margperm: ["{\\varphi}"],
+            altquovecembed: ["{\\text{G}_{#1}^{\\constraintname,\\targetp}}", 1],
+            vecset: ["{V_{#1}}", 1],
+            repr: ["{\\lfloor#1\\rfloor}", 1],
+            gid: ["{\\text{id}}"],
+            id: ["{1_{#1}}",1],
+            consscale: ["{K}"],
+            scaletot: ["{K_{\\text{tot}}^{\\constraintlist,\\targetp}}"],
+            minnorm: ["{d}"],
+            Bigsetst: ["\\;\\Big|\\;"],
+            activeset: ["\\mathcal{S}"],
+            conv: ["\\text{conv}"],
+            lVert: ["|\\hspace{-1pt}|"],
+            norm: ["\\lVert#1\\lVert", 1],
+            st: [":\ "],
+        }
+    }
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeDarkModeToggle.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeParagraphLink.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Fast Inflation
+   </div>
+   <div id="projectbrief">To certify causal incompatibility</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('md_doxygen_2installation.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div><div class="header">
+  <div class="headertitle"><div class="title">Installation and compilation</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="toc"><h3>Table of Contents</h3>
+<ul><li class="level1"><a href="#autotoc_md11">Prerequisites</a></li>
+<li class="level1"><a href="#autotoc_md12">Compilation</a><ul><li class="level2"><a href="#debug-vs-release-modes">Debug vs release modes</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="textblock"><h1><a class="anchor" id="autotoc_md11"></a>
+Prerequisites</h1>
+<p>A prerequisite to be able to compile and use the code is the C++ Fusion Mosek API (both the header C++ files, the binaries, and a valid license). Please refer to <a href="https://docs.mosek.com/latest/cxxfusion/install-interface.html">https://docs.mosek.com/latest/cxxfusion/install-interface.html</a> for details on how to get there. Alternatively, the code could be used without Mosek: this would require modifying a little bit the makefile and the source code to remove the very efficient <a class="el" href="classinf_1_1FullyCorrectiveFW.html" title="The fully-corrective algorithm.">inf::FullyCorrectiveFW</a>, and only use <a class="el" href="classinf_1_1PairwiseFW.html" title="A pairwise Frank-Wolfe algorithm.">inf::PairwiseFW</a> (or a variant thereof) which does not require Mosek.</p>
+<h1><a class="anchor" id="autotoc_md12"></a>
+Compilation</h1>
+<p>The compilation of the code is automated with a makefile which requires <a href="https://www.gnu.org/software/make/manual/html_node/index.html">GNU make</a>. The makefile automatically recompiles files when needed, and forward its command-line arguments to the project executable (either <code>./debug_inf</code> or <code>./release_inf</code>). The following is a summary of the commands available from the root of the project directory.</p>
+<p><b>Preparing the <code>bin</code> folder:</b> <code>make prepare</code></p>
+<p>This creates the subdirectories in the <code>bin</code> folder that are necessary for the purpose of the automatic makefile. This command should be ran once after cloning the directory, and again everytime after running <code>make clean</code>.</p>
+<p><b>Compiling:</b> <code>make {d[ebug]|r[elease]} [parameters]</code></p>
+<p>Compiles (or rather, re-compiles as needed) in debug or release mode, thus creating the executable <code>./debuf_inf</code> or <code>./release_inf</code>. The corresponding executable is then called with the optional <code>parameters</code>. If the parameters are left empty, this simply prints out the available application names. See <a class="el" href="md_doxygen_2running__applications.html">running applications</a> for further details on running applications. See <a class="el" href="md_doxygen_2installation.html#debug-vs-release-modes">debug vs release</a> for further details on the difference between debug and release modes.</p>
+<p><em>Examples:</em> Either <code>make release</code> or <code>make debug</code>, or just <code>make r</code> or <code>make d</code> for short.</p>
+<p><b>Miscellaneous:</b></p>
+<ul>
+<li>Create the documentation with <code>make doc</code> (prerequisite : <code>doxygen</code> (from <a href="https://www.doxygen.nl/manual/index.html">Doxygen</a>))</li>
+<li>Clean the <code>./bin/</code> directory as well as the executables <code>./debug_inf</code> and <code>./release_inf</code> with <code>make clean</code>.</li>
+</ul>
+<h2><a class="anchor" id="debug-vs-release-modes"></a>
+Debug vs release modes</h2>
+<p>The <code>debug</code> mode uses <code>ASSERT_TRUE</code> statements, bound checking of <code>std::vector::operator[]</code>, etc., whenever sensible (in particular, with no concern for performance). These additional safety mechanisms are ignored in <code>release</code> mode, because a correct use of the code ought to not trip any of these assertions. However, hard assertions such as <code>HARD_ASSERT_TRUE</code> are actively checked in both <code>debug</code> and <code>release</code> mode. Conceptually, a hard assertion is one that ought to be tripped by high-level design errors. In particular, the tests ran when invoking <code>make {d[ebug]|r[elease]} test</code> feature such hard assertions.</p>
+<p>Furthermore, during development, re-compiling in <code>debug</code> mode is recommended, since it is typically faster then in <code>release</code> mode. Indeed, <code>debug</code> mode compilation involves dynamically linking the different modules together, while <code>release</code> mode statically re-links all of the modules together every time, which is slower at link time, but potentially enables some minor performance improvements. In addition, <code>release</code> mode features the <code>-O3</code> <a href="https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html">optimization flag of GCC</a>.</p>
+<p>To summarize: </p><table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone"></th><th class="markdownTableHeadNone"><code>debug</code>   </th><th class="markdownTableHeadNone"><code>release</code>    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Soft assertions   </td><td class="markdownTableBodyNone">Active   </td><td class="markdownTableBodyNone">Inactive    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Hard assertions   </td><td class="markdownTableBodyNone">Active   </td><td class="markdownTableBodyNone">Active    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Compilation stategy   </td><td class="markdownTableBodyNone">Dynamic linking of multiple modules   </td><td class="markdownTableBodyNone">Static linking of the whole project    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Re-compilation speed   </td><td class="markdownTableBodyNone">Faster   </td><td class="markdownTableBodyNone">Slower    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Runtime speed   </td><td class="markdownTableBodyNone">Slower   </td><td class="markdownTableBodyNone">Faster   </td></tr>
+</table>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Wed Dec 18 2024 17:39:41 for Fast Inflation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

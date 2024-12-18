@@ -1,0 +1,264 @@
+<!-- HTML header for doxygen 1.9.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Fast Inflation: src/inf/inf_problem/vis_pb.h Source File</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+MathJax.Hub.Config({
+    TeX: {
+        Macros: {
+            dd: ["{\\text{d}#1\\,}",1],
+            nouts: ["{n_{\\text{o}}}"],
+            ints: ["{[\\![#1]\\!]}",1],
+            outset: ["{\\ints{\\nouts}}"],
+            N: ["{\\mathbb{N}}"],
+            R: ["{\\mathbb{R}}"],
+            Z: ["{\\mathbb{Z}}"],
+            infsize: ["{z}"],
+            infparties: ["{\\set{I}}"],
+            infsources: ["{\\set{S}}"],
+            infmarg: ["{\\set{A}}"],
+            infmargg: ["{\\set{B}}"],
+            netparties: ["{\\set{N}}"],
+            infq: ["{q}"],
+            infqs: ["{\\Delta_{\\infparties}}"],
+            constraintlist: ["{\\mathcal{C}}"],
+            injsets: ["{\\text{InjSets}}"],
+            infconstraints: ["{\\text{InfCons}}"],
+            parents: ["{\\text{Par}}"],
+            targetp: ["{p}"],
+            targetps: ["{\\Delta_{\\netparties}}"],
+            set: ["{\\mathbf{#1}}",1],
+            type: ["{t}"],
+            infevent: "{\\omega}",
+            events: ["{\\Omega_{#1}}",1],
+            infevents: ["{\\events{\\infparties}}"],
+            redinfevents: ["{\\tilde{\\Omega}_{\\infparties}}"],
+            netevents: ["{\\events{\\netparties}}"],
+            vecset: ["{V_{#1}}",1],
+            alice: ["{\\text{A}}"],
+            bob: ["{\\text{B}}"],
+            charlie: ["{\\text{C}}"],
+            symgroup: ["{\\text{Sym}(#1)}",1],
+            shortsymgroup: ["{\\text{Sym}_{#1}}",1],
+            act: ["{(#1\\hspace{2pt}{:}\\hspace{2pt}#2)}",2],
+            actt: ["{[#1\\hspace{2pt}{:}\\hspace{2pt}#2]}",2],
+            margperms: ["{\\text{Perm}_{#1}}",1],
+            permutedmargs: ["{\\mathbb{P}_{#1}^{\\targetp}}",1],
+            redpermutedmargs: ["{\\tilde{\\mathbb{P}}_{#1}^{\\constraintname,\\targetp}}",1],
+            extract: ["{\\text{ext}(#1,#2)}",2],
+            partysym: ["{\\tau}"],
+            sourcesym: ["{\\xi}"],
+            outsym: ["{\\sigma}"],
+            fullgroup: ["{\\text{InfGrp}}"],
+            partygroup : ["{\\text{PartyGrp}}"],
+            outgroup: ["{\\text{OutGrp}}"],
+            sourcegroup: ["{\\text{SrcGrp}}"],
+            distrgroup: ["{\\mathbb{G}^\\targetp}"],
+            constraintname: ["{c}"],
+            marggroup: ["{\\mathbb{G}^{\\constraintname,\\targetp}}"],
+            fullsymexpl: ["{(\\sourcesym,\\partysym,\\outsym)}"],
+            inner: ["{\\langle#1,#2\\rangle}", 2],
+            quovec: ["{f}"],
+            totconstraintmap: ["{K^{\\constraintlist,\\targetp}}"],
+            totconstraintmapelem: ["{K^{\\constraintname,\\targetp}}"],
+            quovecspace: ["{\\tilde{V}_{#1}^{\\constraintname,\\targetp}}", 1],
+            totquovecspace: ["{\\text{ConsSpace}(\\constraintlist,\\targetp)}"],
+            detdistr: ["{\\delta^{#1}}", 1],
+            margperm: ["{\\varphi}"],
+            altquovecembed: ["{\\text{G}_{#1}^{\\constraintname,\\targetp}}", 1],
+            vecset: ["{V_{#1}}", 1],
+            repr: ["{\\lfloor#1\\rfloor}", 1],
+            gid: ["{\\text{id}}"],
+            id: ["{1_{#1}}",1],
+            consscale: ["{K}"],
+            scaletot: ["{K_{\\text{tot}}^{\\constraintlist,\\targetp}}"],
+            minnorm: ["{d}"],
+            Bigsetst: ["\\;\\Big|\\;"],
+            activeset: ["\\mathcal{S}"],
+            conv: ["\\text{conv}"],
+            lVert: ["|\\hspace{-1pt}|"],
+            norm: ["\\lVert#1\\lVert", 1],
+            st: [":\ "],
+        }
+    }
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeDarkModeToggle.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeParagraphLink.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Fast Inflation
+   </div>
+   <div id="projectbrief">To certify causal incompatibility</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('vis__pb_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">vis_pb.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="vis__pb_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="feas__pb_8h.html">feas_pb.h</a>&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceinf.html">inf</a> {</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="classinf_1_1VisProblem.html">   19</a></span><span class="keyword">class </span><a class="code hl_class" href="classinf_1_1VisProblem.html">VisProblem</a> {</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classinf_1_1VisProblem.html#a277a99ad7475666e8d5ba6cb6d81d08e">visibility_to_str</a>(<a class="code hl_typedef" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a> visibility, <a class="code hl_typedef" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a> visibility_denom);</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <a class="code hl_class" href="classinf_1_1VisProblem.html">VisProblem</a>(<a class="code hl_typedef" href="classinf_1_1TargetDistr.html#a75d7c59680325e198e85d02d673e4abe">inf::TargetDistr::ConstPtr</a> (*get_distribution)(<a class="code hl_typedef" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a>, <a class="code hl_typedef" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a>),</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>               <a class="code hl_typedef" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a> min_visibility,</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>               <a class="code hl_typedef" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a> max_visibility,</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>               <a class="code hl_typedef" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a> visibility_denom,</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>               <a class="code hl_typedef" href="classinf_1_1FeasOptions.html#a5c80e86fc8f02148817086143c455da3">inf::FeasOptions::ConstPtr</a> <span class="keyword">const</span> &amp;feas_problem_options,</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>               <a class="code hl_enumeration" href="classinf_1_1FeasProblem.html#a648f1b146995d89f9e982a976024328e">inf::FeasProblem::RetainEvents</a> retain_events);</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <a class="code hl_class" href="classinf_1_1VisProblem.html">VisProblem</a>(<a class="code hl_class" href="classinf_1_1VisProblem.html">inf::VisProblem</a> <span class="keyword">const</span> &amp;other) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <a class="code hl_class" href="classinf_1_1VisProblem.html">VisProblem</a>(<a class="code hl_class" href="classinf_1_1VisProblem.html">inf::VisProblem</a> &amp;&amp;other) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <a class="code hl_class" href="classinf_1_1VisProblem.html">VisProblem</a> &amp;operator=(<a class="code hl_class" href="classinf_1_1VisProblem.html">inf::VisProblem</a> <span class="keyword">const</span> &amp;other) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <a class="code hl_class" href="classinf_1_1VisProblem.html">VisProblem</a> &amp;operator=(<a class="code hl_class" href="classinf_1_1VisProblem.html">inf::VisProblem</a> &amp;&amp;other) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <a class="code hl_typedef" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a> <a class="code hl_function" href="classinf_1_1VisProblem.html#a7aa41df0103d0dd6ceb0bd3b4cbc5388">get_minimum_nonlocal_visibility</a>();</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>  <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="classinf_1_1VisProblem.html#ac781b13cfe0864f72a820fc8d1308f54">   58</a></span>    <a class="code hl_typedef" href="classinf_1_1TargetDistr.html#a75d7c59680325e198e85d02d673e4abe">inf::TargetDistr::ConstPtr</a> (*<span class="keyword">const</span> <a class="code hl_variable" href="classinf_1_1VisProblem.html#ac781b13cfe0864f72a820fc8d1308f54">m_get_distribution</a>)(<a class="code hl_typedef" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a>, <a class="code hl_typedef" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a>);</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="classinf_1_1VisProblem.html#adca76b0ba1423aa133cc57588ac172a9">   60</a></span>    <a class="code hl_typedef" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a> <span class="keyword">const</span> <a class="code hl_variable" href="classinf_1_1VisProblem.html#adca76b0ba1423aa133cc57588ac172a9">m_min_visibility</a>;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="classinf_1_1VisProblem.html#a0272b8221e12610ce0f8cb8e1e0ba622">   62</a></span>    <a class="code hl_typedef" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a> <span class="keyword">const</span> <a class="code hl_variable" href="classinf_1_1VisProblem.html#a0272b8221e12610ce0f8cb8e1e0ba622">m_max_visibility</a>;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="classinf_1_1VisProblem.html#a3d486ce2464dc65f13fba5bafefdb821">   64</a></span>    <a class="code hl_typedef" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a> <span class="keyword">const</span> <a class="code hl_variable" href="classinf_1_1VisProblem.html#a3d486ce2464dc65f13fba5bafefdb821">m_visibility_denom</a>;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="classinf_1_1VisProblem.html#a11f5a6009d3e9d72181a9e3abd339819">   66</a></span>    <a class="code hl_typedef" href="classinf_1_1FeasProblem.html#a3547122bd7fd64463ec427c03aa2115d">inf::FeasProblem::UniquePtr</a> <a class="code hl_variable" href="classinf_1_1VisProblem.html#a11f5a6009d3e9d72181a9e3abd339819">m_feas_problem</a>;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="classinf_1_1VisProblem.html#ab4d74826c248df91825f05758983faef">   68</a></span>    <a class="code hl_typedef" href="classinf_1_1FeasOptions.html#a5c80e86fc8f02148817086143c455da3">inf::FeasOptions::ConstPtr</a> <span class="keyword">const</span> <a class="code hl_variable" href="classinf_1_1VisProblem.html#ab4d74826c248df91825f05758983faef">m_feas_problem_options</a>;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="classinf_1_1VisProblem.html#ae69a623298a0bbce89d6cb011266d700">   70</a></span>    <a class="code hl_enumeration" href="classinf_1_1FeasProblem.html#a648f1b146995d89f9e982a976024328e">inf::FeasProblem::RetainEvents</a> <span class="keyword">const</span> <a class="code hl_variable" href="classinf_1_1VisProblem.html#ae69a623298a0bbce89d6cb011266d700">m_retain_events</a>;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classinf_1_1VisProblem.html#af5f8aeb6b3030f0636b10aa2d7b5e3e1">visibility_is_feasible</a>(<a class="code hl_typedef" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a> visibility);</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>};</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>} <span class="comment">// namespace inf</span></div>
+<div class="ttc" id="aclassinf_1_1FeasOptions_html_a5c80e86fc8f02148817086143c455da3"><div class="ttname"><a href="classinf_1_1FeasOptions.html#a5c80e86fc8f02148817086143c455da3">inf::FeasOptions::ConstPtr</a></div><div class="ttdeci">std::shared_ptr&lt; const inf::FeasOptions &gt; ConstPtr</div><div class="ttdef"><b>Definition</b> <a href="feas__options_8h_source.html#l00029">feas_options.h:29</a></div></div>
+<div class="ttc" id="aclassinf_1_1FeasProblem_html_a3547122bd7fd64463ec427c03aa2115d"><div class="ttname"><a href="classinf_1_1FeasProblem.html#a3547122bd7fd64463ec427c03aa2115d">inf::FeasProblem::UniquePtr</a></div><div class="ttdeci">std::unique_ptr&lt; inf::FeasProblem &gt; UniquePtr</div><div class="ttdef"><b>Definition</b> <a href="feas__pb_8h_source.html#l00025">feas_pb.h:25</a></div></div>
+<div class="ttc" id="aclassinf_1_1FeasProblem_html_a648f1b146995d89f9e982a976024328e"><div class="ttname"><a href="classinf_1_1FeasProblem.html#a648f1b146995d89f9e982a976024328e">inf::FeasProblem::RetainEvents</a></div><div class="ttdeci">RetainEvents</div><div class="ttdoc">One option of the inf::FeasProblem is whether or not to retain previously encountered event when upda...</div><div class="ttdef"><b>Definition</b> <a href="feas__pb_8h_source.html#l00043">feas_pb.h:43</a></div></div>
+<div class="ttc" id="aclassinf_1_1TargetDistr_html_a75d7c59680325e198e85d02d673e4abe"><div class="ttname"><a href="classinf_1_1TargetDistr.html#a75d7c59680325e198e85d02d673e4abe">inf::TargetDistr::ConstPtr</a></div><div class="ttdeci">std::shared_ptr&lt; const inf::TargetDistr &gt; ConstPtr</div><div class="ttdef"><b>Definition</b> <a href="target__distr_8h_source.html#l00035">target_distr.h:35</a></div></div>
+<div class="ttc" id="aclassinf_1_1VisProblem_html"><div class="ttname"><a href="classinf_1_1VisProblem.html">inf::VisProblem</a></div><div class="ttdoc">A simple dichotomic search for finding the minimum infeasible visibility of a distribution.</div><div class="ttdef"><b>Definition</b> <a href="vis__pb_8h_source.html#l00019">vis_pb.h:19</a></div></div>
+<div class="ttc" id="aclassinf_1_1VisProblem_html_a0272b8221e12610ce0f8cb8e1e0ba622"><div class="ttname"><a href="classinf_1_1VisProblem.html#a0272b8221e12610ce0f8cb8e1e0ba622">inf::VisProblem::m_max_visibility</a></div><div class="ttdeci">Num const m_max_visibility</div><div class="ttdoc">(included in the search)</div><div class="ttdef"><b>Definition</b> <a href="vis__pb_8h_source.html#l00062">vis_pb.h:62</a></div></div>
+<div class="ttc" id="aclassinf_1_1VisProblem_html_a11f5a6009d3e9d72181a9e3abd339819"><div class="ttname"><a href="classinf_1_1VisProblem.html#a11f5a6009d3e9d72181a9e3abd339819">inf::VisProblem::m_feas_problem</a></div><div class="ttdeci">inf::FeasProblem::UniquePtr m_feas_problem</div><div class="ttdoc">A pointer to an inf::FeasProblem to allow delayed initialization.</div><div class="ttdef"><b>Definition</b> <a href="vis__pb_8h_source.html#l00066">vis_pb.h:66</a></div></div>
+<div class="ttc" id="aclassinf_1_1VisProblem_html_a277a99ad7475666e8d5ba6cb6d81d08e"><div class="ttname"><a href="classinf_1_1VisProblem.html#a277a99ad7475666e8d5ba6cb6d81d08e">inf::VisProblem::visibility_to_str</a></div><div class="ttdeci">static std::string visibility_to_str(Num visibility, Num visibility_denom)</div><div class="ttdoc">This returns a string of the form visibility / visbility_denom = (floating point value)</div><div class="ttdef"><b>Definition</b> <a href="vis__pb_8cpp_source.html#l00005">vis_pb.cpp:5</a></div></div>
+<div class="ttc" id="aclassinf_1_1VisProblem_html_a3d486ce2464dc65f13fba5bafefdb821"><div class="ttname"><a href="classinf_1_1VisProblem.html#a3d486ce2464dc65f13fba5bafefdb821">inf::VisProblem::m_visibility_denom</a></div><div class="ttdeci">Num const m_visibility_denom</div><div class="ttdoc">For convenience: typically, visibilities are rationals, and this is their common denominator.</div><div class="ttdef"><b>Definition</b> <a href="vis__pb_8h_source.html#l00064">vis_pb.h:64</a></div></div>
+<div class="ttc" id="aclassinf_1_1VisProblem_html_a7aa41df0103d0dd6ceb0bd3b4cbc5388"><div class="ttname"><a href="classinf_1_1VisProblem.html#a7aa41df0103d0dd6ceb0bd3b4cbc5388">inf::VisProblem::get_minimum_nonlocal_visibility</a></div><div class="ttdeci">Num get_minimum_nonlocal_visibility()</div><div class="ttdoc">Get the minimum visibility  as described in inf::VisProblem.</div><div class="ttdef"><b>Definition</b> <a href="vis__pb_8cpp_source.html#l00030">vis_pb.cpp:30</a></div></div>
+<div class="ttc" id="aclassinf_1_1VisProblem_html_ab4d74826c248df91825f05758983faef"><div class="ttname"><a href="classinf_1_1VisProblem.html#ab4d74826c248df91825f05758983faef">inf::VisProblem::m_feas_problem_options</a></div><div class="ttdeci">inf::FeasOptions::ConstPtr const m_feas_problem_options</div><div class="ttdoc">The inf::FeasProblem parameters (what the inflation problem is, and how it should run)</div><div class="ttdef"><b>Definition</b> <a href="vis__pb_8h_source.html#l00068">vis_pb.h:68</a></div></div>
+<div class="ttc" id="aclassinf_1_1VisProblem_html_ac781b13cfe0864f72a820fc8d1308f54"><div class="ttname"><a href="classinf_1_1VisProblem.html#ac781b13cfe0864f72a820fc8d1308f54">inf::VisProblem::m_get_distribution</a></div><div class="ttdeci">inf::TargetDistr::ConstPtr(*const m_get_distribution)(Num, Num)</div><div class="ttdoc">To sample the inf::TargetDistr .</div><div class="ttdef"><b>Definition</b> <a href="vis__pb_8h_source.html#l00058">vis_pb.h:58</a></div></div>
+<div class="ttc" id="aclassinf_1_1VisProblem_html_adca76b0ba1423aa133cc57588ac172a9"><div class="ttname"><a href="classinf_1_1VisProblem.html#adca76b0ba1423aa133cc57588ac172a9">inf::VisProblem::m_min_visibility</a></div><div class="ttdeci">Num const m_min_visibility</div><div class="ttdoc">(included in the search)</div><div class="ttdef"><b>Definition</b> <a href="vis__pb_8h_source.html#l00060">vis_pb.h:60</a></div></div>
+<div class="ttc" id="aclassinf_1_1VisProblem_html_ae69a623298a0bbce89d6cb011266d700"><div class="ttname"><a href="classinf_1_1VisProblem.html#ae69a623298a0bbce89d6cb011266d700">inf::VisProblem::m_retain_events</a></div><div class="ttdeci">inf::FeasProblem::RetainEvents const m_retain_events</div><div class="ttdoc">Whether or not to keep the previously encountered events in inf::FeasProblem.</div><div class="ttdef"><b>Definition</b> <a href="vis__pb_8h_source.html#l00070">vis_pb.h:70</a></div></div>
+<div class="ttc" id="aclassinf_1_1VisProblem_html_af5f8aeb6b3030f0636b10aa2d7b5e3e1"><div class="ttname"><a href="classinf_1_1VisProblem.html#af5f8aeb6b3030f0636b10aa2d7b5e3e1">inf::VisProblem::visibility_is_feasible</a></div><div class="ttdeci">bool visibility_is_feasible(Num visibility)</div><div class="ttdoc">Constructs the target distribution based on visibility and tests for inflation compatibiltiy.</div><div class="ttdef"><b>Definition</b> <a href="vis__pb_8cpp_source.html#l00090">vis_pb.cpp:90</a></div></div>
+<div class="ttc" id="afeas__pb_8h_html"><div class="ttname"><a href="feas__pb_8h.html">feas_pb.h</a></div></div>
+<div class="ttc" id="agroup__util_html_gaea24f8b468377784fdb704692e9168f5"><div class="ttname"><a href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a></div><div class="ttdeci">int64_t Num</div><div class="ttdoc">Signed integers.</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00015">types.h:15</a></div></div>
+<div class="ttc" id="anamespaceinf_html"><div class="ttname"><a href="namespaceinf.html">inf</a></div><div class="ttdoc">The namespace for the inflation code.</div><div class="ttdef"><b>Definition</b> <a href="constraint_8h_source.html#l00006">constraint.h:6</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_0f453feda2a303bb77c09f5934c109df.html">inf</a></li><li class="navelem"><a class="el" href="dir_ae6d493e4def8cac138ad10998aac37a.html">inf_problem</a></li><li class="navelem"><a class="el" href="vis__pb_8h.html">vis_pb.h</a></li>
+    <li class="footer">Generated on Wed Dec 18 2024 17:39:36 for Fast Inflation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

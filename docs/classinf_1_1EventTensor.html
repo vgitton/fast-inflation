@@ -1,0 +1,1242 @@
+<!-- HTML header for doxygen 1.9.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Fast Inflation: inf::EventTensor Class Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+MathJax.Hub.Config({
+    TeX: {
+        Macros: {
+            dd: ["{\\text{d}#1\\,}",1],
+            nouts: ["{n_{\\text{o}}}"],
+            ints: ["{[\\![#1]\\!]}",1],
+            outset: ["{\\ints{\\nouts}}"],
+            N: ["{\\mathbb{N}}"],
+            R: ["{\\mathbb{R}}"],
+            Z: ["{\\mathbb{Z}}"],
+            infsize: ["{z}"],
+            infparties: ["{\\set{I}}"],
+            infsources: ["{\\set{S}}"],
+            infmarg: ["{\\set{A}}"],
+            infmargg: ["{\\set{B}}"],
+            netparties: ["{\\set{N}}"],
+            infq: ["{q}"],
+            infqs: ["{\\Delta_{\\infparties}}"],
+            constraintlist: ["{\\mathcal{C}}"],
+            injsets: ["{\\text{InjSets}}"],
+            infconstraints: ["{\\text{InfCons}}"],
+            parents: ["{\\text{Par}}"],
+            targetp: ["{p}"],
+            targetps: ["{\\Delta_{\\netparties}}"],
+            set: ["{\\mathbf{#1}}",1],
+            type: ["{t}"],
+            infevent: "{\\omega}",
+            events: ["{\\Omega_{#1}}",1],
+            infevents: ["{\\events{\\infparties}}"],
+            redinfevents: ["{\\tilde{\\Omega}_{\\infparties}}"],
+            netevents: ["{\\events{\\netparties}}"],
+            vecset: ["{V_{#1}}",1],
+            alice: ["{\\text{A}}"],
+            bob: ["{\\text{B}}"],
+            charlie: ["{\\text{C}}"],
+            symgroup: ["{\\text{Sym}(#1)}",1],
+            shortsymgroup: ["{\\text{Sym}_{#1}}",1],
+            act: ["{(#1\\hspace{2pt}{:}\\hspace{2pt}#2)}",2],
+            actt: ["{[#1\\hspace{2pt}{:}\\hspace{2pt}#2]}",2],
+            margperms: ["{\\text{Perm}_{#1}}",1],
+            permutedmargs: ["{\\mathbb{P}_{#1}^{\\targetp}}",1],
+            redpermutedmargs: ["{\\tilde{\\mathbb{P}}_{#1}^{\\constraintname,\\targetp}}",1],
+            extract: ["{\\text{ext}(#1,#2)}",2],
+            partysym: ["{\\tau}"],
+            sourcesym: ["{\\xi}"],
+            outsym: ["{\\sigma}"],
+            fullgroup: ["{\\text{InfGrp}}"],
+            partygroup : ["{\\text{PartyGrp}}"],
+            outgroup: ["{\\text{OutGrp}}"],
+            sourcegroup: ["{\\text{SrcGrp}}"],
+            distrgroup: ["{\\mathbb{G}^\\targetp}"],
+            constraintname: ["{c}"],
+            marggroup: ["{\\mathbb{G}^{\\constraintname,\\targetp}}"],
+            fullsymexpl: ["{(\\sourcesym,\\partysym,\\outsym)}"],
+            inner: ["{\\langle#1,#2\\rangle}", 2],
+            quovec: ["{f}"],
+            totconstraintmap: ["{K^{\\constraintlist,\\targetp}}"],
+            totconstraintmapelem: ["{K^{\\constraintname,\\targetp}}"],
+            quovecspace: ["{\\tilde{V}_{#1}^{\\constraintname,\\targetp}}", 1],
+            totquovecspace: ["{\\text{ConsSpace}(\\constraintlist,\\targetp)}"],
+            detdistr: ["{\\delta^{#1}}", 1],
+            margperm: ["{\\varphi}"],
+            altquovecembed: ["{\\text{G}_{#1}^{\\constraintname,\\targetp}}", 1],
+            vecset: ["{V_{#1}}", 1],
+            repr: ["{\\lfloor#1\\rfloor}", 1],
+            gid: ["{\\text{id}}"],
+            id: ["{1_{#1}}",1],
+            consscale: ["{K}"],
+            scaletot: ["{K_{\\text{tot}}^{\\constraintlist,\\targetp}}"],
+            minnorm: ["{d}"],
+            Bigsetst: ["\\;\\Big|\\;"],
+            activeset: ["\\mathcal{S}"],
+            conv: ["\\text{conv}"],
+            lVert: ["|\\hspace{-1pt}|"],
+            norm: ["\\lVert#1\\lVert", 1],
+            st: [":\ "],
+        }
+    }
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeDarkModeToggle.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeParagraphLink.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Fast Inflation
+   </div>
+   <div id="projectbrief">To certify causal incompatibility</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classinf_1_1EventTensor.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="classinf_1_1EventTensor-members.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">inf::EventTensor Class Reference<div class="ingroups"><a class="el" href="group__event.html">Events</a> &raquo; <a class="el" href="group__eventstorage.html">Event storage</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &quot;<a class="el" href="event__tensor_8h_source.html">inf/events/event_tensor.h</a>&quot;</code></p>
+<a name="details" id="details"></a><h2 class="groupheader">Class description</h2>
+<div class="textblock"><p>Stores a function from a set of <a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0" title="A list of inf::Outcome. Conceptually, this plays the role of  for some set .">inf::Event</a> of fixed length to <a class="el" href="group__util.html#gaea24f8b468377784fdb704692e9168f5" title="Signed integers.">Num</a>. </p>
+<p>Conceptually, this plays the role of a function \(v \in \vecset{\set A}\) for some set \(\set A\), i.e., a function \(v : \events{\set A} \to \R\), except that we restrict the images of \(v\) to rational numbers. The idea of the <a class="el" href="classinf_1_1EventTensor.html" title="Stores a function from a set of inf::Event of fixed length to Num.">inf::EventTensor</a> is that it stores rational numbers expressed with the same denominator. Thus, it is mostly a function from <a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0" title="A list of inf::Outcome. Conceptually, this plays the role of  for some set .">inf::Event</a> to <a class="el" href="group__util.html#gaea24f8b468377784fdb704692e9168f5" title="Signed integers.">Num</a>, but additionally provides a denominator (see <a class="el" href="classinf_1_1EventTensor.html#a9b8673dd0d6a9de3c00168afb743eba5" title="Returns the common denominator of all of the entries of the inf::EventTensor.">inf::EventTensor::get_denom()</a>) and some rational arithmetic capabilities such as <a class="el" href="classinf_1_1EventTensor.html#ab473b9fad92e1ef35d98a1addc0296dc" title="Divides the common denominator and all of the numerators by the GCD of them all.">inf::EventTensor::simplify()</a>.</p>
+<p>Example use: </p><div class="fragment"><div class="line"><a class="code hl_class" href="classinf_1_1EventTensor.html">inf::EventTensor</a> T(3,4);</div>
+<div class="line"> </div>
+<div class="line">T.get_num({0,0,0}) = 1;</div>
+<div class="line">T.get_num({0,0,1}) = 2;</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Now, T contains</span></div>
+<div class="line"><span class="comment">// {0,0,0} -&gt; 1</span></div>
+<div class="line"><span class="comment">// {0,0,1} -&gt; 2</span></div>
+<div class="line"><span class="comment">// {0,0,2} -&gt; 0</span></div>
+<div class="line"><span class="comment">// {0,0,3} -&gt; 0</span></div>
+<div class="line"><span class="comment">// ...</span></div>
+<div class="line"><span class="comment">// {3,3,3} -&gt; 0</span></div>
+<div class="ttc" id="aclassinf_1_1EventTensor_html"><div class="ttname"><a href="classinf_1_1EventTensor.html">inf::EventTensor</a></div><div class="ttdoc">Stores a function from a set of inf::Event of fixed length to Num.</div><div class="ttdef"><b>Definition</b> <a href="event__tensor_8h_source.html#l00045">event_tensor.h:45</a></div></div>
+</div><!-- fragment --><p>This class:</p><ul>
+<li>is used over std::map because the latter was not so efficient (accessing an item takes longer).</li>
+<li>is used internally by <a class="el" href="classinf_1_1TensorWithOrbits.html" title="An inf::EventTensor that is also an inf::Orbitable.">inf::TensorWithOrbits</a> (and so by <a class="el" href="classinf_1_1TargetDistr.html" title="A distribution over an inf::Network.">inf::TargetDistr</a> and <a class="el" href="classinf_1_1DualVector.html" title="Describes a dual vector  through its embedding .">inf::DualVector</a>).</li>
+<li>is used by the end-user to specify the components of an <a class="el" href="classinf_1_1TargetDistr.html" title="A distribution over an inf::Network.">inf::TargetDistr</a>.</li>
+<li>is tested in the <a class="el" href="classuser_1_1event__tensor.html" title="Tests inf::EventTensor.">user::event_tensor</a> application. </li>
+</ul>
+
+<p class="definition">Definition at line <a class="el" href="event__tensor_8h_source.html#l00045">45</a> of file <a class="el" href="event__tensor_8h_source.html">event_tensor.h</a>.</p>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:ad84da2b448286189d1021e19a2011214"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1EventTensor.html#ad84da2b448286189d1021e19a2011214">EventHash</a></td></tr>
+<tr class="memdesc:ad84da2b448286189d1021e19a2011214"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internally, the <a class="el" href="classinf_1_1EventTensor.html" title="Stores a function from a set of inf::Event of fixed length to Num.">inf::EventTensor</a> assigns a <a class="el" href="group__util.html#gaea24f8b468377784fdb704692e9168f5" title="Signed integers.">Num</a> to an <a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0" title="A list of inf::Outcome. Conceptually, this plays the role of  for some set .">inf::Event</a> by first hashing it. <br  />
+  <br /></td></tr>
+<tr class="separator:ad84da2b448286189d1021e19a2011214"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a242a1e6adae3f0ec6b2d5dc557dd74f7"><td class="memItemLeft" align="right" valign="top">typedef std::unique_ptr&lt; <a class="el" href="classinf_1_1EventTensor.html">inf::EventTensor</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1EventTensor.html#a242a1e6adae3f0ec6b2d5dc557dd74f7">UniquePtr</a></td></tr>
+<tr class="separator:a242a1e6adae3f0ec6b2d5dc557dd74f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5fff0983df974482f7d2dcdde1e4ac92"><td class="memItemLeft" align="right" valign="top">typedef std::unique_ptr&lt; const <a class="el" href="classinf_1_1EventTensor.html">inf::EventTensor</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1EventTensor.html#a5fff0983df974482f7d2dcdde1e4ac92">UniqueConstPtr</a></td></tr>
+<tr class="separator:a5fff0983df974482f7d2dcdde1e4ac92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:af62893d74a32dd4feea02aa9a88a3c7e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1EventTensor.html#af62893d74a32dd4feea02aa9a88a3c7e">EventTensor</a> (<a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> const n_parties, <a class="el" href="group__event.html#gadcaa27c4242b65837f0f7a00e96856d4">inf::Outcome</a> const base)</td></tr>
+<tr class="memdesc:af62893d74a32dd4feea02aa9a88a3c7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor specifying the number of parties and number of outcomes per party.  <br /></td></tr>
+<tr class="separator:af62893d74a32dd4feea02aa9a88a3c7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a405fdb43c7a953ba2e53c273e6986583"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1EventTensor.html#a405fdb43c7a953ba2e53c273e6986583">EventTensor</a> (<a class="el" href="classinf_1_1EventTensor.html">EventTensor</a> const &amp;other)=default</td></tr>
+<tr class="separator:a405fdb43c7a953ba2e53c273e6986583"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad47ff26ea0bd2e0bfb80da06620746cb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1EventTensor.html#ad47ff26ea0bd2e0bfb80da06620746cb">EventTensor</a> (<a class="el" href="classinf_1_1EventTensor.html">EventTensor</a> &amp;&amp;other)=default</td></tr>
+<tr class="separator:ad47ff26ea0bd2e0bfb80da06620746cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74f303eb03cf67e4164e444ed7ff3fd8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classinf_1_1EventTensor.html">EventTensor</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1EventTensor.html#a74f303eb03cf67e4164e444ed7ff3fd8">operator=</a> (<a class="el" href="classinf_1_1EventTensor.html">EventTensor</a> &amp;&amp;other)=default</td></tr>
+<tr class="separator:a74f303eb03cf67e4164e444ed7ff3fd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0db4970a9485f93e4db37267dc08b64"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classinf_1_1EventTensor.html">EventTensor</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1EventTensor.html#aa0db4970a9485f93e4db37267dc08b64">operator=</a> (<a class="el" href="classinf_1_1EventTensor.html">EventTensor</a> const &amp;other)=default</td></tr>
+<tr class="separator:aa0db4970a9485f93e4db37267dc08b64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a251eeb6aa34202e3c2829f855521ef38"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1EventTensor.html#a251eeb6aa34202e3c2829f855521ef38">is_scalar</a> () const</td></tr>
+<tr class="memdesc:a251eeb6aa34202e3c2829f855521ef38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the <a class="el" href="classinf_1_1EventTensor.html" title="Stores a function from a set of inf::Event of fixed length to Num.">inf::EventTensor</a> is scalar, i.e., is a function over inf::Events of zero length (recall that we define \(\vecset{\emptyset} = \R\)).  <br /></td></tr>
+<tr class="separator:a251eeb6aa34202e3c2829f855521ef38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0eeb7a41b8d232c8a1bf7cda8fece04"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1EventTensor.html#af0eeb7a41b8d232c8a1bf7cda8fece04">log_single_event</a> (std::string const &amp;math_name, bool &amp;first_element, <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> &amp;count, <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> const items_per_line, <a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> const &amp;event) const</td></tr>
+<tr class="memdesc:af0eeb7a41b8d232c8a1bf7cda8fece04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs a string of the form "p(000) = 1"`.  <br /></td></tr>
+<tr class="separator:af0eeb7a41b8d232c8a1bf7cda8fece04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4691fac83e2aa5c1c1e0795748a0e93b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1EventTensor.html#a4691fac83e2aa5c1c1e0795748a0e93b">log</a> (std::string const &amp;math_name) const</td></tr>
+<tr class="memdesc:a4691fac83e2aa5c1c1e0795748a0e93b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs the contents of the tensor in the format <code>math_name(000) = 1, ...</code>  <br /></td></tr>
+<tr class="separator:a4691fac83e2aa5c1c1e0795748a0e93b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade04b2193c01629823a8b4ed00071966"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1EventTensor.html#ade04b2193c01629823a8b4ed00071966">get_num</a> (<a class="el" href="classinf_1_1EventTensor.html#ad84da2b448286189d1021e19a2011214">inf::EventTensor::EventHash</a> hash) const</td></tr>
+<tr class="memdesc:ade04b2193c01629823a8b4ed00071966"><td class="mdescLeft">&#160;</td><td class="mdescRight">Const getter from hash.  <br /></td></tr>
+<tr class="separator:ade04b2193c01629823a8b4ed00071966"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7be9f980f4f343a51a300da43ad637f1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1EventTensor.html#a7be9f980f4f343a51a300da43ad637f1">get_num</a> (<a class="el" href="classinf_1_1EventTensor.html#ad84da2b448286189d1021e19a2011214">inf::EventTensor::EventHash</a> const hash)</td></tr>
+<tr class="memdesc:a7be9f980f4f343a51a300da43ad637f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter from hash, allows for modifying the returned <a class="el" href="group__util.html#gaea24f8b468377784fdb704692e9168f5" title="Signed integers.">Num</a>.  <br /></td></tr>
+<tr class="separator:a7be9f980f4f343a51a300da43ad637f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd3d165168a1e780001b88ce239272b0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1EventTensor.html#afd3d165168a1e780001b88ce239272b0">get_num</a> (<a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> const &amp;event) const</td></tr>
+<tr class="memdesc:afd3d165168a1e780001b88ce239272b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Const getter from <a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0" title="A list of inf::Outcome. Conceptually, this plays the role of  for some set .">inf::Event</a>.  <br /></td></tr>
+<tr class="separator:afd3d165168a1e780001b88ce239272b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2ba54386f36811adde5a13ceb036d6b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1EventTensor.html#ac2ba54386f36811adde5a13ceb036d6b">get_num</a> (<a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> const &amp;event)</td></tr>
+<tr class="memdesc:ac2ba54386f36811adde5a13ceb036d6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter from <a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0" title="A list of inf::Outcome. Conceptually, this plays the role of  for some set .">inf::Event</a>.  <br /></td></tr>
+<tr class="separator:ac2ba54386f36811adde5a13ceb036d6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9abd421749182a04440d57412e5e5f7a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classutil_1_1Frac.html">util::Frac</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1EventTensor.html#a9abd421749182a04440d57412e5e5f7a">get_frac</a> (<a class="el" href="classinf_1_1EventTensor.html#ad84da2b448286189d1021e19a2011214">inf::EventTensor::EventHash</a> hash) const</td></tr>
+<tr class="memdesc:a9abd421749182a04440d57412e5e5f7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">To get the fraction associated to the hash of the event, including the denominator of the <a class="el" href="classinf_1_1EventTensor.html" title="Stores a function from a set of inf::Event of fixed length to Num.">inf::EventTensor</a>.  <br /></td></tr>
+<tr class="separator:a9abd421749182a04440d57412e5e5f7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a364b7e4b28b97dc50dcb2dfddfe6e696"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classutil_1_1Frac.html">util::Frac</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1EventTensor.html#a364b7e4b28b97dc50dcb2dfddfe6e696">get_frac</a> (<a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> const &amp;event) const</td></tr>
+<tr class="memdesc:a364b7e4b28b97dc50dcb2dfddfe6e696"><td class="mdescLeft">&#160;</td><td class="mdescRight">To get the fraction associated to the event, including the denominator of the <a class="el" href="classinf_1_1EventTensor.html" title="Stores a function from a set of inf::Event of fixed length to Num.">inf::EventTensor</a>.  <br /></td></tr>
+<tr class="separator:a364b7e4b28b97dc50dcb2dfddfe6e696"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71264caaca320badbe32d01ff087e991"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1EventTensor.html#a71264caaca320badbe32d01ff087e991">has_same_shape_as</a> (<a class="el" href="classinf_1_1EventTensor.html">inf::EventTensor</a> const &amp;other) const</td></tr>
+<tr class="memdesc:a71264caaca320badbe32d01ff087e991"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns <code>true</code> if the <code>*this</code> and <code>other</code> have the same number of parties and number of outcomes per party.  <br /></td></tr>
+<tr class="separator:a71264caaca320badbe32d01ff087e991"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab473b9fad92e1ef35d98a1addc0296dc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1EventTensor.html#ab473b9fad92e1ef35d98a1addc0296dc">simplify</a> ()</td></tr>
+<tr class="memdesc:ab473b9fad92e1ef35d98a1addc0296dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Divides the common denominator and all of the numerators by the GCD of them all.  <br /></td></tr>
+<tr class="separator:ab473b9fad92e1ef35d98a1addc0296dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a897e0e74151db5bd2ee641069cf9b6e4"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> &gt; const &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1EventTensor.html#a897e0e74151db5bd2ee641069cf9b6e4">get_party_weights</a> () const</td></tr>
+<tr class="memdesc:a897e0e74151db5bd2ee641069cf9b6e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a view over the party weights used to compute hashes <a class="el" href="classinf_1_1EventTensor.html" title="Stores a function from a set of inf::Event of fixed length to Num.">inf::EventTensor</a>.  <br /></td></tr>
+<tr class="separator:a897e0e74151db5bd2ee641069cf9b6e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b8673dd0d6a9de3c00168afb743eba5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1EventTensor.html#a9b8673dd0d6a9de3c00168afb743eba5">get_denom</a> () const</td></tr>
+<tr class="memdesc:a9b8673dd0d6a9de3c00168afb743eba5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the common denominator of all of the entries of the <a class="el" href="classinf_1_1EventTensor.html" title="Stores a function from a set of inf::Event of fixed length to Num.">inf::EventTensor</a>.  <br /></td></tr>
+<tr class="separator:a9b8673dd0d6a9de3c00168afb743eba5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39ba758d88e01c85e8ce4c964eb4f44a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1EventTensor.html#a39ba758d88e01c85e8ce4c964eb4f44a">set_denom</a> (<a class="el" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a> const denom)</td></tr>
+<tr class="memdesc:a39ba758d88e01c85e8ce4c964eb4f44a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the denominator, soft assertion preventing to set it to zero.  <br /></td></tr>
+<tr class="separator:a39ba758d88e01c85e8ce4c964eb4f44a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a083c4e6df59b5b74455e41d4e5435ab9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1EventTensor.html#a083c4e6df59b5b74455e41d4e5435ab9">get_n_parties</a> () const</td></tr>
+<tr class="memdesc:a083c4e6df59b5b74455e41d4e5435ab9"><td class="mdescLeft">&#160;</td><td class="mdescRight">The length of each <a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0" title="A list of inf::Outcome. Conceptually, this plays the role of  for some set .">inf::Event</a> to which the <a class="el" href="classinf_1_1EventTensor.html" title="Stores a function from a set of inf::Event of fixed length to Num.">inf::EventTensor</a> assigns values.  <br /></td></tr>
+<tr class="separator:a083c4e6df59b5b74455e41d4e5435ab9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64d5834d3f36b5b5e13b5ae1903455b8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__event.html#gadcaa27c4242b65837f0f7a00e96856d4">inf::Outcome</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1EventTensor.html#a64d5834d3f36b5b5e13b5ae1903455b8">get_base</a> () const</td></tr>
+<tr class="memdesc:a64d5834d3f36b5b5e13b5ae1903455b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">The number of values/outcomes of each <a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0" title="A list of inf::Outcome. Conceptually, this plays the role of  for some set .">inf::Event</a> to which the <a class="el" href="classinf_1_1EventTensor.html" title="Stores a function from a set of inf::Event of fixed length to Num.">inf::EventTensor</a> assigns values.  <br /></td></tr>
+<tr class="separator:a64d5834d3f36b5b5e13b5ae1903455b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8541b721bccaabd4e20d91b136b34fe6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classutil_1_1Range.html">util::Range</a>&lt; <a class="el" href="classinf_1_1EventTensor.html#ad84da2b448286189d1021e19a2011214">inf::EventTensor::EventHash</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1EventTensor.html#a8541b721bccaabd4e20d91b136b34fe6">get_hash_range</a> () const</td></tr>
+<tr class="memdesc:a8541b721bccaabd4e20d91b136b34fe6"><td class="mdescLeft">&#160;</td><td class="mdescRight">To iterate over all hashes of the <a class="el" href="classinf_1_1EventTensor.html" title="Stores a function from a set of inf::Event of fixed length to Num.">inf::EventTensor</a>.  <br /></td></tr>
+<tr class="separator:a8541b721bccaabd4e20d91b136b34fe6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc2d6423af84b864b20b7e9a920a65dd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__event.html#ga1945c0af7bba14437a034808f18dac20">inf::EventRange</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1EventTensor.html#adc2d6423af84b864b20b7e9a920a65dd">get_event_range</a> () const</td></tr>
+<tr class="memdesc:adc2d6423af84b864b20b7e9a920a65dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="group__event.html#ga1945c0af7bba14437a034808f18dac20" title="An iterator over inf::Event, conceptually allowing to iterate over  for some set .">inf::EventRange</a> over which the <a class="el" href="classinf_1_1EventTensor.html" title="Stores a function from a set of inf::Event of fixed length to Num.">inf::EventTensor</a> is valued.  <br /></td></tr>
+<tr class="separator:adc2d6423af84b864b20b7e9a920a65dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7fa67e62f6581fdafab5ce226b63865b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1EventTensor.html#a7fa67e62f6581fdafab5ce226b63865b">set_to_tensor_product</a> (std::vector&lt; <a class="el" href="classinf_1_1EventTensor.html">inf::EventTensor</a> const * &gt; const &amp;factors)</td></tr>
+<tr class="memdesc:a7fa67e62f6581fdafab5ce226b63865b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the current tensor to the tensor product of the elements of <code>factors</code>, and calls <a class="el" href="classinf_1_1EventTensor.html#ab473b9fad92e1ef35d98a1addc0296dc" title="Divides the common denominator and all of the numerators by the GCD of them all.">inf::EventTensor::simplify()</a>  <br /></td></tr>
+<tr class="separator:a7fa67e62f6581fdafab5ce226b63865b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad237a63bbfec62ccf307e27bcdceddf8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classinf_1_1EventTensor.html#ad84da2b448286189d1021e19a2011214">inf::EventTensor::EventHash</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1EventTensor.html#ad237a63bbfec62ccf307e27bcdceddf8">get_event_hash</a> (<a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> const &amp;event) const</td></tr>
+<tr class="memdesc:ad237a63bbfec62ccf307e27bcdceddf8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hashes an <a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0" title="A list of inf::Outcome. Conceptually, this plays the role of  for some set .">inf::Event</a>.  <br /></td></tr>
+<tr class="separator:ad237a63bbfec62ccf307e27bcdceddf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:ad7417a773a2585faf3e7bced79efbef7"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1EventTensor.html#ad7417a773a2585faf3e7bced79efbef7">compute_weights</a> (<a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> const n_parties, <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> const base)</td></tr>
+<tr class="memdesc:ad7417a773a2585faf3e7bced79efbef7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to compute hashes for the <a class="el" href="classinf_1_1EventTensor.html" title="Stores a function from a set of inf::Event of fixed length to Num.">inf::EventTensor</a>.  <br /></td></tr>
+<tr class="separator:ad7417a773a2585faf3e7bced79efbef7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:ae52d16ffb9cc7454ee7c5696b8209bde"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1EventTensor.html#ae52d16ffb9cc7454ee7c5696b8209bde">m_n_parties</a></td></tr>
+<tr class="memdesc:ae52d16ffb9cc7454ee7c5696b8209bde"><td class="mdescLeft">&#160;</td><td class="mdescRight">The length of the <a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0" title="A list of inf::Outcome. Conceptually, this plays the role of  for some set .">inf::Event</a> keys.  <br /></td></tr>
+<tr class="separator:ae52d16ffb9cc7454ee7c5696b8209bde"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab12ac85bba5b76268fdb0e7a80adf661"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__event.html#gadcaa27c4242b65837f0f7a00e96856d4">inf::Outcome</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1EventTensor.html#ab12ac85bba5b76268fdb0e7a80adf661">m_base</a></td></tr>
+<tr class="memdesc:ab12ac85bba5b76268fdb0e7a80adf661"><td class="mdescLeft">&#160;</td><td class="mdescRight">The bound (excluded) on the entries of the <a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0" title="A list of inf::Outcome. Conceptually, this plays the role of  for some set .">inf::Event</a> keys.  <br /></td></tr>
+<tr class="separator:ab12ac85bba5b76268fdb0e7a80adf661"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff3280851975ad89f4c50476e5434dc4"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1EventTensor.html#aff3280851975ad89f4c50476e5434dc4">m_data</a></td></tr>
+<tr class="memdesc:aff3280851975ad89f4c50476e5434dc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">The data: accessing this data requires hashing the inf::Events keys first.  <br /></td></tr>
+<tr class="separator:aff3280851975ad89f4c50476e5434dc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22649e759f3a9bf92f192f3276ba88be"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1EventTensor.html#a22649e759f3a9bf92f192f3276ba88be">m_weights</a></td></tr>
+<tr class="memdesc:a22649e759f3a9bf92f192f3276ba88be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to quickly compute the hash of an event.  <br /></td></tr>
+<tr class="separator:a22649e759f3a9bf92f192f3276ba88be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0dcb33331bf8b38a0c865bdf4fa598c7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1EventTensor.html#a0dcb33331bf8b38a0c865bdf4fa598c7">m_denom</a></td></tr>
+<tr class="memdesc:a0dcb33331bf8b38a0c865bdf4fa598c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">The denominator, meant to be te denominator of all of <code>m_data</code>  <br /></td></tr>
+<tr class="separator:a0dcb33331bf8b38a0c865bdf4fa598c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="ad84da2b448286189d1021e19a2011214" name="ad84da2b448286189d1021e19a2011214"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad84da2b448286189d1021e19a2011214">&#9670;&#160;</a></span>EventHash</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <a class="el" href="classinf_1_1EventTensor.html#ad84da2b448286189d1021e19a2011214">inf::EventTensor::EventHash</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Internally, the <a class="el" href="classinf_1_1EventTensor.html" title="Stores a function from a set of inf::Event of fixed length to Num.">inf::EventTensor</a> assigns a <a class="el" href="group__util.html#gaea24f8b468377784fdb704692e9168f5" title="Signed integers.">Num</a> to an <a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0" title="A list of inf::Outcome. Conceptually, this plays the role of  for some set .">inf::Event</a> by first hashing it. <br  />
+ </p>
+
+<p class="definition">Definition at line <a class="el" href="event__tensor_8h_source.html#l00048">48</a> of file <a class="el" href="event__tensor_8h_source.html">event_tensor.h</a>.</p>
+
+</div>
+</div>
+<a id="a242a1e6adae3f0ec6b2d5dc557dd74f7" name="a242a1e6adae3f0ec6b2d5dc557dd74f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a242a1e6adae3f0ec6b2d5dc557dd74f7">&#9670;&#160;</a></span>UniquePtr</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::unique_ptr&lt;<a class="el" href="classinf_1_1EventTensor.html">inf::EventTensor</a>&gt; <a class="el" href="classinf_1_1EventTensor.html#a242a1e6adae3f0ec6b2d5dc557dd74f7">inf::EventTensor::UniquePtr</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="event__tensor_8h_source.html#l00049">49</a> of file <a class="el" href="event__tensor_8h_source.html">event_tensor.h</a>.</p>
+
+</div>
+</div>
+<a id="a5fff0983df974482f7d2dcdde1e4ac92" name="a5fff0983df974482f7d2dcdde1e4ac92"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5fff0983df974482f7d2dcdde1e4ac92">&#9670;&#160;</a></span>UniqueConstPtr</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::unique_ptr&lt;const <a class="el" href="classinf_1_1EventTensor.html">inf::EventTensor</a>&gt; <a class="el" href="classinf_1_1EventTensor.html#a5fff0983df974482f7d2dcdde1e4ac92">inf::EventTensor::UniqueConstPtr</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="event__tensor_8h_source.html#l00050">50</a> of file <a class="el" href="event__tensor_8h_source.html">event_tensor.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="af62893d74a32dd4feea02aa9a88a3c7e" name="af62893d74a32dd4feea02aa9a88a3c7e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af62893d74a32dd4feea02aa9a88a3c7e">&#9670;&#160;</a></span>EventTensor() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">inf::EventTensor::EventTensor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> const&#160;</td>
+          <td class="paramname"><em>n_parties</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__event.html#gadcaa27c4242b65837f0f7a00e96856d4">inf::Outcome</a> const&#160;</td>
+          <td class="paramname"><em>base</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor specifying the number of parties and number of outcomes per party. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">n_parties</td><td>Number of parties, i.e., length of the <a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0" title="A list of inf::Outcome. Conceptually, this plays the role of  for some set .">inf::Event</a> keys. This is allowed to be zero to be able to represent a scalar, in which case <code>base</code> is irrelevant. </td></tr>
+    <tr><td class="paramname">base</td><td>E.g., if we want to store keys from {0,0,0} to {3,3,3}, we set <code>base = 4</code>. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="event__tensor_8cpp_source.html#l00017">17</a> of file <a class="el" href="event__tensor_8cpp_source.html">event_tensor.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a405fdb43c7a953ba2e53c273e6986583" name="a405fdb43c7a953ba2e53c273e6986583"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a405fdb43c7a953ba2e53c273e6986583">&#9670;&#160;</a></span>EventTensor() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">inf::EventTensor::EventTensor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classinf_1_1EventTensor.html">EventTensor</a> const &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad47ff26ea0bd2e0bfb80da06620746cb" name="ad47ff26ea0bd2e0bfb80da06620746cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad47ff26ea0bd2e0bfb80da06620746cb">&#9670;&#160;</a></span>EventTensor() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">inf::EventTensor::EventTensor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classinf_1_1EventTensor.html">EventTensor</a> &amp;&amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a74f303eb03cf67e4164e444ed7ff3fd8" name="a74f303eb03cf67e4164e444ed7ff3fd8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74f303eb03cf67e4164e444ed7ff3fd8">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classinf_1_1EventTensor.html">EventTensor</a> &amp; inf::EventTensor::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classinf_1_1EventTensor.html">EventTensor</a> &amp;&amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa0db4970a9485f93e4db37267dc08b64" name="aa0db4970a9485f93e4db37267dc08b64"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0db4970a9485f93e4db37267dc08b64">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classinf_1_1EventTensor.html">EventTensor</a> &amp; inf::EventTensor::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classinf_1_1EventTensor.html">EventTensor</a> const &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a251eeb6aa34202e3c2829f855521ef38" name="a251eeb6aa34202e3c2829f855521ef38"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a251eeb6aa34202e3c2829f855521ef38">&#9670;&#160;</a></span>is_scalar()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool inf::EventTensor::is_scalar </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns true if the <a class="el" href="classinf_1_1EventTensor.html" title="Stores a function from a set of inf::Event of fixed length to Num.">inf::EventTensor</a> is scalar, i.e., is a function over inf::Events of zero length (recall that we define \(\vecset{\emptyset} = \R\)). </p>
+
+<p class="definition">Definition at line <a class="el" href="event__tensor_8cpp_source.html#l00028">28</a> of file <a class="el" href="event__tensor_8cpp_source.html">event_tensor.cpp</a>.</p>
+
+</div>
+</div>
+<a id="af0eeb7a41b8d232c8a1bf7cda8fece04" name="af0eeb7a41b8d232c8a1bf7cda8fece04"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0eeb7a41b8d232c8a1bf7cda8fece04">&#9670;&#160;</a></span>log_single_event()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void inf::EventTensor::log_single_event </td>
+          <td>(</td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
+          <td class="paramname"><em>math_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool &amp;&#160;</td>
+          <td class="paramname"><em>first_element</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> &amp;&#160;</td>
+          <td class="paramname"><em>count</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> const&#160;</td>
+          <td class="paramname"><em>items_per_line</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> const &amp;&#160;</td>
+          <td class="paramname"><em>event</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Logs a string of the form "p(000) = 1"`. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">math_name</td><td>"p" </td></tr>
+    <tr><td class="paramname">first_element</td><td>For line breaks </td></tr>
+    <tr><td class="paramname">count</td><td>For line breaks </td></tr>
+    <tr><td class="paramname">items_per_line</td><td>For line breaks </td></tr>
+    <tr><td class="paramname">event</td><td>The event whose value in the <a class="el" href="classinf_1_1EventTensor.html" title="Stores a function from a set of inf::Event of fixed length to Num.">inf::EventTensor</a> will be printed </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="event__tensor_8cpp_source.html#l00049">49</a> of file <a class="el" href="event__tensor_8cpp_source.html">event_tensor.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a4691fac83e2aa5c1c1e0795748a0e93b" name="a4691fac83e2aa5c1c1e0795748a0e93b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4691fac83e2aa5c1c1e0795748a0e93b">&#9670;&#160;</a></span>log()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void inf::EventTensor::log </td>
+          <td>(</td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
+          <td class="paramname"><em>math_name</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Logs the contents of the tensor in the format <code>math_name(000) = 1, ...</code> </p>
+
+<p class="definition">Definition at line <a class="el" href="event__tensor_8cpp_source.html#l00032">32</a> of file <a class="el" href="event__tensor_8cpp_source.html">event_tensor.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ade04b2193c01629823a8b4ed00071966" name="ade04b2193c01629823a8b4ed00071966"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade04b2193c01629823a8b4ed00071966">&#9670;&#160;</a></span>get_num() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a> inf::EventTensor::get_num </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classinf_1_1EventTensor.html#ad84da2b448286189d1021e19a2011214">inf::EventTensor::EventHash</a>&#160;</td>
+          <td class="paramname"><em>hash</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Const getter from hash. </p>
+<p>The <code>hash</code> should be obtained with <a class="el" href="classinf_1_1EventTensor.html#ad237a63bbfec62ccf307e27bcdceddf8" title="Hashes an inf::Event.">inf::EventTensor::get_event_hash()</a>. However, one can simply use the overload <a class="el" href="classinf_1_1EventTensor.html#afd3d165168a1e780001b88ce239272b0" title="Const getter from inf::Event.">inf::EventTensor::get_num(inf::Event const&amp; event) const </a>instead. Computing the hash by hand can occasionnally be a bit more efficient than constructing an intermediate <a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0" title="A list of inf::Outcome. Conceptually, this plays the role of  for some set .">inf::Event</a>. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">hash</td><td>The hash (key) of an <a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0" title="A list of inf::Outcome. Conceptually, this plays the role of  for some set .">inf::Event</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The <a class="el" href="group__util.html#gaea24f8b468377784fdb704692e9168f5" title="Signed integers.">Num</a> associated to the key </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="event__tensor_8cpp_source.html#l00069">69</a> of file <a class="el" href="event__tensor_8cpp_source.html">event_tensor.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a7be9f980f4f343a51a300da43ad637f1" name="a7be9f980f4f343a51a300da43ad637f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7be9f980f4f343a51a300da43ad637f1">&#9670;&#160;</a></span>get_num() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a> &amp; inf::EventTensor::get_num </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classinf_1_1EventTensor.html#ad84da2b448286189d1021e19a2011214">inf::EventTensor::EventHash</a> const&#160;</td>
+          <td class="paramname"><em>hash</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Getter from hash, allows for modifying the returned <a class="el" href="group__util.html#gaea24f8b468377784fdb704692e9168f5" title="Signed integers.">Num</a>. </p>
+<p>The <code>hash</code> should be obtained with <a class="el" href="classinf_1_1EventTensor.html#ad237a63bbfec62ccf307e27bcdceddf8" title="Hashes an inf::Event.">inf::EventTensor::get_event_hash()</a>. However, one can simply use the overload <a class="el" href="classinf_1_1EventTensor.html#ac2ba54386f36811adde5a13ceb036d6b" title="Getter from inf::Event.">inf::EventTensor::get_num(inf::Event const&amp; event)</a> instead. Computing the hash by hand can occasionnally be a bit more efficient than constructing an intermediate <a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0" title="A list of inf::Outcome. Conceptually, this plays the role of  for some set .">inf::Event</a>.</p>
+<p>To modify the <a class="el" href="group__util.html#gaea24f8b468377784fdb704692e9168f5" title="Signed integers.">Num</a> of a hash, use the following syntax: </p><div class="fragment"><div class="line"><a class="code hl_class" href="classinf_1_1EventTensor.html">inf::EventTensor</a> T(3,4);</div>
+<div class="line"><a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <span class="keyword">const</span> hash = T.get_event_hash({0,0,0});</div>
+<div class="line">T.get_num(hash) = 1;</div>
+<div class="ttc" id="agroup__util_html_ga77731aedac326062ffbdcf367185a07e"><div class="ttname"><a href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a></div><div class="ttdeci">uint64_t Index</div><div class="ttdoc">Use for anything meant to be used as an index.</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00019">types.h:19</a></div></div>
+</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">hash</td><td>The hash (key) of an <a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0" title="A list of inf::Outcome. Conceptually, this plays the role of  for some set .">inf::Event</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The <a class="el" href="group__util.html#gaea24f8b468377784fdb704692e9168f5" title="Signed integers.">Num</a> associated to the key </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="event__tensor_8cpp_source.html#l00075">75</a> of file <a class="el" href="event__tensor_8cpp_source.html">event_tensor.cpp</a>.</p>
+
+</div>
+</div>
+<a id="afd3d165168a1e780001b88ce239272b0" name="afd3d165168a1e780001b88ce239272b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd3d165168a1e780001b88ce239272b0">&#9670;&#160;</a></span>get_num() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a> inf::EventTensor::get_num </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> const &amp;&#160;</td>
+          <td class="paramname"><em>event</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Const getter from <a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0" title="A list of inf::Outcome. Conceptually, this plays the role of  for some set .">inf::Event</a>. </p>
+<p>Conceptually, thinking of the <a class="el" href="classinf_1_1EventTensor.html" title="Stores a function from a set of inf::Event of fixed length to Num.">inf::EventTensor</a> as some \(v \in \vecset{\set A}\) for some set \(\set A\), this returns \(v(\infevent)\) for some \(\infevent\in\events{\set A}\). </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">event</td><td>The key <a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0" title="A list of inf::Outcome. Conceptually, this plays the role of  for some set .">inf::Event</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The <a class="el" href="group__util.html#gaea24f8b468377784fdb704692e9168f5" title="Signed integers.">Num</a> associated to <code>event</code> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="event__tensor_8cpp_source.html#l00081">81</a> of file <a class="el" href="event__tensor_8cpp_source.html">event_tensor.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ac2ba54386f36811adde5a13ceb036d6b" name="ac2ba54386f36811adde5a13ceb036d6b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2ba54386f36811adde5a13ceb036d6b">&#9670;&#160;</a></span>get_num() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a> &amp; inf::EventTensor::get_num </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> const &amp;&#160;</td>
+          <td class="paramname"><em>event</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Getter from <a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0" title="A list of inf::Outcome. Conceptually, this plays the role of  for some set .">inf::Event</a>. </p>
+<p>To modify the <a class="el" href="group__util.html#gaea24f8b468377784fdb704692e9168f5" title="Signed integers.">Num</a> associated to an event, use the following syntax: </p><div class="fragment"><div class="line"><a class="code hl_class" href="classinf_1_1EventTensor.html">inf::EventTensor</a> T(3,4);</div>
+<div class="line">T.get_num({0,0,0}) = 1;</div>
+</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">event</td><td>The key <a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0" title="A list of inf::Outcome. Conceptually, this plays the role of  for some set .">inf::Event</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The <a class="el" href="group__util.html#gaea24f8b468377784fdb704692e9168f5" title="Signed integers.">Num</a> associated to <code>event</code> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="event__tensor_8cpp_source.html#l00085">85</a> of file <a class="el" href="event__tensor_8cpp_source.html">event_tensor.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a9abd421749182a04440d57412e5e5f7a" name="a9abd421749182a04440d57412e5e5f7a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9abd421749182a04440d57412e5e5f7a">&#9670;&#160;</a></span>get_frac() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classutil_1_1Frac.html">util::Frac</a> inf::EventTensor::get_frac </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classinf_1_1EventTensor.html#ad84da2b448286189d1021e19a2011214">inf::EventTensor::EventHash</a>&#160;</td>
+          <td class="paramname"><em>hash</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>To get the fraction associated to the hash of the event, including the denominator of the <a class="el" href="classinf_1_1EventTensor.html" title="Stores a function from a set of inf::Event of fixed length to Num.">inf::EventTensor</a>. </p>
+<p>The <code>hash</code> should be obtained with <a class="el" href="classinf_1_1EventTensor.html#ad237a63bbfec62ccf307e27bcdceddf8" title="Hashes an inf::Event.">inf::EventTensor::get_event_hash()</a>. However, one can simply use the overload <a class="el" href="classinf_1_1EventTensor.html#a364b7e4b28b97dc50dcb2dfddfe6e696" title="To get the fraction associated to the event, including the denominator of the inf::EventTensor.">inf::EventTensor::get_frac(inf::Event const&amp; event) const </a>instead. Computing the hash by hand can occasionnally be a bit more efficient than constructing an intermediate <a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0" title="A list of inf::Outcome. Conceptually, this plays the role of  for some set .">inf::Event</a>. </p>
+
+<p class="definition">Definition at line <a class="el" href="event__tensor_8cpp_source.html#l00089">89</a> of file <a class="el" href="event__tensor_8cpp_source.html">event_tensor.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a364b7e4b28b97dc50dcb2dfddfe6e696" name="a364b7e4b28b97dc50dcb2dfddfe6e696"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a364b7e4b28b97dc50dcb2dfddfe6e696">&#9670;&#160;</a></span>get_frac() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classutil_1_1Frac.html">util::Frac</a> inf::EventTensor::get_frac </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> const &amp;&#160;</td>
+          <td class="paramname"><em>event</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>To get the fraction associated to the event, including the denominator of the <a class="el" href="classinf_1_1EventTensor.html" title="Stores a function from a set of inf::Event of fixed length to Num.">inf::EventTensor</a>. </p>
+
+<p class="definition">Definition at line <a class="el" href="event__tensor_8cpp_source.html#l00093">93</a> of file <a class="el" href="event__tensor_8cpp_source.html">event_tensor.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a71264caaca320badbe32d01ff087e991" name="a71264caaca320badbe32d01ff087e991"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71264caaca320badbe32d01ff087e991">&#9670;&#160;</a></span>has_same_shape_as()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool inf::EventTensor::has_same_shape_as </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classinf_1_1EventTensor.html">inf::EventTensor</a> const &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns <code>true</code> if the <code>*this</code> and <code>other</code> have the same number of parties and number of outcomes per party. </p>
+
+<p class="definition">Definition at line <a class="el" href="event__tensor_8cpp_source.html#l00097">97</a> of file <a class="el" href="event__tensor_8cpp_source.html">event_tensor.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ab473b9fad92e1ef35d98a1addc0296dc" name="ab473b9fad92e1ef35d98a1addc0296dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab473b9fad92e1ef35d98a1addc0296dc">&#9670;&#160;</a></span>simplify()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void inf::EventTensor::simplify </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Divides the common denominator and all of the numerators by the GCD of them all. </p>
+
+<p class="definition">Definition at line <a class="el" href="event__tensor_8cpp_source.html#l00151">151</a> of file <a class="el" href="event__tensor_8cpp_source.html">event_tensor.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ad7417a773a2585faf3e7bced79efbef7" name="ad7417a773a2585faf3e7bced79efbef7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7417a773a2585faf3e7bced79efbef7">&#9670;&#160;</a></span>compute_weights()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> &gt; inf::EventTensor::compute_weights </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> const&#160;</td>
+          <td class="paramname"><em>n_parties</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> const&#160;</td>
+          <td class="paramname"><em>base</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Used to compute hashes for the <a class="el" href="classinf_1_1EventTensor.html" title="Stores a function from a set of inf::Event of fixed length to Num.">inf::EventTensor</a>. </p>
+
+<p class="definition">Definition at line <a class="el" href="event__tensor_8cpp_source.html#l00007">7</a> of file <a class="el" href="event__tensor_8cpp_source.html">event_tensor.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a897e0e74151db5bd2ee641069cf9b6e4" name="a897e0e74151db5bd2ee641069cf9b6e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a897e0e74151db5bd2ee641069cf9b6e4">&#9670;&#160;</a></span>get_party_weights()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> &gt; const  &amp; inf::EventTensor::get_party_weights </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns a view over the party weights used to compute hashes <a class="el" href="classinf_1_1EventTensor.html" title="Stores a function from a set of inf::Event of fixed length to Num.">inf::EventTensor</a>. </p>
+
+<p class="definition">Definition at line <a class="el" href="event__tensor_8cpp_source.html#l00168">168</a> of file <a class="el" href="event__tensor_8cpp_source.html">event_tensor.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a9b8673dd0d6a9de3c00168afb743eba5" name="a9b8673dd0d6a9de3c00168afb743eba5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b8673dd0d6a9de3c00168afb743eba5">&#9670;&#160;</a></span>get_denom()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a> inf::EventTensor::get_denom </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the common denominator of all of the entries of the <a class="el" href="classinf_1_1EventTensor.html" title="Stores a function from a set of inf::Event of fixed length to Num.">inf::EventTensor</a>. </p>
+
+<p class="definition">Definition at line <a class="el" href="event__tensor_8cpp_source.html#l00172">172</a> of file <a class="el" href="event__tensor_8cpp_source.html">event_tensor.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a39ba758d88e01c85e8ce4c964eb4f44a" name="a39ba758d88e01c85e8ce4c964eb4f44a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39ba758d88e01c85e8ce4c964eb4f44a">&#9670;&#160;</a></span>set_denom()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void inf::EventTensor::set_denom </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a> const&#160;</td>
+          <td class="paramname"><em>denom</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the denominator, soft assertion preventing to set it to zero. </p>
+
+<p class="definition">Definition at line <a class="el" href="event__tensor_8cpp_source.html#l00176">176</a> of file <a class="el" href="event__tensor_8cpp_source.html">event_tensor.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a083c4e6df59b5b74455e41d4e5435ab9" name="a083c4e6df59b5b74455e41d4e5435ab9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a083c4e6df59b5b74455e41d4e5435ab9">&#9670;&#160;</a></span>get_n_parties()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> inf::EventTensor::get_n_parties </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The length of each <a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0" title="A list of inf::Outcome. Conceptually, this plays the role of  for some set .">inf::Event</a> to which the <a class="el" href="classinf_1_1EventTensor.html" title="Stores a function from a set of inf::Event of fixed length to Num.">inf::EventTensor</a> assigns values. </p>
+
+<p class="definition">Definition at line <a class="el" href="event__tensor_8cpp_source.html#l00182">182</a> of file <a class="el" href="event__tensor_8cpp_source.html">event_tensor.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a64d5834d3f36b5b5e13b5ae1903455b8" name="a64d5834d3f36b5b5e13b5ae1903455b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a64d5834d3f36b5b5e13b5ae1903455b8">&#9670;&#160;</a></span>get_base()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__event.html#gadcaa27c4242b65837f0f7a00e96856d4">inf::Outcome</a> inf::EventTensor::get_base </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The number of values/outcomes of each <a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0" title="A list of inf::Outcome. Conceptually, this plays the role of  for some set .">inf::Event</a> to which the <a class="el" href="classinf_1_1EventTensor.html" title="Stores a function from a set of inf::Event of fixed length to Num.">inf::EventTensor</a> assigns values. </p>
+
+<p class="definition">Definition at line <a class="el" href="event__tensor_8cpp_source.html#l00186">186</a> of file <a class="el" href="event__tensor_8cpp_source.html">event_tensor.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a8541b721bccaabd4e20d91b136b34fe6" name="a8541b721bccaabd4e20d91b136b34fe6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8541b721bccaabd4e20d91b136b34fe6">&#9670;&#160;</a></span>get_hash_range()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classutil_1_1Range.html">util::Range</a>&lt; <a class="el" href="classinf_1_1EventTensor.html#ad84da2b448286189d1021e19a2011214">inf::EventTensor::EventHash</a> &gt; inf::EventTensor::get_hash_range </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>To iterate over all hashes of the <a class="el" href="classinf_1_1EventTensor.html" title="Stores a function from a set of inf::Event of fixed length to Num.">inf::EventTensor</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd><code><a class="el" href="classutil_1_1Range.html" title="Iterating over a finite integer range.">util::Range</a>(m_data.size())</code> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="event__tensor_8cpp_source.html#l00190">190</a> of file <a class="el" href="event__tensor_8cpp_source.html">event_tensor.cpp</a>.</p>
+
+</div>
+</div>
+<a id="adc2d6423af84b864b20b7e9a920a65dd" name="adc2d6423af84b864b20b7e9a920a65dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc2d6423af84b864b20b7e9a920a65dd">&#9670;&#160;</a></span>get_event_range()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classutil_1_1ProductRange.html">util::ProductRange</a>&lt; <a class="el" href="group__event.html#gadcaa27c4242b65837f0f7a00e96856d4">inf::Outcome</a> &gt; inf::EventTensor::get_event_range </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The <a class="el" href="group__event.html#ga1945c0af7bba14437a034808f18dac20" title="An iterator over inf::Event, conceptually allowing to iterate over  for some set .">inf::EventRange</a> over which the <a class="el" href="classinf_1_1EventTensor.html" title="Stores a function from a set of inf::Event of fixed length to Num.">inf::EventTensor</a> is valued. </p>
+
+<p class="definition">Definition at line <a class="el" href="event__tensor_8cpp_source.html#l00101">101</a> of file <a class="el" href="event__tensor_8cpp_source.html">event_tensor.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a7fa67e62f6581fdafab5ce226b63865b" name="a7fa67e62f6581fdafab5ce226b63865b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7fa67e62f6581fdafab5ce226b63865b">&#9670;&#160;</a></span>set_to_tensor_product()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void inf::EventTensor::set_to_tensor_product </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="classinf_1_1EventTensor.html">inf::EventTensor</a> const * &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>factors</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the current tensor to the tensor product of the elements of <code>factors</code>, and calls <a class="el" href="classinf_1_1EventTensor.html#ab473b9fad92e1ef35d98a1addc0296dc" title="Divides the common denominator and all of the numerators by the GCD of them all.">inf::EventTensor::simplify()</a> </p>
+<p>Before calling this method, make sure that <code>this</code> has the right size: there will be a soft assertion <code>ASSERT_EQUAL(this-&gt;<a class="el" href="classinf_1_1EventTensor.html#a083c4e6df59b5b74455e41d4e5435ab9" title="The length of each inf::Event to which the inf::EventTensor assigns values.">get_n_parties()</a>, sum_factors_n_parties)</code>, where <code>sum_factors_n_parties</code> is the sum over <code>factor</code> in <code>factors</code> of <code>factor.get_n_parties()</code>. Furthermore, <code>this</code> and all <code>factor</code> in <code>factors</code> should have the same base. </p><dl class="section note"><dt>Note</dt><dd>This method is not meant to be particularly fast. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">factors</td><td>The pointers are soft-asserted to be non-nullptr </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="event__tensor_8cpp_source.html#l00106">106</a> of file <a class="el" href="event__tensor_8cpp_source.html">event_tensor.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ad237a63bbfec62ccf307e27bcdceddf8" name="ad237a63bbfec62ccf307e27bcdceddf8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad237a63bbfec62ccf307e27bcdceddf8">&#9670;&#160;</a></span>get_event_hash()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classinf_1_1EventTensor.html#ad84da2b448286189d1021e19a2011214">inf::EventTensor::EventHash</a> inf::EventTensor::get_event_hash </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> const &amp;&#160;</td>
+          <td class="paramname"><em>event</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Hashes an <a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0" title="A list of inf::Outcome. Conceptually, this plays the role of  for some set .">inf::Event</a>. </p>
+<p>Internally, each <a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0" title="A list of inf::Outcome. Conceptually, this plays the role of  for some set .">inf::Event</a> is not direclty associated to a <a class="el" href="group__util.html#gaea24f8b468377784fdb704692e9168f5" title="Signed integers.">Num</a>. Instead, the unique hash of each <a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0" title="A list of inf::Outcome. Conceptually, this plays the role of  for some set .">inf::Event</a> is associated to a <a class="el" href="group__util.html#gaea24f8b468377784fdb704692e9168f5" title="Signed integers.">Num</a>. </p>
+
+<p class="definition">Definition at line <a class="el" href="event__tensor_8cpp_source.html#l00194">194</a> of file <a class="el" href="event__tensor_8cpp_source.html">event_tensor.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="ae52d16ffb9cc7454ee7c5696b8209bde" name="ae52d16ffb9cc7454ee7c5696b8209bde"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae52d16ffb9cc7454ee7c5696b8209bde">&#9670;&#160;</a></span>m_n_parties</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> inf::EventTensor::m_n_parties</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The length of the <a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0" title="A list of inf::Outcome. Conceptually, this plays the role of  for some set .">inf::Event</a> keys. </p>
+
+<p class="definition">Definition at line <a class="el" href="event__tensor_8h_source.html#l00169">169</a> of file <a class="el" href="event__tensor_8h_source.html">event_tensor.h</a>.</p>
+
+</div>
+</div>
+<a id="ab12ac85bba5b76268fdb0e7a80adf661" name="ab12ac85bba5b76268fdb0e7a80adf661"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab12ac85bba5b76268fdb0e7a80adf661">&#9670;&#160;</a></span>m_base</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__event.html#gadcaa27c4242b65837f0f7a00e96856d4">inf::Outcome</a> inf::EventTensor::m_base</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The bound (excluded) on the entries of the <a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0" title="A list of inf::Outcome. Conceptually, this plays the role of  for some set .">inf::Event</a> keys. </p>
+
+<p class="definition">Definition at line <a class="el" href="event__tensor_8h_source.html#l00171">171</a> of file <a class="el" href="event__tensor_8h_source.html">event_tensor.h</a>.</p>
+
+</div>
+</div>
+<a id="aff3280851975ad89f4c50476e5434dc4" name="aff3280851975ad89f4c50476e5434dc4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff3280851975ad89f4c50476e5434dc4">&#9670;&#160;</a></span>m_data</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a>&gt; inf::EventTensor::m_data</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The data: accessing this data requires hashing the inf::Events keys first. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classinf_1_1EventTensor.html#ad237a63bbfec62ccf307e27bcdceddf8" title="Hashes an inf::Event.">inf::EventTensor::get_event_hash()</a> to hash an <a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0" title="A list of inf::Outcome. Conceptually, this plays the role of  for some set .">inf::Event</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="event__tensor_8h_source.html#l00174">174</a> of file <a class="el" href="event__tensor_8h_source.html">event_tensor.h</a>.</p>
+
+</div>
+</div>
+<a id="a22649e759f3a9bf92f192f3276ba88be" name="a22649e759f3a9bf92f192f3276ba88be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22649e759f3a9bf92f192f3276ba88be">&#9670;&#160;</a></span>m_weights</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a>&gt; inf::EventTensor::m_weights</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Used to quickly compute the hash of an event. </p>
+<p>This stores <code>{1, base, base^2, ..., base^{n_parties-1}}</code>. </p>
+
+<p class="definition">Definition at line <a class="el" href="event__tensor_8h_source.html#l00177">177</a> of file <a class="el" href="event__tensor_8h_source.html">event_tensor.h</a>.</p>
+
+</div>
+</div>
+<a id="a0dcb33331bf8b38a0c865bdf4fa598c7" name="a0dcb33331bf8b38a0c865bdf4fa598c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0dcb33331bf8b38a0c865bdf4fa598c7">&#9670;&#160;</a></span>m_denom</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a> inf::EventTensor::m_denom</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The denominator, meant to be te denominator of all of <code>m_data</code> </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classinf_1_1EventTensor.html#a9b8673dd0d6a9de3c00168afb743eba5" title="Returns the common denominator of all of the entries of the inf::EventTensor.">inf::EventTensor::get_denom()</a>, <a class="el" href="classinf_1_1EventTensor.html#ab473b9fad92e1ef35d98a1addc0296dc" title="Divides the common denominator and all of the numerators by the GCD of them all.">inf::EventTensor::simplify()</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="event__tensor_8h_source.html#l00180">180</a> of file <a class="el" href="event__tensor_8h_source.html">event_tensor.h</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>src/inf/events/<a class="el" href="event__tensor_8h_source.html">event_tensor.h</a></li>
+<li>src/inf/events/<a class="el" href="event__tensor_8cpp_source.html">event_tensor.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceinf.html">inf</a></li><li class="navelem"><a class="el" href="classinf_1_1EventTensor.html">EventTensor</a></li>
+    <li class="footer">Generated on Wed Dec 18 2024 17:39:42 for Fast Inflation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

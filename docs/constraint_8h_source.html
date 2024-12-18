@@ -1,0 +1,345 @@
+<!-- HTML header for doxygen 1.9.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Fast Inflation: src/inf/constraints/constraint.h Source File</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+MathJax.Hub.Config({
+    TeX: {
+        Macros: {
+            dd: ["{\\text{d}#1\\,}",1],
+            nouts: ["{n_{\\text{o}}}"],
+            ints: ["{[\\![#1]\\!]}",1],
+            outset: ["{\\ints{\\nouts}}"],
+            N: ["{\\mathbb{N}}"],
+            R: ["{\\mathbb{R}}"],
+            Z: ["{\\mathbb{Z}}"],
+            infsize: ["{z}"],
+            infparties: ["{\\set{I}}"],
+            infsources: ["{\\set{S}}"],
+            infmarg: ["{\\set{A}}"],
+            infmargg: ["{\\set{B}}"],
+            netparties: ["{\\set{N}}"],
+            infq: ["{q}"],
+            infqs: ["{\\Delta_{\\infparties}}"],
+            constraintlist: ["{\\mathcal{C}}"],
+            injsets: ["{\\text{InjSets}}"],
+            infconstraints: ["{\\text{InfCons}}"],
+            parents: ["{\\text{Par}}"],
+            targetp: ["{p}"],
+            targetps: ["{\\Delta_{\\netparties}}"],
+            set: ["{\\mathbf{#1}}",1],
+            type: ["{t}"],
+            infevent: "{\\omega}",
+            events: ["{\\Omega_{#1}}",1],
+            infevents: ["{\\events{\\infparties}}"],
+            redinfevents: ["{\\tilde{\\Omega}_{\\infparties}}"],
+            netevents: ["{\\events{\\netparties}}"],
+            vecset: ["{V_{#1}}",1],
+            alice: ["{\\text{A}}"],
+            bob: ["{\\text{B}}"],
+            charlie: ["{\\text{C}}"],
+            symgroup: ["{\\text{Sym}(#1)}",1],
+            shortsymgroup: ["{\\text{Sym}_{#1}}",1],
+            act: ["{(#1\\hspace{2pt}{:}\\hspace{2pt}#2)}",2],
+            actt: ["{[#1\\hspace{2pt}{:}\\hspace{2pt}#2]}",2],
+            margperms: ["{\\text{Perm}_{#1}}",1],
+            permutedmargs: ["{\\mathbb{P}_{#1}^{\\targetp}}",1],
+            redpermutedmargs: ["{\\tilde{\\mathbb{P}}_{#1}^{\\constraintname,\\targetp}}",1],
+            extract: ["{\\text{ext}(#1,#2)}",2],
+            partysym: ["{\\tau}"],
+            sourcesym: ["{\\xi}"],
+            outsym: ["{\\sigma}"],
+            fullgroup: ["{\\text{InfGrp}}"],
+            partygroup : ["{\\text{PartyGrp}}"],
+            outgroup: ["{\\text{OutGrp}}"],
+            sourcegroup: ["{\\text{SrcGrp}}"],
+            distrgroup: ["{\\mathbb{G}^\\targetp}"],
+            constraintname: ["{c}"],
+            marggroup: ["{\\mathbb{G}^{\\constraintname,\\targetp}}"],
+            fullsymexpl: ["{(\\sourcesym,\\partysym,\\outsym)}"],
+            inner: ["{\\langle#1,#2\\rangle}", 2],
+            quovec: ["{f}"],
+            totconstraintmap: ["{K^{\\constraintlist,\\targetp}}"],
+            totconstraintmapelem: ["{K^{\\constraintname,\\targetp}}"],
+            quovecspace: ["{\\tilde{V}_{#1}^{\\constraintname,\\targetp}}", 1],
+            totquovecspace: ["{\\text{ConsSpace}(\\constraintlist,\\targetp)}"],
+            detdistr: ["{\\delta^{#1}}", 1],
+            margperm: ["{\\varphi}"],
+            altquovecembed: ["{\\text{G}_{#1}^{\\constraintname,\\targetp}}", 1],
+            vecset: ["{V_{#1}}", 1],
+            repr: ["{\\lfloor#1\\rfloor}", 1],
+            gid: ["{\\text{id}}"],
+            id: ["{1_{#1}}",1],
+            consscale: ["{K}"],
+            scaletot: ["{K_{\\text{tot}}^{\\constraintlist,\\targetp}}"],
+            minnorm: ["{d}"],
+            Bigsetst: ["\\;\\Big|\\;"],
+            activeset: ["\\mathcal{S}"],
+            conv: ["\\text{conv}"],
+            lVert: ["|\\hspace{-1pt}|"],
+            norm: ["\\lVert#1\\lVert", 1],
+            st: [":\ "],
+        }
+    }
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeDarkModeToggle.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeParagraphLink.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Fast Inflation
+   </div>
+   <div id="projectbrief">To certify causal incompatibility</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('constraint_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">constraint.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="constraint_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="dual__vector_8h.html">dual_vector.h</a>&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="marginal_8h.html">marginal.h</a>&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno"><a class="line" href="namespaceinf.html">    6</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceinf.html">inf</a> {</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="classinf_1_1Constraint.html">   27</a></span><span class="keyword">class </span><a class="code hl_class" href="classinf_1_1Constraint.html">Constraint</a> : <span class="keyword">public</span> <a class="code hl_class" href="classutil_1_1Loggable.html">util::Loggable</a> {</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="classinf_1_1Constraint.html#a56940861a7bffd338a899402c949c6c9">   29</a></span>    <span class="keyword">typedef</span> std::unique_ptr&lt;inf::Constraint&gt; <a class="code hl_typedef" href="classinf_1_1Constraint.html#a56940861a7bffd338a899402c949c6c9">UniquePtr</a>;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="classinf_1_1Constraint.html#a9af530da5633c7e8d6ee25e29488b715">   32</a></span>    <span class="keyword">typedef</span> std::vector&lt;std::string&gt; <a class="code hl_typedef" href="classinf_1_1Constraint.html#a9af530da5633c7e8d6ee25e29488b715">Description</a>;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classinf_1_1Constraint.html#ac5ff3d4a18c462871a48cc31490c0a42">pretty_description</a>(<a class="code hl_typedef" href="classinf_1_1Constraint.html#a9af530da5633c7e8d6ee25e29488b715">inf::Constraint::Description</a> description);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keyword">static</span> <a class="code hl_typedef" href="classinf_1_1Symmetry.html#a901d22b86ef5923b628db86fbdd7ba4f">inf::Symmetry::Group</a> <a class="code hl_function" href="classinf_1_1Constraint.html#a0f7a0a8d15cfabd25c7804f632412960">get_constraint_group</a>(<a class="code hl_class" href="classinf_1_1Inflation.html">inf::Inflation</a> <span class="keyword">const</span> &amp;inflation,</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>                                                     std::vector&lt;Index&gt; <span class="keyword">const</span> &amp;lhs_marg,</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>                                                     std::vector&lt;Index&gt; <span class="keyword">const</span> &amp;rhs_marg);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <a class="code hl_class" href="classinf_1_1Constraint.html">Constraint</a>(<a class="code hl_typedef" href="classinf_1_1Inflation.html#ac594d5b8d7cbdd7cdfe569baa351f0ba">inf::Inflation::ConstPtr</a> <span class="keyword">const</span> &amp;inflation,</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>               <a class="code hl_typedef" href="classinf_1_1Constraint.html#a9af530da5633c7e8d6ee25e29488b715">inf::Constraint::Description</a> <span class="keyword">const</span> &amp;description,</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>               <a class="code hl_enumeration" href="classinf_1_1DualVector.html#a615feaafdbd4a08901a07ad60260d398">inf::DualVector::StoreBounds</a> store_bounds);</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <a class="code hl_class" href="classinf_1_1Constraint.html">Constraint</a>(<a class="code hl_class" href="classinf_1_1Constraint.html">Constraint</a> <span class="keyword">const</span> &amp;other) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <a class="code hl_class" href="classinf_1_1Constraint.html">Constraint</a>(<a class="code hl_class" href="classinf_1_1Constraint.html">Constraint</a> &amp;&amp;other) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <a class="code hl_class" href="classinf_1_1Constraint.html">Constraint</a> &amp;operator=(<a class="code hl_class" href="classinf_1_1Constraint.html">Constraint</a> <span class="keyword">const</span> &amp;other) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <a class="code hl_class" href="classinf_1_1Constraint.html">Constraint</a> &amp;operator=(<a class="code hl_class" href="classinf_1_1Constraint.html">Constraint</a> &amp;&amp;other) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1Constraint.html#a41ff765b03f20de8c752f3387059754f">log</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="comment">// Getters</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <a class="code hl_class" href="classinf_1_1DualVector.html">inf::DualVector</a> <span class="keyword">const</span> &amp;<a class="code hl_function" href="classinf_1_1Constraint.html#a3647bf14ff19b0e558085229637daa94">get_dual_vector</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <a class="code hl_function" href="classinf_1_1Constraint.html#ad6c6fddb7d2df3e72aa29e81697c210e">get_quovec_size</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="classinf_1_1Constraint.html#a34a857617723361d4646c14b34412f8a">   78</a></span>    <span class="keyword">typedef</span> std::pair&lt;inf::Marginal::Evaluator, inf::Marginal::Evaluator&gt; <a class="code hl_typedef" href="classinf_1_1Constraint.html#a34a857617723361d4646c14b34412f8a">EvaluatorPair</a>;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <a class="code hl_typedef" href="classinf_1_1Constraint.html#a34a857617723361d4646c14b34412f8a">inf::Constraint::EvaluatorPair</a> <a class="code hl_function" href="classinf_1_1Constraint.html#aa0dde43c2cd089b9592663b1b8b81a99">get_marg_evaluators</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    std::string <span class="keyword">const</span> &amp;<a class="code hl_function" href="classinf_1_1Constraint.html#a73d6c2cb02840f2daa8055da69dd86a9">get_pretty_description</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="comment">// Arithmetic</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <a class="code hl_typedef" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a> <a class="code hl_function" href="classinf_1_1Constraint.html#a97d36dee33389f270e1828cc462b4e2d">get_lhs_denom</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1Constraint.html#aa3cfad75e0439bedfb7c0a53d80842ca">set_lhs_scale</a>(<a class="code hl_typedef" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a> scale);</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <a class="code hl_typedef" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a> <a class="code hl_function" href="classinf_1_1Constraint.html#a4edba80a718e5a147f47b6288abd0e55">get_rhs_denom</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1Constraint.html#a33dfeb0c7d160891d5777406af88e277">set_rhs_scale</a>(<a class="code hl_typedef" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a> scale);</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="comment">// Setters</span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1Constraint.html#ae4fb3329cf68a6bfb3635e5a22c94547">set_target_distribution</a>(<a class="code hl_class" href="classinf_1_1TargetDistr.html">inf::TargetDistr</a> <span class="keyword">const</span> &amp;d);</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1Constraint.html#a6a27630bf9bb6e380855e7890e935a52">set_dual_vector_from_quovec</a>(<a class="code hl_typedef" href="group__infcons.html#ga8fa19943a83fd41acae30b7bcc935295">inf::Quovec</a> <span class="keyword">const</span> &amp;coeffs, <span class="keyword">const</span> <a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> start_pos);</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <span class="comment">// Evaluation on inflation event</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1Constraint.html#aeb16da1375506748a807a96b51c2fcda">compute_inflation_event_quovec</a>(<a class="code hl_typedef" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> <span class="keyword">const</span> &amp;inflation_event,</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>                                        <a class="code hl_typedef" href="group__infcons.html#ga8fa19943a83fd41acae30b7bcc935295">inf::Quovec</a> &amp;ret,</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>                                        <span class="keyword">const</span> <a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> offset) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <span class="comment">// Serialization</span></div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1Constraint.html#ad805b58479b154d4c129ab4d3026d2fa">io_dual_vector</a>(<a class="code hl_class" href="classutil_1_1FileStream.html">util::FileStream</a> &amp;stream);</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>  <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno"><a class="line" href="classinf_1_1Constraint.html#a539137d741d4a2a40a68cb38bf818379">  129</a></span>    std::string <span class="keyword">const</span> <a class="code hl_variable" href="classinf_1_1Constraint.html#a539137d741d4a2a40a68cb38bf818379">m_pretty_description</a>;</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno"><a class="line" href="classinf_1_1Constraint.html#adf339fc0428a07eb4cfc1fa0db0df617">  131</a></span>    <a class="code hl_typedef" href="classinf_1_1Inflation.html#ac594d5b8d7cbdd7cdfe569baa351f0ba">inf::Inflation::ConstPtr</a> <a class="code hl_variable" href="classinf_1_1Constraint.html#adf339fc0428a07eb4cfc1fa0db0df617">m_inflation</a>;</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno"><a class="line" href="classinf_1_1Constraint.html#afc8de0049be481bc67ce9752bc380303">  134</a></span>    <a class="code hl_typedef" href="classinf_1_1Symmetry.html#a901d22b86ef5923b628db86fbdd7ba4f">inf::Symmetry::Group</a> <a class="code hl_variable" href="classinf_1_1Constraint.html#afc8de0049be481bc67ce9752bc380303">m_constraint_group</a>;</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno"><a class="line" href="classinf_1_1Constraint.html#a9edd7cb8eff07cd149f982cb9203f798">  137</a></span>    <a class="code hl_typedef" href="classinf_1_1Marginal.html#a1da95c0b0f27996bae1a2d32c0c4eb19">inf::Marginal::UniquePtr</a> <a class="code hl_variable" href="classinf_1_1Constraint.html#a9edd7cb8eff07cd149f982cb9203f798">m_lhs_inflation_marginal</a>;</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno"><a class="line" href="classinf_1_1Constraint.html#aca39c9e1f819a081bacba3f787bb3980">  139</a></span>    <a class="code hl_typedef" href="classinf_1_1Marginal.html#a1da95c0b0f27996bae1a2d32c0c4eb19">inf::Marginal::UniquePtr</a> <a class="code hl_variable" href="classinf_1_1Constraint.html#aca39c9e1f819a081bacba3f787bb3980">m_rhs_inflation_marginal</a>;</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span> </div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno"><a class="line" href="classinf_1_1Constraint.html#a07223a450813df868f5983703eae9669">  142</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="classinf_1_1Constraint.html#a07223a450813df868f5983703eae9669">m_target_distribution_fixed</a>;</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno"><a class="line" href="classinf_1_1Constraint.html#a21abb33e7aa6efe043a820dfb80c8df0">  146</a></span>    std::vector&lt;inf::TargetDistr::MarginalName&gt; <a class="code hl_variable" href="classinf_1_1Constraint.html#a21abb33e7aa6efe043a820dfb80c8df0">m_target_marginal_names</a>;</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno"><a class="line" href="classinf_1_1Constraint.html#ad9f309029d0996c3b48f7ccafc5bb9a5">  148</a></span>    <a class="code hl_typedef" href="classinf_1_1EventTensor.html#a242a1e6adae3f0ec6b2d5dc557dd74f7">inf::EventTensor::UniquePtr</a> <a class="code hl_variable" href="classinf_1_1Constraint.html#ad9f309029d0996c3b48f7ccafc5bb9a5">m_rhs_target_tensor</a>;</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span> </div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno"><a class="line" href="classinf_1_1Constraint.html#af674b22f045e2b876deeae5a4193a5ea">  151</a></span>    <a class="code hl_typedef" href="classinf_1_1DualVector.html#ae75d4d2e2f9bf637558789adc6ae94b3">inf::DualVector::UniquePtr</a> <a class="code hl_variable" href="classinf_1_1Constraint.html#af674b22f045e2b876deeae5a4193a5ea">m_lhs_dual_vector</a>;</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno"><a class="line" href="classinf_1_1Constraint.html#a2218be49df2addaa6c5a67fc4b9c339d">  153</a></span>    <a class="code hl_typedef" href="classinf_1_1DualVector.html#ae75d4d2e2f9bf637558789adc6ae94b3">inf::DualVector::UniquePtr</a> <a class="code hl_variable" href="classinf_1_1Constraint.html#a2218be49df2addaa6c5a67fc4b9c339d">m_rhs_reduced_dual_vector</a>;</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1Constraint.html#a85d494666c97f66178fa37ef7f91edd2">update_rhs_reduced_dual_vector</a>();</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span> </div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    <span class="comment">// Arithmetic</span></div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno"><a class="line" href="classinf_1_1Constraint.html#a8f7342fef529b25a81574fa6bf970afa">  161</a></span>    <a class="code hl_typedef" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a> <a class="code hl_variable" href="classinf_1_1Constraint.html#a8f7342fef529b25a81574fa6bf970afa">m_lhs_scale</a>;</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno"><a class="line" href="classinf_1_1Constraint.html#ad26c77e4a989bd9462d3c913e5199580">  164</a></span>    <a class="code hl_typedef" href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a> <a class="code hl_variable" href="classinf_1_1Constraint.html#ad26c77e4a989bd9462d3c913e5199580">m_rhs_scale</a>;</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>};</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span> </div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>} <span class="comment">// namespace inf</span></div>
+<div class="ttc" id="aclassinf_1_1Constraint_html"><div class="ttname"><a href="classinf_1_1Constraint.html">inf::Constraint</a></div><div class="ttdoc">Describes a single constraint of the form .</div><div class="ttdef"><b>Definition</b> <a href="constraint_8h_source.html#l00027">constraint.h:27</a></div></div>
+<div class="ttc" id="aclassinf_1_1Constraint_html_a07223a450813df868f5983703eae9669"><div class="ttname"><a href="classinf_1_1Constraint.html#a07223a450813df868f5983703eae9669">inf::Constraint::m_target_distribution_fixed</a></div><div class="ttdeci">bool m_target_distribution_fixed</div><div class="ttdoc">This boolean is there to make sure that the user of the class calls inf::Constraint::set_target_distr...</div><div class="ttdef"><b>Definition</b> <a href="constraint_8h_source.html#l00142">constraint.h:142</a></div></div>
+<div class="ttc" id="aclassinf_1_1Constraint_html_a0f7a0a8d15cfabd25c7804f632412960"><div class="ttname"><a href="classinf_1_1Constraint.html#a0f7a0a8d15cfabd25c7804f632412960">inf::Constraint::get_constraint_group</a></div><div class="ttdeci">static inf::Symmetry::Group get_constraint_group(inf::Inflation const &amp;inflation, std::vector&lt; Index &gt; const &amp;lhs_marg, std::vector&lt; Index &gt; const &amp;rhs_marg)</div><div class="ttdoc">This computes the group , the subgroup of the inflation symmetries  (see inf::Inflation::get_inflatio...</div><div class="ttdef"><b>Definition</b> <a href="constraint_8cpp_source.html#l00041">constraint.cpp:41</a></div></div>
+<div class="ttc" id="aclassinf_1_1Constraint_html_a21abb33e7aa6efe043a820dfb80c8df0"><div class="ttname"><a href="classinf_1_1Constraint.html#a21abb33e7aa6efe043a820dfb80c8df0">inf::Constraint::m_target_marginal_names</a></div><div class="ttdeci">std::vector&lt; inf::TargetDistr::MarginalName &gt; m_target_marginal_names</div><div class="ttdoc">This stores the copy-indices-stripped marginals , e.g., {{&quot;A&quot;,&quot;B&quot;,&quot;C&quot;},{&quot;B&quot;}}</div><div class="ttdef"><b>Definition</b> <a href="constraint_8h_source.html#l00146">constraint.h:146</a></div></div>
+<div class="ttc" id="aclassinf_1_1Constraint_html_a2218be49df2addaa6c5a67fc4b9c339d"><div class="ttname"><a href="classinf_1_1Constraint.html#a2218be49df2addaa6c5a67fc4b9c339d">inf::Constraint::m_rhs_reduced_dual_vector</a></div><div class="ttdeci">inf::DualVector::UniquePtr m_rhs_reduced_dual_vector</div><div class="ttdoc">The dual vector to be evaluated on m_rhs_marginal. It store the partial contraction of m_lhs_dual_vec...</div><div class="ttdef"><b>Definition</b> <a href="constraint_8h_source.html#l00153">constraint.h:153</a></div></div>
+<div class="ttc" id="aclassinf_1_1Constraint_html_a33dfeb0c7d160891d5777406af88e277"><div class="ttname"><a href="classinf_1_1Constraint.html#a33dfeb0c7d160891d5777406af88e277">inf::Constraint::set_rhs_scale</a></div><div class="ttdeci">void set_rhs_scale(Num scale)</div><div class="ttdoc">Sets the right-hand-side scale factor, denoted  in the documentation of inf::Marginal.</div><div class="ttdef"><b>Definition</b> <a href="constraint_8cpp_source.html#l00239">constraint.cpp:239</a></div></div>
+<div class="ttc" id="aclassinf_1_1Constraint_html_a34a857617723361d4646c14b34412f8a"><div class="ttname"><a href="classinf_1_1Constraint.html#a34a857617723361d4646c14b34412f8a">inf::Constraint::EvaluatorPair</a></div><div class="ttdeci">std::pair&lt; inf::Marginal::Evaluator, inf::Marginal::Evaluator &gt; EvaluatorPair</div><div class="ttdoc">This allows to more conveniently return two inf::Marginal::Evaluator in inf::Constraint::get_marg_eva...</div><div class="ttdef"><b>Definition</b> <a href="constraint_8h_source.html#l00078">constraint.h:78</a></div></div>
+<div class="ttc" id="aclassinf_1_1Constraint_html_a3647bf14ff19b0e558085229637daa94"><div class="ttname"><a href="classinf_1_1Constraint.html#a3647bf14ff19b0e558085229637daa94">inf::Constraint::get_dual_vector</a></div><div class="ttdeci">inf::DualVector const &amp; get_dual_vector() const</div><div class="ttdoc">Returns , the underlying left-hand-side inf::DualVector m_lhs_dual_vector</div><div class="ttdef"><b>Definition</b> <a href="constraint_8cpp_source.html#l00198">constraint.cpp:198</a></div></div>
+<div class="ttc" id="aclassinf_1_1Constraint_html_a41ff765b03f20de8c752f3387059754f"><div class="ttname"><a href="classinf_1_1Constraint.html#a41ff765b03f20de8c752f3387059754f">inf::Constraint::log</a></div><div class="ttdeci">void log() const override</div><div class="ttdoc">This prints the object to the globally accessible util::logger and allows the util::logger &lt;&lt; loggabl...</div><div class="ttdef"><b>Definition</b> <a href="constraint_8cpp_source.html#l00124">constraint.cpp:124</a></div></div>
+<div class="ttc" id="aclassinf_1_1Constraint_html_a4edba80a718e5a147f47b6288abd0e55"><div class="ttname"><a href="classinf_1_1Constraint.html#a4edba80a718e5a147f47b6288abd0e55">inf::Constraint::get_rhs_denom</a></div><div class="ttdeci">Num get_rhs_denom() const</div><div class="ttdoc">The right-hand-side denominator, i.e., the denominator of m_rhs_target_tensor times ,...</div><div class="ttdef"><b>Definition</b> <a href="constraint_8cpp_source.html#l00235">constraint.cpp:235</a></div></div>
+<div class="ttc" id="aclassinf_1_1Constraint_html_a539137d741d4a2a40a68cb38bf818379"><div class="ttname"><a href="classinf_1_1Constraint.html#a539137d741d4a2a40a68cb38bf818379">inf::Constraint::m_pretty_description</a></div><div class="ttdeci">std::string const m_pretty_description</div><div class="ttdef"><b>Definition</b> <a href="constraint_8h_source.html#l00129">constraint.h:129</a></div></div>
+<div class="ttc" id="aclassinf_1_1Constraint_html_a56940861a7bffd338a899402c949c6c9"><div class="ttname"><a href="classinf_1_1Constraint.html#a56940861a7bffd338a899402c949c6c9">inf::Constraint::UniquePtr</a></div><div class="ttdeci">std::unique_ptr&lt; inf::Constraint &gt; UniquePtr</div><div class="ttdef"><b>Definition</b> <a href="constraint_8h_source.html#l00029">constraint.h:29</a></div></div>
+<div class="ttc" id="aclassinf_1_1Constraint_html_a6a27630bf9bb6e380855e7890e935a52"><div class="ttname"><a href="classinf_1_1Constraint.html#a6a27630bf9bb6e380855e7890e935a52">inf::Constraint::set_dual_vector_from_quovec</a></div><div class="ttdeci">void set_dual_vector_from_quovec(inf::Quovec const &amp;coeffs, const Index start_pos)</div><div class="ttdoc">Sets the left-hand-side inf::DualVector m_lhs_dual_vector and update m_rhs_reduced_dual_vector approp...</div><div class="ttdef"><b>Definition</b> <a href="constraint_8cpp_source.html#l00268">constraint.cpp:268</a></div></div>
+<div class="ttc" id="aclassinf_1_1Constraint_html_a73d6c2cb02840f2daa8055da69dd86a9"><div class="ttname"><a href="classinf_1_1Constraint.html#a73d6c2cb02840f2daa8055da69dd86a9">inf::Constraint::get_pretty_description</a></div><div class="ttdeci">std::string const &amp; get_pretty_description() const</div><div class="ttdef"><b>Definition</b> <a href="constraint_8cpp_source.html#l00220">constraint.cpp:220</a></div></div>
+<div class="ttc" id="aclassinf_1_1Constraint_html_a85d494666c97f66178fa37ef7f91edd2"><div class="ttname"><a href="classinf_1_1Constraint.html#a85d494666c97f66178fa37ef7f91edd2">inf::Constraint::update_rhs_reduced_dual_vector</a></div><div class="ttdeci">void update_rhs_reduced_dual_vector()</div><div class="ttdoc">This contracts m_lhs_dual_vector and m_rhs_target_tensor and places the result in m_rhs_reduced_dual_...</div><div class="ttdef"><b>Definition</b> <a href="constraint_8cpp_source.html#l00354">constraint.cpp:354</a></div></div>
+<div class="ttc" id="aclassinf_1_1Constraint_html_a8f7342fef529b25a81574fa6bf970afa"><div class="ttname"><a href="classinf_1_1Constraint.html#a8f7342fef529b25a81574fa6bf970afa">inf::Constraint::m_lhs_scale</a></div><div class="ttdeci">Num m_lhs_scale</div><div class="ttdoc">This is the multiplication of all the RHS and LHS denominator, except this constraint's LHS denom,...</div><div class="ttdef"><b>Definition</b> <a href="constraint_8h_source.html#l00161">constraint.h:161</a></div></div>
+<div class="ttc" id="aclassinf_1_1Constraint_html_a97d36dee33389f270e1828cc462b4e2d"><div class="ttname"><a href="classinf_1_1Constraint.html#a97d36dee33389f270e1828cc462b4e2d">inf::Constraint::get_lhs_denom</a></div><div class="ttdeci">Num get_lhs_denom() const</div><div class="ttdoc">The left-hand-side denominator, i.e., , see inf::Marginal::get_denom()</div><div class="ttdef"><b>Definition</b> <a href="constraint_8cpp_source.html#l00226">constraint.cpp:226</a></div></div>
+<div class="ttc" id="aclassinf_1_1Constraint_html_a9af530da5633c7e8d6ee25e29488b715"><div class="ttname"><a href="classinf_1_1Constraint.html#a9af530da5633c7e8d6ee25e29488b715">inf::Constraint::Description</a></div><div class="ttdeci">std::vector&lt; std::string &gt; Description</div><div class="ttdoc">The text description of an inflation constraint, see inf::ConstraintParser for the adequate format.</div><div class="ttdef"><b>Definition</b> <a href="constraint_8h_source.html#l00032">constraint.h:32</a></div></div>
+<div class="ttc" id="aclassinf_1_1Constraint_html_a9edd7cb8eff07cd149f982cb9203f798"><div class="ttname"><a href="classinf_1_1Constraint.html#a9edd7cb8eff07cd149f982cb9203f798">inf::Constraint::m_lhs_inflation_marginal</a></div><div class="ttdeci">inf::Marginal::UniquePtr m_lhs_inflation_marginal</div><div class="ttdoc">The left-hand-side inflation marginal .</div><div class="ttdef"><b>Definition</b> <a href="constraint_8h_source.html#l00137">constraint.h:137</a></div></div>
+<div class="ttc" id="aclassinf_1_1Constraint_html_aa0dde43c2cd089b9592663b1b8b81a99"><div class="ttname"><a href="classinf_1_1Constraint.html#aa0dde43c2cd089b9592663b1b8b81a99">inf::Constraint::get_marg_evaluators</a></div><div class="ttdeci">inf::Constraint::EvaluatorPair get_marg_evaluators() const</div><div class="ttdoc">This returns the inf::Marginal::Evaluator for the left-hand-side marginal  and the right-hand-side ma...</div><div class="ttdef"><b>Definition</b> <a href="constraint_8cpp_source.html#l00206">constraint.cpp:206</a></div></div>
+<div class="ttc" id="aclassinf_1_1Constraint_html_aa3cfad75e0439bedfb7c0a53d80842ca"><div class="ttname"><a href="classinf_1_1Constraint.html#aa3cfad75e0439bedfb7c0a53d80842ca">inf::Constraint::set_lhs_scale</a></div><div class="ttdeci">void set_lhs_scale(Num scale)</div><div class="ttdoc">Sets the left-hand-side scale factor, denoted  in the documentation of inf::Marginal.</div><div class="ttdef"><b>Definition</b> <a href="constraint_8cpp_source.html#l00230">constraint.cpp:230</a></div></div>
+<div class="ttc" id="aclassinf_1_1Constraint_html_ac5ff3d4a18c462871a48cc31490c0a42"><div class="ttname"><a href="classinf_1_1Constraint.html#ac5ff3d4a18c462871a48cc31490c0a42">inf::Constraint::pretty_description</a></div><div class="ttdeci">static std::string pretty_description(inf::Constraint::Description description)</div><div class="ttdoc">To print nicely an inf::Constraint::Description.</div><div class="ttdef"><b>Definition</b> <a href="constraint_8cpp_source.html#l00006">constraint.cpp:6</a></div></div>
+<div class="ttc" id="aclassinf_1_1Constraint_html_aca39c9e1f819a081bacba3f787bb3980"><div class="ttname"><a href="classinf_1_1Constraint.html#aca39c9e1f819a081bacba3f787bb3980">inf::Constraint::m_rhs_inflation_marginal</a></div><div class="ttdeci">inf::Marginal::UniquePtr m_rhs_inflation_marginal</div><div class="ttdoc">The right-hand-side inflation marginal .</div><div class="ttdef"><b>Definition</b> <a href="constraint_8h_source.html#l00139">constraint.h:139</a></div></div>
+<div class="ttc" id="aclassinf_1_1Constraint_html_ad26c77e4a989bd9462d3c913e5199580"><div class="ttname"><a href="classinf_1_1Constraint.html#ad26c77e4a989bd9462d3c913e5199580">inf::Constraint::m_rhs_scale</a></div><div class="ttdeci">Num m_rhs_scale</div><div class="ttdoc">This is the multiplication of all the RHS and LHS denominator, except this constraint's RHS denom,...</div><div class="ttdef"><b>Definition</b> <a href="constraint_8h_source.html#l00164">constraint.h:164</a></div></div>
+<div class="ttc" id="aclassinf_1_1Constraint_html_ad6c6fddb7d2df3e72aa29e81697c210e"><div class="ttname"><a href="classinf_1_1Constraint.html#ad6c6fddb7d2df3e72aa29e81697c210e">inf::Constraint::get_quovec_size</a></div><div class="ttdeci">Index get_quovec_size() const</div><div class="ttdoc">The size , the number of elements in a quovec.</div><div class="ttdef"><b>Definition</b> <a href="constraint_8cpp_source.html#l00202">constraint.cpp:202</a></div></div>
+<div class="ttc" id="aclassinf_1_1Constraint_html_ad805b58479b154d4c129ab4d3026d2fa"><div class="ttname"><a href="classinf_1_1Constraint.html#ad805b58479b154d4c129ab4d3026d2fa">inf::Constraint::io_dual_vector</a></div><div class="ttdeci">void io_dual_vector(util::FileStream &amp;stream)</div><div class="ttdoc">This implements the I/O mechanism for the underlying inf::DualVector.</div><div class="ttdef"><b>Definition</b> <a href="constraint_8cpp_source.html#l00344">constraint.cpp:344</a></div></div>
+<div class="ttc" id="aclassinf_1_1Constraint_html_ad9f309029d0996c3b48f7ccafc5bb9a5"><div class="ttname"><a href="classinf_1_1Constraint.html#ad9f309029d0996c3b48f7ccafc5bb9a5">inf::Constraint::m_rhs_target_tensor</a></div><div class="ttdeci">inf::EventTensor::UniquePtr m_rhs_target_tensor</div><div class="ttdoc">This stores .</div><div class="ttdef"><b>Definition</b> <a href="constraint_8h_source.html#l00148">constraint.h:148</a></div></div>
+<div class="ttc" id="aclassinf_1_1Constraint_html_adf339fc0428a07eb4cfc1fa0db0df617"><div class="ttname"><a href="classinf_1_1Constraint.html#adf339fc0428a07eb4cfc1fa0db0df617">inf::Constraint::m_inflation</a></div><div class="ttdeci">inf::Inflation::ConstPtr m_inflation</div><div class="ttdoc">The underlying inflation.</div><div class="ttdef"><b>Definition</b> <a href="constraint_8h_source.html#l00131">constraint.h:131</a></div></div>
+<div class="ttc" id="aclassinf_1_1Constraint_html_ae4fb3329cf68a6bfb3635e5a22c94547"><div class="ttname"><a href="classinf_1_1Constraint.html#ae4fb3329cf68a6bfb3635e5a22c94547">inf::Constraint::set_target_distribution</a></div><div class="ttdeci">void set_target_distribution(inf::TargetDistr const &amp;d)</div><div class="ttdoc">To modify the target distribution . This updates m_rhs_target_tensor and m_rhs_reduced_dual_vector.</div><div class="ttdef"><b>Definition</b> <a href="constraint_8cpp_source.html#l00247">constraint.cpp:247</a></div></div>
+<div class="ttc" id="aclassinf_1_1Constraint_html_aeb16da1375506748a807a96b51c2fcda"><div class="ttname"><a href="classinf_1_1Constraint.html#aeb16da1375506748a807a96b51c2fcda">inf::Constraint::compute_inflation_event_quovec</a></div><div class="ttdeci">void compute_inflation_event_quovec(inf::Event const &amp;inflation_event, inf::Quovec &amp;ret, const Index offset) const</div><div class="ttdoc">This returns  where  is passed as inflation_event.</div><div class="ttdef"><b>Definition</b> <a href="constraint_8cpp_source.html#l00275">constraint.cpp:275</a></div></div>
+<div class="ttc" id="aclassinf_1_1Constraint_html_af674b22f045e2b876deeae5a4193a5ea"><div class="ttname"><a href="classinf_1_1Constraint.html#af674b22f045e2b876deeae5a4193a5ea">inf::Constraint::m_lhs_dual_vector</a></div><div class="ttdeci">inf::DualVector::UniquePtr m_lhs_dual_vector</div><div class="ttdoc">The dual vector to be evaluated on m_lhs_marginal</div><div class="ttdef"><b>Definition</b> <a href="constraint_8h_source.html#l00151">constraint.h:151</a></div></div>
+<div class="ttc" id="aclassinf_1_1Constraint_html_afc8de0049be481bc67ce9752bc380303"><div class="ttname"><a href="classinf_1_1Constraint.html#afc8de0049be481bc67ce9752bc380303">inf::Constraint::m_constraint_group</a></div><div class="ttdeci">inf::Symmetry::Group m_constraint_group</div><div class="ttdoc">The group  of constraint symmetries.</div><div class="ttdef"><b>Definition</b> <a href="constraint_8h_source.html#l00134">constraint.h:134</a></div></div>
+<div class="ttc" id="aclassinf_1_1DualVector_html"><div class="ttname"><a href="classinf_1_1DualVector.html">inf::DualVector</a></div><div class="ttdoc">Describes a dual vector  through its embedding .</div><div class="ttdef"><b>Definition</b> <a href="dual__vector_8h_source.html#l00074">dual_vector.h:74</a></div></div>
+<div class="ttc" id="aclassinf_1_1DualVector_html_a615feaafdbd4a08901a07ad60260d398"><div class="ttname"><a href="classinf_1_1DualVector.html#a615feaafdbd4a08901a07ad60260d398">inf::DualVector::StoreBounds</a></div><div class="ttdeci">StoreBounds</div><div class="ttdoc">This controls whether or not an inf::DualVector will store some bounds.</div><div class="ttdef"><b>Definition</b> <a href="dual__vector_8h_source.html#l00084">dual_vector.h:84</a></div></div>
+<div class="ttc" id="aclassinf_1_1DualVector_html_ae75d4d2e2f9bf637558789adc6ae94b3"><div class="ttname"><a href="classinf_1_1DualVector.html#ae75d4d2e2f9bf637558789adc6ae94b3">inf::DualVector::UniquePtr</a></div><div class="ttdeci">std::unique_ptr&lt; inf::DualVector &gt; UniquePtr</div><div class="ttdef"><b>Definition</b> <a href="dual__vector_8h_source.html#l00076">dual_vector.h:76</a></div></div>
+<div class="ttc" id="aclassinf_1_1EventTensor_html_a242a1e6adae3f0ec6b2d5dc557dd74f7"><div class="ttname"><a href="classinf_1_1EventTensor.html#a242a1e6adae3f0ec6b2d5dc557dd74f7">inf::EventTensor::UniquePtr</a></div><div class="ttdeci">std::unique_ptr&lt; inf::EventTensor &gt; UniquePtr</div><div class="ttdef"><b>Definition</b> <a href="event__tensor_8h_source.html#l00049">event_tensor.h:49</a></div></div>
+<div class="ttc" id="aclassinf_1_1Inflation_html"><div class="ttname"><a href="classinf_1_1Inflation.html">inf::Inflation</a></div><div class="ttdoc">Describes an inflation of a network, currently restricted to canonical inflations of the triangle net...</div><div class="ttdef"><b>Definition</b> <a href="inflation_8h_source.html#l00051">inflation.h:51</a></div></div>
+<div class="ttc" id="aclassinf_1_1Inflation_html_ac594d5b8d7cbdd7cdfe569baa351f0ba"><div class="ttname"><a href="classinf_1_1Inflation.html#ac594d5b8d7cbdd7cdfe569baa351f0ba">inf::Inflation::ConstPtr</a></div><div class="ttdeci">std::shared_ptr&lt; const inf::Inflation &gt; ConstPtr</div><div class="ttdef"><b>Definition</b> <a href="inflation_8h_source.html#l00072">inflation.h:72</a></div></div>
+<div class="ttc" id="aclassinf_1_1Marginal_html_a1da95c0b0f27996bae1a2d32c0c4eb19"><div class="ttname"><a href="classinf_1_1Marginal.html#a1da95c0b0f27996bae1a2d32c0c4eb19">inf::Marginal::UniquePtr</a></div><div class="ttdeci">std::unique_ptr&lt; inf::Marginal &gt; UniquePtr</div><div class="ttdef"><b>Definition</b> <a href="marginal_8h_source.html#l00040">marginal.h:40</a></div></div>
+<div class="ttc" id="aclassinf_1_1Symmetry_html_a901d22b86ef5923b628db86fbdd7ba4f"><div class="ttname"><a href="classinf_1_1Symmetry.html#a901d22b86ef5923b628db86fbdd7ba4f">inf::Symmetry::Group</a></div><div class="ttdeci">std::set&lt; inf::Symmetry &gt; Group</div><div class="ttdoc">A set of symmetries, typically a group.</div><div class="ttdef"><b>Definition</b> <a href="symmetry_8h_source.html#l00037">symmetry.h:37</a></div></div>
+<div class="ttc" id="aclassinf_1_1TargetDistr_html"><div class="ttname"><a href="classinf_1_1TargetDistr.html">inf::TargetDistr</a></div><div class="ttdoc">A distribution over an inf::Network.</div><div class="ttdef"><b>Definition</b> <a href="target__distr_8h_source.html#l00031">target_distr.h:31</a></div></div>
+<div class="ttc" id="aclassutil_1_1FileStream_html"><div class="ttname"><a href="classutil_1_1FileStream.html">util::FileStream</a></div><div class="ttdoc">This abstract class provides a common interface to util::InputFileStream and util::OutputFileStream t...</div><div class="ttdef"><b>Definition</b> <a href="file__stream_8h_source.html#l00098">file_stream.h:98</a></div></div>
+<div class="ttc" id="aclassutil_1_1Loggable_html"><div class="ttname"><a href="classutil_1_1Loggable.html">util::Loggable</a></div><div class="ttdoc">Defines printable classes.</div><div class="ttdef"><b>Definition</b> <a href="loggable_8h_source.html#l00009">loggable.h:9</a></div></div>
+<div class="ttc" id="adual__vector_8h_html"><div class="ttname"><a href="dual__vector_8h.html">dual_vector.h</a></div></div>
+<div class="ttc" id="agroup__event_html_gac60a6fcdfce02dc13eb7364d6a2b56b0"><div class="ttname"><a href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a></div><div class="ttdeci">std::vector&lt; inf::Outcome &gt; Event</div><div class="ttdoc">A list of inf::Outcome. Conceptually, this plays the role of  for some set .</div><div class="ttdef"><b>Definition</b> <a href="event_8h_source.html#l00030">event.h:30</a></div></div>
+<div class="ttc" id="agroup__infcons_html_ga8fa19943a83fd41acae30b7bcc935295"><div class="ttname"><a href="group__infcons.html#ga8fa19943a83fd41acae30b7bcc935295">inf::Quovec</a></div><div class="ttdeci">std::vector&lt; Num &gt; Quovec</div><div class="ttdoc">A &quot;quotiented vector&quot; denotes an element of some  for some .</div><div class="ttdef"><b>Definition</b> <a href="dual__vector_8h_source.html#l00029">dual_vector.h:29</a></div></div>
+<div class="ttc" id="agroup__util_html_ga77731aedac326062ffbdcf367185a07e"><div class="ttname"><a href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a></div><div class="ttdeci">uint64_t Index</div><div class="ttdoc">Use for anything meant to be used as an index.</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00019">types.h:19</a></div></div>
+<div class="ttc" id="agroup__util_html_gaea24f8b468377784fdb704692e9168f5"><div class="ttname"><a href="group__util.html#gaea24f8b468377784fdb704692e9168f5">Num</a></div><div class="ttdeci">int64_t Num</div><div class="ttdoc">Signed integers.</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00015">types.h:15</a></div></div>
+<div class="ttc" id="amarginal_8h_html"><div class="ttname"><a href="marginal_8h.html">marginal.h</a></div></div>
+<div class="ttc" id="anamespaceinf_html"><div class="ttname"><a href="namespaceinf.html">inf</a></div><div class="ttdoc">The namespace for the inflation code.</div><div class="ttdef"><b>Definition</b> <a href="constraint_8h_source.html#l00006">constraint.h:6</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_0f453feda2a303bb77c09f5934c109df.html">inf</a></li><li class="navelem"><a class="el" href="dir_70aecdc092d65e330aa359045744aeda.html">constraints</a></li><li class="navelem"><a class="el" href="constraint_8h.html">constraint.h</a></li>
+    <li class="footer">Generated on Wed Dec 18 2024 17:39:35 for Fast Inflation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

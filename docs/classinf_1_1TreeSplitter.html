@@ -1,0 +1,783 @@
+<!-- HTML header for doxygen 1.9.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Fast Inflation: inf::TreeSplitter Class Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+MathJax.Hub.Config({
+    TeX: {
+        Macros: {
+            dd: ["{\\text{d}#1\\,}",1],
+            nouts: ["{n_{\\text{o}}}"],
+            ints: ["{[\\![#1]\\!]}",1],
+            outset: ["{\\ints{\\nouts}}"],
+            N: ["{\\mathbb{N}}"],
+            R: ["{\\mathbb{R}}"],
+            Z: ["{\\mathbb{Z}}"],
+            infsize: ["{z}"],
+            infparties: ["{\\set{I}}"],
+            infsources: ["{\\set{S}}"],
+            infmarg: ["{\\set{A}}"],
+            infmargg: ["{\\set{B}}"],
+            netparties: ["{\\set{N}}"],
+            infq: ["{q}"],
+            infqs: ["{\\Delta_{\\infparties}}"],
+            constraintlist: ["{\\mathcal{C}}"],
+            injsets: ["{\\text{InjSets}}"],
+            infconstraints: ["{\\text{InfCons}}"],
+            parents: ["{\\text{Par}}"],
+            targetp: ["{p}"],
+            targetps: ["{\\Delta_{\\netparties}}"],
+            set: ["{\\mathbf{#1}}",1],
+            type: ["{t}"],
+            infevent: "{\\omega}",
+            events: ["{\\Omega_{#1}}",1],
+            infevents: ["{\\events{\\infparties}}"],
+            redinfevents: ["{\\tilde{\\Omega}_{\\infparties}}"],
+            netevents: ["{\\events{\\netparties}}"],
+            vecset: ["{V_{#1}}",1],
+            alice: ["{\\text{A}}"],
+            bob: ["{\\text{B}}"],
+            charlie: ["{\\text{C}}"],
+            symgroup: ["{\\text{Sym}(#1)}",1],
+            shortsymgroup: ["{\\text{Sym}_{#1}}",1],
+            act: ["{(#1\\hspace{2pt}{:}\\hspace{2pt}#2)}",2],
+            actt: ["{[#1\\hspace{2pt}{:}\\hspace{2pt}#2]}",2],
+            margperms: ["{\\text{Perm}_{#1}}",1],
+            permutedmargs: ["{\\mathbb{P}_{#1}^{\\targetp}}",1],
+            redpermutedmargs: ["{\\tilde{\\mathbb{P}}_{#1}^{\\constraintname,\\targetp}}",1],
+            extract: ["{\\text{ext}(#1,#2)}",2],
+            partysym: ["{\\tau}"],
+            sourcesym: ["{\\xi}"],
+            outsym: ["{\\sigma}"],
+            fullgroup: ["{\\text{InfGrp}}"],
+            partygroup : ["{\\text{PartyGrp}}"],
+            outgroup: ["{\\text{OutGrp}}"],
+            sourcegroup: ["{\\text{SrcGrp}}"],
+            distrgroup: ["{\\mathbb{G}^\\targetp}"],
+            constraintname: ["{c}"],
+            marggroup: ["{\\mathbb{G}^{\\constraintname,\\targetp}}"],
+            fullsymexpl: ["{(\\sourcesym,\\partysym,\\outsym)}"],
+            inner: ["{\\langle#1,#2\\rangle}", 2],
+            quovec: ["{f}"],
+            totconstraintmap: ["{K^{\\constraintlist,\\targetp}}"],
+            totconstraintmapelem: ["{K^{\\constraintname,\\targetp}}"],
+            quovecspace: ["{\\tilde{V}_{#1}^{\\constraintname,\\targetp}}", 1],
+            totquovecspace: ["{\\text{ConsSpace}(\\constraintlist,\\targetp)}"],
+            detdistr: ["{\\delta^{#1}}", 1],
+            margperm: ["{\\varphi}"],
+            altquovecembed: ["{\\text{G}_{#1}^{\\constraintname,\\targetp}}", 1],
+            vecset: ["{V_{#1}}", 1],
+            repr: ["{\\lfloor#1\\rfloor}", 1],
+            gid: ["{\\text{id}}"],
+            id: ["{1_{#1}}",1],
+            consscale: ["{K}"],
+            scaletot: ["{K_{\\text{tot}}^{\\constraintlist,\\targetp}}"],
+            minnorm: ["{d}"],
+            Bigsetst: ["\\;\\Big|\\;"],
+            activeset: ["\\mathcal{S}"],
+            conv: ["\\text{conv}"],
+            lVert: ["|\\hspace{-1pt}|"],
+            norm: ["\\lVert#1\\lVert", 1],
+            st: [":\ "],
+        }
+    }
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeDarkModeToggle.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeParagraphLink.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Fast Inflation
+   </div>
+   <div id="projectbrief">To certify causal incompatibility</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classinf_1_1TreeSplitter.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#pub-types">Public Types</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="classinf_1_1TreeSplitter-members.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">inf::TreeSplitter Class Reference<div class="ingroups"><a class="el" href="group__event.html">Events</a> &raquo; <a class="el" href="group__eventstorage.html">Event storage</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &quot;<a class="el" href="tree__splitter_8h_source.html">inf/events/tree_splitter.h</a>&quot;</code></p>
+<a name="details" id="details"></a><h2 class="groupheader">Class description</h2>
+<div class="textblock"><p>This class allows the user to partition an <a class="el" href="classinf_1_1EventTree.html" title="Storing a set of inf::Event as a tree.">inf::EventTree</a> into a group of subtrees that each have roughly the same number of leaves. </p>
+<p>This is useful for a multithreaded traversal of an <a class="el" href="classinf_1_1EventTree.html" title="Storing a set of inf::Event as a tree.">inf::EventTree</a>. To make sure that each threads gets roughly the same amount of work, it makes sense to divide the tree into subtrees that have the same amount of leaves (assuming that the work that each thread does scales with the number of leaves of the tree).</p>
+<dl class="section note"><dt>Note</dt><dd>This class is tested in a dedicated <a class="el" href="classuser_1_1Application.html" title="Parent class of user applications.">user::Application</a>: see <a class="el" href="classuser_1_1tree__splitter.html" title="Tests the tree splitting mechanism on a simple case as described in inf::TreeSplitter.">user::tree_splitter</a>.</dd></dl>
+<h3><a class="anchor" id="autotoc_md26"></a>
+Idea of the split</h3>
+<p>Let us assume no compression in the <a class="el" href="classinf_1_1EventTree.html" title="Storing a set of inf::Event as a tree.">inf::EventTree</a>, so that we simply store <a class="el" href="classinf_1_1EventTree_1_1Node.html" title="A node of the inf::EventTree, storing an outcome and some other inf::EventTreee::Node as children.">inf::EventTree::Node</a> as <code>N[d][i]</code>, where <code>d</code> is the depth of the node and <code>i</code> is the index of the node at that depth. Suppose that we want to split the following tree in two: </p><div class="image">
+<img src="tree_5.png" alt=""/>
+</div>
+<p> We see that splitting at depth 0 results in two subtrees with 1 and 3 leaves, respectively, which is unbalanced. To measure the amount of imbalance, we use the ratio of \(n_\text{max} / n_\text{min} \), where \(n_\text{max}\) ( \(n_\text{min}\)) is the number of leaves of the subtree with the most (fewest) leaves. In this case, the quality factor would be 3, which is too high. We can instead try to split at depth 1. In this case, the split at depth 1 can be described as follows: </p><div class="fragment"><div class="line"><a class="code hl_typedef" href="classinf_1_1TreeSplitter.html#abf26e3c85871c94ee6970d573e2cd0a3">inf::TreeSplitter::PathPartition</a> path_partition = {</div>
+<div class="line">    <span class="comment">// First subtree with 2 leaves</span></div>
+<div class="line">    {</div>
+<div class="line">        <span class="comment">// First path to explore</span></div>
+<div class="line">        {0, 0}, <span class="comment">// Meaning: N[0][0] then N[1][0]. This path has 1 leaf.</span></div>
+<div class="line">        <span class="comment">// Second path to explore</span></div>
+<div class="line">        {1, 1} <span class="comment">// Meaning: N[0][1] then N[1][1]. This path has 1 leaf.</span></div>
+<div class="line">    },</div>
+<div class="line">    <span class="comment">// Second subtree with 2 leaves</span></div>
+<div class="line">    {</div>
+<div class="line">        <span class="comment">// First path to explore</span></div>
+<div class="line">        {1, 2} <span class="comment">// Meaning: N[0][1] then N[1][2]. This path has 2 leaves.</span></div>
+<div class="line">    }</div>
+<div class="line">}</div>
+<div class="ttc" id="aclassinf_1_1TreeSplitter_html_abf26e3c85871c94ee6970d573e2cd0a3"><div class="ttname"><a href="classinf_1_1TreeSplitter.html#abf26e3c85871c94ee6970d573e2cd0a3">inf::TreeSplitter::PathPartition</a></div><div class="ttdeci">std::vector&lt; std::vector&lt; Path &gt; &gt; PathPartition</div><div class="ttdoc">A path partition is a list of subtrees, where a subtree is represented a list of inf::TreeSplitter::P...</div><div class="ttdef"><b>Definition</b> <a href="tree__splitter_8h_source.html#l00065">tree_splitter.h:65</a></div></div>
+</div><!-- fragment --><p> Since each subtree has two leaves, the quality factor is 1 in this case (a perfect split). In practice, we aim for a quality factor of at most <a class="el" href="classinf_1_1TreeSplitter.html#a31d039cb9148d382156d269f8c9bb80f" title="This is an upper bound on the ratio , where  ( ) is the number of leaves of the subtree with the most...">inf::TreeSplitter::target_quality_factor</a>. The above example assumes no compression, but the compression algorithm of the <a class="el" href="classinf_1_1EventTree.html" title="Storing a set of inf::Event as a tree.">inf::EventTree</a> simply amounts to a different way of labeling each node, which does not change the reasoning of how to perform the split. To see this example in action with the compression algorithm, please refer to the test <a class="el" href="classuser_1_1event__tree.html" title="Tests inf::EventTree, including IO mecanism.">user::event_tree</a>. </p>
+
+<p class="definition">Definition at line <a class="el" href="tree__splitter_8h_source.html#l00052">52</a> of file <a class="el" href="tree__splitter_8h_source.html">tree_splitter.h</a>.</p>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structinf_1_1TreeSplitter_1_1PathAndLeaves.html">PathAndLeaves</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">We will look at the set of paths that finish at a certain depth, and we need to know the number of (non-unique) leaves that each path contains.  <a href="structinf_1_1TreeSplitter_1_1PathAndLeaves.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a5fb0385e00760c8fd014cd44d0806764"><td class="memItemLeft" align="right" valign="top">typedef std::vector&lt; <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TreeSplitter.html#a5fb0385e00760c8fd014cd44d0806764">Path</a></td></tr>
+<tr class="memdesc:a5fb0385e00760c8fd014cd44d0806764"><td class="mdescLeft">&#160;</td><td class="mdescRight">A path from the root to a (typically non-terminal) node of an <a class="el" href="classinf_1_1EventTree.html" title="Storing a set of inf::Event as a tree.">inf::EventTree</a>.  <br /></td></tr>
+<tr class="separator:a5fb0385e00760c8fd014cd44d0806764"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf26e3c85871c94ee6970d573e2cd0a3"><td class="memItemLeft" align="right" valign="top">typedef std::vector&lt; std::vector&lt; <a class="el" href="classinf_1_1TreeSplitter.html#a5fb0385e00760c8fd014cd44d0806764">Path</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TreeSplitter.html#abf26e3c85871c94ee6970d573e2cd0a3">PathPartition</a></td></tr>
+<tr class="memdesc:abf26e3c85871c94ee6970d573e2cd0a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">A path partition is a list of subtrees, where a subtree is represented a list of <a class="el" href="classinf_1_1TreeSplitter.html#a5fb0385e00760c8fd014cd44d0806764" title="A path from the root to a (typically non-terminal) node of an inf::EventTree.">inf::TreeSplitter::Path</a>.  <br /></td></tr>
+<tr class="separator:abf26e3c85871c94ee6970d573e2cd0a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23926ffb73ad28b8b232de30e5600698"><td class="memItemLeft" align="right" valign="top">typedef std::shared_ptr&lt; <a class="el" href="classinf_1_1TreeSplitter.html#abf26e3c85871c94ee6970d573e2cd0a3">PathPartition</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TreeSplitter.html#a23926ffb73ad28b8b232de30e5600698">PathPartitionPtr</a></td></tr>
+<tr class="separator:a23926ffb73ad28b8b232de30e5600698"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0ba7ca1dc677a7edf501f12f12dd0dd"><td class="memItemLeft" align="right" valign="top">typedef std::shared_ptr&lt; const <a class="el" href="classinf_1_1TreeSplitter.html#abf26e3c85871c94ee6970d573e2cd0a3">PathPartition</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TreeSplitter.html#ae0ba7ca1dc677a7edf501f12f12dd0dd">PathPartitionConstPtr</a></td></tr>
+<tr class="separator:ae0ba7ca1dc677a7edf501f12f12dd0dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:acb1172d73b934655949568d3db812b44"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classinf_1_1TreeSplitter.html#ae0ba7ca1dc677a7edf501f12f12dd0dd">PathPartitionConstPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TreeSplitter.html#acb1172d73b934655949568d3db812b44">get_path_partition</a> (<a class="el" href="classinf_1_1EventTree.html">inf::EventTree</a> const &amp;event_tree, <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> const n_splits)</td></tr>
+<tr class="memdesc:acb1172d73b934655949568d3db812b44"><td class="mdescLeft">&#160;</td><td class="mdescRight">The main method of the class that the user should call to divide an <a class="el" href="classinf_1_1EventTree.html" title="Storing a set of inf::Event as a tree.">inf::EventTree</a> <code>event_tree</code> approximately equally in <code>n_splits</code> many subtrees.  <br /></td></tr>
+<tr class="separator:acb1172d73b934655949568d3db812b44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:a31d039cb9148d382156d269f8c9bb80f"><td class="memItemLeft" align="right" valign="top">static double const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TreeSplitter.html#a31d039cb9148d382156d269f8c9bb80f">target_quality_factor</a> = 1.1</td></tr>
+<tr class="memdesc:a31d039cb9148d382156d269f8c9bb80f"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is an upper bound on the ratio \(n_\text{max} / n_\text{min} \), where \(n_\text{max}\) ( \(n_\text{min}\)) is the number of leaves of the subtree with the most (fewest) leaves.  <br /></td></tr>
+<tr class="separator:a31d039cb9148d382156d269f8c9bb80f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:ae7af7cf3f2ec359757a0dd9522061b5a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TreeSplitter.html#ae7af7cf3f2ec359757a0dd9522061b5a">TreeSplitter</a> (<a class="el" href="classinf_1_1EventTree.html">inf::EventTree</a> const &amp;event_tree, <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> const n_splits)</td></tr>
+<tr class="memdesc:ae7af7cf3f2ec359757a0dd9522061b5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The constructor is private because this class is meant to only instantiate temporary objects, use <a class="el" href="classinf_1_1TreeSplitter.html#acb1172d73b934655949568d3db812b44" title="The main method of the class that the user should call to divide an inf::EventTree event_tree approxi...">inf::TreeSplitter::get_path_partition()</a> instead.  <br /></td></tr>
+<tr class="separator:ae7af7cf3f2ec359757a0dd9522061b5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a061f4f38814a6acc823e28fef393c81c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classinf_1_1TreeSplitter.html#ae0ba7ca1dc677a7edf501f12f12dd0dd">PathPartitionConstPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TreeSplitter.html#a061f4f38814a6acc823e28fef393c81c">get_path_partition</a> () const</td></tr>
+<tr class="memdesc:a061f4f38814a6acc823e28fef393c81c"><td class="mdescLeft">&#160;</td><td class="mdescRight">To obtain the path partition after computing it.  <br /></td></tr>
+<tr class="separator:a061f4f38814a6acc823e28fef393c81c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e087b58aec02b07998d35e5a14952d7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TreeSplitter.html#a3e087b58aec02b07998d35e5a14952d7">try_to_split_at_depth</a> (<a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> const depth)</td></tr>
+<tr class="memdesc:a3e087b58aec02b07998d35e5a14952d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method returns true if the split was successful, in which case <code>m_path_partition</code> is appropriately set, else returns false.  <br /></td></tr>
+<tr class="separator:a3e087b58aec02b07998d35e5a14952d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03cd23f476e034a73d73b73be05b5b73"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structinf_1_1TreeSplitter_1_1PathAndLeaves.html">inf::TreeSplitter::PathAndLeaves</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TreeSplitter.html#a03cd23f476e034a73d73b73be05b5b73">get_paths_and_leaves</a> (<a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> const depth, <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> const breadth) const</td></tr>
+<tr class="memdesc:a03cd23f476e034a73d73b73be05b5b73"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method returns all the paths at the given depth, ordered according to the number of leaves they carry. The number of leaves they each carry is also returned.  <br /></td></tr>
+<tr class="separator:a03cd23f476e034a73d73b73be05b5b73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb451a56e9e430ed313a5c9fcffb03f1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TreeSplitter.html#acb451a56e9e430ed313a5c9fcffb03f1">find_splits</a> (std::vector&lt; <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> &gt; &amp;splits, std::vector&lt; <a class="el" href="structinf_1_1TreeSplitter_1_1PathAndLeaves.html">PathAndLeaves</a> &gt; const &amp;paths_and_leaves) const</td></tr>
+<tr class="memdesc:acb451a56e9e430ed313a5c9fcffb03f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attemps to divide the <code>paths_and_leaves</code> vector into almost-equal (in terms of number of leaves) consecutive lists.  <br /></td></tr>
+<tr class="separator:acb451a56e9e430ed313a5c9fcffb03f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a0156d864ba5f4f9288b72aef3eed1d24"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classinf_1_1EventTree.html">inf::EventTree</a> const  &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TreeSplitter.html#a0156d864ba5f4f9288b72aef3eed1d24">m_event_tree</a></td></tr>
+<tr class="memdesc:a0156d864ba5f4f9288b72aef3eed1d24"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="classinf_1_1EventTree.html" title="Storing a set of inf::Event as a tree.">inf::EventTree</a> to split.  <br /></td></tr>
+<tr class="separator:a0156d864ba5f4f9288b72aef3eed1d24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5dd6ba21ce908f82c0e8452a4e9ae785"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TreeSplitter.html#a5dd6ba21ce908f82c0e8452a4e9ae785">m_n_splits</a></td></tr>
+<tr class="memdesc:a5dd6ba21ce908f82c0e8452a4e9ae785"><td class="mdescLeft">&#160;</td><td class="mdescRight">The size of the desired partition of the <a class="el" href="classinf_1_1EventTree.html" title="Storing a set of inf::Event as a tree.">inf::EventTree</a>. Typically, this corresponds to the number of threads of the program.  <br /></td></tr>
+<tr class="separator:a5dd6ba21ce908f82c0e8452a4e9ae785"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed7afa3a973bfd755c57ab48ecaa0ac7"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TreeSplitter.html#aed7afa3a973bfd755c57ab48ecaa0ac7">m_quality_factor</a></td></tr>
+<tr class="memdesc:aed7afa3a973bfd755c57ab48ecaa0ac7"><td class="mdescLeft">&#160;</td><td class="mdescRight">The ratio between the max and min number of leaves per subtree of the partition. Should be close to 1.0.  <br /></td></tr>
+<tr class="separator:aed7afa3a973bfd755c57ab48ecaa0ac7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af009fb3e525a3002f02cac6914eeeed9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classinf_1_1TreeSplitter.html#a23926ffb73ad28b8b232de30e5600698">PathPartitionPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TreeSplitter.html#af009fb3e525a3002f02cac6914eeeed9">m_path_partition</a></td></tr>
+<tr class="memdesc:af009fb3e525a3002f02cac6914eeeed9"><td class="mdescLeft">&#160;</td><td class="mdescRight">A list of size <code>m_n_splits</code>, each of which is a list of Path describing a subtree.  <br /></td></tr>
+<tr class="separator:af009fb3e525a3002f02cac6914eeeed9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acbd3fff17b0029083b181998c1c1f5d4"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1TreeSplitter.html#acbd3fff17b0029083b181998c1c1f5d4">m_leave_thresholds</a></td></tr>
+<tr class="memdesc:acbd3fff17b0029083b181998c1c1f5d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">This list takes the form {0, n, 2n, ...} where n is the hoped-for number of leaves per subtree. The first element, 0, is for more convenient indexing.  <br /></td></tr>
+<tr class="separator:acbd3fff17b0029083b181998c1c1f5d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a5fb0385e00760c8fd014cd44d0806764" name="a5fb0385e00760c8fd014cd44d0806764"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5fb0385e00760c8fd014cd44d0806764">&#9670;&#160;</a></span>Path</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::vector&lt;<a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a>&gt; <a class="el" href="classinf_1_1TreeSplitter.html#a5fb0385e00760c8fd014cd44d0806764">inf::TreeSplitter::Path</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A path from the root to a (typically non-terminal) node of an <a class="el" href="classinf_1_1EventTree.html" title="Storing a set of inf::Event as a tree.">inf::EventTree</a>. </p>
+
+<p class="definition">Definition at line <a class="el" href="tree__splitter_8h_source.html#l00055">55</a> of file <a class="el" href="tree__splitter_8h_source.html">tree_splitter.h</a>.</p>
+
+</div>
+</div>
+<a id="abf26e3c85871c94ee6970d573e2cd0a3" name="abf26e3c85871c94ee6970d573e2cd0a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf26e3c85871c94ee6970d573e2cd0a3">&#9670;&#160;</a></span>PathPartition</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::vector&lt;std::vector&lt;<a class="el" href="classinf_1_1TreeSplitter.html#a5fb0385e00760c8fd014cd44d0806764">Path</a>&gt; &gt; <a class="el" href="classinf_1_1TreeSplitter.html#abf26e3c85871c94ee6970d573e2cd0a3">inf::TreeSplitter::PathPartition</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A path partition is a list of subtrees, where a subtree is represented a list of <a class="el" href="classinf_1_1TreeSplitter.html#a5fb0385e00760c8fd014cd44d0806764" title="A path from the root to a (typically non-terminal) node of an inf::EventTree.">inf::TreeSplitter::Path</a>. </p>
+
+<p class="definition">Definition at line <a class="el" href="tree__splitter_8h_source.html#l00065">65</a> of file <a class="el" href="tree__splitter_8h_source.html">tree_splitter.h</a>.</p>
+
+</div>
+</div>
+<a id="a23926ffb73ad28b8b232de30e5600698" name="a23926ffb73ad28b8b232de30e5600698"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23926ffb73ad28b8b232de30e5600698">&#9670;&#160;</a></span>PathPartitionPtr</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::shared_ptr&lt;<a class="el" href="classinf_1_1TreeSplitter.html#abf26e3c85871c94ee6970d573e2cd0a3">PathPartition</a>&gt; <a class="el" href="classinf_1_1TreeSplitter.html#a23926ffb73ad28b8b232de30e5600698">inf::TreeSplitter::PathPartitionPtr</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="tree__splitter_8h_source.html#l00066">66</a> of file <a class="el" href="tree__splitter_8h_source.html">tree_splitter.h</a>.</p>
+
+</div>
+</div>
+<a id="ae0ba7ca1dc677a7edf501f12f12dd0dd" name="ae0ba7ca1dc677a7edf501f12f12dd0dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0ba7ca1dc677a7edf501f12f12dd0dd">&#9670;&#160;</a></span>PathPartitionConstPtr</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::shared_ptr&lt;const <a class="el" href="classinf_1_1TreeSplitter.html#abf26e3c85871c94ee6970d573e2cd0a3">PathPartition</a>&gt; <a class="el" href="classinf_1_1TreeSplitter.html#ae0ba7ca1dc677a7edf501f12f12dd0dd">inf::TreeSplitter::PathPartitionConstPtr</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="tree__splitter_8h_source.html#l00067">67</a> of file <a class="el" href="tree__splitter_8h_source.html">tree_splitter.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ae7af7cf3f2ec359757a0dd9522061b5a" name="ae7af7cf3f2ec359757a0dd9522061b5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7af7cf3f2ec359757a0dd9522061b5a">&#9670;&#160;</a></span>TreeSplitter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">inf::TreeSplitter::TreeSplitter </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classinf_1_1EventTree.html">inf::EventTree</a> const &amp;&#160;</td>
+          <td class="paramname"><em>event_tree</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> const&#160;</td>
+          <td class="paramname"><em>n_splits</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The constructor is private because this class is meant to only instantiate temporary objects, use <a class="el" href="classinf_1_1TreeSplitter.html#acb1172d73b934655949568d3db812b44" title="The main method of the class that the user should call to divide an inf::EventTree event_tree approxi...">inf::TreeSplitter::get_path_partition()</a> instead. </p>
+
+<p class="definition">Definition at line <a class="el" href="tree__splitter_8cpp_source.html#l00020">20</a> of file <a class="el" href="tree__splitter_8cpp_source.html">tree_splitter.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="acb1172d73b934655949568d3db812b44" name="acb1172d73b934655949568d3db812b44"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb1172d73b934655949568d3db812b44">&#9670;&#160;</a></span>get_path_partition() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classinf_1_1TreeSplitter.html#ae0ba7ca1dc677a7edf501f12f12dd0dd">inf::TreeSplitter::PathPartitionConstPtr</a> inf::TreeSplitter::get_path_partition </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classinf_1_1EventTree.html">inf::EventTree</a> const &amp;&#160;</td>
+          <td class="paramname"><em>event_tree</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> const&#160;</td>
+          <td class="paramname"><em>n_splits</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The main method of the class that the user should call to divide an <a class="el" href="classinf_1_1EventTree.html" title="Storing a set of inf::Event as a tree.">inf::EventTree</a> <code>event_tree</code> approximately equally in <code>n_splits</code> many subtrees. </p>
+<p>This function will throw errors if it does not manage to find a suitable split. </p>
+
+<p class="definition">Definition at line <a class="el" href="tree__splitter_8cpp_source.html#l00013">13</a> of file <a class="el" href="tree__splitter_8cpp_source.html">tree_splitter.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a061f4f38814a6acc823e28fef393c81c" name="a061f4f38814a6acc823e28fef393c81c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a061f4f38814a6acc823e28fef393c81c">&#9670;&#160;</a></span>get_path_partition() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classinf_1_1TreeSplitter.html#ae0ba7ca1dc677a7edf501f12f12dd0dd">PathPartitionConstPtr</a> inf::TreeSplitter::get_path_partition </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>To obtain the path partition after computing it. </p>
+
+<p class="definition">Definition at line <a class="el" href="tree__splitter_8h_source.html#l00084">84</a> of file <a class="el" href="tree__splitter_8h_source.html">tree_splitter.h</a>.</p>
+
+</div>
+</div>
+<a id="a3e087b58aec02b07998d35e5a14952d7" name="a3e087b58aec02b07998d35e5a14952d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e087b58aec02b07998d35e5a14952d7">&#9670;&#160;</a></span>try_to_split_at_depth()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool inf::TreeSplitter::try_to_split_at_depth </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> const&#160;</td>
+          <td class="paramname"><em>depth</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This method returns true if the split was successful, in which case <code>m_path_partition</code> is appropriately set, else returns false. </p>
+
+<p class="definition">Definition at line <a class="el" href="tree__splitter_8cpp_source.html#l00074">74</a> of file <a class="el" href="tree__splitter_8cpp_source.html">tree_splitter.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a03cd23f476e034a73d73b73be05b5b73" name="a03cd23f476e034a73d73b73be05b5b73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03cd23f476e034a73d73b73be05b5b73">&#9670;&#160;</a></span>get_paths_and_leaves()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="structinf_1_1TreeSplitter_1_1PathAndLeaves.html">inf::TreeSplitter::PathAndLeaves</a> &gt; inf::TreeSplitter::get_paths_and_leaves </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> const&#160;</td>
+          <td class="paramname"><em>depth</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> const&#160;</td>
+          <td class="paramname"><em>breadth</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This method returns all the paths at the given depth, ordered according to the number of leaves they carry. The number of leaves they each carry is also returned. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">depth</td><td></td></tr>
+    <tr><td class="paramname">breadth</td><td>The method <a class="el" href="classinf_1_1EventTree.html#ad3899d02a354fcd352f1d07e624d8ef4" title="Returns the breadth (number of nodes, counting duplicates) of the tree at depth.">inf::EventTree::get_breadth_at_depth()</a> can be a bit slow, and it was already invoked before we call this method, so we simply pass the <code>breadth</code> as a parameter instead of recomputing it. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="tree__splitter_8cpp_source.html#l00141">141</a> of file <a class="el" href="tree__splitter_8cpp_source.html">tree_splitter.cpp</a>.</p>
+
+</div>
+</div>
+<a id="acb451a56e9e430ed313a5c9fcffb03f1" name="acb451a56e9e430ed313a5c9fcffb03f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb451a56e9e430ed313a5c9fcffb03f1">&#9670;&#160;</a></span>find_splits()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool inf::TreeSplitter::find_splits </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>splits</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="structinf_1_1TreeSplitter_1_1PathAndLeaves.html">PathAndLeaves</a> &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>paths_and_leaves</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Attemps to divide the <code>paths_and_leaves</code> vector into almost-equal (in terms of number of leaves) consecutive lists. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">splits</td><td>Can be passed as empty list. This list will hold the start position of each sublist relative to the indices of <code>paths_and_leaves</code>. The split number <code>i</code> refers to <code>paths_and_leaves[splits[i]]</code> to <code>paths_and_leaves[splits[i+1]-1]</code>, hence <code>splits[0]</code> is always 0 and <code>splits.back()</code> is always <code>paths_and_leaves.size()-1</code>. </td></tr>
+    <tr><td class="paramname">paths_and_leaves</td><td>The list of paths at a certain depth. Ordering this list (before passing it as parameter) by the number of leaves of the paths helps finding a better split. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="tree__splitter_8cpp_source.html#l00187">187</a> of file <a class="el" href="tree__splitter_8cpp_source.html">tree_splitter.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a31d039cb9148d382156d269f8c9bb80f" name="a31d039cb9148d382156d269f8c9bb80f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31d039cb9148d382156d269f8c9bb80f">&#9670;&#160;</a></span>target_quality_factor</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double const inf::TreeSplitter::target_quality_factor = 1.1</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This is an upper bound on the ratio \(n_\text{max} / n_\text{min} \), where \(n_\text{max}\) ( \(n_\text{min}\)) is the number of leaves of the subtree with the most (fewest) leaves. </p>
+
+<p class="definition">Definition at line <a class="el" href="tree__splitter_8h_source.html#l00071">71</a> of file <a class="el" href="tree__splitter_8h_source.html">tree_splitter.h</a>.</p>
+
+</div>
+</div>
+<a id="a0156d864ba5f4f9288b72aef3eed1d24" name="a0156d864ba5f4f9288b72aef3eed1d24"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0156d864ba5f4f9288b72aef3eed1d24">&#9670;&#160;</a></span>m_event_tree</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classinf_1_1EventTree.html">inf::EventTree</a> const&amp; inf::TreeSplitter::m_event_tree</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The <a class="el" href="classinf_1_1EventTree.html" title="Storing a set of inf::Event as a tree.">inf::EventTree</a> to split. </p>
+<p>Only required to be a valid reference during the invocation of the constructor. </p>
+
+<p class="definition">Definition at line <a class="el" href="tree__splitter_8h_source.html#l00113">113</a> of file <a class="el" href="tree__splitter_8h_source.html">tree_splitter.h</a>.</p>
+
+</div>
+</div>
+<a id="a5dd6ba21ce908f82c0e8452a4e9ae785" name="a5dd6ba21ce908f82c0e8452a4e9ae785"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5dd6ba21ce908f82c0e8452a4e9ae785">&#9670;&#160;</a></span>m_n_splits</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> const inf::TreeSplitter::m_n_splits</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The size of the desired partition of the <a class="el" href="classinf_1_1EventTree.html" title="Storing a set of inf::Event as a tree.">inf::EventTree</a>. Typically, this corresponds to the number of threads of the program. </p>
+
+<p class="definition">Definition at line <a class="el" href="tree__splitter_8h_source.html#l00115">115</a> of file <a class="el" href="tree__splitter_8h_source.html">tree_splitter.h</a>.</p>
+
+</div>
+</div>
+<a id="aed7afa3a973bfd755c57ab48ecaa0ac7" name="aed7afa3a973bfd755c57ab48ecaa0ac7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed7afa3a973bfd755c57ab48ecaa0ac7">&#9670;&#160;</a></span>m_quality_factor</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double inf::TreeSplitter::m_quality_factor</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The ratio between the max and min number of leaves per subtree of the partition. Should be close to 1.0. </p>
+
+<p class="definition">Definition at line <a class="el" href="tree__splitter_8h_source.html#l00117">117</a> of file <a class="el" href="tree__splitter_8h_source.html">tree_splitter.h</a>.</p>
+
+</div>
+</div>
+<a id="af009fb3e525a3002f02cac6914eeeed9" name="af009fb3e525a3002f02cac6914eeeed9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af009fb3e525a3002f02cac6914eeeed9">&#9670;&#160;</a></span>m_path_partition</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classinf_1_1TreeSplitter.html#a23926ffb73ad28b8b232de30e5600698">PathPartitionPtr</a> inf::TreeSplitter::m_path_partition</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A list of size <code>m_n_splits</code>, each of which is a list of Path describing a subtree. </p>
+<p>When multithreading, each thread receives one element of this list to investigate. </p>
+
+<p class="definition">Definition at line <a class="el" href="tree__splitter_8h_source.html#l00120">120</a> of file <a class="el" href="tree__splitter_8h_source.html">tree_splitter.h</a>.</p>
+
+</div>
+</div>
+<a id="acbd3fff17b0029083b181998c1c1f5d4" name="acbd3fff17b0029083b181998c1c1f5d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acbd3fff17b0029083b181998c1c1f5d4">&#9670;&#160;</a></span>m_leave_thresholds</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a>&gt; inf::TreeSplitter::m_leave_thresholds</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This list takes the form {0, n, 2n, ...} where n is the hoped-for number of leaves per subtree. The first element, 0, is for more convenient indexing. </p>
+
+<p class="definition">Definition at line <a class="el" href="tree__splitter_8h_source.html#l00123">123</a> of file <a class="el" href="tree__splitter_8h_source.html">tree_splitter.h</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>src/inf/events/<a class="el" href="tree__splitter_8h_source.html">tree_splitter.h</a></li>
+<li>src/inf/events/<a class="el" href="tree__splitter_8cpp_source.html">tree_splitter.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceinf.html">inf</a></li><li class="navelem"><a class="el" href="classinf_1_1TreeSplitter.html">TreeSplitter</a></li>
+    <li class="footer">Generated on Wed Dec 18 2024 17:39:43 for Fast Inflation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,1770 @@
+<!-- HTML header for doxygen 1.9.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Fast Inflation: inf::Inflation Class Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+MathJax.Hub.Config({
+    TeX: {
+        Macros: {
+            dd: ["{\\text{d}#1\\,}",1],
+            nouts: ["{n_{\\text{o}}}"],
+            ints: ["{[\\![#1]\\!]}",1],
+            outset: ["{\\ints{\\nouts}}"],
+            N: ["{\\mathbb{N}}"],
+            R: ["{\\mathbb{R}}"],
+            Z: ["{\\mathbb{Z}}"],
+            infsize: ["{z}"],
+            infparties: ["{\\set{I}}"],
+            infsources: ["{\\set{S}}"],
+            infmarg: ["{\\set{A}}"],
+            infmargg: ["{\\set{B}}"],
+            netparties: ["{\\set{N}}"],
+            infq: ["{q}"],
+            infqs: ["{\\Delta_{\\infparties}}"],
+            constraintlist: ["{\\mathcal{C}}"],
+            injsets: ["{\\text{InjSets}}"],
+            infconstraints: ["{\\text{InfCons}}"],
+            parents: ["{\\text{Par}}"],
+            targetp: ["{p}"],
+            targetps: ["{\\Delta_{\\netparties}}"],
+            set: ["{\\mathbf{#1}}",1],
+            type: ["{t}"],
+            infevent: "{\\omega}",
+            events: ["{\\Omega_{#1}}",1],
+            infevents: ["{\\events{\\infparties}}"],
+            redinfevents: ["{\\tilde{\\Omega}_{\\infparties}}"],
+            netevents: ["{\\events{\\netparties}}"],
+            vecset: ["{V_{#1}}",1],
+            alice: ["{\\text{A}}"],
+            bob: ["{\\text{B}}"],
+            charlie: ["{\\text{C}}"],
+            symgroup: ["{\\text{Sym}(#1)}",1],
+            shortsymgroup: ["{\\text{Sym}_{#1}}",1],
+            act: ["{(#1\\hspace{2pt}{:}\\hspace{2pt}#2)}",2],
+            actt: ["{[#1\\hspace{2pt}{:}\\hspace{2pt}#2]}",2],
+            margperms: ["{\\text{Perm}_{#1}}",1],
+            permutedmargs: ["{\\mathbb{P}_{#1}^{\\targetp}}",1],
+            redpermutedmargs: ["{\\tilde{\\mathbb{P}}_{#1}^{\\constraintname,\\targetp}}",1],
+            extract: ["{\\text{ext}(#1,#2)}",2],
+            partysym: ["{\\tau}"],
+            sourcesym: ["{\\xi}"],
+            outsym: ["{\\sigma}"],
+            fullgroup: ["{\\text{InfGrp}}"],
+            partygroup : ["{\\text{PartyGrp}}"],
+            outgroup: ["{\\text{OutGrp}}"],
+            sourcegroup: ["{\\text{SrcGrp}}"],
+            distrgroup: ["{\\mathbb{G}^\\targetp}"],
+            constraintname: ["{c}"],
+            marggroup: ["{\\mathbb{G}^{\\constraintname,\\targetp}}"],
+            fullsymexpl: ["{(\\sourcesym,\\partysym,\\outsym)}"],
+            inner: ["{\\langle#1,#2\\rangle}", 2],
+            quovec: ["{f}"],
+            totconstraintmap: ["{K^{\\constraintlist,\\targetp}}"],
+            totconstraintmapelem: ["{K^{\\constraintname,\\targetp}}"],
+            quovecspace: ["{\\tilde{V}_{#1}^{\\constraintname,\\targetp}}", 1],
+            totquovecspace: ["{\\text{ConsSpace}(\\constraintlist,\\targetp)}"],
+            detdistr: ["{\\delta^{#1}}", 1],
+            margperm: ["{\\varphi}"],
+            altquovecembed: ["{\\text{G}_{#1}^{\\constraintname,\\targetp}}", 1],
+            vecset: ["{V_{#1}}", 1],
+            repr: ["{\\lfloor#1\\rfloor}", 1],
+            gid: ["{\\text{id}}"],
+            id: ["{1_{#1}}",1],
+            consscale: ["{K}"],
+            scaletot: ["{K_{\\text{tot}}^{\\constraintlist,\\targetp}}"],
+            minnorm: ["{d}"],
+            Bigsetst: ["\\;\\Big|\\;"],
+            activeset: ["\\mathcal{S}"],
+            conv: ["\\text{conv}"],
+            lVert: ["|\\hspace{-1pt}|"],
+            norm: ["\\lVert#1\\lVert", 1],
+            st: [":\ "],
+        }
+    }
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeDarkModeToggle.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeParagraphLink.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Fast Inflation
+   </div>
+   <div id="projectbrief">To certify causal incompatibility</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classinf_1_1Inflation.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-static-methods">Static Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="classinf_1_1Inflation-members.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">inf::Inflation Class Reference<div class="ingroups"><a class="el" href="group__inflation.html">Inflation</a> &raquo; <a class="el" href="group__infback.html">Inflation backend</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &quot;<a class="el" href="inflation_8h_source.html">inf/inf_problem/inflation.h</a>&quot;</code></p>
+<a name="details" id="details"></a><h2 class="groupheader">Class description</h2>
+<div class="textblock"><p>Describes an inflation of a network, currently restricted to canonical inflations of the triangle network. </p>
+<p>Recall that the class <a class="el" href="classinf_1_1Network.html" title="The network with which the classical causal compatibility of a target distribution is to be tested.">inf::Network</a> currently only describes the triangle network, but paves the way for treating more general networks. The <a class="el" href="classinf_1_1Inflation.html" title="Describes an inflation of a network, currently restricted to canonical inflations of the triangle net...">inf::Inflation</a> class is similar: some of its methods are (almost) ready for more general inflations of more general networks, but currently, it only allow to describe canonical inflations of the triangle network.</p>
+<h3><a class="anchor" id="autotoc_md27"></a>
+Description of the inflation</h3>
+<p>We consider inflations indexed by an inflation size \(\infsize = (\infsize_1,\infsize_2,\infsize_3) \in \N^3\), where \(\infsize_\type\) denotes the number of copies of the source of type \(\type\) (where \(\type=0\) means the \(\alpha\) source, \(\type=1\) means the \(\beta\) source, and \(\type=2\) means the \(\gamma\) source). The inflation parties are denoted with the type <a class="el" href="classinf_1_1Inflation.html#a7c8ea56bc938131a6d4d101469a34644" title="The inflation parties  are denoted with this type, and take the form , where  denotes the type of the...">inf::Inflation::Party</a>, and take the form \((\type,(j,k))\), where \(\type\) denotes the type of the party ( \(\type = 0\) means Alice, \(\type = 1\) means Bob, and \(\type = 2\) means Charlie) and \(j\) ( \(k\)) is the index of the copy of the left (right) source that the party receives.</p>
+<p>For instance, in the case \(\infsize = (2,2,2)\) (two copies of each source), the inflation graph looks as follows:</p>
+<div class="image">
+<img src="inf_graph_222.png" alt="" width="350px"/>
+</div>
+<h3><a class="anchor" id="autotoc_md28"></a>
+Party ordering</h3>
+<p>We need to pick an ordering of the inflation parties, i.e., a bijection \(f : \{0,\dots,|\infparties|-1\} \to \infparties\), so that we can represent an inflation event \(\infevent\in\infevents\) as a list \((\infevent(f(0)), \infevent(f(1)), \dots)\). A priori, any ordering would work. However, since <a class="el" href="classinf_1_1TreeOpt.html" title="This inf::Optimizer is the most efficient one we used, it uses multi-threading and a branch-and-bound...">inf::TreeOpt</a> optimizes events using a tree search based on first filling the outcome of the party \(f(0)\), then \(f(1)\), etc, the order potentially has an impact on the runtime once we add the branch-and-bound mechanism (see <a class="el" href="classinf_1_1DualVector.html#a615feaafdbd4a08901a07ad60260d398" title="This controls whether or not an inf::DualVector will store some bounds.">inf::DualVector::StoreBounds</a>).</p>
+<p>The ordering that we choose in <a class="el" href="classinf_1_1Inflation.html#a78404beb483480bcfc13eedca5ac200e" title="This initializes m_parties, m_party_map, m_name_map, m_party_names">inf::Inflation::init_parties()</a> is thought (though, not tested) to be good because it enumerates the parties in a way where the volume of the cube (in the cube representation of triangle network strategies/inflation events) is attempted to be maximized early on. </p>
+
+<p class="definition">Definition at line <a class="el" href="inflation_8h_source.html#l00051">51</a> of file <a class="el" href="inflation_8h_source.html">inflation.h</a>.</p>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a50fe835aad42c372d72a1bde3a74df5c"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Inflation.html#a50fe835aad42c372d72a1bde3a74df5c">UseDistrSymmetries</a> { <a class="el" href="classinf_1_1Inflation.html#a50fe835aad42c372d72a1bde3a74df5caa6105c0a611b41b08f1209506350279e">yes</a>
+, <a class="el" href="classinf_1_1Inflation.html#a50fe835aad42c372d72a1bde3a74df5ca7fa3b767c460b54a2be4d49030b349c7">no</a>
+ }</td></tr>
+<tr class="memdesc:a50fe835aad42c372d72a1bde3a74df5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether or not the distribution symmetries will be exploited to enlarge the inflation symmetry group.  <a href="classinf_1_1Inflation.html#a50fe835aad42c372d72a1bde3a74df5c">More...</a><br /></td></tr>
+<tr class="separator:a50fe835aad42c372d72a1bde3a74df5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57ece19f95d615f84f8fdf24af698a52"><td class="memItemLeft" align="right" valign="top">typedef std::vector&lt; <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Inflation.html#a57ece19f95d615f84f8fdf24af698a52">Sources</a></td></tr>
+<tr class="memdesc:a57ece19f95d615f84f8fdf24af698a52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used for a list of source indices such as \((\alpha_0,\beta_1,\gamma_0)\), represented as <code>(0,1,0)</code>  <br /></td></tr>
+<tr class="separator:a57ece19f95d615f84f8fdf24af698a52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada371f0e56db6c2fa76d01e809805bd6"><td class="memItemLeft" align="right" valign="top">typedef std::vector&lt; <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Inflation.html#ada371f0e56db6c2fa76d01e809805bd6">Size</a></td></tr>
+<tr class="memdesc:ada371f0e56db6c2fa76d01e809805bd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">The inflation size (number of copies of each source), e.g., \(\infsize = (2,2,2)\).  <br /></td></tr>
+<tr class="separator:ada371f0e56db6c2fa76d01e809805bd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c8ea56bc938131a6d4d101469a34644"><td class="memItemLeft" align="right" valign="top">typedef std::pair&lt; <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a>, <a class="el" href="classinf_1_1Inflation.html#a57ece19f95d615f84f8fdf24af698a52">inf::Inflation::Sources</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Inflation.html#a7c8ea56bc938131a6d4d101469a34644">Party</a></td></tr>
+<tr class="memdesc:a7c8ea56bc938131a6d4d101469a34644"><td class="mdescLeft">&#160;</td><td class="mdescRight">The inflation parties \(\infparties\) are denoted with this type, and take the form \((\type,(j,k))\), where \(\type\) denotes the type of the party ( \(\type = 0\) means Alice, \(\type = 1\) means Bob, and \(\type = 2\) means Charlie) and \(j\) ( \(k\)) is the index of the copy of the left (right) source that the party receives.  <br /></td></tr>
+<tr class="separator:a7c8ea56bc938131a6d4d101469a34644"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af62dfca96fd10d483e797cde63152c48"><td class="memItemLeft" align="right" valign="top">typedef std::pair&lt; <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a>, <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Inflation.html#af62dfca96fd10d483e797cde63152c48">Source</a></td></tr>
+<tr class="memdesc:af62dfca96fd10d483e797cde63152c48"><td class="mdescLeft">&#160;</td><td class="mdescRight">The inflation sources \(\infsources\) are denoted with this type, and take the form \((\type,j)\), where \(\type\) denotes the type of the source (where \(\type=0\) means the \(\alpha\) source, \(\type=1\) means the \(\beta\) source, and \(\type=2\) means the \(\gamma\) source).  <br /></td></tr>
+<tr class="separator:af62dfca96fd10d483e797cde63152c48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac594d5b8d7cbdd7cdfe569baa351f0ba"><td class="memItemLeft" align="right" valign="top">typedef std::shared_ptr&lt; const <a class="el" href="classinf_1_1Inflation.html">inf::Inflation</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Inflation.html#ac594d5b8d7cbdd7cdfe569baa351f0ba">ConstPtr</a></td></tr>
+<tr class="separator:ac594d5b8d7cbdd7cdfe569baa351f0ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a564fbe437105a89db05571aa067d4f20"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Inflation.html#a564fbe437105a89db05571aa067d4f20">Inflation</a> (<a class="el" href="classinf_1_1TargetDistr.html#a75d7c59680325e198e85d02d673e4abe">inf::TargetDistr::ConstPtr</a> const &amp;target_distr, <a class="el" href="classinf_1_1Inflation.html#ada371f0e56db6c2fa76d01e809805bd6">inf::Inflation::Size</a> const &amp;size, <a class="el" href="classinf_1_1Inflation.html#a50fe835aad42c372d72a1bde3a74df5c">inf::Inflation::UseDistrSymmetries</a> use_distr_symmetries=<a class="el" href="classinf_1_1Inflation.html#a50fe835aad42c372d72a1bde3a74df5caa6105c0a611b41b08f1209506350279e">inf::Inflation::UseDistrSymmetries::yes</a>)</td></tr>
+<tr class="memdesc:a564fbe437105a89db05571aa067d4f20"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor with number of copies of each source.  <br /></td></tr>
+<tr class="separator:a564fbe437105a89db05571aa067d4f20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a480b5232d163f5c922c397e6150b6d7d"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Inflation.html#a480b5232d163f5c922c397e6150b6d7d">get_metadata</a> () const</td></tr>
+<tr class="memdesc:a480b5232d163f5c922c397e6150b6d7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">A string that summarizes the main information about the <a class="el" href="classinf_1_1Inflation.html" title="Describes an inflation of a network, currently restricted to canonical inflations of the triangle net...">inf::Inflation</a>, its symmetries and whether or not these include the symmetries of an <a class="el" href="classinf_1_1TargetDistr.html" title="A distribution over an inf::Network.">inf::TargetDistr</a>, the name of the underlying <a class="el" href="classinf_1_1TargetDistr.html" title="A distribution over an inf::Network.">inf::TargetDistr</a>, etc.  <br /></td></tr>
+<tr class="separator:a480b5232d163f5c922c397e6150b6d7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4378708d36afcc6d7d425a74ef58f3de"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Inflation.html#a4378708d36afcc6d7d425a74ef58f3de">get_symtree_filename</a> () const</td></tr>
+<tr class="memdesc:a4378708d36afcc6d7d425a74ef58f3de"><td class="mdescLeft">&#160;</td><td class="mdescRight">The filename to which the <a class="el" href="classinf_1_1EventTree.html" title="Storing a set of inf::Event as a tree.">inf::EventTree</a> is stored, including the inflation size and the short name of the <a class="el" href="classinf_1_1TargetDistr.html" title="A distribution over an inf::Network.">inf::TargetDistr</a> used for symmetry accelaration.  <br /></td></tr>
+<tr class="separator:a4378708d36afcc6d7d425a74ef58f3de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6c93bcc485b54a479b2e2218b6a58fa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Inflation.html#ab6c93bcc485b54a479b2e2218b6a58fa">log</a> () const override</td></tr>
+<tr class="memdesc:ab6c93bcc485b54a479b2e2218b6a58fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">This prints the object to the globally accessible <code><a class="el" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678" title="The globally accessible logger replacing std::cout">util::logger</a></code> and allows the <code><a class="el" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678" title="The globally accessible logger replacing std::cout">util::logger</a> &lt;&lt; loggable</code> syntax.  <br /></td></tr>
+<tr class="separator:ab6c93bcc485b54a479b2e2218b6a58fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0b2b985f65c5eca7eaee7e3be5505b1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Inflation.html#ac0b2b985f65c5eca7eaee7e3be5505b1">log_event</a> (<a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> const &amp;event) const</td></tr>
+<tr class="memdesc:ac0b2b985f65c5eca7eaee7e3be5505b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">To print inflation events \(\infevent \in \infevents\) to <code><a class="el" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678" title="The globally accessible logger replacing std::cout">util::logger</a></code>  <br /></td></tr>
+<tr class="separator:ac0b2b985f65c5eca7eaee7e3be5505b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aadcbae3cd3db6df435eb7805814b6016"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Inflation.html#aadcbae3cd3db6df435eb7805814b6016">get_marginal_name</a> (std::vector&lt; <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> &gt; const &amp;marginal) const</td></tr>
+<tr class="memdesc:aadcbae3cd3db6df435eb7805814b6016"><td class="mdescLeft">&#160;</td><td class="mdescRight">To convert the list-of-indices representation of an inflation marginal to a list of party names.  <br /></td></tr>
+<tr class="separator:aadcbae3cd3db6df435eb7805814b6016"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09016b474fd94b50e989bc429685f44d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Inflation.html#a09016b474fd94b50e989bc429685f44d">log_marginal</a> (std::vector&lt; <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> &gt; const &amp;marginal) const</td></tr>
+<tr class="memdesc:a09016b474fd94b50e989bc429685f44d"><td class="mdescLeft">&#160;</td><td class="mdescRight">To log an inflation marginal to <code><a class="el" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678" title="The globally accessible logger replacing std::cout">util::logger</a></code>  <br /></td></tr>
+<tr class="separator:a09016b474fd94b50e989bc429685f44d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51266d9e388a9cbc78559968b0577ecc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Inflation.html#a51266d9e388a9cbc78559968b0577ecc">log_event_strings</a> (std::vector&lt; std::string &gt; const &amp;event) const</td></tr>
+<tr class="memdesc:a51266d9e388a9cbc78559968b0577ecc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs an event (whose values are expected to be single-character strings) to the <code><a class="el" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678" title="The globally accessible logger replacing std::cout">util::logger</a></code> in a nice matrix-like format.  <br /></td></tr>
+<tr class="separator:a51266d9e388a9cbc78559968b0577ecc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad61b8a72fecf20cc46683e1dda987723"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Inflation.html#ad61b8a72fecf20cc46683e1dda987723">get_n_parties</a> () const</td></tr>
+<tr class="memdesc:ad61b8a72fecf20cc46683e1dda987723"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of parties \(|\infparties|\) of the inflation.  <br /></td></tr>
+<tr class="separator:ad61b8a72fecf20cc46683e1dda987723"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32432dd6f580704381870c1fe1130414"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Inflation.html#a32432dd6f580704381870c1fe1130414">get_all_zero_event</a> () const</td></tr>
+<tr class="memdesc:a32432dd6f580704381870c1fe1130414"><td class="mdescLeft">&#160;</td><td class="mdescRight">All zero event over the inflation parties.  <br /></td></tr>
+<tr class="separator:a32432dd6f580704381870c1fe1130414"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06295a6f01f49ed4bc4fae1311fdbfec"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Inflation.html#a06295a6f01f49ed4bc4fae1311fdbfec">get_all_unknown_event</a> () const</td></tr>
+<tr class="memdesc:a06295a6f01f49ed4bc4fae1311fdbfec"><td class="mdescLeft">&#160;</td><td class="mdescRight">All unknown event over the inflation parties.  <br /></td></tr>
+<tr class="separator:a06295a6f01f49ed4bc4fae1311fdbfec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32061ba93f28896fb44687627d4b1686"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Inflation.html#a32061ba93f28896fb44687627d4b1686">get_random_event</a> () const</td></tr>
+<tr class="memdesc:a32061ba93f28896fb44687627d4b1686"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random event over the inflation parties.  <br /></td></tr>
+<tr class="separator:a32061ba93f28896fb44687627d4b1686"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c9908ad1e0a6558f49a4b249504110e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__event.html#ga1945c0af7bba14437a034808f18dac20">inf::EventRange</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Inflation.html#a9c9908ad1e0a6558f49a4b249504110e">get_event_range</a> () const</td></tr>
+<tr class="memdesc:a9c9908ad1e0a6558f49a4b249504110e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Event range over all inflation parties, to iterate over \(\infparties\).  <br /></td></tr>
+<tr class="separator:a9c9908ad1e0a6558f49a4b249504110e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4145134df29127ee233a867756d3837b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classutil_1_1ProductRange.html">util::ProductRange</a>&lt; <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Inflation.html#a4145134df29127ee233a867756d3837b">get_all_source_range</a> () const</td></tr>
+<tr class="memdesc:a4145134df29127ee233a867756d3837b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The range of all copy indices of the form \((i_0,i_1,i_2)\), where \(i_\type \in \ints{\infsize_\type}\), where \(\infsize = (\infsize_0,\infsize_1,\infsize_2)\) denotes the inflations size.  <br /></td></tr>
+<tr class="separator:a4145134df29127ee233a867756d3837b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c079c8da261a25734e6cab9d5fc0c9d"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classinf_1_1Inflation.html#a7c8ea56bc938131a6d4d101469a34644">inf::Inflation::Party</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Inflation.html#a7c079c8da261a25734e6cab9d5fc0c9d">get_parties</a> () const</td></tr>
+<tr class="memdesc:a7c079c8da261a25734e6cab9d5fc0c9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The list of explicit <a class="el" href="classinf_1_1Inflation.html#a7c8ea56bc938131a6d4d101469a34644" title="The inflation parties  are denoted with this type, and take the form , where  denotes the type of the...">inf::Inflation::Party</a>.  <br /></td></tr>
+<tr class="separator:a7c079c8da261a25734e6cab9d5fc0c9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d2407cc5082ef3b67f7a42f6874c11a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Inflation.html#a0d2407cc5082ef3b67f7a42f6874c11a">get_party_index</a> (<a class="el" href="classinf_1_1Inflation.html#a7c8ea56bc938131a6d4d101469a34644">inf::Inflation::Party</a> const &amp;party) const</td></tr>
+<tr class="memdesc:a0d2407cc5082ef3b67f7a42f6874c11a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internally, each explicit <a class="el" href="classinf_1_1Inflation.html#a7c8ea56bc938131a6d4d101469a34644" title="The inflation parties  are denoted with this type, and take the form , where  denotes the type of the...">inf::Inflation::Party</a> is assigned an index in \(\{0,1,\dots,|\infparties|-1\}\).  <br /></td></tr>
+<tr class="separator:a0d2407cc5082ef3b67f7a42f6874c11a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a491ea3cdc6ac7b530b41ed6607590924"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Inflation.html#a491ea3cdc6ac7b530b41ed6607590924">get_party_index</a> (std::string const &amp;party) const</td></tr>
+<tr class="memdesc:a491ea3cdc6ac7b530b41ed6607590924"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get e.g. "A00" -&gt; 0, "A01" -&gt; 1, etc.  <br /></td></tr>
+<tr class="separator:a491ea3cdc6ac7b530b41ed6607590924"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62461fa7b393d783854cd36eff0256dc"><td class="memItemLeft" align="right" valign="top">std::string const &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Inflation.html#a62461fa7b393d783854cd36eff0256dc">get_party_name</a> (<a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> party) const</td></tr>
+<tr class="memdesc:a62461fa7b393d783854cd36eff0256dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get e.g. 0 -&gt; "A00", 1 -&gt; "A01", etc.  <br /></td></tr>
+<tr class="separator:a62461fa7b393d783854cd36eff0256dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab910ef44df901fad1db88a0b74fe86cc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Inflation.html#ab910ef44df901fad1db88a0b74fe86cc">is_valid_party_name</a> (std::string const &amp;party) const</td></tr>
+<tr class="memdesc:ab910ef44df901fad1db88a0b74fe86cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check that the given <code>party</code> name is of the form <code>Ajk</code>, where <code>A</code> must be obtained from the underlying <a class="el" href="classinf_1_1Network.html#aac358ba9a7beea25b00ed0e3caaf19b3" title="The list of party names  (Alice, Bob and Charlie)">inf::Network::get_party_names()</a> and j and k must be in the appropriate range related to <a class="el" href="classinf_1_1Inflation.html#ac279522d5aeb62ae47931f50460506df" title="The inflation size  specifying the number of copies of each source.">inf::Inflation::get_size()</a> (see also <a class="el" href="classinf_1_1Inflation.html#a7c8ea56bc938131a6d4d101469a34644" title="The inflation parties  are denoted with this type, and take the form , where  denotes the type of the...">inf::Inflation::Party</a>)  <br /></td></tr>
+<tr class="separator:ab910ef44df901fad1db88a0b74fe86cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac279522d5aeb62ae47931f50460506df"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classinf_1_1Inflation.html#ada371f0e56db6c2fa76d01e809805bd6">inf::Inflation::Size</a> const &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Inflation.html#ac279522d5aeb62ae47931f50460506df">get_size</a> () const</td></tr>
+<tr class="memdesc:ac279522d5aeb62ae47931f50460506df"><td class="mdescLeft">&#160;</td><td class="mdescRight">The inflation size \(\infsize = (\infsize_0,\infsize_1,\infsize_2)\) specifying the number of copies of each source.  <br /></td></tr>
+<tr class="separator:ac279522d5aeb62ae47931f50460506df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21c23e5d5df7102da0aaa0d61be38252"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classinf_1_1Network.html#a4e586db6e1ab9f11335ed74f25ea0aee">inf::Network::ConstPtr</a> const &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Inflation.html#a21c23e5d5df7102da0aaa0d61be38252">get_network</a> () const</td></tr>
+<tr class="memdesc:a21c23e5d5df7102da0aaa0d61be38252"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the underlying <a class="el" href="classinf_1_1Network.html" title="The network with which the classical causal compatibility of a target distribution is to be tested.">inf::Network</a>.  <br /></td></tr>
+<tr class="separator:a21c23e5d5df7102da0aaa0d61be38252"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abfa6a2b7897bb9f1d3c406a864e9acdf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classinf_1_1Symmetry.html#a901d22b86ef5923b628db86fbdd7ba4f">inf::Symmetry::Group</a> const &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Inflation.html#abfa6a2b7897bb9f1d3c406a864e9acdf">get_inflation_symmetries</a> () const</td></tr>
+<tr class="memdesc:abfa6a2b7897bb9f1d3c406a864e9acdf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the symmetries of the inflation, typically including the symmetries of the specified <a class="el" href="classinf_1_1TargetDistr.html" title="A distribution over an inf::Network.">inf::TargetDistr</a>.  <br /></td></tr>
+<tr class="separator:abfa6a2b7897bb9f1d3c406a864e9acdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ebc98ce3622aab2af77a57d3304f42d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Inflation.html#a3ebc98ce3622aab2af77a57d3304f42d">has_symmetries_compatible_with</a> (<a class="el" href="classinf_1_1TargetDistr.html">inf::TargetDistr</a> const &amp;d) const</td></tr>
+<tr class="memdesc:a3ebc98ce3622aab2af77a57d3304f42d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns <code>true</code> if the parameter <code>d</code> has the same symmetries as the original <a class="el" href="classinf_1_1TargetDistr.html" title="A distribution over an inf::Network.">inf::TargetDistr</a> that was used to intialize the inflation.  <br /></td></tr>
+<tr class="separator:a3ebc98ce3622aab2af77a57d3304f42d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adafb5bd85ab90b64099716d59c104b2e"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classinf_1_1PartySym.html">inf::PartySym</a> &gt; const &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Inflation.html#adafb5bd85ab90b64099716d59c104b2e">get_source_induced_syms</a> () const</td></tr>
+<tr class="memdesc:adafb5bd85ab90b64099716d59c104b2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the group \(\sourcegroup\), i.e., all the party symmetries of the inflation that are induced by source permutations.  <br /></td></tr>
+<tr class="separator:adafb5bd85ab90b64099716d59c104b2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80e1780db201f1db2acad489752d4dc3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classinf_1_1PartySym.html">inf::PartySym</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Inflation.html#a80e1780db201f1db2acad489752d4dc3">source_sym_to_party_sym</a> (std::vector&lt; std::vector&lt; <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> &gt; &gt; const &amp;perm_sources) const</td></tr>
+<tr class="memdesc:a80e1780db201f1db2acad489752d4dc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">This converts a source permutation into the corresponding party permutation.  <br /></td></tr>
+<tr class="separator:a80e1780db201f1db2acad489752d4dc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeedce892606eb0b693e54e2aa970c035"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classinf_1_1PartySym.html">inf::PartySym</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Inflation.html#aeedce892606eb0b693e54e2aa970c035">network_party_to_inf_party_sym</a> (<a class="el" href="classinf_1_1PartySym.html">inf::PartySym</a> const &amp;network_party_sym) const</td></tr>
+<tr class="memdesc:aeedce892606eb0b693e54e2aa970c035"><td class="mdescLeft">&#160;</td><td class="mdescRight">This converts (lifts) a network party permutation to the adequate inflation party permutation.  <br /></td></tr>
+<tr class="separator:aeedce892606eb0b693e54e2aa970c035"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe439ba40d0dc8c9c2fa3310cdf14461"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classinf_1_1EventTree.html">inf::EventTree</a> const &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Inflation.html#abe439ba40d0dc8c9c2fa3310cdf14461">get_symtree</a> (<a class="el" href="classinf_1_1EventTree.html#a3fc302d7a899deaf35f6138a7bcbe67c">inf::EventTree::IO</a> io) const</td></tr>
+<tr class="memdesc:abe439ba40d0dc8c9c2fa3310cdf14461"><td class="mdescLeft">&#160;</td><td class="mdescRight">An <a class="el" href="classinf_1_1EventTree.html" title="Storing a set of inf::Event as a tree.">inf::EventTree</a> representation of the symmetrized event representatives, denoted \(\redinfevents \subset \infevents\) in the paper.  <br /></td></tr>
+<tr class="separator:abe439ba40d0dc8c9c2fa3310cdf14461"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a674f66415d6e861f3860f85cfd205822"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Inflation.html#a674f66415d6e861f3860f85cfd205822">are_d_separated</a> (std::vector&lt; <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> &gt; const &amp;marg_1, std::vector&lt; <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> &gt; const &amp;marg_2) const</td></tr>
+<tr class="memdesc:a674f66415d6e861f3860f85cfd205822"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns <code>true</code> if the two lists of parties are d-separated.  <br /></td></tr>
+<tr class="separator:a674f66415d6e861f3860f85cfd205822"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9becf774e1ef740f16345a9a30be336e"><td class="memItemLeft" align="right" valign="top">std::set&lt; <a class="el" href="classinf_1_1Inflation.html#af62dfca96fd10d483e797cde63152c48">inf::Inflation::Source</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Inflation.html#a9becf774e1ef740f16345a9a30be336e">get_parents</a> (std::vector&lt; <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> &gt; const &amp;marg) const</td></tr>
+<tr class="memdesc:a9becf774e1ef740f16345a9a30be336e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns \(\parents(\infmarg)\), the set of parent sources of the inflation marginal \(\infmarg \subset \infparties\).  <br /></td></tr>
+<tr class="separator:a9becf774e1ef740f16345a9a30be336e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad283d1cc29f0cd8e4338e1022a0e6b3c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Inflation.html#ad283d1cc29f0cd8e4338e1022a0e6b3c">is_injectable_set</a> (std::vector&lt; <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> &gt; const &amp;marg) const</td></tr>
+<tr class="memdesc:ad283d1cc29f0cd8e4338e1022a0e6b3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns <code>true</code> if the list of party is an injectable set, denoted \(\injsets\) in the paper.  <br /></td></tr>
+<tr class="separator:ad283d1cc29f0cd8e4338e1022a0e6b3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a2cb50c352d42ac96c9746c6e4706be41"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Inflation.html#a2cb50c352d42ac96c9746c6e4706be41">log</a> (<a class="el" href="classinf_1_1Inflation.html#a50fe835aad42c372d72a1bde3a74df5c">inf::Inflation::UseDistrSymmetries</a> use_distr_symmetries)</td></tr>
+<tr class="separator:a2cb50c352d42ac96c9746c6e4706be41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a78404beb483480bcfc13eedca5ac200e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Inflation.html#a78404beb483480bcfc13eedca5ac200e">init_parties</a> ()</td></tr>
+<tr class="memdesc:a78404beb483480bcfc13eedca5ac200e"><td class="mdescLeft">&#160;</td><td class="mdescRight">This initializes <code>m_parties</code>, <code>m_party_map</code>, <code>m_name_map</code>, <code>m_party_names</code>  <br /></td></tr>
+<tr class="separator:a78404beb483480bcfc13eedca5ac200e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa881476f7cd18cd6d5281b532804688c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Inflation.html#aa881476f7cd18cd6d5281b532804688c">init_source_induced_syms</a> ()</td></tr>
+<tr class="memdesc:aa881476f7cd18cd6d5281b532804688c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes <code>m_source_induced_syms</code>  <br /></td></tr>
+<tr class="separator:aa881476f7cd18cd6d5281b532804688c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a782464bbfeaa51894fa1b313365f4dc7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Inflation.html#a782464bbfeaa51894fa1b313365f4dc7">init_inflation_symmetries</a> (<a class="el" href="classinf_1_1Symmetry.html#a901d22b86ef5923b628db86fbdd7ba4f">inf::Symmetry::Group</a> const &amp;distribution_sym_group)</td></tr>
+<tr class="memdesc:a782464bbfeaa51894fa1b313365f4dc7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes <code>m_inflation_symmetries</code>, accounting for the target distribution's applicable symmetries and the source symmetries.  <br /></td></tr>
+<tr class="separator:a782464bbfeaa51894fa1b313365f4dc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-static-methods" name="pri-static-methods"></a>
+Static Private Member Functions</h2></td></tr>
+<tr class="memitem:a218f153524927c095bff199beb02535e"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classinf_1_1Symmetry.html#a901d22b86ef5923b628db86fbdd7ba4f">inf::Symmetry::Group</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Inflation.html#a218f153524927c095bff199beb02535e">get_applicable_symmetries</a> (<a class="el" href="classinf_1_1Symmetry.html#a901d22b86ef5923b628db86fbdd7ba4f">inf::Symmetry::Group</a> const &amp;distribution_sym_group, <a class="el" href="classinf_1_1Inflation.html#ada371f0e56db6c2fa76d01e809805bd6">inf::Inflation::Size</a> const &amp;size)</td></tr>
+<tr class="memdesc:a218f153524927c095bff199beb02535e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extract the symmetries of the distribution that are applicable to the inflation based on its size.  <br /></td></tr>
+<tr class="separator:a218f153524927c095bff199beb02535e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a270394afb79b5d4888232d7ac5425139"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classinf_1_1TargetDistr.html#a75d7c59680325e198e85d02d673e4abe">inf::TargetDistr::ConstPtr</a> const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Inflation.html#a270394afb79b5d4888232d7ac5425139">m_target_distr</a></td></tr>
+<tr class="memdesc:a270394afb79b5d4888232d7ac5425139"><td class="mdescLeft">&#160;</td><td class="mdescRight">This <a class="el" href="classinf_1_1TargetDistr.html" title="A distribution over an inf::Network.">inf::TargetDistr</a> specifies the underlying <a class="el" href="classinf_1_1Network.html" title="The network with which the classical causal compatibility of a target distribution is to be tested.">inf::Network</a> as well as the distribution symmetries (see <a class="el" href="classinf_1_1Inflation.html#a50fe835aad42c372d72a1bde3a74df5c" title="Whether or not the distribution symmetries will be exploited to enlarge the inflation symmetry group.">inf::Inflation::UseDistrSymmetries</a>)  <br /></td></tr>
+<tr class="separator:a270394afb79b5d4888232d7ac5425139"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a146b9539935f13bcfc61f32af0d21cdd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classinf_1_1Inflation.html#ada371f0e56db6c2fa76d01e809805bd6">inf::Inflation::Size</a> const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Inflation.html#a146b9539935f13bcfc61f32af0d21cdd">m_size</a></td></tr>
+<tr class="memdesc:a146b9539935f13bcfc61f32af0d21cdd"><td class="mdescLeft">&#160;</td><td class="mdescRight">The inflation size \(\infsize = (\infsize_0,\infsize_1,\infsize_2)\) specifying the number of copies of each source.  <br /></td></tr>
+<tr class="separator:a146b9539935f13bcfc61f32af0d21cdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d7f1820b16101accad4813a01e36d47"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classinf_1_1Inflation.html#a50fe835aad42c372d72a1bde3a74df5c">inf::Inflation::UseDistrSymmetries</a> const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Inflation.html#a4d7f1820b16101accad4813a01e36d47">m_use_distr_symmetries</a></td></tr>
+<tr class="memdesc:a4d7f1820b16101accad4813a01e36d47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether or not the distribution symmetries were incorporated in the inflation symmetry group, see <a class="el" href="classinf_1_1Inflation.html#a50fe835aad42c372d72a1bde3a74df5c" title="Whether or not the distribution symmetries will be exploited to enlarge the inflation symmetry group.">inf::Inflation::UseDistrSymmetries</a>.  <br /></td></tr>
+<tr class="separator:a4d7f1820b16101accad4813a01e36d47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d646e2a74f9d46086eeffdc6a0340f0"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classinf_1_1Inflation.html#a7c8ea56bc938131a6d4d101469a34644">inf::Inflation::Party</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Inflation.html#a1d646e2a74f9d46086eeffdc6a0340f0">m_parties</a></td></tr>
+<tr class="memdesc:a1d646e2a74f9d46086eeffdc6a0340f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">The list of explicit inf::Inflation::Parties, this is the inverse of <code>m_party_map</code>  <br /></td></tr>
+<tr class="separator:a1d646e2a74f9d46086eeffdc6a0340f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1da3095bcec5ac25281d08ca25ed346a"><td class="memItemLeft" align="right" valign="top">std::map&lt; <a class="el" href="classinf_1_1Inflation.html#a7c8ea56bc938131a6d4d101469a34644">inf::Inflation::Party</a>, <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Inflation.html#a1da3095bcec5ac25281d08ca25ed346a">m_party_map</a></td></tr>
+<tr class="memdesc:a1da3095bcec5ac25281d08ca25ed346a"><td class="mdescLeft">&#160;</td><td class="mdescRight">This map is used in <code><a class="el" href="classinf_1_1Inflation.html#a0d2407cc5082ef3b67f7a42f6874c11a" title="Internally, each explicit inf::Inflation::Party is assigned an index in .">inf::Inflation::get_party_index</a>(<a class="el" href="classinf_1_1Inflation.html#a7c8ea56bc938131a6d4d101469a34644" title="The inflation parties  are denoted with this type, and take the form , where  denotes the type of the...">inf::Inflation::Party</a> const&amp;) const</code>  <br /></td></tr>
+<tr class="separator:a1da3095bcec5ac25281d08ca25ed346a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6750c255213ba91ca6a72fa589532084"><td class="memItemLeft" align="right" valign="top">std::map&lt; std::string, <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Inflation.html#a6750c255213ba91ca6a72fa589532084">m_name_map</a></td></tr>
+<tr class="memdesc:a6750c255213ba91ca6a72fa589532084"><td class="mdescLeft">&#160;</td><td class="mdescRight">This map is used in <code><a class="el" href="classinf_1_1Inflation.html#a0d2407cc5082ef3b67f7a42f6874c11a" title="Internally, each explicit inf::Inflation::Party is assigned an index in .">inf::Inflation::get_party_index</a>(std::string const&amp;) const</code>  <br /></td></tr>
+<tr class="separator:a6750c255213ba91ca6a72fa589532084"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34c7add257d1d66199860734bb6ca42f"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Inflation.html#a34c7add257d1d66199860734bb6ca42f">m_party_names</a></td></tr>
+<tr class="memdesc:a34c7add257d1d66199860734bb6ca42f"><td class="mdescLeft">&#160;</td><td class="mdescRight">This list is used in <code><a class="el" href="classinf_1_1Inflation.html#a62461fa7b393d783854cd36eff0256dc" title="Get e.g. 0 -&gt; &quot;A00&quot;, 1 -&gt; &quot;A01&quot;, etc.">inf::Inflation::get_party_name()</a></code>  <br /></td></tr>
+<tr class="separator:a34c7add257d1d66199860734bb6ca42f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a076e7a062963f0dac7662a6da2ec7c05"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classinf_1_1PartySym.html">inf::PartySym</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Inflation.html#a076e7a062963f0dac7662a6da2ec7c05">m_source_induced_syms</a></td></tr>
+<tr class="memdesc:a076e7a062963f0dac7662a6da2ec7c05"><td class="mdescLeft">&#160;</td><td class="mdescRight">The inflation party symmetries coming from source relabelings.  <br /></td></tr>
+<tr class="separator:a076e7a062963f0dac7662a6da2ec7c05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acfc4c83503297dd55886c44df1a61296"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classinf_1_1Symmetry.html#a901d22b86ef5923b628db86fbdd7ba4f">inf::Symmetry::Group</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Inflation.html#acfc4c83503297dd55886c44df1a61296">m_inflation_symmetries</a></td></tr>
+<tr class="memdesc:acfc4c83503297dd55886c44df1a61296"><td class="mdescLeft">&#160;</td><td class="mdescRight">The inflation symmetries, accounting for the target distribution's applicable symmetries and the source symmetries.  <br /></td></tr>
+<tr class="separator:acfc4c83503297dd55886c44df1a61296"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26eb83295c67419f8095e495ba0272c0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Inflation.html#a26eb83295c67419f8095e495ba0272c0">m_n_parties</a></td></tr>
+<tr class="memdesc:a26eb83295c67419f8095e495ba0272c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">The number \(|\infparties|\) of parties of the inflation.  <br /></td></tr>
+<tr class="separator:a26eb83295c67419f8095e495ba0272c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad18a3f973c2ac6748bae88779b9fb9f1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classinf_1_1EventTree.html#a70c8d92a720e28d0a90d72d97f4258a2">inf::EventTree::UniquePtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Inflation.html#ad18a3f973c2ac6748bae88779b9fb9f1">m_symtree</a></td></tr>
+<tr class="memdesc:ad18a3f973c2ac6748bae88779b9fb9f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores the symmetrized inflation events as a tree, see <a class="el" href="classinf_1_1Inflation.html#abe439ba40d0dc8c9c2fa3310cdf14461" title="An inf::EventTree representation of the symmetrized event representatives, denoted  in the paper.">inf::Inflation::get_symtree()</a>  <br /></td></tr>
+<tr class="separator:ad18a3f973c2ac6748bae88779b9fb9f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87e99e18d46ca656e99e4188b76a49d6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classutil_1_1RNG.html">util::RNG</a>&lt; <a class="el" href="group__event.html#gadcaa27c4242b65837f0f7a00e96856d4">inf::Outcome</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1Inflation.html#a87e99e18d46ca656e99e4188b76a49d6">m_rng</a></td></tr>
+<tr class="memdesc:a87e99e18d46ca656e99e4188b76a49d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used for <a class="el" href="classinf_1_1Inflation.html#a32061ba93f28896fb44687627d4b1686" title="Returns a random event over the inflation parties.">inf::Inflation::get_random_event()</a>  <br /></td></tr>
+<tr class="separator:a87e99e18d46ca656e99e4188b76a49d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a57ece19f95d615f84f8fdf24af698a52" name="a57ece19f95d615f84f8fdf24af698a52"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a57ece19f95d615f84f8fdf24af698a52">&#9670;&#160;</a></span>Sources</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::vector&lt;<a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a>&gt; <a class="el" href="classinf_1_1Inflation.html#a57ece19f95d615f84f8fdf24af698a52">inf::Inflation::Sources</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Used for a list of source indices such as \((\alpha_0,\beta_1,\gamma_0)\), represented as <code>(0,1,0)</code> </p>
+
+<p class="definition">Definition at line <a class="el" href="inflation_8h_source.html#l00056">56</a> of file <a class="el" href="inflation_8h_source.html">inflation.h</a>.</p>
+
+</div>
+</div>
+<a id="ada371f0e56db6c2fa76d01e809805bd6" name="ada371f0e56db6c2fa76d01e809805bd6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada371f0e56db6c2fa76d01e809805bd6">&#9670;&#160;</a></span>Size</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::vector&lt;<a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a>&gt; <a class="el" href="classinf_1_1Inflation.html#ada371f0e56db6c2fa76d01e809805bd6">inf::Inflation::Size</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The inflation size (number of copies of each source), e.g., \(\infsize = (2,2,2)\). </p>
+
+<p class="definition">Definition at line <a class="el" href="inflation_8h_source.html#l00058">58</a> of file <a class="el" href="inflation_8h_source.html">inflation.h</a>.</p>
+
+</div>
+</div>
+<a id="a7c8ea56bc938131a6d4d101469a34644" name="a7c8ea56bc938131a6d4d101469a34644"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c8ea56bc938131a6d4d101469a34644">&#9670;&#160;</a></span>Party</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::pair&lt;<a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a>, <a class="el" href="classinf_1_1Inflation.html#a57ece19f95d615f84f8fdf24af698a52">inf::Inflation::Sources</a>&gt; <a class="el" href="classinf_1_1Inflation.html#a7c8ea56bc938131a6d4d101469a34644">inf::Inflation::Party</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The inflation parties \(\infparties\) are denoted with this type, and take the form \((\type,(j,k))\), where \(\type\) denotes the type of the party ( \(\type = 0\) means Alice, \(\type = 1\) means Bob, and \(\type = 2\) means Charlie) and \(j\) ( \(k\)) is the index of the copy of the left (right) source that the party receives. </p>
+<p>For instance, <code>(0, (1,2))</code> means the Alice (index 0) connected to the 2nd (index 1) \(\beta\) source, and connected to the 3rd (index 2) \(\gamma\) source. </p>
+
+<p class="definition">Definition at line <a class="el" href="inflation_8h_source.html#l00066">66</a> of file <a class="el" href="inflation_8h_source.html">inflation.h</a>.</p>
+
+</div>
+</div>
+<a id="af62dfca96fd10d483e797cde63152c48" name="af62dfca96fd10d483e797cde63152c48"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af62dfca96fd10d483e797cde63152c48">&#9670;&#160;</a></span>Source</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::pair&lt;<a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a>, <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a>&gt; <a class="el" href="classinf_1_1Inflation.html#af62dfca96fd10d483e797cde63152c48">inf::Inflation::Source</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The inflation sources \(\infsources\) are denoted with this type, and take the form \((\type,j)\), where \(\type\) denotes the type of the source (where \(\type=0\) means the \(\alpha\) source, \(\type=1\) means the \(\beta\) source, and \(\type=2\) means the \(\gamma\) source). </p>
+
+<p class="definition">Definition at line <a class="el" href="inflation_8h_source.html#l00070">70</a> of file <a class="el" href="inflation_8h_source.html">inflation.h</a>.</p>
+
+</div>
+</div>
+<a id="ac594d5b8d7cbdd7cdfe569baa351f0ba" name="ac594d5b8d7cbdd7cdfe569baa351f0ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac594d5b8d7cbdd7cdfe569baa351f0ba">&#9670;&#160;</a></span>ConstPtr</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::shared_ptr&lt;const <a class="el" href="classinf_1_1Inflation.html">inf::Inflation</a>&gt; <a class="el" href="classinf_1_1Inflation.html#ac594d5b8d7cbdd7cdfe569baa351f0ba">inf::Inflation::ConstPtr</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="inflation_8h_source.html#l00072">72</a> of file <a class="el" href="inflation_8h_source.html">inflation.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="a50fe835aad42c372d72a1bde3a74df5c" name="a50fe835aad42c372d72a1bde3a74df5c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50fe835aad42c372d72a1bde3a74df5c">&#9670;&#160;</a></span>UseDistrSymmetries</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="classinf_1_1Inflation.html#a50fe835aad42c372d72a1bde3a74df5c">inf::Inflation::UseDistrSymmetries</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Whether or not the distribution symmetries will be exploited to enlarge the inflation symmetry group. </p>
+<p>This impacts both the columns and rows of the linear program matrix. In other words, this impacts the set of symmetrized events (obtained with <a class="el" href="classinf_1_1Inflation.html#abe439ba40d0dc8c9c2fa3310cdf14461" title="An inf::EventTree representation of the symmetrized event representatives, denoted  in the paper.">inf::Inflation::get_symtree()</a>, which is exploited by the <a class="el" href="classinf_1_1Optimizer.html" title="This class defines the interface for inf::BruteForceOpt and inf::TreeOpt.">inf::Optimizer</a>), but also the symmetry structure that can be assumed for the <a class="el" href="classinf_1_1DualVector.html" title="Describes a dual vector  through its embedding .">inf::DualVector</a>, which results in a lower-dimensional constraint space. More specifically, this option controls what the symmetry group \(\distrgroup\) of the inflation will be:</p><ul>
+<li>If this is <a class="el" href="classinf_1_1Inflation.html#a50fe835aad42c372d72a1bde3a74df5ca7fa3b767c460b54a2be4d49030b349c7" title="Mostly for testing purposes.">inf::Inflation::UseDistrSymmetries::no</a>, then the inflation symmetry group will consist of just the source symmetries, i.e., \(\sourcegroup\).</li>
+<li>If this is <a class="el" href="classinf_1_1Inflation.html#a50fe835aad42c372d72a1bde3a74df5caa6105c0a611b41b08f1209506350279e" title="Much, much faster when inf::TargetDistr has usable symmetries.">inf::Inflation::UseDistrSymmetries::yes</a>, then the inflation symmetry group will be given by \(\distrgroup\) as defined in the paper (a subset of \(\fullgroup = \sourcegroup\times\partygroup\times\outgroup\)).</li>
+</ul>
+<p>It is highly recommended to always use <a class="el" href="classinf_1_1Inflation.html#a50fe835aad42c372d72a1bde3a74df5caa6105c0a611b41b08f1209506350279e" title="Much, much faster when inf::TargetDistr has usable symmetries.">inf::Inflation::UseDistrSymmetries::yes</a>, since this allows to drastically improve the runtime of the resolution of the inflation problem without changing the mathematical problem that is being solved. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a50fe835aad42c372d72a1bde3a74df5caa6105c0a611b41b08f1209506350279e" name="a50fe835aad42c372d72a1bde3a74df5caa6105c0a611b41b08f1209506350279e"></a>yes&#160;</td><td class="fielddoc"><p>Much, much faster when <a class="el" href="classinf_1_1TargetDistr.html" title="A distribution over an inf::Network.">inf::TargetDistr</a> has usable symmetries. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a50fe835aad42c372d72a1bde3a74df5ca7fa3b767c460b54a2be4d49030b349c7" name="a50fe835aad42c372d72a1bde3a74df5ca7fa3b767c460b54a2be4d49030b349c7"></a>no&#160;</td><td class="fielddoc"><p>Mostly for testing purposes. </p>
+</td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="inflation_8h_source.html#l00083">83</a> of file <a class="el" href="inflation_8h_source.html">inflation.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a564fbe437105a89db05571aa067d4f20" name="a564fbe437105a89db05571aa067d4f20"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a564fbe437105a89db05571aa067d4f20">&#9670;&#160;</a></span>Inflation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">inf::Inflation::Inflation </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classinf_1_1TargetDistr.html#a75d7c59680325e198e85d02d673e4abe">inf::TargetDistr::ConstPtr</a> const &amp;&#160;</td>
+          <td class="paramname"><em>target_distr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classinf_1_1Inflation.html#ada371f0e56db6c2fa76d01e809805bd6">inf::Inflation::Size</a> const &amp;&#160;</td>
+          <td class="paramname"><em>size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classinf_1_1Inflation.html#a50fe835aad42c372d72a1bde3a74df5c">inf::Inflation::UseDistrSymmetries</a>&#160;</td>
+          <td class="paramname"><em>use_distr_symmetries</em> = <code><a class="el" href="classinf_1_1Inflation.html#a50fe835aad42c372d72a1bde3a74df5caa6105c0a611b41b08f1209506350279e">inf::Inflation::UseDistrSymmetries::yes</a></code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor with number of copies of each source. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">target_distr</td><td>Yields the <a class="el" href="classinf_1_1Network.html" title="The network with which the classical causal compatibility of a target distribution is to be tested.">inf::Network</a> and the relevant symmetries. It is stored to keep track of its symmetries and to have an adequate name to write as metadata in the output file of the corresponding <a class="el" href="classinf_1_1EventTree.html" title="Storing a set of inf::Event as a tree.">inf::EventTree</a> (see <a class="el" href="classinf_1_1Inflation.html#abe439ba40d0dc8c9c2fa3310cdf14461" title="An inf::EventTree representation of the symmetrized event representatives, denoted  in the paper.">inf::Inflation::get_symtree()</a>) </td></tr>
+    <tr><td class="paramname">size</td><td>We consider inflations indexed by an inflation size \(\infsize = (\infsize_1,\infsize_2,\infsize_3) \in \N^3\), where \(\infsize_\type \geq 1\) denotes the number of copies of the source of type \(\type\) (where \(\type=0\) means the \(\alpha\) source, \(\type=1\) means the \(\beta\) source, and \(\type=2\) means the \(\gamma\) source). </td></tr>
+    <tr><td class="paramname">use_distr_symmetries</td><td>Whether or not the distribution symmetries will be incorporated in the inflation symmetry group. See <a class="el" href="classinf_1_1Inflation.html#a50fe835aad42c372d72a1bde3a74df5c" title="Whether or not the distribution symmetries will be exploited to enlarge the inflation symmetry group.">inf::Inflation::UseDistrSymmetries</a> for more details. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="inflation_8cpp_source.html#l00025">25</a> of file <a class="el" href="inflation_8cpp_source.html">inflation.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a2cb50c352d42ac96c9746c6e4706be41" name="a2cb50c352d42ac96c9746c6e4706be41"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2cb50c352d42ac96c9746c6e4706be41">&#9670;&#160;</a></span>log() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void inf::Inflation::log </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classinf_1_1Inflation.html#a50fe835aad42c372d72a1bde3a74df5c">inf::Inflation::UseDistrSymmetries</a>&#160;</td>
+          <td class="paramname"><em>use_distr_symmetries</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="inflation_8cpp_source.html#l00008">8</a> of file <a class="el" href="inflation_8cpp_source.html">inflation.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a480b5232d163f5c922c397e6150b6d7d" name="a480b5232d163f5c922c397e6150b6d7d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a480b5232d163f5c922c397e6150b6d7d">&#9670;&#160;</a></span>get_metadata()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string inf::Inflation::get_metadata </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A string that summarizes the main information about the <a class="el" href="classinf_1_1Inflation.html" title="Describes an inflation of a network, currently restricted to canonical inflations of the triangle net...">inf::Inflation</a>, its symmetries and whether or not these include the symmetries of an <a class="el" href="classinf_1_1TargetDistr.html" title="A distribution over an inf::Network.">inf::TargetDistr</a>, the name of the underlying <a class="el" href="classinf_1_1TargetDistr.html" title="A distribution over an inf::Network.">inf::TargetDistr</a>, etc. </p>
+<p>This is used when writing the <a class="el" href="classinf_1_1EventTree.html" title="Storing a set of inf::Event as a tree.">inf::EventTree</a> to be sure to read from the correct file. See <a class="el" href="classinf_1_1Inflation.html#abe439ba40d0dc8c9c2fa3310cdf14461" title="An inf::EventTree representation of the symmetrized event representatives, denoted  in the paper.">inf::Inflation::get_symtree()</a>. </p>
+
+<p class="definition">Definition at line <a class="el" href="inflation_8cpp_source.html#l00054">54</a> of file <a class="el" href="inflation_8cpp_source.html">inflation.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a4378708d36afcc6d7d425a74ef58f3de" name="a4378708d36afcc6d7d425a74ef58f3de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4378708d36afcc6d7d425a74ef58f3de">&#9670;&#160;</a></span>get_symtree_filename()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string inf::Inflation::get_symtree_filename </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The filename to which the <a class="el" href="classinf_1_1EventTree.html" title="Storing a set of inf::Event as a tree.">inf::EventTree</a> is stored, including the inflation size and the short name of the <a class="el" href="classinf_1_1TargetDistr.html" title="A distribution over an inf::Network.">inf::TargetDistr</a> used for symmetry accelaration. </p>
+
+<p class="definition">Definition at line <a class="el" href="inflation_8cpp_source.html#l00071">71</a> of file <a class="el" href="inflation_8cpp_source.html">inflation.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ab6c93bcc485b54a479b2e2218b6a58fa" name="ab6c93bcc485b54a479b2e2218b6a58fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab6c93bcc485b54a479b2e2218b6a58fa">&#9670;&#160;</a></span>log() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void inf::Inflation::log </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This prints the object to the globally accessible <code><a class="el" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678" title="The globally accessible logger replacing std::cout">util::logger</a></code> and allows the <code><a class="el" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678" title="The globally accessible logger replacing std::cout">util::logger</a> &lt;&lt; loggable</code> syntax. </p>
+
+<p>Implements <a class="el" href="classutil_1_1Loggable.html#a63b97911b9abef8b12af6a3fdeb45750">util::Loggable</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="inflation_8cpp_source.html#l00076">76</a> of file <a class="el" href="inflation_8cpp_source.html">inflation.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ac0b2b985f65c5eca7eaee7e3be5505b1" name="ac0b2b985f65c5eca7eaee7e3be5505b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0b2b985f65c5eca7eaee7e3be5505b1">&#9670;&#160;</a></span>log_event()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void inf::Inflation::log_event </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> const &amp;&#160;</td>
+          <td class="paramname"><em>event</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>To print inflation events \(\infevent \in \infevents\) to <code><a class="el" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678" title="The globally accessible logger replacing std::cout">util::logger</a></code> </p>
+
+<p class="definition">Definition at line <a class="el" href="inflation_8cpp_source.html#l00084">84</a> of file <a class="el" href="inflation_8cpp_source.html">inflation.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aadcbae3cd3db6df435eb7805814b6016" name="aadcbae3cd3db6df435eb7805814b6016"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aadcbae3cd3db6df435eb7805814b6016">&#9670;&#160;</a></span>get_marginal_name()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string inf::Inflation::get_marginal_name </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>marginal</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>To convert the list-of-indices representation of an inflation marginal to a list of party names. </p>
+
+<p class="definition">Definition at line <a class="el" href="inflation_8cpp_source.html#l00098">98</a> of file <a class="el" href="inflation_8cpp_source.html">inflation.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a09016b474fd94b50e989bc429685f44d" name="a09016b474fd94b50e989bc429685f44d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09016b474fd94b50e989bc429685f44d">&#9670;&#160;</a></span>log_marginal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void inf::Inflation::log_marginal </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>marginal</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>To log an inflation marginal to <code><a class="el" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678" title="The globally accessible logger replacing std::cout">util::logger</a></code> </p>
+
+<p class="definition">Definition at line <a class="el" href="inflation_8cpp_source.html#l00113">113</a> of file <a class="el" href="inflation_8cpp_source.html">inflation.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a51266d9e388a9cbc78559968b0577ecc" name="a51266d9e388a9cbc78559968b0577ecc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51266d9e388a9cbc78559968b0577ecc">&#9670;&#160;</a></span>log_event_strings()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void inf::Inflation::log_event_strings </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; std::string &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>event</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Logs an event (whose values are expected to be single-character strings) to the <code><a class="el" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678" title="The globally accessible logger replacing std::cout">util::logger</a></code> in a nice matrix-like format. </p>
+
+<p class="definition">Definition at line <a class="el" href="inflation_8cpp_source.html#l00127">127</a> of file <a class="el" href="inflation_8cpp_source.html">inflation.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ad61b8a72fecf20cc46683e1dda987723" name="ad61b8a72fecf20cc46683e1dda987723"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad61b8a72fecf20cc46683e1dda987723">&#9670;&#160;</a></span>get_n_parties()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> inf::Inflation::get_n_parties </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Number of parties \(|\infparties|\) of the inflation. </p>
+
+<p class="definition">Definition at line <a class="el" href="inflation_8h_source.html#l00131">131</a> of file <a class="el" href="inflation_8h_source.html">inflation.h</a>.</p>
+
+</div>
+</div>
+<a id="a32432dd6f580704381870c1fe1130414" name="a32432dd6f580704381870c1fe1130414"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32432dd6f580704381870c1fe1130414">&#9670;&#160;</a></span>get_all_zero_event()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> inf::Inflation::get_all_zero_event </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>All zero event over the inflation parties. </p>
+
+<p class="definition">Definition at line <a class="el" href="inflation_8cpp_source.html#l00173">173</a> of file <a class="el" href="inflation_8cpp_source.html">inflation.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a06295a6f01f49ed4bc4fae1311fdbfec" name="a06295a6f01f49ed4bc4fae1311fdbfec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06295a6f01f49ed4bc4fae1311fdbfec">&#9670;&#160;</a></span>get_all_unknown_event()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> inf::Inflation::get_all_unknown_event </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>All unknown event over the inflation parties. </p>
+
+<p class="definition">Definition at line <a class="el" href="inflation_8cpp_source.html#l00185">185</a> of file <a class="el" href="inflation_8cpp_source.html">inflation.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a32061ba93f28896fb44687627d4b1686" name="a32061ba93f28896fb44687627d4b1686"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32061ba93f28896fb44687627d4b1686">&#9670;&#160;</a></span>get_random_event()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> inf::Inflation::get_random_event </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns a random event over the inflation parties. </p>
+<p>The randomness is seeded at the time of creation of the <a class="el" href="classinf_1_1Inflation.html" title="Describes an inflation of a network, currently restricted to canonical inflations of the triangle net...">inf::Inflation</a>, and the instance then queries its own pseudorandom number generator. </p>
+
+<p class="definition">Definition at line <a class="el" href="inflation_8cpp_source.html#l00177">177</a> of file <a class="el" href="inflation_8cpp_source.html">inflation.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a9c9908ad1e0a6558f49a4b249504110e" name="a9c9908ad1e0a6558f49a4b249504110e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c9908ad1e0a6558f49a4b249504110e">&#9670;&#160;</a></span>get_event_range()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__event.html#ga1945c0af7bba14437a034808f18dac20">inf::EventRange</a> inf::Inflation::get_event_range </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Event range over all inflation parties, to iterate over \(\infparties\). </p>
+
+<p class="definition">Definition at line <a class="el" href="inflation_8cpp_source.html#l00189">189</a> of file <a class="el" href="inflation_8cpp_source.html">inflation.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a4145134df29127ee233a867756d3837b" name="a4145134df29127ee233a867756d3837b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4145134df29127ee233a867756d3837b">&#9670;&#160;</a></span>get_all_source_range()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classutil_1_1ProductRange.html">util::ProductRange</a>&lt; <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> &gt; inf::Inflation::get_all_source_range </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The range of all copy indices of the form \((i_0,i_1,i_2)\), where \(i_\type \in \ints{\infsize_\type}\), where \(\infsize = (\infsize_0,\infsize_1,\infsize_2)\) denotes the inflations size. </p>
+
+<p class="definition">Definition at line <a class="el" href="inflation_8cpp_source.html#l00193">193</a> of file <a class="el" href="inflation_8cpp_source.html">inflation.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a7c079c8da261a25734e6cab9d5fc0c9d" name="a7c079c8da261a25734e6cab9d5fc0c9d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c079c8da261a25734e6cab9d5fc0c9d">&#9670;&#160;</a></span>get_parties()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="classinf_1_1Inflation.html#a7c8ea56bc938131a6d4d101469a34644">inf::Inflation::Party</a> &gt; inf::Inflation::get_parties </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The list of explicit <a class="el" href="classinf_1_1Inflation.html#a7c8ea56bc938131a6d4d101469a34644" title="The inflation parties  are denoted with this type, and take the form , where  denotes the type of the...">inf::Inflation::Party</a>. </p>
+<p>This list allows to see the ordering that we choose on inflation parties, which eventually generates the ordering of inflation events </p>
+
+<p class="definition">Definition at line <a class="el" href="inflation_8cpp_source.html#l00197">197</a> of file <a class="el" href="inflation_8cpp_source.html">inflation.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a0d2407cc5082ef3b67f7a42f6874c11a" name="a0d2407cc5082ef3b67f7a42f6874c11a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d2407cc5082ef3b67f7a42f6874c11a">&#9670;&#160;</a></span>get_party_index() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> inf::Inflation::get_party_index </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classinf_1_1Inflation.html#a7c8ea56bc938131a6d4d101469a34644">inf::Inflation::Party</a> const &amp;&#160;</td>
+          <td class="paramname"><em>party</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Internally, each explicit <a class="el" href="classinf_1_1Inflation.html#a7c8ea56bc938131a6d4d101469a34644" title="The inflation parties  are denoted with this type, and take the form , where  denotes the type of the...">inf::Inflation::Party</a> is assigned an index in \(\{0,1,\dots,|\infparties|-1\}\). </p>
+
+<p class="definition">Definition at line <a class="el" href="inflation_8cpp_source.html#l00201">201</a> of file <a class="el" href="inflation_8cpp_source.html">inflation.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a491ea3cdc6ac7b530b41ed6607590924" name="a491ea3cdc6ac7b530b41ed6607590924"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a491ea3cdc6ac7b530b41ed6607590924">&#9670;&#160;</a></span>get_party_index() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> inf::Inflation::get_party_index </td>
+          <td>(</td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
+          <td class="paramname"><em>party</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get e.g. "A00" -&gt; 0, "A01" -&gt; 1, etc. </p>
+<p>Internally, each explicit <a class="el" href="classinf_1_1Inflation.html#a7c8ea56bc938131a6d4d101469a34644" title="The inflation parties  are denoted with this type, and take the form , where  denotes the type of the...">inf::Inflation::Party</a> is assigned an index in \(\{0,1,\dots,|\infparties|-1\}\). Furthermore, each <a class="el" href="classinf_1_1Inflation.html#a7c8ea56bc938131a6d4d101469a34644" title="The inflation parties  are denoted with this type, and take the form , where  denotes the type of the...">inf::Inflation::Party</a> is assigned a string of the form "Ajk", where "A" is obtained with <a class="el" href="classinf_1_1Network.html#aac358ba9a7beea25b00ed0e3caaf19b3" title="The list of party names  (Alice, Bob and Charlie)">inf::Network::get_party_names()</a>, and j and k are the copy indices of the party. </p>
+
+<p class="definition">Definition at line <a class="el" href="inflation_8cpp_source.html#l00208">208</a> of file <a class="el" href="inflation_8cpp_source.html">inflation.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a62461fa7b393d783854cd36eff0256dc" name="a62461fa7b393d783854cd36eff0256dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62461fa7b393d783854cd36eff0256dc">&#9670;&#160;</a></span>get_party_name()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string const  &amp; inf::Inflation::get_party_name </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a>&#160;</td>
+          <td class="paramname"><em>party</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get e.g. 0 -&gt; "A00", 1 -&gt; "A01", etc. </p>
+<p>Internally, each explicit <a class="el" href="classinf_1_1Inflation.html#a7c8ea56bc938131a6d4d101469a34644" title="The inflation parties  are denoted with this type, and take the form , where  denotes the type of the...">inf::Inflation::Party</a> is assigned an index in \(\{0,1,\dots,|\infparties|-1\}\). Furthermore, each <a class="el" href="classinf_1_1Inflation.html#a7c8ea56bc938131a6d4d101469a34644" title="The inflation parties  are denoted with this type, and take the form , where  denotes the type of the...">inf::Inflation::Party</a> is assigned a string of the form "Ajk", where "A" is obtained with <a class="el" href="classinf_1_1Network.html#aac358ba9a7beea25b00ed0e3caaf19b3" title="The list of party names  (Alice, Bob and Charlie)">inf::Network::get_party_names()</a>, and j and k are the copy indices of the party. </p>
+
+<p class="definition">Definition at line <a class="el" href="inflation_8cpp_source.html#l00214">214</a> of file <a class="el" href="inflation_8cpp_source.html">inflation.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ab910ef44df901fad1db88a0b74fe86cc" name="ab910ef44df901fad1db88a0b74fe86cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab910ef44df901fad1db88a0b74fe86cc">&#9670;&#160;</a></span>is_valid_party_name()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool inf::Inflation::is_valid_party_name </td>
+          <td>(</td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
+          <td class="paramname"><em>party</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check that the given <code>party</code> name is of the form <code>Ajk</code>, where <code>A</code> must be obtained from the underlying <a class="el" href="classinf_1_1Network.html#aac358ba9a7beea25b00ed0e3caaf19b3" title="The list of party names  (Alice, Bob and Charlie)">inf::Network::get_party_names()</a> and j and k must be in the appropriate range related to <a class="el" href="classinf_1_1Inflation.html#ac279522d5aeb62ae47931f50460506df" title="The inflation size  specifying the number of copies of each source.">inf::Inflation::get_size()</a> (see also <a class="el" href="classinf_1_1Inflation.html#a7c8ea56bc938131a6d4d101469a34644" title="The inflation parties  are denoted with this type, and take the form , where  denotes the type of the...">inf::Inflation::Party</a>) </p>
+
+<p class="definition">Definition at line <a class="el" href="inflation_8cpp_source.html#l00220">220</a> of file <a class="el" href="inflation_8cpp_source.html">inflation.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ac279522d5aeb62ae47931f50460506df" name="ac279522d5aeb62ae47931f50460506df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac279522d5aeb62ae47931f50460506df">&#9670;&#160;</a></span>get_size()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classinf_1_1Inflation.html#ada371f0e56db6c2fa76d01e809805bd6">inf::Inflation::Size</a> const  &amp; inf::Inflation::get_size </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The inflation size \(\infsize = (\infsize_0,\infsize_1,\infsize_2)\) specifying the number of copies of each source. </p>
+
+<p class="definition">Definition at line <a class="el" href="inflation_8cpp_source.html#l00224">224</a> of file <a class="el" href="inflation_8cpp_source.html">inflation.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a21c23e5d5df7102da0aaa0d61be38252" name="a21c23e5d5df7102da0aaa0d61be38252"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21c23e5d5df7102da0aaa0d61be38252">&#9670;&#160;</a></span>get_network()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classinf_1_1Network.html#a4e586db6e1ab9f11335ed74f25ea0aee">inf::Network::ConstPtr</a> const  &amp; inf::Inflation::get_network </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the underlying <a class="el" href="classinf_1_1Network.html" title="The network with which the classical causal compatibility of a target distribution is to be tested.">inf::Network</a>. </p>
+
+<p class="definition">Definition at line <a class="el" href="inflation_8cpp_source.html#l00228">228</a> of file <a class="el" href="inflation_8cpp_source.html">inflation.cpp</a>.</p>
+
+</div>
+</div>
+<a id="abfa6a2b7897bb9f1d3c406a864e9acdf" name="abfa6a2b7897bb9f1d3c406a864e9acdf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abfa6a2b7897bb9f1d3c406a864e9acdf">&#9670;&#160;</a></span>get_inflation_symmetries()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classinf_1_1Symmetry.html#a901d22b86ef5923b628db86fbdd7ba4f">inf::Symmetry::Group</a> const  &amp; inf::Inflation::get_inflation_symmetries </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the symmetries of the inflation, typically including the symmetries of the specified <a class="el" href="classinf_1_1TargetDistr.html" title="A distribution over an inf::Network.">inf::TargetDistr</a>. </p>
+<p>See <a class="el" href="classinf_1_1Inflation.html#a50fe835aad42c372d72a1bde3a74df5c" title="Whether or not the distribution symmetries will be exploited to enlarge the inflation symmetry group.">inf::Inflation::UseDistrSymmetries</a> for more details. </p>
+
+<p class="definition">Definition at line <a class="el" href="inflation_8cpp_source.html#l00232">232</a> of file <a class="el" href="inflation_8cpp_source.html">inflation.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a3ebc98ce3622aab2af77a57d3304f42d" name="a3ebc98ce3622aab2af77a57d3304f42d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ebc98ce3622aab2af77a57d3304f42d">&#9670;&#160;</a></span>has_symmetries_compatible_with()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool inf::Inflation::has_symmetries_compatible_with </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classinf_1_1TargetDistr.html">inf::TargetDistr</a> const &amp;&#160;</td>
+          <td class="paramname"><em>d</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns <code>true</code> if the parameter <code>d</code> has the same symmetries as the original <a class="el" href="classinf_1_1TargetDistr.html" title="A distribution over an inf::Network.">inf::TargetDistr</a> that was used to intialize the inflation. </p>
+<p>If the <a class="el" href="classinf_1_1Inflation.html" title="Describes an inflation of a network, currently restricted to canonical inflations of the triangle net...">inf::Inflation</a> was initialized with <a class="el" href="classinf_1_1Inflation.html#a50fe835aad42c372d72a1bde3a74df5ca7fa3b767c460b54a2be4d49030b349c7" title="Mostly for testing purposes.">inf::Inflation::UseDistrSymmetries::no</a>, then this always return <code>true</code> </p>
+
+<p class="definition">Definition at line <a class="el" href="inflation_8cpp_source.html#l00236">236</a> of file <a class="el" href="inflation_8cpp_source.html">inflation.cpp</a>.</p>
+
+</div>
+</div>
+<a id="adafb5bd85ab90b64099716d59c104b2e" name="adafb5bd85ab90b64099716d59c104b2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adafb5bd85ab90b64099716d59c104b2e">&#9670;&#160;</a></span>get_source_induced_syms()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="classinf_1_1PartySym.html">inf::PartySym</a> &gt; const  &amp; inf::Inflation::get_source_induced_syms </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the group \(\sourcegroup\), i.e., all the party symmetries of the inflation that are induced by source permutations. </p>
+<dl class="section return"><dt>Returns</dt><dd>The reference is valid until <code>*this</code> is. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="inflation_8cpp_source.html#l00243">243</a> of file <a class="el" href="inflation_8cpp_source.html">inflation.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a80e1780db201f1db2acad489752d4dc3" name="a80e1780db201f1db2acad489752d4dc3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80e1780db201f1db2acad489752d4dc3">&#9670;&#160;</a></span>source_sym_to_party_sym()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classinf_1_1PartySym.html">inf::PartySym</a> inf::Inflation::source_sym_to_party_sym </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; std::vector&lt; <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> &gt; &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>perm_sources</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This converts a source permutation into the corresponding party permutation. </p>
+<p>This is non-static because it relies on <a class="el" href="classinf_1_1Inflation.html#a0d2407cc5082ef3b67f7a42f6874c11a" title="Internally, each explicit inf::Inflation::Party is assigned an index in .">inf::Inflation::get_party_index()</a>. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">perm_sources</td><td>List of permutation for each source, i.e., <code>perm_sources[t]</code> should be a permutation of the sources of type <code>t</code>, so an element of \(\shortsymgroup{\infsize_\type}\), where \(\infsize = (\infsize_0,\infsize_1,\infsize_2)\) denotes the inflation size. Each source permutations have to be represented as \((\sigma(0),\dots,\sigma(\infsize_\type-1))\), i.e., as the list of its images. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The <a class="el" href="classinf_1_1PartySym.html" title="Party symmetry.">inf::PartySym</a> referring to the parties of the inflation </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="inflation_8cpp_source.html#l00247">247</a> of file <a class="el" href="inflation_8cpp_source.html">inflation.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aeedce892606eb0b693e54e2aa970c035" name="aeedce892606eb0b693e54e2aa970c035"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeedce892606eb0b693e54e2aa970c035">&#9670;&#160;</a></span>network_party_to_inf_party_sym()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classinf_1_1PartySym.html">inf::PartySym</a> inf::Inflation::network_party_to_inf_party_sym </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classinf_1_1PartySym.html">inf::PartySym</a> const &amp;&#160;</td>
+          <td class="paramname"><em>network_party_sym</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This converts (lifts) a network party permutation to the adequate inflation party permutation. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">network_party_sym</td><td>The <a class="el" href="classinf_1_1PartySym.html" title="Party symmetry.">inf::PartySym</a> referring to the network parties (here, the parity obtained with <a class="el" href="classinf_1_1PartySym.html#a7f28374374def3bb4dbcc95870e10c74" title="To distinguish even and odd permutations, needed for to extend network symmtries to inflation symmetr...">inf::PartySym::is_even()</a> is used) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The <a class="el" href="classinf_1_1PartySym.html" title="Party symmetry.">inf::PartySym</a> referring to the parties of the inflation </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="inflation_8cpp_source.html#l00276">276</a> of file <a class="el" href="inflation_8cpp_source.html">inflation.cpp</a>.</p>
+
+</div>
+</div>
+<a id="abe439ba40d0dc8c9c2fa3310cdf14461" name="abe439ba40d0dc8c9c2fa3310cdf14461"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe439ba40d0dc8c9c2fa3310cdf14461">&#9670;&#160;</a></span>get_symtree()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classinf_1_1EventTree.html">inf::EventTree</a> const  &amp; inf::Inflation::get_symtree </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classinf_1_1EventTree.html#a3fc302d7a899deaf35f6138a7bcbe67c">inf::EventTree::IO</a>&#160;</td>
+          <td class="paramname"><em>io</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>An <a class="el" href="classinf_1_1EventTree.html" title="Storing a set of inf::Event as a tree.">inf::EventTree</a> representation of the symmetrized event representatives, denoted \(\redinfevents \subset \infevents\) in the paper. </p>
+<p>The set \(\redinfevents\) depends on the symmetry group that is being used: this includes or does not include the <a class="el" href="classinf_1_1TargetDistr.html" title="A distribution over an inf::Network.">inf::TargetDistr</a> (passed to the constructor) symmetries, see <a class="el" href="classinf_1_1Inflation.html#a50fe835aad42c372d72a1bde3a74df5c" title="Whether or not the distribution symmetries will be exploited to enlarge the inflation symmetry group.">inf::Inflation::UseDistrSymmetries</a> for more details.</p>
+<p>On the first call to this method, <code>m_symtree</code> is initialized and then cached. How <code>m_symtree</code> is initialized depends on the parameter <code>io:</code> if <code>io</code> is <a class="el" href="classinf_1_1EventTree.html#a3fc302d7a899deaf35f6138a7bcbe67caecae13117d6f0584c25a9da6c8f8415e" title="To read an inf::EventTree from a file.">inf::EventTree::IO::read</a>, then the <a class="el" href="classinf_1_1Inflation.html" title="Describes an inflation of a network, currently restricted to canonical inflations of the triangle net...">inf::Inflation</a> reads the <a class="el" href="classinf_1_1EventTree.html" title="Storing a set of inf::Event as a tree.">inf::EventTree</a> from the file <a class="el" href="classinf_1_1Inflation.html#a4378708d36afcc6d7d425a74ef58f3de" title="The filename to which the inf::EventTree is stored, including the inflation size and the short name o...">inf::Inflation::get_symtree_filename()</a>. Else, it computes the <a class="el" href="classinf_1_1EventTree.html" title="Storing a set of inf::Event as a tree.">inf::EventTree</a> using the class <a class="el" href="classinf_1_1TreeFiller.html" title="This class takes care of filling an inf::EventTree that stores the symmetrized inflation events .">inf::TreeFiller</a>. If <code>io</code> is <a class="el" href="classinf_1_1EventTree.html#a3fc302d7a899deaf35f6138a7bcbe67caefb2a684e4afb7d55e6147fbe5a332ee" title="To write an inf::EventTree to a file.">inf::EventTree::IO::write</a>, the <a class="el" href="classinf_1_1Inflation.html" title="Describes an inflation of a network, currently restricted to canonical inflations of the triangle net...">inf::Inflation</a> furthermore saves the resulting <a class="el" href="classinf_1_1EventTree.html" title="Storing a set of inf::Event as a tree.">inf::EventTree</a> to the file <a class="el" href="classinf_1_1Inflation.html#a4378708d36afcc6d7d425a74ef58f3de" title="The filename to which the inf::EventTree is stored, including the inflation size and the short name o...">inf::Inflation::get_symtree_filename()</a>.</p>
+<p>In practice, the <a class="el" href="classinf_1_1EventTree.html#a3fc302d7a899deaf35f6138a7bcbe67c" title="An inf::EventTree can take some time to initialize, and this option is used to control whether an inf...">inf::EventTree::IO</a> parameter will come from the <code>--symtree-io</code> command-line parameter, see <a class="el" href="md_doxygen_2running__applications.html#CLIparams">Command-line parameters</a> the "command-line parameter documentation" for more information. </p>
+
+<p class="definition">Definition at line <a class="el" href="inflation_8cpp_source.html#l00305">305</a> of file <a class="el" href="inflation_8cpp_source.html">inflation.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a674f66415d6e861f3860f85cfd205822" name="a674f66415d6e861f3860f85cfd205822"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a674f66415d6e861f3860f85cfd205822">&#9670;&#160;</a></span>are_d_separated()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool inf::Inflation::are_d_separated </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>marg_1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>marg_2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns <code>true</code> if the two lists of parties are d-separated. </p>
+<p><code>marg_1</code> and <code>marg_2</code> must be valid lists of inflation parties, i.e., their elements must be between 0 and <code><a class="el" href="classinf_1_1Inflation.html#ad61b8a72fecf20cc46683e1dda987723" title="Number of parties  of the inflation.">inf::Inflation::get_n_parties()</a>-1</code>. One can use the <a class="el" href="classinf_1_1Inflation.html#a0d2407cc5082ef3b67f7a42f6874c11a" title="Internally, each explicit inf::Inflation::Party is assigned an index in .">inf::Inflation::get_party_index()</a> overloads to obtain these lists conveniently. </p>
+
+<p class="definition">Definition at line <a class="el" href="inflation_8cpp_source.html#l00331">331</a> of file <a class="el" href="inflation_8cpp_source.html">inflation.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a9becf774e1ef740f16345a9a30be336e" name="a9becf774e1ef740f16345a9a30be336e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9becf774e1ef740f16345a9a30be336e">&#9670;&#160;</a></span>get_parents()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::set&lt; <a class="el" href="classinf_1_1Inflation.html#af62dfca96fd10d483e797cde63152c48">inf::Inflation::Source</a> &gt; inf::Inflation::get_parents </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>marg</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns \(\parents(\infmarg)\), the set of parent sources of the inflation marginal \(\infmarg \subset \infparties\). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">marg</td><td>Must be a valid list of inflation parties, i.e., its elements must be between 0 and <code><a class="el" href="classinf_1_1Inflation.html#ad61b8a72fecf20cc46683e1dda987723" title="Number of parties  of the inflation.">inf::Inflation::get_n_parties()</a>-1</code>. One can use the <a class="el" href="classinf_1_1Inflation.html#a0d2407cc5082ef3b67f7a42f6874c11a" title="Internally, each explicit inf::Inflation::Party is assigned an index in .">inf::Inflation::get_party_index()</a> overloads to obtain such a list conveniently. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="inflation_8cpp_source.html#l00345">345</a> of file <a class="el" href="inflation_8cpp_source.html">inflation.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ad283d1cc29f0cd8e4338e1022a0e6b3c" name="ad283d1cc29f0cd8e4338e1022a0e6b3c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad283d1cc29f0cd8e4338e1022a0e6b3c">&#9670;&#160;</a></span>is_injectable_set()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool inf::Inflation::is_injectable_set </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>marg</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns <code>true</code> if the list of party is an injectable set, denoted \(\injsets\) in the paper. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">marg</td><td>Must be a valid list of inflation parties, i.e., its elements must be between 0 and <code><a class="el" href="classinf_1_1Inflation.html#ad61b8a72fecf20cc46683e1dda987723" title="Number of parties  of the inflation.">inf::Inflation::get_n_parties()</a>-1</code>. One can use the <a class="el" href="classinf_1_1Inflation.html#a0d2407cc5082ef3b67f7a42f6874c11a" title="Internally, each explicit inf::Inflation::Party is assigned an index in .">inf::Inflation::get_party_index()</a> overloads to obtain such a list conveniently. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="inflation_8cpp_source.html#l00358">358</a> of file <a class="el" href="inflation_8cpp_source.html">inflation.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a78404beb483480bcfc13eedca5ac200e" name="a78404beb483480bcfc13eedca5ac200e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a78404beb483480bcfc13eedca5ac200e">&#9670;&#160;</a></span>init_parties()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void inf::Inflation::init_parties </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This initializes <code>m_parties</code>, <code>m_party_map</code>, <code>m_name_map</code>, <code>m_party_names</code> </p>
+
+<p class="definition">Definition at line <a class="el" href="inflation_8cpp_source.html#l00388">388</a> of file <a class="el" href="inflation_8cpp_source.html">inflation.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aa881476f7cd18cd6d5281b532804688c" name="aa881476f7cd18cd6d5281b532804688c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa881476f7cd18cd6d5281b532804688c">&#9670;&#160;</a></span>init_source_induced_syms()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void inf::Inflation::init_source_induced_syms </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Initializes <code>m_source_induced_syms</code> </p>
+
+<p class="definition">Definition at line <a class="el" href="inflation_8cpp_source.html#l00437">437</a> of file <a class="el" href="inflation_8cpp_source.html">inflation.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a782464bbfeaa51894fa1b313365f4dc7" name="a782464bbfeaa51894fa1b313365f4dc7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a782464bbfeaa51894fa1b313365f4dc7">&#9670;&#160;</a></span>init_inflation_symmetries()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void inf::Inflation::init_inflation_symmetries </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classinf_1_1Symmetry.html#a901d22b86ef5923b628db86fbdd7ba4f">inf::Symmetry::Group</a> const &amp;&#160;</td>
+          <td class="paramname"><em>distribution_sym_group</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Initializes <code>m_inflation_symmetries</code>, accounting for the target distribution's applicable symmetries and the source symmetries. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">distribution_sym_group</td><td>The symmetries of the target distribution to use (although, see <a class="el" href="classinf_1_1Inflation.html#a50fe835aad42c372d72a1bde3a74df5c" title="Whether or not the distribution symmetries will be exploited to enlarge the inflation symmetry group.">inf::Inflation::UseDistrSymmetries</a>) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="inflation_8cpp_source.html#l00453">453</a> of file <a class="el" href="inflation_8cpp_source.html">inflation.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a218f153524927c095bff199beb02535e" name="a218f153524927c095bff199beb02535e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a218f153524927c095bff199beb02535e">&#9670;&#160;</a></span>get_applicable_symmetries()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classinf_1_1Symmetry.html#a901d22b86ef5923b628db86fbdd7ba4f">inf::Symmetry::Group</a> inf::Inflation::get_applicable_symmetries </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classinf_1_1Symmetry.html#a901d22b86ef5923b628db86fbdd7ba4f">inf::Symmetry::Group</a> const &amp;&#160;</td>
+          <td class="paramname"><em>distribution_sym_group</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classinf_1_1Inflation.html#ada371f0e56db6c2fa76d01e809805bd6">inf::Inflation::Size</a> const &amp;&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Extract the symmetries of the distribution that are applicable to the inflation based on its size. </p>
+<p>See the definition of \(\partygroup\) in the paper. For instance, for the 2x2x2 inflation, all network party symmetries are applicable. But for the 2x3x4 inflation, no network party symmetries are applicable. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">distribution_sym_group</td><td>The distribution symmetries (only the <a class="el" href="classinf_1_1PartySym.html" title="Party symmetry.">inf::PartySym</a> part matters here) </td></tr>
+    <tr><td class="paramname">size</td><td>The (possibly symmetry-breaking) size of the inflation, determining which network symmetries can be lifted to inflation symmetries </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The applicable symmetry group (implies a copy, but it's fairly few elements anyway) </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="inflation_8cpp_source.html#l00502">502</a> of file <a class="el" href="inflation_8cpp_source.html">inflation.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a270394afb79b5d4888232d7ac5425139" name="a270394afb79b5d4888232d7ac5425139"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a270394afb79b5d4888232d7ac5425139">&#9670;&#160;</a></span>m_target_distr</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classinf_1_1TargetDistr.html#a75d7c59680325e198e85d02d673e4abe">inf::TargetDistr::ConstPtr</a> const inf::Inflation::m_target_distr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This <a class="el" href="classinf_1_1TargetDistr.html" title="A distribution over an inf::Network.">inf::TargetDistr</a> specifies the underlying <a class="el" href="classinf_1_1Network.html" title="The network with which the classical causal compatibility of a target distribution is to be tested.">inf::Network</a> as well as the distribution symmetries (see <a class="el" href="classinf_1_1Inflation.html#a50fe835aad42c372d72a1bde3a74df5c" title="Whether or not the distribution symmetries will be exploited to enlarge the inflation symmetry group.">inf::Inflation::UseDistrSymmetries</a>) </p>
+
+<p class="definition">Definition at line <a class="el" href="inflation_8h_source.html#l00227">227</a> of file <a class="el" href="inflation_8h_source.html">inflation.h</a>.</p>
+
+</div>
+</div>
+<a id="a146b9539935f13bcfc61f32af0d21cdd" name="a146b9539935f13bcfc61f32af0d21cdd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a146b9539935f13bcfc61f32af0d21cdd">&#9670;&#160;</a></span>m_size</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classinf_1_1Inflation.html#ada371f0e56db6c2fa76d01e809805bd6">inf::Inflation::Size</a> const inf::Inflation::m_size</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The inflation size \(\infsize = (\infsize_0,\infsize_1,\infsize_2)\) specifying the number of copies of each source. </p>
+
+<p class="definition">Definition at line <a class="el" href="inflation_8h_source.html#l00229">229</a> of file <a class="el" href="inflation_8h_source.html">inflation.h</a>.</p>
+
+</div>
+</div>
+<a id="a4d7f1820b16101accad4813a01e36d47" name="a4d7f1820b16101accad4813a01e36d47"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d7f1820b16101accad4813a01e36d47">&#9670;&#160;</a></span>m_use_distr_symmetries</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classinf_1_1Inflation.html#a50fe835aad42c372d72a1bde3a74df5c">inf::Inflation::UseDistrSymmetries</a> const inf::Inflation::m_use_distr_symmetries</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Whether or not the distribution symmetries were incorporated in the inflation symmetry group, see <a class="el" href="classinf_1_1Inflation.html#a50fe835aad42c372d72a1bde3a74df5c" title="Whether or not the distribution symmetries will be exploited to enlarge the inflation symmetry group.">inf::Inflation::UseDistrSymmetries</a>. </p>
+
+<p class="definition">Definition at line <a class="el" href="inflation_8h_source.html#l00231">231</a> of file <a class="el" href="inflation_8h_source.html">inflation.h</a>.</p>
+
+</div>
+</div>
+<a id="a1d646e2a74f9d46086eeffdc6a0340f0" name="a1d646e2a74f9d46086eeffdc6a0340f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d646e2a74f9d46086eeffdc6a0340f0">&#9670;&#160;</a></span>m_parties</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="classinf_1_1Inflation.html#a7c8ea56bc938131a6d4d101469a34644">inf::Inflation::Party</a>&gt; inf::Inflation::m_parties</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The list of explicit inf::Inflation::Parties, this is the inverse of <code>m_party_map</code> </p>
+
+<p class="definition">Definition at line <a class="el" href="inflation_8h_source.html#l00234">234</a> of file <a class="el" href="inflation_8h_source.html">inflation.h</a>.</p>
+
+</div>
+</div>
+<a id="a1da3095bcec5ac25281d08ca25ed346a" name="a1da3095bcec5ac25281d08ca25ed346a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1da3095bcec5ac25281d08ca25ed346a">&#9670;&#160;</a></span>m_party_map</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt;<a class="el" href="classinf_1_1Inflation.html#a7c8ea56bc938131a6d4d101469a34644">inf::Inflation::Party</a>, <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a>&gt; inf::Inflation::m_party_map</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This map is used in <code><a class="el" href="classinf_1_1Inflation.html#a0d2407cc5082ef3b67f7a42f6874c11a" title="Internally, each explicit inf::Inflation::Party is assigned an index in .">inf::Inflation::get_party_index</a>(<a class="el" href="classinf_1_1Inflation.html#a7c8ea56bc938131a6d4d101469a34644" title="The inflation parties  are denoted with this type, and take the form , where  denotes the type of the...">inf::Inflation::Party</a> const&amp;) const</code> </p>
+
+<p class="definition">Definition at line <a class="el" href="inflation_8h_source.html#l00236">236</a> of file <a class="el" href="inflation_8h_source.html">inflation.h</a>.</p>
+
+</div>
+</div>
+<a id="a6750c255213ba91ca6a72fa589532084" name="a6750c255213ba91ca6a72fa589532084"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6750c255213ba91ca6a72fa589532084">&#9670;&#160;</a></span>m_name_map</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt;std::string, <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a>&gt; inf::Inflation::m_name_map</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This map is used in <code><a class="el" href="classinf_1_1Inflation.html#a0d2407cc5082ef3b67f7a42f6874c11a" title="Internally, each explicit inf::Inflation::Party is assigned an index in .">inf::Inflation::get_party_index</a>(std::string const&amp;) const</code> </p>
+
+<p class="definition">Definition at line <a class="el" href="inflation_8h_source.html#l00238">238</a> of file <a class="el" href="inflation_8h_source.html">inflation.h</a>.</p>
+
+</div>
+</div>
+<a id="a34c7add257d1d66199860734bb6ca42f" name="a34c7add257d1d66199860734bb6ca42f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34c7add257d1d66199860734bb6ca42f">&#9670;&#160;</a></span>m_party_names</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::string&gt; inf::Inflation::m_party_names</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This list is used in <code><a class="el" href="classinf_1_1Inflation.html#a62461fa7b393d783854cd36eff0256dc" title="Get e.g. 0 -&gt; &quot;A00&quot;, 1 -&gt; &quot;A01&quot;, etc.">inf::Inflation::get_party_name()</a></code> </p>
+
+<p class="definition">Definition at line <a class="el" href="inflation_8h_source.html#l00240">240</a> of file <a class="el" href="inflation_8h_source.html">inflation.h</a>.</p>
+
+</div>
+</div>
+<a id="a076e7a062963f0dac7662a6da2ec7c05" name="a076e7a062963f0dac7662a6da2ec7c05"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a076e7a062963f0dac7662a6da2ec7c05">&#9670;&#160;</a></span>m_source_induced_syms</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="classinf_1_1PartySym.html">inf::PartySym</a>&gt; inf::Inflation::m_source_induced_syms</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The inflation party symmetries coming from source relabelings. </p>
+
+<p class="definition">Definition at line <a class="el" href="inflation_8h_source.html#l00245">245</a> of file <a class="el" href="inflation_8h_source.html">inflation.h</a>.</p>
+
+</div>
+</div>
+<a id="acfc4c83503297dd55886c44df1a61296" name="acfc4c83503297dd55886c44df1a61296"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acfc4c83503297dd55886c44df1a61296">&#9670;&#160;</a></span>m_inflation_symmetries</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classinf_1_1Symmetry.html#a901d22b86ef5923b628db86fbdd7ba4f">inf::Symmetry::Group</a> inf::Inflation::m_inflation_symmetries</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The inflation symmetries, accounting for the target distribution's applicable symmetries and the source symmetries. </p>
+<p>See <a class="el" href="classinf_1_1Inflation.html#a50fe835aad42c372d72a1bde3a74df5c" title="Whether or not the distribution symmetries will be exploited to enlarge the inflation symmetry group.">inf::Inflation::UseDistrSymmetries</a> fore more details </p>
+
+<p class="definition">Definition at line <a class="el" href="inflation_8h_source.html#l00251">251</a> of file <a class="el" href="inflation_8h_source.html">inflation.h</a>.</p>
+
+</div>
+</div>
+<a id="a26eb83295c67419f8095e495ba0272c0" name="a26eb83295c67419f8095e495ba0272c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26eb83295c67419f8095e495ba0272c0">&#9670;&#160;</a></span>m_n_parties</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> inf::Inflation::m_n_parties</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The number \(|\infparties|\) of parties of the inflation. </p>
+
+<p class="definition">Definition at line <a class="el" href="inflation_8h_source.html#l00264">264</a> of file <a class="el" href="inflation_8h_source.html">inflation.h</a>.</p>
+
+</div>
+</div>
+<a id="ad18a3f973c2ac6748bae88779b9fb9f1" name="ad18a3f973c2ac6748bae88779b9fb9f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad18a3f973c2ac6748bae88779b9fb9f1">&#9670;&#160;</a></span>m_symtree</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classinf_1_1EventTree.html#a70c8d92a720e28d0a90d72d97f4258a2">inf::EventTree::UniquePtr</a> inf::Inflation::m_symtree</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">mutable</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Stores the symmetrized inflation events as a tree, see <a class="el" href="classinf_1_1Inflation.html#abe439ba40d0dc8c9c2fa3310cdf14461" title="An inf::EventTree representation of the symmetrized event representatives, denoted  in the paper.">inf::Inflation::get_symtree()</a> </p>
+<p>This is a <code>mutable</code> member because the caching mechanism requires initializing the event tree on <code>const <a class="el" href="classinf_1_1Inflation.html" title="Describes an inflation of a network, currently restricted to canonical inflations of the triangle net...">inf::Inflation</a></code> instances. </p>
+
+<p class="definition">Definition at line <a class="el" href="inflation_8h_source.html#l00269">269</a> of file <a class="el" href="inflation_8h_source.html">inflation.h</a>.</p>
+
+</div>
+</div>
+<a id="a87e99e18d46ca656e99e4188b76a49d6" name="a87e99e18d46ca656e99e4188b76a49d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87e99e18d46ca656e99e4188b76a49d6">&#9670;&#160;</a></span>m_rng</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classutil_1_1RNG.html">util::RNG</a>&lt;<a class="el" href="group__event.html#gadcaa27c4242b65837f0f7a00e96856d4">inf::Outcome</a>&gt; inf::Inflation::m_rng</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">mutable</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Used for <a class="el" href="classinf_1_1Inflation.html#a32061ba93f28896fb44687627d4b1686" title="Returns a random event over the inflation parties.">inf::Inflation::get_random_event()</a> </p>
+<p>This is a <code>mutable</code> member since, conceptually, <a class="el" href="classinf_1_1Inflation.html#a32061ba93f28896fb44687627d4b1686" title="Returns a random event over the inflation parties.">inf::Inflation::get_random_event()</a> does not modify the <a class="el" href="classinf_1_1Inflation.html" title="Describes an inflation of a network, currently restricted to canonical inflations of the triangle net...">inf::Inflation</a> instance and hence ought to be a <code>const</code> method. However, this modifies the state of the random number generator. </p>
+
+<p class="definition">Definition at line <a class="el" href="inflation_8h_source.html#l00275">275</a> of file <a class="el" href="inflation_8h_source.html">inflation.h</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>src/inf/inf_problem/<a class="el" href="inflation_8h_source.html">inflation.h</a></li>
+<li>src/inf/inf_problem/<a class="el" href="inflation_8cpp_source.html">inflation.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceinf.html">inf</a></li><li class="navelem"><a class="el" href="classinf_1_1Inflation.html">Inflation</a></li>
+    <li class="footer">Generated on Wed Dec 18 2024 17:39:42 for Fast Inflation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

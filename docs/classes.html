@@ -1,0 +1,272 @@
+<!-- HTML header for doxygen 1.9.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Fast Inflation: Class Index</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+MathJax.Hub.Config({
+    TeX: {
+        Macros: {
+            dd: ["{\\text{d}#1\\,}",1],
+            nouts: ["{n_{\\text{o}}}"],
+            ints: ["{[\\![#1]\\!]}",1],
+            outset: ["{\\ints{\\nouts}}"],
+            N: ["{\\mathbb{N}}"],
+            R: ["{\\mathbb{R}}"],
+            Z: ["{\\mathbb{Z}}"],
+            infsize: ["{z}"],
+            infparties: ["{\\set{I}}"],
+            infsources: ["{\\set{S}}"],
+            infmarg: ["{\\set{A}}"],
+            infmargg: ["{\\set{B}}"],
+            netparties: ["{\\set{N}}"],
+            infq: ["{q}"],
+            infqs: ["{\\Delta_{\\infparties}}"],
+            constraintlist: ["{\\mathcal{C}}"],
+            injsets: ["{\\text{InjSets}}"],
+            infconstraints: ["{\\text{InfCons}}"],
+            parents: ["{\\text{Par}}"],
+            targetp: ["{p}"],
+            targetps: ["{\\Delta_{\\netparties}}"],
+            set: ["{\\mathbf{#1}}",1],
+            type: ["{t}"],
+            infevent: "{\\omega}",
+            events: ["{\\Omega_{#1}}",1],
+            infevents: ["{\\events{\\infparties}}"],
+            redinfevents: ["{\\tilde{\\Omega}_{\\infparties}}"],
+            netevents: ["{\\events{\\netparties}}"],
+            vecset: ["{V_{#1}}",1],
+            alice: ["{\\text{A}}"],
+            bob: ["{\\text{B}}"],
+            charlie: ["{\\text{C}}"],
+            symgroup: ["{\\text{Sym}(#1)}",1],
+            shortsymgroup: ["{\\text{Sym}_{#1}}",1],
+            act: ["{(#1\\hspace{2pt}{:}\\hspace{2pt}#2)}",2],
+            actt: ["{[#1\\hspace{2pt}{:}\\hspace{2pt}#2]}",2],
+            margperms: ["{\\text{Perm}_{#1}}",1],
+            permutedmargs: ["{\\mathbb{P}_{#1}^{\\targetp}}",1],
+            redpermutedmargs: ["{\\tilde{\\mathbb{P}}_{#1}^{\\constraintname,\\targetp}}",1],
+            extract: ["{\\text{ext}(#1,#2)}",2],
+            partysym: ["{\\tau}"],
+            sourcesym: ["{\\xi}"],
+            outsym: ["{\\sigma}"],
+            fullgroup: ["{\\text{InfGrp}}"],
+            partygroup : ["{\\text{PartyGrp}}"],
+            outgroup: ["{\\text{OutGrp}}"],
+            sourcegroup: ["{\\text{SrcGrp}}"],
+            distrgroup: ["{\\mathbb{G}^\\targetp}"],
+            constraintname: ["{c}"],
+            marggroup: ["{\\mathbb{G}^{\\constraintname,\\targetp}}"],
+            fullsymexpl: ["{(\\sourcesym,\\partysym,\\outsym)}"],
+            inner: ["{\\langle#1,#2\\rangle}", 2],
+            quovec: ["{f}"],
+            totconstraintmap: ["{K^{\\constraintlist,\\targetp}}"],
+            totconstraintmapelem: ["{K^{\\constraintname,\\targetp}}"],
+            quovecspace: ["{\\tilde{V}_{#1}^{\\constraintname,\\targetp}}", 1],
+            totquovecspace: ["{\\text{ConsSpace}(\\constraintlist,\\targetp)}"],
+            detdistr: ["{\\delta^{#1}}", 1],
+            margperm: ["{\\varphi}"],
+            altquovecembed: ["{\\text{G}_{#1}^{\\constraintname,\\targetp}}", 1],
+            vecset: ["{V_{#1}}", 1],
+            repr: ["{\\lfloor#1\\rfloor}", 1],
+            gid: ["{\\text{id}}"],
+            id: ["{1_{#1}}",1],
+            consscale: ["{K}"],
+            scaletot: ["{K_{\\text{tot}}^{\\constraintlist,\\targetp}}"],
+            minnorm: ["{d}"],
+            Bigsetst: ["\\;\\Big|\\;"],
+            activeset: ["\\mathcal{S}"],
+            conv: ["\\text{conv}"],
+            lVert: ["|\\hspace{-1pt}|"],
+            norm: ["\\lVert#1\\lVert", 1],
+            st: [":\ "],
+        }
+    }
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeDarkModeToggle.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeParagraphLink.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Fast Inflation
+   </div>
+   <div id="projectbrief">To certify causal incompatibility</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classes.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Class Index</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="qindex"><a class="qindex" href="#letter_A">A</a>&#160;|&#160;<a class="qindex" href="#letter_B">B</a>&#160;|&#160;<a class="qindex" href="#letter_C">C</a>&#160;|&#160;<a class="qindex" href="#letter_D">D</a>&#160;|&#160;<a class="qindex" href="#letter_E">E</a>&#160;|&#160;<a class="qindex" href="#letter_F">F</a>&#160;|&#160;<a class="qindex" href="#letter_G">G</a>&#160;|&#160;<a class="qindex" href="#letter_I">I</a>&#160;|&#160;<a class="qindex" href="#letter_L">L</a>&#160;|&#160;<a class="qindex" href="#letter_M">M</a>&#160;|&#160;<a class="qindex" href="#letter_N">N</a>&#160;|&#160;<a class="qindex" href="#letter_O">O</a>&#160;|&#160;<a class="qindex" href="#letter_P">P</a>&#160;|&#160;<a class="qindex" href="#letter_R">R</a>&#160;|&#160;<a class="qindex" href="#letter_S">S</a>&#160;|&#160;<a class="qindex" href="#letter_T">T</a>&#160;|&#160;<a class="qindex" href="#letter_U">U</a>&#160;|&#160;<a class="qindex" href="#letter_V">V</a>&#160;|&#160;<a class="qindex" href="#letter_W">W</a>&#160;|&#160;<a class="qindex" href="#letter_Y">Y</a></div>
+<div class="classindex">
+<dl class="classindex even">
+<dt class="alphachar"><a id="letter_A" name="letter_A">A</a></dt>
+<dd><a class="el" href="classuser_1_1Application.html">Application</a> (<a class="el" href="namespaceuser.html">user</a>)</dd><dd><a class="el" href="classuser_1_1AppManager.html">AppManager</a> (<a class="el" href="namespaceuser.html">user</a>)</dd></dl>
+<dl class="classindex odd">
+<dt class="alphachar"><a id="letter_B" name="letter_B">B</a></dt>
+<dd><a class="el" href="classutil_1_1BaseCLI.html">BaseCLI</a> (<a class="el" href="namespaceutil.html">util</a>)</dd><dd><a class="el" href="classinf_1_1BruteForceOpt.html">BruteForceOpt</a> (<a class="el" href="namespaceinf.html">inf</a>)</dd></dl>
+<dl class="classindex even">
+<dt class="alphachar"><a id="letter_C" name="letter_C">C</a></dt>
+<dd><a class="el" href="classutil_1_1Chrono.html">Chrono</a> (<a class="el" href="namespaceutil.html">util</a>)</dd><dd><a class="el" href="classinf_1_1Constraint.html">Constraint</a> (<a class="el" href="namespaceinf.html">inf</a>)</dd><dd><a class="el" href="classinf_1_1ConstraintParser.html">ConstraintParser</a> (<a class="el" href="namespaceinf.html">inf</a>)</dd><dd><a class="el" href="classinf_1_1ConstraintSet.html">ConstraintSet</a> (<a class="el" href="namespaceinf.html">inf</a>)</dd></dl>
+<dl class="classindex odd">
+<dt class="alphachar"><a id="letter_D" name="letter_D">D</a></dt>
+<dd><a class="el" href="classinf_1_1PairwiseFW_1_1Data.html">PairwiseFW::Data</a> (<a class="el" href="namespaceinf.html">inf</a>)</dd><dd><a class="el" href="classuser_1_1distribution__marginal.html">distribution_marginal</a> (<a class="el" href="namespaceuser.html">user</a>)</dd><dd><a class="el" href="classuser_1_1dual__vector__bounds.html">dual_vector_bounds</a> (<a class="el" href="namespaceuser.html">user</a>)</dd><dd><a class="el" href="classuser_1_1dual__vector__io.html">dual_vector_io</a> (<a class="el" href="namespaceuser.html">user</a>)</dd><dd><a class="el" href="classinf_1_1DualVector.html">DualVector</a> (<a class="el" href="namespaceinf.html">inf</a>)</dd></dl>
+<dl class="classindex even">
+<dt class="alphachar"><a id="letter_E" name="letter_E">E</a></dt>
+<dd><a class="el" href="classuser_1_1ejm.html">ejm</a> (<a class="el" href="namespaceuser.html">user</a>)</dd><dd><a class="el" href="classuser_1_1ejm__check__nl__certificate.html">ejm_check_nl_certificate</a> (<a class="el" href="namespaceuser.html">user</a>)</dd><dd><a class="el" href="classuser_1_1ejm__eval.html">ejm_eval</a> (<a class="el" href="namespaceuser.html">user</a>)</dd><dd><a class="el" href="classuser_1_1ejm__find__nl__certificate.html">ejm_find_nl_certificate</a> (<a class="el" href="namespaceuser.html">user</a>)</dd><dd><a class="el" href="classuser_1_1ejm__scan__222.html">ejm_scan_222</a> (<a class="el" href="namespaceuser.html">user</a>)</dd><dd><a class="el" href="classuser_1_1ejm__sym.html">ejm_sym</a> (<a class="el" href="namespaceuser.html">user</a>)</dd><dd><a class="el" href="classuser_1_1ejm__symtree.html">ejm_symtree</a> (<a class="el" href="namespaceuser.html">user</a>)</dd><dd><a class="el" href="classuser_1_1ejm__vis__222__strong.html">ejm_vis_222_strong</a> (<a class="el" href="namespaceuser.html">user</a>)</dd><dd><a class="el" href="classuser_1_1ejm__vis__222__weak.html">ejm_vis_222_weak</a> (<a class="el" href="namespaceuser.html">user</a>)</dd><dd><a class="el" href="classuser_1_1ejm__vis__223__strong.html">ejm_vis_223_strong</a> (<a class="el" href="namespaceuser.html">user</a>)</dd><dd><a class="el" href="classuser_1_1ejm__vis__223__weak.html">ejm_vis_223_weak</a> (<a class="el" href="namespaceuser.html">user</a>)</dd><dd><a class="el" href="classuser_1_1ejm__vis__224__inter__v1.html">ejm_vis_224_inter_v1</a> (<a class="el" href="namespaceuser.html">user</a>)</dd><dd><a class="el" href="classuser_1_1ejm__vis__224__inter__v2__diag__A.html">ejm_vis_224_inter_v2_diag_A</a> (<a class="el" href="namespaceuser.html">user</a>)</dd><dd><a class="el" href="classuser_1_1ejm__vis__224__inter__v2__diag__C.html">ejm_vis_224_inter_v2_diag_C</a> (<a class="el" href="namespaceuser.html">user</a>)</dd><dd><a class="el" href="classuser_1_1ejm__vis__224__weak.html">ejm_vis_224_weak</a> (<a class="el" href="namespaceuser.html">user</a>)</dd><dd><a class="el" href="classuser_1_1ejm__vis__224__weak__bis.html">ejm_vis_224_weak_bis</a> (<a class="el" href="namespaceuser.html">user</a>)</dd><dd><a class="el" href="classinf_1_1Marginal_1_1Evaluator.html">Marginal::Evaluator</a> (<a class="el" href="namespaceinf.html">inf</a>)</dd><dd><a class="el" href="classinf_1_1Marginal_1_1EvaluatorSet.html">Marginal::EvaluatorSet</a> (<a class="el" href="namespaceinf.html">inf</a>)</dd><dd><a class="el" href="classuser_1_1event__sym.html">event_sym</a> (<a class="el" href="namespaceuser.html">user</a>)</dd><dd><a class="el" href="classuser_1_1event__tensor.html">event_tensor</a> (<a class="el" href="namespaceuser.html">user</a>)</dd><dd><a class="el" href="classuser_1_1event__tree.html">event_tree</a> (<a class="el" href="namespaceuser.html">user</a>)</dd><dd><a class="el" href="classinf_1_1EventTensor.html">EventTensor</a> (<a class="el" href="namespaceinf.html">inf</a>)</dd><dd><a class="el" href="classinf_1_1EventTree.html">EventTree</a> (<a class="el" href="namespaceinf.html">inf</a>)</dd></dl>
+<dl class="classindex odd">
+<dt class="alphachar"><a id="letter_F" name="letter_F">F</a></dt>
+<dd><a class="el" href="classinf_1_1FeasOptions.html">FeasOptions</a> (<a class="el" href="namespaceinf.html">inf</a>)</dd><dd><a class="el" href="classinf_1_1FeasProblem.html">FeasProblem</a> (<a class="el" href="namespaceinf.html">inf</a>)</dd><dd><a class="el" href="classuser_1_1file__stream.html">file_stream</a> (<a class="el" href="namespaceuser.html">user</a>)</dd><dd><a class="el" href="classutil_1_1FileStream.html">FileStream</a> (<a class="el" href="namespaceutil.html">util</a>)</dd><dd><a class="el" href="classuser_1_1frac.html">frac</a> (<a class="el" href="namespaceuser.html">user</a>)</dd><dd><a class="el" href="classutil_1_1Frac.html">Frac</a> (<a class="el" href="namespaceutil.html">util</a>)</dd><dd><a class="el" href="classinf_1_1FrankWolfe.html">FrankWolfe</a> (<a class="el" href="namespaceinf.html">inf</a>)</dd><dd><a class="el" href="classuser_1_1fully__corrective__fw.html">fully_corrective_fw</a> (<a class="el" href="namespaceuser.html">user</a>)</dd><dd><a class="el" href="classinf_1_1FullyCorrectiveFW.html">FullyCorrectiveFW</a> (<a class="el" href="namespaceinf.html">inf</a>)</dd></dl>
+<dl class="classindex even">
+<dt class="alphachar"><a id="letter_G" name="letter_G">G</a></dt>
+<dd><a class="el" href="classinf_1_1TreeOpt_1_1GlobalMinimum.html">TreeOpt::GlobalMinimum</a> (<a class="el" href="namespaceinf.html">inf</a>)</dd></dl>
+<dl class="classindex odd">
+<dt class="alphachar"><a id="letter_I" name="letter_I">I</a></dt>
+<dd><a class="el" href="classuser_1_1inf__tree__filler.html">inf_tree_filler</a> (<a class="el" href="namespaceuser.html">user</a>)</dd><dd><a class="el" href="classuser_1_1inf__tree__splitting.html">inf_tree_splitting</a> (<a class="el" href="namespaceuser.html">user</a>)</dd><dd><a class="el" href="classuser_1_1InfCLI.html">InfCLI</a> (<a class="el" href="namespaceuser.html">user</a>)</dd><dd><a class="el" href="classinf_1_1Inflation.html">Inflation</a> (<a class="el" href="namespaceinf.html">inf</a>)</dd><dd><a class="el" href="classuser_1_1inflation__marginal.html">inflation_marginal</a> (<a class="el" href="namespaceuser.html">user</a>)</dd><dd><a class="el" href="classutil_1_1InputFileStream.html">InputFileStream</a> (<a class="el" href="namespaceutil.html">util</a>)</dd><dd><a class="el" href="classutil_1_1Iterator.html">Iterator</a> (<a class="el" href="namespaceutil.html">util</a>)</dd></dl>
+<dl class="classindex even">
+<dt class="alphachar"><a id="letter_L" name="letter_L">L</a></dt>
+<dd><a class="el" href="classutil_1_1Loggable.html">Loggable</a> (<a class="el" href="namespaceutil.html">util</a>)</dd><dd><a class="el" href="classutil_1_1Logger.html">Logger</a> (<a class="el" href="namespaceutil.html">util</a>)</dd></dl>
+<dl class="classindex odd">
+<dt class="alphachar"><a id="letter_M" name="letter_M">M</a></dt>
+<dd><a class="el" href="classinf_1_1Marginal.html">Marginal</a> (<a class="el" href="namespaceinf.html">inf</a>)</dd></dl>
+<dl class="classindex even">
+<dt class="alphachar"><a id="letter_N" name="letter_N">N</a></dt>
+<dd><a class="el" href="classinf_1_1Network.html">Network</a> (<a class="el" href="namespaceinf.html">inf</a>)</dd><dd><a class="el" href="classinf_1_1EventTree_1_1Node.html">EventTree::Node</a> (<a class="el" href="namespaceinf.html">inf</a>)</dd><dd><a class="el" href="classinf_1_1EventTree_1_1NodePos.html">EventTree::NodePos</a> (<a class="el" href="namespaceinf.html">inf</a>)</dd></dl>
+<dl class="classindex odd">
+<dt class="alphachar"><a id="letter_O" name="letter_O">O</a></dt>
+<dd><a class="el" href="classuser_1_1opt__bounds.html">opt_bounds</a> (<a class="el" href="namespaceuser.html">user</a>)</dd><dd><a class="el" href="classuser_1_1opt__time.html">opt_time</a> (<a class="el" href="namespaceuser.html">user</a>)</dd><dd><a class="el" href="classinf_1_1Optimizer.html">Optimizer</a> (<a class="el" href="namespaceinf.html">inf</a>)</dd><dd><a class="el" href="classinf_1_1Orbitable.html">Orbitable</a> (<a class="el" href="namespaceinf.html">inf</a>)</dd><dd><a class="el" href="classinf_1_1OutcomeSym.html">OutcomeSym</a> (<a class="el" href="namespaceinf.html">inf</a>)</dd><dd><a class="el" href="classutil_1_1OutputFileStream.html">OutputFileStream</a> (<a class="el" href="namespaceutil.html">util</a>)</dd></dl>
+<dl class="classindex even">
+<dt class="alphachar"><a id="letter_P" name="letter_P">P</a></dt>
+<dd><a class="el" href="classuser_1_1pairwise__fw.html">pairwise_fw</a> (<a class="el" href="namespaceuser.html">user</a>)</dd><dd><a class="el" href="classinf_1_1PairwiseFW.html">PairwiseFW</a> (<a class="el" href="namespaceinf.html">inf</a>)</dd><dd><a class="el" href="classinf_1_1PartySym.html">PartySym</a> (<a class="el" href="namespaceinf.html">inf</a>)</dd><dd><a class="el" href="structinf_1_1TreeSplitter_1_1PathAndLeaves.html">TreeSplitter::PathAndLeaves</a> (<a class="el" href="namespaceinf.html">inf</a>)</dd><dd><a class="el" href="classutil_1_1PermIterator.html">PermIterator</a> (<a class="el" href="namespaceutil.html">util</a>)</dd><dd><a class="el" href="structinf_1_1Marginal_1_1Permutation.html">Marginal::Permutation</a> (<a class="el" href="namespaceinf.html">inf</a>)</dd><dd><a class="el" href="classutil_1_1Permutations.html">Permutations</a> (<a class="el" href="namespaceutil.html">util</a>)</dd><dd><a class="el" href="classuser_1_1pjm.html">pjm</a> (<a class="el" href="namespaceuser.html">user</a>)</dd><dd><a class="el" href="classinf_1_1Optimizer_1_1PreSolution.html">Optimizer::PreSolution</a> (<a class="el" href="namespaceinf.html">inf</a>)</dd><dd><a class="el" href="classutil_1_1ProductIterator.html">ProductIterator</a> (<a class="el" href="namespaceutil.html">util</a>)</dd><dd><a class="el" href="classutil_1_1ProductRange.html">ProductRange</a> (<a class="el" href="namespaceutil.html">util</a>)</dd></dl>
+<dl class="classindex odd">
+<dt class="alphachar"><a id="letter_R" name="letter_R">R</a></dt>
+<dd><a class="el" href="classutil_1_1Range.html">Range</a> (<a class="el" href="namespaceutil.html">util</a>)</dd><dd><a class="el" href="classutil_1_1RNG.html">RNG</a> (<a class="el" href="namespaceutil.html">util</a>)</dd></dl>
+<dl class="classindex even">
+<dt class="alphachar"><a id="letter_S" name="letter_S">S</a></dt>
+<dd><a class="el" href="classutil_1_1Serializable.html">Serializable</a> (<a class="el" href="namespaceutil.html">util</a>)</dd><dd><a class="el" href="classinf_1_1FrankWolfe_1_1Solution.html">FrankWolfe::Solution</a> (<a class="el" href="namespaceinf.html">inf</a>)</dd><dd><a class="el" href="classinf_1_1Optimizer_1_1Solution.html">Optimizer::Solution</a> (<a class="el" href="namespaceinf.html">inf</a>)</dd><dd><a class="el" href="classuser_1_1srb.html">srb</a> (<a class="el" href="namespaceuser.html">user</a>)</dd><dd><a class="el" href="classuser_1_1srb__dual__vector__io.html">srb_dual_vector_io</a> (<a class="el" href="namespaceuser.html">user</a>)</dd><dd><a class="el" href="classuser_1_1srb__eval.html">srb_eval</a> (<a class="el" href="namespaceuser.html">user</a>)</dd><dd><a class="el" href="classuser_1_1srb__sym.html">srb_sym</a> (<a class="el" href="namespaceuser.html">user</a>)</dd><dd><a class="el" href="classuser_1_1srb__vis__222__strong.html">srb_vis_222_strong</a> (<a class="el" href="namespaceuser.html">user</a>)</dd><dd><a class="el" href="classuser_1_1srb__vis__222__weak.html">srb_vis_222_weak</a> (<a class="el" href="namespaceuser.html">user</a>)</dd><dd><a class="el" href="classuser_1_1srb__vis__223__strong.html">srb_vis_223_strong</a> (<a class="el" href="namespaceuser.html">user</a>)</dd><dd><a class="el" href="classuser_1_1srb__vis__223__weak.html">srb_vis_223_weak</a> (<a class="el" href="namespaceuser.html">user</a>)</dd><dd><a class="el" href="classuser_1_1srb__vis__233__inter.html">srb_vis_233_inter</a> (<a class="el" href="namespaceuser.html">user</a>)</dd><dd><a class="el" href="classuser_1_1srb__vis__233__strong.html">srb_vis_233_strong</a> (<a class="el" href="namespaceuser.html">user</a>)</dd><dd><a class="el" href="classuser_1_1srb__vis__233__weak.html">srb_vis_233_weak</a> (<a class="el" href="namespaceuser.html">user</a>)</dd><dd><a class="el" href="classuser_1_1srb__vis__333.html">srb_vis_333</a> (<a class="el" href="namespaceuser.html">user</a>)</dd><dd><a class="el" href="classuser_1_1srb__vis__334.html">srb_vis_334</a> (<a class="el" href="namespaceuser.html">user</a>)</dd><dd><a class="el" href="classuser_1_1srb__vis__detailed__test.html">srb_vis_detailed_test</a> (<a class="el" href="namespaceuser.html">user</a>)</dd><dd><a class="el" href="classinf_1_1Symmetry_1_1SymmetriesHaveChanged.html">Symmetry::SymmetriesHaveChanged</a> (<a class="el" href="namespaceinf.html">inf</a>)</dd><dd><a class="el" href="classinf_1_1Symmetry.html">Symmetry</a> (<a class="el" href="namespaceinf.html">inf</a>)</dd></dl>
+<dl class="classindex odd">
+<dt class="alphachar"><a id="letter_T" name="letter_T">T</a></dt>
+<dd><a class="el" href="classinf_1_1TargetDistr.html">TargetDistr</a> (<a class="el" href="namespaceinf.html">inf</a>)</dd><dd><a class="el" href="classinf_1_1TensorWithOrbits.html">TensorWithOrbits</a> (<a class="el" href="namespaceinf.html">inf</a>)</dd><dd><a class="el" href="classutil_1_1TestWritableClass.html">TestWritableClass</a> (<a class="el" href="namespaceutil.html">util</a>)</dd><dd><a class="el" href="structinf_1_1TreeOpt_1_1ThreadReturn.html">TreeOpt::ThreadReturn</a> (<a class="el" href="namespaceinf.html">inf</a>)</dd><dd><a class="el" href="structinf_1_1TreeOpt_1_1ThreadWorker.html">TreeOpt::ThreadWorker</a> (<a class="el" href="namespaceinf.html">inf</a>)</dd><dd><a class="el" href="classuser_1_1tree__splitter.html">tree_splitter</a> (<a class="el" href="namespaceuser.html">user</a>)</dd><dd><a class="el" href="classinf_1_1TreeFiller.html">TreeFiller</a> (<a class="el" href="namespaceinf.html">inf</a>)</dd><dd><a class="el" href="classinf_1_1TreeOpt.html">TreeOpt</a> (<a class="el" href="namespaceinf.html">inf</a>)</dd><dd><a class="el" href="classinf_1_1TreeSplitter.html">TreeSplitter</a> (<a class="el" href="namespaceinf.html">inf</a>)</dd></dl>
+<dl class="classindex even">
+<dt class="alphachar"><a id="letter_U" name="letter_U">U</a></dt>
+<dd><a class="el" href="structinf_1_1Marginal_1_1Evaluator_1_1UpdateRule.html">Marginal::Evaluator::UpdateRule</a> (<a class="el" href="namespaceinf.html">inf</a>)</dd></dl>
+<dl class="classindex odd">
+<dt class="alphachar"><a id="letter_V" name="letter_V">V</a></dt>
+<dd><a class="el" href="classinf_1_1VisProblem.html">VisProblem</a> (<a class="el" href="namespaceinf.html">inf</a>)</dd></dl>
+<dl class="classindex even">
+<dt class="alphachar"><a id="letter_W" name="letter_W">W</a></dt>
+<dd><a class="el" href="classutil_1_1Logger_1_1WidthManip.html">Logger::WidthManip</a> (<a class="el" href="namespaceutil.html">util</a>)</dd></dl>
+<dl class="classindex odd">
+<dt class="alphachar"><a id="letter_Y" name="letter_Y">Y</a></dt>
+<dd><a class="el" href="classuser_1_1y__basis.html">y_basis</a> (<a class="el" href="namespaceuser.html">user</a>)</dd><dd><a class="el" href="classuser_1_1y__basis__sym.html">y_basis_sym</a> (<a class="el" href="namespaceuser.html">user</a>)</dd></dl>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Wed Dec 18 2024 17:39:51 for Fast Inflation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

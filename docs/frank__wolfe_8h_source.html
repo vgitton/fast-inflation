@@ -1,0 +1,300 @@
+<!-- HTML header for doxygen 1.9.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Fast Inflation: src/inf/frank_wolfe/frank_wolfe.h Source File</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+MathJax.Hub.Config({
+    TeX: {
+        Macros: {
+            dd: ["{\\text{d}#1\\,}",1],
+            nouts: ["{n_{\\text{o}}}"],
+            ints: ["{[\\![#1]\\!]}",1],
+            outset: ["{\\ints{\\nouts}}"],
+            N: ["{\\mathbb{N}}"],
+            R: ["{\\mathbb{R}}"],
+            Z: ["{\\mathbb{Z}}"],
+            infsize: ["{z}"],
+            infparties: ["{\\set{I}}"],
+            infsources: ["{\\set{S}}"],
+            infmarg: ["{\\set{A}}"],
+            infmargg: ["{\\set{B}}"],
+            netparties: ["{\\set{N}}"],
+            infq: ["{q}"],
+            infqs: ["{\\Delta_{\\infparties}}"],
+            constraintlist: ["{\\mathcal{C}}"],
+            injsets: ["{\\text{InjSets}}"],
+            infconstraints: ["{\\text{InfCons}}"],
+            parents: ["{\\text{Par}}"],
+            targetp: ["{p}"],
+            targetps: ["{\\Delta_{\\netparties}}"],
+            set: ["{\\mathbf{#1}}",1],
+            type: ["{t}"],
+            infevent: "{\\omega}",
+            events: ["{\\Omega_{#1}}",1],
+            infevents: ["{\\events{\\infparties}}"],
+            redinfevents: ["{\\tilde{\\Omega}_{\\infparties}}"],
+            netevents: ["{\\events{\\netparties}}"],
+            vecset: ["{V_{#1}}",1],
+            alice: ["{\\text{A}}"],
+            bob: ["{\\text{B}}"],
+            charlie: ["{\\text{C}}"],
+            symgroup: ["{\\text{Sym}(#1)}",1],
+            shortsymgroup: ["{\\text{Sym}_{#1}}",1],
+            act: ["{(#1\\hspace{2pt}{:}\\hspace{2pt}#2)}",2],
+            actt: ["{[#1\\hspace{2pt}{:}\\hspace{2pt}#2]}",2],
+            margperms: ["{\\text{Perm}_{#1}}",1],
+            permutedmargs: ["{\\mathbb{P}_{#1}^{\\targetp}}",1],
+            redpermutedmargs: ["{\\tilde{\\mathbb{P}}_{#1}^{\\constraintname,\\targetp}}",1],
+            extract: ["{\\text{ext}(#1,#2)}",2],
+            partysym: ["{\\tau}"],
+            sourcesym: ["{\\xi}"],
+            outsym: ["{\\sigma}"],
+            fullgroup: ["{\\text{InfGrp}}"],
+            partygroup : ["{\\text{PartyGrp}}"],
+            outgroup: ["{\\text{OutGrp}}"],
+            sourcegroup: ["{\\text{SrcGrp}}"],
+            distrgroup: ["{\\mathbb{G}^\\targetp}"],
+            constraintname: ["{c}"],
+            marggroup: ["{\\mathbb{G}^{\\constraintname,\\targetp}}"],
+            fullsymexpl: ["{(\\sourcesym,\\partysym,\\outsym)}"],
+            inner: ["{\\langle#1,#2\\rangle}", 2],
+            quovec: ["{f}"],
+            totconstraintmap: ["{K^{\\constraintlist,\\targetp}}"],
+            totconstraintmapelem: ["{K^{\\constraintname,\\targetp}}"],
+            quovecspace: ["{\\tilde{V}_{#1}^{\\constraintname,\\targetp}}", 1],
+            totquovecspace: ["{\\text{ConsSpace}(\\constraintlist,\\targetp)}"],
+            detdistr: ["{\\delta^{#1}}", 1],
+            margperm: ["{\\varphi}"],
+            altquovecembed: ["{\\text{G}_{#1}^{\\constraintname,\\targetp}}", 1],
+            vecset: ["{V_{#1}}", 1],
+            repr: ["{\\lfloor#1\\rfloor}", 1],
+            gid: ["{\\text{id}}"],
+            id: ["{1_{#1}}",1],
+            consscale: ["{K}"],
+            scaletot: ["{K_{\\text{tot}}^{\\constraintlist,\\targetp}}"],
+            minnorm: ["{d}"],
+            Bigsetst: ["\\;\\Big|\\;"],
+            activeset: ["\\mathcal{S}"],
+            conv: ["\\text{conv}"],
+            lVert: ["|\\hspace{-1pt}|"],
+            norm: ["\\lVert#1\\lVert", 1],
+            st: [":\ "],
+        }
+    }
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeDarkModeToggle.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeParagraphLink.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Fast Inflation
+   </div>
+   <div id="projectbrief">To certify causal incompatibility</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('frank__wolfe_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">frank_wolfe.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="frank__wolfe_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;../../util/chrono.h&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;../../util/loggable.h&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;../events/event.h&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;set&gt;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceinf.html">inf</a> {</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="classinf_1_1FrankWolfe.html">   37</a></span><span class="keyword">class </span><a class="code hl_class" href="classinf_1_1FrankWolfe.html">FrankWolfe</a> {</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="classinf_1_1FrankWolfe.html#a6d42f579c58b52ec89d31ed8ec599d53">   42</a></span>    <span class="keyword">static</span> <a class="code hl_class" href="classutil_1_1Chrono.html">util::Chrono</a> <a class="code hl_variable" href="classinf_1_1FrankWolfe.html#a6d42f579c58b52ec89d31ed8ec599d53">total_fw_chrono</a>;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="classinf_1_1FrankWolfe.html#ad9035fcec8b485d937507a4629c26e3c">   44</a></span>    <span class="keyword">typedef</span> std::unique_ptr&lt;inf::FrankWolfe&gt; <a class="code hl_typedef" href="classinf_1_1FrankWolfe.html#ad9035fcec8b485d937507a4629c26e3c">UniquePtr</a>;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="classinf_1_1FrankWolfe.html#a5ccc3ba389671c303b6535981104aaa8">   47</a></span>    <span class="keyword">enum class</span> <a class="code hl_enumeration" href="classinf_1_1FrankWolfe.html#a5ccc3ba389671c303b6535981104aaa8">Algo</a> {</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        <a class="code hl_enumvalue" href="classinf_1_1FrankWolfe.html#a5ccc3ba389671c303b6535981104aaa8ad412669713d6585430fc37100b80dccc">fully_corrective</a>, </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        <a class="code hl_enumvalue" href="classinf_1_1FrankWolfe.html#a5ccc3ba389671c303b6535981104aaa8a7ef88332fab25a2499253c227f09a95d">pairwise</a>,         </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    };</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1FrankWolfe.html#a4a88c2bbc8615324c20c5ae46c64dc5b">log</a>(<a class="code hl_enumeration" href="classinf_1_1FrankWolfe.html#a5ccc3ba389671c303b6535981104aaa8">inf::FrankWolfe::Algo</a> algo);</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keyword">static</span> <a class="code hl_typedef" href="classinf_1_1FrankWolfe.html#ad9035fcec8b485d937507a4629c26e3c">inf::FrankWolfe::UniquePtr</a> <a class="code hl_function" href="classinf_1_1FrankWolfe.html#a3a49d1ffdfcd4e7feed0b8d8a35e886d">get_frank_wolfe</a>(<a class="code hl_enumeration" href="classinf_1_1FrankWolfe.html#a5ccc3ba389671c303b6535981104aaa8">inf::FrankWolfe::Algo</a> algo,</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>                                                      <a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> dimension,</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>                                                      <a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> n_threads);</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="classinf_1_1FrankWolfe_1_1Solution.html">   70</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classinf_1_1FrankWolfe_1_1Solution.html">Solution</a> : <span class="keyword">public</span> <a class="code hl_class" href="classutil_1_1Loggable.html">util::Loggable</a> {</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>      <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        <a class="code hl_class" href="classinf_1_1FrankWolfe_1_1Solution.html">Solution</a>(<span class="keywordtype">double</span> <a class="code hl_variable" href="classinf_1_1FrankWolfe_1_1Solution.html#a80c1ef775378701689d622d73f74beb4">s</a>, std::vector&lt;double&gt; <span class="keyword">const</span> &amp;<a class="code hl_variable" href="classinf_1_1FrankWolfe_1_1Solution.html#a2adea478f89f6b6c12b1ffa3a3425322">vec</a>, <span class="keywordtype">bool</span> <a class="code hl_variable" href="classinf_1_1FrankWolfe_1_1Solution.html#aec9418b4c53720cc82a20168023222c0">valid</a>);</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="classinf_1_1FrankWolfe_1_1Solution.html#a80c1ef775378701689d622d73f74beb4">   80</a></span>        <span class="keyword">const</span> <span class="keywordtype">double</span> <a class="code hl_variable" href="classinf_1_1FrankWolfe_1_1Solution.html#a80c1ef775378701689d622d73f74beb4">s</a>;</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="classinf_1_1FrankWolfe_1_1Solution.html#a2adea478f89f6b6c12b1ffa3a3425322">   82</a></span>        <span class="keyword">const</span> std::vector&lt;double&gt; <a class="code hl_variable" href="classinf_1_1FrankWolfe_1_1Solution.html#a2adea478f89f6b6c12b1ffa3a3425322">vec</a>;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="classinf_1_1FrankWolfe_1_1Solution.html#aec9418b4c53720cc82a20168023222c0">   85</a></span>        <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code hl_variable" href="classinf_1_1FrankWolfe_1_1Solution.html#aec9418b4c53720cc82a20168023222c0">valid</a>;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1FrankWolfe_1_1Solution.html#a7c78d5ad097566cd20639b258db84aff">log</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    };</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <a class="code hl_class" href="classinf_1_1FrankWolfe.html">FrankWolfe</a>(<a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> dimension);</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="classinf_1_1FrankWolfe.html#a01f7f110c553e19a296b55358c101e0c">   92</a></span>    <span class="keyword">virtual</span> <a class="code hl_function" href="classinf_1_1FrankWolfe.html#a01f7f110c553e19a296b55358c101e0c">~FrankWolfe</a>() {}</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <a class="code hl_class" href="classinf_1_1FrankWolfe.html">FrankWolfe</a>(<a class="code hl_class" href="classinf_1_1FrankWolfe.html">FrankWolfe</a> <span class="keyword">const</span> &amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <a class="code hl_class" href="classinf_1_1FrankWolfe.html">FrankWolfe</a>(<a class="code hl_class" href="classinf_1_1FrankWolfe.html">FrankWolfe</a> &amp;&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <a class="code hl_class" href="classinf_1_1FrankWolfe.html">FrankWolfe</a> &amp;operator=(<a class="code hl_class" href="classinf_1_1FrankWolfe.html">FrankWolfe</a> <span class="keyword">const</span> &amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <a class="code hl_class" href="classinf_1_1FrankWolfe.html">FrankWolfe</a> &amp;operator=(<a class="code hl_class" href="classinf_1_1FrankWolfe.html">FrankWolfe</a> &amp;&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1FrankWolfe.html#a14a36f6c3f1ef5cbb7212e2883f1ac4f">memorize_event_and_quovec</a>(<a class="code hl_typedef" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> <span class="keyword">const</span> &amp;event,</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>                                   std::vector&lt;Num&gt; <span class="keyword">const</span> &amp;quovec,</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>                                   <span class="keywordtype">double</span> denom);</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <a class="code hl_class" href="classinf_1_1FrankWolfe_1_1Solution.html">inf::FrankWolfe::Solution</a> <a class="code hl_function" href="classinf_1_1FrankWolfe.html#a833aa6fd20da0f418ecd74c7b6e25b8a">time_and_solve</a>();</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno"><a class="line" href="classinf_1_1FrankWolfe.html#a64b5f9c36893da3b96857091050d201a">  114</a></span>    <span class="keyword">virtual</span> <a class="code hl_class" href="classinf_1_1FrankWolfe_1_1Solution.html">inf::FrankWolfe::Solution</a> <a class="code hl_function" href="classinf_1_1FrankWolfe.html#a64b5f9c36893da3b96857091050d201a">solve</a>() = 0;</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno"><a class="line" href="classinf_1_1FrankWolfe.html#a46a3a288b146a39e78562e50aaa7af1c">  117</a></span>    <span class="keyword">virtual</span> std::set&lt;inf::Event&gt; <span class="keyword">const</span> &amp;<a class="code hl_function" href="classinf_1_1FrankWolfe.html#a46a3a288b146a39e78562e50aaa7af1c">get_stored_events</a>() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno"><a class="line" href="classinf_1_1FrankWolfe.html#a53bfae51859bf32aadff2d1617c8804c">  119</a></span>    <span class="keyword">virtual</span> <a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <a class="code hl_function" href="classinf_1_1FrankWolfe.html#a53bfae51859bf32aadff2d1617c8804c">get_n_stored_events</a>() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno"><a class="line" href="classinf_1_1FrankWolfe.html#adf08d48ca3942be62ae7124a9ce5e778">  122</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1FrankWolfe.html#adf08d48ca3942be62ae7124a9ce5e778">reset</a>() = 0;</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>  <span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno"><a class="line" href="classinf_1_1FrankWolfe.html#a9d9dede46ae29811e13c6bcbbe13e912">  133</a></span>    <span class="keyword">const</span> <a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <a class="code hl_variable" href="classinf_1_1FrankWolfe.html#a9d9dede46ae29811e13c6bcbbe13e912">m_dimension</a>;</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno"><a class="line" href="classinf_1_1FrankWolfe.html#aec1bd71c95a1225f9e11c9d39cfc4432">  139</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1FrankWolfe.html#aec1bd71c95a1225f9e11c9d39cfc4432">memorize_event_and_quovec_double</a>(<a class="code hl_typedef" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> <span class="keyword">const</span> &amp;event,</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>                                                  std::vector&lt;double&gt; <span class="keyword">const</span> &amp;quovec) = 0;</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>};</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span> </div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>} <span class="comment">// namespace inf</span></div>
+<div class="ttc" id="aclassinf_1_1FrankWolfe_1_1Solution_html"><div class="ttname"><a href="classinf_1_1FrankWolfe_1_1Solution.html">inf::FrankWolfe::Solution</a></div><div class="ttdoc">This describes the solution that inf::FrankWolfe returns.</div><div class="ttdef"><b>Definition</b> <a href="frank__wolfe_8h_source.html#l00070">frank_wolfe.h:70</a></div></div>
+<div class="ttc" id="aclassinf_1_1FrankWolfe_1_1Solution_html_a2adea478f89f6b6c12b1ffa3a3425322"><div class="ttname"><a href="classinf_1_1FrankWolfe_1_1Solution.html#a2adea478f89f6b6c12b1ffa3a3425322">inf::FrankWolfe::Solution::vec</a></div><div class="ttdeci">const std::vector&lt; double &gt; vec</div><div class="ttdoc">The next dual vector .</div><div class="ttdef"><b>Definition</b> <a href="frank__wolfe_8h_source.html#l00082">frank_wolfe.h:82</a></div></div>
+<div class="ttc" id="aclassinf_1_1FrankWolfe_1_1Solution_html_a7c78d5ad097566cd20639b258db84aff"><div class="ttname"><a href="classinf_1_1FrankWolfe_1_1Solution.html#a7c78d5ad097566cd20639b258db84aff">inf::FrankWolfe::Solution::log</a></div><div class="ttdeci">void log() const override</div><div class="ttdoc">This prints the object to the globally accessible util::logger and allows the util::logger &lt;&lt; loggabl...</div><div class="ttdef"><b>Definition</b> <a href="frank__wolfe_8cpp_source.html#l00047">frank_wolfe.cpp:47</a></div></div>
+<div class="ttc" id="aclassinf_1_1FrankWolfe_1_1Solution_html_a80c1ef775378701689d622d73f74beb4"><div class="ttname"><a href="classinf_1_1FrankWolfe_1_1Solution.html#a80c1ef775378701689d622d73f74beb4">inf::FrankWolfe::Solution::s</a></div><div class="ttdeci">const double s</div><div class="ttdef"><b>Definition</b> <a href="frank__wolfe_8h_source.html#l00080">frank_wolfe.h:80</a></div></div>
+<div class="ttc" id="aclassinf_1_1FrankWolfe_1_1Solution_html_aec9418b4c53720cc82a20168023222c0"><div class="ttname"><a href="classinf_1_1FrankWolfe_1_1Solution.html#aec9418b4c53720cc82a20168023222c0">inf::FrankWolfe::Solution::valid</a></div><div class="ttdeci">const bool valid</div><div class="ttdoc">Describes whether or not vec is a valid solution — essentially, this is true is vec has a nonzero nor...</div><div class="ttdef"><b>Definition</b> <a href="frank__wolfe_8h_source.html#l00085">frank_wolfe.h:85</a></div></div>
+<div class="ttc" id="aclassinf_1_1FrankWolfe_html"><div class="ttname"><a href="classinf_1_1FrankWolfe.html">inf::FrankWolfe</a></div><div class="ttdoc">The interface to the different Frank-Wolfe algorithms that we implement.</div><div class="ttdef"><b>Definition</b> <a href="frank__wolfe_8h_source.html#l00037">frank_wolfe.h:37</a></div></div>
+<div class="ttc" id="aclassinf_1_1FrankWolfe_html_a01f7f110c553e19a296b55358c101e0c"><div class="ttname"><a href="classinf_1_1FrankWolfe.html#a01f7f110c553e19a296b55358c101e0c">inf::FrankWolfe::~FrankWolfe</a></div><div class="ttdeci">virtual ~FrankWolfe()</div><div class="ttdef"><b>Definition</b> <a href="frank__wolfe_8h_source.html#l00092">frank_wolfe.h:92</a></div></div>
+<div class="ttc" id="aclassinf_1_1FrankWolfe_html_a14a36f6c3f1ef5cbb7212e2883f1ac4f"><div class="ttname"><a href="classinf_1_1FrankWolfe.html#a14a36f6c3f1ef5cbb7212e2883f1ac4f">inf::FrankWolfe::memorize_event_and_quovec</a></div><div class="ttdeci">void memorize_event_and_quovec(inf::Event const &amp;event, std::vector&lt; Num &gt; const &amp;quovec, double denom)</div><div class="ttdoc">This method is called with the output of the inf::Optimizer, notifying the Frank-Wolfe algorithm that...</div><div class="ttdef"><b>Definition</b> <a href="frank__wolfe_8cpp_source.html#l00078">frank_wolfe.cpp:78</a></div></div>
+<div class="ttc" id="aclassinf_1_1FrankWolfe_html_a3a49d1ffdfcd4e7feed0b8d8a35e886d"><div class="ttname"><a href="classinf_1_1FrankWolfe.html#a3a49d1ffdfcd4e7feed0b8d8a35e886d">inf::FrankWolfe::get_frank_wolfe</a></div><div class="ttdeci">static inf::FrankWolfe::UniquePtr get_frank_wolfe(inf::FrankWolfe::Algo algo, Index dimension, Index n_threads)</div><div class="ttdoc">To conveniently instantiate a subclass an inf::FullyCorrectiveFW or an inf::PairwiseFW.</div><div class="ttdef"><b>Definition</b> <a href="frank__wolfe_8cpp_source.html#l00027">frank_wolfe.cpp:27</a></div></div>
+<div class="ttc" id="aclassinf_1_1FrankWolfe_html_a46a3a288b146a39e78562e50aaa7af1c"><div class="ttname"><a href="classinf_1_1FrankWolfe.html#a46a3a288b146a39e78562e50aaa7af1c">inf::FrankWolfe::get_stored_events</a></div><div class="ttdeci">virtual std::set&lt; inf::Event &gt; const &amp; get_stored_events() const =0</div><div class="ttdoc">This returns the inflation events that have been passed to inf::FrankWolfe::memorize_event_and_quovec...</div></div>
+<div class="ttc" id="aclassinf_1_1FrankWolfe_html_a4a88c2bbc8615324c20c5ae46c64dc5b"><div class="ttname"><a href="classinf_1_1FrankWolfe.html#a4a88c2bbc8615324c20c5ae46c64dc5b">inf::FrankWolfe::log</a></div><div class="ttdeci">static void log(inf::FrankWolfe::Algo algo)</div><div class="ttdef"><b>Definition</b> <a href="frank__wolfe_8cpp_source.html#l00012">frank_wolfe.cpp:12</a></div></div>
+<div class="ttc" id="aclassinf_1_1FrankWolfe_html_a53bfae51859bf32aadff2d1617c8804c"><div class="ttname"><a href="classinf_1_1FrankWolfe.html#a53bfae51859bf32aadff2d1617c8804c">inf::FrankWolfe::get_n_stored_events</a></div><div class="ttdeci">virtual Index get_n_stored_events() const =0</div><div class="ttdoc">This corresponds to inf::FrankWolfe::get_stored_events().size()</div></div>
+<div class="ttc" id="aclassinf_1_1FrankWolfe_html_a5ccc3ba389671c303b6535981104aaa8"><div class="ttname"><a href="classinf_1_1FrankWolfe.html#a5ccc3ba389671c303b6535981104aaa8">inf::FrankWolfe::Algo</a></div><div class="ttdeci">Algo</div><div class="ttdoc">The different types of Frank-Wolfe algorithms that we implement, see inf::FrankWolfe for a general de...</div><div class="ttdef"><b>Definition</b> <a href="frank__wolfe_8h_source.html#l00047">frank_wolfe.h:47</a></div></div>
+<div class="ttc" id="aclassinf_1_1FrankWolfe_html_a5ccc3ba389671c303b6535981104aaa8a7ef88332fab25a2499253c227f09a95d"><div class="ttname"><a href="classinf_1_1FrankWolfe.html#a5ccc3ba389671c303b6535981104aaa8a7ef88332fab25a2499253c227f09a95d">inf::FrankWolfe::Algo::pairwise</a></div><div class="ttdeci">@ pairwise</div><div class="ttdoc">Pairwise Frank-Wolfe.</div></div>
+<div class="ttc" id="aclassinf_1_1FrankWolfe_html_a5ccc3ba389671c303b6535981104aaa8ad412669713d6585430fc37100b80dccc"><div class="ttname"><a href="classinf_1_1FrankWolfe.html#a5ccc3ba389671c303b6535981104aaa8ad412669713d6585430fc37100b80dccc">inf::FrankWolfe::Algo::fully_corrective</a></div><div class="ttdeci">@ fully_corrective</div><div class="ttdoc">Fully-corrective Frank-Wolfe.</div></div>
+<div class="ttc" id="aclassinf_1_1FrankWolfe_html_a64b5f9c36893da3b96857091050d201a"><div class="ttname"><a href="classinf_1_1FrankWolfe.html#a64b5f9c36893da3b96857091050d201a">inf::FrankWolfe::solve</a></div><div class="ttdeci">virtual inf::FrankWolfe::Solution solve()=0</div><div class="ttdoc">This solves the Frank-Wolfe problem, i.e., the problem of finding the next inf::DualVector that may b...</div></div>
+<div class="ttc" id="aclassinf_1_1FrankWolfe_html_a6d42f579c58b52ec89d31ed8ec599d53"><div class="ttname"><a href="classinf_1_1FrankWolfe.html#a6d42f579c58b52ec89d31ed8ec599d53">inf::FrankWolfe::total_fw_chrono</a></div><div class="ttdeci">static util::Chrono total_fw_chrono</div><div class="ttdoc">To time the total time spent solving the Frank-Wolfe problem.</div><div class="ttdef"><b>Definition</b> <a href="frank__wolfe_8h_source.html#l00042">frank_wolfe.h:42</a></div></div>
+<div class="ttc" id="aclassinf_1_1FrankWolfe_html_a833aa6fd20da0f418ecd74c7b6e25b8a"><div class="ttname"><a href="classinf_1_1FrankWolfe.html#a833aa6fd20da0f418ecd74c7b6e25b8a">inf::FrankWolfe::time_and_solve</a></div><div class="ttdeci">inf::FrankWolfe::Solution time_and_solve()</div><div class="ttdoc">This times a call to inf::FrankWolfe::solve()</div><div class="ttdef"><b>Definition</b> <a href="frank__wolfe_8cpp_source.html#l00090">frank_wolfe.cpp:90</a></div></div>
+<div class="ttc" id="aclassinf_1_1FrankWolfe_html_a9d9dede46ae29811e13c6bcbbe13e912"><div class="ttname"><a href="classinf_1_1FrankWolfe.html#a9d9dede46ae29811e13c6bcbbe13e912">inf::FrankWolfe::m_dimension</a></div><div class="ttdeci">const Index m_dimension</div><div class="ttdoc">dimension The dimension of the space in which the Frank-Wolfe algorithm takes place</div><div class="ttdef"><b>Definition</b> <a href="frank__wolfe_8h_source.html#l00133">frank_wolfe.h:133</a></div></div>
+<div class="ttc" id="aclassinf_1_1FrankWolfe_html_ad9035fcec8b485d937507a4629c26e3c"><div class="ttname"><a href="classinf_1_1FrankWolfe.html#ad9035fcec8b485d937507a4629c26e3c">inf::FrankWolfe::UniquePtr</a></div><div class="ttdeci">std::unique_ptr&lt; inf::FrankWolfe &gt; UniquePtr</div><div class="ttdef"><b>Definition</b> <a href="frank__wolfe_8h_source.html#l00044">frank_wolfe.h:44</a></div></div>
+<div class="ttc" id="aclassinf_1_1FrankWolfe_html_adf08d48ca3942be62ae7124a9ce5e778"><div class="ttname"><a href="classinf_1_1FrankWolfe.html#adf08d48ca3942be62ae7124a9ce5e778">inf::FrankWolfe::reset</a></div><div class="ttdeci">virtual void reset()=0</div><div class="ttdoc">This is used to reset the inf::FrankWolfe algorithm to its initial state (m_dimension does not change...</div></div>
+<div class="ttc" id="aclassinf_1_1FrankWolfe_html_aec1bd71c95a1225f9e11c9d39cfc4432"><div class="ttname"><a href="classinf_1_1FrankWolfe.html#aec1bd71c95a1225f9e11c9d39cfc4432">inf::FrankWolfe::memorize_event_and_quovec_double</a></div><div class="ttdeci">virtual void memorize_event_and_quovec_double(inf::Event const &amp;event, std::vector&lt; double &gt; const &amp;quovec)=0</div><div class="ttdoc">This method is called by inf::FrankWolfe::memorize_event_and_quovec()</div></div>
+<div class="ttc" id="aclassutil_1_1Chrono_html"><div class="ttname"><a href="classutil_1_1Chrono.html">util::Chrono</a></div><div class="ttdoc">A simple stopwatch class.</div><div class="ttdef"><b>Definition</b> <a href="chrono_8h_source.html#l00044">chrono.h:44</a></div></div>
+<div class="ttc" id="aclassutil_1_1Loggable_html"><div class="ttname"><a href="classutil_1_1Loggable.html">util::Loggable</a></div><div class="ttdoc">Defines printable classes.</div><div class="ttdef"><b>Definition</b> <a href="loggable_8h_source.html#l00009">loggable.h:9</a></div></div>
+<div class="ttc" id="agroup__event_html_gac60a6fcdfce02dc13eb7364d6a2b56b0"><div class="ttname"><a href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a></div><div class="ttdeci">std::vector&lt; inf::Outcome &gt; Event</div><div class="ttdoc">A list of inf::Outcome. Conceptually, this plays the role of  for some set .</div><div class="ttdef"><b>Definition</b> <a href="event_8h_source.html#l00030">event.h:30</a></div></div>
+<div class="ttc" id="agroup__util_html_ga77731aedac326062ffbdcf367185a07e"><div class="ttname"><a href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a></div><div class="ttdeci">uint64_t Index</div><div class="ttdoc">Use for anything meant to be used as an index.</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00019">types.h:19</a></div></div>
+<div class="ttc" id="anamespaceinf_html"><div class="ttname"><a href="namespaceinf.html">inf</a></div><div class="ttdoc">The namespace for the inflation code.</div><div class="ttdef"><b>Definition</b> <a href="constraint_8h_source.html#l00006">constraint.h:6</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_0f453feda2a303bb77c09f5934c109df.html">inf</a></li><li class="navelem"><a class="el" href="dir_16759e6dd3faec6bb7decd6577c9bde1.html">frank_wolfe</a></li><li class="navelem"><a class="el" href="frank__wolfe_8h.html">frank_wolfe.h</a></li>
+    <li class="footer">Generated on Wed Dec 18 2024 17:39:36 for Fast Inflation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

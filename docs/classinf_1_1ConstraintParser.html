@@ -1,0 +1,505 @@
+<!-- HTML header for doxygen 1.9.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Fast Inflation: inf::ConstraintParser Class Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+MathJax.Hub.Config({
+    TeX: {
+        Macros: {
+            dd: ["{\\text{d}#1\\,}",1],
+            nouts: ["{n_{\\text{o}}}"],
+            ints: ["{[\\![#1]\\!]}",1],
+            outset: ["{\\ints{\\nouts}}"],
+            N: ["{\\mathbb{N}}"],
+            R: ["{\\mathbb{R}}"],
+            Z: ["{\\mathbb{Z}}"],
+            infsize: ["{z}"],
+            infparties: ["{\\set{I}}"],
+            infsources: ["{\\set{S}}"],
+            infmarg: ["{\\set{A}}"],
+            infmargg: ["{\\set{B}}"],
+            netparties: ["{\\set{N}}"],
+            infq: ["{q}"],
+            infqs: ["{\\Delta_{\\infparties}}"],
+            constraintlist: ["{\\mathcal{C}}"],
+            injsets: ["{\\text{InjSets}}"],
+            infconstraints: ["{\\text{InfCons}}"],
+            parents: ["{\\text{Par}}"],
+            targetp: ["{p}"],
+            targetps: ["{\\Delta_{\\netparties}}"],
+            set: ["{\\mathbf{#1}}",1],
+            type: ["{t}"],
+            infevent: "{\\omega}",
+            events: ["{\\Omega_{#1}}",1],
+            infevents: ["{\\events{\\infparties}}"],
+            redinfevents: ["{\\tilde{\\Omega}_{\\infparties}}"],
+            netevents: ["{\\events{\\netparties}}"],
+            vecset: ["{V_{#1}}",1],
+            alice: ["{\\text{A}}"],
+            bob: ["{\\text{B}}"],
+            charlie: ["{\\text{C}}"],
+            symgroup: ["{\\text{Sym}(#1)}",1],
+            shortsymgroup: ["{\\text{Sym}_{#1}}",1],
+            act: ["{(#1\\hspace{2pt}{:}\\hspace{2pt}#2)}",2],
+            actt: ["{[#1\\hspace{2pt}{:}\\hspace{2pt}#2]}",2],
+            margperms: ["{\\text{Perm}_{#1}}",1],
+            permutedmargs: ["{\\mathbb{P}_{#1}^{\\targetp}}",1],
+            redpermutedmargs: ["{\\tilde{\\mathbb{P}}_{#1}^{\\constraintname,\\targetp}}",1],
+            extract: ["{\\text{ext}(#1,#2)}",2],
+            partysym: ["{\\tau}"],
+            sourcesym: ["{\\xi}"],
+            outsym: ["{\\sigma}"],
+            fullgroup: ["{\\text{InfGrp}}"],
+            partygroup : ["{\\text{PartyGrp}}"],
+            outgroup: ["{\\text{OutGrp}}"],
+            sourcegroup: ["{\\text{SrcGrp}}"],
+            distrgroup: ["{\\mathbb{G}^\\targetp}"],
+            constraintname: ["{c}"],
+            marggroup: ["{\\mathbb{G}^{\\constraintname,\\targetp}}"],
+            fullsymexpl: ["{(\\sourcesym,\\partysym,\\outsym)}"],
+            inner: ["{\\langle#1,#2\\rangle}", 2],
+            quovec: ["{f}"],
+            totconstraintmap: ["{K^{\\constraintlist,\\targetp}}"],
+            totconstraintmapelem: ["{K^{\\constraintname,\\targetp}}"],
+            quovecspace: ["{\\tilde{V}_{#1}^{\\constraintname,\\targetp}}", 1],
+            totquovecspace: ["{\\text{ConsSpace}(\\constraintlist,\\targetp)}"],
+            detdistr: ["{\\delta^{#1}}", 1],
+            margperm: ["{\\varphi}"],
+            altquovecembed: ["{\\text{G}_{#1}^{\\constraintname,\\targetp}}", 1],
+            vecset: ["{V_{#1}}", 1],
+            repr: ["{\\lfloor#1\\rfloor}", 1],
+            gid: ["{\\text{id}}"],
+            id: ["{1_{#1}}",1],
+            consscale: ["{K}"],
+            scaletot: ["{K_{\\text{tot}}^{\\constraintlist,\\targetp}}"],
+            minnorm: ["{d}"],
+            Bigsetst: ["\\;\\Big|\\;"],
+            activeset: ["\\mathcal{S}"],
+            conv: ["\\text{conv}"],
+            lVert: ["|\\hspace{-1pt}|"],
+            norm: ["\\lVert#1\\lVert", 1],
+            st: [":\ "],
+        }
+    }
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeDarkModeToggle.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeParagraphLink.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Fast Inflation
+   </div>
+   <div id="projectbrief">To certify causal incompatibility</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classinf_1_1ConstraintParser.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="classinf_1_1ConstraintParser-members.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">inf::ConstraintParser Class Reference<div class="ingroups"><a class="el" href="group__inflation.html">Inflation</a> &raquo; <a class="el" href="group__infback.html">Inflation backend</a> &raquo; <a class="el" href="group__infcons.html">Inflation constraints</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &quot;<a class="el" href="constraint__parser_8h_source.html">inf/constraints/constraint_parser.h</a>&quot;</code></p>
+<a name="details" id="details"></a><h2 class="groupheader">Class description</h2>
+<div class="textblock"><p>To convert a human-readable formulation of inflation constraints into the necessary internal format. </p>
+<p>Recall that, in the paper, an inflation constraint is written as \((\infmarg_0,\dots,\infmarg_{k-1},\infmargg) \in \infconstraints\) for some \(k \geq 1\), where \(\infmarg_i,\infmargg \subset \infparties\) (where \(\infparties\) denotes the set of inflation parties). This will then imply a constraint of the form \(q_{\infmarg_0\cdots\infmarg_{k-1}\infmargg} = p_{\infmarg_0} \dots p_{\infmarg_{k-1}} \cdot q_{\infmargg}\) in the inflation problems we consider (i.e., "find an inflation distribution satisfying some symmetry requirements as well as this marginal constraint"). The class <a class="el" href="classinf_1_1ConstraintParser.html" title="To convert a human-readable formulation of inflation constraints into the necessary internal format.">inf::ConstraintParser</a> takes care of two things:</p><ul>
+<li>It defines the format in which the user should enter inflation constraints, allowing to convert the user input into list of indices of inflation parties as defined in <a class="el" href="classinf_1_1Inflation.html" title="Describes an inflation of a network, currently restricted to canonical inflations of the triangle net...">inf::Inflation</a>. This is used in particular when initializing an <a class="el" href="classinf_1_1Constraint.html" title="Describes a single constraint of the form .">inf::Constraint</a>.</li>
+<li>It takes care of checking that the data that was entered makes sense as an inflation constraint. This essentially consists in checking that each \(\infmarg_i\) is an injectable set ( \(\injsets\) in the paper), and that for each \(\infmarg,\infmarg&#39; \in \{\infmarg_0,\dots,\infmarg_{k-1},\infmargg\}\), \(\infmarg\) is d-separated from \(\infmarg&#39;\), i.e., that there is no common parent source between \(\infmarg\) and \(\infmarg&#39;\).</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md21"></a>
+Formatting of inflation constraints</h3>
+<p>We represent this with the <a class="el" href="classinf_1_1Constraint.html#a9af530da5633c7e8d6ee25e29488b715" title="The text description of an inflation constraint, see inf::ConstraintParser for the adequate format.">inf::Constraint::Description</a> type. For instance,</p><ul>
+<li>\((\infmarg_0 = \{\alice_{00},\bob_{00},\charlie_{00}\},\infmarg_1 = \{\alice_{11},\bob_{11},\charlie_{11}\},\infmargg = \emptyset)\) is represented as <div class="fragment"><div class="line"><span class="comment">// Notice the last empty string, which represents the empty set!</span></div>
+<div class="line"><a class="code hl_typedef" href="classinf_1_1Constraint.html#a9af530da5633c7e8d6ee25e29488b715">inf::Constraint::Description</a> constraint_description = {<span class="stringliteral">&quot;A00,B00,C00&quot;</span>, <span class="stringliteral">&quot;A11,B11,C11&quot;</span>, <span class="stringliteral">&quot;&quot;</span>};</div>
+<div class="ttc" id="aclassinf_1_1Constraint_html_a9af530da5633c7e8d6ee25e29488b715"><div class="ttname"><a href="classinf_1_1Constraint.html#a9af530da5633c7e8d6ee25e29488b715">inf::Constraint::Description</a></div><div class="ttdeci">std::vector&lt; std::string &gt; Description</div><div class="ttdoc">The text description of an inflation constraint, see inf::ConstraintParser for the adequate format.</div><div class="ttdef"><b>Definition</b> <a href="constraint_8h_source.html#l00032">constraint.h:32</a></div></div>
+</div><!-- fragment --> Spaces are ignored, so we can equivalently write this as <div class="fragment"><div class="line"><a class="code hl_typedef" href="classinf_1_1Constraint.html#a9af530da5633c7e8d6ee25e29488b715">inf::Constraint::Description</a> constraint_description = {<span class="stringliteral">&quot;A 0 0 , B 0 0  , C 00   &quot;</span>, <span class="stringliteral">&quot;   A11  ,B11 ,C11&quot;</span>, <span class="stringliteral">&quot;  &quot;</span>};</div>
+</div><!-- fragment --></li>
+<li>\((\infmarg_0 = \{\alice_{00},\bob_{00},\charlie_{00}\},\infmargg = \{\alice_{11},\bob_{11},\charlie_{11}\})\) is represented as <div class="fragment"><div class="line"><a class="code hl_typedef" href="classinf_1_1Constraint.html#a9af530da5633c7e8d6ee25e29488b715">inf::Constraint::Description</a> constraint_description = {<span class="stringliteral">&quot;A00,B00,C00&quot;</span>, <span class="stringliteral">&quot;A11,B11,C11&quot;</span>};</div>
+</div><!-- fragment --> </li>
+</ul>
+
+<p class="definition">Definition at line <a class="el" href="constraint__parser_8h_source.html#l00044">44</a> of file <a class="el" href="constraint__parser_8h_source.html">constraint_parser.h</a>.</p>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:af098670ee0ee882af25222ebd35563c8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1ConstraintParser.html#af098670ee0ee882af25222ebd35563c8">ConstraintParser</a> (<a class="el" href="classinf_1_1Inflation.html#ac594d5b8d7cbdd7cdfe569baa351f0ba">inf::Inflation::ConstPtr</a> const &amp;inflation, <a class="el" href="classinf_1_1Constraint.html#a9af530da5633c7e8d6ee25e29488b715">inf::Constraint::Description</a> const &amp;description)</td></tr>
+<tr class="memdesc:af098670ee0ee882af25222ebd35563c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the information necessary to construct a <a class="el" href="classinf_1_1Constraint.html" title="Describes a single constraint of the form .">inf::Constraint</a>.  <br /></td></tr>
+<tr class="separator:af098670ee0ee882af25222ebd35563c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a960ab2d31befa2c036834b3668fa77da"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1ConstraintParser.html#a960ab2d31befa2c036834b3668fa77da">get_lhs_marg_parties</a> () const</td></tr>
+<tr class="memdesc:a960ab2d31befa2c036834b3668fa77da"><td class="mdescLeft">&#160;</td><td class="mdescRight">The left-hand-side inflation marginal party indices, i.e., the party indices corresponding to the set \(\infmarg_0 \cup \dots \cup \infmarg_{k-1} \cup \infmargg\).  <br /></td></tr>
+<tr class="separator:a960ab2d31befa2c036834b3668fa77da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc353c578678697adb67009a5526d8b7"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1ConstraintParser.html#afc353c578678697adb67009a5526d8b7">get_rhs_marg_parties</a> () const</td></tr>
+<tr class="memdesc:afc353c578678697adb67009a5526d8b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">The right-hand-side inflation marginal party indices, i.e., the party indices corresponding to the set \(\infmargg\).  <br /></td></tr>
+<tr class="separator:afc353c578678697adb67009a5526d8b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a792426384f4ac2d91e75985d00e9de04"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classinf_1_1TargetDistr.html#a6b386ba726f8a8125d1f7d46075dafeb">inf::TargetDistr::MarginalName</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1ConstraintParser.html#a792426384f4ac2d91e75985d00e9de04">get_target_marg_names</a> () const</td></tr>
+<tr class="memdesc:a792426384f4ac2d91e75985d00e9de04"><td class="mdescLeft">&#160;</td><td class="mdescRight">The list of target distribution marginals corresponding to each \(\infmarg_i\).  <br /></td></tr>
+<tr class="separator:a792426384f4ac2d91e75985d00e9de04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:af3873593ab67d23172a9d4ca365f1df2"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1ConstraintParser.html#af3873593ab67d23172a9d4ca365f1df2">parse_inflation_marginal</a> (<a class="el" href="classinf_1_1Inflation.html">inf::Inflation</a> const &amp;inflation, std::string const &amp;name)</td></tr>
+<tr class="memdesc:af3873593ab67d23172a9d4ca365f1df2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accepts a string of the form " A11, A22,B00 " and returns the corresponding list of inflation party indices.  <br /></td></tr>
+<tr class="separator:af3873593ab67d23172a9d4ca365f1df2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a6aef35bd510b2e301a612c91091f3e6c"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1ConstraintParser.html#a6aef35bd510b2e301a612c91091f3e6c">m_lhs_marginal_parties</a></td></tr>
+<tr class="memdesc:a6aef35bd510b2e301a612c91091f3e6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">see <a class="el" href="classinf_1_1ConstraintParser.html#a960ab2d31befa2c036834b3668fa77da" title="The left-hand-side inflation marginal party indices, i.e., the party indices corresponding to the set...">get_lhs_marg_parties()</a>  <br /></td></tr>
+<tr class="separator:a6aef35bd510b2e301a612c91091f3e6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c9ee770886df83c3403a4c12cbdbee2"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classinf_1_1TargetDistr.html#a6b386ba726f8a8125d1f7d46075dafeb">inf::TargetDistr::MarginalName</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1ConstraintParser.html#a5c9ee770886df83c3403a4c12cbdbee2">m_target_marginal_names</a></td></tr>
+<tr class="memdesc:a5c9ee770886df83c3403a4c12cbdbee2"><td class="mdescLeft">&#160;</td><td class="mdescRight">see <a class="el" href="classinf_1_1ConstraintParser.html#a792426384f4ac2d91e75985d00e9de04" title="The list of target distribution marginals corresponding to each .">get_target_marg_names()</a>  <br /></td></tr>
+<tr class="separator:a5c9ee770886df83c3403a4c12cbdbee2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c4ff0bf9ec4f840fc9f3fcec484a2e4"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1ConstraintParser.html#a4c4ff0bf9ec4f840fc9f3fcec484a2e4">m_rhs_marginal_parties</a></td></tr>
+<tr class="memdesc:a4c4ff0bf9ec4f840fc9f3fcec484a2e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">see <a class="el" href="classinf_1_1ConstraintParser.html#afc353c578678697adb67009a5526d8b7" title="The right-hand-side inflation marginal party indices, i.e., the party indices corresponding to the se...">get_rhs_marg_parties()</a>  <br /></td></tr>
+<tr class="separator:a4c4ff0bf9ec4f840fc9f3fcec484a2e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="af098670ee0ee882af25222ebd35563c8" name="af098670ee0ee882af25222ebd35563c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af098670ee0ee882af25222ebd35563c8">&#9670;&#160;</a></span>ConstraintParser()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">inf::ConstraintParser::ConstraintParser </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classinf_1_1Inflation.html#ac594d5b8d7cbdd7cdfe569baa351f0ba">inf::Inflation::ConstPtr</a> const &amp;&#160;</td>
+          <td class="paramname"><em>inflation</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classinf_1_1Constraint.html#a9af530da5633c7e8d6ee25e29488b715">inf::Constraint::Description</a> const &amp;&#160;</td>
+          <td class="paramname"><em>description</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initializes the information necessary to construct a <a class="el" href="classinf_1_1Constraint.html" title="Describes a single constraint of the form .">inf::Constraint</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">inflation</td><td>The inflation relative to which we are formulating the inflation constraints, providing in particular the method <code><a class="el" href="classinf_1_1Inflation.html#a0d2407cc5082ef3b67f7a42f6874c11a" title="Internally, each explicit inf::Inflation::Party is assigned an index in .">inf::Inflation::get_party_index</a>(std::string const&amp;) const</code>. </td></tr>
+    <tr><td class="paramname">description</td><td>See the <a class="el" href="classinf_1_1ConstraintParser.html" title="To convert a human-readable formulation of inflation constraints into the necessary internal format.">inf::ConstraintParser</a> documentation for the adequate format </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="constraint__parser_8cpp_source.html#l00003">3</a> of file <a class="el" href="constraint__parser_8cpp_source.html">constraint_parser.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="af3873593ab67d23172a9d4ca365f1df2" name="af3873593ab67d23172a9d4ca365f1df2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3873593ab67d23172a9d4ca365f1df2">&#9670;&#160;</a></span>parse_inflation_marginal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> &gt; inf::ConstraintParser::parse_inflation_marginal </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classinf_1_1Inflation.html">inf::Inflation</a> const &amp;&#160;</td>
+          <td class="paramname"><em>inflation</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
+          <td class="paramname"><em>name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Accepts a string of the form " A11, A22,B00 " and returns the corresponding list of inflation party indices. </p>
+<p>This method is static to be useable also without creating a full <a class="el" href="classinf_1_1ConstraintParser.html" title="To convert a human-readable formulation of inflation constraints into the necessary internal format.">inf::ConstraintParser</a>. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">inflation</td><td>The inflation relative to which we are formulating the inflation marginal, providing in particular the method <code><a class="el" href="classinf_1_1Inflation.html#a0d2407cc5082ef3b67f7a42f6874c11a" title="Internally, each explicit inf::Inflation::Party is assigned an index in .">inf::Inflation::get_party_index</a>(std::string const&amp;) const</code>. </td></tr>
+    <tr><td class="paramname">name</td><td>See the <a class="el" href="classinf_1_1ConstraintParser.html" title="To convert a human-readable formulation of inflation constraints into the necessary internal format.">inf::ConstraintParser</a> documentation for the adequate format </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="constraint__parser_8cpp_source.html#l00063">63</a> of file <a class="el" href="constraint__parser_8cpp_source.html">constraint_parser.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a960ab2d31befa2c036834b3668fa77da" name="a960ab2d31befa2c036834b3668fa77da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a960ab2d31befa2c036834b3668fa77da">&#9670;&#160;</a></span>get_lhs_marg_parties()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> &gt; inf::ConstraintParser::get_lhs_marg_parties </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The left-hand-side inflation marginal party indices, i.e., the party indices corresponding to the set \(\infmarg_0 \cup \dots \cup \infmarg_{k-1} \cup \infmargg\). </p>
+
+<p class="definition">Definition at line <a class="el" href="constraint__parser_8cpp_source.html#l00089">89</a> of file <a class="el" href="constraint__parser_8cpp_source.html">constraint_parser.cpp</a>.</p>
+
+</div>
+</div>
+<a id="afc353c578678697adb67009a5526d8b7" name="afc353c578678697adb67009a5526d8b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc353c578678697adb67009a5526d8b7">&#9670;&#160;</a></span>get_rhs_marg_parties()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> &gt; inf::ConstraintParser::get_rhs_marg_parties </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The right-hand-side inflation marginal party indices, i.e., the party indices corresponding to the set \(\infmargg\). </p>
+
+<p class="definition">Definition at line <a class="el" href="constraint__parser_8cpp_source.html#l00093">93</a> of file <a class="el" href="constraint__parser_8cpp_source.html">constraint_parser.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a792426384f4ac2d91e75985d00e9de04" name="a792426384f4ac2d91e75985d00e9de04"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a792426384f4ac2d91e75985d00e9de04">&#9670;&#160;</a></span>get_target_marg_names()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="classinf_1_1TargetDistr.html#a6b386ba726f8a8125d1f7d46075dafeb">inf::TargetDistr::MarginalName</a> &gt; inf::ConstraintParser::get_target_marg_names </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The list of target distribution marginals corresponding to each \(\infmarg_i\). </p>
+<p>The idea is that each \(\infmarg_i\) is an injectable set, so if we strip away the copy indices from the party to just retain their type (Alice, Bor or Charlie), we get something that defines an <a class="el" href="classinf_1_1TargetDistr.html#a6b386ba726f8a8125d1f7d46075dafeb" title="A marginal name is a list of the form {&quot;A&quot;, &quot;B&quot;}">inf::TargetDistr::MarginalName</a>. This method allows to compute more easily the necessary marginals \(\targetp_{\infmarg_i}\). </p>
+
+<p class="definition">Definition at line <a class="el" href="constraint__parser_8cpp_source.html#l00097">97</a> of file <a class="el" href="constraint__parser_8cpp_source.html">constraint_parser.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a6aef35bd510b2e301a612c91091f3e6c" name="a6aef35bd510b2e301a612c91091f3e6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6aef35bd510b2e301a612c91091f3e6c">&#9670;&#160;</a></span>m_lhs_marginal_parties</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a>&gt; inf::ConstraintParser::m_lhs_marginal_parties</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>see <a class="el" href="classinf_1_1ConstraintParser.html#a960ab2d31befa2c036834b3668fa77da" title="The left-hand-side inflation marginal party indices, i.e., the party indices corresponding to the set...">get_lhs_marg_parties()</a> </p>
+
+<p class="definition">Definition at line <a class="el" href="constraint__parser_8h_source.html#l00082">82</a> of file <a class="el" href="constraint__parser_8h_source.html">constraint_parser.h</a>.</p>
+
+</div>
+</div>
+<a id="a5c9ee770886df83c3403a4c12cbdbee2" name="a5c9ee770886df83c3403a4c12cbdbee2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c9ee770886df83c3403a4c12cbdbee2">&#9670;&#160;</a></span>m_target_marginal_names</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="classinf_1_1TargetDistr.html#a6b386ba726f8a8125d1f7d46075dafeb">inf::TargetDistr::MarginalName</a>&gt; inf::ConstraintParser::m_target_marginal_names</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>see <a class="el" href="classinf_1_1ConstraintParser.html#a792426384f4ac2d91e75985d00e9de04" title="The list of target distribution marginals corresponding to each .">get_target_marg_names()</a> </p>
+
+<p class="definition">Definition at line <a class="el" href="constraint__parser_8h_source.html#l00084">84</a> of file <a class="el" href="constraint__parser_8h_source.html">constraint_parser.h</a>.</p>
+
+</div>
+</div>
+<a id="a4c4ff0bf9ec4f840fc9f3fcec484a2e4" name="a4c4ff0bf9ec4f840fc9f3fcec484a2e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c4ff0bf9ec4f840fc9f3fcec484a2e4">&#9670;&#160;</a></span>m_rhs_marginal_parties</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a>&gt; inf::ConstraintParser::m_rhs_marginal_parties</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>see <a class="el" href="classinf_1_1ConstraintParser.html#afc353c578678697adb67009a5526d8b7" title="The right-hand-side inflation marginal party indices, i.e., the party indices corresponding to the se...">get_rhs_marg_parties()</a> </p>
+
+<p class="definition">Definition at line <a class="el" href="constraint__parser_8h_source.html#l00086">86</a> of file <a class="el" href="constraint__parser_8h_source.html">constraint_parser.h</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>src/inf/constraints/<a class="el" href="constraint__parser_8h_source.html">constraint_parser.h</a></li>
+<li>src/inf/constraints/<a class="el" href="constraint__parser_8cpp_source.html">constraint_parser.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceinf.html">inf</a></li><li class="navelem"><a class="el" href="classinf_1_1ConstraintParser.html">ConstraintParser</a></li>
+    <li class="footer">Generated on Wed Dec 18 2024 17:39:41 for Fast Inflation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

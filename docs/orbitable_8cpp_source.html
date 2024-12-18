@@ -1,0 +1,357 @@
+<!-- HTML header for doxygen 1.9.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Fast Inflation: src/inf/symmetry/orbitable.cpp Source File</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+MathJax.Hub.Config({
+    TeX: {
+        Macros: {
+            dd: ["{\\text{d}#1\\,}",1],
+            nouts: ["{n_{\\text{o}}}"],
+            ints: ["{[\\![#1]\\!]}",1],
+            outset: ["{\\ints{\\nouts}}"],
+            N: ["{\\mathbb{N}}"],
+            R: ["{\\mathbb{R}}"],
+            Z: ["{\\mathbb{Z}}"],
+            infsize: ["{z}"],
+            infparties: ["{\\set{I}}"],
+            infsources: ["{\\set{S}}"],
+            infmarg: ["{\\set{A}}"],
+            infmargg: ["{\\set{B}}"],
+            netparties: ["{\\set{N}}"],
+            infq: ["{q}"],
+            infqs: ["{\\Delta_{\\infparties}}"],
+            constraintlist: ["{\\mathcal{C}}"],
+            injsets: ["{\\text{InjSets}}"],
+            infconstraints: ["{\\text{InfCons}}"],
+            parents: ["{\\text{Par}}"],
+            targetp: ["{p}"],
+            targetps: ["{\\Delta_{\\netparties}}"],
+            set: ["{\\mathbf{#1}}",1],
+            type: ["{t}"],
+            infevent: "{\\omega}",
+            events: ["{\\Omega_{#1}}",1],
+            infevents: ["{\\events{\\infparties}}"],
+            redinfevents: ["{\\tilde{\\Omega}_{\\infparties}}"],
+            netevents: ["{\\events{\\netparties}}"],
+            vecset: ["{V_{#1}}",1],
+            alice: ["{\\text{A}}"],
+            bob: ["{\\text{B}}"],
+            charlie: ["{\\text{C}}"],
+            symgroup: ["{\\text{Sym}(#1)}",1],
+            shortsymgroup: ["{\\text{Sym}_{#1}}",1],
+            act: ["{(#1\\hspace{2pt}{:}\\hspace{2pt}#2)}",2],
+            actt: ["{[#1\\hspace{2pt}{:}\\hspace{2pt}#2]}",2],
+            margperms: ["{\\text{Perm}_{#1}}",1],
+            permutedmargs: ["{\\mathbb{P}_{#1}^{\\targetp}}",1],
+            redpermutedmargs: ["{\\tilde{\\mathbb{P}}_{#1}^{\\constraintname,\\targetp}}",1],
+            extract: ["{\\text{ext}(#1,#2)}",2],
+            partysym: ["{\\tau}"],
+            sourcesym: ["{\\xi}"],
+            outsym: ["{\\sigma}"],
+            fullgroup: ["{\\text{InfGrp}}"],
+            partygroup : ["{\\text{PartyGrp}}"],
+            outgroup: ["{\\text{OutGrp}}"],
+            sourcegroup: ["{\\text{SrcGrp}}"],
+            distrgroup: ["{\\mathbb{G}^\\targetp}"],
+            constraintname: ["{c}"],
+            marggroup: ["{\\mathbb{G}^{\\constraintname,\\targetp}}"],
+            fullsymexpl: ["{(\\sourcesym,\\partysym,\\outsym)}"],
+            inner: ["{\\langle#1,#2\\rangle}", 2],
+            quovec: ["{f}"],
+            totconstraintmap: ["{K^{\\constraintlist,\\targetp}}"],
+            totconstraintmapelem: ["{K^{\\constraintname,\\targetp}}"],
+            quovecspace: ["{\\tilde{V}_{#1}^{\\constraintname,\\targetp}}", 1],
+            totquovecspace: ["{\\text{ConsSpace}(\\constraintlist,\\targetp)}"],
+            detdistr: ["{\\delta^{#1}}", 1],
+            margperm: ["{\\varphi}"],
+            altquovecembed: ["{\\text{G}_{#1}^{\\constraintname,\\targetp}}", 1],
+            vecset: ["{V_{#1}}", 1],
+            repr: ["{\\lfloor#1\\rfloor}", 1],
+            gid: ["{\\text{id}}"],
+            id: ["{1_{#1}}",1],
+            consscale: ["{K}"],
+            scaletot: ["{K_{\\text{tot}}^{\\constraintlist,\\targetp}}"],
+            minnorm: ["{d}"],
+            Bigsetst: ["\\;\\Big|\\;"],
+            activeset: ["\\mathcal{S}"],
+            conv: ["\\text{conv}"],
+            lVert: ["|\\hspace{-1pt}|"],
+            norm: ["\\lVert#1\\lVert", 1],
+            st: [":\ "],
+        }
+    }
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeDarkModeToggle.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeParagraphLink.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Fast Inflation
+   </div>
+   <div id="projectbrief">To certify causal incompatibility</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('orbitable_8cpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">orbitable.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="orbitable_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &quot;<a class="code" href="orbitable_8h.html">orbitable.h</a>&quot;</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;../../util/chrono.h&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;../../util/debug.h&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;../../util/logger.h&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno"><a class="line" href="classinf_1_1Orbitable.html#a8fe3e6c3cbb7eb0643380eafdd121040">    6</a></span><a class="code hl_function" href="classinf_1_1Orbitable.html#a8fe3e6c3cbb7eb0643380eafdd121040">inf::Orbitable::Orbitable</a>()</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>    : m_orbits{},</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>      m_orbits_initialized(false),</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>      m_sym_group{} {}</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="classinf_1_1Orbitable.html#aa5ea13afb9a9ff79aef84054ea4c1dd4">   11</a></span><a class="code hl_typedef" href="classinf_1_1Symmetry.html#a901d22b86ef5923b628db86fbdd7ba4f">inf::Symmetry::Group</a> <span class="keyword">const</span> &amp;<a class="code hl_function" href="classinf_1_1Orbitable.html#aa5ea13afb9a9ff79aef84054ea4c1dd4">inf::Orbitable::get_sym_group</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <a class="code hl_define" href="group__debug.html#ga142a617ae6f4d3b050faad2aa1e936bf">ASSERT_TRUE</a>(m_orbits_initialized);</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keywordflow">return</span> m_sym_group;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>}</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="classinf_1_1Orbitable.html#a99544b7fb94b81957e20601859c42782">   16</a></span><a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <a class="code hl_function" href="classinf_1_1Orbitable.html#a99544b7fb94b81957e20601859c42782">inf::Orbitable::get_n_orbits</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <a class="code hl_define" href="group__debug.html#ga142a617ae6f4d3b050faad2aa1e936bf">ASSERT_TRUE</a>(m_orbits_initialized);</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keywordflow">return</span> m_orbits.size();</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>}</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="classinf_1_1Orbitable.html#aef04cd8a458a13472f5b95105929e6b4">   22</a></span><a class="code hl_typedef" href="classinf_1_1Orbitable.html#aa01c9267c0fb19a1b7d6b38f00dccf58">inf::Orbitable::OrbitMap</a> <span class="keyword">const</span> &amp;<a class="code hl_function" href="classinf_1_1Orbitable.html#aef04cd8a458a13472f5b95105929e6b4">inf::Orbitable::get_orbits</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <a class="code hl_define" href="group__debug.html#ga142a617ae6f4d3b050faad2aa1e936bf">ASSERT_TRUE</a>(m_orbits_initialized);</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keywordflow">return</span> m_orbits;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>}</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="classinf_1_1Orbitable.html#a01b9c37488618495b331c32a7449dd90">   28</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1Orbitable.html#a01b9c37488618495b331c32a7449dd90">inf::Orbitable::log_sym_group</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <a class="code hl_define" href="group__debug.html#ga142a617ae6f4d3b050faad2aa1e936bf">ASSERT_TRUE</a>(m_orbits_initialized);</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <a class="code hl_variable" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a> &lt;&lt; <span class="stringliteral">&quot;The underlying symmetry group has cardinality &quot;</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>                 &lt;&lt; m_sym_group.size() &lt;&lt; <span class="stringliteral">&quot;.&quot;</span> &lt;&lt; <a class="code hl_variable" href="group__printing.html#ga3f8fe48536ee19c54002c9c1db64cabb">util::cr</a></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>                 &lt;&lt; <span class="stringliteral">&quot;The symmetrization resulted in &quot;</span> &lt;&lt; m_orbits.size()</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>                 &lt;&lt; <span class="stringliteral">&quot; orbits starting from &quot;</span> &lt;&lt; get_n_events() &lt;&lt; <span class="stringliteral">&quot; events.&quot;</span> &lt;&lt; <a class="code hl_variable" href="group__printing.html#ga3f8fe48536ee19c54002c9c1db64cabb">util::cr</a>;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>}</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="classinf_1_1Orbitable.html#a26be8965202f85195ef4becd8223e2e6">   37</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1Orbitable.html#a26be8965202f85195ef4becd8223e2e6">inf::Orbitable::log_orbits</a>(<span class="keywordtype">bool</span> shorten)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <a class="code hl_define" href="group__debug.html#ga142a617ae6f4d3b050faad2aa1e936bf">ASSERT_TRUE</a>(m_orbits_initialized);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <a class="code hl_define" href="group__printing.html#gafca79483713e011c576202e2d0e63684">LOG_BEGIN_SECTION_FUNC</a></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keywordflow">for</span> (<a class="code hl_typedef" href="classinf_1_1Orbitable.html#acbbe4fa5a804ad11b84b4af02663c65b">inf::Orbitable::OrbitPair</a> <span class="keyword">const</span> &amp;orbit_pair : m_orbits) {</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        <a class="code hl_typedef" href="classinf_1_1Orbitable.html#a4982dcc25e609ae4793de4471f141b97">inf::Orbitable::Orbit</a> <span class="keyword">const</span> &amp;orbit = orbit_pair.second;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        <a class="code hl_variable" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a> &lt;&lt; <span class="stringliteral">&quot;Orbit (card = &quot;</span> &lt;&lt; orbit.size() &lt;&lt; <span class="stringliteral">&quot;):&quot;</span> &lt;&lt; <a class="code hl_variable" href="group__printing.html#ga3f8fe48536ee19c54002c9c1db64cabb">util::cr</a>;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> count = 0;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        <span class="keywordtype">bool</span> first_element = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        <a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> items_per_line = 8;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        <a class="code hl_variable" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a> &lt;&lt; <a class="code hl_variable" href="group__printing.html#ga91047ddaf85b4652a50b89c5c9755317">util::begin_section</a>;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <span class="keywordflow">for</span> (<a class="code hl_typedef" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> <span class="keyword">const</span> &amp;event_in_orbit : orbit) {</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>            <span class="keywordflow">if</span> (not first_element) {</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>                <a class="code hl_variable" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a> &lt;&lt; <span class="stringliteral">&quot; -&gt; &quot;</span>;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>                <span class="keywordflow">if</span> (count % items_per_line == 0) {</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>                    <span class="keywordflow">if</span> (shorten) {</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>                        <a class="code hl_variable" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a> &lt;&lt; <span class="stringliteral">&quot;...&quot;</span>;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>                        <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>                    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>                        <a class="code hl_variable" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a> &lt;&lt; <a class="code hl_variable" href="group__printing.html#ga3f8fe48536ee19c54002c9c1db64cabb">util::cr</a>;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>                    }</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>                }</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>            }</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>            <span class="keywordflow">if</span> (first_element) {</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>                first_element = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>            }</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>            ++count;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>            log_event(event_in_orbit);</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        }</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        <a class="code hl_variable" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a> &lt;&lt; <a class="code hl_variable" href="group__printing.html#ga3f8fe48536ee19c54002c9c1db64cabb">util::cr</a> &lt;&lt; <a class="code hl_variable" href="group__printing.html#gae4f7a470686ffa2352173b5c0b486623">util::end_section</a>;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    }</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <a class="code hl_define" href="group__printing.html#gaa993b7a93b54137d5d6c09ed1fac8b77">LOG_END_SECTION</a></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>}</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="classinf_1_1Orbitable.html#ac25e7eced2028756090e8e6007316524">   81</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1Orbitable.html#ac25e7eced2028756090e8e6007316524">inf::Orbitable::init_orbits</a>(<a class="code hl_typedef" href="classinf_1_1Symmetry.html#a901d22b86ef5923b628db86fbdd7ba4f">inf::Symmetry::Group</a> <span class="keyword">const</span> &amp;sym_group) {</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <a class="code hl_define" href="group__debug.html#ga142a617ae6f4d3b050faad2aa1e936bf">ASSERT_TRUE</a>(not m_orbits_initialized);</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    m_sym_group = sym_group;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <span class="comment">// An inf::Orbitable with no parties is just a scalar, there are no orbits</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <span class="keywordflow">if</span> (get_n_parties() == 0) {</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        <a class="code hl_define" href="group__debug.html#ga06663ee630c22628b3fe11700767367f">ASSERT_EQUAL</a>(m_sym_group.size(), 0)</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        m_orbits_initialized = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    }</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <a class="code hl_define" href="group__debug.html#ga60f45ee0c4949ef50243feb6fbb8a808">ASSERT_LT</a>(0, m_sym_group.size());</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <a class="code hl_typedef" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> new_event(this-&gt;get_n_parties());</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    std::set&lt;inf::Event&gt; encountered_events;</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <span class="keywordflow">for</span> (<a class="code hl_typedef" href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a> <span class="keyword">const</span> &amp;event : this-&gt;get_event_range()) {</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>        <span class="keywordtype">bool</span> <span class="keyword">const</span> event_already_encountered = (encountered_events.find(event) != encountered_events.end());</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        <span class="keywordflow">if</span> (event_already_encountered)</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>            <span class="keywordflow">continue</span>;</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        m_orbits[event] = <a class="code hl_typedef" href="classinf_1_1Orbitable.html#a4982dcc25e609ae4793de4471f141b97">inf::Orbitable::Orbit</a>({<span class="keyword">event</span>});</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        <span class="keywordflow">for</span> (<a class="code hl_class" href="classinf_1_1Symmetry.html">inf::Symmetry</a> <span class="keyword">const</span> &amp;sym : m_sym_group) {</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>            sym.act_on_event(event, new_event);</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>            m_orbits[event].insert(new_event);</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>            encountered_events.insert(new_event);</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        }</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    }</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <a class="code hl_define" href="group__debug.html#gac1ee6e006b614dd9b0021a0034db646d">DEBUG_RUN</a>(</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        <a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> other_event_count = 0;</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        <span class="keywordflow">for</span> (<a class="code hl_typedef" href="classinf_1_1Orbitable.html#acbbe4fa5a804ad11b84b4af02663c65b">inf::Orbitable::OrbitPair</a> <span class="keyword">const</span> &amp;orbit_pair</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>             : m_orbits) {</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>            other_event_count += orbit_pair.second.size();</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>        } <a class="code hl_define" href="group__debug.html#ga06663ee630c22628b3fe11700767367f">ASSERT_EQUAL</a>(this-&gt;get_n_events(), other_event_count);)</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    m_orbits_initialized = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>}</div>
+<div class="ttc" id="aclassinf_1_1Orbitable_html_a01b9c37488618495b331c32a7449dd90"><div class="ttname"><a href="classinf_1_1Orbitable.html#a01b9c37488618495b331c32a7449dd90">inf::Orbitable::log_sym_group</a></div><div class="ttdeci">void log_sym_group() const</div><div class="ttdoc">Logs short one-line info about number of orbits.</div><div class="ttdef"><b>Definition</b> <a href="orbitable_8cpp_source.html#l00028">orbitable.cpp:28</a></div></div>
+<div class="ttc" id="aclassinf_1_1Orbitable_html_a26be8965202f85195ef4becd8223e2e6"><div class="ttname"><a href="classinf_1_1Orbitable.html#a26be8965202f85195ef4becd8223e2e6">inf::Orbitable::log_orbits</a></div><div class="ttdeci">void log_orbits(bool shorten) const</div><div class="ttdoc">Logs long multi-line info about orbits.</div><div class="ttdef"><b>Definition</b> <a href="orbitable_8cpp_source.html#l00037">orbitable.cpp:37</a></div></div>
+<div class="ttc" id="aclassinf_1_1Orbitable_html_a4982dcc25e609ae4793de4471f141b97"><div class="ttname"><a href="classinf_1_1Orbitable.html#a4982dcc25e609ae4793de4471f141b97">inf::Orbitable::Orbit</a></div><div class="ttdeci">std::set&lt; inf::Event &gt; Orbit</div><div class="ttdoc">An orbit is a set of events pertaining to a symmetry-induced equivalence class.</div><div class="ttdef"><b>Definition</b> <a href="orbitable_8h_source.html#l00037">orbitable.h:37</a></div></div>
+<div class="ttc" id="aclassinf_1_1Orbitable_html_a8fe3e6c3cbb7eb0643380eafdd121040"><div class="ttname"><a href="classinf_1_1Orbitable.html#a8fe3e6c3cbb7eb0643380eafdd121040">inf::Orbitable::Orbitable</a></div><div class="ttdeci">Orbitable()</div><div class="ttdoc">Default constructor that does not initialize anything, the child class must call inf::Orbitable::init...</div><div class="ttdef"><b>Definition</b> <a href="orbitable_8cpp_source.html#l00006">orbitable.cpp:6</a></div></div>
+<div class="ttc" id="aclassinf_1_1Orbitable_html_a99544b7fb94b81957e20601859c42782"><div class="ttname"><a href="classinf_1_1Orbitable.html#a99544b7fb94b81957e20601859c42782">inf::Orbitable::get_n_orbits</a></div><div class="ttdeci">Index get_n_orbits() const</div><div class="ttdoc">The number of orbits produced (only sensible after inf::Orbitable::init_orbits() has been called)</div><div class="ttdef"><b>Definition</b> <a href="orbitable_8cpp_source.html#l00016">orbitable.cpp:16</a></div></div>
+<div class="ttc" id="aclassinf_1_1Orbitable_html_aa01c9267c0fb19a1b7d6b38f00dccf58"><div class="ttname"><a href="classinf_1_1Orbitable.html#aa01c9267c0fb19a1b7d6b38f00dccf58">inf::Orbitable::OrbitMap</a></div><div class="ttdeci">std::map&lt; inf::Event, inf::Orbitable::Orbit &gt; OrbitMap</div><div class="ttdoc">Maps each representative (of an orbit) inf::Event to its corresponding inf::Orbitable::Orbit.</div><div class="ttdef"><b>Definition</b> <a href="orbitable_8h_source.html#l00046">orbitable.h:46</a></div></div>
+<div class="ttc" id="aclassinf_1_1Orbitable_html_aa5ea13afb9a9ff79aef84054ea4c1dd4"><div class="ttname"><a href="classinf_1_1Orbitable.html#aa5ea13afb9a9ff79aef84054ea4c1dd4">inf::Orbitable::get_sym_group</a></div><div class="ttdeci">inf::Symmetry::Group const &amp; get_sym_group() const</div><div class="ttdoc">This returns the underlying symmetry group.</div><div class="ttdef"><b>Definition</b> <a href="orbitable_8cpp_source.html#l00011">orbitable.cpp:11</a></div></div>
+<div class="ttc" id="aclassinf_1_1Orbitable_html_ac25e7eced2028756090e8e6007316524"><div class="ttname"><a href="classinf_1_1Orbitable.html#ac25e7eced2028756090e8e6007316524">inf::Orbitable::init_orbits</a></div><div class="ttdeci">void init_orbits(inf::Symmetry::Group const &amp;sym_group)</div><div class="ttdoc">Child classes have to call this method for initialization of the orbits.</div><div class="ttdef"><b>Definition</b> <a href="orbitable_8cpp_source.html#l00081">orbitable.cpp:81</a></div></div>
+<div class="ttc" id="aclassinf_1_1Orbitable_html_acbbe4fa5a804ad11b84b4af02663c65b"><div class="ttname"><a href="classinf_1_1Orbitable.html#acbbe4fa5a804ad11b84b4af02663c65b">inf::Orbitable::OrbitPair</a></div><div class="ttdeci">std::pair&lt; const inf::Event, inf::Orbitable::Orbit &gt; OrbitPair</div><div class="ttdoc">This type is useful for iteration: the pair is of the form (representative,orbit).</div><div class="ttdef"><b>Definition</b> <a href="orbitable_8h_source.html#l00057">orbitable.h:57</a></div></div>
+<div class="ttc" id="aclassinf_1_1Orbitable_html_aef04cd8a458a13472f5b95105929e6b4"><div class="ttname"><a href="classinf_1_1Orbitable.html#aef04cd8a458a13472f5b95105929e6b4">inf::Orbitable::get_orbits</a></div><div class="ttdeci">inf::Orbitable::OrbitMap const &amp; get_orbits() const</div><div class="ttdoc">Returns the underlying inf::Orbitable::OrbitMap.</div><div class="ttdef"><b>Definition</b> <a href="orbitable_8cpp_source.html#l00022">orbitable.cpp:22</a></div></div>
+<div class="ttc" id="aclassinf_1_1Symmetry_html"><div class="ttname"><a href="classinf_1_1Symmetry.html">inf::Symmetry</a></div><div class="ttdoc">A pair of party symmetry and outcome symmetry.</div><div class="ttdef"><b>Definition</b> <a href="symmetry_8h_source.html#l00027">symmetry.h:27</a></div></div>
+<div class="ttc" id="aclassinf_1_1Symmetry_html_a901d22b86ef5923b628db86fbdd7ba4f"><div class="ttname"><a href="classinf_1_1Symmetry.html#a901d22b86ef5923b628db86fbdd7ba4f">inf::Symmetry::Group</a></div><div class="ttdeci">std::set&lt; inf::Symmetry &gt; Group</div><div class="ttdoc">A set of symmetries, typically a group.</div><div class="ttdef"><b>Definition</b> <a href="symmetry_8h_source.html#l00037">symmetry.h:37</a></div></div>
+<div class="ttc" id="agroup__debug_html_ga06663ee630c22628b3fe11700767367f"><div class="ttname"><a href="group__debug.html#ga06663ee630c22628b3fe11700767367f">ASSERT_EQUAL</a></div><div class="ttdeci">#define ASSERT_EQUAL(X, Y)</div><div class="ttdoc">Soft assertion, tests for X == Y</div><div class="ttdef"><b>Definition</b> <a href="debug_8h_source.html#l00137">debug.h:137</a></div></div>
+<div class="ttc" id="agroup__debug_html_ga142a617ae6f4d3b050faad2aa1e936bf"><div class="ttname"><a href="group__debug.html#ga142a617ae6f4d3b050faad2aa1e936bf">ASSERT_TRUE</a></div><div class="ttdeci">#define ASSERT_TRUE(X)</div><div class="ttdoc">Soft assertion, tests for X being true.</div><div class="ttdef"><b>Definition</b> <a href="debug_8h_source.html#l00140">debug.h:140</a></div></div>
+<div class="ttc" id="agroup__debug_html_ga60f45ee0c4949ef50243feb6fbb8a808"><div class="ttname"><a href="group__debug.html#ga60f45ee0c4949ef50243feb6fbb8a808">ASSERT_LT</a></div><div class="ttdeci">#define ASSERT_LT(X, Y)</div><div class="ttdoc">Soft assertion, tests for X &lt; Y</div><div class="ttdef"><b>Definition</b> <a href="debug_8h_source.html#l00143">debug.h:143</a></div></div>
+<div class="ttc" id="agroup__debug_html_gac1ee6e006b614dd9b0021a0034db646d"><div class="ttname"><a href="group__debug.html#gac1ee6e006b614dd9b0021a0034db646d">DEBUG_RUN</a></div><div class="ttdeci">#define DEBUG_RUN(X)</div><div class="ttdoc">To run an instruction only in debug mode.</div><div class="ttdef"><b>Definition</b> <a href="debug_8h_source.html#l00071">debug.h:71</a></div></div>
+<div class="ttc" id="agroup__event_html_gac60a6fcdfce02dc13eb7364d6a2b56b0"><div class="ttname"><a href="group__event.html#gac60a6fcdfce02dc13eb7364d6a2b56b0">inf::Event</a></div><div class="ttdeci">std::vector&lt; inf::Outcome &gt; Event</div><div class="ttdoc">A list of inf::Outcome. Conceptually, this plays the role of  for some set .</div><div class="ttdef"><b>Definition</b> <a href="event_8h_source.html#l00030">event.h:30</a></div></div>
+<div class="ttc" id="agroup__printing_html_ga3f8fe48536ee19c54002c9c1db64cabb"><div class="ttname"><a href="group__printing.html#ga3f8fe48536ee19c54002c9c1db64cabb">util::cr</a></div><div class="ttdeci">constexpr util::Logger::Action cr</div><div class="ttdoc">Newline.</div><div class="ttdef"><b>Definition</b> <a href="logger_8h_source.html#l00197">logger.h:197</a></div></div>
+<div class="ttc" id="agroup__printing_html_ga4c77d1dedfe3a5b95abc21d13d7cd678"><div class="ttname"><a href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a></div><div class="ttdeci">util::Logger logger</div><div class="ttdoc">The globally accessible logger replacing std::cout</div></div>
+<div class="ttc" id="agroup__printing_html_ga91047ddaf85b4652a50b89c5c9755317"><div class="ttname"><a href="group__printing.html#ga91047ddaf85b4652a50b89c5c9755317">util::begin_section</a></div><div class="ttdeci">constexpr util::Logger::Action begin_section</div><div class="ttdoc">Increase indentation.</div><div class="ttdef"><b>Definition</b> <a href="logger_8h_source.html#l00200">logger.h:200</a></div></div>
+<div class="ttc" id="agroup__printing_html_gaa993b7a93b54137d5d6c09ed1fac8b77"><div class="ttname"><a href="group__printing.html#gaa993b7a93b54137d5d6c09ed1fac8b77">LOG_END_SECTION</a></div><div class="ttdeci">#define LOG_END_SECTION</div><div class="ttdoc">Shorthand for util::logger &lt;&lt; util::end_section, to match the LOG_BEGIN_SECTION(X) syntax.</div><div class="ttdef"><b>Definition</b> <a href="logger_8h_source.html#l00287">logger.h:287</a></div></div>
+<div class="ttc" id="agroup__printing_html_gae4f7a470686ffa2352173b5c0b486623"><div class="ttname"><a href="group__printing.html#gae4f7a470686ffa2352173b5c0b486623">util::end_section</a></div><div class="ttdeci">constexpr util::Logger::Action end_section</div><div class="ttdoc">Decrease indentation.</div><div class="ttdef"><b>Definition</b> <a href="logger_8h_source.html#l00203">logger.h:203</a></div></div>
+<div class="ttc" id="agroup__printing_html_gafca79483713e011c576202e2d0e63684"><div class="ttname"><a href="group__printing.html#gafca79483713e011c576202e2d0e63684">LOG_BEGIN_SECTION_FUNC</a></div><div class="ttdeci">#define LOG_BEGIN_SECTION_FUNC</div><div class="ttdoc">Shorthand to create a section with the current function name as header.</div><div class="ttdef"><b>Definition</b> <a href="logger_8h_source.html#l00282">logger.h:282</a></div></div>
+<div class="ttc" id="agroup__util_html_ga77731aedac326062ffbdcf367185a07e"><div class="ttname"><a href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a></div><div class="ttdeci">uint64_t Index</div><div class="ttdoc">Use for anything meant to be used as an index.</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00019">types.h:19</a></div></div>
+<div class="ttc" id="aorbitable_8h_html"><div class="ttname"><a href="orbitable_8h.html">orbitable.h</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_0f453feda2a303bb77c09f5934c109df.html">inf</a></li><li class="navelem"><a class="el" href="dir_bd8c5751801b9c05b9ce9b17f63146be.html">symmetry</a></li><li class="navelem"><a class="el" href="orbitable_8cpp.html">orbitable.cpp</a></li>
+    <li class="footer">Generated on Wed Dec 18 2024 17:39:37 for Fast Inflation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

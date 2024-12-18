@@ -1,0 +1,435 @@
+<!-- HTML header for doxygen 1.9.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Fast Inflation: Serialization</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+MathJax.Hub.Config({
+    TeX: {
+        Macros: {
+            dd: ["{\\text{d}#1\\,}",1],
+            nouts: ["{n_{\\text{o}}}"],
+            ints: ["{[\\![#1]\\!]}",1],
+            outset: ["{\\ints{\\nouts}}"],
+            N: ["{\\mathbb{N}}"],
+            R: ["{\\mathbb{R}}"],
+            Z: ["{\\mathbb{Z}}"],
+            infsize: ["{z}"],
+            infparties: ["{\\set{I}}"],
+            infsources: ["{\\set{S}}"],
+            infmarg: ["{\\set{A}}"],
+            infmargg: ["{\\set{B}}"],
+            netparties: ["{\\set{N}}"],
+            infq: ["{q}"],
+            infqs: ["{\\Delta_{\\infparties}}"],
+            constraintlist: ["{\\mathcal{C}}"],
+            injsets: ["{\\text{InjSets}}"],
+            infconstraints: ["{\\text{InfCons}}"],
+            parents: ["{\\text{Par}}"],
+            targetp: ["{p}"],
+            targetps: ["{\\Delta_{\\netparties}}"],
+            set: ["{\\mathbf{#1}}",1],
+            type: ["{t}"],
+            infevent: "{\\omega}",
+            events: ["{\\Omega_{#1}}",1],
+            infevents: ["{\\events{\\infparties}}"],
+            redinfevents: ["{\\tilde{\\Omega}_{\\infparties}}"],
+            netevents: ["{\\events{\\netparties}}"],
+            vecset: ["{V_{#1}}",1],
+            alice: ["{\\text{A}}"],
+            bob: ["{\\text{B}}"],
+            charlie: ["{\\text{C}}"],
+            symgroup: ["{\\text{Sym}(#1)}",1],
+            shortsymgroup: ["{\\text{Sym}_{#1}}",1],
+            act: ["{(#1\\hspace{2pt}{:}\\hspace{2pt}#2)}",2],
+            actt: ["{[#1\\hspace{2pt}{:}\\hspace{2pt}#2]}",2],
+            margperms: ["{\\text{Perm}_{#1}}",1],
+            permutedmargs: ["{\\mathbb{P}_{#1}^{\\targetp}}",1],
+            redpermutedmargs: ["{\\tilde{\\mathbb{P}}_{#1}^{\\constraintname,\\targetp}}",1],
+            extract: ["{\\text{ext}(#1,#2)}",2],
+            partysym: ["{\\tau}"],
+            sourcesym: ["{\\xi}"],
+            outsym: ["{\\sigma}"],
+            fullgroup: ["{\\text{InfGrp}}"],
+            partygroup : ["{\\text{PartyGrp}}"],
+            outgroup: ["{\\text{OutGrp}}"],
+            sourcegroup: ["{\\text{SrcGrp}}"],
+            distrgroup: ["{\\mathbb{G}^\\targetp}"],
+            constraintname: ["{c}"],
+            marggroup: ["{\\mathbb{G}^{\\constraintname,\\targetp}}"],
+            fullsymexpl: ["{(\\sourcesym,\\partysym,\\outsym)}"],
+            inner: ["{\\langle#1,#2\\rangle}", 2],
+            quovec: ["{f}"],
+            totconstraintmap: ["{K^{\\constraintlist,\\targetp}}"],
+            totconstraintmapelem: ["{K^{\\constraintname,\\targetp}}"],
+            quovecspace: ["{\\tilde{V}_{#1}^{\\constraintname,\\targetp}}", 1],
+            totquovecspace: ["{\\text{ConsSpace}(\\constraintlist,\\targetp)}"],
+            detdistr: ["{\\delta^{#1}}", 1],
+            margperm: ["{\\varphi}"],
+            altquovecembed: ["{\\text{G}_{#1}^{\\constraintname,\\targetp}}", 1],
+            vecset: ["{V_{#1}}", 1],
+            repr: ["{\\lfloor#1\\rfloor}", 1],
+            gid: ["{\\text{id}}"],
+            id: ["{1_{#1}}",1],
+            consscale: ["{K}"],
+            scaletot: ["{K_{\\text{tot}}^{\\constraintlist,\\targetp}}"],
+            minnorm: ["{d}"],
+            Bigsetst: ["\\;\\Big|\\;"],
+            activeset: ["\\mathcal{S}"],
+            conv: ["\\text{conv}"],
+            lVert: ["|\\hspace{-1pt}|"],
+            norm: ["\\lVert#1\\lVert", 1],
+            st: [":\ "],
+        }
+    }
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeDarkModeToggle.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeParagraphLink.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Fast Inflation
+   </div>
+   <div id="projectbrief">To certify causal incompatibility</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('group__serialization.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#func-members">Functions</a>  </div>
+  <div class="headertitle"><div class="title">Serialization<div class="ingroups"><a class="el" href="group__util.html">Utilities</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+<a name="details" id="details"></a><h2 class="groupheader">Module description</h2>
+<p>This module allows to read and write objects to disk in binary or text format. </p>
+<p>The idea of this module is to define the <a class="el" href="classutil_1_1FileStream.html" title="This abstract class provides a common interface to util::InputFileStream and util::OutputFileStream t...">util::FileStream</a> class, and to define an abstract class <a class="el" href="classutil_1_1Serializable.html" title="Abstract class that defines the interface of a class that is serializable.">util::Serializable</a> that can input or output to a <a class="el" href="classutil_1_1FileStream.html" title="This abstract class provides a common interface to util::InputFileStream and util::OutputFileStream t...">util::FileStream</a>. Then, the <a class="el" href="classutil_1_1FileStream.html" title="This abstract class provides a common interface to util::InputFileStream and util::OutputFileStream t...">util::FileStream</a> can either be a <a class="el" href="classutil_1_1InputFileStream.html" title="The specialization of util::FileStream to write to a file.">util::InputFileStream</a> or <a class="el" href="classutil_1_1OutputFileStream.html" title="The specialization of util::FileStream to write to a file.">util::OutputFileStream</a>, but the implementation of the <a class="el" href="classutil_1_1Serializable.html" title="Abstract class that defines the interface of a class that is serializable.">util::Serializable</a> does not need to know whether it is reading or writing. This prevents any mistake where one writes an object in one ordering of the attributes to the disk, but then reads it in a different order.</p>
+<p>This mechanism is tested in a very simple context in the application <a class="el" href="classuser_1_1file__stream.html" title="Tests the util::FileStream serialization mechanism in both binary and text form for a dummy class.">user::file_stream</a>. </p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1Serializable.html">util::Serializable</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Abstract class that defines the interface of a class that is serializable.  <a href="classutil_1_1Serializable.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1FileStream.html">util::FileStream</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This abstract class provides a common interface to <a class="el" href="classutil_1_1InputFileStream.html" title="The specialization of util::FileStream to write to a file.">util::InputFileStream</a> and <a class="el" href="classutil_1_1OutputFileStream.html" title="The specialization of util::FileStream to write to a file.">util::OutputFileStream</a> to unify the read/write mechanism into a single mechanism.  <a href="classutil_1_1FileStream.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1OutputFileStream.html">util::OutputFileStream</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The specialization of <a class="el" href="classutil_1_1FileStream.html" title="This abstract class provides a common interface to util::InputFileStream and util::OutputFileStream t...">util::FileStream</a> to write to a file.  <a href="classutil_1_1OutputFileStream.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutil_1_1InputFileStream.html">util::InputFileStream</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The specialization of <a class="el" href="classutil_1_1FileStream.html" title="This abstract class provides a common interface to util::InputFileStream and util::OutputFileStream t...">util::FileStream</a> to write to a file.  <a href="classutil_1_1InputFileStream.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ga278923f8bcbb0bf9e61b53c64b8e57ee"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga278923f8bcbb0bf9e61b53c64b8e57ee"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if&lt; std::is_arithmetic&lt; T &gt;::value, std::string &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__serialization.html#ga278923f8bcbb0bf9e61b53c64b8e57ee">util::to_hex_str</a> (T const &amp;var)</td></tr>
+<tr class="memdesc:ga278923f8bcbb0bf9e61b53c64b8e57ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a numerical value into a string.  <br /></td></tr>
+<tr class="separator:ga278923f8bcbb0bf9e61b53c64b8e57ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaee04cbdd41ec3e18d251661537a7e89b"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
+<tr class="memitem:gaee04cbdd41ec3e18d251661537a7e89b"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__serialization.html#gaee04cbdd41ec3e18d251661537a7e89b">util::to_hex_str</a> (<a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> const &amp;index)</td></tr>
+<tr class="memdesc:gaee04cbdd41ec3e18d251661537a7e89b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specialization to appropriately convert an <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e" title="Use for anything meant to be used as an index.">Index</a> into a string.  <br /></td></tr>
+<tr class="separator:gaee04cbdd41ec3e18d251661537a7e89b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac0b20ed70aed9c4be0d8151792c71907"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
+<tr class="memitem:gac0b20ed70aed9c4be0d8151792c71907"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__serialization.html#gac0b20ed70aed9c4be0d8151792c71907">util::to_hex_str</a> (uint8_t const &amp;outcome)</td></tr>
+<tr class="memdesc:gac0b20ed70aed9c4be0d8151792c71907"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specialization to appropriately convert an <a class="el" href="group__event.html#gadcaa27c4242b65837f0f7a00e96856d4" title="An outcome is stored in the smallest format available to save memory.">inf::Outcome</a> into a string.  <br /></td></tr>
+<tr class="separator:gac0b20ed70aed9c4be0d8151792c71907"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga78726e533c1b8b2879a515350c6c2a99"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga78726e533c1b8b2879a515350c6c2a99"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if&lt; std::is_arithmetic&lt; T &gt;::value, void &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__serialization.html#ga78726e533c1b8b2879a515350c6c2a99">util::read_hex_str</a> (T &amp;var, std::string const &amp;<a class="el" href="group__str.html#ga6948292bb3a41f65610efe2f043a1f1e">str</a>)</td></tr>
+<tr class="memdesc:ga78726e533c1b8b2879a515350c6c2a99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads a numerical value from a hexadecimal string.  <br /></td></tr>
+<tr class="separator:ga78726e533c1b8b2879a515350c6c2a99"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga52d52d30401e6facdf7c6bd575628e7d"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
+<tr class="memitem:ga52d52d30401e6facdf7c6bd575628e7d"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__serialization.html#ga52d52d30401e6facdf7c6bd575628e7d">util::read_hex_str</a> (<a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> &amp;var, std::string const &amp;<a class="el" href="group__str.html#ga6948292bb3a41f65610efe2f043a1f1e">str</a>)</td></tr>
+<tr class="memdesc:ga52d52d30401e6facdf7c6bd575628e7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specialization to appropriately read an <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e" title="Use for anything meant to be used as an index.">Index</a> from a string.  <br /></td></tr>
+<tr class="separator:ga52d52d30401e6facdf7c6bd575628e7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5fa7914d29158187af53266fd0ca2f93"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
+<tr class="memitem:ga5fa7914d29158187af53266fd0ca2f93"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__serialization.html#ga5fa7914d29158187af53266fd0ca2f93">util::read_hex_str</a> (uint8_t &amp;var, std::string const &amp;<a class="el" href="group__str.html#ga6948292bb3a41f65610efe2f043a1f1e">str</a>)</td></tr>
+<tr class="memdesc:ga5fa7914d29158187af53266fd0ca2f93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specialization to appropriately read an <a class="el" href="group__event.html#gadcaa27c4242b65837f0f7a00e96856d4" title="An outcome is stored in the smallest format available to save memory.">inf::Outcome</a> from a string.  <br /></td></tr>
+<tr class="separator:ga5fa7914d29158187af53266fd0ca2f93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="ga278923f8bcbb0bf9e61b53c64b8e57ee" name="ga278923f8bcbb0bf9e61b53c64b8e57ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga278923f8bcbb0bf9e61b53c64b8e57ee">&#9670;&#160;</a></span>to_hex_str() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::enable_if&lt; std::is_arithmetic&lt; T &gt;::value, std::string &gt;::type util::to_hex_str </td>
+          <td>(</td>
+          <td class="paramtype">T const &amp;&#160;</td>
+          <td class="paramname"><em>var</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Converts a numerical value into a string. </p>
+<p>We print numbers in hexadecimal to save a bit of space </p>
+
+<p class="definition">Definition at line <a class="el" href="file__stream_8h_source.html#l00052">52</a> of file <a class="el" href="file__stream_8h_source.html">file_stream.h</a>.</p>
+
+</div>
+</div>
+<a id="gaee04cbdd41ec3e18d251661537a7e89b" name="gaee04cbdd41ec3e18d251661537a7e89b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaee04cbdd41ec3e18d251661537a7e89b">&#9670;&#160;</a></span>to_hex_str() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string util::to_hex_str </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> const &amp;&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Specialization to appropriately convert an <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e" title="Use for anything meant to be used as an index.">Index</a> into a string. </p>
+
+<p class="definition">Definition at line <a class="el" href="file__stream_8cpp_source.html#l00010">10</a> of file <a class="el" href="file__stream_8cpp_source.html">file_stream.cpp</a>.</p>
+
+</div>
+</div>
+<a id="gac0b20ed70aed9c4be0d8151792c71907" name="gac0b20ed70aed9c4be0d8151792c71907"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac0b20ed70aed9c4be0d8151792c71907">&#9670;&#160;</a></span>to_hex_str() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string util::to_hex_str </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t const &amp;&#160;</td>
+          <td class="paramname"><em>outcome</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Specialization to appropriately convert an <a class="el" href="group__event.html#gadcaa27c4242b65837f0f7a00e96856d4" title="An outcome is stored in the smallest format available to save memory.">inf::Outcome</a> into a string. </p>
+
+<p class="definition">Definition at line <a class="el" href="file__stream_8cpp_source.html#l00017">17</a> of file <a class="el" href="file__stream_8cpp_source.html">file_stream.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ga78726e533c1b8b2879a515350c6c2a99" name="ga78726e533c1b8b2879a515350c6c2a99"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga78726e533c1b8b2879a515350c6c2a99">&#9670;&#160;</a></span>read_hex_str() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::enable_if&lt; std::is_arithmetic&lt; T &gt;::value, void &gt;::type util::read_hex_str </td>
+          <td>(</td>
+          <td class="paramtype">T &amp;&#160;</td>
+          <td class="paramname"><em>var</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
+          <td class="paramname"><em>str</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Reads a numerical value from a hexadecimal string. </p>
+
+<p class="definition">Definition at line <a class="el" href="file__stream_8h_source.html#l00072">72</a> of file <a class="el" href="file__stream_8h_source.html">file_stream.h</a>.</p>
+
+</div>
+</div>
+<a id="ga52d52d30401e6facdf7c6bd575628e7d" name="ga52d52d30401e6facdf7c6bd575628e7d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga52d52d30401e6facdf7c6bd575628e7d">&#9670;&#160;</a></span>read_hex_str() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void util::read_hex_str </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> &amp;&#160;</td>
+          <td class="paramname"><em>var</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
+          <td class="paramname"><em>str</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Specialization to appropriately read an <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e" title="Use for anything meant to be used as an index.">Index</a> from a string. </p>
+
+<p class="definition">Definition at line <a class="el" href="file__stream_8cpp_source.html#l00024">24</a> of file <a class="el" href="file__stream_8cpp_source.html">file_stream.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ga5fa7914d29158187af53266fd0ca2f93" name="ga5fa7914d29158187af53266fd0ca2f93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5fa7914d29158187af53266fd0ca2f93">&#9670;&#160;</a></span>read_hex_str() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void util::read_hex_str </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t &amp;&#160;</td>
+          <td class="paramname"><em>var</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
+          <td class="paramname"><em>str</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Specialization to appropriately read an <a class="el" href="group__event.html#gadcaa27c4242b65837f0f7a00e96856d4" title="An outcome is stored in the smallest format available to save memory.">inf::Outcome</a> from a string. </p>
+
+<p class="definition">Definition at line <a class="el" href="file__stream_8cpp_source.html#l00031">31</a> of file <a class="el" href="file__stream_8cpp_source.html">file_stream.cpp</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Wed Dec 18 2024 17:39:41 for Fast Inflation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

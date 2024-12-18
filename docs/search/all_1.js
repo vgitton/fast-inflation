@@ -1,0 +1,21 @@
+var searchData=
+[
+  ['bare_0',['Bare',['../classinf_1_1OutcomeSym.html#ab2ea2b492f0abed73c61876c01c02e40',1,'inf::OutcomeSym::Bare'],['../classinf_1_1PartySym.html#af091acc82f3033bf2ce9b180fb0e7c36',1,'inf::PartySym::Bare']]],
+  ['base_5fcli_2ecpp_1',['base_cli.cpp',['../base__cli_8cpp.html',1,'']]],
+  ['base_5fcli_2eh_2',['base_cli.h',['../base__cli_8h.html',1,'']]],
+  ['basecli_3',['BaseCLI',['../classutil_1_1BaseCLI.html#a21f9a97f22edfcbb30b0c25a6fc64575',1,'util::BaseCLI::BaseCLI()'],['../classutil_1_1BaseCLI.html',1,'util::BaseCLI']]],
+  ['begin_4',['begin',['../classutil_1_1Range.html#a98fa701603974f5c90b4ebebae9ed77e',1,'util::Range::begin()'],['../classutil_1_1ProductRange.html#a17ef5491d204baee8d0b8d06e104a8e7',1,'util::ProductRange::begin()'],['../classutil_1_1Permutations.html#a63e4501904a38b4d261b80fcbb8b82f2',1,'util::Permutations::begin()']]],
+  ['begin_5fcomment_5',['begin_comment',['../group__printing.html#ga7d731f43f6d60e3846cbdbd55eaeed2e',1,'util']]],
+  ['begin_5fsection_6',['begin_section',['../classutil_1_1Logger.html#ac1542f86a22ae43065b4911126f3de88',1,'util::Logger::begin_section()'],['../classutil_1_1Logger.html#a7050ffd6e9fcaa8bbb4ac9f2aa29b043ad3f6309599a442c077c55f6596dfa54a',1,'util::Logger::begin_section'],['../group__printing.html#ga91047ddaf85b4652a50b89c5c9755317',1,'util::begin_section']]],
+  ['bf_5fopt_2ecpp_7',['bf_opt.cpp',['../bf__opt_8cpp.html',1,'']]],
+  ['bf_5fopt_2eh_8',['bf_opt.h',['../bf__opt_8h.html',1,'']]],
+  ['binary_9',['binary',['../classutil_1_1FileStream.html#a5cb21435ca0ee444b065ab1eb6f323e0a9d7183f16acce70658f686ae7f1a4d20',1,'util::FileStream']]],
+  ['black_10',['black',['../group__color.html#gga95747189f62a0ed341c6e2579146beb7a1ffd9e753c8054cc61456ac7fac1ac89',1,'util']]],
+  ['blue_11',['blue',['../group__color.html#gga95747189f62a0ed341c6e2579146beb7a48d6215903dff56238e52e8891380c8f',1,'util']]],
+  ['boundrule_12',['BoundRule',['../classinf_1_1DualVector.html#ac8512fb844f08801480e9df967ea8769',1,'inf::DualVector']]],
+  ['boundtype_13',['BoundType',['../classinf_1_1DualVector.html#a3ac0be707f8f14bf1e429fcb6b17f9a0',1,'inf::DualVector']]],
+  ['break_5fhere_14',['BREAK_HERE',['../group__debug.html#gab4b18ba819a8b935db54eb4d4d1cd39f',1,'debug.h']]],
+  ['break_5fhere_15',['break_here',['../group__debug.html#gaf5c8ff0242aa3f522145ef32a01f9f8d',1,'util']]],
+  ['brute_5fforce_16',['brute_force',['../classinf_1_1Optimizer.html#a0dce5e153a8fb320fa11f450246e08a6a14eb8fb55e00336d36cb281764c88aa5',1,'inf::Optimizer']]],
+  ['bruteforceopt_17',['BruteForceOpt',['../classinf_1_1BruteForceOpt.html#a0238fcfe2388979ba51a52fef442b42b',1,'inf::BruteForceOpt::BruteForceOpt()'],['../classinf_1_1BruteForceOpt.html',1,'inf::BruteForceOpt']]]
+];

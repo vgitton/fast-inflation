@@ -1,0 +1,346 @@
+<!-- HTML header for doxygen 1.9.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Fast Inflation: Class Members</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+MathJax.Hub.Config({
+    TeX: {
+        Macros: {
+            dd: ["{\\text{d}#1\\,}",1],
+            nouts: ["{n_{\\text{o}}}"],
+            ints: ["{[\\![#1]\\!]}",1],
+            outset: ["{\\ints{\\nouts}}"],
+            N: ["{\\mathbb{N}}"],
+            R: ["{\\mathbb{R}}"],
+            Z: ["{\\mathbb{Z}}"],
+            infsize: ["{z}"],
+            infparties: ["{\\set{I}}"],
+            infsources: ["{\\set{S}}"],
+            infmarg: ["{\\set{A}}"],
+            infmargg: ["{\\set{B}}"],
+            netparties: ["{\\set{N}}"],
+            infq: ["{q}"],
+            infqs: ["{\\Delta_{\\infparties}}"],
+            constraintlist: ["{\\mathcal{C}}"],
+            injsets: ["{\\text{InjSets}}"],
+            infconstraints: ["{\\text{InfCons}}"],
+            parents: ["{\\text{Par}}"],
+            targetp: ["{p}"],
+            targetps: ["{\\Delta_{\\netparties}}"],
+            set: ["{\\mathbf{#1}}",1],
+            type: ["{t}"],
+            infevent: "{\\omega}",
+            events: ["{\\Omega_{#1}}",1],
+            infevents: ["{\\events{\\infparties}}"],
+            redinfevents: ["{\\tilde{\\Omega}_{\\infparties}}"],
+            netevents: ["{\\events{\\netparties}}"],
+            vecset: ["{V_{#1}}",1],
+            alice: ["{\\text{A}}"],
+            bob: ["{\\text{B}}"],
+            charlie: ["{\\text{C}}"],
+            symgroup: ["{\\text{Sym}(#1)}",1],
+            shortsymgroup: ["{\\text{Sym}_{#1}}",1],
+            act: ["{(#1\\hspace{2pt}{:}\\hspace{2pt}#2)}",2],
+            actt: ["{[#1\\hspace{2pt}{:}\\hspace{2pt}#2]}",2],
+            margperms: ["{\\text{Perm}_{#1}}",1],
+            permutedmargs: ["{\\mathbb{P}_{#1}^{\\targetp}}",1],
+            redpermutedmargs: ["{\\tilde{\\mathbb{P}}_{#1}^{\\constraintname,\\targetp}}",1],
+            extract: ["{\\text{ext}(#1,#2)}",2],
+            partysym: ["{\\tau}"],
+            sourcesym: ["{\\xi}"],
+            outsym: ["{\\sigma}"],
+            fullgroup: ["{\\text{InfGrp}}"],
+            partygroup : ["{\\text{PartyGrp}}"],
+            outgroup: ["{\\text{OutGrp}}"],
+            sourcegroup: ["{\\text{SrcGrp}}"],
+            distrgroup: ["{\\mathbb{G}^\\targetp}"],
+            constraintname: ["{c}"],
+            marggroup: ["{\\mathbb{G}^{\\constraintname,\\targetp}}"],
+            fullsymexpl: ["{(\\sourcesym,\\partysym,\\outsym)}"],
+            inner: ["{\\langle#1,#2\\rangle}", 2],
+            quovec: ["{f}"],
+            totconstraintmap: ["{K^{\\constraintlist,\\targetp}}"],
+            totconstraintmapelem: ["{K^{\\constraintname,\\targetp}}"],
+            quovecspace: ["{\\tilde{V}_{#1}^{\\constraintname,\\targetp}}", 1],
+            totquovecspace: ["{\\text{ConsSpace}(\\constraintlist,\\targetp)}"],
+            detdistr: ["{\\delta^{#1}}", 1],
+            margperm: ["{\\varphi}"],
+            altquovecembed: ["{\\text{G}_{#1}^{\\constraintname,\\targetp}}", 1],
+            vecset: ["{V_{#1}}", 1],
+            repr: ["{\\lfloor#1\\rfloor}", 1],
+            gid: ["{\\text{id}}"],
+            id: ["{1_{#1}}",1],
+            consscale: ["{K}"],
+            scaletot: ["{K_{\\text{tot}}^{\\constraintlist,\\targetp}}"],
+            minnorm: ["{d}"],
+            Bigsetst: ["\\;\\Big|\\;"],
+            activeset: ["\\mathcal{S}"],
+            conv: ["\\text{conv}"],
+            lVert: ["|\\hspace{-1pt}|"],
+            norm: ["\\lVert#1\\lVert", 1],
+            st: [":\ "],
+        }
+    }
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeDarkModeToggle.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeParagraphLink.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Fast Inflation
+   </div>
+   <div id="projectbrief">To certify causal incompatibility</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('functions_g.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="contents">
+<div class="textblock">Here is a list of all class members with links to the classes they belong to:</div>
+
+<h3><a id="index_g" name="index_g"></a>- g -</h3><ul>
+<li>get()&#160;:&#160;<a class="el" href="classinf_1_1TreeOpt_1_1GlobalMinimum.html#afa27bf59d998574900af1a3f62343fa6">inf::TreeOpt::GlobalMinimum</a></li>
+<li>get_A()&#160;:&#160;<a class="el" href="classutil_1_1TestWritableClass.html#a207d80db2bfe6f22cc20bf02465c389c">util::TestWritableClass</a></li>
+<li>get_all_outcome_sym()&#160;:&#160;<a class="el" href="classinf_1_1Network.html#a96cdbc57d6de2736d7cc35f19b7a9dff">inf::Network</a></li>
+<li>get_all_party_sym()&#160;:&#160;<a class="el" href="classinf_1_1Network.html#a07029e97b96dfb59563321d4711a31ed">inf::Network</a></li>
+<li>get_all_source_range()&#160;:&#160;<a class="el" href="classinf_1_1Inflation.html#a4145134df29127ee233a867756d3837b">inf::Inflation</a></li>
+<li>get_all_sym()&#160;:&#160;<a class="el" href="classinf_1_1Network.html#a73a3b3acef0071b917bec9adc70f02a9">inf::Network</a></li>
+<li>get_all_unknown_event()&#160;:&#160;<a class="el" href="classinf_1_1Inflation.html#a06295a6f01f49ed4bc4fae1311fdbfec">inf::Inflation</a></li>
+<li>get_all_zero_event()&#160;:&#160;<a class="el" href="classinf_1_1Inflation.html#a32432dd6f580704381870c1fe1130414">inf::Inflation</a></li>
+<li>get_applicable_symmetries()&#160;:&#160;<a class="el" href="classinf_1_1Inflation.html#a218f153524927c095bff199beb02535e">inf::Inflation</a></li>
+<li>get_bare_sym()&#160;:&#160;<a class="el" href="classinf_1_1OutcomeSym.html#aac41fcd951bad0cf0f65966a86779255">inf::OutcomeSym</a>, <a class="el" href="classinf_1_1PartySym.html#a91b40d2e42a94445da058833bd77bfe0">inf::PartySym</a></li>
+<li>get_base()&#160;:&#160;<a class="el" href="classinf_1_1EventTensor.html#a64d5834d3f36b5b5e13b5ae1903455b8">inf::EventTensor</a></li>
+<li>get_breadth_at_depth()&#160;:&#160;<a class="el" href="classinf_1_1EventTree.html#ad3899d02a354fcd352f1d07e624d8ef4">inf::EventTree</a></li>
+<li>get_color_code()&#160;:&#160;<a class="el" href="classutil_1_1Logger.html#ac7840a2529ef40d0e881b621d789b51c">util::Logger</a></li>
+<li>get_color_mode()&#160;:&#160;<a class="el" href="classutil_1_1Logger.html#adbda8a3440db46270a7764e504b0310e">util::Logger</a></li>
+<li>get_colored_number_str()&#160;:&#160;<a class="el" href="classutil_1_1Logger.html#a6aad3f6eebae8ca2df6cbb70b61a2143">util::Logger</a></li>
+<li>get_composition_after()&#160;:&#160;<a class="el" href="classinf_1_1OutcomeSym.html#a99e970dcecca9c7ed5391ffa2b0d3b24">inf::OutcomeSym</a>, <a class="el" href="classinf_1_1PartySym.html#a8e0107ed8299b3377eee7eacdc9f5e84">inf::PartySym</a>, <a class="el" href="classinf_1_1Symmetry.html#a7b70c718a629a6cf6f32ea7bef16da89">inf::Symmetry</a></li>
+<li>get_constraint_group()&#160;:&#160;<a class="el" href="classinf_1_1Constraint.html#a0f7a0a8d15cfabd25c7804f632412960">inf::Constraint</a></li>
+<li>get_constraint_set_description()&#160;:&#160;<a class="el" href="classinf_1_1FeasOptions.html#a81a439786f6b004a241c83694fcf6787">inf::FeasOptions</a></li>
+<li>get_current_solution()&#160;:&#160;<a class="el" href="classinf_1_1PairwiseFW.html#a8d67da4d9d6fc506d5f6f0e432c7c3dc">inf::PairwiseFW</a></li>
+<li>get_denom()&#160;:&#160;<a class="el" href="classinf_1_1EventTensor.html#a9b8673dd0d6a9de3c00168afb743eba5">inf::EventTensor</a>, <a class="el" href="classinf_1_1Marginal.html#a1e66a798bf6d2e61d7f4730e7dbc0b9b">inf::Marginal</a>, <a class="el" href="classutil_1_1Frac.html#af1e2046ab44facfd3d760deaffa2ddf2">util::Frac</a></li>
+<li>get_depth()&#160;:&#160;<a class="el" href="classinf_1_1EventTree.html#a6265f7fcc905ba533978e02f5c43e07a">inf::EventTree</a></li>
+<li>get_description()&#160;:&#160;<a class="el" href="classuser_1_1Application.html#a2cd8c0338bc942250eb733a8af909175">user::Application</a></li>
+<li>get_dual_vector()&#160;:&#160;<a class="el" href="classinf_1_1Constraint.html#a3647bf14ff19b0e558085229637daa94">inf::Constraint</a></li>
+<li>get_evaluator()&#160;:&#160;<a class="el" href="classinf_1_1Marginal.html#a982a4a299187e7fc8590877f2ea58237">inf::Marginal</a></li>
+<li>get_event_hash()&#160;:&#160;<a class="el" href="classinf_1_1EventTensor.html#ad237a63bbfec62ccf307e27bcdceddf8">inf::EventTensor</a></li>
+<li>get_event_range()&#160;:&#160;<a class="el" href="classinf_1_1EventTensor.html#adc2d6423af84b864b20b7e9a920a65dd">inf::EventTensor</a>, <a class="el" href="classinf_1_1Inflation.html#a9c9908ad1e0a6558f49a4b249504110e">inf::Inflation</a>, <a class="el" href="classinf_1_1Network.html#ac46b870ba5d91d5e1a3d78c2cd7d61b2">inf::Network</a>, <a class="el" href="classinf_1_1Orbitable.html#a3df21a21b75c0a11a824eb9cacd0cd38">inf::Orbitable</a>, <a class="el" href="classinf_1_1TensorWithOrbits.html#a09fcfd7f0c8c753a8e63c161b313d772">inf::TensorWithOrbits</a></li>
+<li>get_event_tensor()&#160;:&#160;<a class="el" href="classinf_1_1TensorWithOrbits.html#ac7a873f9c37d20248a9f902f69aa27af">inf::TensorWithOrbits</a></li>
+<li>get_event_to_quovec_index()&#160;:&#160;<a class="el" href="classinf_1_1DualVector.html#ac5245461094db93bca9b1485f5322db4">inf::DualVector</a></li>
+<li>get_events()&#160;:&#160;<a class="el" href="classinf_1_1PairwiseFW_1_1Data.html#adc5d427646a0ce0d3817a01f41fb304d">inf::PairwiseFW::Data</a></li>
+<li>get_extension()&#160;:&#160;<a class="el" href="classutil_1_1FileStream.html#a8fdfbf599fb437d65d424c255b400658">util::FileStream</a></li>
+<li>get_feas_options()&#160;:&#160;<a class="el" href="classuser_1_1Application.html#aa053b2208699654f0c2b0956b5914ee2">user::Application</a></li>
+<li>get_feasibility()&#160;:&#160;<a class="el" href="classinf_1_1FeasProblem.html#a2b39812f7569a37bb16271c861341a4f">inf::FeasProblem</a></li>
+<li>get_format()&#160;:&#160;<a class="el" href="classutil_1_1FileStream.html#a5ffbe355a825ba71629237f2b3b580db">util::FileStream</a></li>
+<li>get_frac()&#160;:&#160;<a class="el" href="classinf_1_1EventTensor.html#a9abd421749182a04440d57412e5e5f7a">inf::EventTensor</a></li>
+<li>get_frank_wolfe()&#160;:&#160;<a class="el" href="classinf_1_1FrankWolfe.html#a3a49d1ffdfcd4e7feed0b8d8a35e886d">inf::FrankWolfe</a></li>
+<li>get_fw_algo()&#160;:&#160;<a class="el" href="classinf_1_1FeasOptions.html#a9951d2feeecdd6dcd6ae33961182e324">inf::FeasOptions</a></li>
+<li>get_hash_range()&#160;:&#160;<a class="el" href="classinf_1_1EventTensor.html#a8541b721bccaabd4e20d91b136b34fe6">inf::EventTensor</a></li>
+<li>get_inf_cli()&#160;:&#160;<a class="el" href="classuser_1_1Application.html#a438bc6e9fe5d146eb5a962ae79cce317">user::Application</a></li>
+<li>get_inflation()&#160;:&#160;<a class="el" href="classinf_1_1ConstraintSet.html#aac18a3e9eec538bef886a434b2113c71">inf::ConstraintSet</a>, <a class="el" href="classinf_1_1DualVector.html#ab6af4757eeabf48b07392f34df2bbc2f">inf::DualVector</a>, <a class="el" href="classinf_1_1Marginal.html#a7782b8d02b34b375829cb8d39011e719">inf::Marginal</a></li>
+<li>get_inflation_event()&#160;:&#160;<a class="el" href="classinf_1_1Marginal_1_1Evaluator.html#a89c45a4d7f5ca9520c01dc27fb4d63a7">inf::Marginal::Evaluator</a>, <a class="el" href="classinf_1_1Marginal_1_1EvaluatorSet.html#a689859760b784b00bfb66c931d517a05">inf::Marginal::EvaluatorSet</a>, <a class="el" href="classinf_1_1Optimizer_1_1Solution.html#a2943a5b810c96462dd7f25e410ab9c54">inf::Optimizer::Solution</a></li>
+<li>get_inflation_event_quovec()&#160;:&#160;<a class="el" href="classinf_1_1ConstraintSet.html#af3978bd76651b03e0c721c0cebbd7559">inf::ConstraintSet</a></li>
+<li>get_inflation_event_score()&#160;:&#160;<a class="el" href="classinf_1_1Optimizer_1_1Solution.html#a59fd16ed04e9cf2bf79656eab1ed7c32">inf::Optimizer::Solution</a></li>
+<li>get_inflation_size()&#160;:&#160;<a class="el" href="classinf_1_1FeasOptions.html#ad5b833a977e9aed5a6e66ca7592e2f1a">inf::FeasOptions</a></li>
+<li>get_inflation_symmetries()&#160;:&#160;<a class="el" href="classinf_1_1Inflation.html#abfa6a2b7897bb9f1d3c406a864e9acdf">inf::Inflation</a></li>
+<li>get_inverse()&#160;:&#160;<a class="el" href="classinf_1_1OutcomeSym.html#a13a924388d5dafab39f9bf673ecb77f8">inf::OutcomeSym</a></li>
+<li>get_inverse_bare_sym()&#160;:&#160;<a class="el" href="classinf_1_1OutcomeSym.html#a451e868cab36cb011beeeae8ef2aff2a">inf::OutcomeSym</a>, <a class="el" href="classinf_1_1PartySym.html#a9c3426fc869c5053197e182363416d16">inf::PartySym</a></li>
+<li>get_iterates()&#160;:&#160;<a class="el" href="classinf_1_1PairwiseFW.html#aac73d951fb9be87b397995f4d894dd62">inf::PairwiseFW</a></li>
+<li>get_lhs_denom()&#160;:&#160;<a class="el" href="classinf_1_1Constraint.html#a97d36dee33389f270e1828cc462b4e2d">inf::Constraint</a></li>
+<li>get_lhs_marg_parties()&#160;:&#160;<a class="el" href="classinf_1_1ConstraintParser.html#a960ab2d31befa2c036834b3668fa77da">inf::ConstraintParser</a></li>
+<li>get_log_level()&#160;:&#160;<a class="el" href="classuser_1_1InfCLI.html#a7dffe0762130578a5dc3908377b01f89">user::InfCLI</a></li>
+<li>get_marg_evaluators()&#160;:&#160;<a class="el" href="classinf_1_1Constraint.html#aa0dde43c2cd089b9592663b1b8b81a99">inf::Constraint</a>, <a class="el" href="classinf_1_1ConstraintSet.html#ad6f595cb0067c61653228294592db040">inf::ConstraintSet</a></li>
+<li>get_marginal()&#160;:&#160;<a class="el" href="classinf_1_1TargetDistr.html#ab3eff345d3cd86b648ba62044a387934">inf::TargetDistr</a></li>
+<li>get_marginal_name()&#160;:&#160;<a class="el" href="classinf_1_1Inflation.html#aadcbae3cd3db6df435eb7805814b6016">inf::Inflation</a></li>
+<li>get_marginal_symmetries()&#160;:&#160;<a class="el" href="classinf_1_1Marginal.html#a8340ff713c51f78dc89db1b2cbcfb4f0">inf::Marginal</a></li>
+<li>get_math_name()&#160;:&#160;<a class="el" href="classinf_1_1DualVector.html#a81e2913269e41e2c57c0941113178795">inf::DualVector</a>, <a class="el" href="classinf_1_1TargetDistr.html#af0a89a18f4bcdf1a89357c2f7464c8c2">inf::TargetDistr</a>, <a class="el" href="classinf_1_1TensorWithOrbits.html#aea20c64fcb0c96004fd5e84b007029ff">inf::TensorWithOrbits</a></li>
+<li>get_max_application_name_width()&#160;:&#160;<a class="el" href="classuser_1_1AppManager.html#a09abf8af9ebad4d4b0c8a43646122ca8">user::AppManager</a></li>
+<li>get_max_dual_vector_component()&#160;:&#160;<a class="el" href="classinf_1_1ConstraintSet.html#aff102c56d819813d913a738360f8d8f9">inf::ConstraintSet</a></li>
+<li>get_memory_footprint()&#160;:&#160;<a class="el" href="classinf_1_1EventTree.html#ae5dced6ebed7e78781375fe0be833e7e">inf::EventTree</a>, <a class="el" href="classinf_1_1EventTree_1_1Node.html#af937aae0e08cff1355d6c2f850bb46b5">inf::EventTree::Node</a></li>
+<li>get_metadata()&#160;:&#160;<a class="el" href="classinf_1_1Inflation.html#a480b5232d163f5c922c397e6150b6d7d">inf::Inflation</a></li>
+<li>get_min_inner_product()&#160;:&#160;<a class="el" href="classinf_1_1FullyCorrectiveFW.html#aad8742905ccbdde5b558889dd9fae04b">inf::FullyCorrectiveFW</a></li>
+<li>get_minimum_nonlocal_visibility()&#160;:&#160;<a class="el" href="classinf_1_1VisProblem.html#a7aa41df0103d0dd6ceb0bd3b4cbc5388">inf::VisProblem</a></li>
+<li>get_n_events()&#160;:&#160;<a class="el" href="classinf_1_1Network.html#af5133124d7016fd2dbd606a7b0f765f5">inf::Network</a>, <a class="el" href="classinf_1_1Orbitable.html#ae54c89d9d6f38114332f7cdba067cd18">inf::Orbitable</a>, <a class="el" href="classinf_1_1TensorWithOrbits.html#a4557f73cfbab33775e70c0e202ca09c8">inf::TensorWithOrbits</a></li>
+<li>get_n_leaves()&#160;:&#160;<a class="el" href="classinf_1_1EventTree.html#a011665a481442a436f9d3ea7b32afbec">inf::EventTree</a></li>
+<li>get_n_nodes_cached()&#160;:&#160;<a class="el" href="classinf_1_1EventTree.html#a4cc7399c4e07d5fda46bfa52d01e4b39">inf::EventTree</a></li>
+<li>get_n_nodes_total()&#160;:&#160;<a class="el" href="classinf_1_1EventTree.html#a7b7944d4747081d7fc6519b33f549669">inf::EventTree</a></li>
+<li>get_n_orbits()&#160;:&#160;<a class="el" href="classinf_1_1Orbitable.html#a99544b7fb94b81957e20601859c42782">inf::Orbitable</a></li>
+<li>get_n_orbits_no_unknown()&#160;:&#160;<a class="el" href="classinf_1_1DualVector.html#a2bb62dee0c86469348cc49ed3b001b8f">inf::DualVector</a></li>
+<li>get_n_orbits_with_unknown()&#160;:&#160;<a class="el" href="classinf_1_1DualVector.html#a2195ab6ae1897eff28abee9629eda675">inf::DualVector</a></li>
+<li>get_n_outcomes()&#160;:&#160;<a class="el" href="classinf_1_1Network.html#a0e2221b0dfa90ec630d8da4c5a66c147">inf::Network</a></li>
+<li>get_n_parties()&#160;:&#160;<a class="el" href="classinf_1_1EventTensor.html#a083c4e6df59b5b74455e41d4e5435ab9">inf::EventTensor</a>, <a class="el" href="classinf_1_1Inflation.html#ad61b8a72fecf20cc46683e1dda987723">inf::Inflation</a>, <a class="el" href="classinf_1_1Marginal.html#a798e0ac6c05612a3812561722b45972a">inf::Marginal</a>, <a class="el" href="classinf_1_1Network.html#a7cfcdf0193c2d9215315ea4685e617e6">inf::Network</a>, <a class="el" href="classinf_1_1Orbitable.html#a5926df85225a37a80a5611222a7103e0">inf::Orbitable</a>, <a class="el" href="classinf_1_1TensorWithOrbits.html#ac7304f6f5f10788da5dfa2ce67eadc7c">inf::TensorWithOrbits</a></li>
+<li>get_n_stored_events()&#160;:&#160;<a class="el" href="classinf_1_1FrankWolfe.html#a53bfae51859bf32aadff2d1617c8804c">inf::FrankWolfe</a>, <a class="el" href="classinf_1_1FullyCorrectiveFW.html#a084868d9e037d7fc6a4bb7b18acdd714">inf::FullyCorrectiveFW</a>, <a class="el" href="classinf_1_1PairwiseFW.html#a6c53d33bbbe3886d2613ef75a3f5ce6f">inf::PairwiseFW</a></li>
+<li>get_n_threads()&#160;:&#160;<a class="el" href="classinf_1_1FeasOptions.html#aac5ba1c37c12cef5d8cbaf74c5ce58c1">inf::FeasOptions</a>, <a class="el" href="classuser_1_1InfCLI.html#a901e7f05011d0fe8f333c7615cf3825b">user::InfCLI</a></li>
+<li>get_name()&#160;:&#160;<a class="el" href="classinf_1_1Network.html#a8545758238dee0cf6a8e902685e45495">inf::Network</a>, <a class="el" href="classinf_1_1TargetDistr.html#a9b1af91b8e74bc23b887a73b4d2652b7">inf::TargetDistr</a>, <a class="el" href="classuser_1_1Application.html#a32bf6119f9530bcdd17471d02f4b3615">user::Application</a></li>
+<li>get_network()&#160;:&#160;<a class="el" href="classinf_1_1Inflation.html#a21c23e5d5df7102da0aaa0d61be38252">inf::Inflation</a>, <a class="el" href="classinf_1_1TargetDistr.html#aef09b1acd119dfa11c4cc4e038ea4885">inf::TargetDistr</a></li>
+<li>get_node()&#160;:&#160;<a class="el" href="classinf_1_1EventTree.html#a1fe552289030cac1417046293461c0a5">inf::EventTree</a></li>
+<li>get_num()&#160;:&#160;<a class="el" href="classinf_1_1EventTensor.html#ade04b2193c01629823a8b4ed00071966">inf::EventTensor</a>, <a class="el" href="classutil_1_1Frac.html#af8ff97b02172fe1b881a7d33a372d93b">util::Frac</a></li>
+<li>get_optimizer()&#160;:&#160;<a class="el" href="classinf_1_1Optimizer.html#a54e566bfb4c18ea8287808bff9b4f499">inf::Optimizer</a></li>
+<li>get_orbit_repr_no_unknown()&#160;:&#160;<a class="el" href="classinf_1_1DualVector.html#a460ae9be024af38dc2d2dad80bb6c8a2">inf::DualVector</a></li>
+<li>get_orbits()&#160;:&#160;<a class="el" href="classinf_1_1Orbitable.html#aef04cd8a458a13472f5b95105929e6b4">inf::Orbitable</a></li>
+<li>get_outcome_last()&#160;:&#160;<a class="el" href="classinf_1_1Network.html#a4a8836eaf7b4aed31d4986f0639566fb">inf::Network</a></li>
+<li>get_outcome_sym()&#160;:&#160;<a class="el" href="classinf_1_1Symmetry.html#a08106c5116d47b100cdec19af1974fe7">inf::Symmetry</a></li>
+<li>get_outcome_unknown()&#160;:&#160;<a class="el" href="classinf_1_1Network.html#a1b3e78dad1d69dc29a8789af5c0ad776">inf::Network</a></li>
+<li>get_outcomes_per_party()&#160;:&#160;<a class="el" href="classinf_1_1DualVector.html#a704636660183462ef8caaa6e10977461">inf::DualVector</a></li>
+<li>get_parents()&#160;:&#160;<a class="el" href="classinf_1_1Inflation.html#a9becf774e1ef740f16345a9a30be336e">inf::Inflation</a></li>
+<li>get_parties()&#160;:&#160;<a class="el" href="classinf_1_1Inflation.html#a7c079c8da261a25734e6cab9d5fc0c9d">inf::Inflation</a>, <a class="el" href="classinf_1_1Marginal.html#a4fba16c399db946da697b652c3ae0e59">inf::Marginal</a></li>
+<li>get_party_index()&#160;:&#160;<a class="el" href="classinf_1_1Inflation.html#a0d2407cc5082ef3b67f7a42f6874c11a">inf::Inflation</a></li>
+<li>get_party_name()&#160;:&#160;<a class="el" href="classinf_1_1Inflation.html#a62461fa7b393d783854cd36eff0256dc">inf::Inflation</a></li>
+<li>get_party_name_map()&#160;:&#160;<a class="el" href="classinf_1_1Network.html#adb2abacbfdde5fd59b305d717ec919a4">inf::Network</a></li>
+<li>get_party_names()&#160;:&#160;<a class="el" href="classinf_1_1Network.html#aac358ba9a7beea25b00ed0e3caaf19b3">inf::Network</a></li>
+<li>get_party_range()&#160;:&#160;<a class="el" href="classinf_1_1Network.html#a5e94d866c3b30948141de1565c6af029">inf::Network</a></li>
+<li>get_party_sym()&#160;:&#160;<a class="el" href="classinf_1_1Symmetry.html#a18638cbcee419ae80d27003c479e2084">inf::Symmetry</a></li>
+<li>get_party_weights()&#160;:&#160;<a class="el" href="classinf_1_1EventTensor.html#a897e0e74151db5bd2ee641069cf9b6e4">inf::EventTensor</a></li>
+<li>get_path_partition()&#160;:&#160;<a class="el" href="classinf_1_1TreeSplitter.html#acb1172d73b934655949568d3db812b44">inf::TreeSplitter</a></li>
+<li>get_paths_and_leaves()&#160;:&#160;<a class="el" href="classinf_1_1TreeSplitter.html#a03cd23f476e034a73d73b73be05b5b73">inf::TreeSplitter</a></li>
+<li>get_pre_solution()&#160;:&#160;<a class="el" href="classinf_1_1BruteForceOpt.html#ae34d29d094d630ac77e8e1b9705bedd3">inf::BruteForceOpt</a>, <a class="el" href="classinf_1_1Optimizer.html#a12b1e5b979187fd52ae421a9945311c1">inf::Optimizer</a>, <a class="el" href="classinf_1_1TreeOpt.html#a85a33707f3d49f8679c5cdb9d75af5e3">inf::TreeOpt</a></li>
+<li>get_pretty_description()&#160;:&#160;<a class="el" href="classinf_1_1Constraint.html#a73d6c2cb02840f2daa8055da69dd86a9">inf::Constraint</a></li>
+<li>get_quovec_denom()&#160;:&#160;<a class="el" href="classinf_1_1ConstraintSet.html#a87041af2b9fb04dee4c238eddcd93de0">inf::ConstraintSet</a></li>
+<li>get_quovec_size()&#160;:&#160;<a class="el" href="classinf_1_1Constraint.html#ad6c6fddb7d2df3e72aa29e81697c210e">inf::Constraint</a>, <a class="el" href="classinf_1_1ConstraintSet.html#a2f647aaecc2a8ce00873fcacaf6f827a">inf::ConstraintSet</a></li>
+<li>get_rand()&#160;:&#160;<a class="el" href="classutil_1_1RNG.html#a0553911705772c7166bccc46f40bd4cb">util::RNG&lt; T &gt;</a></li>
+<li>get_random_event()&#160;:&#160;<a class="el" href="classinf_1_1Inflation.html#a32061ba93f28896fb44687627d4b1686">inf::Inflation</a></li>
+<li>get_rhs_denom()&#160;:&#160;<a class="el" href="classinf_1_1Constraint.html#a4edba80a718e5a147f47b6288abd0e55">inf::Constraint</a></li>
+<li>get_rhs_marg_parties()&#160;:&#160;<a class="el" href="classinf_1_1ConstraintParser.html#afc353c578678697adb67009a5526d8b7">inf::ConstraintParser</a></li>
+<li>get_root_children_count()&#160;:&#160;<a class="el" href="classinf_1_1EventTree.html#a7ea307fbc2d4c4aeaeb92244cab5517e">inf::EventTree</a></li>
+<li>get_root_children_queue()&#160;:&#160;<a class="el" href="classinf_1_1EventTree.html#ae647df685bedae00bddb7e6dee089bf3">inf::EventTree</a></li>
+<li>get_search_mode()&#160;:&#160;<a class="el" href="classinf_1_1FeasOptions.html#a13ff101d830bea1ee3ca99abc6729cc9">inf::FeasOptions</a></li>
+<li>get_seconds()&#160;:&#160;<a class="el" href="classutil_1_1Chrono.html#a2b17a3256754b7a21c96c0222a7ef0b7">util::Chrono</a></li>
+<li>get_short_name()&#160;:&#160;<a class="el" href="classinf_1_1TargetDistr.html#a533b84b46263792ad50a6df4f00c15ba">inf::TargetDistr</a></li>
+<li>get_single_char()&#160;:&#160;<a class="el" href="classutil_1_1Logger.html#a3c621919a7dae959843f5f2493e2d3d2">util::Logger</a></li>
+<li>get_size()&#160;:&#160;<a class="el" href="classinf_1_1Inflation.html#ac279522d5aeb62ae47931f50460506df">inf::Inflation</a></li>
+<li>get_source_induced_syms()&#160;:&#160;<a class="el" href="classinf_1_1Inflation.html#adafb5bd85ab90b64099716d59c104b2e">inf::Inflation</a></li>
+<li>get_std_openmode()&#160;:&#160;<a class="el" href="classutil_1_1FileStream.html#abdaf1b1da74a3c9873b147b4d06b2fed">util::FileStream</a></li>
+<li>get_stop_mode()&#160;:&#160;<a class="el" href="classinf_1_1FeasOptions.html#a1d10d4928335cbdb5fdf0ece2a4ebc0e">inf::FeasOptions</a></li>
+<li>get_store_bounds()&#160;:&#160;<a class="el" href="classinf_1_1ConstraintSet.html#a539c4e10b165747b7c66ba2b26c5a35b">inf::ConstraintSet</a>, <a class="el" href="classinf_1_1FeasOptions.html#af989e214fe80cca6f9c43d7c867b193f">inf::FeasOptions</a>, <a class="el" href="classinf_1_1Marginal.html#a6f1417e30dcc0fa984856347e70d7d35">inf::Marginal</a></li>
+<li>get_stored_events()&#160;:&#160;<a class="el" href="classinf_1_1FrankWolfe.html#a46a3a288b146a39e78562e50aaa7af1c">inf::FrankWolfe</a>, <a class="el" href="classinf_1_1FullyCorrectiveFW.html#a1e28ee3821faa26477f7f7970c9c8396">inf::FullyCorrectiveFW</a>, <a class="el" href="classinf_1_1PairwiseFW.html#a95f8459cf886ed5df061f3fae97d3e8e">inf::PairwiseFW</a></li>
+<li>get_sym_group()&#160;:&#160;<a class="el" href="classinf_1_1Orbitable.html#aa5ea13afb9a9ff79aef84054ea4c1dd4">inf::Orbitable</a></li>
+<li>get_symtree()&#160;:&#160;<a class="el" href="classinf_1_1Inflation.html#abe439ba40d0dc8c9c2fa3310cdf14461">inf::Inflation</a></li>
+<li>get_symtree_filename()&#160;:&#160;<a class="el" href="classinf_1_1Inflation.html#a4378708d36afcc6d7d425a74ef58f3de">inf::Inflation</a></li>
+<li>get_symtree_io()&#160;:&#160;<a class="el" href="classinf_1_1FeasOptions.html#ae7dd6840acd8b0250ae4458bebce35d4">inf::FeasOptions</a>, <a class="el" href="classuser_1_1InfCLI.html#adf9429573fc60101ecf7c5fbbcc855ee">user::InfCLI</a></li>
+<li>get_target_application_name()&#160;:&#160;<a class="el" href="classuser_1_1InfCLI.html#a579eb402506a5215d3bdac993d82aeec">user::InfCLI</a></li>
+<li>get_target_marg_names()&#160;:&#160;<a class="el" href="classinf_1_1ConstraintParser.html#a792426384f4ac2d91e75985d00e9de04">inf::ConstraintParser</a></li>
+<li>get_trivial_symmetry_group()&#160;:&#160;<a class="el" href="classinf_1_1Network.html#a30e408dea992d3b6104329c6f5a667f6">inf::Network</a></li>
+<li>get_usage()&#160;:&#160;<a class="el" href="classuser_1_1InfCLI.html#a3b0fb01c9f2ef878dd559d71c7fb3caa">user::InfCLI</a></li>
+<li>get_use_distr_symmetries()&#160;:&#160;<a class="el" href="classinf_1_1FeasOptions.html#a8426b2ecda3bdd2cc2fd59c16b4a6105">inf::FeasOptions</a></li>
+<li>get_vertex()&#160;:&#160;<a class="el" href="classinf_1_1PairwiseFW_1_1Data.html#aad5610e99e76a234a70d4b14d0f15983">inf::PairwiseFW::Data</a></li>
+<li>get_vertex_count()&#160;:&#160;<a class="el" href="classinf_1_1PairwiseFW_1_1Data.html#a156c7bf57e45ebdfb17eb6aae49a0aee">inf::PairwiseFW::Data</a></li>
+<li>get_vertex_dot_vertex()&#160;:&#160;<a class="el" href="classinf_1_1PairwiseFW_1_1Data.html#ac6ba26a0c5d4515287cc815624ae9abd">inf::PairwiseFW::Data</a></li>
+<li>get_vis_param()&#160;:&#160;<a class="el" href="classinf_1_1FeasOptions.html#a1c55982b336ee7a461b1edfb065fcab9">inf::FeasOptions</a></li>
+<li>get_visibility_param()&#160;:&#160;<a class="el" href="classuser_1_1InfCLI.html#a47c9462fb596ef9f8593df7fd35f3c69">user::InfCLI</a></li>
+<li>get_weight()&#160;:&#160;<a class="el" href="classinf_1_1PairwiseFW_1_1Data.html#a71b714549bf55cdf07f96521b01ce470">inf::PairwiseFW::Data</a></li>
+<li>get_x()&#160;:&#160;<a class="el" href="classinf_1_1PairwiseFW_1_1Data.html#a42bef0f9553a4353b03e37e5f3f4b14b">inf::PairwiseFW::Data</a></li>
+<li>get_x_dot_vertex()&#160;:&#160;<a class="el" href="classinf_1_1PairwiseFW_1_1Data.html#a888dc752e59307eacf5372caff84d384">inf::PairwiseFW::Data</a></li>
+<li>get_x_dot_x()&#160;:&#160;<a class="el" href="classinf_1_1PairwiseFW_1_1Data.html#aa0a1ac12a8ade30dd20da7246e2c7189">inf::PairwiseFW::Data</a></li>
+<li>GlobalMinimum()&#160;:&#160;<a class="el" href="classinf_1_1TreeOpt_1_1GlobalMinimum.html#ad9adba702264fe8764eb01e0900f1540">inf::TreeOpt::GlobalMinimum</a></li>
+<li>go_back_to_mark()&#160;:&#160;<a class="el" href="classutil_1_1Logger.html#af5f8cad20bf51ebbe414e39b9a58542e">util::Logger</a></li>
+<li>go_down_from()&#160;:&#160;<a class="el" href="classinf_1_1TreeOpt.html#acefacfbba6063059143c3fffab8f663d">inf::TreeOpt</a></li>
+<li>Group&#160;:&#160;<a class="el" href="classinf_1_1Symmetry.html#a901d22b86ef5923b628db86fbdd7ba4f">inf::Symmetry</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Wed Dec 18 2024 17:39:51 for Fast Inflation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

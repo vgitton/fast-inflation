@@ -1,0 +1,22 @@
+\documentclass{standalone}
+
+\usepackage{tree_tikz}
+
+\begin{document}
+\begin{tikzpicture}
+
+    \begin{scope}[tree node]
+        \node[draw,fill] (00) at (0,0) {$0$};
+
+        \node[draw,fill] (10) at (-0.5,-1) {$0$};
+        \node[draw,fill] (11) at (0.5,-1) {$1$};
+    \end{scope}
+
+    \begin{scope}[tree edge]
+        \draw (00) -- (10);
+        \draw (00) -- (11);
+    \end{scope}
+
+\end{tikzpicture}
+\end{document}
+

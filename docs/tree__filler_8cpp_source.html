@@ -1,0 +1,431 @@
+<!-- HTML header for doxygen 1.9.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Fast Inflation: src/inf/inf_problem/tree_filler.cpp Source File</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+MathJax.Hub.Config({
+    TeX: {
+        Macros: {
+            dd: ["{\\text{d}#1\\,}",1],
+            nouts: ["{n_{\\text{o}}}"],
+            ints: ["{[\\![#1]\\!]}",1],
+            outset: ["{\\ints{\\nouts}}"],
+            N: ["{\\mathbb{N}}"],
+            R: ["{\\mathbb{R}}"],
+            Z: ["{\\mathbb{Z}}"],
+            infsize: ["{z}"],
+            infparties: ["{\\set{I}}"],
+            infsources: ["{\\set{S}}"],
+            infmarg: ["{\\set{A}}"],
+            infmargg: ["{\\set{B}}"],
+            netparties: ["{\\set{N}}"],
+            infq: ["{q}"],
+            infqs: ["{\\Delta_{\\infparties}}"],
+            constraintlist: ["{\\mathcal{C}}"],
+            injsets: ["{\\text{InjSets}}"],
+            infconstraints: ["{\\text{InfCons}}"],
+            parents: ["{\\text{Par}}"],
+            targetp: ["{p}"],
+            targetps: ["{\\Delta_{\\netparties}}"],
+            set: ["{\\mathbf{#1}}",1],
+            type: ["{t}"],
+            infevent: "{\\omega}",
+            events: ["{\\Omega_{#1}}",1],
+            infevents: ["{\\events{\\infparties}}"],
+            redinfevents: ["{\\tilde{\\Omega}_{\\infparties}}"],
+            netevents: ["{\\events{\\netparties}}"],
+            vecset: ["{V_{#1}}",1],
+            alice: ["{\\text{A}}"],
+            bob: ["{\\text{B}}"],
+            charlie: ["{\\text{C}}"],
+            symgroup: ["{\\text{Sym}(#1)}",1],
+            shortsymgroup: ["{\\text{Sym}_{#1}}",1],
+            act: ["{(#1\\hspace{2pt}{:}\\hspace{2pt}#2)}",2],
+            actt: ["{[#1\\hspace{2pt}{:}\\hspace{2pt}#2]}",2],
+            margperms: ["{\\text{Perm}_{#1}}",1],
+            permutedmargs: ["{\\mathbb{P}_{#1}^{\\targetp}}",1],
+            redpermutedmargs: ["{\\tilde{\\mathbb{P}}_{#1}^{\\constraintname,\\targetp}}",1],
+            extract: ["{\\text{ext}(#1,#2)}",2],
+            partysym: ["{\\tau}"],
+            sourcesym: ["{\\xi}"],
+            outsym: ["{\\sigma}"],
+            fullgroup: ["{\\text{InfGrp}}"],
+            partygroup : ["{\\text{PartyGrp}}"],
+            outgroup: ["{\\text{OutGrp}}"],
+            sourcegroup: ["{\\text{SrcGrp}}"],
+            distrgroup: ["{\\mathbb{G}^\\targetp}"],
+            constraintname: ["{c}"],
+            marggroup: ["{\\mathbb{G}^{\\constraintname,\\targetp}}"],
+            fullsymexpl: ["{(\\sourcesym,\\partysym,\\outsym)}"],
+            inner: ["{\\langle#1,#2\\rangle}", 2],
+            quovec: ["{f}"],
+            totconstraintmap: ["{K^{\\constraintlist,\\targetp}}"],
+            totconstraintmapelem: ["{K^{\\constraintname,\\targetp}}"],
+            quovecspace: ["{\\tilde{V}_{#1}^{\\constraintname,\\targetp}}", 1],
+            totquovecspace: ["{\\text{ConsSpace}(\\constraintlist,\\targetp)}"],
+            detdistr: ["{\\delta^{#1}}", 1],
+            margperm: ["{\\varphi}"],
+            altquovecembed: ["{\\text{G}_{#1}^{\\constraintname,\\targetp}}", 1],
+            vecset: ["{V_{#1}}", 1],
+            repr: ["{\\lfloor#1\\rfloor}", 1],
+            gid: ["{\\text{id}}"],
+            id: ["{1_{#1}}",1],
+            consscale: ["{K}"],
+            scaletot: ["{K_{\\text{tot}}^{\\constraintlist,\\targetp}}"],
+            minnorm: ["{d}"],
+            Bigsetst: ["\\;\\Big|\\;"],
+            activeset: ["\\mathcal{S}"],
+            conv: ["\\text{conv}"],
+            lVert: ["|\\hspace{-1pt}|"],
+            norm: ["\\lVert#1\\lVert", 1],
+            st: [":\ "],
+        }
+    }
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeDarkModeToggle.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeParagraphLink.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Fast Inflation
+   </div>
+   <div id="projectbrief">To certify causal incompatibility</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('tree__filler_8cpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">tree_filler.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="tree__filler_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &quot;<a class="code" href="tree__filler_8h.html">tree_filler.h</a>&quot;</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;../../util/debug.h&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;../../util/logger.h&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno"><a class="line" href="classinf_1_1TreeFiller.html#ad1bb04281a3c07e7fe3152968d65b7a4">    5</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classinf_1_1TreeFiller.html#ad1bb04281a3c07e7fe3152968d65b7a4">inf::TreeFiller::fill_tree</a>(<a class="code hl_class" href="classinf_1_1EventTree.html">inf::EventTree</a> &amp;tree, <a class="code hl_class" href="classinf_1_1Inflation.html">inf::Inflation</a> <span class="keyword">const</span> &amp;inflation) {</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>    <a class="code hl_class" href="classinf_1_1TreeFiller.html">inf::TreeFiller</a> <a class="code hl_class" href="classinf_1_1TreeFiller.html">TreeFiller</a>(tree, inflation);</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>}</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="classinf_1_1TreeFiller.html#a275c9844799469e721215cdb8562d8b7">    9</a></span><a class="code hl_function" href="classinf_1_1TreeFiller.html#a275c9844799469e721215cdb8562d8b7">inf::TreeFiller::TreeFiller</a>(<a class="code hl_class" href="classinf_1_1EventTree.html">inf::EventTree</a> &amp;tree,</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>                            <a class="code hl_class" href="classinf_1_1Inflation.html">inf::Inflation</a> <span class="keyword">const</span> &amp;inflation)</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    : m_sym_chrono(<a class="code hl_namespace" href="namespaceutil.html">util</a>::Chrono::State::paused),</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>      m_node_chrono(<a class="code hl_namespace" href="namespaceutil.html">util</a>::Chrono::State::paused),</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>      m_tree(tree),</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>      m_inflation(inflation),</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>      m_inflation_inverse_party_symmetries(),</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>      m_inflation_outcome_symmetries(),</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>      m_inflation_n_parties(inflation.get_n_parties()),</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>      m_unknown_outcome(inflation.get_network()-&gt;get_outcome_unknown()),</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>      m_n_outcomes(inflation.get_network()-&gt;get_n_outcomes()),</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>      m_working_event(inflation.get_all_unknown_event()),</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>      m_current_syms(inflation.get_n_parties()) {</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="comment">// Initialize the flattened symmetries</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    {</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        <span class="comment">// vector rather than set</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        <a class="code hl_variable" href="classinf_1_1TreeFiller.html#a865fe5233bacaf2acada796fcdb4a045">m_inflation_inverse_party_symmetries</a>.reserve(<a class="code hl_variable" href="classinf_1_1TreeFiller.html#a8c2dbe562a748a908a94a5878e09b748">m_inflation</a>.<a class="code hl_function" href="classinf_1_1Inflation.html#abfa6a2b7897bb9f1d3c406a864e9acdf">get_inflation_symmetries</a>().size());</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        <a class="code hl_variable" href="classinf_1_1TreeFiller.html#ad417b8f14459a2b8ba9b5bdf6a6bf2f0">m_inflation_outcome_symmetries</a>.reserve(<a class="code hl_variable" href="classinf_1_1TreeFiller.html#a8c2dbe562a748a908a94a5878e09b748">m_inflation</a>.<a class="code hl_function" href="classinf_1_1Inflation.html#abfa6a2b7897bb9f1d3c406a864e9acdf">get_inflation_symmetries</a>().size());</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        <span class="keywordflow">for</span> (<a class="code hl_class" href="classinf_1_1Symmetry.html">inf::Symmetry</a> <span class="keyword">const</span> &amp;sym : <a class="code hl_variable" href="classinf_1_1TreeFiller.html#a8c2dbe562a748a908a94a5878e09b748">m_inflation</a>.<a class="code hl_function" href="classinf_1_1Inflation.html#abfa6a2b7897bb9f1d3c406a864e9acdf">get_inflation_symmetries</a>()) {</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>            <a class="code hl_variable" href="classinf_1_1TreeFiller.html#a865fe5233bacaf2acada796fcdb4a045">m_inflation_inverse_party_symmetries</a>.emplace_back(sym.get_party_sym().get_inverse_bare_sym());</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>            <a class="code hl_variable" href="classinf_1_1TreeFiller.html#ad417b8f14459a2b8ba9b5bdf6a6bf2f0">m_inflation_outcome_symmetries</a>.emplace_back(sym.get_outcome_sym().get_bare_sym());</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        }</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        <a class="code hl_define" href="group__debug.html#ga06663ee630c22628b3fe11700767367f">ASSERT_EQUAL</a>(<a class="code hl_variable" href="classinf_1_1TreeFiller.html#a865fe5233bacaf2acada796fcdb4a045">m_inflation_inverse_party_symmetries</a>.size(), <a class="code hl_variable" href="classinf_1_1TreeFiller.html#a8c2dbe562a748a908a94a5878e09b748">m_inflation</a>.<a class="code hl_function" href="classinf_1_1Inflation.html#abfa6a2b7897bb9f1d3c406a864e9acdf">get_inflation_symmetries</a>().size())</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        <a class="code hl_define" href="group__debug.html#ga06663ee630c22628b3fe11700767367f">ASSERT_EQUAL</a>(<a class="code hl_variable" href="classinf_1_1TreeFiller.html#ad417b8f14459a2b8ba9b5bdf6a6bf2f0">m_inflation_outcome_symmetries</a>.size(), <a class="code hl_variable" href="classinf_1_1TreeFiller.html#a8c2dbe562a748a908a94a5878e09b748">m_inflation</a>.<a class="code hl_function" href="classinf_1_1Inflation.html#abfa6a2b7897bb9f1d3c406a864e9acdf">get_inflation_symmetries</a>().size())</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        <a class="code hl_variable" href="classinf_1_1TreeFiller.html#a7aa6bf50926aa17eb9f939099c76c745">m_current_syms</a>[0] = std::vector&lt;Index&gt;(<a class="code hl_variable" href="classinf_1_1TreeFiller.html#a8c2dbe562a748a908a94a5878e09b748">m_inflation</a>.<a class="code hl_function" href="classinf_1_1Inflation.html#abfa6a2b7897bb9f1d3c406a864e9acdf">get_inflation_symmetries</a>().size());</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        <span class="keywordflow">for</span> (<a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> i : <a class="code hl_class" href="classutil_1_1Range.html">util::Range</a>(<a class="code hl_variable" href="classinf_1_1TreeFiller.html#a8c2dbe562a748a908a94a5878e09b748">m_inflation</a>.<a class="code hl_function" href="classinf_1_1Inflation.html#abfa6a2b7897bb9f1d3c406a864e9acdf">get_inflation_symmetries</a>().size())) {</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>            <a class="code hl_variable" href="classinf_1_1TreeFiller.html#a7aa6bf50926aa17eb9f939099c76c745">m_current_syms</a>[0][i] = i;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        }</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    }</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <a class="code hl_class" href="classutil_1_1Chrono.html">util::Chrono</a> total_symtree_chrono(<a class="code hl_enumvalue" href="classutil_1_1Chrono.html#a6fb7ce9873474798aa5fa1ad7ecb7e0aa75101dcdfc88455bcafc9e53e0b06689">util::Chrono::State::running</a>);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    std::vector&lt;Index&gt; root_children = this-&gt;<a class="code hl_function" href="classinf_1_1TreeFiller.html#ae91a9a275a1470d11966c1430303a755">find_children</a>(0);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    (void)root_children;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    total_symtree_chrono.<a class="code hl_function" href="classutil_1_1Chrono.html#af0ceb8356fb6c2e7e59ed3bb8d64635f">pause</a>();</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <a class="code hl_variable" href="classinf_1_1TreeFiller.html#ab2a5cf6810cb295207e12d78bbc95ddb">m_tree</a>.<a class="code hl_function" href="classinf_1_1EventTree.html#a09511b62f8e1fce0dce1745431ef8b50">finish_initialization</a>();</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <a class="code hl_define" href="group__debug.html#ga60f45ee0c4949ef50243feb6fbb8a808">ASSERT_LT</a>(0, <a class="code hl_variable" href="classinf_1_1TreeFiller.html#ab2a5cf6810cb295207e12d78bbc95ddb">m_tree</a>.<a class="code hl_function" href="classinf_1_1EventTree.html#a7ea307fbc2d4c4aeaeb92244cab5517e">get_root_children_count</a>())</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="comment">// LOGGING</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    {</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        <a class="code hl_define" href="group__printing.html#ga54d0258a1e07ede5fe0ff00988dfb759">LOG_BEGIN_SECTION</a>(<span class="stringliteral">&quot;inf::TreeFiller timing&quot;</span>)</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <a class="code hl_variable" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>            &lt;&lt; <a class="code hl_variable" href="group__printing.html#ga7d731f43f6d60e3846cbdbd55eaeed2e">util::begin_comment</a> &lt;&lt; <span class="stringliteral">&quot;Event symmetrization: &quot;</span> &lt;&lt; <a class="code hl_variable" href="group__printing.html#gadf8906b27dc371eaf882b3b3b5639495">util::end_comment</a></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>            &lt;&lt; <a class="code hl_variable" href="classinf_1_1TreeFiller.html#a37d6034366ecfbc798b2d186135fc2f5">m_sym_chrono</a> &lt;&lt; <a class="code hl_variable" href="group__printing.html#ga3f8fe48536ee19c54002c9c1db64cabb">util::cr</a></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>            &lt;&lt; <a class="code hl_variable" href="group__printing.html#ga7d731f43f6d60e3846cbdbd55eaeed2e">util::begin_comment</a> &lt;&lt; <span class="stringliteral">&quot;Node insertion in cache: &quot;</span> &lt;&lt; <a class="code hl_variable" href="group__printing.html#gadf8906b27dc371eaf882b3b3b5639495">util::end_comment</a></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            &lt;&lt; <a class="code hl_variable" href="classinf_1_1TreeFiller.html#a8362162598bafa2628a13b3b4d781e24">m_node_chrono</a> &lt;&lt; <a class="code hl_variable" href="group__printing.html#ga3f8fe48536ee19c54002c9c1db64cabb">util::cr</a></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>            &lt;&lt; <a class="code hl_variable" href="group__printing.html#ga7d731f43f6d60e3846cbdbd55eaeed2e">util::begin_comment</a> &lt;&lt; <span class="stringliteral">&quot;Total: &quot;</span> &lt;&lt; <a class="code hl_variable" href="group__printing.html#gadf8906b27dc371eaf882b3b3b5639495">util::end_comment</a></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>            &lt;&lt; total_symtree_chrono &lt;&lt; <a class="code hl_variable" href="group__printing.html#ga3f8fe48536ee19c54002c9c1db64cabb">util::cr</a>;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        <a class="code hl_define" href="group__printing.html#gaa993b7a93b54137d5d6c09ed1fac8b77">LOG_END_SECTION</a></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    }</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>}</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="classinf_1_1TreeFiller.html#ae91a9a275a1470d11966c1430303a755">   64</a></span>std::vector&lt;Index&gt; <a class="code hl_function" href="classinf_1_1TreeFiller.html#ae91a9a275a1470d11966c1430303a755">inf::TreeFiller::find_children</a>(<a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> depth) {</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <a class="code hl_define" href="group__debug.html#ga60f45ee0c4949ef50243feb6fbb8a808">ASSERT_LT</a>(depth, m_inflation_n_parties)</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <a class="code hl_define" href="group__debug.html#ga06663ee630c22628b3fe11700767367f">ASSERT_EQUAL</a>(m_working_event[depth], m_unknown_outcome)</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="comment">// Will be returned</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    std::vector&lt;Index&gt; child_nodes;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    std::vector&lt;Index&gt; <span class="keyword">const</span> &amp;current_syms = m_current_syms[depth];</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keywordtype">bool</span> <span class="keyword">const</span> not_at_last_depth = (depth &lt; m_inflation_n_parties - 1);</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="comment">// We use forward declarations, this is maybe a bit faster</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> depth_bis;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="comment">// This will only be relevant if we&#39;re not at last depth</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    std::vector&lt;Index&gt; *next_syms = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="keywordflow">if</span> (not_at_last_depth)</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        next_syms = &amp;m_current_syms[depth + 1];</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <a class="code hl_typedef" href="classinf_1_1OutcomeSym.html#ab2ea2b492f0abed73c61876c01c02e40">inf::OutcomeSym::Bare</a> <span class="keyword">const</span> *outcome_sym;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <a class="code hl_typedef" href="classinf_1_1PartySym.html#af091acc82f3033bf2ce9b180fb0e7c36">inf::PartySym::Bare</a> <span class="keyword">const</span> *inverse_party_sym;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <a class="code hl_typedef" href="group__event.html#gadcaa27c4242b65837f0f7a00e96856d4">inf::Outcome</a> base_outcome, transformed_outcome;</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <a class="code hl_typedef" href="group__event.html#gadcaa27c4242b65837f0f7a00e96856d4">inf::Outcome</a> &amp;outcome_to_fill = m_working_event[depth];</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="comment">// We fill outcome_to_fill = m_working_event[depth] with all possible values,</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="comment">// and for each value, we check whether or not m_working_event is symmetrized</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <span class="keywordflow">for</span> (outcome_to_fill = 0; outcome_to_fill &lt; m_n_outcomes; ++outcome_to_fill) {</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        <span class="comment">// By default, m_working_event is symmetrized, but if we find a symmetry that</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        <span class="comment">// proves it is not symmetrized, is_symmetrized will be set to false</span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        <span class="keywordtype">bool</span> is_symmetrized = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        <span class="keywordflow">if</span> (not_at_last_depth)</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>            next_syms-&gt;clear();</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        <span class="comment">// This loop is in charge of verifying whether or not m_working_event is symmetrized,</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        <span class="comment">// which is stored in is_symmetrized, and it furthermore adequately initializes the</span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        <span class="comment">// next_syms for the next recursive call</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        m_sym_chrono.start();</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        <span class="keywordflow">for</span> (<a class="code hl_typedef" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <span class="keyword">const</span> sym_index : current_syms) {</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>            outcome_sym = &amp;m_inflation_outcome_symmetries[sym_index];</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>            inverse_party_sym = &amp;m_inflation_inverse_party_symmetries[sym_index];</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>            <span class="comment">// We want to compare event_bis := party_sym(outcome_sym(m_working_event))</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>            <span class="comment">// with m_working_event with respect to the lexicographic ordering.</span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>            <span class="comment">// If event_bis &lt; m_working_event, then m_working_event is not symmetrized</span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>            <span class="comment">// no matter how we will fill it, and we dismiss m_working_event.</span></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>            <span class="comment">// If event_bis &gt; m_working_event, then it can be that the current symmetry indexed</span></div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>            <span class="comment">// by sym_index will not help to symmetrize the event no matter how we fill it</span></div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>            <span class="comment">// and we can hence dismiss sym_index from the next_syms.</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>            <span class="keywordflow">for</span> (depth_bis = 0; depth_bis &lt; m_inflation_n_parties; ++depth_bis) {</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>                <span class="comment">// This is (party_sym(m_working_event))[depth_bis] = m_working_event[inverse_party_sym[depth_bis]]</span></div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>                transformed_outcome = m_working_event[(*inverse_party_sym)[depth_bis]];</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>                <span class="comment">// This happens when e.g. m_working_event = (2,?,?,...) and party_sym(m_working_event) = (?,2,?,...)</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>                <span class="comment">// In this case, event_bis &gt; m_working_event, but we cannot say whether</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>                <span class="comment">// or not the sym_index will help to symmetrize m_working_event when it</span></div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>                <span class="comment">// will be filled more, so we add sym_index to the next_syms.</span></div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>                <span class="comment">// Furthermore, we do not know whether or not m_working_event is symmetrized</span></div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>                <span class="comment">// (if all outcome symmetries are there, (0,?,?,...) will be the symmetrized one),</span></div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>                <span class="comment">// so we do not touch is_symmetrized before breaking</span></div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>                <span class="comment">//</span></div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>                <span class="comment">// The other case where this can happen is if e.g., m_working_event = (0,0,?)</span></div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>                <span class="comment">// and the symmetry index by sym_index is just the outcome swap of 2 and 3.</span></div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>                <span class="comment">// The above reasoning applies equally well in that case.</span></div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>                <span class="keywordflow">if</span> (transformed_outcome == m_unknown_outcome) {</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>                    <span class="keywordflow">if</span> (not_at_last_depth)</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>                        next_syms-&gt;push_back(sym_index);</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>                    <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>                }</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>                base_outcome = m_working_event[depth_bis];</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>                <a class="code hl_define" href="group__debug.html#ga60f45ee0c4949ef50243feb6fbb8a808">ASSERT_LT</a>(base_outcome, m_unknown_outcome)</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>                <span class="comment">// We now have transformed_outcome = party_sym(outcome_sym(m_working_event))[depth_bis]</span></div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>                transformed_outcome = (*outcome_sym)[transformed_outcome];</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>                <span class="comment">// If the transformed event is &quot;lower&quot; than the working event, exit the loop concluding</span></div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>                <span class="comment">// that m_working_event is not symmetrized. In this case, no need to update the next_syms,</span></div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>                <span class="comment">// because there is anyway no child of this outcome (it is dismissed because not symmetrized)</span></div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>                <span class="keywordflow">if</span> (transformed_outcome &lt; base_outcome) {</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>                    is_symmetrized = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>                    <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>                }</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span> </div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>                <span class="comment">// In this case, the symmetry transformation takes the event up in its orbit</span></div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>                <span class="comment">// This will remain true when filling it further.</span></div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>                <span class="comment">// This symmetry is thus &quot;irrelevant&quot; for future depths: it has no chance</span></div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>                <span class="comment">// of symmetrizing the event. We don&#39;t add it to next_syms.</span></div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>                <span class="keywordflow">if</span> (transformed_outcome &gt; base_outcome)</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>                    <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>            }</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>            <span class="comment">// If this event is not symmetrized, we can stop. Note that in this case, the value of next_syms</span></div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>            <span class="comment">// is irrelevant because this node will have no children.</span></div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>            <span class="keywordflow">if</span> (not is_symmetrized)</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>                <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>        }</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>        m_sym_chrono.pause();</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span> </div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>        <span class="comment">// We dismiss m_working_event with the current outcome_to_fill based on symmetry</span></div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>        <span class="keywordflow">if</span> (not is_symmetrized)</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>            <span class="keywordflow">continue</span>;</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span> </div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>        std::vector&lt;Index&gt; children{};</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>        <span class="keywordflow">if</span> (not_at_last_depth) {</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>            children = this-&gt;find_children(depth + 1);</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span> </div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>            <span class="comment">// Dismiss empty childset, unless we&#39;re at last depth</span></div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>            <span class="comment">// This can happen if e.g. (0,1,?) looks symmetrized,</span></div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>            <span class="comment">// but somehow all the filling (0,1,x) are not symmetrized.</span></div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>            <span class="keywordflow">if</span> (children.size() == 0)</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>                <span class="keywordflow">continue</span>;</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>        }</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span> </div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>        <span class="comment">// We can now construct the node!</span></div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>        m_node_chrono.start();</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>        child_nodes.push_back(m_tree.insert_node(depth, outcome_to_fill, children));</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>        m_node_chrono.pause();</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>    }</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span> </div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>    <span class="comment">// We need to reset m_working_event[depth] to &quot;?&quot; so that the outer level</span></div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>    <span class="comment">// of the recursion still has an event where depth+1,depth+2 etc have all &quot;?&quot; outcomes</span></div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>    outcome_to_fill = m_unknown_outcome;</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span> </div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>    <span class="keywordflow">return</span> child_nodes;</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>}</div>
+<div class="ttc" id="aclassinf_1_1EventTree_html"><div class="ttname"><a href="classinf_1_1EventTree.html">inf::EventTree</a></div><div class="ttdoc">Storing a set of inf::Event as a tree.</div><div class="ttdef"><b>Definition</b> <a href="event__tree_8h_source.html#l00107">event_tree.h:107</a></div></div>
+<div class="ttc" id="aclassinf_1_1EventTree_html_a09511b62f8e1fce0dce1745431ef8b50"><div class="ttname"><a href="classinf_1_1EventTree.html#a09511b62f8e1fce0dce1745431ef8b50">inf::EventTree::finish_initialization</a></div><div class="ttdeci">void finish_initialization()</div><div class="ttdoc">This method needs to be called after inserting all the nodes of the tree.</div><div class="ttdef"><b>Definition</b> <a href="event__tree_8cpp_source.html#l00276">event_tree.cpp:276</a></div></div>
+<div class="ttc" id="aclassinf_1_1EventTree_html_a7ea307fbc2d4c4aeaeb92244cab5517e"><div class="ttname"><a href="classinf_1_1EventTree.html#a7ea307fbc2d4c4aeaeb92244cab5517e">inf::EventTree::get_root_children_count</a></div><div class="ttdeci">Index get_root_children_count() const</div><div class="ttdoc">The number of root children, i.e., of nodes that connect directly to the root of the tree.</div><div class="ttdef"><b>Definition</b> <a href="event__tree_8h_source.html#l00267">event_tree.h:267</a></div></div>
+<div class="ttc" id="aclassinf_1_1Inflation_html"><div class="ttname"><a href="classinf_1_1Inflation.html">inf::Inflation</a></div><div class="ttdoc">Describes an inflation of a network, currently restricted to canonical inflations of the triangle net...</div><div class="ttdef"><b>Definition</b> <a href="inflation_8h_source.html#l00051">inflation.h:51</a></div></div>
+<div class="ttc" id="aclassinf_1_1Inflation_html_abfa6a2b7897bb9f1d3c406a864e9acdf"><div class="ttname"><a href="classinf_1_1Inflation.html#abfa6a2b7897bb9f1d3c406a864e9acdf">inf::Inflation::get_inflation_symmetries</a></div><div class="ttdeci">inf::Symmetry::Group const &amp; get_inflation_symmetries() const</div><div class="ttdoc">Returns the symmetries of the inflation, typically including the symmetries of the specified inf::Tar...</div><div class="ttdef"><b>Definition</b> <a href="inflation_8cpp_source.html#l00232">inflation.cpp:232</a></div></div>
+<div class="ttc" id="aclassinf_1_1OutcomeSym_html_ab2ea2b492f0abed73c61876c01c02e40"><div class="ttname"><a href="classinf_1_1OutcomeSym.html#ab2ea2b492f0abed73c61876c01c02e40">inf::OutcomeSym::Bare</a></div><div class="ttdeci">std::vector&lt; inf::Outcome &gt; Bare</div><div class="ttdoc">The image of the symmetry , where  is the number of outcomes.</div><div class="ttdef"><b>Definition</b> <a href="outcome__sym_8h_source.html#l00024">outcome_sym.h:24</a></div></div>
+<div class="ttc" id="aclassinf_1_1PartySym_html_af091acc82f3033bf2ce9b180fb0e7c36"><div class="ttname"><a href="classinf_1_1PartySym.html#af091acc82f3033bf2ce9b180fb0e7c36">inf::PartySym::Bare</a></div><div class="ttdeci">std::vector&lt; Index &gt; Bare</div><div class="ttdoc">The image of the permutation, .</div><div class="ttdef"><b>Definition</b> <a href="party__sym_8h_source.html#l00020">party_sym.h:20</a></div></div>
+<div class="ttc" id="aclassinf_1_1Symmetry_html"><div class="ttname"><a href="classinf_1_1Symmetry.html">inf::Symmetry</a></div><div class="ttdoc">A pair of party symmetry and outcome symmetry.</div><div class="ttdef"><b>Definition</b> <a href="symmetry_8h_source.html#l00027">symmetry.h:27</a></div></div>
+<div class="ttc" id="aclassinf_1_1TreeFiller_html"><div class="ttname"><a href="classinf_1_1TreeFiller.html">inf::TreeFiller</a></div><div class="ttdoc">This class takes care of filling an inf::EventTree that stores the symmetrized inflation events .</div><div class="ttdef"><b>Definition</b> <a href="tree__filler_8h_source.html#l00119">tree_filler.h:119</a></div></div>
+<div class="ttc" id="aclassinf_1_1TreeFiller_html_a275c9844799469e721215cdb8562d8b7"><div class="ttname"><a href="classinf_1_1TreeFiller.html#a275c9844799469e721215cdb8562d8b7">inf::TreeFiller::TreeFiller</a></div><div class="ttdeci">TreeFiller(inf::EventTree &amp;tree, inf::Inflation const &amp;inflation)</div><div class="ttdoc">To store the symmetrized events  of the inflation in the tree.</div><div class="ttdef"><b>Definition</b> <a href="tree__filler_8cpp_source.html#l00009">tree_filler.cpp:9</a></div></div>
+<div class="ttc" id="aclassinf_1_1TreeFiller_html_a37d6034366ecfbc798b2d186135fc2f5"><div class="ttname"><a href="classinf_1_1TreeFiller.html#a37d6034366ecfbc798b2d186135fc2f5">inf::TreeFiller::m_sym_chrono</a></div><div class="ttdeci">util::Chrono m_sym_chrono</div><div class="ttdoc">This util::Chrono tracks the time spent checking whether or not events are symmetrized.</div><div class="ttdef"><b>Definition</b> <a href="tree__filler_8h_source.html#l00131">tree_filler.h:131</a></div></div>
+<div class="ttc" id="aclassinf_1_1TreeFiller_html_a7aa6bf50926aa17eb9f939099c76c745"><div class="ttname"><a href="classinf_1_1TreeFiller.html#a7aa6bf50926aa17eb9f939099c76c745">inf::TreeFiller::m_current_syms</a></div><div class="ttdeci">std::vector&lt; std::vector&lt; Index &gt; &gt; m_current_syms</div><div class="ttdoc">The list (for each depth) of lists of relevant symmetries that is used (modified and read) by the rec...</div><div class="ttdef"><b>Definition</b> <a href="tree__filler_8h_source.html#l00175">tree_filler.h:175</a></div></div>
+<div class="ttc" id="aclassinf_1_1TreeFiller_html_a8362162598bafa2628a13b3b4d781e24"><div class="ttname"><a href="classinf_1_1TreeFiller.html#a8362162598bafa2628a13b3b4d781e24">inf::TreeFiller::m_node_chrono</a></div><div class="ttdeci">util::Chrono m_node_chrono</div><div class="ttdoc">This util::Chrono tracks the time spent inserting nodes in the underlying inf::EventTree.</div><div class="ttdef"><b>Definition</b> <a href="tree__filler_8h_source.html#l00133">tree_filler.h:133</a></div></div>
+<div class="ttc" id="aclassinf_1_1TreeFiller_html_a865fe5233bacaf2acada796fcdb4a045"><div class="ttname"><a href="classinf_1_1TreeFiller.html#a865fe5233bacaf2acada796fcdb4a045">inf::TreeFiller::m_inflation_inverse_party_symmetries</a></div><div class="ttdeci">std::vector&lt; inf::PartySym::Bare &gt; m_inflation_inverse_party_symmetries</div><div class="ttdoc">We store the image of the inflation inverse party symmetries for faster execution.</div><div class="ttdef"><b>Definition</b> <a href="tree__filler_8h_source.html#l00141">tree_filler.h:141</a></div></div>
+<div class="ttc" id="aclassinf_1_1TreeFiller_html_a8c2dbe562a748a908a94a5878e09b748"><div class="ttname"><a href="classinf_1_1TreeFiller.html#a8c2dbe562a748a908a94a5878e09b748">inf::TreeFiller::m_inflation</a></div><div class="ttdeci">inf::Inflation const  &amp; m_inflation</div><div class="ttdoc">The inf::Inflation whose symmetrized event set  will be stored in the inf::EventTree.</div><div class="ttdef"><b>Definition</b> <a href="tree__filler_8h_source.html#l00138">tree_filler.h:138</a></div></div>
+<div class="ttc" id="aclassinf_1_1TreeFiller_html_ab2a5cf6810cb295207e12d78bbc95ddb"><div class="ttname"><a href="classinf_1_1TreeFiller.html#ab2a5cf6810cb295207e12d78bbc95ddb">inf::TreeFiller::m_tree</a></div><div class="ttdeci">inf::EventTree &amp; m_tree</div><div class="ttdoc">The inf::EventTree to fill.</div><div class="ttdef"><b>Definition</b> <a href="tree__filler_8h_source.html#l00136">tree_filler.h:136</a></div></div>
+<div class="ttc" id="aclassinf_1_1TreeFiller_html_ad1bb04281a3c07e7fe3152968d65b7a4"><div class="ttname"><a href="classinf_1_1TreeFiller.html#ad1bb04281a3c07e7fe3152968d65b7a4">inf::TreeFiller::fill_tree</a></div><div class="ttdeci">static void fill_tree(inf::EventTree &amp;tree, inf::Inflation const &amp;inflation)</div><div class="ttdoc">To store the symmetrized events  of the inflation in the tree.</div><div class="ttdef"><b>Definition</b> <a href="tree__filler_8cpp_source.html#l00005">tree_filler.cpp:5</a></div></div>
+<div class="ttc" id="aclassinf_1_1TreeFiller_html_ad417b8f14459a2b8ba9b5bdf6a6bf2f0"><div class="ttname"><a href="classinf_1_1TreeFiller.html#ad417b8f14459a2b8ba9b5bdf6a6bf2f0">inf::TreeFiller::m_inflation_outcome_symmetries</a></div><div class="ttdeci">std::vector&lt; inf::OutcomeSym::Bare &gt; m_inflation_outcome_symmetries</div><div class="ttdoc">We store the image of the inflation outcome symmetries for faster execution.</div><div class="ttdef"><b>Definition</b> <a href="tree__filler_8h_source.html#l00143">tree_filler.h:143</a></div></div>
+<div class="ttc" id="aclassinf_1_1TreeFiller_html_ae91a9a275a1470d11966c1430303a755"><div class="ttname"><a href="classinf_1_1TreeFiller.html#ae91a9a275a1470d11966c1430303a755">inf::TreeFiller::find_children</a></div><div class="ttdeci">std::vector&lt; Index &gt; find_children(Index depth)</div><div class="ttdoc">This recursive function implements the tree-filling algorithm presented above.</div><div class="ttdef"><b>Definition</b> <a href="tree__filler_8cpp_source.html#l00064">tree_filler.cpp:64</a></div></div>
+<div class="ttc" id="aclassutil_1_1Chrono_html"><div class="ttname"><a href="classutil_1_1Chrono.html">util::Chrono</a></div><div class="ttdoc">A simple stopwatch class.</div><div class="ttdef"><b>Definition</b> <a href="chrono_8h_source.html#l00044">chrono.h:44</a></div></div>
+<div class="ttc" id="aclassutil_1_1Chrono_html_a6fb7ce9873474798aa5fa1ad7ecb7e0aa75101dcdfc88455bcafc9e53e0b06689"><div class="ttname"><a href="classutil_1_1Chrono.html#a6fb7ce9873474798aa5fa1ad7ecb7e0aa75101dcdfc88455bcafc9e53e0b06689">util::Chrono::State::running</a></div><div class="ttdeci">@ running</div></div>
+<div class="ttc" id="aclassutil_1_1Chrono_html_af0ceb8356fb6c2e7e59ed3bb8d64635f"><div class="ttname"><a href="classutil_1_1Chrono.html#af0ceb8356fb6c2e7e59ed3bb8d64635f">util::Chrono::pause</a></div><div class="ttdeci">void pause()</div><div class="ttdoc">Pauses or stops the stopwatch. Requires the state to be util::Chrono::State::running.</div><div class="ttdef"><b>Definition</b> <a href="chrono_8cpp_source.html#l00023">chrono.cpp:23</a></div></div>
+<div class="ttc" id="aclassutil_1_1Range_html"><div class="ttname"><a href="classutil_1_1Range.html">util::Range</a></div><div class="ttdoc">Iterating over a finite integer range.</div><div class="ttdef"><b>Definition</b> <a href="range_8h_source.html#l00131">range.h:131</a></div></div>
+<div class="ttc" id="agroup__debug_html_ga06663ee630c22628b3fe11700767367f"><div class="ttname"><a href="group__debug.html#ga06663ee630c22628b3fe11700767367f">ASSERT_EQUAL</a></div><div class="ttdeci">#define ASSERT_EQUAL(X, Y)</div><div class="ttdoc">Soft assertion, tests for X == Y</div><div class="ttdef"><b>Definition</b> <a href="debug_8h_source.html#l00137">debug.h:137</a></div></div>
+<div class="ttc" id="agroup__debug_html_ga60f45ee0c4949ef50243feb6fbb8a808"><div class="ttname"><a href="group__debug.html#ga60f45ee0c4949ef50243feb6fbb8a808">ASSERT_LT</a></div><div class="ttdeci">#define ASSERT_LT(X, Y)</div><div class="ttdoc">Soft assertion, tests for X &lt; Y</div><div class="ttdef"><b>Definition</b> <a href="debug_8h_source.html#l00143">debug.h:143</a></div></div>
+<div class="ttc" id="agroup__event_html_gadcaa27c4242b65837f0f7a00e96856d4"><div class="ttname"><a href="group__event.html#gadcaa27c4242b65837f0f7a00e96856d4">inf::Outcome</a></div><div class="ttdeci">uint8_t Outcome</div><div class="ttdoc">An outcome is stored in the smallest format available to save memory.</div><div class="ttdef"><b>Definition</b> <a href="event_8h_source.html#l00026">event.h:26</a></div></div>
+<div class="ttc" id="agroup__printing_html_ga3f8fe48536ee19c54002c9c1db64cabb"><div class="ttname"><a href="group__printing.html#ga3f8fe48536ee19c54002c9c1db64cabb">util::cr</a></div><div class="ttdeci">constexpr util::Logger::Action cr</div><div class="ttdoc">Newline.</div><div class="ttdef"><b>Definition</b> <a href="logger_8h_source.html#l00197">logger.h:197</a></div></div>
+<div class="ttc" id="agroup__printing_html_ga4c77d1dedfe3a5b95abc21d13d7cd678"><div class="ttname"><a href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a></div><div class="ttdeci">util::Logger logger</div><div class="ttdoc">The globally accessible logger replacing std::cout</div></div>
+<div class="ttc" id="agroup__printing_html_ga54d0258a1e07ede5fe0ff00988dfb759"><div class="ttname"><a href="group__printing.html#ga54d0258a1e07ede5fe0ff00988dfb759">LOG_BEGIN_SECTION</a></div><div class="ttdeci">#define LOG_BEGIN_SECTION(X)</div><div class="ttdoc">Shorthand to create a section with header X.</div><div class="ttdef"><b>Definition</b> <a href="logger_8h_source.html#l00277">logger.h:277</a></div></div>
+<div class="ttc" id="agroup__printing_html_ga7d731f43f6d60e3846cbdbd55eaeed2e"><div class="ttname"><a href="group__printing.html#ga7d731f43f6d60e3846cbdbd55eaeed2e">util::begin_comment</a></div><div class="ttdeci">const util::Color begin_comment</div><div class="ttdoc">Dimmed color.</div><div class="ttdef"><b>Definition</b> <a href="logger_8cpp_source.html#l00010">logger.cpp:10</a></div></div>
+<div class="ttc" id="agroup__printing_html_gaa993b7a93b54137d5d6c09ed1fac8b77"><div class="ttname"><a href="group__printing.html#gaa993b7a93b54137d5d6c09ed1fac8b77">LOG_END_SECTION</a></div><div class="ttdeci">#define LOG_END_SECTION</div><div class="ttdoc">Shorthand for util::logger &lt;&lt; util::end_section, to match the LOG_BEGIN_SECTION(X) syntax.</div><div class="ttdef"><b>Definition</b> <a href="logger_8h_source.html#l00287">logger.h:287</a></div></div>
+<div class="ttc" id="agroup__printing_html_gadf8906b27dc371eaf882b3b3b5639495"><div class="ttname"><a href="group__printing.html#gadf8906b27dc371eaf882b3b3b5639495">util::end_comment</a></div><div class="ttdeci">const util::Color end_comment</div><div class="ttdoc">End dimmed color.</div><div class="ttdef"><b>Definition</b> <a href="logger_8cpp_source.html#l00011">logger.cpp:11</a></div></div>
+<div class="ttc" id="agroup__util_html_ga77731aedac326062ffbdcf367185a07e"><div class="ttname"><a href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a></div><div class="ttdeci">uint64_t Index</div><div class="ttdoc">Use for anything meant to be used as an index.</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00019">types.h:19</a></div></div>
+<div class="ttc" id="anamespaceutil_html"><div class="ttname"><a href="namespaceutil.html">util</a></div><div class="ttdoc">The namespace for general purpose code, not specifically related to inflation.</div><div class="ttdef"><b>Definition</b> <a href="misc_8cpp_source.html#l00355">misc.cpp:355</a></div></div>
+<div class="ttc" id="atree__filler_8h_html"><div class="ttname"><a href="tree__filler_8h.html">tree_filler.h</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_0f453feda2a303bb77c09f5934c109df.html">inf</a></li><li class="navelem"><a class="el" href="dir_ae6d493e4def8cac138ad10998aac37a.html">inf_problem</a></li><li class="navelem"><a class="el" href="tree__filler_8cpp.html">tree_filler.cpp</a></li>
+    <li class="footer">Generated on Wed Dec 18 2024 17:39:36 for Fast Inflation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

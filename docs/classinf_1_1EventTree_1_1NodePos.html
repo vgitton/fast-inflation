@@ -1,0 +1,347 @@
+<!-- HTML header for doxygen 1.9.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Fast Inflation: inf::EventTree::NodePos Class Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+MathJax.Hub.Config({
+    TeX: {
+        Macros: {
+            dd: ["{\\text{d}#1\\,}",1],
+            nouts: ["{n_{\\text{o}}}"],
+            ints: ["{[\\![#1]\\!]}",1],
+            outset: ["{\\ints{\\nouts}}"],
+            N: ["{\\mathbb{N}}"],
+            R: ["{\\mathbb{R}}"],
+            Z: ["{\\mathbb{Z}}"],
+            infsize: ["{z}"],
+            infparties: ["{\\set{I}}"],
+            infsources: ["{\\set{S}}"],
+            infmarg: ["{\\set{A}}"],
+            infmargg: ["{\\set{B}}"],
+            netparties: ["{\\set{N}}"],
+            infq: ["{q}"],
+            infqs: ["{\\Delta_{\\infparties}}"],
+            constraintlist: ["{\\mathcal{C}}"],
+            injsets: ["{\\text{InjSets}}"],
+            infconstraints: ["{\\text{InfCons}}"],
+            parents: ["{\\text{Par}}"],
+            targetp: ["{p}"],
+            targetps: ["{\\Delta_{\\netparties}}"],
+            set: ["{\\mathbf{#1}}",1],
+            type: ["{t}"],
+            infevent: "{\\omega}",
+            events: ["{\\Omega_{#1}}",1],
+            infevents: ["{\\events{\\infparties}}"],
+            redinfevents: ["{\\tilde{\\Omega}_{\\infparties}}"],
+            netevents: ["{\\events{\\netparties}}"],
+            vecset: ["{V_{#1}}",1],
+            alice: ["{\\text{A}}"],
+            bob: ["{\\text{B}}"],
+            charlie: ["{\\text{C}}"],
+            symgroup: ["{\\text{Sym}(#1)}",1],
+            shortsymgroup: ["{\\text{Sym}_{#1}}",1],
+            act: ["{(#1\\hspace{2pt}{:}\\hspace{2pt}#2)}",2],
+            actt: ["{[#1\\hspace{2pt}{:}\\hspace{2pt}#2]}",2],
+            margperms: ["{\\text{Perm}_{#1}}",1],
+            permutedmargs: ["{\\mathbb{P}_{#1}^{\\targetp}}",1],
+            redpermutedmargs: ["{\\tilde{\\mathbb{P}}_{#1}^{\\constraintname,\\targetp}}",1],
+            extract: ["{\\text{ext}(#1,#2)}",2],
+            partysym: ["{\\tau}"],
+            sourcesym: ["{\\xi}"],
+            outsym: ["{\\sigma}"],
+            fullgroup: ["{\\text{InfGrp}}"],
+            partygroup : ["{\\text{PartyGrp}}"],
+            outgroup: ["{\\text{OutGrp}}"],
+            sourcegroup: ["{\\text{SrcGrp}}"],
+            distrgroup: ["{\\mathbb{G}^\\targetp}"],
+            constraintname: ["{c}"],
+            marggroup: ["{\\mathbb{G}^{\\constraintname,\\targetp}}"],
+            fullsymexpl: ["{(\\sourcesym,\\partysym,\\outsym)}"],
+            inner: ["{\\langle#1,#2\\rangle}", 2],
+            quovec: ["{f}"],
+            totconstraintmap: ["{K^{\\constraintlist,\\targetp}}"],
+            totconstraintmapelem: ["{K^{\\constraintname,\\targetp}}"],
+            quovecspace: ["{\\tilde{V}_{#1}^{\\constraintname,\\targetp}}", 1],
+            totquovecspace: ["{\\text{ConsSpace}(\\constraintlist,\\targetp)}"],
+            detdistr: ["{\\delta^{#1}}", 1],
+            margperm: ["{\\varphi}"],
+            altquovecembed: ["{\\text{G}_{#1}^{\\constraintname,\\targetp}}", 1],
+            vecset: ["{V_{#1}}", 1],
+            repr: ["{\\lfloor#1\\rfloor}", 1],
+            gid: ["{\\text{id}}"],
+            id: ["{1_{#1}}",1],
+            consscale: ["{K}"],
+            scaletot: ["{K_{\\text{tot}}^{\\constraintlist,\\targetp}}"],
+            minnorm: ["{d}"],
+            Bigsetst: ["\\;\\Big|\\;"],
+            activeset: ["\\mathcal{S}"],
+            conv: ["\\text{conv}"],
+            lVert: ["|\\hspace{-1pt}|"],
+            norm: ["\\lVert#1\\lVert", 1],
+            st: [":\ "],
+        }
+    }
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeDarkModeToggle.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeParagraphLink.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Fast Inflation
+   </div>
+   <div id="projectbrief">To certify causal incompatibility</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classinf_1_1EventTree_1_1NodePos.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="classinf_1_1EventTree_1_1NodePos-members.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">inf::EventTree::NodePos Class Reference</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &quot;<a class="el" href="event__tree_8h_source.html">inf/events/event_tree.h</a>&quot;</code></p>
+<a name="details" id="details"></a><h2 class="groupheader">Class description</h2>
+<div class="textblock"><p>This lightweight data structure uniquely identifies a node in some <a class="el" href="classinf_1_1EventTree.html" title="Storing a set of inf::Event as a tree.">inf::EventTree</a>. </p>
+<p>In the <a class="el" href="classinf_1_1EventTree.html" title="Storing a set of inf::Event as a tree.">inf::EventTree</a>, the <a class="el" href="classinf_1_1EventTree_1_1Node.html" title="A node of the inf::EventTree, storing an outcome and some other inf::EventTreee::Node as children.">inf::EventTree::Node</a> are stored in a two-dimensional array:</p><ul>
+<li>the first index of this two-dimensional array, the <code>depth</code> index, represents the depth (distance) of an <a class="el" href="classinf_1_1EventTree_1_1Node.html" title="A node of the inf::EventTree, storing an outcome and some other inf::EventTreee::Node as children.">inf::EventTree::Node</a> from the root of the <a class="el" href="classinf_1_1EventTree.html" title="Storing a set of inf::Event as a tree.">inf::EventTree</a>. This <code>depth</code> also corresponds to the position in the list of outcomes in which the outcome of the <a class="el" href="classinf_1_1EventTree_1_1Node.html" title="A node of the inf::EventTree, storing an outcome and some other inf::EventTreee::Node as children.">inf::EventTree::Node</a> should be placed. This position can be thought of as the identifier of some inflation party.</li>
+<li>then, the second index of this two-dimensional array, the <code>node_index</code> index, identifies the <a class="el" href="classinf_1_1EventTree_1_1Node.html" title="A node of the inf::EventTree, storing an outcome and some other inf::EventTreee::Node as children.">inf::EventTree::Node</a> within that <code>depth</code>. </li>
+</ul>
+
+<p class="definition">Definition at line <a class="el" href="event__tree_8h_source.html#l00127">127</a> of file <a class="el" href="event__tree_8h_source.html">event_tree.h</a>.</p>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a84fc1d9dd559195e123c096ee1188fdd"><td class="memItemLeft" align="right" valign="top">typedef std::vector&lt; <a class="el" href="classinf_1_1EventTree_1_1NodePos.html">inf::EventTree::NodePos</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1EventTree_1_1NodePos.html#a84fc1d9dd559195e123c096ee1188fdd">Queue</a></td></tr>
+<tr class="memdesc:a84fc1d9dd559195e123c096ee1188fdd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Iterating over each <a class="el" href="classinf_1_1EventTree_1_1Node.html" title="A node of the inf::EventTree, storing an outcome and some other inf::EventTreee::Node as children.">inf::EventTree::Node</a> stored in a <a class="el" href="classinf_1_1EventTree.html" title="Storing a set of inf::Event as a tree.">inf::EventTree</a> requires a queue/stack to keep track of which branches remain to be explored.  <br /></td></tr>
+<tr class="separator:a84fc1d9dd559195e123c096ee1188fdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:aa6a2657098cacaca9c6d5c13e15d539f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1EventTree_1_1NodePos.html#aa6a2657098cacaca9c6d5c13e15d539f">NodePos</a> (<a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <a class="el" href="classinf_1_1EventTree_1_1NodePos.html#a169c0a012b306259858127d7b2c43f05">depth</a>, <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> <a class="el" href="classinf_1_1EventTree_1_1NodePos.html#a8c2c0e7f9586db454a05e14d9df21248">node_index</a>)</td></tr>
+<tr class="memdesc:aa6a2657098cacaca9c6d5c13e15d539f"><td class="mdescLeft">&#160;</td><td class="mdescRight">The depth is stored to know to which inflation party the node corresponds to.  <br /></td></tr>
+<tr class="separator:aa6a2657098cacaca9c6d5c13e15d539f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:a169c0a012b306259858127d7b2c43f05"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1EventTree_1_1NodePos.html#a169c0a012b306259858127d7b2c43f05">depth</a></td></tr>
+<tr class="memdesc:a169c0a012b306259858127d7b2c43f05"><td class="mdescLeft">&#160;</td><td class="mdescRight">the depth (corresponding to an inflation party) of the <a class="el" href="classinf_1_1EventTree_1_1Node.html" title="A node of the inf::EventTree, storing an outcome and some other inf::EventTreee::Node as children.">inf::EventTree::Node</a> from the root of the <a class="el" href="classinf_1_1EventTree.html" title="Storing a set of inf::Event as a tree.">inf::EventTree</a>  <br /></td></tr>
+<tr class="separator:a169c0a012b306259858127d7b2c43f05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c2c0e7f9586db454a05e14d9df21248"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1EventTree_1_1NodePos.html#a8c2c0e7f9586db454a05e14d9df21248">node_index</a></td></tr>
+<tr class="memdesc:a8c2c0e7f9586db454a05e14d9df21248"><td class="mdescLeft">&#160;</td><td class="mdescRight">Essentially a pointer to a <a class="el" href="classinf_1_1EventTree_1_1Node.html" title="A node of the inf::EventTree, storing an outcome and some other inf::EventTreee::Node as children.">inf::EventTree::Node</a> stored in the <a class="el" href="classinf_1_1EventTree.html" title="Storing a set of inf::Event as a tree.">inf::EventTree</a>.  <br /></td></tr>
+<tr class="separator:a8c2c0e7f9586db454a05e14d9df21248"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a84fc1d9dd559195e123c096ee1188fdd" name="a84fc1d9dd559195e123c096ee1188fdd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84fc1d9dd559195e123c096ee1188fdd">&#9670;&#160;</a></span>Queue</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::vector&lt;<a class="el" href="classinf_1_1EventTree_1_1NodePos.html">inf::EventTree::NodePos</a>&gt; <a class="el" href="classinf_1_1EventTree_1_1NodePos.html#a84fc1d9dd559195e123c096ee1188fdd">inf::EventTree::NodePos::Queue</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Iterating over each <a class="el" href="classinf_1_1EventTree_1_1Node.html" title="A node of the inf::EventTree, storing an outcome and some other inf::EventTreee::Node as children.">inf::EventTree::Node</a> stored in a <a class="el" href="classinf_1_1EventTree.html" title="Storing a set of inf::Event as a tree.">inf::EventTree</a> requires a queue/stack to keep track of which branches remain to be explored. </p>
+
+<p class="definition">Definition at line <a class="el" href="event__tree_8h_source.html#l00131">131</a> of file <a class="el" href="event__tree_8h_source.html">event_tree.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="aa6a2657098cacaca9c6d5c13e15d539f" name="aa6a2657098cacaca9c6d5c13e15d539f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6a2657098cacaca9c6d5c13e15d539f">&#9670;&#160;</a></span>NodePos()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">inf::EventTree::NodePos::NodePos </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a>&#160;</td>
+          <td class="paramname"><em>depth</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a>&#160;</td>
+          <td class="paramname"><em>node_index</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The depth is stored to know to which inflation party the node corresponds to. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">depth</td><td>the depth (corresponding to an inflation party) of the <a class="el" href="classinf_1_1EventTree_1_1Node.html" title="A node of the inf::EventTree, storing an outcome and some other inf::EventTreee::Node as children.">inf::EventTree::Node</a> from the root of the <a class="el" href="classinf_1_1EventTree.html" title="Storing a set of inf::Event as a tree.">inf::EventTree</a> </td></tr>
+    <tr><td class="paramname">node_index</td><td>Essentially a pointer to a <a class="el" href="classinf_1_1EventTree_1_1Node.html" title="A node of the inf::EventTree, storing an outcome and some other inf::EventTreee::Node as children.">inf::EventTree::Node</a> stored in the <a class="el" href="classinf_1_1EventTree.html" title="Storing a set of inf::Event as a tree.">inf::EventTree</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="event__tree_8cpp_source.html#l00007">7</a> of file <a class="el" href="event__tree_8cpp_source.html">event_tree.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a169c0a012b306259858127d7b2c43f05" name="a169c0a012b306259858127d7b2c43f05"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a169c0a012b306259858127d7b2c43f05">&#9670;&#160;</a></span>depth</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> const inf::EventTree::NodePos::depth</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>the depth (corresponding to an inflation party) of the <a class="el" href="classinf_1_1EventTree_1_1Node.html" title="A node of the inf::EventTree, storing an outcome and some other inf::EventTreee::Node as children.">inf::EventTree::Node</a> from the root of the <a class="el" href="classinf_1_1EventTree.html" title="Storing a set of inf::Event as a tree.">inf::EventTree</a> </p>
+
+<p class="definition">Definition at line <a class="el" href="event__tree_8h_source.html#l00138">138</a> of file <a class="el" href="event__tree_8h_source.html">event_tree.h</a>.</p>
+
+</div>
+</div>
+<a id="a8c2c0e7f9586db454a05e14d9df21248" name="a8c2c0e7f9586db454a05e14d9df21248"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c2c0e7f9586db454a05e14d9df21248">&#9670;&#160;</a></span>node_index</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> const inf::EventTree::NodePos::node_index</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Essentially a pointer to a <a class="el" href="classinf_1_1EventTree_1_1Node.html" title="A node of the inf::EventTree, storing an outcome and some other inf::EventTreee::Node as children.">inf::EventTree::Node</a> stored in the <a class="el" href="classinf_1_1EventTree.html" title="Storing a set of inf::Event as a tree.">inf::EventTree</a>. </p>
+
+<p class="definition">Definition at line <a class="el" href="event__tree_8h_source.html#l00140">140</a> of file <a class="el" href="event__tree_8h_source.html">event_tree.h</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>src/inf/events/<a class="el" href="event__tree_8h_source.html">event_tree.h</a></li>
+<li>src/inf/events/<a class="el" href="event__tree_8cpp_source.html">event_tree.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceinf.html">inf</a></li><li class="navelem"><a class="el" href="classinf_1_1EventTree.html">EventTree</a></li><li class="navelem"><a class="el" href="classinf_1_1EventTree_1_1NodePos.html">NodePos</a></li>
+    <li class="footer">Generated on Wed Dec 18 2024 17:39:42 for Fast Inflation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

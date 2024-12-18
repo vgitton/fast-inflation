@@ -1,0 +1,690 @@
+<!-- HTML header for doxygen 1.9.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Fast Inflation: inf::EventTree::Node Class Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+MathJax.Hub.Config({
+    TeX: {
+        Macros: {
+            dd: ["{\\text{d}#1\\,}",1],
+            nouts: ["{n_{\\text{o}}}"],
+            ints: ["{[\\![#1]\\!]}",1],
+            outset: ["{\\ints{\\nouts}}"],
+            N: ["{\\mathbb{N}}"],
+            R: ["{\\mathbb{R}}"],
+            Z: ["{\\mathbb{Z}}"],
+            infsize: ["{z}"],
+            infparties: ["{\\set{I}}"],
+            infsources: ["{\\set{S}}"],
+            infmarg: ["{\\set{A}}"],
+            infmargg: ["{\\set{B}}"],
+            netparties: ["{\\set{N}}"],
+            infq: ["{q}"],
+            infqs: ["{\\Delta_{\\infparties}}"],
+            constraintlist: ["{\\mathcal{C}}"],
+            injsets: ["{\\text{InjSets}}"],
+            infconstraints: ["{\\text{InfCons}}"],
+            parents: ["{\\text{Par}}"],
+            targetp: ["{p}"],
+            targetps: ["{\\Delta_{\\netparties}}"],
+            set: ["{\\mathbf{#1}}",1],
+            type: ["{t}"],
+            infevent: "{\\omega}",
+            events: ["{\\Omega_{#1}}",1],
+            infevents: ["{\\events{\\infparties}}"],
+            redinfevents: ["{\\tilde{\\Omega}_{\\infparties}}"],
+            netevents: ["{\\events{\\netparties}}"],
+            vecset: ["{V_{#1}}",1],
+            alice: ["{\\text{A}}"],
+            bob: ["{\\text{B}}"],
+            charlie: ["{\\text{C}}"],
+            symgroup: ["{\\text{Sym}(#1)}",1],
+            shortsymgroup: ["{\\text{Sym}_{#1}}",1],
+            act: ["{(#1\\hspace{2pt}{:}\\hspace{2pt}#2)}",2],
+            actt: ["{[#1\\hspace{2pt}{:}\\hspace{2pt}#2]}",2],
+            margperms: ["{\\text{Perm}_{#1}}",1],
+            permutedmargs: ["{\\mathbb{P}_{#1}^{\\targetp}}",1],
+            redpermutedmargs: ["{\\tilde{\\mathbb{P}}_{#1}^{\\constraintname,\\targetp}}",1],
+            extract: ["{\\text{ext}(#1,#2)}",2],
+            partysym: ["{\\tau}"],
+            sourcesym: ["{\\xi}"],
+            outsym: ["{\\sigma}"],
+            fullgroup: ["{\\text{InfGrp}}"],
+            partygroup : ["{\\text{PartyGrp}}"],
+            outgroup: ["{\\text{OutGrp}}"],
+            sourcegroup: ["{\\text{SrcGrp}}"],
+            distrgroup: ["{\\mathbb{G}^\\targetp}"],
+            constraintname: ["{c}"],
+            marggroup: ["{\\mathbb{G}^{\\constraintname,\\targetp}}"],
+            fullsymexpl: ["{(\\sourcesym,\\partysym,\\outsym)}"],
+            inner: ["{\\langle#1,#2\\rangle}", 2],
+            quovec: ["{f}"],
+            totconstraintmap: ["{K^{\\constraintlist,\\targetp}}"],
+            totconstraintmapelem: ["{K^{\\constraintname,\\targetp}}"],
+            quovecspace: ["{\\tilde{V}_{#1}^{\\constraintname,\\targetp}}", 1],
+            totquovecspace: ["{\\text{ConsSpace}(\\constraintlist,\\targetp)}"],
+            detdistr: ["{\\delta^{#1}}", 1],
+            margperm: ["{\\varphi}"],
+            altquovecembed: ["{\\text{G}_{#1}^{\\constraintname,\\targetp}}", 1],
+            vecset: ["{V_{#1}}", 1],
+            repr: ["{\\lfloor#1\\rfloor}", 1],
+            gid: ["{\\text{id}}"],
+            id: ["{1_{#1}}",1],
+            consscale: ["{K}"],
+            scaletot: ["{K_{\\text{tot}}^{\\constraintlist,\\targetp}}"],
+            minnorm: ["{d}"],
+            Bigsetst: ["\\;\\Big|\\;"],
+            activeset: ["\\mathcal{S}"],
+            conv: ["\\text{conv}"],
+            lVert: ["|\\hspace{-1pt}|"],
+            norm: ["\\lVert#1\\lVert", 1],
+            st: [":\ "],
+        }
+    }
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeDarkModeToggle.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeParagraphLink.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Fast Inflation
+   </div>
+   <div id="projectbrief">To certify causal incompatibility</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classinf_1_1EventTree_1_1Node.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="classinf_1_1EventTree_1_1Node-members.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">inf::EventTree::Node Class Reference</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &quot;<a class="el" href="event__tree_8h_source.html">inf/events/event_tree.h</a>&quot;</code></p>
+<a name="details" id="details"></a><h2 class="groupheader">Class description</h2>
+<div class="textblock"><p>A node of the <a class="el" href="classinf_1_1EventTree.html" title="Storing a set of inf::Event as a tree.">inf::EventTree</a>, storing an outcome and some other inf::EventTreee::Node as children. </p>
+<dl class="section note"><dt>Note</dt><dd>This class is meant to be lightweight, which is why we want to avoid making it a virtual class. Hence, although an <a class="el" href="classinf_1_1EventTree_1_1Node.html" title="A node of the inf::EventTree, storing an outcome and some other inf::EventTreee::Node as children.">inf::EventTree::Node</a> is effectively a <a class="el" href="classutil_1_1Serializable.html" title="Abstract class that defines the interface of a class that is serializable.">util::Serializable</a>, we do not make it explicitly so. (The reason is that a virtual class instance takes up a tiny bit more memory in C++.) </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="event__tree_8h_source.html#l00148">148</a> of file <a class="el" href="event__tree_8h_source.html">event_tree.h</a>.</p>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a7c0a63f863969295e12a4b5171f07365"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1EventTree_1_1Node.html#a7c0a63f863969295e12a4b5171f07365">Node</a> (<a class="el" href="group__event.html#gadcaa27c4242b65837f0f7a00e96856d4">inf::Outcome</a> const <a class="el" href="classinf_1_1EventTree_1_1Node.html#a106ee49d0fab8062868d3d974dcbfaf1">outcome</a>=0)</td></tr>
+<tr class="memdesc:a7c0a63f863969295e12a4b5171f07365"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor with no children.  <br /></td></tr>
+<tr class="separator:a7c0a63f863969295e12a4b5171f07365"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3fa167398c8042035eea3a92e586a909"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1EventTree_1_1Node.html#a3fa167398c8042035eea3a92e586a909">Node</a> (<a class="el" href="group__event.html#gadcaa27c4242b65837f0f7a00e96856d4">inf::Outcome</a> const <a class="el" href="classinf_1_1EventTree_1_1Node.html#a106ee49d0fab8062868d3d974dcbfaf1">outcome</a>, std::vector&lt; <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> &gt; const &amp;children_vec)</td></tr>
+<tr class="memdesc:a3fa167398c8042035eea3a92e586a909"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor with outcome and children.  <br /></td></tr>
+<tr class="separator:a3fa167398c8042035eea3a92e586a909"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d84f47d7241a4e746ef063a189c47e9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1EventTree_1_1Node.html#a4d84f47d7241a4e746ef063a189c47e9">Node</a> (<a class="el" href="classinf_1_1EventTree_1_1Node.html">Node</a> const &amp;other)</td></tr>
+<tr class="separator:a4d84f47d7241a4e746ef063a189c47e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aafcef9797034c9f34236f54097cb737b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classinf_1_1EventTree_1_1Node.html">Node</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1EventTree_1_1Node.html#aafcef9797034c9f34236f54097cb737b">operator=</a> (<a class="el" href="classinf_1_1EventTree_1_1Node.html">Node</a> const &amp;other)</td></tr>
+<tr class="separator:aafcef9797034c9f34236f54097cb737b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad761e881e35f4c3ba03445eac2b212cf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1EventTree_1_1Node.html#ad761e881e35f4c3ba03445eac2b212cf">Node</a> (<a class="el" href="classinf_1_1EventTree_1_1Node.html">Node</a> &amp;&amp;other)</td></tr>
+<tr class="separator:ad761e881e35f4c3ba03445eac2b212cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71d1e4fad6d8ddd1d8a2f7c7784b2a1f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classinf_1_1EventTree_1_1Node.html">Node</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1EventTree_1_1Node.html#a71d1e4fad6d8ddd1d8a2f7c7784b2a1f">operator=</a> (<a class="el" href="classinf_1_1EventTree_1_1Node.html">Node</a> &amp;&amp;other)</td></tr>
+<tr class="separator:a71d1e4fad6d8ddd1d8a2f7c7784b2a1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11f012b4e4f7aaf13b0820de7ea6d337"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1EventTree_1_1Node.html#a11f012b4e4f7aaf13b0820de7ea6d337">~Node</a> ()</td></tr>
+<tr class="separator:a11f012b4e4f7aaf13b0820de7ea6d337"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af937aae0e08cff1355d6c2f850bb46b5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1EventTree_1_1Node.html#af937aae0e08cff1355d6c2f850bb46b5">get_memory_footprint</a> () const</td></tr>
+<tr class="memdesc:af937aae0e08cff1355d6c2f850bb46b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">An estimate of the number of bytes that a specific <a class="el" href="classinf_1_1EventTree_1_1Node.html" title="A node of the inf::EventTree, storing an outcome and some other inf::EventTreee::Node as children.">inf::EventTree::Node</a> occupies.  <br /></td></tr>
+<tr class="separator:af937aae0e08cff1355d6c2f850bb46b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a407a012c81e0480f69eadc7fb26c6bf7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1EventTree_1_1Node.html#a407a012c81e0480f69eadc7fb26c6bf7">operator==</a> (<a class="el" href="classinf_1_1EventTree_1_1Node.html">Node</a> const &amp;other) const</td></tr>
+<tr class="memdesc:a407a012c81e0480f69eadc7fb26c6bf7"><td class="mdescLeft">&#160;</td><td class="mdescRight">We implement comparison operators of <a class="el" href="classinf_1_1EventTree_1_1Node.html" title="A node of the inf::EventTree, storing an outcome and some other inf::EventTreee::Node as children.">inf::EventTree::Node</a> to be able to remove duplicates.  <br /></td></tr>
+<tr class="separator:a407a012c81e0480f69eadc7fb26c6bf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15c9ac41fb14f71a26baecf344222cc2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1EventTree_1_1Node.html#a15c9ac41fb14f71a26baecf344222cc2">operator!=</a> (<a class="el" href="classinf_1_1EventTree_1_1Node.html">inf::EventTree::Node</a> const &amp;other) const</td></tr>
+<tr class="memdesc:a15c9ac41fb14f71a26baecf344222cc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">We implement comparison operators of <a class="el" href="classinf_1_1EventTree_1_1Node.html" title="A node of the inf::EventTree, storing an outcome and some other inf::EventTreee::Node as children.">inf::EventTree::Node</a> to be able to remove duplicates.  <br /></td></tr>
+<tr class="separator:a15c9ac41fb14f71a26baecf344222cc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af922052aca6a8282b7a39dc7cc8d69c8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1EventTree_1_1Node.html#af922052aca6a8282b7a39dc7cc8d69c8">io</a> (<a class="el" href="classutil_1_1FileStream.html">util::FileStream</a> &amp;stream)</td></tr>
+<tr class="memdesc:af922052aca6a8282b7a39dc7cc8d69c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">To serialize (read/write to disk) the <a class="el" href="classinf_1_1EventTree_1_1Node.html" title="A node of the inf::EventTree, storing an outcome and some other inf::EventTreee::Node as children.">inf::EventTree::Node</a>.  <br /></td></tr>
+<tr class="separator:af922052aca6a8282b7a39dc7cc8d69c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:a106ee49d0fab8062868d3d974dcbfaf1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__event.html#gadcaa27c4242b65837f0f7a00e96856d4">inf::Outcome</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1EventTree_1_1Node.html#a106ee49d0fab8062868d3d974dcbfaf1">outcome</a></td></tr>
+<tr class="memdesc:a106ee49d0fab8062868d3d974dcbfaf1"><td class="mdescLeft">&#160;</td><td class="mdescRight">The outcome stored by the <a class="el" href="classinf_1_1EventTree_1_1Node.html" title="A node of the inf::EventTree, storing an outcome and some other inf::EventTreee::Node as children.">inf::EventTree::Node</a>.  <br /></td></tr>
+<tr class="separator:a106ee49d0fab8062868d3d974dcbfaf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acdede2c3185a3e6f418348f467f99d16"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__event.html#gadcaa27c4242b65837f0f7a00e96856d4">inf::Outcome</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1EventTree_1_1Node.html#acdede2c3185a3e6f418348f467f99d16">n_children</a></td></tr>
+<tr class="memdesc:acdede2c3185a3e6f418348f467f99d16"><td class="mdescLeft">&#160;</td><td class="mdescRight">The number of children of the <a class="el" href="classinf_1_1EventTree_1_1Node.html" title="A node of the inf::EventTree, storing an outcome and some other inf::EventTreee::Node as children.">inf::EventTree::Node</a>.  <br /></td></tr>
+<tr class="separator:acdede2c3185a3e6f418348f467f99d16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2510899745a81c9f4523a61248f5421"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1EventTree_1_1Node.html#ac2510899745a81c9f4523a61248f5421">children</a></td></tr>
+<tr class="memdesc:ac2510899745a81c9f4523a61248f5421"><td class="mdescLeft">&#160;</td><td class="mdescRight">The children of the <a class="el" href="classinf_1_1EventTree_1_1Node.html" title="A node of the inf::EventTree, storing an outcome and some other inf::EventTreee::Node as children.">inf::EventTree::Node</a>, represented as indices in the underlying <a class="el" href="classinf_1_1EventTree.html" title="Storing a set of inf::Event as a tree.">inf::EventTree</a>.  <br /></td></tr>
+<tr class="separator:ac2510899745a81c9f4523a61248f5421"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a719133dac4adc3bd8de8672d8b6e4134"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1EventTree_1_1Node.html#a719133dac4adc3bd8de8672d8b6e4134">copy_children</a> (<a class="el" href="group__event.html#gadcaa27c4242b65837f0f7a00e96856d4">inf::Outcome</a> const target_n_children, <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> const *target_children)</td></tr>
+<tr class="memdesc:a719133dac4adc3bd8de8672d8b6e4134"><td class="mdescLeft">&#160;</td><td class="mdescRight">Duplicating children: copy the parameters of this function to the member variables.  <br /></td></tr>
+<tr class="separator:a719133dac4adc3bd8de8672d8b6e4134"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee29d3f2331875948b0adc0d95e443f2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1EventTree_1_1Node.html#aee29d3f2331875948b0adc0d95e443f2">move_children</a> (<a class="el" href="classinf_1_1EventTree_1_1Node.html">Node</a> &amp;&amp;other)</td></tr>
+<tr class="memdesc:aee29d3f2331875948b0adc0d95e443f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adopting children: move the children of <code>other</code> to the member variables.  <br /></td></tr>
+<tr class="separator:aee29d3f2331875948b0adc0d95e443f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1f9629463096938c16ec4b007f7288a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinf_1_1EventTree_1_1Node.html#aa1f9629463096938c16ec4b007f7288a">clean_children</a> ()</td></tr>
+<tr class="memdesc:aa1f9629463096938c16ec4b007f7288a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees the <code>children</code> member pointer.  <br /></td></tr>
+<tr class="separator:aa1f9629463096938c16ec4b007f7288a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a7c0a63f863969295e12a4b5171f07365" name="a7c0a63f863969295e12a4b5171f07365"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c0a63f863969295e12a4b5171f07365">&#9670;&#160;</a></span>Node() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">inf::EventTree::Node::Node </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__event.html#gadcaa27c4242b65837f0f7a00e96856d4">inf::Outcome</a> const&#160;</td>
+          <td class="paramname"><em>outcome</em> = <code>0</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Default constructor with no children. </p>
+
+<p class="definition">Definition at line <a class="el" href="event__tree_8cpp_source.html#l00029">29</a> of file <a class="el" href="event__tree_8cpp_source.html">event_tree.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a3fa167398c8042035eea3a92e586a909" name="a3fa167398c8042035eea3a92e586a909"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3fa167398c8042035eea3a92e586a909">&#9670;&#160;</a></span>Node() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">inf::EventTree::Node::Node </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__event.html#gadcaa27c4242b65837f0f7a00e96856d4">inf::Outcome</a> const&#160;</td>
+          <td class="paramname"><em>outcome</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>children_vec</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor with outcome and children. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">outcome</td><td>The value stored by the node </td></tr>
+    <tr><td class="paramname">children_vec</td><td>The children are represented as indices which makes sense with respect to the underlying <a class="el" href="classinf_1_1EventTree.html" title="Storing a set of inf::Event as a tree.">inf::EventTree</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="event__tree_8cpp_source.html#l00032">32</a> of file <a class="el" href="event__tree_8cpp_source.html">event_tree.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a4d84f47d7241a4e746ef063a189c47e9" name="a4d84f47d7241a4e746ef063a189c47e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d84f47d7241a4e746ef063a189c47e9">&#9670;&#160;</a></span>Node() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">inf::EventTree::Node::Node </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classinf_1_1EventTree_1_1Node.html">Node</a> const &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="event__tree_8cpp_source.html#l00037">37</a> of file <a class="el" href="event__tree_8cpp_source.html">event_tree.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ad761e881e35f4c3ba03445eac2b212cf" name="ad761e881e35f4c3ba03445eac2b212cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad761e881e35f4c3ba03445eac2b212cf">&#9670;&#160;</a></span>Node() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">inf::EventTree::Node::Node </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classinf_1_1EventTree_1_1Node.html">Node</a> &amp;&amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="event__tree_8cpp_source.html#l00048">48</a> of file <a class="el" href="event__tree_8cpp_source.html">event_tree.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a11f012b4e4f7aaf13b0820de7ea6d337" name="a11f012b4e4f7aaf13b0820de7ea6d337"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11f012b4e4f7aaf13b0820de7ea6d337">&#9670;&#160;</a></span>~Node()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">inf::EventTree::Node::~Node </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="event__tree_8cpp_source.html#l00060">60</a> of file <a class="el" href="event__tree_8cpp_source.html">event_tree.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="aafcef9797034c9f34236f54097cb737b" name="aafcef9797034c9f34236f54097cb737b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aafcef9797034c9f34236f54097cb737b">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classinf_1_1EventTree_1_1Node.html">inf::EventTree::Node</a> &amp; inf::EventTree::Node::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classinf_1_1EventTree_1_1Node.html">Node</a> const &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="event__tree_8cpp_source.html#l00042">42</a> of file <a class="el" href="event__tree_8cpp_source.html">event_tree.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a71d1e4fad6d8ddd1d8a2f7c7784b2a1f" name="a71d1e4fad6d8ddd1d8a2f7c7784b2a1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71d1e4fad6d8ddd1d8a2f7c7784b2a1f">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classinf_1_1EventTree_1_1Node.html">inf::EventTree::Node</a> &amp; inf::EventTree::Node::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classinf_1_1EventTree_1_1Node.html">Node</a> &amp;&amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="event__tree_8cpp_source.html#l00053">53</a> of file <a class="el" href="event__tree_8cpp_source.html">event_tree.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a719133dac4adc3bd8de8672d8b6e4134" name="a719133dac4adc3bd8de8672d8b6e4134"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a719133dac4adc3bd8de8672d8b6e4134">&#9670;&#160;</a></span>copy_children()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void inf::EventTree::Node::copy_children </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__event.html#gadcaa27c4242b65837f0f7a00e96856d4">inf::Outcome</a> const&#160;</td>
+          <td class="paramname"><em>target_n_children</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> const *&#160;</td>
+          <td class="paramname"><em>target_children</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Duplicating children: copy the parameters of this function to the member variables. </p>
+
+<p class="definition">Definition at line <a class="el" href="event__tree_8cpp_source.html#l00064">64</a> of file <a class="el" href="event__tree_8cpp_source.html">event_tree.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aee29d3f2331875948b0adc0d95e443f2" name="aee29d3f2331875948b0adc0d95e443f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee29d3f2331875948b0adc0d95e443f2">&#9670;&#160;</a></span>move_children()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void inf::EventTree::Node::move_children </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classinf_1_1EventTree_1_1Node.html">Node</a> &amp;&amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Adopting children: move the children of <code>other</code> to the member variables. </p>
+
+<p class="definition">Definition at line <a class="el" href="event__tree_8cpp_source.html#l00077">77</a> of file <a class="el" href="event__tree_8cpp_source.html">event_tree.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aa1f9629463096938c16ec4b007f7288a" name="aa1f9629463096938c16ec4b007f7288a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1f9629463096938c16ec4b007f7288a">&#9670;&#160;</a></span>clean_children()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void inf::EventTree::Node::clean_children </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Frees the <code>children</code> member pointer. </p>
+<dl class="section warning"><dt>Warning</dt><dd>This does not reset the member <code>n_children</code> to zero. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="event__tree_8cpp_source.html#l00086">86</a> of file <a class="el" href="event__tree_8cpp_source.html">event_tree.cpp</a>.</p>
+
+</div>
+</div>
+<a id="af937aae0e08cff1355d6c2f850bb46b5" name="af937aae0e08cff1355d6c2f850bb46b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af937aae0e08cff1355d6c2f850bb46b5">&#9670;&#160;</a></span>get_memory_footprint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a> inf::EventTree::Node::get_memory_footprint </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>An estimate of the number of bytes that a specific <a class="el" href="classinf_1_1EventTree_1_1Node.html" title="A node of the inf::EventTree, storing an outcome and some other inf::EventTreee::Node as children.">inf::EventTree::Node</a> occupies. </p>
+<p>In particular, this memory footprint depends on the number of children of the <a class="el" href="classinf_1_1EventTree_1_1Node.html" title="A node of the inf::EventTree, storing an outcome and some other inf::EventTreee::Node as children.">inf::EventTree::Node</a>. </p>
+
+<p class="definition">Definition at line <a class="el" href="event__tree_8cpp_source.html#l00093">93</a> of file <a class="el" href="event__tree_8cpp_source.html">event_tree.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a407a012c81e0480f69eadc7fb26c6bf7" name="a407a012c81e0480f69eadc7fb26c6bf7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a407a012c81e0480f69eadc7fb26c6bf7">&#9670;&#160;</a></span>operator==()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool inf::EventTree::Node::operator== </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classinf_1_1EventTree_1_1Node.html">Node</a> const &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>We implement comparison operators of <a class="el" href="classinf_1_1EventTree_1_1Node.html" title="A node of the inf::EventTree, storing an outcome and some other inf::EventTreee::Node as children.">inf::EventTree::Node</a> to be able to remove duplicates. </p>
+
+<p class="definition">Definition at line <a class="el" href="event__tree_8cpp_source.html#l00097">97</a> of file <a class="el" href="event__tree_8cpp_source.html">event_tree.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a15c9ac41fb14f71a26baecf344222cc2" name="a15c9ac41fb14f71a26baecf344222cc2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15c9ac41fb14f71a26baecf344222cc2">&#9670;&#160;</a></span>operator!=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool inf::EventTree::Node::operator!= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classinf_1_1EventTree_1_1Node.html">inf::EventTree::Node</a> const &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>We implement comparison operators of <a class="el" href="classinf_1_1EventTree_1_1Node.html" title="A node of the inf::EventTree, storing an outcome and some other inf::EventTreee::Node as children.">inf::EventTree::Node</a> to be able to remove duplicates. </p>
+
+<p class="definition">Definition at line <a class="el" href="event__tree_8cpp_source.html#l00112">112</a> of file <a class="el" href="event__tree_8cpp_source.html">event_tree.cpp</a>.</p>
+
+</div>
+</div>
+<a id="af922052aca6a8282b7a39dc7cc8d69c8" name="af922052aca6a8282b7a39dc7cc8d69c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af922052aca6a8282b7a39dc7cc8d69c8">&#9670;&#160;</a></span>io()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void inf::EventTree::Node::io </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classutil_1_1FileStream.html">util::FileStream</a> &amp;&#160;</td>
+          <td class="paramname"><em>stream</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>To serialize (read/write to disk) the <a class="el" href="classinf_1_1EventTree_1_1Node.html" title="A node of the inf::EventTree, storing an outcome and some other inf::EventTreee::Node as children.">inf::EventTree::Node</a>. </p>
+<p>We do not want to make this a virtual function to spare a bit of memory for each <a class="el" href="classinf_1_1EventTree_1_1Node.html" title="A node of the inf::EventTree, storing an outcome and some other inf::EventTreee::Node as children.">inf::EventTree::Node</a> instance. </p>
+
+<p class="definition">Definition at line <a class="el" href="event__tree_8cpp_source.html#l00116">116</a> of file <a class="el" href="event__tree_8cpp_source.html">event_tree.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a106ee49d0fab8062868d3d974dcbfaf1" name="a106ee49d0fab8062868d3d974dcbfaf1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a106ee49d0fab8062868d3d974dcbfaf1">&#9670;&#160;</a></span>outcome</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__event.html#gadcaa27c4242b65837f0f7a00e96856d4">inf::Outcome</a> inf::EventTree::Node::outcome</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The outcome stored by the <a class="el" href="classinf_1_1EventTree_1_1Node.html" title="A node of the inf::EventTree, storing an outcome and some other inf::EventTreee::Node as children.">inf::EventTree::Node</a>. </p>
+
+<p class="definition">Definition at line <a class="el" href="event__tree_8h_source.html#l00177">177</a> of file <a class="el" href="event__tree_8h_source.html">event_tree.h</a>.</p>
+
+</div>
+</div>
+<a id="acdede2c3185a3e6f418348f467f99d16" name="acdede2c3185a3e6f418348f467f99d16"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acdede2c3185a3e6f418348f467f99d16">&#9670;&#160;</a></span>n_children</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__event.html#gadcaa27c4242b65837f0f7a00e96856d4">inf::Outcome</a> inf::EventTree::Node::n_children</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The number of children of the <a class="el" href="classinf_1_1EventTree_1_1Node.html" title="A node of the inf::EventTree, storing an outcome and some other inf::EventTreee::Node as children.">inf::EventTree::Node</a>. </p>
+<dl class="section warning"><dt>Warning</dt><dd>The type of the number of children forbids the <a class="el" href="classinf_1_1EventTree.html" title="Storing a set of inf::Event as a tree.">inf::EventTree</a> to have a <a class="el" href="classinf_1_1EventTree_1_1Node.html" title="A node of the inf::EventTree, storing an outcome and some other inf::EventTreee::Node as children.">inf::EventTree::Node</a> with more than 256 children. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="event__tree_8h_source.html#l00181">181</a> of file <a class="el" href="event__tree_8h_source.html">event_tree.h</a>.</p>
+
+</div>
+</div>
+<a id="ac2510899745a81c9f4523a61248f5421" name="ac2510899745a81c9f4523a61248f5421"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2510899745a81c9f4523a61248f5421">&#9670;&#160;</a></span>children</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__util.html#ga77731aedac326062ffbdcf367185a07e">Index</a>* inf::EventTree::Node::children</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The children of the <a class="el" href="classinf_1_1EventTree_1_1Node.html" title="A node of the inf::EventTree, storing an outcome and some other inf::EventTreee::Node as children.">inf::EventTree::Node</a>, represented as indices in the underlying <a class="el" href="classinf_1_1EventTree.html" title="Storing a set of inf::Event as a tree.">inf::EventTree</a>. </p>
+<p>These are stored as a C-style array whose size is given by the member <code>n_children</code> </p>
+
+<p class="definition">Definition at line <a class="el" href="event__tree_8h_source.html#l00184">184</a> of file <a class="el" href="event__tree_8h_source.html">event_tree.h</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>src/inf/events/<a class="el" href="event__tree_8h_source.html">event_tree.h</a></li>
+<li>src/inf/events/<a class="el" href="event__tree_8cpp_source.html">event_tree.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceinf.html">inf</a></li><li class="navelem"><a class="el" href="classinf_1_1EventTree.html">EventTree</a></li><li class="navelem"><a class="el" href="classinf_1_1EventTree_1_1Node.html">Node</a></li>
+    <li class="footer">Generated on Wed Dec 18 2024 17:39:42 for Fast Inflation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

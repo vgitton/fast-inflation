@@ -1,0 +1,430 @@
+<!-- HTML header for doxygen 1.9.8-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Fast Inflation: src/util/logger.h Source File</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+MathJax.Hub.Config({
+    TeX: {
+        Macros: {
+            dd: ["{\\text{d}#1\\,}",1],
+            nouts: ["{n_{\\text{o}}}"],
+            ints: ["{[\\![#1]\\!]}",1],
+            outset: ["{\\ints{\\nouts}}"],
+            N: ["{\\mathbb{N}}"],
+            R: ["{\\mathbb{R}}"],
+            Z: ["{\\mathbb{Z}}"],
+            infsize: ["{z}"],
+            infparties: ["{\\set{I}}"],
+            infsources: ["{\\set{S}}"],
+            infmarg: ["{\\set{A}}"],
+            infmargg: ["{\\set{B}}"],
+            netparties: ["{\\set{N}}"],
+            infq: ["{q}"],
+            infqs: ["{\\Delta_{\\infparties}}"],
+            constraintlist: ["{\\mathcal{C}}"],
+            injsets: ["{\\text{InjSets}}"],
+            infconstraints: ["{\\text{InfCons}}"],
+            parents: ["{\\text{Par}}"],
+            targetp: ["{p}"],
+            targetps: ["{\\Delta_{\\netparties}}"],
+            set: ["{\\mathbf{#1}}",1],
+            type: ["{t}"],
+            infevent: "{\\omega}",
+            events: ["{\\Omega_{#1}}",1],
+            infevents: ["{\\events{\\infparties}}"],
+            redinfevents: ["{\\tilde{\\Omega}_{\\infparties}}"],
+            netevents: ["{\\events{\\netparties}}"],
+            vecset: ["{V_{#1}}",1],
+            alice: ["{\\text{A}}"],
+            bob: ["{\\text{B}}"],
+            charlie: ["{\\text{C}}"],
+            symgroup: ["{\\text{Sym}(#1)}",1],
+            shortsymgroup: ["{\\text{Sym}_{#1}}",1],
+            act: ["{(#1\\hspace{2pt}{:}\\hspace{2pt}#2)}",2],
+            actt: ["{[#1\\hspace{2pt}{:}\\hspace{2pt}#2]}",2],
+            margperms: ["{\\text{Perm}_{#1}}",1],
+            permutedmargs: ["{\\mathbb{P}_{#1}^{\\targetp}}",1],
+            redpermutedmargs: ["{\\tilde{\\mathbb{P}}_{#1}^{\\constraintname,\\targetp}}",1],
+            extract: ["{\\text{ext}(#1,#2)}",2],
+            partysym: ["{\\tau}"],
+            sourcesym: ["{\\xi}"],
+            outsym: ["{\\sigma}"],
+            fullgroup: ["{\\text{InfGrp}}"],
+            partygroup : ["{\\text{PartyGrp}}"],
+            outgroup: ["{\\text{OutGrp}}"],
+            sourcegroup: ["{\\text{SrcGrp}}"],
+            distrgroup: ["{\\mathbb{G}^\\targetp}"],
+            constraintname: ["{c}"],
+            marggroup: ["{\\mathbb{G}^{\\constraintname,\\targetp}}"],
+            fullsymexpl: ["{(\\sourcesym,\\partysym,\\outsym)}"],
+            inner: ["{\\langle#1,#2\\rangle}", 2],
+            quovec: ["{f}"],
+            totconstraintmap: ["{K^{\\constraintlist,\\targetp}}"],
+            totconstraintmapelem: ["{K^{\\constraintname,\\targetp}}"],
+            quovecspace: ["{\\tilde{V}_{#1}^{\\constraintname,\\targetp}}", 1],
+            totquovecspace: ["{\\text{ConsSpace}(\\constraintlist,\\targetp)}"],
+            detdistr: ["{\\delta^{#1}}", 1],
+            margperm: ["{\\varphi}"],
+            altquovecembed: ["{\\text{G}_{#1}^{\\constraintname,\\targetp}}", 1],
+            vecset: ["{V_{#1}}", 1],
+            repr: ["{\\lfloor#1\\rfloor}", 1],
+            gid: ["{\\text{id}}"],
+            id: ["{1_{#1}}",1],
+            consscale: ["{K}"],
+            scaletot: ["{K_{\\text{tot}}^{\\constraintlist,\\targetp}}"],
+            minnorm: ["{d}"],
+            Bigsetst: ["\\;\\Big|\\;"],
+            activeset: ["\\mathcal{S}"],
+            conv: ["\\text{conv}"],
+            lVert: ["|\\hspace{-1pt}|"],
+            norm: ["\\lVert#1\\lVert", 1],
+            st: [":\ "],
+        }
+    }
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeDarkModeToggle.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeParagraphLink.init()
+    </script>
+    <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeInteractiveToc.init()
+    </script>
+<link rel="icon" href="logo.png" type="image/x-icon" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Fast Inflation
+   </div>
+   <div id="projectbrief">To certify causal incompatibility</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('logger_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">logger.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="logger_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;type_traits&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="color_8h.html">color.h</a>&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="to__string_8h.html">to_string.h</a>&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceutil.html">util</a> {</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="classutil_1_1Logger.html">   55</a></span><span class="keyword">class </span><a class="code hl_class" href="classutil_1_1Logger.html">Logger</a> {</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="classutil_1_1Logger.html#aa880020e76f3450132676d4adee97cfc">   58</a></span>    <span class="keyword">enum class</span> <a class="code hl_enumeration" href="classutil_1_1Logger.html#aa880020e76f3450132676d4adee97cfc">ColorMode</a> {</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        <a class="code hl_enumvalue" href="classutil_1_1Logger.html#aa880020e76f3450132676d4adee97cfca8e328b44a0343229e5ef5e3c4df07ec1">ansi</a>, </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        <a class="code hl_enumvalue" href="classutil_1_1Logger.html#aa880020e76f3450132676d4adee97cfca334c4a4c42fdb79d7ebc3e73b517e6f8">none</a>  </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    };</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="classutil_1_1Logger.html#a7050ffd6e9fcaa8bbb4ac9f2aa29b043">   65</a></span>    <span class="keyword">enum class</span> <a class="code hl_enumeration" href="classutil_1_1Logger.html#a7050ffd6e9fcaa8bbb4ac9f2aa29b043">Action</a> {</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        <a class="code hl_function" href="classutil_1_1Logger.html#a1ff73466fa71bddf50abeb1092533e36">flush</a>,         </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        <a class="code hl_enumvalue" href="classutil_1_1Logger.html#a7050ffd6e9fcaa8bbb4ac9f2aa29b043a50687cdc4bc36169eb3b2948c9920715">endl</a>,          </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        <a class="code hl_enumvalue" href="classutil_1_1Logger.html#a7050ffd6e9fcaa8bbb4ac9f2aa29b043a324d8a1d3f81e730d5099a48cee0c5b6">cr</a>,            </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        <a class="code hl_function" href="classutil_1_1Logger.html#ac1542f86a22ae43065b4911126f3de88">begin_section</a>, </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        <a class="code hl_function" href="classutil_1_1Logger.html#a1b48da51580c4b5c47c595e8b1cab822">end_section</a>,   </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        <a class="code hl_enumvalue" href="classutil_1_1Logger.html#a7050ffd6e9fcaa8bbb4ac9f2aa29b043a811882fecd5c7618d7099ebbd39ea254">left</a>,          </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        <a class="code hl_enumvalue" href="classutil_1_1Logger.html#a7050ffd6e9fcaa8bbb4ac9f2aa29b043a7c4f29407893c334a6cb7a87bf045c0d">right</a>,         </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        <a class="code hl_function" href="classutil_1_1Logger.html#aa10b6b29378c35568b915535e66fd569">reset_indent</a>,  </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        <a class="code hl_enumvalue" href="classutil_1_1Logger.html#a7050ffd6e9fcaa8bbb4ac9f2aa29b043a49256b9819abacbb8e6e031a03abe81b">wait</a>,          </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    };</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="classutil_1_1Logger_1_1WidthManip.html">   78</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classutil_1_1Logger_1_1WidthManip.html">WidthManip</a> {</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>      <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="classutil_1_1Logger_1_1WidthManip.html#a249a30b0d93d23104dc41f01729480e3">   80</a></span>        <a class="code hl_function" href="classutil_1_1Logger_1_1WidthManip.html#a249a30b0d93d23104dc41f01729480e3">WidthManip</a>(<span class="keywordtype">int</span> the_width) : <a class="code hl_variable" href="classutil_1_1Logger_1_1WidthManip.html#ad7c689127fe8791d5b7e00f097069264">width</a>(the_width) {}</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="classutil_1_1Logger_1_1WidthManip.html#ad7c689127fe8791d5b7e00f097069264">   81</a></span>        <span class="keywordtype">int</span> <a class="code hl_variable" href="classutil_1_1Logger_1_1WidthManip.html#ad7c689127fe8791d5b7e00f097069264">width</a>;</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    };</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <a class="code hl_class" href="classutil_1_1Logger.html">Logger</a>(<a class="code hl_enumeration" href="classutil_1_1Logger.html#aa880020e76f3450132676d4adee97cfc">util::Logger::ColorMode</a> color_mode);</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    <a class="code hl_class" href="classutil_1_1Logger.html">Logger</a>(<a class="code hl_class" href="classutil_1_1Logger.html">Logger</a> <span class="keyword">const</span> &amp;other) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <a class="code hl_class" href="classutil_1_1Logger.html">Logger</a>(<a class="code hl_class" href="classutil_1_1Logger.html">Logger</a> &amp;&amp;other) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <a class="code hl_class" href="classutil_1_1Logger.html">Logger</a> &amp;operator=(<a class="code hl_class" href="classutil_1_1Logger.html">Logger</a> <span class="keyword">const</span> &amp;other) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <a class="code hl_class" href="classutil_1_1Logger.html">Logger</a> &amp;operator=(<a class="code hl_class" href="classutil_1_1Logger.html">Logger</a> &amp;&amp;other) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classutil_1_1Logger.html#af818aa6efdb1281e42fc779f2e0bb3cd">set_log_level</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> log_level);</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classutil_1_1Logger.html#a375f261904b727f2043caa5bbe52dc31">disable_dots_for_hidden_sections</a>();</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classutil_1_1Logger.html#ac4d0bc636706ad6817d192f222934e65">echo</a>(std::string <span class="keyword">const</span> &amp;<a class="code hl_function" href="group__str.html#ga6948292bb3a41f65610efe2f043a1f1e">str</a>);</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="comment">// Action methods</span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classutil_1_1Logger.html#a1ff73466fa71bddf50abeb1092533e36">flush</a>();</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classutil_1_1Logger.html#a5a8792494a10f774e888190f33e9ff98">new_line</a>();</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classutil_1_1Logger.html#ac1542f86a22ae43065b4911126f3de88">begin_section</a>();</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classutil_1_1Logger.html#a1b48da51580c4b5c47c595e8b1cab822">end_section</a>();</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classutil_1_1Logger.html#ad01e112e7fc1c9205ce491eaf9b476fb">set_next_width</a>(<span class="keywordtype">int</span> n);</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classutil_1_1Logger.html#a48af6bd8d0d03a3125bccc82890ed1dc">set_alignment</a>(std::ios_base::fmtflags alignment);</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classutil_1_1Logger.html#aa10b6b29378c35568b915535e66fd569">reset_indent</a>();</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classutil_1_1Logger.html#ab668d49ead6192cb23159f5cda0740ce">echo_title</a>(std::string <span class="keyword">const</span> &amp;name);</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classutil_1_1Logger.html#a6a9c4e64abf037de02bcc03ea5252764">echo_header</a>(std::string <span class="keyword">const</span> &amp;name);</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    std::string <a class="code hl_function" href="classutil_1_1Logger.html#ac7840a2529ef40d0e881b621d789b51c">get_color_code</a>(<a class="code hl_enumeration" href="group__color.html#ga95747189f62a0ed341c6e2579146beb7">util::Color</a> c) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    std::string <a class="code hl_function" href="classutil_1_1Logger.html#a6aad3f6eebae8ca2df6cbb70b61a2143">get_colored_number_str</a>(<span class="keywordtype">int</span> number) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classutil_1_1Logger.html#ad44f9101dbfad26ae010070b75ac5074">echo_colored_number</a>(<span class="keywordtype">int</span> number);</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classutil_1_1Logger.html#a037348a66bc990631e75bf65deabf421">echo_error</a>(std::string <span class="keyword">const</span> &amp;what);</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno"><a class="line" href="classutil_1_1Logger.html#adbda8a3440db46270a7764e504b0310e">  134</a></span>    <span class="keyword">inline</span> <a class="code hl_enumeration" href="classutil_1_1Logger.html#aa880020e76f3450132676d4adee97cfc">util::Logger::ColorMode</a> <a class="code hl_function" href="classutil_1_1Logger.html#adbda8a3440db46270a7764e504b0310e">get_color_mode</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classutil_1_1Logger.html#aba50860d0bf48336e72133847d6aad7f">m_color_mode</a>; }</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    std::string <a class="code hl_function" href="classutil_1_1Logger.html#a3c621919a7dae959843f5f2493e2d3d2">get_single_char</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">int</span> i) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span> </div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classutil_1_1Logger.html#af468d2e8d42a1fdb2adfbe28875b2156">set_mark</a>();</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classutil_1_1Logger.html#af5f8cad20bf51ebbe414e39b9a58542e">go_back_to_mark</a>();</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classutil_1_1Logger.html#a5d7a0aa7ce43054caea3738168ef4de9">cancel_go_back_to_mark</a>();</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classutil_1_1Logger.html#a803fd208a4a66383ff95d4c97339ae12">move_up</a>(<span class="keywordtype">int</span> i);</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classutil_1_1Logger.html#a41fc84ba70b0e79a10b94cb9de413e3f">move_down</a>(<span class="keywordtype">int</span> i);</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno"><a class="line" href="classutil_1_1Logger.html#a5d666a88e8e9e5bef5d57e6bbfd584ac">  153</a></span>    <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="classutil_1_1Logger.html#a5d666a88e8e9e5bef5d57e6bbfd584ac">is_disabled</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> not <a class="code hl_variable" href="classutil_1_1Logger.html#a50a8758748f5120f8b0cb2dc7c089227">m_depth_enabled</a>; }</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>  <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    <span class="comment">// Getters</span></div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span> </div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classutil_1_1Logger.html#a8573ac407e631363112ca8cba5fc1992">process_pending_indent</a>();</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span> </div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno"><a class="line" href="classutil_1_1Logger.html#a50a8758748f5120f8b0cb2dc7c089227">  162</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="classutil_1_1Logger.html#a50a8758748f5120f8b0cb2dc7c089227">m_depth_enabled</a>;</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno"><a class="line" href="classutil_1_1Logger.html#aba50860d0bf48336e72133847d6aad7f">  164</a></span>    <a class="code hl_enumeration" href="classutil_1_1Logger.html#aa880020e76f3450132676d4adee97cfc">util::Logger::ColorMode</a> <a class="code hl_variable" href="classutil_1_1Logger.html#aba50860d0bf48336e72133847d6aad7f">m_color_mode</a>;</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno"><a class="line" href="classutil_1_1Logger.html#a364d8395c1e1e595f84d301dd36389e3">  166</a></span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="classutil_1_1Logger.html#a364d8395c1e1e595f84d301dd36389e3">m_log_level</a>;</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span> </div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>    <span class="comment">// Indentation related things</span></div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span> </div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno"><a class="line" href="classutil_1_1Logger.html#ab8a596d8848be4fd79b674aa82dc52b0">  171</a></span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="classutil_1_1Logger.html#ab8a596d8848be4fd79b674aa82dc52b0">m_section_index</a>;</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno"><a class="line" href="classutil_1_1Logger.html#a67f984b90f6c0392cde726d8fc75466a">  175</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="classutil_1_1Logger.html#a67f984b90f6c0392cde726d8fc75466a">m_indent_pending</a>;</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno"><a class="line" href="classutil_1_1Logger.html#ae24d0479d61727c07ade702446b4dcaa">  177</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="classutil_1_1Logger.html#ae24d0479d61727c07ade702446b4dcaa">m_disable_dots_for_hidden_sections</a>;</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span> </div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno"><a class="line" href="classutil_1_1Logger.html#a77f1a4ea3e54a3f37aca843865ded450">  180</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="classutil_1_1Logger.html#a77f1a4ea3e54a3f37aca843865ded450">m_n_cr_since_mark</a>;</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno"><a class="line" href="classutil_1_1Logger.html#a4b0b81e6099d07c593cead29b5de00e7">  182</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="classutil_1_1Logger.html#a4b0b81e6099d07c593cead29b5de00e7">m_max_n_cr_since_mark</a>;</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>};</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span> </div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span><span class="keyword">extern</span> <a class="code hl_class" href="classutil_1_1Logger.html">util::Logger</a> <a class="code hl_variable" href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">logger</a>;</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span> </div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno"><a class="line" href="group__printing.html#ga658d6b62f7620918ba2edb42f287efb3">  191</a></span><span class="keyword">constexpr</span> <a class="code hl_enumeration" href="classutil_1_1Logger.html#a7050ffd6e9fcaa8bbb4ac9f2aa29b043">util::Logger::Action</a> <a class="code hl_variable" href="group__printing.html#ga658d6b62f7620918ba2edb42f287efb3">flush</a> = <a class="code hl_enumvalue" href="classutil_1_1Logger.html#a7050ffd6e9fcaa8bbb4ac9f2aa29b043a86f354b8575a1a736775ae003fa344e5">util::Logger::Action::flush</a>;</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno"><a class="line" href="group__printing.html#gad044940d41835be0baff2d20415c1536">  194</a></span><span class="keyword">constexpr</span> <a class="code hl_enumeration" href="classutil_1_1Logger.html#a7050ffd6e9fcaa8bbb4ac9f2aa29b043">util::Logger::Action</a> <a class="code hl_variable" href="group__printing.html#gad044940d41835be0baff2d20415c1536">endl</a> = <a class="code hl_enumvalue" href="classutil_1_1Logger.html#a7050ffd6e9fcaa8bbb4ac9f2aa29b043a50687cdc4bc36169eb3b2948c9920715">util::Logger::Action::endl</a>;</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno"><a class="line" href="group__printing.html#ga3f8fe48536ee19c54002c9c1db64cabb">  197</a></span><span class="keyword">constexpr</span> <a class="code hl_enumeration" href="classutil_1_1Logger.html#a7050ffd6e9fcaa8bbb4ac9f2aa29b043">util::Logger::Action</a> <a class="code hl_variable" href="group__printing.html#ga3f8fe48536ee19c54002c9c1db64cabb">cr</a> = <a class="code hl_enumvalue" href="classutil_1_1Logger.html#a7050ffd6e9fcaa8bbb4ac9f2aa29b043a324d8a1d3f81e730d5099a48cee0c5b6">util::Logger::Action::cr</a>;</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno"><a class="line" href="group__printing.html#ga91047ddaf85b4652a50b89c5c9755317">  200</a></span><span class="keyword">constexpr</span> <a class="code hl_enumeration" href="classutil_1_1Logger.html#a7050ffd6e9fcaa8bbb4ac9f2aa29b043">util::Logger::Action</a> <a class="code hl_variable" href="group__printing.html#ga91047ddaf85b4652a50b89c5c9755317">begin_section</a> = <a class="code hl_enumvalue" href="classutil_1_1Logger.html#a7050ffd6e9fcaa8bbb4ac9f2aa29b043ad3f6309599a442c077c55f6596dfa54a">util::Logger::Action::begin_section</a>;</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno"><a class="line" href="group__printing.html#gae4f7a470686ffa2352173b5c0b486623">  203</a></span><span class="keyword">constexpr</span> <a class="code hl_enumeration" href="classutil_1_1Logger.html#a7050ffd6e9fcaa8bbb4ac9f2aa29b043">util::Logger::Action</a> <a class="code hl_variable" href="group__printing.html#gae4f7a470686ffa2352173b5c0b486623">end_section</a> = <a class="code hl_enumvalue" href="classutil_1_1Logger.html#a7050ffd6e9fcaa8bbb4ac9f2aa29b043acda483cdc78a925cd036b2e3ddcef8d8">util::Logger::Action::end_section</a>;</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno"><a class="line" href="group__printing.html#ga7a41ac278da6dce6a9c081977d573a51">  206</a></span><span class="keyword">constexpr</span> <a class="code hl_enumeration" href="classutil_1_1Logger.html#a7050ffd6e9fcaa8bbb4ac9f2aa29b043">util::Logger::Action</a> <a class="code hl_variable" href="group__printing.html#ga7a41ac278da6dce6a9c081977d573a51">left</a> = <a class="code hl_enumvalue" href="classutil_1_1Logger.html#a7050ffd6e9fcaa8bbb4ac9f2aa29b043a811882fecd5c7618d7099ebbd39ea254">util::Logger::Action::left</a>;</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno"><a class="line" href="group__printing.html#ga03b623ada421513032157fd73d43863c">  209</a></span><span class="keyword">constexpr</span> <a class="code hl_enumeration" href="classutil_1_1Logger.html#a7050ffd6e9fcaa8bbb4ac9f2aa29b043">util::Logger::Action</a> <a class="code hl_variable" href="group__printing.html#ga03b623ada421513032157fd73d43863c">right</a> = <a class="code hl_enumvalue" href="classutil_1_1Logger.html#a7050ffd6e9fcaa8bbb4ac9f2aa29b043a7c4f29407893c334a6cb7a87bf045c0d">util::Logger::Action::right</a>;</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno"><a class="line" href="group__printing.html#ga3ec724aee4926e314039a1715f3844c9">  212</a></span><span class="keyword">constexpr</span> <a class="code hl_enumeration" href="classutil_1_1Logger.html#a7050ffd6e9fcaa8bbb4ac9f2aa29b043">util::Logger::Action</a> <a class="code hl_variable" href="group__printing.html#ga3ec724aee4926e314039a1715f3844c9">reset_indent</a> = <a class="code hl_enumvalue" href="classutil_1_1Logger.html#a7050ffd6e9fcaa8bbb4ac9f2aa29b043a5086e868d32d750f9c952416c47c70f5">util::Logger::Action::reset_indent</a>;</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno"><a class="line" href="group__printing.html#gac5ec9420a30c005fbdf110810dc0765a">  215</a></span><span class="keyword">constexpr</span> <a class="code hl_enumeration" href="classutil_1_1Logger.html#a7050ffd6e9fcaa8bbb4ac9f2aa29b043">util::Logger::Action</a> <a class="code hl_variable" href="group__printing.html#gac5ec9420a30c005fbdf110810dc0765a">wait</a> = <a class="code hl_enumvalue" href="classutil_1_1Logger.html#a7050ffd6e9fcaa8bbb4ac9f2aa29b043a49256b9819abacbb8e6e031a03abe81b">util::Logger::Action::wait</a>;</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span> </div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span><span class="keyword">extern</span> <span class="keyword">const</span> <a class="code hl_enumeration" href="group__color.html#ga95747189f62a0ed341c6e2579146beb7">util::Color</a> <a class="code hl_variable" href="group__printing.html#ga7d731f43f6d60e3846cbdbd55eaeed2e">begin_comment</a>;</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span><span class="keyword">extern</span> <span class="keyword">const</span> <a class="code hl_enumeration" href="group__color.html#ga95747189f62a0ed341c6e2579146beb7">util::Color</a> <a class="code hl_variable" href="group__printing.html#gadf8906b27dc371eaf882b3b3b5639495">end_comment</a>;</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span> </div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span><a class="code hl_class" href="classutil_1_1Logger_1_1WidthManip.html">util::Logger::WidthManip</a> <a class="code hl_function" href="group__printing.html#ga90e9eed047f3bebb56929d5b1a5518b2">setw</a>(<span class="keywordtype">int</span> width);</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>std::string <a class="code hl_function" href="group__printing.html#ga87f996f8102e604181f04025d1e98c32">phantom</a>(std::string <span class="keyword">const</span> &amp;<a class="code hl_function" href="group__str.html#ga6948292bb3a41f65610efe2f043a1f1e">str</a>);</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span> </div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>} <span class="comment">// namespace util</span></div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span> </div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno"><a class="line" href="group__printing.html#ga13b7e8e2d6d2c30ee6f61d2712fb04fb">  240</a></span><span class="keyword">typename</span> std::enable_if&lt;std::is_base_of&lt;util::Loggable, T&gt;::value, <a class="code hl_class" href="classutil_1_1Logger.html">util::Logger</a> &amp;&gt;::type</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span><a class="code hl_function" href="group__printing.html#ga13b7e8e2d6d2c30ee6f61d2712fb04fb">operator&lt;&lt;</a>(<a class="code hl_class" href="classutil_1_1Logger.html">util::Logger</a> &amp;logger, T <span class="keyword">const</span> &amp;loggable) {</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>    <span class="keywordflow">if</span> (logger.<a class="code hl_function" href="classutil_1_1Logger.html#a5d666a88e8e9e5bef5d57e6bbfd584ac">is_disabled</a>())</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>        <span class="keywordflow">return</span> logger;</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span> </div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>    <span class="comment">// This prints to util::logger</span></div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>    loggable.log();</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>    <span class="keywordflow">return</span> logger;</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>}</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span> </div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno"><a class="line" href="logger_8h.html#ga13b7e8e2d6d2c30ee6f61d2712fb04fb">  254</a></span><span class="keyword">typename</span> std::enable_if&lt;not std::is_base_of&lt;util::Loggable, T&gt;::value, <a class="code hl_class" href="classutil_1_1Logger.html">util::Logger</a> &amp;&gt;::type</div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span><a class="code hl_function" href="group__printing.html#ga13b7e8e2d6d2c30ee6f61d2712fb04fb">operator&lt;&lt;</a>(<a class="code hl_class" href="classutil_1_1Logger.html">util::Logger</a> &amp;logger, T <span class="keyword">const</span> &amp;loggable) {</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>    <span class="keywordflow">if</span> (logger.<a class="code hl_function" href="classutil_1_1Logger.html#a5d666a88e8e9e5bef5d57e6bbfd584ac">is_disabled</a>())</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>        <span class="keywordflow">return</span> logger;</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span> </div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>    logger.<a class="code hl_function" href="classutil_1_1Logger.html#ac4d0bc636706ad6817d192f222934e65">echo</a>(<a class="code hl_function" href="group__str.html#ga6948292bb3a41f65610efe2f043a1f1e">util::str</a>(loggable));</div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>    <span class="keywordflow">return</span> logger;</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>}</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span> </div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span><a class="code hl_class" href="classutil_1_1Logger.html">util::Logger</a> &amp;<a class="code hl_function" href="group__printing.html#ga13b7e8e2d6d2c30ee6f61d2712fb04fb">operator&lt;&lt;</a>(<a class="code hl_class" href="classutil_1_1Logger.html">util::Logger</a> &amp;logger, <a class="code hl_enumeration" href="classutil_1_1Logger.html#a7050ffd6e9fcaa8bbb4ac9f2aa29b043">util::Logger::Action</a> action);</div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span><a class="code hl_class" href="classutil_1_1Logger.html">util::Logger</a> &amp;<a class="code hl_function" href="group__printing.html#ga13b7e8e2d6d2c30ee6f61d2712fb04fb">operator&lt;&lt;</a>(<a class="code hl_class" href="classutil_1_1Logger.html">util::Logger</a> &amp;logger, <a class="code hl_class" href="classutil_1_1Logger_1_1WidthManip.html">util::Logger::WidthManip</a> width_manip);</div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span><a class="code hl_class" href="classutil_1_1Logger.html">util::Logger</a> &amp;<a class="code hl_function" href="group__printing.html#ga13b7e8e2d6d2c30ee6f61d2712fb04fb">operator&lt;&lt;</a>(<a class="code hl_class" href="classutil_1_1Logger.html">util::Logger</a> &amp;logger, <a class="code hl_enumeration" href="group__color.html#ga95747189f62a0ed341c6e2579146beb7">util::Color</a> c);</div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span> </div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno"><a class="line" href="group__printing.html#ga54d0258a1e07ede5fe0ff00988dfb759">  277</a></span><span class="preprocessor">#define LOG_BEGIN_SECTION(X)                        \</span></div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span><span class="preprocessor">    util::logger.echo_header(X + std::string(&quot;:&quot;</span>)); \</div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>    util::logger &lt;&lt; util::begin_section;</div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno"><a class="line" href="group__printing.html#gafca79483713e011c576202e2d0e63684">  282</a></span><span class="preprocessor">#define LOG_BEGIN_SECTION_FUNC                               \</span></div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span><span class="preprocessor">    util::logger.echo_header(__func__ + std::string(&quot;():&quot;</span>)); \</div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>    util::logger &lt;&lt; util::begin_section;</div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno"><a class="line" href="group__printing.html#gaa993b7a93b54137d5d6c09ed1fac8b77">  287</a></span><span class="preprocessor">#define LOG_END_SECTION util::logger &lt;&lt; util::end_section;</span></div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno"><a class="line" href="group__printing.html#gaf5eac787f17bc3c4496ed204326c8347">  291</a></span><span class="preprocessor">#define LOG_VARIABLE(X) util::logger &lt;&lt; util::begin_comment &lt;&lt; #X &lt;&lt; &quot; = &quot;</span> &lt;&lt; util::end_comment &lt;&lt; X &lt;&lt; util::cr;</div>
+<div class="ttc" id="aclassutil_1_1Logger_1_1WidthManip_html"><div class="ttname"><a href="classutil_1_1Logger_1_1WidthManip.html">util::Logger::WidthManip</a></div><div class="ttdoc">Internal class, use util::setw() instead.</div><div class="ttdef"><b>Definition</b> <a href="logger_8h_source.html#l00078">logger.h:78</a></div></div>
+<div class="ttc" id="aclassutil_1_1Logger_1_1WidthManip_html_a249a30b0d93d23104dc41f01729480e3"><div class="ttname"><a href="classutil_1_1Logger_1_1WidthManip.html#a249a30b0d93d23104dc41f01729480e3">util::Logger::WidthManip::WidthManip</a></div><div class="ttdeci">WidthManip(int the_width)</div><div class="ttdef"><b>Definition</b> <a href="logger_8h_source.html#l00080">logger.h:80</a></div></div>
+<div class="ttc" id="aclassutil_1_1Logger_1_1WidthManip_html_ad7c689127fe8791d5b7e00f097069264"><div class="ttname"><a href="classutil_1_1Logger_1_1WidthManip.html#ad7c689127fe8791d5b7e00f097069264">util::Logger::WidthManip::width</a></div><div class="ttdeci">int width</div><div class="ttdef"><b>Definition</b> <a href="logger_8h_source.html#l00081">logger.h:81</a></div></div>
+<div class="ttc" id="aclassutil_1_1Logger_html"><div class="ttname"><a href="classutil_1_1Logger.html">util::Logger</a></div><div class="ttdoc">This custom logger providing additional functionalities over std::cout</div><div class="ttdef"><b>Definition</b> <a href="logger_8h_source.html#l00055">logger.h:55</a></div></div>
+<div class="ttc" id="aclassutil_1_1Logger_html_a037348a66bc990631e75bf65deabf421"><div class="ttname"><a href="classutil_1_1Logger.html#a037348a66bc990631e75bf65deabf421">util::Logger::echo_error</a></div><div class="ttdeci">void echo_error(std::string const &amp;what)</div><div class="ttdoc">To prepend an error message by a red Error:</div><div class="ttdef"><b>Definition</b> <a href="logger_8cpp_source.html#l00169">logger.cpp:169</a></div></div>
+<div class="ttc" id="aclassutil_1_1Logger_html_a1b48da51580c4b5c47c595e8b1cab822"><div class="ttname"><a href="classutil_1_1Logger.html#a1b48da51580c4b5c47c595e8b1cab822">util::Logger::end_section</a></div><div class="ttdeci">void end_section()</div><div class="ttdoc">Ends a section (less indentation), used upon calling util::logger &lt;&lt; util::end_section;</div><div class="ttdef"><b>Definition</b> <a href="logger_8cpp_source.html#l00092">logger.cpp:92</a></div></div>
+<div class="ttc" id="aclassutil_1_1Logger_html_a1ff73466fa71bddf50abeb1092533e36"><div class="ttname"><a href="classutil_1_1Logger.html#a1ff73466fa71bddf50abeb1092533e36">util::Logger::flush</a></div><div class="ttdeci">void flush()</div><div class="ttdoc">Flushes the output to stdout, used upon calling util::logger &lt;&lt; util::flush;</div><div class="ttdef"><b>Definition</b> <a href="logger_8cpp_source.html#l00063">logger.cpp:63</a></div></div>
+<div class="ttc" id="aclassutil_1_1Logger_html_a364d8395c1e1e595f84d301dd36389e3"><div class="ttname"><a href="classutil_1_1Logger.html#a364d8395c1e1e595f84d301dd36389e3">util::Logger::m_log_level</a></div><div class="ttdeci">unsigned int m_log_level</div><div class="ttdoc">The log level controlling the amount of output.</div><div class="ttdef"><b>Definition</b> <a href="logger_8h_source.html#l00166">logger.h:166</a></div></div>
+<div class="ttc" id="aclassutil_1_1Logger_html_a375f261904b727f2043caa5bbe52dc31"><div class="ttname"><a href="classutil_1_1Logger.html#a375f261904b727f2043caa5bbe52dc31">util::Logger::disable_dots_for_hidden_sections</a></div><div class="ttdeci">void disable_dots_for_hidden_sections()</div><div class="ttdoc">By default, hidden sections above the max log level get printed as &quot;...&quot;, but this method disables th...</div><div class="ttdef"><b>Definition</b> <a href="logger_8cpp_source.html#l00034">logger.cpp:34</a></div></div>
+<div class="ttc" id="aclassutil_1_1Logger_html_a3c621919a7dae959843f5f2493e2d3d2"><div class="ttname"><a href="classutil_1_1Logger.html#a3c621919a7dae959843f5f2493e2d3d2">util::Logger::get_single_char</a></div><div class="ttdeci">std::string get_single_char(unsigned long int i) const</div><div class="ttdoc">Returns a string with a single-char representation of the number i.</div><div class="ttdef"><b>Definition</b> <a href="logger_8cpp_source.html#l00175">logger.cpp:175</a></div></div>
+<div class="ttc" id="aclassutil_1_1Logger_html_a41fc84ba70b0e79a10b94cb9de413e3f"><div class="ttname"><a href="classutil_1_1Logger.html#a41fc84ba70b0e79a10b94cb9de413e3f">util::Logger::move_down</a></div><div class="ttdeci">void move_down(int i)</div><div class="ttdoc">Moves the cursor down by i-1 lines and enters a util::cr.</div><div class="ttdef"><b>Definition</b> <a href="logger_8cpp_source.html#l00204">logger.cpp:204</a></div></div>
+<div class="ttc" id="aclassutil_1_1Logger_html_a48af6bd8d0d03a3125bccc82890ed1dc"><div class="ttname"><a href="classutil_1_1Logger.html#a48af6bd8d0d03a3125bccc82890ed1dc">util::Logger::set_alignment</a></div><div class="ttdeci">void set_alignment(std::ios_base::fmtflags alignment)</div><div class="ttdoc">To change the next alignment in combination with util::setw(), e.g., util::logger &lt;&lt; util::left &lt;&lt; ut...</div><div class="ttdef"><b>Definition</b> <a href="logger_8cpp_source.html#l00110">logger.cpp:110</a></div></div>
+<div class="ttc" id="aclassutil_1_1Logger_html_a4b0b81e6099d07c593cead29b5de00e7"><div class="ttname"><a href="classutil_1_1Logger.html#a4b0b81e6099d07c593cead29b5de00e7">util::Logger::m_max_n_cr_since_mark</a></div><div class="ttdeci">int m_max_n_cr_since_mark</div><div class="ttdoc">Counts the number of newlines printed before going back to a mark, to be able to leave the mark secti...</div><div class="ttdef"><b>Definition</b> <a href="logger_8h_source.html#l00182">logger.h:182</a></div></div>
+<div class="ttc" id="aclassutil_1_1Logger_html_a50a8758748f5120f8b0cb2dc7c089227"><div class="ttname"><a href="classutil_1_1Logger.html#a50a8758748f5120f8b0cb2dc7c089227">util::Logger::m_depth_enabled</a></div><div class="ttdeci">bool m_depth_enabled</div><div class="ttdoc">Controls whether or not to log things: only true if m_section_index &lt;= m_log_level</div><div class="ttdef"><b>Definition</b> <a href="logger_8h_source.html#l00162">logger.h:162</a></div></div>
+<div class="ttc" id="aclassutil_1_1Logger_html_a5a8792494a10f774e888190f33e9ff98"><div class="ttname"><a href="classutil_1_1Logger.html#a5a8792494a10f774e888190f33e9ff98">util::Logger::new_line</a></div><div class="ttdeci">void new_line()</div><div class="ttdoc">Creates an indented newline, used upon calling util::logger &lt;&lt; util::cr;</div><div class="ttdef"><b>Definition</b> <a href="logger_8cpp_source.html#l00070">logger.cpp:70</a></div></div>
+<div class="ttc" id="aclassutil_1_1Logger_html_a5d666a88e8e9e5bef5d57e6bbfd584ac"><div class="ttname"><a href="classutil_1_1Logger.html#a5d666a88e8e9e5bef5d57e6bbfd584ac">util::Logger::is_disabled</a></div><div class="ttdeci">bool is_disabled() const</div><div class="ttdoc">true if no output should be printed because of the log level setting</div><div class="ttdef"><b>Definition</b> <a href="logger_8h_source.html#l00153">logger.h:153</a></div></div>
+<div class="ttc" id="aclassutil_1_1Logger_html_a5d7a0aa7ce43054caea3738168ef4de9"><div class="ttname"><a href="classutil_1_1Logger.html#a5d7a0aa7ce43054caea3738168ef4de9">util::Logger::cancel_go_back_to_mark</a></div><div class="ttdeci">void cancel_go_back_to_mark()</div><div class="ttdoc">Moves the cursor down to the place util::Logger::go_back_to_mark() was last called (unless we're alre...</div><div class="ttdef"><b>Definition</b> <a href="logger_8cpp_source.html#l00192">logger.cpp:192</a></div></div>
+<div class="ttc" id="aclassutil_1_1Logger_html_a67f984b90f6c0392cde726d8fc75466a"><div class="ttname"><a href="classutil_1_1Logger.html#a67f984b90f6c0392cde726d8fc75466a">util::Logger::m_indent_pending</a></div><div class="ttdeci">bool m_indent_pending</div><div class="ttdoc">Indicates whether it is still required to print out the indentation space characters.</div><div class="ttdef"><b>Definition</b> <a href="logger_8h_source.html#l00175">logger.h:175</a></div></div>
+<div class="ttc" id="aclassutil_1_1Logger_html_a6a9c4e64abf037de02bcc03ea5252764"><div class="ttname"><a href="classutil_1_1Logger.html#a6a9c4e64abf037de02bcc03ea5252764">util::Logger::echo_header</a></div><div class="ttdeci">void echo_header(std::string const &amp;name)</div><div class="ttdoc">Format for secondary title (blue)</div><div class="ttdef"><b>Definition</b> <a href="logger_8cpp_source.html#l00130">logger.cpp:130</a></div></div>
+<div class="ttc" id="aclassutil_1_1Logger_html_a6aad3f6eebae8ca2df6cbb70b61a2143"><div class="ttname"><a href="classutil_1_1Logger.html#a6aad3f6eebae8ca2df6cbb70b61a2143">util::Logger::get_colored_number_str</a></div><div class="ttdeci">std::string get_colored_number_str(int number) const</div><div class="ttdoc">To color numbers depending on the value of the number.</div><div class="ttdef"><b>Definition</b> <a href="logger_8cpp_source.html#l00141">logger.cpp:141</a></div></div>
+<div class="ttc" id="aclassutil_1_1Logger_html_a7050ffd6e9fcaa8bbb4ac9f2aa29b043"><div class="ttname"><a href="classutil_1_1Logger.html#a7050ffd6e9fcaa8bbb4ac9f2aa29b043">util::Logger::Action</a></div><div class="ttdeci">Action</div><div class="ttdoc">The (full names of the) available actions on the logger.</div><div class="ttdef"><b>Definition</b> <a href="logger_8h_source.html#l00065">logger.h:65</a></div></div>
+<div class="ttc" id="aclassutil_1_1Logger_html_a7050ffd6e9fcaa8bbb4ac9f2aa29b043a324d8a1d3f81e730d5099a48cee0c5b6"><div class="ttname"><a href="classutil_1_1Logger.html#a7050ffd6e9fcaa8bbb4ac9f2aa29b043a324d8a1d3f81e730d5099a48cee0c5b6">util::Logger::Action::cr</a></div><div class="ttdeci">@ cr</div><div class="ttdoc">newline (&quot;Carriage Return&quot;)</div></div>
+<div class="ttc" id="aclassutil_1_1Logger_html_a7050ffd6e9fcaa8bbb4ac9f2aa29b043a49256b9819abacbb8e6e031a03abe81b"><div class="ttname"><a href="classutil_1_1Logger.html#a7050ffd6e9fcaa8bbb4ac9f2aa29b043a49256b9819abacbb8e6e031a03abe81b">util::Logger::Action::wait</a></div><div class="ttdeci">@ wait</div><div class="ttdoc">pause the execution of the program</div></div>
+<div class="ttc" id="aclassutil_1_1Logger_html_a7050ffd6e9fcaa8bbb4ac9f2aa29b043a50687cdc4bc36169eb3b2948c9920715"><div class="ttname"><a href="classutil_1_1Logger.html#a7050ffd6e9fcaa8bbb4ac9f2aa29b043a50687cdc4bc36169eb3b2948c9920715">util::Logger::Action::endl</a></div><div class="ttdeci">@ endl</div><div class="ttdoc">flush and newline</div></div>
+<div class="ttc" id="aclassutil_1_1Logger_html_a7050ffd6e9fcaa8bbb4ac9f2aa29b043a5086e868d32d750f9c952416c47c70f5"><div class="ttname"><a href="classutil_1_1Logger.html#a7050ffd6e9fcaa8bbb4ac9f2aa29b043a5086e868d32d750f9c952416c47c70f5">util::Logger::Action::reset_indent</a></div><div class="ttdeci">@ reset_indent</div><div class="ttdoc">reset indentation</div></div>
+<div class="ttc" id="aclassutil_1_1Logger_html_a7050ffd6e9fcaa8bbb4ac9f2aa29b043a7c4f29407893c334a6cb7a87bf045c0d"><div class="ttname"><a href="classutil_1_1Logger.html#a7050ffd6e9fcaa8bbb4ac9f2aa29b043a7c4f29407893c334a6cb7a87bf045c0d">util::Logger::Action::right</a></div><div class="ttdeci">@ right</div><div class="ttdoc">align right (works in tandem with util::setw())</div></div>
+<div class="ttc" id="aclassutil_1_1Logger_html_a7050ffd6e9fcaa8bbb4ac9f2aa29b043a811882fecd5c7618d7099ebbd39ea254"><div class="ttname"><a href="classutil_1_1Logger.html#a7050ffd6e9fcaa8bbb4ac9f2aa29b043a811882fecd5c7618d7099ebbd39ea254">util::Logger::Action::left</a></div><div class="ttdeci">@ left</div><div class="ttdoc">align left</div></div>
+<div class="ttc" id="aclassutil_1_1Logger_html_a7050ffd6e9fcaa8bbb4ac9f2aa29b043a86f354b8575a1a736775ae003fa344e5"><div class="ttname"><a href="classutil_1_1Logger.html#a7050ffd6e9fcaa8bbb4ac9f2aa29b043a86f354b8575a1a736775ae003fa344e5">util::Logger::Action::flush</a></div><div class="ttdeci">@ flush</div><div class="ttdoc">flush</div></div>
+<div class="ttc" id="aclassutil_1_1Logger_html_a7050ffd6e9fcaa8bbb4ac9f2aa29b043acda483cdc78a925cd036b2e3ddcef8d8"><div class="ttname"><a href="classutil_1_1Logger.html#a7050ffd6e9fcaa8bbb4ac9f2aa29b043acda483cdc78a925cd036b2e3ddcef8d8">util::Logger::Action::end_section</a></div><div class="ttdeci">@ end_section</div><div class="ttdoc">to decrease indentation</div></div>
+<div class="ttc" id="aclassutil_1_1Logger_html_a7050ffd6e9fcaa8bbb4ac9f2aa29b043ad3f6309599a442c077c55f6596dfa54a"><div class="ttname"><a href="classutil_1_1Logger.html#a7050ffd6e9fcaa8bbb4ac9f2aa29b043ad3f6309599a442c077c55f6596dfa54a">util::Logger::Action::begin_section</a></div><div class="ttdeci">@ begin_section</div><div class="ttdoc">to increase indentation</div></div>
+<div class="ttc" id="aclassutil_1_1Logger_html_a77f1a4ea3e54a3f37aca843865ded450"><div class="ttname"><a href="classutil_1_1Logger.html#a77f1a4ea3e54a3f37aca843865ded450">util::Logger::m_n_cr_since_mark</a></div><div class="ttdeci">int m_n_cr_since_mark</div><div class="ttdoc">Counts the number of newlines printed since the last mark was set.</div><div class="ttdef"><b>Definition</b> <a href="logger_8h_source.html#l00180">logger.h:180</a></div></div>
+<div class="ttc" id="aclassutil_1_1Logger_html_a803fd208a4a66383ff95d4c97339ae12"><div class="ttname"><a href="classutil_1_1Logger.html#a803fd208a4a66383ff95d4c97339ae12">util::Logger::move_up</a></div><div class="ttdeci">void move_up(int i)</div><div class="ttdoc">Moves the cursor up by i+1 and enters a util::cr.</div><div class="ttdef"><b>Definition</b> <a href="logger_8cpp_source.html#l00196">logger.cpp:196</a></div></div>
+<div class="ttc" id="aclassutil_1_1Logger_html_a8573ac407e631363112ca8cba5fc1992"><div class="ttname"><a href="classutil_1_1Logger.html#a8573ac407e631363112ca8cba5fc1992">util::Logger::process_pending_indent</a></div><div class="ttdeci">void process_pending_indent()</div><div class="ttdoc">Internal method used for indentation.</div><div class="ttdef"><b>Definition</b> <a href="logger_8cpp_source.html#l00047">logger.cpp:47</a></div></div>
+<div class="ttc" id="aclassutil_1_1Logger_html_aa10b6b29378c35568b915535e66fd569"><div class="ttname"><a href="classutil_1_1Logger.html#aa10b6b29378c35568b915535e66fd569">util::Logger::reset_indent</a></div><div class="ttdeci">void reset_indent()</div><div class="ttdoc">Resets the indentation to the left.</div><div class="ttdef"><b>Definition</b> <a href="logger_8cpp_source.html#l00119">logger.cpp:119</a></div></div>
+<div class="ttc" id="aclassutil_1_1Logger_html_aa880020e76f3450132676d4adee97cfc"><div class="ttname"><a href="classutil_1_1Logger.html#aa880020e76f3450132676d4adee97cfc">util::Logger::ColorMode</a></div><div class="ttdeci">ColorMode</div><div class="ttdoc">The coloring scheme.</div><div class="ttdef"><b>Definition</b> <a href="logger_8h_source.html#l00058">logger.h:58</a></div></div>
+<div class="ttc" id="aclassutil_1_1Logger_html_aa880020e76f3450132676d4adee97cfca334c4a4c42fdb79d7ebc3e73b517e6f8"><div class="ttname"><a href="classutil_1_1Logger.html#aa880020e76f3450132676d4adee97cfca334c4a4c42fdb79d7ebc3e73b517e6f8">util::Logger::ColorMode::none</a></div><div class="ttdeci">@ none</div><div class="ttdoc">No color.</div></div>
+<div class="ttc" id="aclassutil_1_1Logger_html_aa880020e76f3450132676d4adee97cfca8e328b44a0343229e5ef5e3c4df07ec1"><div class="ttname"><a href="classutil_1_1Logger.html#aa880020e76f3450132676d4adee97cfca8e328b44a0343229e5ef5e3c4df07ec1">util::Logger::ColorMode::ansi</a></div><div class="ttdeci">@ ansi</div><div class="ttdoc">for color in the terminal</div></div>
+<div class="ttc" id="aclassutil_1_1Logger_html_ab668d49ead6192cb23159f5cda0740ce"><div class="ttname"><a href="classutil_1_1Logger.html#ab668d49ead6192cb23159f5cda0740ce">util::Logger::echo_title</a></div><div class="ttdeci">void echo_title(std::string const &amp;name)</div><div class="ttdoc">Format for main title (green)</div><div class="ttdef"><b>Definition</b> <a href="logger_8cpp_source.html#l00126">logger.cpp:126</a></div></div>
+<div class="ttc" id="aclassutil_1_1Logger_html_ab8a596d8848be4fd79b674aa82dc52b0"><div class="ttname"><a href="classutil_1_1Logger.html#ab8a596d8848be4fd79b674aa82dc52b0">util::Logger::m_section_index</a></div><div class="ttdeci">unsigned int m_section_index</div><div class="ttdoc">The current section (larger = deeper in sub-sub-sections)</div><div class="ttdef"><b>Definition</b> <a href="logger_8h_source.html#l00171">logger.h:171</a></div></div>
+<div class="ttc" id="aclassutil_1_1Logger_html_aba50860d0bf48336e72133847d6aad7f"><div class="ttname"><a href="classutil_1_1Logger.html#aba50860d0bf48336e72133847d6aad7f">util::Logger::m_color_mode</a></div><div class="ttdeci">util::Logger::ColorMode m_color_mode</div><div class="ttdoc">Whether or not to use color in the console.</div><div class="ttdef"><b>Definition</b> <a href="logger_8h_source.html#l00164">logger.h:164</a></div></div>
+<div class="ttc" id="aclassutil_1_1Logger_html_ac1542f86a22ae43065b4911126f3de88"><div class="ttname"><a href="classutil_1_1Logger.html#ac1542f86a22ae43065b4911126f3de88">util::Logger::begin_section</a></div><div class="ttdeci">void begin_section()</div><div class="ttdoc">Creates a new section (more indentation), used upon calling util::logger &lt;&lt; util::begin_section;</div><div class="ttdef"><b>Definition</b> <a href="logger_8cpp_source.html#l00080">logger.cpp:80</a></div></div>
+<div class="ttc" id="aclassutil_1_1Logger_html_ac4d0bc636706ad6817d192f222934e65"><div class="ttname"><a href="classutil_1_1Logger.html#ac4d0bc636706ad6817d192f222934e65">util::Logger::echo</a></div><div class="ttdeci">void echo(std::string const &amp;str)</div><div class="ttdoc">Prints a string, taking care of indentation.</div><div class="ttdef"><b>Definition</b> <a href="logger_8cpp_source.html#l00038">logger.cpp:38</a></div></div>
+<div class="ttc" id="aclassutil_1_1Logger_html_ac7840a2529ef40d0e881b621d789b51c"><div class="ttname"><a href="classutil_1_1Logger.html#ac7840a2529ef40d0e881b621d789b51c">util::Logger::get_color_code</a></div><div class="ttdeci">std::string get_color_code(util::Color c) const</div><div class="ttdoc">Returns either an ANSI color code or an empty string, depending on the util::Logger::ColorMode.</div><div class="ttdef"><b>Definition</b> <a href="logger_8cpp_source.html#l00134">logger.cpp:134</a></div></div>
+<div class="ttc" id="aclassutil_1_1Logger_html_ad01e112e7fc1c9205ce491eaf9b476fb"><div class="ttname"><a href="classutil_1_1Logger.html#ad01e112e7fc1c9205ce491eaf9b476fb">util::Logger::set_next_width</a></div><div class="ttdeci">void set_next_width(int n)</div><div class="ttdoc">for util::logger &lt;&lt; util::setw(n); manipulation</div><div class="ttdef"><b>Definition</b> <a href="logger_8cpp_source.html#l00101">logger.cpp:101</a></div></div>
+<div class="ttc" id="aclassutil_1_1Logger_html_ad44f9101dbfad26ae010070b75ac5074"><div class="ttname"><a href="classutil_1_1Logger.html#ad44f9101dbfad26ae010070b75ac5074">util::Logger::echo_colored_number</a></div><div class="ttdeci">void echo_colored_number(int number)</div><div class="ttdoc">To log colored numbers.</div><div class="ttdef"><b>Definition</b> <a href="logger_8cpp_source.html#l00165">logger.cpp:165</a></div></div>
+<div class="ttc" id="aclassutil_1_1Logger_html_adbda8a3440db46270a7764e504b0310e"><div class="ttname"><a href="classutil_1_1Logger.html#adbda8a3440db46270a7764e504b0310e">util::Logger::get_color_mode</a></div><div class="ttdeci">util::Logger::ColorMode get_color_mode() const</div><div class="ttdef"><b>Definition</b> <a href="logger_8h_source.html#l00134">logger.h:134</a></div></div>
+<div class="ttc" id="aclassutil_1_1Logger_html_ae24d0479d61727c07ade702446b4dcaa"><div class="ttname"><a href="classutil_1_1Logger.html#ae24d0479d61727c07ade702446b4dcaa">util::Logger::m_disable_dots_for_hidden_sections</a></div><div class="ttdeci">bool m_disable_dots_for_hidden_sections</div><div class="ttdoc">Whether or not to issue dots to indicate that logs are omitted.</div><div class="ttdef"><b>Definition</b> <a href="logger_8h_source.html#l00177">logger.h:177</a></div></div>
+<div class="ttc" id="aclassutil_1_1Logger_html_af468d2e8d42a1fdb2adfbe28875b2156"><div class="ttname"><a href="classutil_1_1Logger.html#af468d2e8d42a1fdb2adfbe28875b2156">util::Logger::set_mark</a></div><div class="ttdeci">void set_mark()</div><div class="ttdoc">Places a &quot;mark&quot; at the current line position to be able to rewind using util::Logger::go_back_to_mark...</div><div class="ttdef"><b>Definition</b> <a href="logger_8cpp_source.html#l00183">logger.cpp:183</a></div></div>
+<div class="ttc" id="aclassutil_1_1Logger_html_af5f8cad20bf51ebbe414e39b9a58542e"><div class="ttname"><a href="classutil_1_1Logger.html#af5f8cad20bf51ebbe414e39b9a58542e">util::Logger::go_back_to_mark</a></div><div class="ttdeci">void go_back_to_mark()</div><div class="ttdoc">Moves the cursor up to the line where util::Logger::set_mark() was called.</div><div class="ttdef"><b>Definition</b> <a href="logger_8cpp_source.html#l00187">logger.cpp:187</a></div></div>
+<div class="ttc" id="aclassutil_1_1Logger_html_af818aa6efdb1281e42fc779f2e0bb3cd"><div class="ttname"><a href="classutil_1_1Logger.html#af818aa6efdb1281e42fc779f2e0bb3cd">util::Logger::set_log_level</a></div><div class="ttdeci">void set_log_level(unsigned int log_level)</div><div class="ttdoc">To control the max level of indentation to be displayed (the rest is truncated from the output)</div><div class="ttdef"><b>Definition</b> <a href="logger_8cpp_source.html#l00025">logger.cpp:25</a></div></div>
+<div class="ttc" id="acolor_8h_html"><div class="ttname"><a href="color_8h.html">color.h</a></div></div>
+<div class="ttc" id="agroup__color_html_ga95747189f62a0ed341c6e2579146beb7"><div class="ttname"><a href="group__color.html#ga95747189f62a0ed341c6e2579146beb7">util::Color</a></div><div class="ttdeci">Color</div><div class="ttdoc">The available colors.</div><div class="ttdef"><b>Definition</b> <a href="color_8h_source.html#l00015">color.h:15</a></div></div>
+<div class="ttc" id="agroup__printing_html_ga03b623ada421513032157fd73d43863c"><div class="ttname"><a href="group__printing.html#ga03b623ada421513032157fd73d43863c">util::right</a></div><div class="ttdeci">constexpr util::Logger::Action right</div><div class="ttdoc">Align the next call to util::setw() to the right.</div><div class="ttdef"><b>Definition</b> <a href="logger_8h_source.html#l00209">logger.h:209</a></div></div>
+<div class="ttc" id="agroup__printing_html_ga13b7e8e2d6d2c30ee6f61d2712fb04fb"><div class="ttname"><a href="group__printing.html#ga13b7e8e2d6d2c30ee6f61d2712fb04fb">operator&lt;&lt;</a></div><div class="ttdeci">std::enable_if&lt; std::is_base_of&lt; util::Loggable, T &gt;::value, util::Logger &amp; &gt;::type operator&lt;&lt;(util::Logger &amp;logger, T const &amp;loggable)</div><div class="ttdoc">Prints util::Loggable instances using their util::Loggable::log() method.</div><div class="ttdef"><b>Definition</b> <a href="logger_8h_source.html#l00240">logger.h:241</a></div></div>
+<div class="ttc" id="agroup__printing_html_ga3ec724aee4926e314039a1715f3844c9"><div class="ttname"><a href="group__printing.html#ga3ec724aee4926e314039a1715f3844c9">util::reset_indent</a></div><div class="ttdeci">constexpr util::Logger::Action reset_indent</div><div class="ttdoc">Reset indentation to zero.</div><div class="ttdef"><b>Definition</b> <a href="logger_8h_source.html#l00212">logger.h:212</a></div></div>
+<div class="ttc" id="agroup__printing_html_ga3f8fe48536ee19c54002c9c1db64cabb"><div class="ttname"><a href="group__printing.html#ga3f8fe48536ee19c54002c9c1db64cabb">util::cr</a></div><div class="ttdeci">constexpr util::Logger::Action cr</div><div class="ttdoc">Newline.</div><div class="ttdef"><b>Definition</b> <a href="logger_8h_source.html#l00197">logger.h:197</a></div></div>
+<div class="ttc" id="agroup__printing_html_ga4c77d1dedfe3a5b95abc21d13d7cd678"><div class="ttname"><a href="group__printing.html#ga4c77d1dedfe3a5b95abc21d13d7cd678">util::logger</a></div><div class="ttdeci">util::Logger logger</div><div class="ttdoc">The globally accessible logger replacing std::cout</div></div>
+<div class="ttc" id="agroup__printing_html_ga658d6b62f7620918ba2edb42f287efb3"><div class="ttname"><a href="group__printing.html#ga658d6b62f7620918ba2edb42f287efb3">util::flush</a></div><div class="ttdeci">constexpr util::Logger::Action flush</div><div class="ttdoc">Flush.</div><div class="ttdef"><b>Definition</b> <a href="logger_8h_source.html#l00191">logger.h:191</a></div></div>
+<div class="ttc" id="agroup__printing_html_ga7a41ac278da6dce6a9c081977d573a51"><div class="ttname"><a href="group__printing.html#ga7a41ac278da6dce6a9c081977d573a51">util::left</a></div><div class="ttdeci">constexpr util::Logger::Action left</div><div class="ttdoc">Align the next call to util::setw() to the left.</div><div class="ttdef"><b>Definition</b> <a href="logger_8h_source.html#l00206">logger.h:206</a></div></div>
+<div class="ttc" id="agroup__printing_html_ga7d731f43f6d60e3846cbdbd55eaeed2e"><div class="ttname"><a href="group__printing.html#ga7d731f43f6d60e3846cbdbd55eaeed2e">util::begin_comment</a></div><div class="ttdeci">const util::Color begin_comment</div><div class="ttdoc">Dimmed color.</div><div class="ttdef"><b>Definition</b> <a href="logger_8cpp_source.html#l00010">logger.cpp:10</a></div></div>
+<div class="ttc" id="agroup__printing_html_ga87f996f8102e604181f04025d1e98c32"><div class="ttname"><a href="group__printing.html#ga87f996f8102e604181f04025d1e98c32">util::phantom</a></div><div class="ttdeci">std::string phantom(std::string const &amp;str)</div><div class="ttdoc">Used as util::logger &lt;&lt; util::phantom(&quot;bonjour&quot;) to print 7 spaces.</div><div class="ttdef"><b>Definition</b> <a href="logger_8cpp_source.html#l00265">logger.cpp:265</a></div></div>
+<div class="ttc" id="agroup__printing_html_ga90e9eed047f3bebb56929d5b1a5518b2"><div class="ttname"><a href="group__printing.html#ga90e9eed047f3bebb56929d5b1a5518b2">util::setw</a></div><div class="ttdeci">util::Logger::WidthManip setw(int width)</div><div class="ttdoc">Used as util::logger &lt;&lt; util::setw(5) &lt;&lt; &quot;a&quot; to print &quot;____a&quot; (four spaces before &quot;a&quot;)</div><div class="ttdef"><b>Definition</b> <a href="logger_8cpp_source.html#l00261">logger.cpp:261</a></div></div>
+<div class="ttc" id="agroup__printing_html_ga91047ddaf85b4652a50b89c5c9755317"><div class="ttname"><a href="group__printing.html#ga91047ddaf85b4652a50b89c5c9755317">util::begin_section</a></div><div class="ttdeci">constexpr util::Logger::Action begin_section</div><div class="ttdoc">Increase indentation.</div><div class="ttdef"><b>Definition</b> <a href="logger_8h_source.html#l00200">logger.h:200</a></div></div>
+<div class="ttc" id="agroup__printing_html_gac5ec9420a30c005fbdf110810dc0765a"><div class="ttname"><a href="group__printing.html#gac5ec9420a30c005fbdf110810dc0765a">util::wait</a></div><div class="ttdeci">constexpr util::Logger::Action wait</div><div class="ttdoc">Pause the execution of the program, internally calling std::cin</div><div class="ttdef"><b>Definition</b> <a href="logger_8h_source.html#l00215">logger.h:215</a></div></div>
+<div class="ttc" id="agroup__printing_html_gad044940d41835be0baff2d20415c1536"><div class="ttname"><a href="group__printing.html#gad044940d41835be0baff2d20415c1536">util::endl</a></div><div class="ttdeci">constexpr util::Logger::Action endl</div><div class="ttdoc">Flush and newline.</div><div class="ttdef"><b>Definition</b> <a href="logger_8h_source.html#l00194">logger.h:194</a></div></div>
+<div class="ttc" id="agroup__printing_html_gadf8906b27dc371eaf882b3b3b5639495"><div class="ttname"><a href="group__printing.html#gadf8906b27dc371eaf882b3b3b5639495">util::end_comment</a></div><div class="ttdeci">const util::Color end_comment</div><div class="ttdoc">End dimmed color.</div><div class="ttdef"><b>Definition</b> <a href="logger_8cpp_source.html#l00011">logger.cpp:11</a></div></div>
+<div class="ttc" id="agroup__printing_html_gae4f7a470686ffa2352173b5c0b486623"><div class="ttname"><a href="group__printing.html#gae4f7a470686ffa2352173b5c0b486623">util::end_section</a></div><div class="ttdeci">constexpr util::Logger::Action end_section</div><div class="ttdoc">Decrease indentation.</div><div class="ttdef"><b>Definition</b> <a href="logger_8h_source.html#l00203">logger.h:203</a></div></div>
+<div class="ttc" id="agroup__str_html_ga6948292bb3a41f65610efe2f043a1f1e"><div class="ttname"><a href="group__str.html#ga6948292bb3a41f65610efe2f043a1f1e">util::str</a></div><div class="ttdeci">std::string str(T const &amp;x)</div><div class="ttdoc">The default for std::to_string()-compatible types, e.g., int, double, etc.</div><div class="ttdef"><b>Definition</b> <a href="to__string_8h_source.html#l00029">to_string.h:29</a></div></div>
+<div class="ttc" id="anamespaceutil_html"><div class="ttname"><a href="namespaceutil.html">util</a></div><div class="ttdoc">The namespace for general purpose code, not specifically related to inflation.</div><div class="ttdef"><b>Definition</b> <a href="misc_8cpp_source.html#l00355">misc.cpp:355</a></div></div>
+<div class="ttc" id="ato__string_8h_html"><div class="ttname"><a href="to__string_8h.html">to_string.h</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_b7878ad5ecbf2506f4125b9d34c97e45.html">util</a></li><li class="navelem"><a class="el" href="logger_8h.html">logger.h</a></li>
+    <li class="footer">Generated on Wed Dec 18 2024 17:39:38 for Fast Inflation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>
