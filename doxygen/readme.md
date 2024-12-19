@@ -2,7 +2,7 @@
 
 [TOC]
 
-This repository provides the code associated to the paper *Title todo*, Victor Gitton, Renato Renner, *arXiv link todo*.
+This documentation is associated to the [fast-inflation](https://github.com/vgitton/fast-inflation) repository and to the paper *Title todo*, Victor Gitton, Renato Renner, *arXiv link todo*.
 
 \todo Add link to article
 

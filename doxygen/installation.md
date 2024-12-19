@@ -4,8 +4,9 @@
 
 ## Prerequisites
 
-A prerequisite to be able to compile and use the code is the C++ Fusion Mosek API (both the header C++ files, the binaries, and a valid license).
+A prerequisite to be able to compile and use the code is the C++ Fusion Mosek API (the header C++ files, the binaries, and a valid license).
 Please refer to https://docs.mosek.com/latest/cxxfusion/install-interface.html for details on how to get there.
+It may be necessary to edit the `MOSEK` variable in the `makefile`.
 Alternatively, the code could be used without Mosek: this would require modifying a little bit the makefile and the source code to remove the very efficient inf::FullyCorrectiveFW, and only use inf::PairwiseFW (or a variant thereof) which does not require Mosek.
 
 ## Compilation
