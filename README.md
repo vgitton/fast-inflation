@@ -108,6 +108,7 @@ The documentation theme we use is [doxygen-awesome-css](https://github.com/jothe
 
 Special thanks to 
 Cristian Emmanuel Boghiu ([ecboghiu](https://github.com/ecboghiu)),
+Sébastien Designolle ([sebastiendesignolle](https://github.com/sebastiendesignolle)),
 Alejandro Pozas-Kerstjens ([apozas](https://github.com/apozas)),
 and Elie Wolfe ([eliewolfe](https://github.com/eliewolfe))
 for their support towards this project.
