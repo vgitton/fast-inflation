@@ -5,8 +5,6 @@
 This documentation is associated to the [fast-inflation](https://github.com/vgitton/fast-inflation) repository,
 to the article *The Elegant Joint Measurement is Non-Classical in the Triangle Network*, Victor Gitton, Renato Renner, [arXiv:2510.15143](https://arxiv.org/abs/2510.15143)
 and to the doctoral thesis *Certifying Non-Classicality in Causal Networks*, Victor Gitton, [doi.org/10.3929/ethz-b-000745278](https://doi.org/10.3929/ethz-b-000745278).
-to the article *Title todo*, Victor Gitton, Renato Renner, *arXiv link todo*, 2025,
-and to the doctoral thesis "Certifying Non-Classicality in Causal Networks", Victor Gitton, *thesis link todo*, 2025.
 The article contains a simplified overview of the techniques implemented in the code, while the thesis contains a detailed account thereof.
 
 \todo Add link to article
