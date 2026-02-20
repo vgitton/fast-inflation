@@ -7,8 +7,6 @@ to the article *The Elegant Joint Measurement is Non-Classical in the Triangle N
 and to the doctoral thesis *Certifying Non-Classicality in Causal Networks*, Victor Gitton, [doi.org/10.3929/ethz-b-000745278](https://doi.org/10.3929/ethz-b-000745278).
 The article contains a simplified overview of the techniques implemented in the code, while the thesis contains a detailed account thereof.
 
-\todo Add link to article
-
 ## Background: triangle nonlocality
 
 The triangle network is a network of three parties, Alice, Bob and Charlie, sharing three bipartite sources, denoted \f$\alpha\f$, \f$\beta\f$ and \f$\gamma\f$.
