@@ -2,7 +2,9 @@
 
 # Fast Inflation
 
-This repository provides the code associated to the paper *Title todo*, Victor Gitton, Renato Renner, *arXiv link todo*.
+This repository provides the code associated to the article *The Elegant Joint Measurement is Non-Classical in the Triangle Network*, Victor Gitton, Renato Renner, [arXiv:2510.15143](https://arxiv.org/abs/2510.15143)
+and to the doctoral thesis *Certifying Non-Classicality in Causal Networks*, Victor Gitton, [doi.org/10.3929/ethz-b-000745278](https://doi.org/10.3929/ethz-b-000745278).
+The article contains a simplified overview of the techniques implemented in the code, while the thesis contains a detailed account thereof.
 
 ## Background: triangle nonlocality
 
