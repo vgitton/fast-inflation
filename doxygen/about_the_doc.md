@@ -4,8 +4,6 @@
 
 The overall capabilities of the code are described in the [readme](doxygen/readme.md). 
 
-\todo Add link to article
-
 Note that the documentation refers to the underlying article for the mathematical notation.
 It is recommended to be familiar with the article, and in particular, with its supplemental material, to understand the underlying mathematical strcture before reading the documentation.
 This does not necessarily apply to the simplest and most high-level functions of the code, of course.

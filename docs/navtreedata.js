@@ -40,7 +40,6 @@ var NAVTREE =
       [ "Creating new applications", "md_doxygen_2running__applications.html#autotoc_md17", null ]
     ] ],
     [ "About the documentation", "md_doxygen_2about__the__doc.html", null ],
-    [ "Todo List", "todo.html", null ],
     [ "Browse the documentation modules", "modules.html", "modules" ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
